@@ -1,18 +1,26 @@
 /datum/element/shrapnel_removal
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
+	var/scalpel
 	var/do_after_time
 
-/datum/element/shrapnel_removal/Attach(datum/target, duration)
+/datum/element/shrapnel_removal/Attach(datum/target, _do_after_time, _scalpel = TRUE)
 	. = ..()
 	if(!isitem(target) || (duration < 1))
 		return ELEMENT_INCOMPATIBLE
-	do_after_time = duration
-	RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
+	scalpel = _scalpel
+	do_after_time = _do_after_time
+	if(scalpel)
+		RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
+	else
+		RegisterSignal(target, COMSIG_ITEM_ATTACK_ALTERNATE, PROC_REF(on_attack))
 
 /datum/element/shrapnel_removal/Detach(datum/source, force)
 	. = ..()
-	UnregisterSignal(source, COMSIG_ITEM_ATTACK)
+	if(scalpel)
+		UnregisterSignal(source, COMSIG_ITEM_ATTACK)
+	else
+		UnregisterSignal(source, COMSIG_ITEM_ATTACK_ALTERNATE)
 
 /datum/element/shrapnel_removal/proc/on_attack(datum/source, mob/living/M, mob/living/user)
 	SIGNAL_HANDLER

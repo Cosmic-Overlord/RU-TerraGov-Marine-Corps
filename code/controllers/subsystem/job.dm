@@ -267,7 +267,7 @@ SUBSYSTEM_DEF(job)
 	//If we joined at roundstart we should be positioned at our workstation
 	var/turf/spawn_turf
 	if(!joined_late || job.job_flags & JOB_FLAG_OVERRIDELATEJOINSPAWN)
-		spawn_turf = job.return_spawn_turf()
+		spawn_turf = job.return_spawn_turf(new_character, player.client)
 	if(spawn_turf)
 		SendToAtom(new_character, spawn_turf)
 	else

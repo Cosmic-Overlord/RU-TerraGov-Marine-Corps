@@ -1,12 +1,25 @@
 //Preferences stuff
 GLOBAL_LIST_INIT(ethnicities_list, init_ethnicities())
 
+//EDITED, ADDED HANDLING OF YAUTJA
 /// Ethnicity - Initialise all /datum/ethnicity into a list indexed by ethnicity name
 /proc/init_ethnicities()
 	. = list()
-	for(var/path in subtypesof(/datum/ethnicity))
+	for(var/path in subtypesof(/datum/sprite_accessory/yautja_hair))
+		var/datum/sprite_accessory/yautja_hair/H = new path()
+		GLOB.yautja_hair_styles_list[H.name] = H
+
+	for(var/path in subtypesof(/datum/ethnicity) - /datum/ethnicity/human - /datum/ethnicity/yautja)
 		var/datum/ethnicity/E = new path()
-		.[E.name] = E
+		GLOB.ethnicities_list[E.name] = E
+
+	for(var/path in subtypesof(/datum/ethnicity/human))
+		var/datum/ethnicity/E = new path()
+		GLOB.human_ethnicities_list[E.name] = E
+
+	for(var/path in subtypesof(/datum/ethnicity/yautja))
+		var/datum/ethnicity/E = new path()
+		GLOB.yautja_ethnicities_list[E.name] = E
 
 	//Hairstyles
 GLOBAL_LIST_EMPTY(hair_styles_list)			//stores /datum/sprite_accessory/hair indexed by name

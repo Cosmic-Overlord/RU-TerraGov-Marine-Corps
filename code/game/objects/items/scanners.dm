@@ -107,6 +107,11 @@ REAGENT SCANNER
 	if(isxeno(M))
 		balloon_alert(user, "Unknown entity")
 		return
+//RUTGMC edit start - yautaj features
+	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO) && !alien)
+		to_chat(user, "Unknown biology")
+		return
+//RUTGMC edit end
 	if(M.species.species_flags & NO_SCAN)
 		balloon_alert(user, "Not Organic")
 		return

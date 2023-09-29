@@ -79,7 +79,6 @@ GLOBAL_PROTECT(exp_specialmap)
 		else
 			outfit = new outfit //Can be improved to reference a singleton.
 
-
 /datum/job/proc/after_spawn(mob/living/L, mob/M, latejoin = FALSE) //do actions on L but send messages to M as the key may not have been transferred_yet
 	if(isnull(L))
 		stack_trace("Job after_spawn was called without a valid target.")
@@ -116,7 +115,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!mannequin)
 		CRASH("equip_dummy called without a mannequin")
 
-	mannequin.equipOutfit(outfit_override || outfit, TRUE)
+	mannequin.equipOutfit(outfit_override || outfit, TRUE, preference_source)
 
 
 /datum/job/proc/get_access()
@@ -183,7 +182,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	return
 
 
-/datum/outfit/job/proc/handle_id(mob/living/carbon/human/H)
+/datum/outfit/job/proc/handle_id(mob/living/carbon/human/H, client/override_client)
 	var/datum/job/job = SSjob.GetJobType(jobtype)
 	if(!job)
 		job = H.job
@@ -282,6 +281,8 @@ GLOBAL_PROTECT(exp_specialmap)
 
 // Spawning mobs.
 /mob/living/proc/apply_assigned_role_to_spawn(datum/job/assigned_role, client/player, datum/squad/assigned_squad, admin_action = FALSE)
+	if(!player && client)
+		player = client
 	job = assigned_role
 	skills = getSkillsType(job.return_skills_type(player?.prefs))
 	faction = job.faction
@@ -296,16 +297,43 @@ GLOBAL_PROTECT(exp_specialmap)
 	LAZYADD(GLOB.alive_human_list_faction[faction], src)
 	comm_title = job.comm_title
 	if(job.outfit)
-		var/id_type = job.outfit.id ? job.outfit.id : /obj/item/card/id
-		var/obj/item/card/id/id_card = new id_type(src)
-		if(wear_id)
-			if(!admin_action)
-				stack_trace("[src] had an ID when apply_outfit_to_spawn() ran")
-			QDEL_NULL(wear_id)
-		equip_to_slot_or_del(id_card, SLOT_WEAR_ID)
-		job.outfit.handle_id(src)
+		if(job.outfit.id)
+			var/obj/item/card/id/id_card = new job.outfit.id
+			if(wear_id)
+				if(!admin_action)
+					stack_trace("[src] had an ID when apply_outfit_to_spawn() ran")
+				QDEL_NULL(wear_id)
+			equip_to_slot_or_del(id_card, SLOT_WEAR_ID)
 
-		equip_role_outfit(job)
+		///Handle pref backpack niggas, no shitcode please in christian TGMC, or I kill you...
+		if(player && isnull(job.outfit.back) && player.prefs.backpack > BACK_NOTHING)
+			var/obj/item/storage/backpack/new_backpack
+			switch(player.prefs.backpack)
+				if(BACK_BACKPACK)
+					new_backpack = new /obj/item/storage/backpack/marine(src)
+				if(BACK_SATCHEL)
+					new_backpack = new /obj/item/storage/backpack/marine/satchel(src)
+			equip_to_slot_or_del(new_backpack, SLOT_BACK)
+
+		job.outfit.handle_id(src, player)
+
+		var/job_whitelist = job.title
+		var/whitelist_status = job.get_whitelist_status(GLOB.roles_whitelist, player)
+
+		if(whitelist_status)
+			job_whitelist = "[job_whitelist][whitelist_status]"
+
+		if(job.gear_preset_whitelist[job_whitelist])
+			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
+		else
+			///if there is only one outfit, just equips it
+			if(!job.multiple_outfits)
+				job.outfit.equip(src)
+			///chooses an outfit from the list under the job
+			if(job.multiple_outfits)
+				var/datum/outfit/variant = pick(job.outfits)
+				variant = new variant
+				variant.equip(src)
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
 		equip_preference_gear(player)
@@ -355,7 +383,7 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/job/proc/return_skills_type(datum/preferences/prefs)
 	return skills_type
 
-/datum/job/proc/return_spawn_turf()
+/datum/job/proc/return_spawn_turf(mob/living/new_character, client/player)
 	return pick(GLOB.spawns_by_job[type])
 
 /datum/job/proc/handle_special_preview(client/parent)

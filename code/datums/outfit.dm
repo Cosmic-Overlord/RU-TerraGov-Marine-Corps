@@ -13,7 +13,7 @@
 	var/neck = null
 	var/ears = null
 	var/glasses = null
-	var/id = null
+	var/id = /obj/item/card/id
 	var/l_store = null
 	var/r_store = null
 	var/suit_store = null
@@ -40,8 +40,8 @@
 	return
 
 
-/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	pre_equip(H, visualsOnly)
+/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/override_client)
+	pre_equip(H, visualsOnly, override_client)
 
 	//Start with uniform,suit,backpack for additional slots
 	if(w_uniform)
