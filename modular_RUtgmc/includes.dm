@@ -220,3 +220,4 @@
 #include "code\game\objects\items\reagent_containers\snacks.dm"
 #include "code\game\objects\items\stacks\leather.dm"
 #include "code\game\objects\yautja_misc.dm"
+#include "code\modules\language\yautja.dm"

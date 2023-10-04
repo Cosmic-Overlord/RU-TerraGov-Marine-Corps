@@ -103,3 +103,27 @@
 
 	pred_nest?.linked_structure = null
 	QDEL_NULL(pred_nest)
+
+/obj/structure/bed/nest/structure
+	name = "thick alien nest"
+	desc = "A very thick nest, oozing with a thick sticky substance."
+	force_nest = TRUE
+	var/obj/structure/xeno/thick_nest/linked_structure
+
+/obj/structure/bed/nest/structure/Initialize(mapload, hive, obj/structure/xeno/thick_nest/to_link)
+	. = ..()
+	if(to_link)
+		linked_structure = to_link
+		max_integrity = linked_structure.max_integrity
+
+/obj/structure/bed/nest/structure/Destroy()
+	. = ..()
+	if(linked_structure)
+		linked_structure.pred_nest = null
+		QDEL_NULL(linked_structure)
+
+/obj/structure/bed/nest/structure/attack_hand(mob/user)
+	if(!isxeno(user))
+		to_chat(user, span_notice("The sticky resin is too strong for you to do anything to this nest"))
+		return FALSE
+	. = ..()

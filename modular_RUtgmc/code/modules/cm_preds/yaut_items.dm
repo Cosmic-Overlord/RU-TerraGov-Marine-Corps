@@ -245,7 +245,7 @@
 	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
-	pockets = /obj/item/storage/internal/shoes/boot_knife/full_yautja
+	storage = /obj/item/storage/internal/shoes/boot_knife/full_yautja
 
 /obj/item/storage/internal/shoes/boot_knife/full_yautja/Initialize()
 	. = ..()
@@ -1146,7 +1146,6 @@
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
 	)
-	random_color = FALSE
 
 /obj/item/tool/screwdriver/yautja
 	name = "yautja screwdriver"

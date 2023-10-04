@@ -1,2 +1,1 @@
 #define MINIMAP_FLAG_YAUTJA (1<<5)
-#define MINIMAP_FLAG_ALL (1<<6) - 1

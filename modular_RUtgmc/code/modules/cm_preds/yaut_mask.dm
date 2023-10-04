@@ -29,7 +29,7 @@
 	gas_filter_strength = 3
 	var/current_goggles = VISION_MODE_OFF
 	resistance_flags = UNACIDABLE
-	time_to_unequip = 20
+	unequip_delay_self = 20
 	anti_hug = 5
 	var/list/actions_to_add = list(
 		new /datum/action/predator_action/mask/zoom,
