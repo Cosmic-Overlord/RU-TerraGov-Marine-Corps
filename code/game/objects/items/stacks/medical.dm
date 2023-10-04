@@ -39,8 +39,8 @@
 
 	var/datum/limb/affecting = user.client.prefs.toggles_gameplay & RADIAL_MEDICAL ? radial_medical(target, user) : target.get_limb(user.zone_selected)
 //RUTGMC edit start - yautaj features
-	if(HAS_TRAIT(H, TRAIT_FOREIGN_BIO) && !alien)
-		to_chat(user, span_warning("\The [src] is incompatible with the biology of [H]!"))
+	if(HAS_TRAIT(target, TRAIT_FOREIGN_BIO) && !alien)
+		to_chat(user, span_warning("\The [src] is incompatible with the biology of [target]!"))
 		return TRUE
 //RUTGMC edit end
 	if(!affecting)

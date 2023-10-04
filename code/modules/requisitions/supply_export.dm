@@ -27,6 +27,8 @@
 			. = 800
 		if(JOB_CAT_COMMAND)
 			. = 1000
+		if(JOB_PREDATOR)
+			. = 3000
 	return
 
 /mob/living/carbon/xenomorph/get_export_value()

@@ -53,30 +53,6 @@
 
 #define COMSIG_XENOMORPH_INTERFERENCE "xenomorph_interference"
 
-#define COMSIG_XENOABILITY_ROAR "xenoability_roar"
-#define COMSIG_XENOABILITY_SMASH "xenoability_smash"
-#define COMSIG_XENOABILITY_DEVASTATE "xenoability_devastate"
-
-// yautja abilities for keybindings
-
-#define COMSIG_PRED_MARK_HUNT "pred_mark_hunt"
-#define COMSIG_PRED_MARK_PANEL "pred_mark_panel"
-#define COMSIG_PRED_ZOOM "pred_zoom"
-#define COMSIG_PRED_TOGGLESIGHT "pred_togglesight"
-#define COMSIG_PRED_COMBISTICK "pred_combistick"
-#define COMSIG_PRED_SMART_DISC "pred_smart_disc"
-#define COMSIG_PRED_TRANSLATOR "pred_translator"
-#define COMSIG_PRED_CRYSTAL "pred_crystal"
-#define COMSIG_PRED_CAPSULE "pred_capsule"
-#define COMSIG_PRED_WRISTBLADES "pred_wristblades"
-#define COMSIG_PRED_CASTER "pred_caster"
-#define COMSIG_PRED_CLOACK "pred_cloack"
-#define COMSIG_PRED_SD "pred_sd"
-#define COMSIG_PRED_SD_MODE "pred_sd_mode"
-
-/// From /datum/admins/proc/force_predator_round()
-#define COMSIG_GLOB_PREDATOR_ROUND_TOGGLED "!predator_round_toglged"
-
 //yautja ship AI announcement
 /proc/yautja_announcement(message, title = "You receive a message from your ship AI...", sound_to_play = sound('sound/misc/notice1.ogg'))
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list

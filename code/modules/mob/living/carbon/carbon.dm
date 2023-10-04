@@ -193,8 +193,12 @@
 		step(src, inertia_dir)
 
 	visible_message(span_warning("[src] has thrown [thrown_thing]."), null, null, 5)
-
-	playsound(src, 'sound/effects/throw.ogg', 30, 1)
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(istype(I, /obj/item/explosive/grenade/spawnergrenade/smartdisc))
+		playsound(I, 'sound/effects/smartdisk_throw.ogg', 25)
+	else
+		playsound(src, 'sound/effects/throw.ogg', 30, 1)
+//RUTGMC EDIT ADDITION END
 
 	thrown_thing.throw_at(target, thrown_thing.throw_range + throw_modifiers["range_modifier"], max(1, thrown_thing.throw_speed + throw_modifiers["speed_modifier"]), src, spin_throw, !throw_modifiers["targetted_throw"], throw_modifiers["targetted_throw"])
 

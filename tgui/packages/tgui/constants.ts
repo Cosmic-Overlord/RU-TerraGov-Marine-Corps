@@ -45,6 +45,7 @@ export const CSS_COLORS = [
   'black',
   'white',
   'red',
+  'darkred',
   'orange',
   'yellow',
   'olive',

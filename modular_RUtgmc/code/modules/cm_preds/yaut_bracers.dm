@@ -2,10 +2,10 @@
 	name = "ancient alien bracers"
 	desc = "A pair of strange, alien bracers."
 
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "bracer"
 	item_icons = list(
-		slot_gloves_str = 'icons/mob/hunter/pred_gear.dmi'
+		slot_gloves_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 
 	siemens_coefficient = 0
@@ -255,8 +255,8 @@
 			if(get_dist(disc, src) <= 10)
 				if(isturf(disc.loc))
 					disc.boomerang(caller)
-					playsound(disc, 'sound/effects/smartdisk_throw.ogg', 25)
-	playsound(src, 'sound/effects/smartdisk_return.ogg', 30)
+					playsound(disc, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
+	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_return.ogg', 30)
 	return TRUE
 
 /obj/item/clothing/gloves/yautja/proc/translate_internal(mob/caller, forced = FALSE)
@@ -452,7 +452,7 @@
 		caller.put_in_active_hand(caster)
 		caster_deployed = TRUE
 		to_chat(caller, span_notice("You activate your plasma caster. It is in [caster.mode] mode."))
-		playsound(src, 'sound/weapons/pred_plasmacaster_on.ogg', 15, TRUE)
+		playsound(src, 'modular_RUtgmc/sound/weapons/pred_plasmacaster_on.ogg', 15, TRUE)
 
 /obj/item/clothing/gloves/yautja/proc/cloaker_internal(mob/living/caller, forced = FALSE)
 	. = check_random_function(caller, forced)
@@ -1172,7 +1172,7 @@
 		return FALSE
 	tracked_item.RemoveElement(/datum/element/yautja_tracked_item)
 	to_chat(caller, span_notice("You remove \the <b>[tracked_item]</b> from the tracking system."))
-	playsound(caller.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+	playsound(caller.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 	return TRUE
 
 
@@ -1200,7 +1200,7 @@
 		return FALSE
 	untracked_item.AddElement(/datum/element/yautja_tracked_item)
 	to_chat(caller, span_notice("You add \the <b>[untracked_item]</b> to the tracking system."))
-	playsound(caller.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+	playsound(caller.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 	return TRUE
 
 /obj/item/clothing/gloves/yautja/hunter/verb/bracername()

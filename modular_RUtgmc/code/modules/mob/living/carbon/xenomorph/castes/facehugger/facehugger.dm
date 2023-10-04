@@ -24,6 +24,9 @@
 	pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
 	density = FALSE
 
+	life_value = 0
+	default_honor_value = 0
+
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)

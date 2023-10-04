@@ -16,3 +16,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	life_value = 0
+	default_honor_value = 0
+//RUTGMC EDIT ADDITION END

@@ -5,7 +5,7 @@
 	return g
 
 /proc/get_limb_icon_name(datum/species/S, gender, limb_name, ethnicity)
-	if(S.name == "Human" || S.name == "Synthetic")
+	if(S.name == "Human" || S.name == "Yautja" || S.name == "Synthetic") // No bitches? Fucked with wrong QA? What the fuck is that and for what reason...
 		switch(limb_name)
 			if ("torso", "chest")
 				return "[ethnicity]_torso_[get_gender_name(gender)]"
@@ -158,6 +158,9 @@
 /mob/living/carbon/human/get_reagent_tags()
 	. = ..()
 	return .|IS_HUMAN
+
+/mob/living/carbon/human/species/yautja/get_reagent_tags()
+	return species?.reagent_tag
 
 /mob/living/carbon/human/can_inject(mob/user, error_msg, target_zone, penetrate_thick = FALSE)
 	. = reagents

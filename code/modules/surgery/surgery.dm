@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 					multipler += 0.45
 			if(M.shock_stage > 100) //Being near to unconsious is good in this case
 				multipler += 0.25
-		if(issynth(user))
+		if(issynth(user) || isyautja(user))
 			multipler = 1
 
 		//calculate step duration

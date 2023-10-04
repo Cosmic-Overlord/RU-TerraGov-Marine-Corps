@@ -23,6 +23,11 @@
 	var/list/obj/structure/xeno/pherotower/pherotowers = list()
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	///list of thick resin nests
+	var/max_thick_nests = 0
+	var/list/obj/structure/xeno/thick_nest/thick_nests = list()
+//RUTGMC EDIT ADDITION END
 	var/tier3_xeno_limit
 	var/tier2_xeno_limit
 	///Queue of all observer wanting to join xeno side

@@ -1,12 +1,20 @@
 /datum/emote/living/carbon/xenomorph
 	mob_type_allowed_typecache = /mob/living/carbon/xenomorph
+	mob_type_blacklist_typecache = list(/mob/living/carbon/xenomorph/hellhound)
+	var/predalien_sound
 
+/datum/emote/living/carbon/xenomorph/get_sound(mob/living/user)
+	. = ..()
+
+	if(ispredalien(user) && predalien_sound)
+		. = predalien_sound
 
 /datum/emote/living/carbon/xenomorph/growl
 	key = "growl"
 	key_third_person = "growls"
 	message = "growls!"
 	emote_type = EMOTE_AUDIBLE
+	predalien_sound = 'sound/voice/predalien_growl.ogg'
 	sound = 'sound/voice/alien_growl1.ogg'
 
 
@@ -30,6 +38,7 @@
 	key_third_person = "hisses"
 	message = "hisses!"
 	emote_type = EMOTE_AUDIBLE
+	predalien_sound = 'sound/voice/predalien_hiss.ogg'
 	sound = 'sound/voice/alien_hiss1.ogg'
 
 
@@ -71,6 +80,7 @@
 	key_third_person = "roars"
 	message = "roars!"
 	emote_type = EMOTE_AUDIBLE
+	predalien_sound = 'sound/voice/predalien_roar.ogg'
 	sound = 'sound/voice/alien_roar1.ogg'
 
 

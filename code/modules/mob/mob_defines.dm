@@ -44,6 +44,12 @@
 	var/next_move = 0
 	///Amount added during the next movement_delay(), then is reset.
 	var/next_move_slowdown = 0
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	///Slowdown from readying shields
+	var/shield_slowdown = 0
+	///Color matrices to be applied to the client window. Assoc. list.
+	var/list/client_color_matrices
+//RUTGMC EDIT ADDITION END
 	///Amount to adjust action/click delays by, + or -
 	var/next_move_adjust = 0
 	//Value to multiply action/click delays by

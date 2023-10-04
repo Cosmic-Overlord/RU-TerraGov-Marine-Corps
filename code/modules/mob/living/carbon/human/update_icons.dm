@@ -335,7 +335,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			if(hair_style.do_colouration)
 				var/icon/grad_s
 				if(grad_style && grad_style != "None")
-					var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
+					var/datum/sprite_accessory/gradient = species.get_hairstyle(h_style)
 					grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
 					grad_s.Blend(hair_s, ICON_ADD)
 					grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_ADD)
@@ -677,10 +677,18 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 /mob/living/carbon/human/update_burst()
 	remove_overlay(BURST_LAYER)
 	var/mutable_appearance/standing
+//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(chestburst == 1)
-		standing = mutable_appearance('icons/Xeno/Effects.dmi', "burst_stand", -BURST_LAYER)
+		if(isyautja(src))
+			standing = mutable_appearance('icons/Xeno/Effects.dmi', "predburst_stand", -BURST_LAYER)
+		else
+			standing = mutable_appearance('icons/Xeno/Effects.dmi', "burst_stand", -BURST_LAYER)
 	else if(chestburst == 2)
-		standing = mutable_appearance('icons/Xeno/Effects.dmi', "bursted_stand", -BURST_LAYER)
+		if(isyautja(src))
+			standing = mutable_appearance('icons/Xeno/Effects.dmi', "predbursted_stand", -BURST_LAYER)
+		else
+			standing = mutable_appearance('icons/Xeno/Effects.dmi', "bursted_stand", -BURST_LAYER)
+//RUTGMC EDIT ADDITION END
 
 	overlays_standing[BURST_LAYER] = standing
 	apply_overlay(BURST_LAYER)

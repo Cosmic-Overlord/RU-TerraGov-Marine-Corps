@@ -56,6 +56,9 @@
 	var/list/marines = list()
 	var/list/som = list()
 	var/list/survivors = list()
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	var/list/yautja = list()
+//RUTGMC EDIT ADDITION END
 	var/list/xenos = list()
 	var/list/dead = list()
 	var/list/ghosts = list()
@@ -105,7 +108,12 @@
 				serialized["icon"] = caste.minimap_icon
 			if(!isnum(xeno.nicknumber))
 				serialized["nickname"] = xeno.nicknumber
-			xenos += list(serialized)
+//RUTGMC EDIT ADDITION BEGIN - Preds
+			if(istype(xeno, /mob/living/carbon/xenomorph/hellhound))
+				yautja += list(serialized)
+			else
+				xenos += list(serialized)
+//RUTGMC EDIT ADDITION END
 			continue
 
 		if(isAI(mob_poi))
@@ -118,6 +126,14 @@
 			var/datum/job/job = human.job
 			serialized["nickname"] = human.real_name
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+			if(mob_poi.hunter_data.thralled)
+				serialized["icon"] = "thrall"
+				serialized["job"] = job.title
+				yautja += list(serialized)
+				continue
+//RUTGMC EDIT ADDITION END
+
 			if(ismarinejob(human.job))
 				if(human.assigned_squad)
 					serialized["icon"] = lowertext(human.assigned_squad.name) + "_" + job.minimap_icon
@@ -127,6 +143,14 @@
 
 			serialized["icon"] = job.minimap_icon
 			serialized["job"] = job.title
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
+			if(isyautja(mob_poi))
+				serialized["icon"] = job.minimap_icon
+				serialized["job"] = job.title
+				yautja += list(serialized)
+				continue
+//RUTGMC EDIT ADDITION END
 
 			if(issommarinejob(human.job))
 				som += list(serialized)
@@ -145,6 +169,9 @@
 	data["misc"] = misc
 	data["npcs"] = npcs
 	data["marines"] = marines
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	data["yautja"] = yautja
+//RUTGMC EDIT ADDITION END
 	data["som"] = som
 	data["survivors"] = survivors
 	data["xenos"] = xenos

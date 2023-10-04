@@ -142,6 +142,16 @@
 	if(species_flags & GREYSCALE_BLOOD)
 		brute_damage_icon_state = "grayscale"
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+/datum/species/proc/larva_impregnated(obj/item/alien_embryo/embryo)
+	return
+
+/datum/species/proc/handle_cryo(mob/living/carbon/human/H)
+
+/datum/species/proc/get_hairstyle(style)
+	return GLOB.hair_styles_list[style]
+//RUTGMC EDIT ADDITION END
+
 /datum/species/proc/create_organs(mob/living/carbon/human/organless_human) //Handles creation of mob organs and limbs.
 
 	organless_human.limbs = list()
@@ -322,6 +332,11 @@
 	if(CHECK_BITFIELD(species_flags, NO_POISON) && istype(chem, /datum/reagent/toxin))
 		H.reagents.remove_reagent(chem.type, chem.custom_metabolism * H.metabolism_efficiency)
 		return TRUE
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(isyautja(H) && istype(chem, /datum/reagent/medicine))
+		H.reagents.remove_reagent(chem.type, chem.custom_metabolism * H.metabolism_efficiency)
+		return TRUE
+//RUTGMC EDIT ADDITION END
 	if(CHECK_BITFIELD(species_flags, NO_OVERDOSE)) //no stacking
 		if(chem.overdose_threshold && chem.volume > chem.overdose_threshold)
 			H.reagents.remove_reagent(chem.type, chem.volume - chem.overdose_threshold)

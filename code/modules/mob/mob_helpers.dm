@@ -324,6 +324,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 /mob/living/carbon/xenomorph/can_be_operated_on()
 	return FALSE
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+/mob/living/carbon/human/species/yautja/can_be_operated_on(mob/user)
+	if(user == src)
+		return TRUE
+	else
+		..()
+//RUTGMC EDIT ADDITION END
 
 /mob/proc/restrained(ignore_checks)
 	SHOULD_CALL_PARENT(TRUE)

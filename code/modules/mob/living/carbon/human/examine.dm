@@ -526,6 +526,26 @@
 	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))
 		msg += span_highdanger("<B>This player has been slept by staff.</B>\n")
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(isyautja(user))
+		var/obj/item/clothing/gloves/yautja/hunter/bracers = gloves
+		if(istype(bracers) && bracers.name_active)
+			msg += span_blue("Their bracers identifies them as <b>[real_name]</b>.")
+		msg += span_blue("[src] has the scent of [life_kills_total] defeated prey.")
+		if(src.hunter_data.hunted)
+			msg += span_orange("[src] is being hunted by [src.hunter_data.hunter.real_name].")
+
+		if(src.hunter_data.dishonored)
+			msg += span_red("[src] was marked as dishonorable for '[src.hunter_data.dishonored_reason]'.")
+		else if(src.hunter_data.honored)
+			msg += span_green("[src] was honored for '[src.hunter_data.honored_reason]'.")
+
+		if(src.hunter_data.thralled)
+			msg += span_green("[src] was thralled by [src.hunter_data.thralled_set.real_name] for '[src.hunter_data.thralled_reason]'.")
+		else if(src.hunter_data.gear)
+			msg += span_red("[src] was marked as carrying gear by [src.hunter_data.gear_set].")
+//RUTGMC EDIT ADDITION END
+
 	msg += "</span>"
 
 	return list(msg)

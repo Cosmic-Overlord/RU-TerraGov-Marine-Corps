@@ -47,7 +47,7 @@
 	name = "soothing herbs"
 	singular_name = "soothing herb"
 	desc = "A poultice made of cold, blue petals that is rubbed on burns."
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "burn_herbs"
 	heal_burn = 15
 	alien = TRUE

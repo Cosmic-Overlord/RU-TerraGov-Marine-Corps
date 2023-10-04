@@ -394,6 +394,9 @@
 	draw_mode = TRUE
 	can_hold = list(
 		/obj/item/weapon/combat_knife,
+//RUTGMC EDIT ADDITION BEGIN - Preds
+		/obj/item/weapon/yautja/knife,
+//RUTGMC EDIT ADDITION END
 		/obj/item/weapon/gun/pistol/standard_pocketpistol,
 		/obj/item/weapon/gun/shotgun/double/derringer,
 		/obj/item/attachable/bayonetknife,

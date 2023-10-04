@@ -13,6 +13,11 @@
 	upgrade = XENO_UPGRADE_BASETYPE
 	pull_speed = -2
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	life_value = 0
+	default_honor_value = 0
+//RUTGMC EDIT ADDITION END
+
 /mob/living/carbon/xenomorph/beetle/Bump(atom/A)
 	if(!throwing || !throw_source || !thrower)
 		return ..()

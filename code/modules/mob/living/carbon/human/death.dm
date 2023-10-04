@@ -45,6 +45,9 @@
 
 /mob/living/carbon/human/death(gibbing, deathmessage, silent, special_death_message)
 	if(stat == DEAD)
+//RUTGMC EDIT ADDITION BEGIN - Preds
+		species.handle_death(src, gibbing)
+//RUTGMC EDIT ADDITION END
 		return ..()
 	if(species.death_message)
 		deathmessage = species.death_message

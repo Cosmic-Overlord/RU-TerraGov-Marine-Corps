@@ -124,7 +124,10 @@
 	taste_description = "death"
 
 /datum/reagent/toxin/huskpowder/on_mob_add(mob/living/L, metabolism)
-	ADD_TRAIT(L, TRAIT_FAKEDEATH, type)
+	if(isyautja(L)||isxeno(L))
+		return
+	else
+		ADD_TRAIT(L, TRAIT_FAKEDEATH, type)
 	return ..()
 
 /datum/reagent/toxin/huskpowder/on_mob_life(mob/living/L, metabolism)

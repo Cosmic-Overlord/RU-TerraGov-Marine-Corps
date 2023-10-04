@@ -63,3 +63,43 @@
 /obj/structure/xeno/spawner/Initialize(mapload)
 	. = ..()
 	set_light(2, 2, LIGHT_COLOR_GREEN)
+
+/obj/structure/xeno/thick_nest
+	name = "thick resin nest"
+	desc = "A very thick nest, oozing with a thick sticky substance."
+	pixel_x = -8
+	pixel_y = -8
+	max_integrity = 400
+	mouse_opacity = MOUSE_OPACITY_ICON
+
+	icon = 'icons/Xeno/nest.dmi'
+	icon_state = "reinforced_nest"
+	layer = 2.5
+
+	var/obj/structure/bed/nest/structure/pred_nest
+
+/obj/structure/xeno/thick_nest/examine(mob/user)
+	. = ..()
+	if((isxeno(user) || isobserver(user)) && hivenumber)
+		. += "Used to secure formidable hosts."
+
+/obj/structure/xeno/thick_nest/Initialize(mapload, new_hivenumber)
+	. = ..()
+	if(new_hivenumber)
+		hivenumber = new_hivenumber
+
+	var/datum/hive_status/hive_ref = GLOB.hive_datums[hivenumber]
+	if(hive_ref)
+		hive_ref.thick_nests += src
+
+	pred_nest = new /obj/structure/bed/nest/structure(loc, hive_ref, src) // Nest cannot be destroyed unless the structure itself is destroyed
+
+
+/obj/structure/xeno/thick_nest/Destroy()
+	. = ..()
+
+	if(hivenumber)
+		GLOB.hive_datums[hivenumber].thick_nests -= src
+
+	pred_nest?.linked_structure = null
+	QDEL_NULL(pred_nest)

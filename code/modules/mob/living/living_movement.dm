@@ -1,4 +1,8 @@
 /mob/living/proc/update_pull_movespeed()
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(HAS_TRAIT(src, TRAIT_SUPER_STRONG))
+		return
+//RUTGMC EDIT ADDITION END
 	if(!pulling?.drag_delay)
 		remove_movespeed_modifier(MOVESPEED_ID_BULKY_DRAGGING)
 		return

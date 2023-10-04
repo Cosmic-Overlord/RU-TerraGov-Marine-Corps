@@ -24,6 +24,9 @@
 	if(!hugger_type)
 		balloon_alert(user, "Empty")
 		return FALSE
+	if(!can_spawn_player)
+		to_chat(user, span_warning("Are you genius?"))
+		return FALSE
 
 	advance_maturity(stage_ready_to_burst + 1)
 	for(var/turf/turf_to_watch AS in filled_turfs(src, trigger_size, "circle", FALSE))
@@ -52,6 +55,10 @@
 	F.ghostize()
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
+
+/obj/alien/egg/hugger/forsaken
+	can_spawn_player = FALSE
+	hivenumber = XENO_HIVE_FORSAKEN
 
 /obj/alien/egg/gas
 	desc = "It looks like a suspiciously weird egg"

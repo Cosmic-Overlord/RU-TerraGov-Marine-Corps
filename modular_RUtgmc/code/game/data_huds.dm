@@ -10,7 +10,7 @@
 	var/static/image/jellyjuice_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "jellyjuice")
 
 	if(stat != DEAD)
-		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/medicine/xenojelly)
+		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/xenojelly)
 		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicine/research/medicalnanites)
 		if(medicalnanites_amount > 25)
 			xeno_reagent.overlays += medicalnanites_high_image

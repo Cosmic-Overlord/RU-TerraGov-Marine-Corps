@@ -4,6 +4,9 @@
 	flags_atom = CRITICAL_ATOM
 	max_integrity = 80
 	integrity_failure = 20
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	var/can_spawn_player = TRUE
+//RUTGMC EDIT ADDITION END
 	///What maturity stage are we in
 	var/maturity_stage = 1
 	///Time between two maturity stages

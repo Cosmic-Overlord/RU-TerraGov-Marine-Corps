@@ -35,6 +35,13 @@ GLOBAL_LIST_INIT(wraith_banish_very_short_duration_list, typecacheof(list(
 			to_chat(owner, span_xenowarning("We can't blink into this space without vision!"))
 		return FALSE
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(HAS_TRAIT(owner, TRAIT_LEASHED))
+		if(!silent)
+			to_chat(owner, span_xenowarning("We can't blink when trapped!"))
+		return FALSE
+//RUTGMC EDIT ADDITION END
+
 	if(ignore_blocker) //If we don't care about objects occupying the target square, return TRUE; used for checking pathing through transparents
 		return TRUE
 
@@ -190,6 +197,13 @@ GLOBAL_LIST_INIT(wraith_banish_very_short_duration_list, typecacheof(list(
 		if(!silent)
 			to_chat(owner, span_xenowarning("We cannot banish this!"))
 		return FALSE
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(HAS_TRAIT(A, TRAIT_LEASHED))
+		if(!silent)
+			to_chat(owner, span_xenowarning("We cannot banish trapped thing!"))
+		return FALSE
+//RUTGMC EDIT ADDITION END
 
 	if(HAS_TRAIT(A, TRAIT_TIME_SHIFTED))
 		to_chat(owner, span_xenowarning("That target is already affected by a time manipulation effect!"))

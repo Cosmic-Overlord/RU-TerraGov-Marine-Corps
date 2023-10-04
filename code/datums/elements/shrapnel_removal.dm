@@ -6,7 +6,7 @@
 
 /datum/element/shrapnel_removal/Attach(datum/target, _do_after_time, _scalpel = TRUE)
 	. = ..()
-	if(!isitem(target) || (duration < 1))
+	if(!isitem(target) || (_do_after_time < 1))
 		return ELEMENT_INCOMPATIBLE
 	scalpel = _scalpel
 	do_after_time = _do_after_time

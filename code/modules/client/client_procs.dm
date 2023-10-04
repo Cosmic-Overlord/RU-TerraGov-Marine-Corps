@@ -301,7 +301,9 @@
 
 	get_message_output("watchlist entry", ckey)
 	validate_key_in_db()
-
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	load_player_predator_info()
+//RUTGMC EDIT ADDITION END
 	send_resources()
 
 	generate_clickcatcher()
