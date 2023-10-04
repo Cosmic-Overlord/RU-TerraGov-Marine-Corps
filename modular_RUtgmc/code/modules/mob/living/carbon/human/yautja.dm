@@ -272,6 +272,6 @@ var/global/image/hud_icon_hunter_thralled
 
 	hud_list[HUNTER_CLAN] = holder
 
-/mob/living/carbon/human/species/yautja/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list())
+/mob/living/carbon/human/species/yautja/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
 	. = ..()
 	playsound(loc, pick('sound/voice/pred_click1.ogg', 'sound/voice/pred_click2.ogg'), 25, 1)
