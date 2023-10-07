@@ -98,7 +98,7 @@
 	if(living_target.stat == DEAD)
 		if(!silent)
 			//to_chat(owner, span_xenodanger("We can't [name] at that!")) //ORIGINAL
-			to_chat(owner, span_xenodanger("We can't [ability_name] at that!"))
+			to_chat(owner, span_xenodanger("We can't [ability_name] at that!")) //RUTGMC EDIT CHANGE
 		return FALSE
 
 /datum/action/xeno_action/activable/lunge/ai_should_start_consider()
