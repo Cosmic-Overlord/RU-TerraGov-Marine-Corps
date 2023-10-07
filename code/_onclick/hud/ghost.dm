@@ -36,7 +36,10 @@
 	var/mob/dead/observer/G = usr
 	if(G.larva_position)
 		var/confirm = tgui_alert(usr, "Returning to your corpse will make you leave the larva queue.", "Confirm.", list("Yes", "No"))
+		/* //ORIGINAL
 		if(confirm == "No")
+		*/
+		if(confirm != "Yes") //RUTGMC EDIT CHANGE
 			return
 	G.reenter_corpse()
 

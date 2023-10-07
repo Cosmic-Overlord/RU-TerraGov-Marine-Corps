@@ -44,3 +44,7 @@
 		/obj/item/stack/medical/heal_pack/advanced/burn_pack/combat,
 		/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat,
 	)
+
+/obj/item/storage/belt/marine/upp/full/Initialize(mapload)
+	. = ..()
+	new /obj/item/ammo_magazine/rifle/type71(src)

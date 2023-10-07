@@ -566,7 +566,6 @@
 	new /obj/item/ammo_magazine/rifle/type71(src)
 	new /obj/item/ammo_magazine/rifle/type71(src)
 
-
 /obj/item/storage/belt/marine/som
 	name = "\improper S18 ammo belt"
 	desc = "A belt with origins traced to the M276 ammo belt and some old colony security."

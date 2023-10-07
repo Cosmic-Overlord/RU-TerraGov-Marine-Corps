@@ -19,3 +19,11 @@
 	)
 	flags_armor_protection = CHEST
 	soft_armor = list(MELEE = 20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+
+/obj/item/clothing/suit/wizrobe/gentlecoat
+	name = "Gentlemans Coat"
+	desc = "A heavy threaded twead gray jacket. For a different sort of Gentleman."
+	icon_state = "gentlecoat"
+	item_state = "gentlecoat"
+	flags_armor_protection = CHEST|GROIN|ARMS
+	flags_inv_hide = NONE
