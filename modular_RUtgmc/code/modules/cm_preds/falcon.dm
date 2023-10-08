@@ -43,7 +43,7 @@
 	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "falcon_drone_active"
 	hud_possible = list(HUNTER_HUD)
-	flags_pass = HOVERING
+	pass_flags = HOVERING
 	var/obj/item/clothing/falcon_drone/parent_drone
 	var/obj/item/clothing/gloves/yautja/owned_bracers
 	desc = "An agile drone used by Yautja to survey the hunting grounds."

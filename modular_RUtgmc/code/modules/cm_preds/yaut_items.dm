@@ -670,6 +670,13 @@
 	user.reset_perspective(null)
 
 
+/obj/item/weapon/claymore/mercsword/ceremonial
+	name = "Ceremonial Sword"
+	desc = "A fancy ceremonial sword passed down from generation to generation. Despite this, it has been very well cared for, and is in top condition."
+	icon_state = "officer_sword"
+	item_state = "machete"
+
+
 // Hunting traps
 /obj/item/hunting_trap
 	name = "hunting trap"
@@ -704,7 +711,7 @@
 		var/turf/T = mob.loc
 		if(istype(T,/turf/open/floor/plating/ground/dirt))
 			icon_state = "yauttrapdirt"
-		else if (istype(T,/turf/open/ground/grasspatch))
+		else if (istype(T,/turf/open/ground/jungle))
 			icon_state = "yauttrapgrass"
 		else
 			icon_state = "yauttrap1"
@@ -765,7 +772,7 @@
 /obj/item/hunting_trap/proc/on_cross(turf/passed, atom/movable/AM)
 	if(!isliving(AM))
 		return
-	if(CHECK_MULTIPLE_BITFIELDS(AM.flags_pass, HOVERING))
+	if(CHECK_MULTIPLE_BITFIELDS(AM.pass_flags, HOVERING))
 		return
 	var/mob/living/L = AM
 	if(L.lying_angle || L.buckled) ///so dragged corpses don't trigger mines.

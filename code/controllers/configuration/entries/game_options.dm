@@ -57,6 +57,16 @@
 
 /datum/config_entry/flag/limbs_can_break
 
+/datum/config_entry/number/pred_round
+	config_entry_value = 0
+	min_val = 0
+	max_val = 2
+
+/datum/config_entry/number/pred_round_chance
+	config_entry_value = 0
+	min_val = 0
+	max_val = 100
+
 /datum/config_entry/number/revive_grace_period
 	config_entry_value = 5 MINUTES
 	min_val = 0
