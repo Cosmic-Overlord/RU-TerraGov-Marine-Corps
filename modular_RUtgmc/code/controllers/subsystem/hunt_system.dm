@@ -52,9 +52,9 @@ SUBSYSTEM_DEF(hunting)
 				continue
 		else
 			continue
-		if(data.owner.stat || !data.honored && data.owner.life_kills_total < 4 || data.owner.life_value == 0) // Don't make zero kills xeno as target for additional honor or stunned/dead
+		if(data.owner.stat || !data.honored && data.owner.life_kills_total < 2 || data.owner.life_value == 0) // Don't make zero kills xeno as target for additional honor or stunned/dead
 			continue
-		if(!prob(20)) // nah
+		if(prob(80)) // nah
 			continue
 
 		for(var/mob/living/carbon/pred in GLOB.yautja_mob_list)
