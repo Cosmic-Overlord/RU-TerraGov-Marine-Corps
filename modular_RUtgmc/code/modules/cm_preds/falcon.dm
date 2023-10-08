@@ -1,7 +1,7 @@
 /obj/item/clothing/falcon_drone
 	name = "falcon drone"
 	desc = "An agile drone used by Yautja to survey the hunting grounds."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "falcon_drone"
 	item_icons = list(
 		slot_ear_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
@@ -40,7 +40,7 @@
 
 /mob/hologram/falcon
 	name = "falcon drone"
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "falcon_drone_active"
 	hud_possible = list(HUNTER_HUD)
 	flags_pass = HOVERING
@@ -106,7 +106,7 @@
 /obj/item/trash/falcon_drone
 	name = "destroyed falcon drone"
 	desc = "The wreckage of a Yautja drone."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "falcon_drone_destroyed"
 	flags_item = ITEM_PREDATOR
 

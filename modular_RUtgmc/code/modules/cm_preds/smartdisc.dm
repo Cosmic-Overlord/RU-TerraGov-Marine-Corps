@@ -4,11 +4,11 @@
 	deliveryamt = 1
 	desc = "A strange piece of alien technology. It has many jagged, whirring blades and bizarre writing."
 	flags_item = ITEM_PREDATOR
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
-		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
+		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
 	)
 	icon_state = "disc"
 	item_state = "pred_disc"
@@ -21,7 +21,7 @@
 	throwforce = 35
 	throw_speed = 1
 
-	hitsound = 'sound/effects/smartdisk_hit.ogg'
+	hitsound = 'modular_RUtgmc/sound/effects/smartdisk_hit.ogg'
 
 	var/mob/living/simple_animal/hostile/smartdisc/spawned_item
 
@@ -31,16 +31,16 @@
 		if(length(bracer.discs) < bracer.max_disc_cap)
 			if(src in bracer.discs)
 				to_chat(user, span_warning("You unlink [bracer] and [src]."))
-				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 				bracer.discs -= src
 			else
 				bracer.discs += src
 				to_chat(user, span_warning("You link [src] to [bracer]."))
-				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 		else
 			if(src in bracer.discs)
 				to_chat(user, span_warning("You unlink [bracer] and [src]."))
-				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 				bracer.discs -= src
 			else
 				to_chat(user, span_warning("Your limit is [bracer.max_disc_cap], unlink before disc, to add another one."))
@@ -62,7 +62,7 @@
 	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 3 SECONDS)
 	sleep(1 SECONDS)
 	throw_at(usr, 12, 1, usr)
-	playsound(src, 'sound/effects/smartdisk_throw.ogg', 25)
+	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/clear_boomerang()
 	icon_state = initial(icon_state)
@@ -147,7 +147,7 @@
 /mob/living/simple_animal/hostile/smartdisc
 	name = "smart-disc"
 	desc = "A furious, whirling array of blades and alien technology."
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "disc_active"
 	icon_living = "disc_active"
 	icon_dead = "disc"
@@ -168,7 +168,7 @@
 	melee_damage = 25
 	harm_intent_damage = 10
 	attacktext = "slices"
-	attack_sound = 'sound/effects/smartdisk_hit.ogg'
+	attack_sound = 'modular_RUtgmc/sound/effects/smartdisk_hit.ogg'
 
 
 	faction = FACTION_YAUTJA

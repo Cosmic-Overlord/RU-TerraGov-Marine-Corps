@@ -195,7 +195,7 @@
 	visible_message(span_warning("[src] has thrown [thrown_thing]."), null, null, 5)
 //RUTGMC EDIT ADDITION BEGIN - Preds
 	if(istype(I, /obj/item/explosive/grenade/spawnergrenade/smartdisc))
-		playsound(I, 'sound/effects/smartdisk_throw.ogg', 25)
+		playsound(I, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
 	else
 		playsound(src, 'sound/effects/throw.ogg', 30, 1)
 //RUTGMC EDIT ADDITION END

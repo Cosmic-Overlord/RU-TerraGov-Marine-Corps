@@ -53,7 +53,7 @@
 		if(!do_after(user, 3 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE))
 			return
 		user.visible_message(span_warning("[user] hangs [victim] from the ceiling!"), span_notice("You finish hanging [victim]."))
-		playsound(loc, 'sound/effects/noosed.ogg', 15, 1)
+		playsound(loc, 'modular_RUtgmc/sound/effects/noosed.ogg', 15, 1)
 		user.stop_pulling()
 		victim.get_hung()
 		use(1)

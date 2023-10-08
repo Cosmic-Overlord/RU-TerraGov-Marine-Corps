@@ -250,7 +250,7 @@ Contains most of the procs that are called when a mob is attacked by something
 
 				if(shield_blocked)
 					new block_effect(owner_turf, COLOR_YELLOW)
-					playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
+					playsound(src, 'modular_RUtgmc/sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
 					visible_message(span_danger("<B>[src] blocks [attack_text] with the [I.name]!</B>"), null, null, 5)
 					return TRUE
 				// We cannot return FALSE on fail here, because we haven't checked r_hand yet. Dual-wielding shields perhaps!
@@ -258,16 +258,16 @@ Contains most of the procs that are called when a mob is attacked by something
 			else if((!xenomorph || I.can_block_xeno) && (prob(I.can_block_chance - round(damage / 3)))) // 'other' shields, like predweapons. Make sure that item/weapon/shield does not apply here, no double-rolls.
 				new block_effect(owner_turf, COLOR_YELLOW)
 				if(istype(I, /obj/item/weapon/shield))
-					playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
+					playsound(src, 'modular_RUtgmc/sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
 				else
-					playsound(src, 'sound/items/parry.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
+					playsound(src, 'modular_RUtgmc/sound/items/parry.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
 				visible_message(span_danger("<B>[src] blocks [attack_text] with the [I.name]!</B>"), null, null, 5)
 				return TRUE
 
 	var/obj/item/weapon/shield/riot/yautja/shield = back
 	if(backside_attack && istype(shield) && prob(shield.readied_block))
 		if(shield.blocks_on_back)
-			playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
+			playsound(src, 'modular_RUtgmc/sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
 			visible_message(span_danger("<B>The [back] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
 			return TRUE
 
@@ -329,8 +329,8 @@ Contains most of the procs that are called when a mob is attacked by something
 				return
 
 //RUTGMC EDIT ADDITION BEGIN - Preds
-	if((living_thrower != src) && check_pred_shields(throw_damage, "[thrown_item]", backside_attack = dir == get_dir(get_turf(AM), get_turf(src))))
-		return
+		if((living_thrower != src) && check_pred_shields(throw_damage, "[thrown_item]", backside_attack = dir == get_dir(get_turf(AM), get_turf(src))))
+			return
 //RUTGMC EDIT ADDITION END
 
 		var/datum/limb/affecting = get_limb(zone)

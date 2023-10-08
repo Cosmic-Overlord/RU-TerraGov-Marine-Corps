@@ -23,7 +23,7 @@
 	name = "ancient alien armor"
 	desc = "Ancient armor made from a strange alloy. It feels cold with an alien weight."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "halfarmor1_ebony"
 	item_state = "armor"
 	item_icons = list(
@@ -148,7 +148,7 @@
 /obj/item/clothing/yautja_cape
 	name = PRED_YAUTJA_CAPE
 	desc = "A battle-worn cape passed down by elder Yautja."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
 	item_icons = list(
 		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
@@ -205,7 +205,7 @@
 	name = "ancient alien greaves"
 	desc = "Greaves made from scraps of cloth and a strange alloy. They feel cold with an alien weight."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
 		slot_shoes_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
@@ -245,7 +245,7 @@
 	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
-	storage = /obj/item/storage/internal/shoes/boot_knife/full_yautja
+	starting_attachments = list(/obj/item/storage/internal/shoes/boot_knife/full_yautja)
 
 /obj/item/storage/internal/shoes/boot_knife/full_yautja/Initialize()
 	. = ..()
@@ -255,7 +255,7 @@
 	name = "ancient alien mesh suit"
 	desc = "A strange alloy weave in the form of a vest. It feels cold with an alien weight."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "mesh_shirt"
 	item_icons = list(
 		slot_w_uniform_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
@@ -294,7 +294,7 @@
 	name = "\improper Communicator"
 	desc = "A strange Yautja device used for projecting the Yautja's voice to the others in its pack. Similar in function to a standard human radio."
 	icon_state = "communicator"
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_state = "headset"
 	frequency = YAUT_FREQ
 	keyslot = /obj/item/encryptionkey/yautja
@@ -339,7 +339,7 @@
 	name = "hunting pouch"
 	desc = "A Yautja hunting pouch worn around the waist, made from a thick tanned hide. Capable of holding various devices and tools and used for the transport of trophies."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "beltbag"
 	item_state = "beltbag_w"
 	item_icons = list(
@@ -356,7 +356,7 @@
 	name = "relay beacon"
 	desc = "A device covered in sacred text. It whirrs and beeps every couple of seconds."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "teleporter"
 
 	flags_item = ITEM_PREDATOR
@@ -474,7 +474,7 @@
 
 /obj/item/scalp
 	name = "scalp"
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "scalp_1"
 	item_state = "scalp"
 	item_icons = list(
@@ -492,7 +492,7 @@
 	blood_color =  "#A10808" //So examine describes it as 'bloody'. Synths can't be scalped so it'll always be human blood.
 	flags_atom = NOBLOODY //Don't want the ugly item blood overlay ending up on this. We'll use our own blood overlay.
 
-	var/image/blood_overlay = image('modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi', "scalp_[variant]_blood")
+	var/image/blood_overlay = image('modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', "scalp_[variant]_blood")
 	blood_overlay.appearance_flags = RESET_COLOR
 	overlays += blood_overlay
 
@@ -604,7 +604,7 @@
 	spawner_type = /mob/living/carbon/xenomorph/hellhound
 	deliveryamt = 1
 	desc = "A strange piece of alien technology. It seems to call forth a hellhound."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "hellnade"
 	w_class = WEIGHT_CLASS_TINY
 	det_time = 30
@@ -675,7 +675,7 @@
 	name = "hunting trap"
 	throw_speed = 6.67
 	throw_range = 2
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "yauttrap0"
 	desc = "A bizarre Yautja device used for trapping and killing prey."
 
@@ -843,7 +843,7 @@
 	name = "alien stone armor"
 	desc = "A suit of armor made entirely out of stone. Looks incredibly heavy."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
@@ -867,7 +867,7 @@
 	name = "alien stone greaves"
 	desc = "A pair of armored, perfectly balanced boots. Perfect for running through cement because they're incredibly heavy."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
 		slot_shoes_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
@@ -946,7 +946,7 @@
 /obj/item/reagent_containers/glass/rag/polishing_rag
 	name = "polishing rag"
 	desc = "An astonishingly fine, hand-tailored piece of exotic cloth."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "polishing_rag"
 
 /obj/item/reagent_containers/glass/rag/polishing_rag/examine(mob/user)
@@ -1057,7 +1057,7 @@
 /obj/item/storage/belt/utility/pred
 	name = "\improper Yautja toolbelt"
 	desc = "A modular belt with various clips. This version lacks any hunting functionality, and is commonly used by engineers to transport important tools."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "utilitybelt_pred"
 	item_state = "utility"
 
@@ -1074,7 +1074,7 @@
 /// SKULLS
 /obj/item/skull
 	name = "skull"
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/xeno_skulls.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/xeno_skulls.dmi'
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/skull/queen
@@ -1117,7 +1117,7 @@
 /obj/item/tool/crowbar/yautja
 	name = "yautja crowbar"
 	desc = "Used to remove floors and to pry open doors, made of an unusual alloy."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "bar"
 	item_state = "bar"
 	item_icons = list(
@@ -1128,7 +1128,7 @@
 /obj/item/tool/wrench/yautja
 	name = "yautja wrench"
 	desc = "A wrench with many common uses. Made of some bizarre alien bones."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wrench"
 	item_state = "wrench"
 	item_icons = list(
@@ -1139,7 +1139,7 @@
 /obj/item/tool/wirecutters/yautja
 	name = "yautja wirecutters"
 	desc = "This cuts wires, also flesh. Made of some razorsharp animal teeth."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wirescutter"
 	item_state = "wirescutter"
 	item_icons = list(
@@ -1150,7 +1150,7 @@
 /obj/item/tool/screwdriver/yautja
 	name = "yautja screwdriver"
 	desc = "Some hightech screwing abilities."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "screwdriver"
 	item_state = "screwdriver"
 	item_icons = list(
@@ -1163,7 +1163,7 @@
 /obj/item/multitool/yautja
 	name = "yautja multitool"
 	desc = "Top notch alien tech for B&E through hacking."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
 	item_icons = list(
@@ -1174,7 +1174,7 @@
 /obj/item/tool/weldingtool/yautja
 	name = "yautja chem welding tool"
 	desc = "A complex chemical welding device, keep away from youngblood."
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "welder"
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',

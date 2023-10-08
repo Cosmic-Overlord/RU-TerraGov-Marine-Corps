@@ -72,7 +72,7 @@
 	max_integrity = 400
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	icon = 'icons/Xeno/nest.dmi'
+	icon = 'modular_RUtgmc/icons/Xeno/nest.dmi'
 	icon_state = "reinforced_nest"
 	layer = 2.5
 
@@ -103,6 +103,9 @@
 
 	pred_nest?.linked_structure = null
 	QDEL_NULL(pred_nest)
+
+/obj/structure/bed/nest
+	var/force_nest = FALSE
 
 /obj/structure/bed/nest/structure
 	name = "thick alien nest"

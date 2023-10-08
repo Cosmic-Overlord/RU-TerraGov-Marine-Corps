@@ -8,9 +8,9 @@
 	name = "alien mask"
 	desc = "A beautifully designed metallic face mask, both ornate and functional."
 
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
+		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
 	item_state = "helmet"
@@ -140,7 +140,7 @@
 		for(var/listed_hud in mask_huds)
 			var/datum/atom_hud/H = GLOB.huds[listed_hud]
 			H.remove_hud_from(user)
-		playsound(src, 'sound/items/air_release.ogg', 15, 1)
+		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
 		for(var/datum/action/action in actions_to_add)
 			action.remove_action(user)
 		var/obj/item/G = user.glasses
@@ -165,7 +165,7 @@
 		for(var/listed_hud in mask_huds)
 			var/datum/atom_hud/H = GLOB.huds[listed_hud]
 			H.remove_hud_from(user)
-		playsound(src, 'sound/items/air_release.ogg', 15, 1)
+		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
 		for(var/datum/action/action in actions_to_add)
 			action.remove_action(user)
 		var/obj/item/G = user.glasses
@@ -179,9 +179,9 @@
 	desc = "A simplistic metallic face mask with advanced capabilities."
 	icon_state = "thrall_mask"
 	item_state = "thrall_mask"
-	icon = 'icons/obj/items/hunter/thrall_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'icons/mob/hunter/thrall_gear.dmi'
+		slot_wear_mask_str = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
 	)
 	item_state_slots = list(slot_wear_mask_str = "thrall_mask")
 	thrall = TRUE
@@ -238,9 +238,9 @@
 	name = "alien stone mask"
 	desc = "A beautifully designed face mask, ornate but non-functional and made entirely of stone."
 
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
+		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
 

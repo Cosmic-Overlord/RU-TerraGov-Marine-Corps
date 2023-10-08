@@ -221,3 +221,5 @@
 #include "code\game\objects\items\stacks\leather.dm"
 #include "code\game\objects\yautja_misc.dm"
 #include "code\modules\language\yautja.dm"
+#include "code\modules\surgery\surgery_tools.dm"
+#include "code\game\objects\items\cards_ids.dm"

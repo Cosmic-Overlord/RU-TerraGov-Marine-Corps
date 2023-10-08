@@ -2,7 +2,7 @@
 	name = "ancient alien bracers"
 	desc = "A pair of strange, alien bracers."
 
-	icon = 'modular_RUtgmc/icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "bracer"
 	item_icons = list(
 		slot_gloves_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
@@ -617,9 +617,9 @@
 	exploding = TRUE
 	var/turf/T = get_turf(src)
 	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && (is_ground_level(T.z) || SSticker.mode.flags_round_type & MODE_SHIPSIDE_SD))
-		playsound(src, 'sound/voice/pred_deathlaugh.ogg', 100, 0, 17)
+		playsound(src, 'modular_RUtgmc/sound/voice/pred_deathlaugh.ogg', 100, 0, 17)
 
-	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17)
+	playsound(src, 'modular_RUtgmc/sound/effects/pred_countdown.ogg', 100, 0, 17)
 	message_admins(font_size_xl("<a href='?_src_=holder;[HrefToken(TRUE)];admincancelpredsd=1;bracer=[REF(src)];victim=[REF(victim)]'>CLICK TO CANCEL THIS PRED SD</a>"))
 
 	our_socialistic_do_after(victim, rand(72, 80))
@@ -903,8 +903,8 @@
 	if(sure != "Begin the Hunt")
 		return
 
-	var/list/melee = list(YAUTJA_GEAR_GLAIVE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_WHIP = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "whip"),YAUTJA_GEAR_SWORD = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "clansword"),YAUTJA_GEAR_SCYTHE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_STICK = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "combistick"), YAUTJA_GEAR_SCIMS = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "scim"))
-	var/list/other = list(YAUTJA_GEAR_LAUNCHER = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "spikelauncher"), YAUTJA_GEAR_PISTOL = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "plasmapistol"), YAUTJA_GEAR_DISC = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "disc"), YAUTJA_GEAR_FULL_ARMOR = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "fullarmor_ebony"), YAUTJA_GEAR_SHIELD = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "shield"), YAUTJA_GEAR_DRONE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "falcon_drone"))
+	var/list/melee = list(YAUTJA_GEAR_GLAIVE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_WHIP = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "whip"),YAUTJA_GEAR_SWORD = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "clansword"),YAUTJA_GEAR_SCYTHE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_STICK = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "combistick"), YAUTJA_GEAR_SCIMS = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "scim"))
+	var/list/other = list(YAUTJA_GEAR_LAUNCHER = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "spikelauncher"), YAUTJA_GEAR_PISTOL = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "plasmapistol"), YAUTJA_GEAR_DISC = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "disc"), YAUTJA_GEAR_FULL_ARMOR = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "fullarmor_ebony"), YAUTJA_GEAR_SHIELD = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "shield"), YAUTJA_GEAR_DRONE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "falcon_drone"))
 	var/list/restricted = list(YAUTJA_GEAR_LAUNCHER, YAUTJA_GEAR_PISTOL, YAUTJA_GEAR_FULL_ARMOR, YAUTJA_GEAR_SHIELD, YAUTJA_GEAR_DRONE) //Can only select them once each.
 
 	var/list/secondaries = list()
@@ -913,11 +913,11 @@
 	var/main_weapon = show_radial_menu(wearer, wearer, melee)
 
 	if(main_weapon == YAUTJA_GEAR_SCYTHE)
-		var/list/scythe_variants = list(YAUTJA_GEAR_SCYTHE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_SCYTHE_ALT = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "predscythe_alt"))
+		var/list/scythe_variants = list(YAUTJA_GEAR_SCYTHE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_SCYTHE_ALT = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe_alt"))
 		main_weapon = show_radial_menu(wearer, wearer, scythe_variants)
 
 	if(main_weapon == YAUTJA_GEAR_GLAIVE)
-		var/list/glaive_variants = list(YAUTJA_GEAR_GLAIVE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_GLAIVE_ALT = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "glaive_alt"))
+		var/list/glaive_variants = list(YAUTJA_GEAR_GLAIVE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_GLAIVE_ALT = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive_alt"))
 		main_weapon = show_radial_menu(wearer, wearer, glaive_variants)
 
 	if(!main_weapon)
@@ -984,7 +984,7 @@
 /obj/item/clothing/gloves/yautja/thrall/update_minimap_icon()
 	if(!ishuman(owner))
 		return
-
+/*
 	var/turf/wearer_turf = get_turf(owner)
 	if(!wearer_turf)
 		return
@@ -996,7 +996,7 @@
 			SSminimaps.add_marker(owner, wearer_turf.z, MINIMAP_FLAG_YAUTJA, minimap_icon, overlay_iconstates = list("defibbable"))
 	else
 		SSminimaps.add_marker(owner, wearer_turf.z, MINIMAP_FLAG_YAUTJA, minimap_icon)
-
+*/
 
 /obj/item/clothing/gloves/yautja/hunter
 	name = "clan bracers"
@@ -1299,7 +1299,7 @@
 			to_chat(wearer, span_warning("The bracer beeps pleasantly, releasing it's grip on your forearm."))
 		else
 			to_chat(wearer, span_warning("With an angry blare the bracer releases your forearm."))
-		playsound(src, 'sound/items/air_release.ogg', 15, 1)
+		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
 		return TRUE
 
 	flags_item |= NODROP

@@ -19,7 +19,7 @@
 	var/sure = alert("An array of powerful weapons are displayed to you. Pick your gear carefully. If you cancel at any point, you will not claim your equipment.","Sure?","Begin the Hunt","No, not now")
 	if(sure == "Begin the Hunt")
 		var/list/hmelee = list(YAUTJA_THRALL_GEAR_MACHETE = image(icon = 'icons/obj/items/weapons.dmi', icon_state = "machete"), YAUTJA_THRALL_GEAR_RAPIER = image(icon = 'icons/obj/items/weapons.dmi', icon_state = "officer_sword"), YAUTJA_THRALL_GEAR_CLAYMORE = image(icon = 'icons/obj/items/weapons.dmi', icon_state = "mercsword"), YAUTJA_THRALL_GEAR_FIREAXE = image(icon = 'icons/obj/items/weapons.dmi', icon_state = "fireaxe"))
-		var/list/ymelee = list(YAUTJA_GEAR_GLAIVE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_WHIP = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "whip"), YAUTJA_GEAR_SWORD = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "clansword"), YAUTJA_GEAR_SCYTHE = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_STICK = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "combistick"), YAUTJA_GEAR_SPEAR = image(icon = 'icons/obj/items/hunter/pred_gear.dmi', icon_state = "spearhunter"))
+		var/list/ymelee = list(YAUTJA_GEAR_GLAIVE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "glaive"), YAUTJA_GEAR_WHIP = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "whip"), YAUTJA_GEAR_SWORD = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "clansword"), YAUTJA_GEAR_SCYTHE = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "predscythe"), YAUTJA_GEAR_STICK = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "combistick"), YAUTJA_GEAR_SPEAR = image(icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi', icon_state = "spearhunter"))
 
 		var/main_weapon
 		var/type = alert("Do you plan on embracing alien weaponry, or sticking to your human roots?", "Human or Alien?", "Once Human, Always Human", "Let's try Alien")
@@ -121,12 +121,12 @@
 
 		to_chat(user, span_yautjabold("[icon2html(src)] \The <b>[src]</b> beeps: Your bracer is now linked to your thrall."))
 		if(notification_sound)
-			playsound(loc, 'sound/items/pred_bracer.ogg', 75, 1)
+			playsound(loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 
 		to_chat(T, span_warning("\The [thrall_gloves] locks around your wrist with a sharp click."))
 		to_chat(T, span_yautjabold("[icon2html(thrall_gloves)] \The <b>[thrall_gloves]</b> beeps: Your master has linked their bracer to yours."))
 		if(thrall_gloves.notification_sound)
-			playsound(thrall_gloves.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+			playsound(thrall_gloves.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 
 // Message thrall or master
 /obj/item/clothing/gloves/yautja/verb/bracer_message()
@@ -171,9 +171,9 @@
 	to_chat(messenger, span_yautjabold("\The <b>[src]</b> beeps: You have sent '[message]' to your [receiver_title]."))
 
 	if(notification_sound)
-		playsound(loc, 'sound/items/pred_bracer.ogg', 75, 1)
+		playsound(loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 	if(receiver_gloves.notification_sound)
-		playsound(receiver_gloves.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+		playsound(receiver_gloves.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 
 	log_game("HUNTER: [key_name(messenger)] has sent [key_name(receiver)] the message '[message]' via bracer")
 

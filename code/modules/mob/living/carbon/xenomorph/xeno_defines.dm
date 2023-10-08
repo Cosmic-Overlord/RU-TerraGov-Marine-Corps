@@ -281,11 +281,6 @@
 	gib_chance = 5
 	light_system = MOVABLE_LIGHT
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
-	var/interference = 0 // Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
-	var/talk_sound = "alien_talk" // sound when talking
-//RUTGMC EDIT ADDITION END
-
 	var/hivenumber = XENO_HIVE_NORMAL
 
 	var/datum/hive_status/hive

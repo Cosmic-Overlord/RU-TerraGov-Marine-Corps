@@ -22,11 +22,11 @@
 	name = "large harpoon"
 	desc = "A huge metal spike with a hook at the end. It's carved with mysterious alien writing."
 
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "spike"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
 	)
 	item_state = "harpoon"
 
@@ -48,12 +48,12 @@
 	var/plural_name = "wrist blades"
 	desc = "A pair of huge, serrated blades extending out from metal gauntlets."
 
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wrist"
 	item_state = "wristblade"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
 	)
 
 	w_class = WEIGHT_CLASS_GIGANTIC
@@ -117,20 +117,20 @@
 
 	else if(istype(attacked_target, /obj/structure/mineral_door/resin))
 		var/obj/structure/mineral_door/resin/door = attacked_target
-		if(door.isSwitchingStates || user.a_intent == INTENT_HARM)
+		if(door.switching_states || user.a_intent == INTENT_HARM)
 			return
 		if(door.density)
 			user.visible_message(span_danger("[user] jams their [name] into [door] and strains to rip it open..."), span_danger("You jam your [name] into [door] and strain to rip it open..."))
 			playsound(loc, 'sound/weapons/wristblades_hit.ogg', 15, TRUE)
 			if(do_after(user, 1.5 SECONDS, TRUE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && door.density)
 				user.visible_message(span_danger("[user] forces [door] open using the [name]!"), span_danger("You force [door] open with your [name]."))
-				door.Open()
+				door.toggle_state()
 		else
 			user.visible_message(span_danger("[user] pushes [door] with their [name] to force it closed..."), span_danger("You push [door] with your [name] to force it closed..."))
 			playsound(loc, 'sound/weapons/wristblades_hit.ogg', 15, TRUE)
 			if(do_after(user, 2 SECONDS, TRUE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && !door.density)
 				user.visible_message(span_danger("[user] forces [door] closed using the [name]!"), span_danger("You force [door] closed with your [name]."))
-				door.Close()
+				door.toggle_state()
 
 /obj/item/weapon/wristblades/attack_self(mob/living/carbon/human/user)
 	..()
@@ -153,12 +153,12 @@
 ########### One Handed Weapons ############
 #########################################*/
 /obj/item/weapon/yautja
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
-		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
-		slot_s_store_str = 'icons/mob/hunter/pred_gear.dmi'
+		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 
 	var/human_adapted = FALSE
@@ -205,7 +205,7 @@
 	edge = TRUE
 	attack_verb = list("whipped", "slashed","sliced","diced","shredded")
 	attack_speed = 0.8 SECONDS
-	hitsound = 'sound/weapons/chain_whip.ogg'
+	hitsound = 'modular_RUtgmc/sound/weapons/chain_whip.ogg'
 
 
 /obj/item/weapon/yautja/chain/attack(mob/target, mob/living/user)
@@ -314,7 +314,7 @@
 
 		user.visible_message(span_highdanger("[user] slices open the guts of [target]!"), span_highdanger("You slice open the guts of [target]!"))
 		target.spawn_gibs()
-		playsound(get_turf(target), 'sound/effects/gibbed.ogg', 30, 1)
+		playsound(get_turf(target), 'modular_RUtgmc/sound/effects/gibbed.ogg', 30, 1)
 		target.apply_effect(1, WEAKEN)
 		target.apply_damage(force * 3, BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 65)
 
@@ -374,14 +374,14 @@
 		if(bracer.combistick)
 			if(src == bracer.combistick)
 				to_chat(user, span_warning("You unlink [bracer] and [src]."))
-				playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+				playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 				bracer.combistick = null
 			else
 				to_chat(user, span_warning("Before that you need unlink your [bracer] that before linked."))
 		else
 			bracer.combistick = src
 			to_chat(user, span_warning("You link [src] to [bracer]."))
-			playsound(user.loc, 'sound/items/pred_bracer.ogg', 75, 1)
+			playsound(user.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
 		bracer.owner.update_action_buttons()
 	..()
 
@@ -454,7 +454,7 @@
 		user.visible_message(span_info("With a flick of their wrist, [user] extends [src]."),\
 		span_notice("You extend [src]."),\
 		"You hear blades extending.")
-		playsound(src,'sound/items/combistick_open.ogg', 50, TRUE, 3)
+		playsound(src,'modular_RUtgmc/sound/items/combistick_open.ogg', 50, TRUE, 3)
 		icon_state = initial(icon_state)
 		flags_equip_slot = initial(flags_equip_slot)
 		flags_item |= TWOHANDED
@@ -471,7 +471,7 @@
 	else
 		unwield(user)
 		to_chat(user, span_notice("You collapse [src] for storage."))
-		playsound(src, 'sound/items/combistick_close.ogg', 50, TRUE, 3)
+		playsound(src, 'modular_RUtgmc/sound/items/combistick_close.ogg', 50, TRUE, 3)
 		icon_state = initial(icon_state) + "_f"
 		flags_equip_slot = ITEM_SLOT_BACK
 		flags_item &= ~TWOHANDED
@@ -518,7 +518,7 @@
 /obj/item/weapon/yautja/combistick/attack_hand(mob/user) //Prevents marines from instantly picking it up via pickup macros.
 	if(!human_adapted && !HAS_TRAIT(user, TRAIT_SUPER_STRONG))
 		user.visible_message(span_danger("[user] starts to untangle the chain on \the [src]..."), span_notice("You start to untangle the chain on \the [src]..."))
-		playsound(loc, 'sound/items/chain_fumble.ogg', 25)
+		playsound(loc, 'modular_RUtgmc/sound/items/chain_fumble.ogg', 25)
 		if(do_after(user, 3 SECONDS, TRUE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, PROGRESS_BRASS))
 			..()
 	else ..()
@@ -699,7 +699,7 @@
 
 /mob/living/carbon/human/proc/add_flay_overlay(stage = 1)
 	remove_overlay(FLAY_LAYER)
-	var/image/flay_icon = new /image('icons/mob/hunter/dam_human.dmi', "human_[stage]")
+	var/image/flay_icon = new /image('modular_RUtgmc/icons/mob/hunter/dam_human.dmi', "human_[stage]")
 	flay_icon.layer = -FLAY_LAYER
 	flay_icon.blend_mode = BLEND_INSET_OVERLAY
 	overlays_standing[FLAY_LAYER] = flay_icon
@@ -744,12 +744,12 @@
 ########### Two Handed Weapons ############
 #########################################*/
 /obj/item/weapon/twohanded/yautja
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
-		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
-		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
-		slot_s_store_str = 'icons/mob/hunter/pred_gear.dmi'
+		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 
 	flags_item = TWOHANDED|ITEM_PREDATOR
@@ -848,7 +848,7 @@
 	rounds_per_shot = 30
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
 	fire_delay = 5
-	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasmacaster_fire.ogg'
 	message_to_user = "will now fire low power stun bolts"
 	radial_icon_state = "plasma_weak"
 	muzzle_flash_color = COLOR_MAGENTA
@@ -857,7 +857,7 @@
 	rounds_per_shot = 100
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt/stun
 	fire_delay = 15
-	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire high power stun bolts"
 	radial_icon_state = "plasma_strong"
 	muzzle_flash_color = COLOR_MAGENTA
@@ -866,7 +866,7 @@
 	rounds_per_shot = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere/stun
 	fire_delay = 100
-	fire_sound = 'sound/weapons/pulse.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pulse.ogg'
 	message_to_user = "will now fire plasma immobilizers"
 	radial_icon_state = "laser_sniper_overcharge"
 	muzzle_flash_color = COLOR_MAGENTA
@@ -875,7 +875,7 @@
 	rounds_per_shot = 300
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/bolt
 	fire_delay = 10
-	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire plasma bolts"
 	radial_icon_state = "laser_disabler"
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
@@ -884,19 +884,19 @@
 	rounds_per_shot = 1200
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/sphere
 	fire_delay = 100
-	fire_sound = 'sound/weapons/pulse.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pulse.ogg'
 	message_to_user = "will now fire plasma spheres"
 	radial_icon_state = "laser_swarm"
 	muzzle_flash_color = COLOR_BRIGHT_BLUE
 
 /obj/item/weapon/gun/energy/yautja
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = null
 	item_icons = list(
-		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
-		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
-		slot_s_store_str = 'icons/mob/hunter/pred_gear.dmi'
+		slot_back_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi',
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 
 	rounds_per_shot = 1
@@ -938,7 +938,7 @@
 	for(var/mode in mode_list)
 		available_modes += list("[mode]" = image(icon = initial(mode_list[mode].radial_icon), icon_state = initial(mode_list[mode].radial_icon_state)))
 
-	var/datum/lasrifle/base/choice = mode_list[show_radial_menu(user, user, available_modes, null, 64, tooltips = TRUE)]
+	var/datum/yautja_energy_weapon_modes/choice = mode_list[show_radial_menu(user, user, available_modes, null, 64, tooltips = TRUE)]
 	if(!choice)
 		return
 
@@ -957,7 +957,7 @@
 	name = "spike launcher"
 	desc = "A compact Yautja device in the shape of a crescent. It can rapidly fire damaging spikes and automatically recharges."
 
-	icon = 'icons/obj/items/hunter/pred_gear.dmi'
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "spikelauncher"
 	item_state = "spikelauncher"
 	resistance_flags = UNACIDABLE
@@ -1024,7 +1024,7 @@
 	icon_state = "plasmarifle"
 	item_state = "plasmarifle"
 	resistance_flags = UNACIDABLE
-	fire_sound = 'sound/weapons/pred_plasma_shot.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasma_shot.ogg'
 	ammo_datum_type = /datum/ammo/energy/yautja/rifle/bolt
 	zoomdevicename = "scope"
 	flags_equip_slot = ITEM_SLOT_BACK
@@ -1094,7 +1094,7 @@
 	item_state = "plasmapistol"
 
 	resistance_flags = UNACIDABLE
-	fire_sound = 'sound/weapons/pulse3.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pulse3.ogg'
 	flags_equip_slot = ITEM_SLOT_BELT
 	ammo_datum_type = /datum/ammo/energy/yautja/pistol
 	w_class = WEIGHT_CLASS_BULKY
@@ -1165,7 +1165,7 @@
 		slot_back_str = "plasma_wear_off",
 		slot_s_store_str = "plasma_wear_off"
 	)
-	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
+	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasmacaster_fire.ogg'
 	ammo_datum_type = /datum/ammo/energy/yautja/caster/stun
 	muzzle_flash_color = COLOR_VIOLET
 	w_class = WEIGHT_CLASS_GIGANTIC
@@ -1260,7 +1260,7 @@
 		. += span_orange(msg)
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/dropped(mob/living/carbon/human/M)
-	playsound(M, 'sound/weapons/pred_plasmacaster_off.ogg', 15, 1)
+	playsound(M, 'modular_RUtgmc/sound/weapons/pred_plasmacaster_off.ogg', 15, 1)
 	to_chat(M, span_notice("You deactivate your plasma caster."))
 	if(laser_target)
 		laser_off(M)
@@ -1301,22 +1301,22 @@
 	return FALSE
 
 /mob/living/carbon/human/apply_pred_laser()
-	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -PRED_LASER_LAYER)
+	overlays_standing[PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -PRED_LASER_LAYER)
 	apply_overlay(PRED_LASER_LAYER)
 	spawn(2 SECONDS)
 		if(overlays_standing[PRED_LASER_LAYER])
 			remove_overlay(PRED_LASER_LAYER)
-			overlays_standing[PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -PRED_LASER_LAYER)
+			overlays_standing[PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -PRED_LASER_LAYER)
 			apply_overlay(PRED_LASER_LAYER)
 	return TRUE
 
 /mob/living/carbon/xenomorph/apply_pred_laser()
-	overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -X_PRED_LASER_LAYER)
+	overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locking-y", "layer" = -X_PRED_LASER_LAYER)
 	apply_overlay(X_PRED_LASER_LAYER)
 	spawn(2 SECONDS)
 		if(overlays_standing[X_PRED_LASER_LAYER])
 			remove_overlay(X_PRED_LASER_LAYER)
-			overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -X_PRED_LASER_LAYER)
+			overlays_standing[X_PRED_LASER_LAYER] = image("icon" = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi', "icon_state" = "locked-y", "layer" = -X_PRED_LASER_LAYER)
 			apply_overlay(X_PRED_LASER_LAYER)
 	return TRUE
 

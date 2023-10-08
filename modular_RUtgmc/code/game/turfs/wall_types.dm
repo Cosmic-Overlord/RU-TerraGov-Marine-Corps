@@ -46,7 +46,7 @@
 /turf/closed/wall/huntership
 	name = "hunter wall"
 	desc = "Nigh indestructible walls that make up the hull of a hunter ship."
-	icon = 'icons/turf/walls/hunter.dmi'
+	icon = 'modular_RUtgmc/icons/turf/walls/hunter.dmi'
 	icon_state = "metal0"//DMI specific name
 	walltype = "metal"
 	resistance_flags = RESIST_ALL
