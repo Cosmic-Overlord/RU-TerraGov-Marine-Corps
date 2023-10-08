@@ -1,6 +1,10 @@
 /mob/living/carbon/human/species/yautja
 	chat_color = "#aa0000"
 
+/mob/living/carbon/human/species/yautja/get_paygrade()
+	if(client)
+		return client.clan_info.item[2] <= clan_ranks_ordered.len ? clan_ranks_ordered[client.clan_info.item[2]] : clan_ranks_ordered[1]
+
 /datum/species/yautja
 	name = "Yautja"
 	name_plural = "Yautja"
