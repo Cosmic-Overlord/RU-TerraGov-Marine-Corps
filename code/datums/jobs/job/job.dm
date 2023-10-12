@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 GLOBAL_LIST_INIT(exp_specialmap, list(
 	EXP_TYPE_LIVING = list(),
 	// EXP_TYPE_SPECIAL = list(ROLE_XENOMORPH, ROLE_XENO_QUEEN), // ORIGINAL
-	EXP_TYPE_SPECIAL = list(), // TGMC EDIT
+	EXP_TYPE_SPECIAL = list(), // RUTGMC EDIT
 	EXP_TYPE_GHOST = list(),
 	EXP_TYPE_ADMIN = list()
 ))
