@@ -109,6 +109,7 @@
 // #include "code\modules\mob\living\carbon\xenomorph\castes\predalien\castedatum_predalien.dm"
 // #include "code\modules\mob\living\carbon\xenomorph\castes\predalien\predalien.dm"
 // #include "code\modules\mob\living\carbon\xenomorph\castes\predalien\abilities_predalien.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\queen\abilities_queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\queen\castedatum_queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\queen\queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\ravager\ravager.dm"
