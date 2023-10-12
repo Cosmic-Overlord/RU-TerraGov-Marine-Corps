@@ -119,6 +119,7 @@ SOM_SQUAD_MARINE, SOM_SQUAD_VETERAN, SOM_SQUAD_ENGINEER, SOM_SQUAD_CORPSMAN, SOM
 GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine), TRUE))
 
 //Playtime tracking system, see jobs_exp.dm
+/* ORIGINAL, moved to modular_RUtgmc\code\__DEFINES\jobs.dm
 #define EXP_TYPE_LIVING "Living"
 #define EXP_TYPE_REGULAR_ALL "Any"
 #define EXP_TYPE_COMMAND "Command"
@@ -130,6 +131,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define EXP_TYPE_SPECIAL "Special"
 #define EXP_TYPE_GHOST "Ghost"
 #define EXP_TYPE_ADMIN "Admin"
+*/
 
 // hypersleep bay flags
 #define CRYO_MED "Medical"
@@ -141,10 +143,12 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define CRYO_DELTA "Delta Squad"
 
 
+/* ORIGINAL, moved to modular_RUtgmc\code\__DEFINES\jobs.dm
 #define XP_REQ_UNSEASONED 60
 #define XP_REQ_INTERMEDIATE 180
 #define XP_REQ_EXPERIENCED 600
 #define XP_REQ_EXPERT 900
+*/
 
 // how much a job is going to contribute towards burrowed larva. see config for points required to larva. old balance was 1 larva per 3 humans.
 #define LARVA_POINTS_SHIPSIDE 1

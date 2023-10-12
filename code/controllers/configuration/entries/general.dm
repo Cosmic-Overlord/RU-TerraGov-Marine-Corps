@@ -129,6 +129,7 @@ Administrative related.
 
 /datum/config_entry/flag/use_exp_restrictions_admin_bypass
 
+/* ORIGINAL
 /datum/config_entry/flag/use_exp_restrictions_command
 
 /datum/config_entry/number/use_exp_restrictions_command_hours
@@ -139,6 +140,9 @@ Administrative related.
 /datum/config_entry/flag/use_exp_restrictions_command_department
 
 /datum/config_entry/flag/use_exp_restrictions_other
+*/
+
+/datum/config_entry/flag/use_exp_restrictions // RUTGMC EDIT
 
 /datum/config_entry/flag/prevent_dupe_names
 
