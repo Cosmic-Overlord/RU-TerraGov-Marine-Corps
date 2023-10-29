@@ -174,8 +174,11 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 					multipler += 0.45
 			if(M.shock_stage > 100) //Being near to unconsious is good in this case
 				multipler += 0.25
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
 		if(issynth(user) || isyautja(user))
 			multipler = 1
+//RUTGMC EDIT ADDITION END
 
 		//calculate step duration
 		var/step_duration = max(0.5 SECONDS, rand(surgery_step.min_duration, surgery_step.max_duration) - 1 SECONDS * user.skills.getRating(SKILL_SURGERY))

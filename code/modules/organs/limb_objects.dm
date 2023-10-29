@@ -5,10 +5,6 @@
 		slot_l_hand_str = 'icons/mob/inhands/items/bodyparts_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/bodyparts_right.dmi',
 	)
-	///Predators can flay limbs to eventually turn them into bones for their armor
-	var/flayed = FALSE
-	///What bone would be in this limb?
-	var/bone_type
 
 /obj/item/limb/Initialize(mapload, mob/living/carbon/human/H)
 	. = ..()
@@ -43,47 +39,38 @@
 /obj/item/limb/l_arm
 	name = "left arm"
 	icon_state = "l_arm"
-	bone_type = /obj/item/armor_module/limb/skeleton/l_arm
 
 /obj/item/limb/l_foot
 	name = "left foot"
 	icon_state = "l_foot"
-	bone_type = /obj/item/armor_module/limb/skeleton/l_foot
 
 /obj/item/limb/l_hand
 	name = "left hand"
 	icon_state = "l_hand"
-	bone_type = /obj/item/armor_module/limb/skeleton/l_hand
 
 /obj/item/limb/l_leg
 	name = "left leg"
 	icon_state = "l_leg"
-	bone_type = /obj/item/armor_module/limb/skeleton/l_leg
 
 /obj/item/limb/r_arm
 	name = "right arm"
 	icon_state = "r_arm"
-	bone_type = /obj/item/armor_module/limb/skeleton/r_arm
 
 /obj/item/limb/r_foot
 	name = "right foot"
 	icon_state = "r_foot"
-	bone_type = /obj/item/armor_module/limb/skeleton/r_foot
 
 /obj/item/limb/r_hand
 	name = "right hand"
 	icon_state = "r_hand"
-	bone_type = /obj/item/armor_module/limb/skeleton/r_hand
 
 /obj/item/limb/r_leg
 	name = "right leg"
 	icon_state = "r_leg"
-	bone_type = /obj/item/armor_module/limb/skeleton/r_leg
 
 /obj/item/limb/head
 	name = "head"
 	icon_state = "head_m"
-	bone_type = /obj/item/armor_module/limb/skeleton/head
 	resistance_flags = UNACIDABLE
 	var/mob/living/brain/brainmob
 	var/brain_item_type = /obj/item/organ/brain

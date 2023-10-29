@@ -102,7 +102,7 @@
 			real_owner = user
 
 		toggle_lock_internal(user, TRUE)
-		RegisterSignal(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH), PROC_REF(update_minimap_icon))
+		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH), PROC_REF(update_minimap_icon))
 		RegisterSignal(user, list(COMSIG_ATOM_TELEPORT), PROC_REF(owner_teleported))
 		INVOKE_NEXT_TICK(src, PROC_REF(update_minimap_icon), user)
 		for(var/datum/action/action in actions_to_add + action_cloaker + action_caster + action_wristblades)

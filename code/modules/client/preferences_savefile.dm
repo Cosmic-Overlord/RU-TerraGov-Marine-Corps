@@ -402,6 +402,7 @@
 	READ_FILE(S["synthetic_type"], synthetic_type)
 	READ_FILE(S["robot_type"], robot_type)
 	READ_FILE(S["xeno_name"], xeno_name)
+	READ_FILE(S["ai_name"], ai_name)
 
 //RUTGMC EDIT ADDITION BEGIN - Preds
 	READ_FILE(S["pred_name"], predator_name)

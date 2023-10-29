@@ -116,7 +116,7 @@
 
 /datum/species/yautja/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
-	var/datum/atom_hud/medical/advanced/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.remove_hud_from(H)
 	mark_for_hunt[H] += new /datum/action/predator_action/mark_for_hunt
 	mark_panel[H] += new /datum/action/predator_action/mark_panel
@@ -142,7 +142,7 @@
 
 /datum/species/yautja/post_species_loss(mob/living/carbon/human/H)
 	..()
-	var/datum/atom_hud/medical/advanced/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.add_to_hud(H)
 	mark_for_hunt[H].remove_action(H)
 	mark_panel[H].remove_action(H)

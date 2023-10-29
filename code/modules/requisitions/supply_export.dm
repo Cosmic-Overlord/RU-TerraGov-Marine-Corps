@@ -27,8 +27,10 @@
 			. = 800
 		if(JOB_CAT_COMMAND)
 			. = 1000
+//RUTGMC EDIT ADDITION BEGIN - Preds
 		if(JOB_PREDATOR)
 			. = 3000
+//RUTGMC EDIT ADDITION END
 	return
 
 /mob/living/carbon/xenomorph/get_export_value()
