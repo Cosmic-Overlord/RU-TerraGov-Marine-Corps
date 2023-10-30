@@ -575,7 +575,7 @@
 /datum/reagent/medicine/arithrazine/on_mob_life(mob/living/L)
 	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
 	L.adjustToxLoss(-3*effect_str)
-	if(prob(25))
+	if(prob(5))
 		L.adjustCloneLoss(effect_str)
 	return ..()
 
