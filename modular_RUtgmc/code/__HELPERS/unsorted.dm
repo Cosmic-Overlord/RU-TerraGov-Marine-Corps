@@ -64,8 +64,3 @@ GLOBAL_VAR_INIT(roles_whitelist, load_role_whitelist())
 		W[ckey] = role
 
 	return W
-
-GLOBAL_LIST_EMPTY(human_ethnicities_list)
-GLOBAL_LIST_EMPTY(yautja_ethnicities_list)
-
-GLOBAL_LIST_EMPTY(yautja_hair_styles_list)
