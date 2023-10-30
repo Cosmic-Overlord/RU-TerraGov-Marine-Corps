@@ -96,7 +96,7 @@
 
 /datum/reagent/medicine/paracetamol/on_mob_life(mob/living/L, metabolism)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
-	L.heal_overall_damage(0.2*effect_str, 0.2*effect_str)
+	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
 	L.adjustToxLoss(-0.1*effect_str)
 	L.adjustStaminaLoss(-effect_str)
 	return ..()
@@ -306,6 +306,11 @@
 
 /datum/reagent/medicine/dexalin/on_mob_life(mob/living/L,metabolism)
 	L.adjustOxyLoss(-3*effect_str)
+	switch(current_cycle)
+		if(1 to 10)
+			L.adjustStaminaLoss(-effect_str * 3)
+		if(11 to INFINITY)
+			L.adjustStaminaLoss(-effect_str)
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
@@ -323,6 +328,12 @@
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
 	scannable = TRUE
 
+/datum/reagent/medicine/dexalinplus/on_mob_add(mob/living/L, metabolism)
+	if(TIMER_COOLDOWN_CHECK(L, name))
+		return
+	L.adjustStaminaLoss(-100*effect_str)
+	to_chat(L, span_userdanger("You feel a complete lack of fatigue, so relaxing!"))
+
 /datum/reagent/medicine/dexalinplus/on_mob_life(mob/living/L,metabolism)
 	L.adjustOxyLoss(-L.getOxyLoss())
 	holder.remove_reagent("lexorin", effect_str)
@@ -333,6 +344,9 @@
 
 /datum/reagent/medicine/dexalinplus/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 0, 3*effect_str)
+
+/datum/reagent/medicine/dexalinplus/on_mob_delete(mob/living/L, metabolism)
+	TIMER_COOLDOWN_START(L, name, 300 SECONDS)
 
 /datum/reagent/medicine/tricordrazine
 	name = "Tricordrazine"
@@ -444,8 +458,8 @@
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.5
-	purge_list = list(/datum/reagent/toxin/mindbreaker)
-	purge_rate = 5
+	purge_list = list(/datum/reagent/toxin/mindbreaker, /datum/reagent/medicine/ryetalyn)
+	purge_rate = 4
 
 /datum/reagent/medicine/synaptizine/on_mob_add(mob/living/L, metabolism)
 	if(TIMER_COOLDOWN_CHECK(L, name))
@@ -554,19 +568,22 @@
 	custom_metabolism = REAGENTS_METABOLISM
 	overdose_threshold = REAGENTS_OVERDOSE/2
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2
+	purge_list = list(/datum/reagent/medicine/research/medicalnanites)
+	purge_rate = 1
 	scannable = TRUE
 
 /datum/reagent/medicine/arithrazine/on_mob_life(mob/living/L)
-	L.adjustToxLoss(-0.5*effect_str)
-	if(prob(15))
-		L.take_limb_damage(effect_str, 0)
+	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
+	L.adjustToxLoss(-3*effect_str)
+	if(prob(25))
+		L.adjustCloneLoss(effect_str)
 	return ..()
 
 /datum/reagent/medicine/arithrazine/overdose_process(mob/living/L, metabolism)
-	L.apply_damage(effect_str, TOX)
+	L.apply_damage(3 * effect_str, TOX)
 
 /datum/reagent/medicine/arithrazine/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(effect_str, effect_str, 2*effect_str)
+	L.apply_damages(effect_str, effect_str, 6 * effect_str)
 
 /datum/reagent/medicine/russian_red
 	name = "Russian Red"
@@ -575,6 +592,8 @@
 	custom_metabolism = REAGENTS_METABOLISM * 5
 	overdose_threshold = REAGENTS_OVERDOSE/2   //so it makes the OD threshold effectively 15 so two pills is too much but one is fine
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/2.5 //and this makes the Critical OD 20
+	purge_list = list(/datum/reagent/medicine/oxycodone)
+	purge_rate = 3
 	scannable = TRUE
 
 /datum/reagent/medicine/russian_red/on_mob_add(mob/living/L, metabolism)
