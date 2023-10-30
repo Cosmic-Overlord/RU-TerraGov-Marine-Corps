@@ -176,3 +176,4 @@
 #include "code\datums\keybinding\communication.dm"
 #include "code\__HELPERS\text.dm"
 #include "code\modules\projectiles\guns\specialist.dm"
+#include "modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\king\abilities_king.dm"
