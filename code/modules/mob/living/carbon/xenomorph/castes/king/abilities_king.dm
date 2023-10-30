@@ -162,7 +162,7 @@
 		if(!silent)
 			target.balloon_alert(owner, "already dead")
 		return FALSE
-
+/*
 /datum/action/xeno_action/activable/off_guard/use_ability(atom/target)
 	var/mob/living/carbon/human/human_target = target
 	human_target.apply_status_effect(STATUS_EFFECT_GUN_SKILL_SCATTER_DEBUFF, 100)
@@ -173,7 +173,7 @@
 
 	add_cooldown()
 	succeed_activate()
-
+*/
 // ***************************************
 // *********** Psychic roar
 // ***************************************
