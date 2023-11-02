@@ -152,6 +152,9 @@
 		//RUTGMC EDIT ADDITION  BEGIN - MOTION_DETECTOR
 		/obj/item/armor_module/module/motion_detector,
 		//RUTGMC EDIT ADDITION  END
+		//RUTGMC EDIT ADDITION  BEGIN - eshield_mark2
+		/obj/item/armor_module/module/eshield_mark2
+		//RUTGMC EDIT ADDITION  END
 	)
 
 	starting_attachments = list(/obj/item/armor_module/armor/visor/marine, /obj/item/armor_module/storage/helmet)

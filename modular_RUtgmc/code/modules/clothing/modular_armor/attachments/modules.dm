@@ -126,9 +126,9 @@
 	///Current shield Health
 	var/shield_health = 0
 	///Maximum shield Health
-	var/max_shield_health = 80
+	var/max_shield_health = 60
 	///Amount to recharge per tick, processes once every two seconds.
-	var/recharge_rate = 15
+	var/recharge_rate = 4
 
 	///Spark system used to generate sparks when the armor takes damage
 	var/datum/effect_system/spark_spread/spark_system
@@ -138,7 +138,7 @@
 	///Shield color when the shield is 33 - 66% full
 	var/shield_color_mid = COLOR_MOSTLY_PURE_RED
 	///Shield color when the shield is 66% to full
-	var/shield_color_full = COLOR_BLUE_LIGHT
+	var/shield_color_full = COLOR_GREEN
 	///Current shield color
 	var/current_color
 	///Delay it takes to start recharging again after the shield has been damaged.
