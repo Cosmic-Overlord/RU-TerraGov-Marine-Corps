@@ -12,7 +12,7 @@
 	for(var/key in supply_points)
 		for(var/mob/living/account in GLOB.alive_human_list_faction[key])
 			if(account.job.title in GLOB.jobs_marines)
-				personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + max(supply_points[key] - supply_points_old, 0) * psp_multiplier)
+				personal_supply_points[account.ckey] = personal_supply_points[account.ckey] + max(supply_points[key] - supply_points_old, 0) * psp_multiplier
 		supply_points_old = supply_points[key]
 
 /datum/controller/subsystem/points/proc/buy_using_psp(mob/living/user)
