@@ -39,3 +39,9 @@
 /datum/reagent/medicine/russian_red
 	purge_list = list(/datum/reagent/medicine/oxycodone)
 	purge_rate = 3
+
+/datum/reagent/medicine/research/medicalnanites
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 2
+
+/datum/reagent/medicine/research/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
+	L.adjustCloneLoss(1)
