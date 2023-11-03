@@ -126,7 +126,7 @@
 	///Maximum shield Health
 	max_shield_health = 60
 	///Amount to recharge per tick, processes once every two seconds.
-	recharge_rate = 4
+	recharge_rate = 5
 
 	///Shield color when the shield is 66% to full
 	shield_color_full = COLOR_GREEN
