@@ -34,9 +34,6 @@
 		/obj/item/armor_module/storage/grenade,
 		/obj/item/armor_module/storage/integrated,
 		/obj/item/armor_module/armor/badge,
-		//RUTGMC EDIT ADDITION  BEGIN - eshield_mark2
-		/obj/item/armor_module/module/eshield_mark2
-		//RUTGMC EDIT ADDITION  END
 	)
 	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 	greyscale_config = /datum/greyscale_config/xenonaut

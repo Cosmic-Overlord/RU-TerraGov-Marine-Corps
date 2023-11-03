@@ -156,7 +156,7 @@
 /datum/supply_packs/armor/modular/attachments/eshield_mark2
 	name = "Svalinn Energy Shield System Mark 2"
 	contains = list(
-		/obj/item/armor_module/module/eshield_mark2,
+	/obj/item/armor_module/module/eshield/mark2,
 	)
 	cost = 115
 

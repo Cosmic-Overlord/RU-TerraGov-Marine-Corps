@@ -127,9 +127,6 @@
 		/obj/item/armor_module/storage/grenade,
 		/obj/item/armor_module/storage/integrated,
 		/obj/item/armor_module/armor/badge,
-		//RUTGMC EDIT ADDITION  BEGIN - eshield_mark2
-		/obj/item/armor_module/module/eshield_mark2
-		//RUTGMC EDIT ADDITION  END
 	)
 	light_range = 5
 
