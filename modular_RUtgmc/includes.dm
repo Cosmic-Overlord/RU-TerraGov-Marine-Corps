@@ -175,3 +175,4 @@
 #include "code\modules\projectiles\guns\specialist.dm"
 #include "code\modules\clothing\modular_armor\jaeger.dm"
 #include "code\modules\clothing\modular_armor\modular.dm"
+#include "code\modules\clothing\modular_armor\attachments\chest_plates.dm"

@@ -21,3 +21,8 @@
 		/obj/item/armor_module/storage/integrated,
 		/obj/item/armor_module/armor/badge,
 	)
+
+/obj/item/clothing/suit/modular/xenonauten
+	attachments_allowed = list(
+		/obj/item/armor_module/module/eshield/mark2,
+	)
