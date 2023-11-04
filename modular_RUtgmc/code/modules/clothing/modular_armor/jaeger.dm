@@ -2,7 +2,6 @@
 	attachments_allowed = list(
 		/obj/item/armor_module/module/eshield/mark2,
 	)
-
 /obj/item/clothing/suit/modular/jaeger/light
 	soft_armor = list(MELEE = 40, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
 
