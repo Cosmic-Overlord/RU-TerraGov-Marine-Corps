@@ -113,25 +113,6 @@
 		return
 	blips_list += new /obj/effect/blip/close_blip(get_turf(target), status, operator)
 
-/obj/item/armor_module/module/eshield/mark2
-	name = "Svalinn Energy Shield System Mark 2"
-	desc = "Improved version of the protective shield covering the user with a force field, improved shield strength by 2 times makes it more reliable."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
-	icon_state = "mod_eshield"
-	item_state = "mod_eshield_a"
-	slot = ATTACHMENT_SLOT_MODULE
-	soft_armor = list(MELEE = -15, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
-	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_eshield_xn")
-
-	///Maximum shield Health
-	max_shield_health = 60
-	///Amount to recharge per tick, processes once every two seconds.
-	recharge_rate = 5
-
-	///Shield color when the shield is 66% to full
-	shield_color_full = COLOR_GREEN
-
-
 /obj/item/armor_module/module/fire_proof/som
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
