@@ -1,5 +1,5 @@
 /datum/xeno_caste/ravager
-	plasma_regen_limit = 0.6
+	plasma_regen_limit = 0.7
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 70, ACID = 40)
