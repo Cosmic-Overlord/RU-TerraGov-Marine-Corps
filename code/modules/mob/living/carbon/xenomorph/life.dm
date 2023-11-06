@@ -65,7 +65,7 @@
 	updatehealth()
 
 ///Handles sunder modification/recovery during life.dm for xenos
-/mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
+/*/mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
 
 	if(!sunder || on_fire) //No sunder, no problem; or we're on fire and can't regenerate.
 		return
@@ -83,7 +83,7 @@
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_SUNDER_REGEN, src)
 
-	adjust_sunder(sunder_recov)
+	adjust_sunder(sunder_recov)*/
 
 /mob/living/carbon/xenomorph/proc/handle_critical_health_updates()
 	if(loc_weeds_type)

@@ -83,3 +83,23 @@
 	. = ..()
 
 	handle_regular_health_hud_updates()
+
+/mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
+
+	if(!sunder || on_fire) //No sunder, no problem; or we're on fire and can't regenerate.
+		return
+
+	var/sunder_recov = xeno_caste.sunder_recover * -0.5 //Baseline
+
+	if(resting) //Resting doubles sunder recovery
+		sunder_recov *= 5
+
+	if(ispath(loc_weeds_type, /obj/alien/weeds/resting)) //Resting weeds double sunder recovery
+		sunder_recov *= 5
+
+	if(recovery_aura)
+		sunder_recov *= 1 + recovery_aura * 0.1 //10% bonus per rank of recovery aura
+
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_SUNDER_REGEN, src)
+
+	adjust_sunder(sunder_recov)
