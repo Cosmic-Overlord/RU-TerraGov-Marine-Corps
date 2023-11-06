@@ -548,7 +548,7 @@
 		UnregisterSignal(xeno, COMSIG_XENOMORPH_ATTACK_LIVING)
 	to_chat(xeno, span_xenonotice("You will now[xeno.vampirism ? "" : " no longer"] heal from attacking"))
 
-///Adds the slashed mob to tracked damage mobs
+/*///Adds the slashed mob to tracked damage mobs
 /datum/action/xeno_action/vampirism/proc/on_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
 	if(target.stat == DEAD)
@@ -564,4 +564,4 @@
 	particle_holder = new(x, /particles/xeno_slash/vampirism)
 	particle_holder.pixel_y = 18
 	particle_holder.pixel_x = 18
-	timer_ref = QDEL_NULL_IN(src, particle_holder, heal_delay)
+	timer_ref = QDEL_NULL_IN(src, particle_holder, heal_delay)*/
