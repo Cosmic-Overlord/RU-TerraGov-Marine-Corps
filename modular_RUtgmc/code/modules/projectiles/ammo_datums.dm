@@ -169,3 +169,14 @@
 	if(T.density)
 		return
 	new /obj/effect/xenomorph/spray/weak(T, puddle_duration, puddle_acid_damage)
+
+/datum/ammo/xeno/acid/royal
+	name = "royal spit"
+	added_spit_delay = 4 SECONDS
+	spit_cost = 100
+	damage = 25
+	flags_ammo_behavior = AMMO_XENO
+
+/datum/ammo/xeno/acid/royal/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, weaken = 2 SECONDS)
+

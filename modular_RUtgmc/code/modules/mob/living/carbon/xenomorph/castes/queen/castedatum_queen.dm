@@ -4,6 +4,8 @@
 
 	sunder_recover = 1.5
 
+	spit_types = list(/datum/ammo/xeno/sticky, /datum/ammo/xeno/acid/medium, /datum/ammo/xeno/acid/royal)
+
 	actions = list(
 		/datum/action/xeno_action/xeno_resting,
 		/datum/action/xeno_action/activable/psydrain,
