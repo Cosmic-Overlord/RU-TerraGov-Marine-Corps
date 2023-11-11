@@ -172,11 +172,12 @@
 
 /datum/ammo/xeno/acid/royal
 	name = "royal spit"
-	icon_state = "xeno_acid_strong"
+	icon_state = "xeno_acid_royal"
 	added_spit_delay = 4 SECONDS
 	spit_cost = 100
 	damage = 25
 	flags_ammo_behavior = AMMO_XENO
+	bullet_color = COLOR_LIGHT_ORANGE
 
 /datum/ammo/xeno/acid/royal/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS)
