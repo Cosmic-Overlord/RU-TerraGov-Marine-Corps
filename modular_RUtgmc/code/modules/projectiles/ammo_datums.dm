@@ -172,6 +172,7 @@
 
 /datum/ammo/xeno/acid/royal
 	name = "royal spit"
+	icon_state = "xeno_acid_strong"
 	added_spit_delay = 4 SECONDS
 	spit_cost = 100
 	damage = 25
