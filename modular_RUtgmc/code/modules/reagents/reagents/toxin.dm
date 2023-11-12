@@ -49,3 +49,30 @@
 /datum/reagent/medicine/xenojelly/on_mob_delete(mob/living/L, metabolism)
 	REMOVE_TRAIT(L, TRAIT_IGNORE_SUFFOCATION, REAGENT_TRAIT(src))
 	return ..()
+
+/datum/reagent/toxin/xeno_hemodile
+	custom_metabolism = 0.4
+
+/datum/reagent/toxin/xeno_hemodile/on_mob_life(mob/living/L, metabolism)
+
+	var/slowdown_multiplier = 0.5 //Because hemodile is obviously in blood already
+	var/reagent_amount
+
+	for(var/datum/reagent/current_reagent AS in L.reagents.reagent_list) //Cycle through all chems
+		if(is_type_in_typecache(current_reagent, GLOB.defiler_toxins_typecache_list)) //For each xeno toxin reagent, double the strength multiplier
+			slowdown_multiplier *= 2 //Each other Defiler toxin increases the multiplier by 2x; 2x if we have 1 combo chem, 4x if we have 2
+			reagent_amount += L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile)
+
+	switch(slowdown_multiplier)
+		if(0 to 1)
+			to_chat(L, span_warning("You feel your legs tense up."))
+		if(2 to 3.9)
+			L.Paralyze(3 SECONDS)
+			L.reagents.remove_reagent(/datum/reagent/toxin/xeno_hemodile, reagent_amount)
+
+	L.add_movespeed_modifier(MOVESPEED_ID_XENO_HEMODILE, TRUE, 0, NONE, TRUE, 1.5 * slowdown_multiplier)
+
+	return ..()
+
+/datum/reagent/toxin/xeno_hemodile/on_mob_delete(mob/living/L, metabolism)
+	L.remove_movespeed_modifier(MOVESPEED_ID_XENO_HEMODILE)
