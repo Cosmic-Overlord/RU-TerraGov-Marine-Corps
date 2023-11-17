@@ -1,4 +1,4 @@
-/mob/living/carbon/xenomorph/fire_act()	//redefined in modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\damage_procs.dm
+/mob/living/carbon/xenomorph/fire_act()
 	if(status_flags & GODMODE)
 		return
 	return ..()
@@ -18,7 +18,7 @@
 
 	return clamp(damage_amount * (1 - ((get_soft_armor(armor_type, def_zone) * sunder_ratio - effective_penetration) * 0.01)), 0, damage_amount)
 
-/mob/living/carbon/xenomorph/ex_act(severity)
+/mob/living/carbon/xenomorph/ex_act(severity) //redefined in modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\damage_procs.dm
 	if(status_flags & (INCORPOREAL|GODMODE))
 		return
 
