@@ -91,55 +91,55 @@
 /datum/supply_packs/weapons/t21_ap
 	name = "AR-21 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap)
-	cost = 53 //30 rounds
+	cost = 15 //30 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/t18_ap
 	name = "AR-18 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/ap)
-	cost = 60 //36 rounds
+	cost = 20 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/t12_ap
 	name = "AR-12 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap)
-	cost = 80 //50 rounds
+	cost = 25 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/br64_ap
 	name = "BR-64 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/standard_br/ap)
-	cost = 60 //36 rounds
+	cost = 20 //36 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/smg25_ap
 	name = "SMG-25 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/smg/m25/ap)
-	cost = 90 //60 rounds
+	cost = 35 //60 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x24mm_ap
 	name = "10x24mm armor piercing ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/ap)
-	cost = 240 //150 rounds
+	cost = 50 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x25mm_ap
 	name = "10x25mm armor piercing ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/ap)
-	cost = 220 //125 rounds
+	cost = 45 //125 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x265mm_ap
 	name = "10x26.5mm armor piercing ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x265mm/ap)
-	cost = 160 //100 rounds
+	cost = 40 //100 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x20mm_ap
 	name = "10x20mm armor piercing ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x20mm/ap)
-	cost = 225 //150 rounds
+	cost = 90 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/explosives/knee_mortar
