@@ -158,6 +158,7 @@
 /datum/ammo/bullet/spottingrifle/tungsten/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, max_range = 12)
 
+//-------------------------------------------------------
 // MG-42 LMG
 
 /obj/item/weapon/gun/rifle/standard_lmg
@@ -165,7 +166,8 @@
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
 	)
- 
+
+//-------------------------------------------------------
 // M412 PMC elite
 
 /obj/item/weapon/gun/rifle/m412/elite
