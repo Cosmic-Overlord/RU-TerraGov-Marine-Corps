@@ -182,3 +182,11 @@
 /datum/ammo/bullet/railgun/smart
 	damage = 150
 	penetration = 50
+
+//BR-8 scout rifle
+/datum/ammo/bullet/rifle/tx8/ap
+	name = "A19 high velocity armor piercing bullet"
+	hud_state = "hivelo_ap"
+	hud_state_empty = "hivelo_empty"
+	damage = 40
+	penetration = 40

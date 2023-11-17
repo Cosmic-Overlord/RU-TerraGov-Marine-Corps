@@ -10,3 +10,10 @@
 
 /obj/item/weapon/gun/minigun/smart_minigun
 		max_shells = 2000
+
+/obj/item/weapon/gun/rifle/tx8
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/tx8,
+		/obj/item/ammo_magazine/rifle/tx8/incendiary,
+		/obj/item/ammo_magazine/rifle/tx8/impact,
+		/obj/item/ammo_magazine/rifle/tx8/ap)

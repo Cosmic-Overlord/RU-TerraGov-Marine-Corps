@@ -199,3 +199,9 @@
 
 /datum/supply_packs/weapons/railgun_ammo/smart
 	cost = 25
+
+/datum/supply_packs/weapons/scout_ap
+	name = "BR-8 scout rifle armor piercing magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/tx8/ap)
+	cost = 40
+	available_against_xeno_only = TRUE
