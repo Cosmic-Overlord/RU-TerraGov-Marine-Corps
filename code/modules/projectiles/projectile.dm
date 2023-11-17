@@ -884,10 +884,10 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		adjust_fire_stacks(proj.ammo.incendiary_strength)
 		if(IgniteMob())
 			feedback_flags |= (BULLET_FEEDBACK_FIRE)
-
-//	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING)
-//		adjust_sunder(proj.sundering) RUTGMC EDIT
-
+/*
+	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING)	RUTGMC EDIT
+		adjust_sunder(proj.sundering)
+*/
 	if(stat != DEAD && ismob(proj.firer))
 		record_projectile_damage(proj.firer, damage)	//Tally up whoever the shooter was
 

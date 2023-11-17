@@ -1,4 +1,4 @@
-/mob/living/carbon/xenomorph/fire_act()
+/mob/living/carbon/xenomorph/fire_act()	//redefined in modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\damage_procs.dm
 	if(status_flags & GODMODE)
 		return
 	return ..()
