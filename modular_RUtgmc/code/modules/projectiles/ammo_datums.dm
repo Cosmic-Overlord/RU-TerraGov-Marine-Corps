@@ -175,3 +175,10 @@
 
 /datum/ammo/bullet/shotgun/tx15_flechette
 	penetration = 30
+
+/datum/ammo/bullet/railgun
+	damage = 200
+
+/datum/ammo/bullet/railgun/smart
+	damage = 150
+	penetration = 50

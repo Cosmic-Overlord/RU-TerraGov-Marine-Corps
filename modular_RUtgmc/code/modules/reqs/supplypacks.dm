@@ -193,3 +193,9 @@
 	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
 	contains = list(/obj/item/factory_refill/pizza_refill)
 	cost = 890 //fuck you
+
+/datum/supply_packs/weapons/railgun
+	cost = 300 //cope and seethe fuckin' xeno
+
+/datum/supply_packs/weapons/railgun_ammo/smart
+	cost = 25

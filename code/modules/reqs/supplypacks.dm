@@ -414,12 +414,12 @@ WEAPONS
 	name = "SR-220 Railgun armor piercing discarding sabot round"
 	contains = list(/obj/item/ammo_magazine/railgun)
 	cost = 50
-
-/datum/supply_packs/weapons/railgun_ammo/hvap
+/*
+/datum/supply_packs/weapons/railgun_ammo/hvap RUTGMC EDIT
 	name = "SR-220 Railgun high velocity armor piercing round"
 	contains = list(/obj/item/ammo_magazine/railgun/hvap)
 	cost = 50
-
+*/
 /datum/supply_packs/weapons/railgun_ammo/smart
 	name = "SR-220 Railgun smart armor piercing round"
 	contains = list(/obj/item/ammo_magazine/railgun/smart)
