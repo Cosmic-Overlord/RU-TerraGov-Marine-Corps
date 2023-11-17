@@ -173,8 +173,8 @@
 /datum/ammo/xeno/acid/royal
 	name = "royal spit"
 	icon_state = "xeno_acid_royal"
-	added_spit_delay = 4 SECONDS
-	spit_cost = 100
+	added_spit_delay = 3 SECONDS
+	spit_cost = 200
 	damage = 25
 	flags_ammo_behavior = AMMO_XENO
 	bullet_color = COLOR_LIGHT_ORANGE
