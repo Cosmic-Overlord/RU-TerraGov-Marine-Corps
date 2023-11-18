@@ -29,6 +29,13 @@
 	max_rounds = 80
 	icon_state_mini = "mag_rifle_big"
 
+/obj/item/ammo_magazine/rifle/T25/ap
+	name = "\improper T-25 armor piercing magazine (10x26mm)"
+	desc = "A 10mm assault rifle magazine with armor piercing bullets."
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "T25_ap"
+	default_ammo = /datum/ammo/bullet/rifle/T25/ap
+
 /obj/item/ammo_magazine/packet/T25_rifle
 	name = "box of 10x26mm high-pressure"
 	desc = "A box containing 300 rounds of 10x26mm 'HP' caseless tuned for a smartgun."

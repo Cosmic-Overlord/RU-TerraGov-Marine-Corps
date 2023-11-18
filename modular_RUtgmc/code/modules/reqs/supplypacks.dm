@@ -8,6 +8,11 @@
 	contains = list(/obj/item/ammo_magazine/rifle/T25)
 	cost = 20
 
+/datum/supply_packs/weapons/ammo_magazine/rifle/T25/ap
+	name = "T25 armor piercing smartrifle magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/T25/ap)
+	cost = 45
+
 /datum/supply_packs/weapons/ammo_magazine/packet/T25_rifle
 	name = "T25 smartrifle ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)

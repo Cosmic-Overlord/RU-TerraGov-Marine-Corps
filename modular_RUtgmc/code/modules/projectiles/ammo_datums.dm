@@ -22,6 +22,12 @@
 	penetration = 10
 	sundering = 1.5
 
+/datum/ammo/bullet/rifle/T25/ap
+	name = "smartmachinegun armor piercing bullet"
+	hud_state = "smartgun_ap"
+	hud_state_empty = "smartgun_empty"
+	penetration = 40
+
 /datum/ammo/bullet/smg/acp
 	name = "submachinegun ACP bullet"
 	hud_state = "smg"
