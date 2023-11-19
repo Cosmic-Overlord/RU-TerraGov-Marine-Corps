@@ -615,7 +615,7 @@
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
 			/obj/item/deployable_floodlight = 5,
-			/obj/item/fulton_extraction_pack = 5,
+			/obj/item/fulton_extraction_pack = 3,
 		),
 	)
 
