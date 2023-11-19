@@ -60,7 +60,7 @@
 /datum/ammo/bullet/revolver/t500/qk/on_hit_mob(mob/M,obj/projectile/P)
 	if(isxenoqueen(M))
 		var/mob/living/carbon/xenomorph/X = M
-		X.apply_damage(30)
+		X.apply_damage(40)
 		staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 0)
 		to_chat(X, span_highdanger("Something burn inside you!"))
 		return
