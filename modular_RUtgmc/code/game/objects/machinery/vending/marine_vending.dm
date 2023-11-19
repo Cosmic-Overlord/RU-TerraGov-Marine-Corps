@@ -311,15 +311,6 @@
 	)
 
 /obj/machinery/vending/weapon
-	name = "automated weapons rack"
-	desc = "An automated weapon rack hooked up to a colossal storage of standard-issue weapons."
-	icon_state = "marinearmory"
-	icon_vend = "marinearmory-vend"
-	icon_deny = "marinearmory"
-	wrenchable = FALSE
-	product_ads = "If it moves, it's hostile!;How many enemies have you killed today?;Shoot first, perform autopsy later!;Your ammo is right here.;Guns!;Die, scumbag!;Don't shoot me bro!;Shoot them, bro.;Why not have a donut?"
-	isshared = TRUE
-
 	products = list(
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
