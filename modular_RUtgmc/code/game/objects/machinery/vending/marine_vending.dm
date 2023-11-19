@@ -1,17 +1,5 @@
 /obj/machinery/vending
 	vend_delay = 10
-
-/obj/machinery/vending/weapon/Initialize(mapload, ...)
-	//Really unsafe, but it works
-	products["Marksman"] += list(
-		/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
-		/obj/item/ammo_magazine/revolver/rifle = -1,
-	)
-	products["Boxes"] += list(
-		/obj/item/ammo_magazine/packet/long_special = -1,
-	)
-	return ..()
-
 /obj/machinery/vending/armor_supply
 	products = list(
 		"Xenonauten" = list(
@@ -310,15 +298,6 @@
 	)
 
 /obj/machinery/vending/weapon
-	name = "automated weapons rack"
-	desc = "An automated weapon rack hooked up to a colossal storage of standard-issue weapons."
-	icon_state = "marinearmory"
-	icon_vend = "marinearmory-vend"
-	icon_deny = "marinearmory"
-	wrenchable = FALSE
-	product_ads = "If it moves, it's hostile!;How many enemies have you killed today?;Shoot first, perform autopsy later!;Your ammo is right here.;Guns!;Die, scumbag!;Don't shoot me bro!;Shoot them, bro.;Why not have a donut?"
-	isshared = TRUE
-
 	products = list(
 		"Rifles" = list(
 			/obj/item/weapon/gun/rifle/standard_assaultrifle = -1,
@@ -359,6 +338,8 @@
 			/obj/item/ammo_magazine/rifle/bolt = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini = -1,
+			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
+			/obj/item/ammo_magazine/revolver/rifle = -1,
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -509,6 +490,7 @@
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/ammo_magazine/packet/long_special = -1,
 			/obj/item/storage/box/visual/magazine = -1,
 			/obj/item/storage/box/visual/grenade = -1,
 			/obj/structure/closet/crate/mass_produced_crate = 5,
