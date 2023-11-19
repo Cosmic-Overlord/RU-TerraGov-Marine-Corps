@@ -193,3 +193,8 @@
 	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
 	contains = list(/obj/item/factory_refill/pizza_refill)
 	cost = 890 //fuck you
+
+/datum/supply_packs/operations/fulton_extraction_pack
+	name = "Fulton extraction pack"
+	contains = list(/obj/item/fulton_extraction_pack)
+	cost = 50
