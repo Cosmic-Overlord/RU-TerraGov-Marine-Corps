@@ -1,2 +1,2 @@
 /obj/item/fulton_extraction_pack
-	uses = 5
+	uses = 3
