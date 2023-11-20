@@ -243,6 +243,7 @@
 			/obj/item/storage/backpack/marine/standard/molle = -1,
 			/obj/item/storage/backpack/marine/satchel/molle = -1,
 			/obj/item/tool/weldpack/marinestandard = -1,
+			/obj/item/storage/backpack/marine/radiopack = 5,
 		),
 		"Instruments" = list(
 			/obj/item/instrument/violin = -1,

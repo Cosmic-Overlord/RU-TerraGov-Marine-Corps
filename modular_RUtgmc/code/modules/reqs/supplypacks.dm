@@ -198,3 +198,11 @@
 	name = "Fulton extraction pack"
 	contains = list(/obj/item/fulton_extraction_pack)
 	cost = 50
+/datum/supply_packs/clothing/radio_pack
+	name = "Radio Operator Pack"
+	contains = list(/obj/item/storage/backpack/marine/radiopack)
+	cost = 20
+
+/datum/supply_packs/weapons/xray_gun
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
+	cost = 500
