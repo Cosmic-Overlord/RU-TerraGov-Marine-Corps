@@ -396,6 +396,7 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = -1,
 		))
+
 /obj/machinery/vending/weapon
 	products = list(
 		"Rifles" = list(
