@@ -730,6 +730,8 @@
 			/obj/item/compass = -1,
 			/obj/item/deployable_floodlight = 5,
 		),
+	)
+
 /obj/machinery/vending/MarineMed
 	products = list(
 		"Pill Packet" = list(
