@@ -159,6 +159,7 @@
 #include "code\game\objects\items\weapons\twohanded.dm"
 #include "code\game\objects\items\tools\soldering_tool.dm"
 #include "code\game\objects\items\radio\headset.dm"
+#include "code\game\objects\items\sheets\sheet_types.dm"
 #include "code\game\objects\items\reagent_containers\autoinjectors.dm"
 #include "code\game\objects\items\reagent_containers\glass\bottle.dm"
 #include "code\game\objects\machinery\mortar.dm"
@@ -195,3 +196,5 @@
 #include "code\modules\reagents\reactions\medical.dm"
 #include "code\datums\status_effects\debuffs.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\king\abilities_king.dm"
+#include "code\modules\requisitions\fulton.dm"
+#include "code\game\objects\structures\barricade.dm"
