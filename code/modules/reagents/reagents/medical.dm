@@ -94,12 +94,14 @@
 	overdose_threshold = REAGENTS_OVERDOSE*2
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL*2
 
+/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/paracetamol/on_mob_life(mob/living/L, metabolism)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 	L.heal_overall_damage(0.2*effect_str, 0.2*effect_str)
 	L.adjustToxLoss(-0.1*effect_str)
 	L.adjustStaminaLoss(-effect_str)
 	return ..()
+*/
 
 /datum/reagent/medicine/paracetamol/overdose_process(mob/living/L, metabolism)
 	L.hallucination = max(L.hallucination, 2)
@@ -309,8 +311,10 @@
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
+/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/dexalin/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(effect_str, TOX)
+*/
 
 /datum/reagent/medicine/dexalin/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 0, 2*effect_str)
@@ -470,11 +474,13 @@
 			L.adjustStaminaLoss(15*effect_str)
 	return ..()
 
+/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/synaptizine/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(effect_str, TOX)
 
 /datum/reagent/medicine/synaptizine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, effect_str, effect_str)
+*/
 
 /datum/reagent/medicine/synaptizine/on_mob_delete(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("The room spins as you start to come down off your stimulants!"))
@@ -547,6 +553,7 @@
 /datum/reagent/medicine/hyronalin/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, effect_str, effect_str)
 
+/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/arithrazine
 	name = "Arithrazine"
 	description = "Arithrazine is a component medicine capable of healing minor amounts of toxin poisoning."
@@ -567,6 +574,7 @@
 
 /datum/reagent/medicine/arithrazine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, effect_str, 2*effect_str)
+*/
 
 /datum/reagent/medicine/russian_red
 	name = "Russian Red"

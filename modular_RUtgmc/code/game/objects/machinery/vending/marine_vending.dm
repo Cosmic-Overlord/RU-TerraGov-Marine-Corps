@@ -308,3 +308,103 @@
 			/obj/item/clothing/shoes/white = -1,
 		),
 	)
+
+/obj/machinery/vending/MarineMed
+	products = list(
+		"Pill Packet" = list(
+			/obj/item/storage/pill_bottle/packet/bicaridine = -1,
+			/obj/item/storage/pill_bottle/packet/kelotane = -1,
+			/obj/item/storage/pill_bottle/packet/tramadol = -1,
+			/obj/item/storage/pill_bottle/packet/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/packet/dylovene = -1,
+			/obj/item/storage/pill_bottle/packet/paracetamol = -1,
+			/obj/item/storage/pill_bottle/packet/isotonic = -1,
+		),
+		"Auto Injector" = list(
+			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/kelotane = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/tramadol = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/dylovene = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/combat = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/isotonic = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = 30,
+			/obj/item/reagent_containers/hypospray/autoinjector/spaceacillin = 20,
+			/obj/item/reagent_containers/hypospray/autoinjector/hypervene = 20,
+			/obj/item/reagent_containers/hypospray/autoinjector/alkysine = 20,
+			/obj/item/reagent_containers/hypospray/autoinjector/imidazoline = 20,
+			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 10,
+			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = 20,
+			/obj/item/reagent_containers/hypospray/autoinjector/arithrazine = 30,
+			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 30,
+		),
+		"Heal Pack" = list(
+			/obj/item/stack/medical/heal_pack/gauze = -1,
+			/obj/item/stack/medical/heal_pack/ointment = -1,
+			/obj/item/stack/medical/splint = -1,
+			/obj/item/stack/medical/heal_pack/advanced/bruise_pack = 50,
+			/obj/item/stack/medical/heal_pack/advanced/burn_pack = 50,
+		),
+		"Misc" = list(
+			/obj/item/defibrillator = 8,
+			/obj/item/healthanalyzer = 16,
+			/obj/item/bodybag/cryobag = 24,
+		),
+	)
+
+/obj/machinery/vending/MarineMed/valhalla
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	products = list(
+		"Pill Packet" = list(
+			/obj/item/storage/pill_bottle/packet/bicaridine = -1,
+			/obj/item/storage/pill_bottle/packet/kelotane = -1,
+			/obj/item/storage/pill_bottle/packet/tramadol = -1,
+			/obj/item/storage/pill_bottle/packet/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/packet/dylovene = -1,
+			/obj/item/storage/pill_bottle/packet/paracetamol = -1,
+			/obj/item/storage/pill_bottle/packet/isotonic = -1,
+		),
+		"Auto Injector" = list(
+			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/kelotane = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/tramadol = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/dylovene = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/combat = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/isotonic = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/hypervene = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/alkysine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/imidazoline = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/arithrazine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = -1,
+		),
+		"Heal Pack" = list(
+			/obj/item/stack/medical/heal_pack/gauze = -1,
+			/obj/item/stack/medical/heal_pack/ointment = -1,
+			/obj/item/stack/medical/heal_pack/advanced/bruise_pack = -1,
+			/obj/item/stack/medical/heal_pack/advanced/burn_pack = -1,
+			/obj/item/stack/medical/splint = -1,
+		),
+		"Misc" = list(
+			/obj/item/healthanalyzer = -1,
+			/obj/item/healthanalyzer/gloves = -1,
+			/obj/item/bodybag/cryobag = -1,
+		),
+		"Valhalla" = list(
+			/obj/item/reagent_containers/hypospray/autoinjector/virilyth = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/roulettium = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/rezadone = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/spaceacillin = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/combat = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/neuraline = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = -1,
+		)
+	)
