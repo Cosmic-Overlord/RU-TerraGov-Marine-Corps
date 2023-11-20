@@ -442,8 +442,16 @@
 		return
 
 	var/obj/item/stack/sheet/metal/metal_sheets = I
+	/* ORIGINAL
 	if(obj_integrity >= max_integrity * 0.3)
 		return attempt_barricade_upgrade(I, user, params)
+	*/
+	//RUTGMC EDIT BEGIN
+	if(obj_integrity >= max_integrity * 0.3)
+		if(barricade_type == "metal")
+			return attempt_barricade_upgrade(I, user, params)
+		return
+	//RUTGMC EDIT END
 
 	if(metal_sheets.get_amount() < 2)
 		balloon_alert(user, "You need at least 2 metal")
