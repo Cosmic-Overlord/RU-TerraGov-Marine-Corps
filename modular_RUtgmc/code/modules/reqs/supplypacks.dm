@@ -195,9 +195,8 @@
 	cost = 890 //fuck you
 
 /datum/supply_packs/operations/fulton_extraction_pack
-	name = "Fulton extraction pack"
-	contains = list(/obj/item/fulton_extraction_pack)
 	cost = 50
+
 /datum/supply_packs/clothing/radio_pack
 	name = "Radio Operator Pack"
 	contains = list(/obj/item/storage/backpack/marine/radiopack)
