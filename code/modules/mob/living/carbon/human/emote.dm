@@ -153,6 +153,13 @@
 	emote_type = EMOTE_AUDIBLE
 
 
+/datum/emote/living/carbon/human/giggle/get_sound(mob/living/user)
+	if(user.gender == FEMALE)
+		return 'sound/voice/human_female_giggle_1.ogg'
+	else
+		return 'sound/voice/human_male_giggle_1.ogg'
+
+
 /datum/emote/living/carbon/human/glare
 	key = "glare"
 	key_third_person = "glares"
