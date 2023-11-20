@@ -61,11 +61,11 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/datum/action/xeno_action/fling = X.actions_by_path[/datum/action/xeno_action/activable/psychic_fling]
 	if(fling)
-		fling.add_cooldown()
+		fling.add_cooldown(3 SECONDS)
 
 /datum/action/xeno_action/activable/psychic_fling/use_ability(atom/target)
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
 	var/datum/action/xeno_action/grab = X.actions_by_path[/datum/action/xeno_action/activable/psychic_grab]
 	if(grab)
-		grab.add_cooldown()
+		grab.add_cooldown(3 SECONDS)
