@@ -77,3 +77,5 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine
 	burst_delay = 0.6 SECONDS
 
+/obj/item/weapon/gun/energy/lasgun/lasrifle/xray
+	fire_delay = 0.4 SECONDS
