@@ -157,6 +157,7 @@
 #include "code\game\objects\items\storage\dispenser.dm"
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\twohanded.dm"
+#include "code\game\objects\items\tools\shovel_tools.dm"
 #include "code\game\objects\items\tools\soldering_tool.dm"
 #include "code\game\objects\items\radio\headset.dm"
 #include "code\game\objects\items\sheets\sheet_types.dm"
