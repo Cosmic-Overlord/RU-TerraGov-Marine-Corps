@@ -1935,4 +1935,6 @@
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
 #include "modular_RUtgmc\includes.dm"
+#include "modular_RUtgmc\code\modules\mob\living\carbon\human\emote.dm"
+#include "modular_RUtgmc\code\modules\mob\living\carbon\human\life\emote.dm"
 // END_INCLUDE
