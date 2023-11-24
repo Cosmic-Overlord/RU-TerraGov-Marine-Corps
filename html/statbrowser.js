@@ -362,7 +362,7 @@ function draw_status() {
 		}
 	}
 	if (verb_tabs.length == 0 || !verbs) {
-		Byond.command("fix_stat_panel"); // RUTGMC EDIT
+		Byond.command(".fix_stat_panel"); // RUTGMC EDIT
 		// Byond.command("Fix-Stat-Panel");
 	}
 }
