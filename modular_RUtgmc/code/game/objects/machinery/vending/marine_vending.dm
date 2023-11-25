@@ -527,6 +527,7 @@
 			/obj/item/bodybag/tarp = 10,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
+			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = 2,
 		),
 		"Heavy Weapons" = list(
@@ -665,6 +666,8 @@
 			/obj/item/ammo_magazine/rifle/bolt = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini = -1,
+			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
+			/obj/item/ammo_magazine/revolver/rifle = -1,
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -743,6 +746,7 @@
 			/obj/item/jetpack_marine = 3,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
+			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = 2,
 		),
 		"Attachments" = list(
