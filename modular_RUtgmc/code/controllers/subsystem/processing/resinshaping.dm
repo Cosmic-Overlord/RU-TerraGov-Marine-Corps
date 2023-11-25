@@ -64,3 +64,5 @@ SUBSYSTEM_DEF(resinshaping)
 	if(istype(structure, /obj/structure/bed/nest))
 		return TRUE
 	return FALSE
+
+#undef QUICKBUILD_STRUCTURES_PER_XENO
