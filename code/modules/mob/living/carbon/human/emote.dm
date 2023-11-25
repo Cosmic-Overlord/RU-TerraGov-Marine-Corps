@@ -87,6 +87,13 @@
 		return user.species.coughs[NEUTER]
 
 
+/datum/emote/living/carbon/human/moan
+	key = "moan"
+	key_third_person = "moans"
+	message = "moans!"
+	emote_type = EMOTE_AUDIBLE
+
+
 /datum/emote/living/carbon/human/cry
 	key = "cry"
 	key_third_person = "cries"
@@ -311,6 +318,27 @@
 	key_third_person = "kisses"
 	message = "blows a kiss."
 	message_param = "blows a kiss to %t."
+	emote_type = EMOTE_AUDIBLE
+
+
+/datum/emote/living/carbon/human/sigh
+	key = "sigh"
+	key_third_person = "sighs"
+	message = "sighs."
+	emote_type = EMOTE_AUDIBLE
+
+
+/datum/emote/living/carbon/human/giggle
+	key = "giggle"
+	key_third_person = "giggles"
+	message = "giggles."
+	emote_type = EMOTE_AUDIBLE
+
+
+/datum/emote/living/carbon/human/yawn
+	key = "yawn"
+	key_third_person = "yawns"
+	message = "yawns."
 	emote_type = EMOTE_AUDIBLE
 
 
