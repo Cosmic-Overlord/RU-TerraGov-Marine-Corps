@@ -66,19 +66,19 @@
 
 /datum/job/terragov/engineering/tech
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_INTERMEDIATE
 
 /datum/job/terragov/medical/medicalofficer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_INTERMEDIATE
 
 /datum/job/terragov/medical/researcher
 	exp_type = EXP_TYPE_MEDICAL
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_INTERMEDIATE
 
 /datum/job/terragov/command/pilot
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
 
 /datum/job/terragov/engineering/chief
 	exp_type = EXP_TYPE_ENGINEERING
@@ -86,7 +86,7 @@
 
 /datum/job/terragov/requisitions/officer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
 
 /datum/job/terragov/medical/professor
 	exp_type = EXP_TYPE_MEDICAL
@@ -98,7 +98,7 @@
 
 /datum/job/terragov/silicon/ai
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
 
 /datum/job/terragov/command/fieldcommander
 	exp_type = EXP_TYPE_MARINES
@@ -110,7 +110,7 @@
 
 /datum/job/terragov/silicon/synthetic
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_EXPERT
 
 /datum/job/terragov/command/captain
 	exp_type = EXP_TYPE_REGULAR_ALL
@@ -118,4 +118,4 @@
 
 /datum/job/terragov/command/staffofficer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
