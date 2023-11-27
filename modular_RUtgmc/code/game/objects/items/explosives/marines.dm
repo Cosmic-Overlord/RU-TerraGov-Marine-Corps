@@ -33,6 +33,12 @@
 	burn_level = 50
 	fire_color = "blue"
 
+/obj/item/explosive/grenade/phosphorus/activate(mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
+	user?.record_war_crime()
+
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/prime()
 	flame_radius(0.5, get_turf(src), colour = "blue")
 	playsound(loc, "incendiary_explosion", 35)
