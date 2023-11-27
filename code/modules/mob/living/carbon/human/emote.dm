@@ -87,13 +87,6 @@
 		return user.species.coughs[NEUTER]
 
 
-/datum/emote/living/carbon/human/moan
-	key = "moan"
-	key_third_person = "moans"
-	message = "moans!"
-	emote_type = EMOTE_AUDIBLE
-
-
 /datum/emote/living/carbon/human/cry
 	key = "cry"
 	key_third_person = "cries"
@@ -147,12 +140,25 @@
 	if(user.species.gasps[NEUTER])
 		return user.species.gasps[NEUTER]
 
+/datum/emote/living/carbon/human/giggle
+	key = "giggle"
+	key_third_person = "giggle"
+	message = "giggles."
+	emote_type = EMOTE_AUDIBLE
+
 
 /datum/emote/living/carbon/human/glare
 	key = "glare"
 	key_third_person = "glares"
 	message = "glares."
 	message_param = "glares at %t."
+	emote_type = EMOTE_AUDIBLE
+
+
+/datum/emote/living/carbon/human/yawn
+	key = "yawn"
+	key_third_person = "yawns"
+	message = "yawns."
 	emote_type = EMOTE_AUDIBLE
 
 
@@ -248,6 +254,13 @@
 	emote_type = EMOTE_AUDIBLE
 
 
+/datum/emote/living/carbon/human/sigh
+	key = "sigh"
+	key_third_person = "sighs"
+	message = "sighs."
+	emote_type = EMOTE_AUDIBLE
+
+
 /datum/emote/living/carbon/human/sit
 	key = "sit"
 	key_third_person = "sits"
@@ -321,27 +334,6 @@
 	emote_type = EMOTE_AUDIBLE
 
 
-/datum/emote/living/carbon/human/sigh
-	key = "sigh"
-	key_third_person = "sighs"
-	message = "sighs."
-	emote_type = EMOTE_AUDIBLE
-
-
-/datum/emote/living/carbon/human/giggle
-	key = "giggle"
-	key_third_person = "giggles"
-	message = "giggles."
-	emote_type = EMOTE_AUDIBLE
-
-
-/datum/emote/living/carbon/human/yawn
-	key = "yawn"
-	key_third_person = "yawns"
-	message = "yawns."
-	emote_type = EMOTE_AUDIBLE
-
-
 /datum/emote/living/carbon/human/signal
 	key = "signal"
 	key_third_person = "signals"
@@ -361,6 +353,13 @@
 	key = "mumble"
 	key_third_person = "mumbles"
 	message = "mumbles!"
+	emote_type = EMOTE_AUDIBLE
+
+
+/datum/emote/living/carbon/human/moan
+	key = "moan"
+	key_third_person = "moans"
+	message = "moans!"
 	emote_type = EMOTE_AUDIBLE
 
 
