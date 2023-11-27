@@ -33,7 +33,7 @@
 	burn_level = 50
 	fire_color = "blue"
 
-/obj/item/explosive/grenade/phosphorus/activate(mob/user)
+/obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
