@@ -142,7 +142,7 @@
 
 /datum/emote/living/carbon/human/giggle
 	key = "giggle"
-	key_third_person = "giggle"
+	key_third_person = "giggles"
 	message = "giggles."
 	emote_type = EMOTE_AUDIBLE
 
