@@ -592,6 +592,7 @@
 
 	icon_state = "[initial(icon_state)]_open"
 
+/* RUTGMC DELETION
 /obj/item/storage/box/visual/update_overlays()
 	. = ..()
 
@@ -634,6 +635,7 @@
 
 			. += image('icons/obj/items/items_mini.dmi', icon_state = initial(relateditem.icon_state_mini), pixel_x = imagepixel_x, pixel_y = imagepixel_y)
 			current_iteration++
+*/
 
 // --MAG BOXES--
 /obj/item/storage/box/visual/magazine
