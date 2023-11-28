@@ -89,10 +89,4 @@ SUBSYSTEM_DEF(resinshaping)
 			return TRUE
 		return FALSE
 
-/datum/controller/subsystem/resinshaping/proc/return_qp_value(mob/living/carbon/xenomorph/xenomorph)
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
-		get_building_points(xenomorph)
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
-		quickbuild_points_by_hive[xenomorph.get_xeno_hivenumber()]
-
 #undef QUICKBUILD_STRUCTURES_PER_XENO

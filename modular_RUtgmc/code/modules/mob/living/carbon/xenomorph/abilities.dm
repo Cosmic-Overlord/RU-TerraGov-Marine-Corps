@@ -23,10 +23,7 @@
 	var/mutable_appearance/build_maptext = mutable_appearance(icon = null,icon_state = null, layer = ACTION_LAYER_MAPTEXT)
 	build_maptext.pixel_x = 12
 	build_maptext.pixel_y = -5
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
-		build_maptext.maptext = MAPTEXT(SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
-		build_maptext.maptext = MAPTEXT(SSresinshaping.get_building_points(owner))
+	build_maptext.maptext = MAPTEXT(SSresinshaping.get_building_points(owner))
 	visual_references[VREF_MUTABLE_BUILDING_COUNTER] = build_maptext
 
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_resin_drag))
