@@ -220,6 +220,7 @@
 	UnregisterSignal(owner, list(COMSIG_MOB_MOUSEDRAG, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDOWN))
 	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LAUNCHED,COMSIG_GLOB_DROPPOD_LANDED))
 
+/* RUTGMC DELETION
 /// Extra handling for adding the action for draggin functionality (for instant building)
 /datum/action/xeno_action/activable/secrete_resin/give_action(mob/living/L)
 	. = ..()
@@ -236,6 +237,7 @@
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDRAG, PROC_REF(preshutter_resin_drag))
 	RegisterSignal(owner, COMSIG_MOB_MOUSEUP, PROC_REF(stop_resin_drag))
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LAUNCHED,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(end_resin_drag))
+*/
 
 /// Extra handling to remove the stuff needed for dragging
 /datum/action/xeno_action/activable/secrete_resin/remove_action(mob/living/carbon/xenomorph/X)
@@ -246,6 +248,7 @@
 	update_button_icon() //reason for the double return ..() here is owner gets unassigned in one of the parent procs, so we can't call parent before unregistering signals here
 	return ..()
 
+/* RUTGMC DELETION
 /datum/action/xeno_action/activable/secrete_resin/update_button_icon()
 	var/mob/living/carbon/xenomorph/X = owner
 	var/atom/A = X.selected_resin
@@ -260,6 +263,7 @@
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
 		visual_references[VREF_MUTABLE_BUILDING_COUNTER] = null
 	return ..()
+*/
 
 /datum/action/xeno_action/activable/secrete_resin/action_activate()
 	//Left click on the secrete resin button opens up radial menu (new type of changing structures).
@@ -312,6 +316,7 @@
 
 	return (base_wait + scaling_wait - max(0, (scaling_wait * X.health / X.maxHealth))) * build_resin_modifier
 
+/* RUTGMC DELETION
 /// A version of build_resin with the plasma drain and distance checks removed.
 /datum/action/xeno_action/activable/secrete_resin/proc/preshutter_build_resin(turf/T)
 	if(!SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
@@ -352,7 +357,7 @@
 		new_resin = new X.selected_resin(T)
 	if(new_resin)
 		SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()]--
-
+*/
 
 /datum/action/xeno_action/activable/secrete_resin/proc/preshutter_resin_drag(datum/source, atom/src_object, atom/over_object, turf/src_location, turf/over_location, src_control, over_control, params)
 	SIGNAL_HANDLER

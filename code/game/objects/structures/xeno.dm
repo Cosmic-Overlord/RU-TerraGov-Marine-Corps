@@ -116,6 +116,7 @@
 
 	victim.next_move_slowdown += slow_amt
 
+/* RUTGMC DELETION
 /obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return FALSE
@@ -129,6 +130,7 @@
 		return
 
 	return ..()
+*/
 
 // Praetorian Sticky Resin spit uses this.
 /obj/alien/resin/sticky/thin
@@ -189,6 +191,7 @@
 	try_toggle_state(M)
 	return TRUE
 
+/* RUTGMC DELETION
 //clicking on resin doors attacks them, or opens them without harm intent
 /obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	var/turf/cur_loc = X.loc
@@ -207,6 +210,7 @@
 	if(do_after(X, 1 SECONDS, FALSE, src, BUSY_ICON_HOSTILE))
 		src.balloon_alert(X, "Destroyed")
 		qdel(src)
+*/
 
 /obj/structure/mineral_door/resin/flamer_fire_act(burnlevel)
 	take_damage(burnlevel * 2, BURN, FIRE)
