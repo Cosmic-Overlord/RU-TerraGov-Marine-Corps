@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(resinshaping)
 			return 0
 		return QUICKBUILD_STRUCTURES_PER_XENO - xeno_builds_counter[player_key]
 	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
-		quickbuild_points_by_hive[the_builder.get_xeno_hivenumber()]
+		return quickbuild_points_by_hive[the_builder.get_xeno_hivenumber()]
 
 /// Increments a mob buildings count , using their ckey.
 /datum/controller/subsystem/resinshaping/proc/increment_build_counter(mob/living/carbon/xenomorph/the_builder)
@@ -66,7 +66,6 @@ SUBSYSTEM_DEF(resinshaping)
 		total_structures_built--
 	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
 		quickbuild_points_by_hive[the_builder.hivenumber]++
-
 
 /// Returns a TRUE if a structure should be refunded and instant deconstructed , or false if not
 /datum/controller/subsystem/resinshaping/proc/should_refund(atom/structure, mob/living/carbon/xenomorph/the_demolisher)
