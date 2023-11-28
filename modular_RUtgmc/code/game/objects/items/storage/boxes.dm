@@ -30,7 +30,6 @@
 	new /obj/item/attachable/t500barrel(src)
 	new /obj/item/weapon/gun/revolver/t500(src)
 
-
 /obj/item/storage/box/visual
 	icon = 'modular_RUtgmc/icons/obj/items/storage/storage_boxes.dmi'
 
