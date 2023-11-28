@@ -153,6 +153,7 @@
 #include "code\modules\shuttle\marine_dropship.dm"
 #include "code\modules\projectiles\gun_attachables.dm"
 #include "code\game\objects\items\explosives\bombvest.dm"
+#include "code\game\objects\items\explosives\marines.dm"
 #include "code\game\objects\items\misc.dm"
 #include "code\game\objects\items\storage\backpack.dm"
 #include "code\game\objects\items\storage\belt.dm"
