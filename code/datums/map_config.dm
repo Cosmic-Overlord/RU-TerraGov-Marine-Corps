@@ -21,7 +21,7 @@
 	var/space_empty_levels = 1
 	var/list/environment_traits = list()
 	var/armor_style = "default"
-	// var/quickbuilds = 1000 // RUTGMC DELETION
+	var/quickbuilds = 1000
 	var/list/gamemodes = list()
 
 	var/allow_custom_shuttles = TRUE
@@ -154,10 +154,9 @@
 	if(json["armor"])
 		armor_style = json["armor"]
 
-/* RUTGMC DELETION
 	if(json["quickbuilds"])
 		quickbuilds = json["quickbuilds"]
-*/
+
 
 	if(islist(json["environment_traits"]))
 		environment_traits = json["environment_traits"]

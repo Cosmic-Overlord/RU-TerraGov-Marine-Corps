@@ -23,7 +23,10 @@
 	var/mutable_appearance/build_maptext = mutable_appearance(icon = null,icon_state = null, layer = ACTION_LAYER_MAPTEXT)
 	build_maptext.pixel_x = 12
 	build_maptext.pixel_y = -5
-	build_maptext.maptext = MAPTEXT(SSresinshaping.get_building_points(owner))
+	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
+		build_maptext.maptext = MAPTEXT(SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
+	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
+		build_maptext.maptext = MAPTEXT(SSresinshaping.get_building_points(owner))
 	visual_references[VREF_MUTABLE_BUILDING_COUNTER] = build_maptext
 
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_resin_drag))
@@ -53,20 +56,6 @@
 		visual_references[VREF_MUTABLE_BUILDING_COUNTER] = null
 	return ..()
 
-/datum/action/xeno_action/activable/secrete_resin/preshutter_build_resin(turf/T)
-	for(var/mob/living/carbon/human AS in cheap_get_humans_near(T, 7))
-		if(human.client && human.stat != DEAD)
-			owner.balloon_alert(owner, "Somebody humanlike is alive nearby!")
-			return
-
-	var/mob/living/carbon/xenomorph/X = owner
-	if(X.selected_resin == /obj/structure/bed/nest)
-		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
-			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
-			return
-
-	return ..()
-
 /datum/action/xeno_action/activable/secrete_resin/build_resin(turf/T)
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.selected_resin == /obj/structure/bed/nest)
@@ -78,9 +67,14 @@
 
 /// A version of build_resin with the plasma drain and distance checks removed.
 /datum/action/xeno_action/activable/secrete_resin/proc/preshutter_build_resin(turf/T)
-	if(!SSresinshaping.get_building_points(owner))
+
+	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS && !SSresinshaping.get_building_points(owner))
 		owner.balloon_alert(owner, "You have used all your quick-build points! Wait until the marines have landed!")
 		return
+	if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS && !SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
+		owner.balloon_alert(owner, "The hive has ran out of quickbuilding points! Wait until more sisters awaken or the marines land!")
+		return
+
 	var/mob/living/carbon/xenomorph/X = owner
 	switch(is_valid_for_resin_structure(T, X.selected_resin == /obj/structure/mineral_door/resin))
 		if(ERROR_CANT_WEED)
@@ -106,6 +100,17 @@
 			return
 		if(ERROR_JUST_NO)
 			return
+
+	for(var/mob/living/carbon/human AS in cheap_get_humans_near(T, 7))
+		if(human.client && human.stat != DEAD)
+			owner.balloon_alert(owner, "Somebody humanlike is alive nearby!")
+			return
+
+	if(X.selected_resin == /obj/structure/bed/nest)
+		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
+			owner.balloon_alert(owner, span_notice("Another nest is too close!"))
+			return
+
 	var/atom/new_resin
 	if(ispath(X.selected_resin, /turf)) // We should change turfs, not spawn them in directly
 		var/list/baseturfs = islist(T.baseturfs) ? T.baseturfs : list(T.baseturfs)

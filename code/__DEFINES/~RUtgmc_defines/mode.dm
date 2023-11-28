@@ -1,3 +1,6 @@
+#define MODE_GENERAL_QUICKBUILD_POINTS (1<<15)
+#define MODE_PERSONAL_QUICKBUILD_POINTS (1<<16)
+
 #define MAX_FACEHUGGERS 5
 
 //Time (after shutters open) before siloless timer can start
