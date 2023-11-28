@@ -157,7 +157,6 @@
 	if(json["quickbuilds"])
 		quickbuilds = json["quickbuilds"]
 
-
 	if(islist(json["environment_traits"]))
 		environment_traits = json["environment_traits"]
 	else if(!isnull(json["environment_traits"]))
