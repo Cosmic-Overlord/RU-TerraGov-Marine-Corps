@@ -29,11 +29,6 @@
 	. = ..()
 	AddComponent(/datum/component/harvester)
 
-/datum/supply_packs/weapons/valihalberd
-	name = "VAL-HAL-A"
-	contains = list(/obj/item/weapon/twohanded/glaive/halberd/harvester)
-	cost = 600
-
 // Stuff which should ideally be in /twohanded code
 ///////////////////////////////////////////////////
 

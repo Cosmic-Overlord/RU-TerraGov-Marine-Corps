@@ -75,7 +75,8 @@
 	radial_icon = 'modular_RUtgmc/icons/mob/radial.dmi'
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine
-	burst_delay = 0.6 SECONDS
+	autoburst_delay = 1.3 SECONDS
+	akimbo_additional_delay = 2
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/xray
 	fire_delay = 0.4 SECONDS
