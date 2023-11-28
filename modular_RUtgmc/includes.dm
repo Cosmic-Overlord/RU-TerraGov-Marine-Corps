@@ -137,6 +137,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\wraith.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\abilities_wraith.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\castedatum_wraith.dm"
+#include "code\modules\mob\living\silicon\ai\ai.dm"
 #include "code\modules\organs\limb_objects.dm"
 #include "code\modules\projectiles\projectile.dm"
 #include "code\modules\vehicles\powerloader.dm"
