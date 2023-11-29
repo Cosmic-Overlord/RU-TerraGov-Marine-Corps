@@ -24,3 +24,7 @@
 /obj/effect/landmark/start/latejoin_squad/delta
 	icon_state = "marine_spawn_delta_late"
 	squad = DELTA_SQUAD
+
+/obj/effect/landmark/start/latejoin_squad/foreign
+	icon_state = "marine_spawn_foreign_late"	// Логично что никакого икон-стейта не существует...
+	squad = FOREIGN_SQUAD

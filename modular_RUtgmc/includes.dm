@@ -209,3 +209,13 @@
 #include "code\modules\requisitions\fulton.dm"
 #include "code\game\objects\structures\barricade.dm"
 #include "code\datums\keybinding\xeno.dm"
+#include "code\__DEFINES\_radio.dm" // Отсюда потом делать корректировки.
+#include "code\__DEFINES\access.dm"
+#include "code\__DEFINES\misc.dm"
+#include "code\__DEFINES\mobs.dm"
+#include "code\__DEFINES\preferences.dm"
+#include "code\datums\datacore.dm"
+#include "code\datums\jobs\access.dm"
+#include "code\datums\jobs\job\sonsofmars.dm"
+#include "code\game\area\mainship.dm"
+#include "code\game\communications.dm"
