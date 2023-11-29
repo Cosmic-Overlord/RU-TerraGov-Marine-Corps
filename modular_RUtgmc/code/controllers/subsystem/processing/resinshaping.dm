@@ -28,9 +28,8 @@ SUBSYSTEM_DEF(resinshaping)
 
 /datum/controller/subsystem/resinshaping/Initialize()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LAUNCHED,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(toggle_off))
-	if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
-		for(var/hivenumber in GLOB.hive_datums)
-			quickbuild_points_by_hive[hivenumber] = SSmapping.configs[GROUND_MAP].quickbuilds
+	for(var/hivenumber in GLOB.hive_datums)
+		quickbuild_points_by_hive[hivenumber] = SSmapping.configs[GROUND_MAP].quickbuilds
 	return SS_INIT_SUCCESS
 
 /// Retrieves a mob's building points using their ckey. Only works for mobs with clients.
