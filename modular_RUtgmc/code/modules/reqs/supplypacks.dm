@@ -149,12 +149,6 @@ WEAPONS
 EXPLOSIVES
 *******************************************************************************/
 
-/datum/supply_packs/explosives/explosives_trailblazer_phosphorus
-	name = "M45 Phosphorous trailblazer grenade box crate"
-	notes = "Contains 25 grenades"
-	contains = list(/obj/item/storage/box/visual/grenade/trailblazer/phosphorus)
-	cost = 600
-
 /datum/supply_packs/explosives/knee_mortar
 	name = "T-10K Knee Mortar"
 	contains = list(/obj/item/mortar_kit/knee)
@@ -165,6 +159,12 @@ EXPLOSIVES
 	contains = list(/obj/item/mortal_shell/knee, /obj/item/mortal_shell/knee)
 	cost = 5
 	available_against_xeno_only = TRUE
+
+/datum/supply_packs/explosives/explosives_trailblazer_phosphorus
+	name = "M45 Phosphorous trailblazer grenade box crate"
+	notes = "Contains 25 grenades"
+	contains = list(/obj/item/storage/box/visual/grenade/trailblazer/phosphorus)
+	cost = 600
 
 /*******************************************************************************
 ARMOR
