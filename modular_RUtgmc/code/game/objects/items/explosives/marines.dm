@@ -2,7 +2,7 @@
 	icon_state_mini = "grenade_sticky"
 
 /obj/item/explosive/grenade/sticky/trailblazer
-	icon_state_mini = "grenade_traleblazer"
+	icon_state_mini = "grenade_trailblazer"
 	var/fire_level = 25
 	var/burn_level = 25
 	var/fire_color = "red"
@@ -28,7 +28,7 @@
 	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
-	icon_state_mini = "grenade_traleblazer_phosphorus"
+	icon_state_mini = "grenade_trailblazer_phosphorus"
 	fire_level = 50
 	burn_level = 50
 	fire_color = "blue"
