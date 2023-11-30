@@ -16,9 +16,9 @@ SUBSYSTEM_DEF(resinshaping)
 	var/active = TRUE
 
 /datum/controller/subsystem/resinshaping/stat_entry()
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
+	if(SSticker.mode?.quickbuild_points_flags & MODE_PERSONAL_QUICKBUILD_POINTS)
 		return ..("BUILT=[total_structures_built] REFUNDED=[total_structures_refunded]")
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
+	else if(SSticker.mode?.quickbuild_points_flags & MODE_GENERAL_QUICKBUILD_POINTS)
 		return ..("QUICKBUILD POINTS (NORMAL HIVE)=[quickbuild_points_by_hive[XENO_HIVE_NORMAL]]")
 
 /datum/controller/subsystem/resinshaping/proc/toggle_off()
@@ -34,40 +34,40 @@ SUBSYSTEM_DEF(resinshaping)
 
 /// Retrieves a mob's building points using their ckey. Only works for mobs with clients.
 /datum/controller/subsystem/resinshaping/proc/get_building_points(mob/living/carbon/xenomorph/the_builder)
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
+	if(SSticker.mode?.quickbuild_points_flags & MODE_PERSONAL_QUICKBUILD_POINTS)
 		var/player_key = "[the_builder.client?.ckey]"
 		if(!player_key)
 			return 0
 		return QUICKBUILD_STRUCTURES_PER_XENO - xeno_builds_counter[player_key]
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
+	else if(SSticker.mode?.quickbuild_points_flags & MODE_GENERAL_QUICKBUILD_POINTS)
 		return quickbuild_points_by_hive[the_builder.get_xeno_hivenumber()]
 
 /// Increments a mob buildings count , using their ckey.
 /datum/controller/subsystem/resinshaping/proc/increment_build_counter(mob/living/carbon/xenomorph/the_builder)
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
+	if(SSticker.mode?.quickbuild_points_flags & MODE_PERSONAL_QUICKBUILD_POINTS)
 		var/player_key = "[the_builder.client?.ckey]"
 		if(!player_key)
 			return
 		xeno_builds_counter[player_key]++
 		total_structures_built++
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
+	else if(SSticker.mode?.quickbuild_points_flags & MODE_GENERAL_QUICKBUILD_POINTS)
 		quickbuild_points_by_hive[the_builder.get_xeno_hivenumber()]--
 
 /// Decrements a mob buildings count , using their ckey.
 /datum/controller/subsystem/resinshaping/proc/decrement_build_counter(mob/living/carbon/xenomorph/the_builder)
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
+	if(SSticker.mode?.quickbuild_points_flags & MODE_PERSONAL_QUICKBUILD_POINTS)
 		var/player_key = "[the_builder.client?.ckey]"
 		if(!player_key)
 			return 0
 		xeno_builds_counter[player_key]--
 		total_structures_refunded++
 		total_structures_built--
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
+	else if(SSticker.mode?.quickbuild_points_flags & MODE_GENERAL_QUICKBUILD_POINTS)
 		quickbuild_points_by_hive[the_builder.hivenumber]++
 
 /// Returns a TRUE if a structure should be refunded and instant deconstructed , or false if not
 /datum/controller/subsystem/resinshaping/proc/should_refund(atom/structure, mob/living/carbon/xenomorph/the_demolisher)
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS)
+	if(SSticker.mode?.quickbuild_points_flags & MODE_PERSONAL_QUICKBUILD_POINTS)
 		var/player_key = "[the_demolisher.client?.ckey]"
 		// could be a AI mob thats demolishing without a player key.
 		if(!player_key || !active)
@@ -81,7 +81,7 @@ SUBSYSTEM_DEF(resinshaping)
 		if(istype(structure, /obj/structure/bed/nest))
 			return TRUE
 		return FALSE
-	else if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS)
+	else if(SSticker.mode?.quickbuild_points_flags & MODE_GENERAL_QUICKBUILD_POINTS)
 		if(active)
 			return TRUE
 		return FALSE

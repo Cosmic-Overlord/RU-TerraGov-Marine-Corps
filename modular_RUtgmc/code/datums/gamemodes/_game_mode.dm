@@ -1,3 +1,6 @@
+/datum/game_mode
+	var/quickbuild_points_flags = NONE
+
 /datum/game_mode/post_setup()
 	if(flags_round_type & MODE_SILO_RESPAWN)
 		var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]
