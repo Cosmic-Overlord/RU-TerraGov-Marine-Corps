@@ -12,7 +12,7 @@
 	if(X.a_intent != INTENT_HARM)
 		try_toggle_state(X)
 		return TRUE
-	if(CHECK_BITFIELD(SSticker.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
 		SSresinshaping.decrement_build_counter(X)
 		qdel(src)
 		return TRUE
@@ -72,7 +72,7 @@
 		return FALSE
 
 	if(X.a_intent == INTENT_HARM)
-		if(CHECK_BITFIELD(SSticker.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
+		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
 			SSresinshaping.decrement_build_counter(X)
 		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		playsound(src, "alien_resin_break", 25)
