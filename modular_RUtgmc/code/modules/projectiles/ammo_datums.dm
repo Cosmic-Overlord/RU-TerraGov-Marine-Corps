@@ -174,6 +174,3 @@
 
 /datum/ammo/energy/lasgun/marine/xray
 	debuff_stacks = 2
-
-/datum/ammo/xeno/acid/heavy/praetorian
-	damage = 33
