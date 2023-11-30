@@ -17,7 +17,7 @@
 /// Extra handling for adding the action for draggin functionality (for instant building)
 /datum/action/xeno_action/activable/secrete_resin/give_action(mob/living/L)
 	. = ..()
-	if(!(CHECK_BITFIELD(SSticker?.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active))
+	if(!(CHECK_BITFIELD(SSticker?.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) || !SSresinshaping.active))
 		return
 
 	var/mutable_appearance/build_maptext = mutable_appearance(icon = null,icon_state = null, layer = ACTION_LAYER_MAPTEXT)
@@ -64,6 +64,10 @@
 
 /// A version of build_resin with the plasma drain and distance checks removed.
 /datum/action/xeno_action/activable/secrete_resin/proc/preshutter_build_resin(turf/T)
+	if(!SSresinshaping.active)
+		stack_trace("[owner] ([key_name(owner)]) didn't have their quickbuild signals unregistered properly and tried using quickbuild after the subsystem was off!")
+		end_resin_drag()
+		return
 
 	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS && !SSresinshaping.get_building_points(owner))
 		owner.balloon_alert(owner, "You have used all your quick-build points! Wait until the marines have landed!")
