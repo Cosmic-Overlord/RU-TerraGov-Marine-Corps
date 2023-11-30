@@ -717,6 +717,13 @@
 	keybind_signal = COMSIG_XENOABILITY_EVASIVE_MANEUVERS
 	hotkey_keys = list("Q")
 
+/datum/keybinding/xeno/acidic_walk
+	name = "Acidic Walk"
+	full_name = "Praetorian: Acidic Walk"
+	description = "sasas"
+	keybind_signal = COMSIG_XENOABILITY_ACIDIC_WALK
+	hotkey_keys = list("X")
+
 //RUTGMC EDIT END
 
 /datum/keybinding/xeno/acid_dash
