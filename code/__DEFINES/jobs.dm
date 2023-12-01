@@ -141,10 +141,10 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define CRYO_DELTA "Delta Squad"
 
 
-#define XP_REQ_UNSEASONED 300 //RuTGMC Edit 60 > 300
-#define XP_REQ_INTERMEDIATE 600 //RuTGMC Edit 180 > 600
-#define XP_REQ_EXPERIENCED 1200 //RuTGMC Edit 600 > 1200
-#define XP_REQ_EXPERT 2400 //RuTGMC Edit 900 > 2400
+#define XP_REQ_UNSEASONED 600 //RuTGMC Edit 60
+#define XP_REQ_INTERMEDIATE 1200 //RuTGMC Edit 180
+#define XP_REQ_EXPERIENCED 2400 //RuTGMC Edit 600
+#define XP_REQ_EXPERT 3600 //RuTGMC Edit 900
 
 // how much a job is going to contribute towards burrowed larva. see config for points required to larva. old balance was 1 larva per 3 humans.
 #define LARVA_POINTS_SHIPSIDE 1

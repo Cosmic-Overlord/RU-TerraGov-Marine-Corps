@@ -90,6 +90,7 @@
 /obj/item/weapon/gun/rifle/standard_skirmishrifle
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
+		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap,
 		)
 

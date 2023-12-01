@@ -112,3 +112,10 @@
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/mercsword/officersword/sabre(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
+
+/obj/item/storage/holster/belt
+	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
+	item_icons = list(
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
+		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
+	)
