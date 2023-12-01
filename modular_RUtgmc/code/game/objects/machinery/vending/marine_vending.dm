@@ -527,6 +527,7 @@
 			/obj/item/bodybag/tarp = 10,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
+			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = 2,
 		),
 		"Heavy Weapons" = list(
@@ -743,6 +744,7 @@
 			/obj/item/jetpack_marine = 3,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
+			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = 2,
 		),
 		"Attachments" = list(
