@@ -73,6 +73,7 @@
 #include "code\modules\mob\living\carbon\human\species.dm"
 #include "code\modules\mob\living\carbon\human\zombie.dm"
 #include "code\modules\mob\living\carbon\xenomorph\abilities.dm"
+#include "code\modules\mob\living\carbon\human\emote.dm"
 #include "code\modules\mob\living\carbon\xenomorph\attack_alien.dm"
 #include "code\modules\mob\living\carbon\xenomorph\death.dm"
 #include "code\modules\mob\living\carbon\xenomorph\egg.dm"
