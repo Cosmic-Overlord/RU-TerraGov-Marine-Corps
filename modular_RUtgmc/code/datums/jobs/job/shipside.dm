@@ -107,6 +107,7 @@
 /datum/job/terragov/command/mech_pilot
 	exp_type = EXP_TYPE_MARINES
 	exp_requirements = XP_REQ_EXPERIENCED
+	job_points_needed = 30
 
 /datum/job/terragov/silicon/synthetic
 	exp_type = EXP_TYPE_REGULAR_ALL
