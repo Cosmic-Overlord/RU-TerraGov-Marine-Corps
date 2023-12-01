@@ -720,7 +720,7 @@
 /datum/keybinding/xeno/acidic_walk
 	name = "Acidic Walk"
 	full_name = "Praetorian: Acidic Walk"
-	description = "sasas"
+	description = "When you walk, you leave a long acid trail behind you."
 	keybind_signal = COMSIG_XENOABILITY_ACIDIC_WALK
 	hotkey_keys = list("X")
 
