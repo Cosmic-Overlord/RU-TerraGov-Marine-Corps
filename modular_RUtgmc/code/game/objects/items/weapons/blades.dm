@@ -79,7 +79,7 @@
 	)
 	icon_state = "rapier"
 	item_state = "rapier"
-	force = 35
+	force = 45
 	attack_speed = 5
 
 /obj/item/weapon/claymore/mercsword/officersword/valirapier/Initialize(mapload)

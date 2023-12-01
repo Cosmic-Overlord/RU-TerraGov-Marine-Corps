@@ -382,6 +382,7 @@ Contains most of the procs that are called when a mob is attacked by something
 		adjust_ear_damage(deaf = stun_duration)  //Deafens them temporarily
 	//Perception distorting effects of the psychic scream*
 
+/* RUTGMC DELETION, moved to the same modular file.
 /mob/living/carbon/human/attackby(obj/item/I, mob/living/user, params)
 	if(stat != DEAD || I.sharp < IS_SHARP_ITEM_ACCURATE || user.a_intent != INTENT_HARM)
 		return ..()
@@ -405,6 +406,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	user.put_in_hands(heart)
 	chestburst = 2
 	update_burst()
+*/
 
 /mob/living/carbon/human/welder_act(mob/living/user, obj/item/I)
 	. = ..()

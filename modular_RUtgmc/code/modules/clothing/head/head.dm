@@ -26,6 +26,9 @@
 	name = "\improper Foreign Legion headband"
 	icon_state = "flsquadhb"
 
+/obj/item/clothing/head/tgmcberet
+	species_exception = list(/datum/species/robot)
+
 /obj/item/clothing/head/tgmcberet/squad
 	name = "\improper Charlie squad beret"
 	icon_state = "csberet"
@@ -210,6 +213,7 @@
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
 	flags_inventory = BLOCKSHARPOBJ
 	flags_armor_features = ARMOR_NO_DECAP
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/highcap/staff
 	name = "staff officer's peaked cap"
@@ -223,3 +227,57 @@
 
 /obj/item/clothing/head/highcap/captain/black
 	icon_state = "captain_alt_black"
+
+/obj/item/clothing/head/slouch
+	icon_state = "slouch_hat"
+	item_icons = list(
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi',)
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/headband
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/beanie
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/tgmccap
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/boonie
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/ornamented_cap
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/headset
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/cmo
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/ushanka
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/bearpelt
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/uppcap
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/frelancer
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/militia
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/admiral
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/commissar
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/strawhat
+	species_exception = list(/datum/species/robot)
+
+
+
