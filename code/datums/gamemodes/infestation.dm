@@ -60,7 +60,7 @@
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
 		to_chat(bioscanning_ai, span_warning("Scanning for hostile lifeforms..."))
-		if(!do_after(usr, AI_SCAN_DELAY, TRUE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
+		if(!do_after(usr, AI_SCAN_DELAY, NONE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
 			bioscanning_ai.last_ai_bioscan = 0
 			return
 
@@ -295,9 +295,9 @@
 /datum/game_mode/infestation/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
 
-/datum/game_mode/infestation/attempt_to_join_as_larva(mob/dead/observer/observer)
+/datum/game_mode/infestation/attempt_to_join_as_larva(client/waiter)
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
-	return HS.add_to_larva_candidate_queue(observer)
+	return HS.add_to_larva_candidate_queue(waiter)
 
 
 /datum/game_mode/infestation/spawn_larva(mob/xeno_candidate, mob/living/carbon/xenomorph/mother)
