@@ -35,10 +35,10 @@
 	minimap_icon = "facehugger"
 
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/xenohide,
-		/datum/action/xeno_action/activable/pounce_hugger,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/activable/xeno/pounce_hugger,
 	)
 
 	// *** Vent Crawl Parameters *** //

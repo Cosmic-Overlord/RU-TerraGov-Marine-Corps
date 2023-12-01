@@ -226,7 +226,6 @@
 	if(SSinput.initialized)
 		set_macros()
 
-	nuke_chat() //RuTGMC edit - Forced TGUI chat reload
 
 	// Initialize tgui panel
 	tgui_panel.initialize()

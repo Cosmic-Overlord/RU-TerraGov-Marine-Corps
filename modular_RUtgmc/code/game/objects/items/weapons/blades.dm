@@ -48,8 +48,8 @@
 		force = 35
 		to_chat(user, span_warning("You try to figure out how to wield [src]..."))
 		if(prob(40))
-			if(CHECK_BITFIELD(flags_item,NODROP))
-				TOGGLE_BITFIELD(flags_item, NODROP)
+			if(HAS_TRAIT_FROM(src, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT))
+				REMOVE_TRAIT(src, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT)
 			user.drop_held_item(src)
 			to_chat(user, span_warning("[src] slipped out of your hands!"))
 			playsound(src.loc, 'sound/misc/slip.ogg', 25, 1)

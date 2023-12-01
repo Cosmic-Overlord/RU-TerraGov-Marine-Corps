@@ -171,6 +171,3 @@
 	if(T.density)
 		return
 	new /obj/effect/xenomorph/spray/weak(T, puddle_duration, puddle_acid_damage)
-
-/datum/ammo/energy/lasgun/marine/xray
-	debuff_stacks = 2
