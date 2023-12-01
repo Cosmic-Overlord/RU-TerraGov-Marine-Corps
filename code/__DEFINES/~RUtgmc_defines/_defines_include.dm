@@ -12,3 +12,4 @@
 #include "dsc\signals.dm"
 #include "calibers.dm"
 #include "skills.dm"
+#include "loadout.dm"

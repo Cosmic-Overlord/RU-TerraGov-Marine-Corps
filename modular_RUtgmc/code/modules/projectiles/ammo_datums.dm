@@ -38,7 +38,8 @@
 
 /datum/ammo/bullet/revolver/t500
 	name = ".500 Nigro Express revolver bullet"
-	handful_icon_state = "nigro"
+	icon_state = "nigro"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
 	handful_amount = 5
 	damage = 100
 	penetration = 40
@@ -49,7 +50,8 @@
 
 /datum/ammo/bullet/revolver/t500/qk
 	name = ".500 'Queen Killer' revolver bullet"
-	handful_icon_state = "nigro_qk"
+	icon_state = "nigro_qk"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
 	handful_amount = 5
 	damage = 100
 	penetration = 40
@@ -58,7 +60,7 @@
 /datum/ammo/bullet/revolver/t500/qk/on_hit_mob(mob/M,obj/projectile/P)
 	if(isxenoqueen(M))
 		var/mob/living/carbon/xenomorph/X = M
-		X.apply_damage(30)
+		X.apply_damage(40)
 		staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 0)
 		to_chat(X, span_highdanger("Something burn inside you!"))
 		return

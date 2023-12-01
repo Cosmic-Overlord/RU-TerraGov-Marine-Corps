@@ -72,7 +72,7 @@
 	custom_metabolism = 0.25 //u
 	overdose_threshold = REAGENTS_OVERDOSE/15 //1u
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/25 //2u
-	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium, /datum/reagent/medicine/ryetalyn) //Nu-uh
+	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium, /datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/synaptizine) //Nu-uh
 	purge_rate = 8
 	scannable = TRUE
 
