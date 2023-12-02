@@ -123,7 +123,11 @@
 	if(ishuman(shaker))
 		var/mob/living/carbon/human/shaker_human = shaker
 		shaker_human.species.hug(shaker_human, src)
+		//RUTGMC EDIT REMOVAL BEGIN - INTERACTIONS - playsound moved to modular_RUtgmc\code\modules\mob\living\carbon\human\species.dm (/datum/species/hug)
+		/*
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 5)
+		*/
+		//RUTGMC EDIT REMOVAL END
 		return
 
 	shaker.visible_message(span_notice("[shaker] hugs [src] to make [p_them()] feel better!"),

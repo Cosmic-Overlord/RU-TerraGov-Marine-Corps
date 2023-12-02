@@ -17,3 +17,10 @@
 #define HIVE_CAN_COLLAPSE_FROM_SILO (1<<1)
 #define XENO_WEAK_ACID_PUDDLE_DAMAGE 8 //Weak acid damage dealt by acid puddles
 #define XENO_HIGH_ACID_PUDDLE_DAMAGE 20 //Strong acid damage dealt by acid puddles
+
+//emote flags
+#define EMOTING_HIGH_FIVE (1<<0)
+#define EMOTING_FIST_BUMP (1<<1)
+#define EMOTING_HEADBUTT (1<<2)
+#define EMOTING_TAIL_SWIPE (1<<3)
+#define EMOTING_ROCK_PAPER_SCISSORS (1<<4)
