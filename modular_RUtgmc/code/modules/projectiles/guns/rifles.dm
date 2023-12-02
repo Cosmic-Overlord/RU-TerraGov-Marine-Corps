@@ -60,6 +60,14 @@
 //AR-18 Carbine
 
 /obj/item/weapon/gun/rifle/standard_carbine
+	icon_state = "t18"
+	item_state = "t18"
+	greyscale_config = null
+	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_carbine,
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
