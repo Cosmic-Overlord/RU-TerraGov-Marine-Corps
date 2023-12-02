@@ -69,6 +69,7 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/xeno_action/set_xeno_lead,
 		/datum/action/ability/activable/xeno/queen_give_plasma,
+		/datum/action/ability/xeno_action/sow,
 		/datum/action/ability/xeno_action/hive_message,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/rally_hive,

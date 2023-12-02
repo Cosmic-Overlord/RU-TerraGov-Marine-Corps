@@ -49,6 +49,7 @@
 		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
+		/datum/action/ability/xeno_action/sow,
 		/datum/action/ability/xeno_action/psychic_whisper,
 		/datum/action/ability/activable/xeno/psychic_fling,
 		/datum/action/ability/activable/xeno/unrelenting_force,

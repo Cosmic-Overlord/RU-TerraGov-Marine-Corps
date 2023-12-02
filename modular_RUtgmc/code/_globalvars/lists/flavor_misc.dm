@@ -1,4 +1,5 @@
 GLOBAL_LIST_INIT(playable_icons, list(
+	"behemoth",
 	"boiler",
 	"bull",
 	"baneling",
@@ -26,6 +27,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"pilot",
 	"praetorian",
 	"private",
+	"puppeteer",
 	"ravager",
 	"requisition",
 	"researcher",
