@@ -212,3 +212,4 @@
 #include "code\modules\requisitions\fulton.dm"
 #include "code\game\objects\structures\barricade.dm"
 #include "code\datums\keybinding\xeno.dm"
+#include "code\game\turfs\snow.dm"
