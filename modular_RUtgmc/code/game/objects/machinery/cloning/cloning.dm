@@ -4,5 +4,5 @@
 		return FALSE
 	if(tgui_alert(user, "Do you want to become a clone?", "Become a clone", list("Yes", "No")) != "Yes")
 		return FALSE
-	occupant.transfer_mob(user)
+	occupant.take_over(user)
 	return TRUE
