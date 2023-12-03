@@ -104,6 +104,8 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	SHOULD_CALL_PARENT(TRUE)
 	SSpoints.xeno_points_by_hive[buyer.hivenumber] -= psypoint_cost
 	times_bought++
+	if(buyer.status_flags & INCORPOREAL)
+		return FALSE
 	return TRUE
 
 /**
@@ -116,6 +118,8 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 /datum/hive_upgrade/proc/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	if((flags_upgrade & UPGRADE_FLAG_ONETIME) && times_bought)
+		return FALSE
+	if(buyer.status_flags & INCORPOREAL)
 		return FALSE
 	if(SSpoints.xeno_points_by_hive[buyer.hivenumber] < psypoint_cost)
 		if(!silent)
