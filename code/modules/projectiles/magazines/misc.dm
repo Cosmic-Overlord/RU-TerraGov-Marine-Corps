@@ -149,6 +149,7 @@
 	caliber = CALIBER_454
 	current_rounds = 42
 	max_rounds = 42
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/ammo_magazine/packet/acp
 	name = "packet of .45 ACP"
