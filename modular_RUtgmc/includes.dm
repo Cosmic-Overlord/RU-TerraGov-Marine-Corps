@@ -166,7 +166,6 @@
 #include "code\game\objects\items\storage\fancy.dm"
 #include "code\game\objects\items\weapons\blades.dm"
 #include "code\game\objects\items\weapons\harvester.dm"
-#include "code\game\objects\items\weapons\twohanded.dm"
 #include "code\game\objects\items\tools\cleaning_tools.dm"
 #include "code\game\objects\items\tools\soldering_tool.dm"
 #include "code\game\objects\items\radio\headset.dm"

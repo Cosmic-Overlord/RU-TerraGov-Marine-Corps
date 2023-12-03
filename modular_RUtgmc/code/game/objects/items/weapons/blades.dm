@@ -18,21 +18,6 @@
 /obj/item/weapon/claymore/mercsword/machete
 	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
 
-/obj/item/weapon/twohanded/spear/tactical/harvester
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
-	item_icons = list(
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/twohanded_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/twohanded_right.dmi',
-	)
-
-/obj/item/weapon/claymore/harvester
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
-	)
-
 /obj/item/weapon/claymore/mercsword/officersword
 	force = 80
 	attack_speed = 5
@@ -68,24 +53,6 @@
 /obj/item/weapon/claymore/mercsword/officersword/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/strappable)
-
-/obj/item/weapon/claymore/mercsword/officersword/valirapier
-	name = "\improper HP-C Harvester rapier"
-	desc = "Extremely expensive looking blade, with a golden handle and engravings, unexpectedly effective in combat, despite its ceremonial looks, compacted with a vali module."
-	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
-	)
-	icon_state = "rapier"
-	item_state = "rapier"
-	force = 45
-	attack_speed = 5
-
-/obj/item/weapon/claymore/mercsword/officersword/valirapier/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/harvester)
-	RemoveElement(/datum/element/strappable)
 
 /obj/item/weapon/claymore/mercsword/officersword/sabre
 	name = "\improper ceremonial officer sabre"
