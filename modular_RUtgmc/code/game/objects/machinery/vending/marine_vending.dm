@@ -216,8 +216,6 @@
 			/obj/item/clothing/head/tgmcberet/commando = -1,
 			/obj/item/clothing/head/beret/marine = -1,
 			/obj/item/clothing/head/tgmcberet = -1,
-			/obj/item/clothing/glasses/mgoggles = -1,
-			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Masks" = list(
 			/obj/item/clothing/mask/rebreather/scarf = -1,
@@ -272,6 +270,16 @@
 			/obj/item/clothing/head/serviceberet = -1,
 			/obj/item/clothing/head/servicecap = -1,
 		),
+		"Eyewear" = list(
+			/obj/item/clothing/glasses/regular = -1,
+			/obj/item/clothing/glasses/eyepatch = -1,
+			/obj/item/clothing/glasses/sunglasses/fake/big = -1,
+			/obj/item/clothing/glasses/sunglasses/fake/big/prescription = -1,
+			/obj/item/clothing/glasses/sunglasses/fake = -1,
+			/obj/item/clothing/glasses/sunglasses/fake/prescription = -1,
+			/obj/item/clothing/glasses/mgoggles = -1,
+			/obj/item/clothing/glasses/mgoggles/prescription = -1,
+		),
 	)
 
 /obj/machinery/vending/medical_uniform_supply
@@ -301,14 +309,15 @@
 
 /obj/machinery/vending/MarineMed
 	products = list(
-		"Pill Packet" = list(
-			/obj/item/storage/pill_bottle/packet/bicaridine = -1,
-			/obj/item/storage/pill_bottle/packet/kelotane = -1,
-			/obj/item/storage/pill_bottle/packet/tramadol = -1,
-			/obj/item/storage/pill_bottle/packet/tricordrazine = -1,
-			/obj/item/storage/pill_bottle/packet/dylovene = -1,
-			/obj/item/storage/pill_bottle/packet/paracetamol = -1,
-			/obj/item/storage/pill_bottle/packet/isotonic = -1,
+		"Pill Bottles" = list(
+			/obj/item/storage/pill_bottle/bicaridine = -1,
+			/obj/item/storage/pill_bottle/kelotane = -1,
+			/obj/item/storage/pill_bottle/tramadol = -1,
+			/obj/item/storage/pill_bottle/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/dylovene = -1,
+			/obj/item/storage/pill_bottle/paracetamol = -1,
+			/obj/item/storage/pill_bottle/isotonic = -1,
+			/obj/item/storage/pill_bottle = -1,
 		),
 		"Auto Injector" = list(
 			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = -1,
@@ -327,7 +336,7 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 10,
 			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/arithrazine = 30,
-			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 30,
+			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 10,
 		),
 		"Heal Pack" = list(
 			/obj/item/stack/medical/heal_pack/gauze = -1,
@@ -347,14 +356,15 @@
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 	products = list(
-		"Pill Packet" = list(
-			/obj/item/storage/pill_bottle/packet/bicaridine = -1,
-			/obj/item/storage/pill_bottle/packet/kelotane = -1,
-			/obj/item/storage/pill_bottle/packet/tramadol = -1,
-			/obj/item/storage/pill_bottle/packet/tricordrazine = -1,
-			/obj/item/storage/pill_bottle/packet/dylovene = -1,
-			/obj/item/storage/pill_bottle/packet/paracetamol = -1,
-			/obj/item/storage/pill_bottle/packet/isotonic = -1,
+		"Pill Bottles" = list(
+			/obj/item/storage/pill_bottle/bicaridine = -1,
+			/obj/item/storage/pill_bottle/kelotane = -1,
+			/obj/item/storage/pill_bottle/tramadol = -1,
+			/obj/item/storage/pill_bottle/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/dylovene = -1,
+			/obj/item/storage/pill_bottle/paracetamol = -1,
+			/obj/item/storage/pill_bottle/isotonic = -1,
+			/obj/item/storage/pill_bottle = -1,
 		),
 		"Auto Injector" = list(
 			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = -1,
@@ -503,7 +513,7 @@
 			/obj/item/ammo_magazine/rifle/tx54/incendiary = 4,
 			/obj/item/ammo_magazine/rifle/tx54/smoke = 4,
 			/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = 2,
-			/obj/item/explosive/grenade = 600,
+			/obj/item/explosive/grenade = 200,
 			/obj/item/explosive/grenade/m15 = 30,
 			/obj/item/explosive/grenade/sticky = 125,
 			/obj/item/explosive/grenade/sticky/trailblazer = 75,
@@ -533,19 +543,11 @@
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
 			/obj/structure/closet/crate/mortar_ammo/howitzer_kit = 1,
-			/obj/structure/largecrate/supply/weapons/standard_atgun = 1,
 			/obj/item/storage/box/crate/sentry = 4,
 			/obj/item/storage/box/tl102 = 1,
 			/obj/item/weapon/gun/heavymachinegun = 1,
 			/obj/item/ammo_magazine/heavymachinegun = 5,
 			/obj/item/ammo_magazine/heavymachinegun/small = 10,
-			/obj/item/storage/holster/backholster/rpg/full = 2,
-			/obj/item/ammo_magazine/rocket/recoilless = 4,
-			/obj/item/ammo_magazine/rocket/recoilless/light = 4,
-			/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
-			/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
-			/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
-			/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 16,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
@@ -726,7 +728,7 @@
 		"Grenades" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = -1,
 			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = -1,
-			/obj/item/explosive/grenade = 600,
+			/obj/item/explosive/grenade = 200,
 			/obj/item/explosive/grenade/m15 = 30,
 			/obj/item/explosive/grenade/sticky = 125,
 			/obj/item/explosive/grenade/incendiary = 50,
