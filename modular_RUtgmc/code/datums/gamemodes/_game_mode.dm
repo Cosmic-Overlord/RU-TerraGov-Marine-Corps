@@ -1,3 +1,6 @@
+/datum/game_mode
+	blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS)
+
 /datum/game_mode/post_setup()
 	if(flags_round_type & MODE_SILO_RESPAWN)
 		var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]

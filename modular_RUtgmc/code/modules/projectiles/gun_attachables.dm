@@ -1,3 +1,21 @@
+/obj/item/attachable/stock/sgstock
+	colorable_allowed = NONE
+
+/obj/item/attachable/stock/tl127stock
+	colorable_allowed = NONE
+
+/obj/item/attachable/stock/t60stock
+	colorable_allowed = NONE
+
+/obj/item/attachable/verticalgrip
+	colorable_allowed = NONE
+
+/obj/item/attachable/angledgrip
+	colorable_allowed = NONE
+
+/obj/item/attachable/foldable/t35stock
+	colorable_allowed = NONE
+
 /obj/item/attachable/stock/t500stock
 	name = "R-500 stock"
 	desc = "Cool stock for cool revolver."
