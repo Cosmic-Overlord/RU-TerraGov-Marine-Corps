@@ -106,6 +106,8 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	times_bought++
 	/*RUTGMC EDIT begin */
 	if(buyer.status_flags & INCORPOREAL)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("You can't build in this form!"))
 		return FALSE
 	/*RUTGMC EDIT end*/
 	return TRUE
@@ -123,6 +125,8 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		return FALSE
 	/*RUTGMC EDIT begin*/
 	if(buyer.status_flags & INCORPOREAL)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("You can't build in this form!"))
 		return FALSE
 	/*RUTGMC EDIT end*/
 	if(SSpoints.xeno_points_by_hive[buyer.hivenumber] < psypoint_cost)
