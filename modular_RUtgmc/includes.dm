@@ -7,6 +7,7 @@
 #include "code\_onclick\hud\screen_objects\menu_text_objects.dm"
 #include "code\_onclick\hud\xeno\xeno.dm"
 #include "code\controllers\subsystem\job.dm"
+#include "code\datums\actions\ability_actions.dm"
 #include "code\datums\actions\observer_action.dm"
 #include "code\datums\actions\xeno_action.dm"
 #include "code\datums\actions\actions\action.dm"
