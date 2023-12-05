@@ -4,14 +4,15 @@ SUBSYSTEM_DEF(job)
 	flags = SS_NO_FIRE
 	var/ssjob_flags = NONE
 
-	var/list/occupations = list() //List of all jobs.
+	var/list/all_name_occupations = list() //Dict of all jobs, keys are titles
+	var/list/occupations = list() //List of available jobs.
 	var/list/joinable_occupations = list() //List of jobs that can be joined as through the lobby.
 	var/list/joinable_occupations_by_category = list()
 	var/list/active_occupations = list() //Jobs in use by the game mode at roundstart.
 	var/list/active_joinable_occupations = list() //Jobs currently joineable through the lobby (roundstart-only removed after).
 	var/list/active_joinable_occupations_by_category = list()
-	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles.
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types.
+	var/list/datum/job/name_occupations = list()	//Dict of available jobs, keys are titles.
+	var/list/type_occupations = list()	//Dict of available jobs, keys are types.
 
 	var/list/squads = list()			//List of potential squads.
 	///Assoc list of all joinable squads, categorised by faction
@@ -47,6 +48,8 @@ SUBSYSTEM_DEF(job)
 		var/datum/job/job = new J()
 		if(!job)
 			continue
+		all_name_occupations[job.title] = job
+
 		if(!job.config_check())
 			continue
 		if(!job.map_check())

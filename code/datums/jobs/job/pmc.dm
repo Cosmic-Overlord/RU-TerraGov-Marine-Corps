@@ -1,5 +1,4 @@
 /datum/job/pmc
-	job_category = JOB_CAT_MARINE
 	access = ALL_PMC_ACCESS
 	minimal_access = ALL_PMC_ACCESS
 	skills_type = /datum/skills/pmc
@@ -179,7 +178,6 @@
 
 //PMC Leader
 /datum/job/pmc/leader
-	job_category = JOB_CAT_COMMAND
 	title = "PMC Leader"
 	paygrade = "PMC4"
 	skills_type = /datum/skills/sl/pmc

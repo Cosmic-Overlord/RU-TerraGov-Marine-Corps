@@ -3,7 +3,64 @@
  * SPDX-License-Identifier: MIT
  */
 
+@use 'sass:color';
+@use 'sass:meta';
+
+@use '../colors.scss' with (
+  $primary: #553974,
+  $fg-map-keys: (),
+  $bg-map-keys: (),
+);
+@use '../base.scss' with (
+  $color-bg: #362842,
+  $color-bg-grad-spread: 6%,
+);
+
 .theme-xeno {
+  // Atomic classes
+  @include meta.load-css('../atomic/color.scss');
+
+  // Components
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': colors.$primary,
+      'color-disabled': #363636,
+      'color-selected': #5b0981,
+      'color-caution': #84078f,
+      'color-danger': #9d006e
+    )
+  );
+  @include meta.load-css(
+    '../components/Input.scss',
+    $with: ('border-color': #a287ce)
+  );
+  @include meta.load-css(
+    '../components/NoticeBox.scss',
+    $with: ('background-color': #300255)
+  );
+  @include meta.load-css(
+    '../components/NumberInput.scss',
+    $with: ('border-color': #9c87ce)
+  );
+  @include meta.load-css(
+    '../components/ProgressBar.scss',
+    $with: ('background-color': rgba(0, 0, 0, 0.5))
+  );
+  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css(
+    '../components/Tooltip.scss',
+    $with: ('background-color': #30024a)
+  );
+
+  // Layouts
+  @include meta.load-css('../layouts/Layout.scss');
+  @include meta.load-css('../layouts/Window.scss');
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': #412757)
+  );
+
   .Layout__content {
     background-image: url('../../assets/xeno/xeno_bg.svg');
     background-size: 70%;

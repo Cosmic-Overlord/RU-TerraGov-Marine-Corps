@@ -54,7 +54,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -129,7 +129,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -189,7 +189,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -240,7 +240,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -344,7 +344,7 @@ You are also in charge of communicating with command and letting them know about
 	if(!ishuman(C))
 		return
 	var/mob/living/carbon/human/new_human = C
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	switch(playtime_mins)
 		if(0 to 1500) // starting
 			new_human.wear_id.paygrade = "E5"

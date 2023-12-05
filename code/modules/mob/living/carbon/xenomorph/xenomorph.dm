@@ -150,7 +150,7 @@
 //Since Xenos change names like they change shoes, we need somewhere to hammer in all those legos
 //We set their name first, then update their real_name AND their mind name
 /mob/living/carbon/xenomorph/proc/generate_name()
-	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
+	var/playtime_mins = client?.get_exp_job(xeno_caste.caste_name)
 	var/rank_name
 	switch(playtime_mins)
 		if(0 to 600)
@@ -184,7 +184,7 @@
 
 ///Returns the playtime as a number, used for rank icons
 /mob/living/carbon/xenomorph/proc/playtime_as_number()
-	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
+	var/playtime_mins = client?.get_exp_job(xeno_caste.caste_name)
 	switch(playtime_mins)
 		if(0 to 600)
 			return 0

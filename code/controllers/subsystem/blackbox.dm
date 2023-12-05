@@ -43,10 +43,6 @@ SUBSYSTEM_DEF(blackbox)
 		SSdbcore.InitializeRound()
 
 
-	if(CONFIG_GET(flag/use_exp_tracking))
-		update_exp(10, FALSE)
-
-
 /datum/controller/subsystem/blackbox/vv_get_var(var_name)
 	if(var_name == "feedback")
 		return debug_variable(var_name, deepCopyList(feedback), 0, src)

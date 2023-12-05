@@ -20,7 +20,6 @@
 #include "code\datums\greyscale\greyscale_configs.dm"
 #include "code\datums\jobs\squads.dm"
 #include "code\datums\jobs\job\clown.dm"
-#include "code\datums\jobs\job\job_exp.dm"
 #include "code\datums\jobs\job\marines.dm"
 #include "code\datums\jobs\job\militarypolice.dm"
 #include "code\datums\jobs\job\necoarc.dm"
@@ -219,3 +218,5 @@
 #include "code\game\objects\structures\barricade.dm"
 #include "code\datums\keybinding\xeno.dm"
 #include "code\game\turfs\snow.dm"
+#include "code\datums\job_exp.dm"
+#include "code\controllers\subsystem\exp_tracker.dm"

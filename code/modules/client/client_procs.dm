@@ -182,6 +182,13 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	fps = prefs.clientfps
 
+	//experience datum - holds client playtime
+	exp = GLOB.experience_datums[ckey]
+	if(!exp || isnull(exp) || !istype(exp))
+		exp = new /datum/experience(src)
+		GLOB.experience_datums[ckey] = exp
+	exp.parent = src
+
 	var/full_version = "[byond_version].[byond_build ? byond_build : "xxx"]"
 	log_access("Login: [key_name(src)] from [address ? address : "localhost"]-[computer_id] || BYOND v[full_version]")
 
@@ -595,7 +602,7 @@
 	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
 		var/living_recs = CONFIG_GET(number/panic_bunker_living)
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
-		var/minutes = get_exp_living(pure_numeric = TRUE)
+		var/minutes = get_exp_job("Living")
 		if((minutes < living_recs) || (!living_recs && !client_is_in_db))
 			var/reject_message = "Failed Login: [key] - [client_is_in_db ? "":"New "]Account attempting to connect during panic bunker, but\
 			[living_recs ? "they do not have the required living time [minutes]/[living_recs]": "was rejected"]"

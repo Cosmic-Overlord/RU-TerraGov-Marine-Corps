@@ -5,7 +5,7 @@
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	new_human.dropItemToGround(new_human.head)
@@ -40,7 +40,7 @@
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	new_human.dropItemToGround(new_human.head)
 	if(!playtime_mins || playtime_mins < 1 )
 		return

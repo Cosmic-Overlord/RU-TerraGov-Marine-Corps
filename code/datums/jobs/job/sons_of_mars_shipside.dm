@@ -1,6 +1,5 @@
 //officer roles
 /datum/job/som/command
-	job_category = JOB_CAT_COMMAND
 	selection_color = "#ddddff"
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_COMMAND
@@ -64,7 +63,7 @@ Godspeed, captain! And remember, you are not above the law."})
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -114,7 +113,7 @@ Make the SOM proud!"}) //update
 		return
 	SSdirection.set_leader(TRACKING_ID_SOM_COMMANDER, new_mob)
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -213,7 +212,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -268,7 +267,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -342,7 +341,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -372,7 +371,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	gloves = /obj/item/clothing/gloves/marine
 
 /datum/job/som/engineering
-	job_category = JOB_CAT_ENGINEERING
 	selection_color = "#fff5cc"
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_ENGINEERING
@@ -407,7 +405,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -479,7 +477,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -517,7 +515,6 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	back = /obj/item/storage/backpack/marine/engineerpack
 
 /datum/job/som/requisitions
-	job_category = JOB_CAT_REQUISITIONS
 	selection_color = "#BAAFD9"
 	supervisors = "the acting commander"
 	exp_type_department = EXP_TYPE_REQUISITIONS
@@ -553,7 +550,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -591,7 +588,6 @@ A happy base is a well-functioning base."})
 	r_store = /obj/item/storage/pouch/general/large
 
 /datum/job/som/medical
-	job_category = JOB_CAT_MEDICAL
 	selection_color = "#BBFFBB"
 	exp_type_department = EXP_TYPE_MEDICAL
 
@@ -632,7 +628,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the SOM h
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -690,7 +686,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the SOM h
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -728,7 +724,6 @@ You are also an expert when it comes to medication and treatment. If you do not 
 
 
 /datum/job/som/civilian
-	job_category = JOB_CAT_CIVILIAN
 	selection_color = "#ffeedd"
 
 /datum/job/som/civilian/chef
@@ -754,7 +749,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)

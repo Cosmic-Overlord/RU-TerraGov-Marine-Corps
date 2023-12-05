@@ -7,9 +7,6 @@
 	if(tm_info)
 		to_chat(src, tm_info)
 
-	if(CONFIG_GET(flag/use_exp_tracking))
-		client?.set_exp_from_db()
-
 	if(!mind)
 		mind = new /datum/mind(key)
 		mind.active = TRUE

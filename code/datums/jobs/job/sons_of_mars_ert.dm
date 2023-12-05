@@ -517,7 +517,6 @@
 
 //SOM Leader
 /datum/job/som/ert/leader
-	job_category = JOB_CAT_COMMAND
 	title = "SOM Leader"
 	paygrade = "SOM_S4"
 	skills_type = /datum/skills/sl

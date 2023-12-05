@@ -1,14 +1,6 @@
 
 /mob/living/carbon/human/get_export_value()
-	. = ..()
-	switch(job.job_category)
-		if(JOB_CAT_CIVILIAN)
-			. = 10
-		if(JOB_CAT_ENGINEERING, JOB_CAT_MEDICAL, JOB_CAT_REQUISITIONS)
-			. = 150
-		if(JOB_CAT_MARINE)
-			. = 100
-	return
+	return 100 * job.job_cost
 
 /proc/can_sell_human_body(mob/living/carbon/human/human_to_sell, seller_faction)
 	var/to_sell_alignement = GLOB.faction_to_alignement[human_to_sell.faction]

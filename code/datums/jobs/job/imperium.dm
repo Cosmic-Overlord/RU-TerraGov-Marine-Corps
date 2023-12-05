@@ -1,5 +1,4 @@
 /datum/job/imperial
-	job_category = JOB_CAT_MARINE
 	comm_title = "IMP"
 	faction = FACTION_IMP
 	skills_type = /datum/skills/imperial

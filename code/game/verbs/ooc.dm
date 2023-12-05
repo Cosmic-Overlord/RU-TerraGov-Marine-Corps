@@ -465,16 +465,7 @@
 	set name = "View Tracked Playtime"
 	set desc = "View the amount of playtime for roles the server has tracked."
 
-	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, span_notice("Sorry, tracking is currently disabled."))
-		return
-
-	var/list/body = list()
-	body += get_exp_report()
-
-	var/datum/browser/popup = new(src, "playerplaytime[ckey]", "<div align='center'>Playtime for [key]</div>", 550, 615)
-	popup.set_content(body.Join())
-	popup.open(FALSE)
+	exp.ui_interact(mob)
 
 
 /client/verb/view_admin_remarks()

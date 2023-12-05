@@ -1904,12 +1904,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			to_chat(usr, span_warning("Target is no longer valid."))
 			return
 
-		var/list/body = list()
-		body += C.get_exp_report()
-
-		var/datum/browser/popup = new(usr, "playtime_[C.key]", "<div align='center'>Playtime for [C.key]</div>", 550, 615)
-		popup.set_content(body.Join())
-		popup.open(FALSE)
+		C.exp.ui_interact(usr)
 
 
 	else if(href_list["randomname"])

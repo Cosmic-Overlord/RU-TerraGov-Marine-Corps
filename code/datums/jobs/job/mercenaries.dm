@@ -1,5 +1,4 @@
 /datum/job/mercenaries
-	job_category = JOB_CAT_MARINE
 	access = ALL_MARINE_ACCESS
 	minimal_access = ALL_MARINE_ACCESS
 	skills_type = /datum/skills/mercenary
