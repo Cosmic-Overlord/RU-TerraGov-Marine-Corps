@@ -210,3 +210,4 @@
 #include "code\modules\requisitions\fulton.dm"
 #include "code\game\objects\structures\barricade.dm"
 #include "code\datums\keybinding\xeno.dm"
+#include "code\modules\vehicles\mecha\combat\greyscale\greyscale_limbs.dm"
