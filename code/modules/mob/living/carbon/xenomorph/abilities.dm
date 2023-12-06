@@ -220,7 +220,6 @@
 	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LAUNCHED,COMSIG_GLOB_DROPPOD_LANDED))
 
 /* RUTGMC DELETION
-/* RUTGMC DELETION
 /// Extra handling for adding the action for draggin functionality (for instant building)
 /datum/action/ability/activable/xeno/secrete_resin/give_action(mob/living/L)
 	. = ..()
@@ -263,7 +262,6 @@
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
 		visual_references[VREF_MUTABLE_BUILDING_COUNTER] = null
 	return ..()
-*/
 */
 
 /datum/action/ability/activable/xeno/secrete_resin/action_activate()
@@ -317,7 +315,6 @@
 
 	return (base_wait + scaling_wait - max(0, (scaling_wait * X.health / X.maxHealth))) * build_resin_modifier
 
-/* RUTGMC DELETION
 /* RUTGMC DELETION
 /// A version of build_resin with the plasma drain and distance checks removed.
 /datum/action/ability/activable/xeno/secrete_resin/proc/preshutter_build_resin(turf/T)
