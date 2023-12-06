@@ -1,3 +1,6 @@
+//Human sub-species
+#define isnecoarc(H) (is_species(H, /datum/species/necoarc))
+
 //Xeno castes
 #define isxenopanther(A) (istype(A, /mob/living/carbon/xenomorph/panther))
 #define isxenofacehugger(A) (istype(A, /mob/living/carbon/xenomorph/facehugger))

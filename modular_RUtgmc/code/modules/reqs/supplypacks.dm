@@ -1,17 +1,19 @@
-/datum/supply_packs/weapons/rifle/T25
-	name = "T25 smartrifle"
-	contains = list(/obj/item/weapon/gun/rifle/T25)
-	cost = 400
+/*******************************************************************************
+OPERATIONS
+*******************************************************************************/
 
-/datum/supply_packs/weapons/ammo_magazine/rifle/T25
-	name = "T25 smartrifle magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/T25)
-	cost = 20
+/datum/supply_packs/operations/fulton_extraction_pack
+	cost = 50
 
-/datum/supply_packs/weapons/ammo_magazine/packet/T25_rifle
-	name = "T25 smartrifle ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)
-	cost = 60
+/datum/supply_packs/operations/beacons_orbital
+	name = "orbital beacon"
+	contains = list(/obj/item/beacon/orbital_bombardment_beacon)
+	cost = 30
+	available_against_xeno_only = TRUE
+
+/*******************************************************************************
+WEAPONS
+*******************************************************************************/
 
 /datum/supply_packs/weapons/vector
 	name = "Vector"
@@ -28,59 +30,10 @@
 	contains = list(/obj/item/weapon/twohanded/glaive/harvester)
 	cost = 600
 
-/datum/supply_packs/armor/robot/advanced/acid
-	name = "Exidobate acid protection armor set"
-	contains = list(
-		/obj/item/clothing/head/helmet/marine/robot/advanced/acid,
-		/obj/item/clothing/suit/storage/marine/robot/advanced/acid,
-	)
-	cost = 600
-	available_against_xeno_only = TRUE
-
-/datum/supply_packs/armor/robot/advanced/physical
-	name = "Cingulata physical protection armor set"
-	contains = list(
-		/obj/item/clothing/head/helmet/marine/robot/advanced/physical,
-		/obj/item/clothing/suit/storage/marine/robot/advanced/physical,
-	)
-	cost = 600
-	available_against_xeno_only = TRUE
-
-/datum/supply_packs/armor/robot/advanced/bomb
-	name = "Tardigrada bomb protection armor set"
-	contains = list(
-		/obj/item/clothing/head/helmet/marine/robot/advanced/bomb,
-		/obj/item/clothing/suit/storage/marine/robot/advanced/bomb,
-	)
-	cost = 600
-	available_against_xeno_only = TRUE
-
-/datum/supply_packs/armor/robot/advanced/fire
-	name = "Urodela fire protection armor set"
-	contains = list(
-		/obj/item/clothing/head/helmet/marine/robot/advanced/fire,
-		/obj/item/clothing/suit/storage/marine/robot/advanced/fire,
-	)
-	cost = 600
-	available_against_xeno_only = TRUE
-
-/datum/supply_packs/supplies/pigs
-	name = "Pig toys crate"
-	contains = list(/obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig)
-	cost = 100
-	available_against_xeno_only = TRUE
-	containertype = /obj/structure/closet/crate/supply
-
 /datum/supply_packs/weapons/t500case
 	name = "R-500 bundle"
 	contains = list(/obj/item/storage/box/t500case)
 	cost = 50
-
-/datum/supply_packs/weapons/T25_extended_mag
-	name = "T25 extended magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/T25/extended)
-	cost = 200
-	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/t21_extended_mag
 	name = "AR-21 extended magazines pack"
@@ -124,6 +77,27 @@
 	cost = 240 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
+/datum/supply_packs/weapons/rifle/T25
+	name = "T25 smartrifle"
+	contains = list(/obj/item/weapon/gun/rifle/T25)
+	cost = 400
+
+/datum/supply_packs/weapons/ammo_magazine/rifle/T25
+	name = "T25 smartrifle magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/T25)
+	cost = 20
+
+/datum/supply_packs/weapons/T25_extended_mag
+	name = "T25 extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/T25/extended)
+	cost = 200
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/ammo_magazine/packet/T25_rifle
+	name = "T25 smartrifle ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/T25_rifle)
+	cost = 60
+
 /datum/supply_packs/weapons/box_10x25mm_ap
 	name = "10x25mm armor piercing ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/ap)
@@ -141,28 +115,6 @@
 	contains = list(/obj/item/ammo_magazine/packet/p10x20mm/ap)
 	cost = 225 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/explosives/knee_mortar
-	name = "T-10K Knee Mortar"
-	contains = list(/obj/item/mortar_kit/knee)
-	cost = 125
-
-/datum/supply_packs/explosives/knee_mortar_ammo
-	name = "TA-10K knee mortar HE shell"
-	contains = list(/obj/item/mortal_shell/knee, /obj/item/mortal_shell/knee)
-	cost = 5
-	available_against_xeno_only = TRUE
-
-/datum/supply_packs/armor/imager_goggle
-	name = "Optical Imager Goggles"
-	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
-	cost = 50
-
-/datum/supply_packs/operations/beacons_orbital
-	name = "orbital beacon"
-	contains = list(/obj/item/beacon/orbital_bombardment_beacon)
-	cost = 30
-	available_against_xeno_only = TRUE
 
 /datum/supply_packs/weapons/thermobaric
 	name = "RL-57 Thermobaric Launcher Kit"
@@ -189,19 +141,100 @@
 	contains = list(/obj/item/ammo_magazine/packet/sg62_rifle)
 	cost = 50
 
-/datum/supply_packs/factory/pizzarefill
-	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
-	contains = list(/obj/item/factory_refill/pizza_refill)
-	cost = 890 //fuck you
+/datum/supply_packs/weapons/xray_gun
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
+	cost = 500
 
-/datum/supply_packs/operations/fulton_extraction_pack
+/*******************************************************************************
+EXPLOSIVES
+*******************************************************************************/
+
+/datum/supply_packs/explosives/knee_mortar
+	name = "T-10K Knee Mortar"
+	contains = list(/obj/item/mortar_kit/knee)
+	cost = 125
+
+/datum/supply_packs/explosives/knee_mortar_ammo
+	name = "TA-10K knee mortar HE shell"
+	contains = list(/obj/item/mortal_shell/knee, /obj/item/mortal_shell/knee)
+	cost = 5
+	available_against_xeno_only = TRUE
+
+/datum/supply_packs/explosives/explosives_trailblazer_phosphorus
+	name = "M45 Phosphorous trailblazer grenade box crate"
+	notes = "Contains 25 grenades"
+	contains = list(/obj/item/storage/box/visual/grenade/trailblazer/phosphorus)
+	cost = 600
+
+/*******************************************************************************
+ARMOR
+*******************************************************************************/
+
+/datum/supply_packs/armor/imager_goggle
+	name = "Optical Imager Goggles"
+	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
 
+/datum/supply_packs/armor/robot/advanced/physical
+	name = "Cingulata physical protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/physical,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/physical,
+	)
+	cost = 600
+	available_against_xeno_only = TRUE
+
+/datum/supply_packs/armor/robot/advanced/acid
+	name = "Exidobate acid protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/acid,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/acid,
+	)
+	cost = 600
+	available_against_xeno_only = TRUE
+
+/datum/supply_packs/armor/robot/advanced/bomb
+	name = "Tardigrada bomb protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/bomb,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/bomb,
+	)
+	cost = 600
+	available_against_xeno_only = TRUE
+
+/datum/supply_packs/armor/robot/advanced/fire
+	name = "Urodela fire protection armor set"
+	contains = list(
+		/obj/item/clothing/head/helmet/marine/robot/advanced/fire,
+		/obj/item/clothing/suit/storage/marine/robot/advanced/fire,
+	)
+	cost = 600
+	available_against_xeno_only = TRUE
+
+/*******************************************************************************
+CLOTHING
+*******************************************************************************/
 /datum/supply_packs/clothing/radio_pack
 	name = "Radio Operator Pack"
 	contains = list(/obj/item/storage/backpack/marine/radiopack)
 	cost = 20
 
-/datum/supply_packs/weapons/xray_gun
-	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
-	cost = 500
+/*******************************************************************************
+SUPPLIES
+*******************************************************************************/
+
+/datum/supply_packs/supplies/pigs
+	name = "Pig toys crate"
+	contains = list(/obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig, /obj/item/toy/plush/pig)
+	cost = 100
+	available_against_xeno_only = TRUE
+	containertype = /obj/structure/closet/crate/supply
+
+/*******************************************************************************
+FACTORY
+*******************************************************************************/
+
+/datum/supply_packs/factory/pizzarefill
+	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
+	contains = list(/obj/item/factory_refill/pizza_refill)
+	cost = 890 //fuck you

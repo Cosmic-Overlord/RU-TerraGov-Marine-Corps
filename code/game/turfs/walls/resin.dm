@@ -85,7 +85,7 @@
 		if(EXPLODE_WEAK)
 			take_damage(rand(30, 50), BRUTE, BOMB)
 
-
+/* RUTGMC DELETION
 /turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return
@@ -104,7 +104,7 @@
 	span_xenonotice("We tear down \the [src]."))
 	playsound(src, "alien_resin_break", 25)
 	take_damage(max_integrity) // Ensure its destroyed
-
+*/
 
 /turf/closed/wall/resin/attack_hand(mob/living/user)
 	to_chat(user, span_warning("You scrape ineffectively at \the [src]."))

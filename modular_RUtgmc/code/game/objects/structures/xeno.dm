@@ -5,6 +5,24 @@
 /obj/structure/mineral_door/resin
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
 
+/obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	var/turf/cur_loc = X.loc
+	if(!istype(cur_loc))
+		return FALSE
+	if(X.a_intent != INTENT_HARM)
+		try_toggle_state(X)
+		return TRUE
+	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
+		SSresinshaping.decrement_build_counter(X)
+		qdel(src)
+		return TRUE
+
+	src.balloon_alert(X, "Destroying...")
+	playsound(src, "alien_resin_break", 25)
+	if(do_after(X, 1 SECONDS, FALSE, src, BUSY_ICON_HOSTILE))
+		src.balloon_alert(X, "Destroyed")
+		qdel(src)
+
 /obj/alien/resin/resin_growth
 	name = GROWTH_WALL
 	desc = "Some sort of resin growth. Looks incredibly fragile"
@@ -48,3 +66,17 @@
 	name = GROWTH_DOOR
 	structure = "door"
 	icon_state = "growth_door"
+
+/obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(X.status_flags & INCORPOREAL)
+		return FALSE
+
+	if(X.a_intent == INTENT_HARM)
+		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X) && refundable)
+			SSresinshaping.decrement_build_counter(X)
+		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+		playsound(src, "alien_resin_break", 25)
+		deconstruct(TRUE)
+		return
+
+	return ..()

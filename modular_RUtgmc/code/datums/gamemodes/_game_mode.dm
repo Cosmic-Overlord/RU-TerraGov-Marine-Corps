@@ -1,4 +1,5 @@
 /datum/game_mode
+	var/quickbuild_points_flags = NONE
 	blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS)
 
 /datum/game_mode/post_setup()

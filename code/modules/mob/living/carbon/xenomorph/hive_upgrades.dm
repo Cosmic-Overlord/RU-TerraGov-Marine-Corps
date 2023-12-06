@@ -104,6 +104,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	SHOULD_CALL_PARENT(TRUE)
 	SSpoints.xeno_points_by_hive[buyer.hivenumber] -= psypoint_cost
 	times_bought++
+	/*RUTGMC EDIT begin */
+	if(buyer.status_flags & INCORPOREAL)
+		to_chat(buyer, span_xenowarning("You can't build in this form!"))
+		return FALSE
+	/*RUTGMC EDIT end*/
 	return TRUE
 
 /**
@@ -117,6 +122,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	SHOULD_CALL_PARENT(TRUE)
 	if((flags_upgrade & UPGRADE_FLAG_ONETIME) && times_bought)
 		return FALSE
+	/*RUTGMC EDIT begin*/
+	if(buyer.status_flags & INCORPOREAL)
+		to_chat(buyer, span_xenowarning("You can't build in this form!"))
+		return FALSE
+	/*RUTGMC EDIT end*/
 	if(SSpoints.xeno_points_by_hive[buyer.hivenumber] < psypoint_cost)
 		if(!silent)
 			to_chat(buyer, span_xenowarning("You need [psypoint_cost-SSpoints.xeno_points_by_hive[buyer.hivenumber]] more points to request this blessing!"))

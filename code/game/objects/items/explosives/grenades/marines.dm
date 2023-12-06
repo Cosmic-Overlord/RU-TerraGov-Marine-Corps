@@ -146,6 +146,7 @@
 		clean_refs()
 	qdel(src)
 
+/* RUTGMC DELETION
 /obj/item/explosive/grenade/sticky/trailblazer/stuck_to(atom/hit_atom)
 	. = ..()
 	RegisterSignal(stuck_to, COMSIG_MOVABLE_MOVED, PROC_REF(make_fire))
@@ -157,6 +158,7 @@
 	SIGNAL_HANDLER
 	var/turf/T = get_turf(src)
 	T.ignite(25, 25)
+*/
 
 /obj/item/explosive/grenade/sticky/trailblazer/clean_refs()
 	stuck_to.cut_overlay(saved_overlay)

@@ -29,7 +29,7 @@
 			"Earth" = ARMOR_PALETTE_EARTH,\
 		),\
 		"Yellow" = list(\
-			"Olive" = ARMOR_PALETTE_OLIVE,\
+			"Yellow" = ARMOR_PALETTE_LIGHT_YELLOW,\
 			"Angelic Gold" = ARMOR_PALETTE_ANGELIC,\
 			"Cathay Spice" = ARMOR_PALETTE_CATHAY,\
 			"Bravo" = ARMOR_PALETTE_BRAVO,\
