@@ -210,7 +210,7 @@
 
 //Stealth handling
 
-
+/* RUTGMC DELETION
 /mob/living/carbon/xenomorph/proc/update_progression()
 	// Upgrade is increased based on marine to xeno population taking stored_larva as a modifier.
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
@@ -223,7 +223,7 @@
 	if(incapacitated())
 		return
 	upgrade_xeno(upgrade_next())
-
+*/
 
 /mob/living/carbon/xenomorph/proc/update_evolving()
 	if(evolution_stored >= xeno_caste.evolution_threshold || !(xeno_caste.caste_flags & CASTE_EVOLUTION_ALLOWED) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
