@@ -134,10 +134,10 @@
 		<a href='?src=[ref];transform=praetorian;mob=[REF(M)]'>Praetorian</a> |
 		<a href='?src=[ref];transform=boiler;mob=[REF(M)]'>Boiler</a> |
 		<a href='?src=[ref];transform=defiler;mob=[REF(M)]'>Defiler</a> |
-		<a href='?src=[ref];transform=crusher;mob=[REF(M)]'>Crusher</a>
-		<a href='?src=[ref];transform=gorger;mob=[REF(M)]'>Gorger</a>
-		<a href='?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a>
-		<a href='?src=[ref];transform=behemoth;mob=[REF(M)]'>Behemoth</a>
+		<a href='?src=[ref];transform=crusher;mob=[REF(M)]'>Crusher</a> |
+		<a href='?src=[ref];transform=gorger;mob=[REF(M)]'>Gorger</a> |
+		<a href='?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a> |
+		<a href='?src=[ref];transform=behemoth;mob=[REF(M)]'>Behemoth</a> |
 		<br> Alien Tier 4:
 		<a href='?src=[ref];transform=queen;mob=[REF(M)]'>Queen</a> |
 		<a href='?src=[ref];transform=shrike;mob=[REF(M)]'>Shrike</a> |

@@ -57,7 +57,6 @@
 #include "code\game\objects\items\storage\belt.dm"
 #include "code\game\objects\items\storage\boxes.dm"
 #include "code\game\objects\items\storage\dispenser.dm"
-#include "code\game\objects\items\storage\fancy.dm"
 #include "code\game\objects\items\storage\holsters.dm"
 #include "code\game\objects\items\tools\cleaning_tools.dm"
 #include "code\game\objects\items\tools\soldering_tool.dm"
