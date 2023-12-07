@@ -76,4 +76,3 @@ endmap
 
 map slumbridge
   minplayers 35
-endmap
