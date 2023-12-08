@@ -135,10 +135,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\xeno_defines.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoattacks.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
-
 #include "code\modules\mob\living\carbon\xenomorph\xenoprocs.dm"
-
-
 #include "code\modules\mob\living\carbon\xenomorph\xenoupgrade.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\baneling\baneling.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\behemoth\castedatum_behemoth.dm"
