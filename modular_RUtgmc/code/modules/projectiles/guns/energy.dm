@@ -1,9 +1,27 @@
+//TE Standard Laser rifle
+
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle
+	colorable_allowed = NONE
+
+///TE Standard Laser Pistol
+
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol
+	colorable_allowed = NONE
+
+//TE Standard Laser Carbine
+
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine
+	colorable_allowed = NONE
+
+//TE Standard Sniper
+
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper
 	desc = "The T-ES, a Terra Experimental standard issue laser sniper rifle, it has an integrated charge selector for normal, heat, and overcharge settings. Uses standard Terra Experimental (abbreviated as TE) power cells. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts."
 	windup_sound = 'modular_RUtgmc/sound/weapons/guns/fire/Laser Sniper Overcharge Charge.ogg'
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "tes"
 	item_state = "tes"
+	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
@@ -80,3 +98,8 @@
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/xray
 	fire_delay = 0.4 SECONDS
+
+// TE Standard MG
+
+/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser
+	colorable_allowed = NONE

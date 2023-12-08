@@ -60,7 +60,7 @@
 		if(H.head)
 			var/obj/item/clothing/head/D = H.head
 			if(istype(D))
-				if(D.anti_hug > 0 || D.flags_item & NODROP)
+				if(D.anti_hug > 0 || HAS_TRAIT(D, TRAIT_NODROP))
 					blocked = D
 					D.anti_hug = max(0, --D.anti_hug)
 					H.visible_message("<span class='danger'>[src] smashes against [H]'s [D.name], damaging it!")
@@ -76,7 +76,7 @@
 				if(hugger.stat != DEAD)
 					return FALSE
 
-			if(W.anti_hug > 0 || W.flags_item & NODROP)
+			if(W.anti_hug > 0 || HAS_TRAIT(W, TRAIT_NODROP))
 				if(!blocked)
 					blocked = W
 				W.anti_hug = max(0, --W.anti_hug)

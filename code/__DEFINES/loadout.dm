@@ -88,6 +88,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/minelayer = list(CAT_ENGSUP, "M21 APRDS \"Minelayer\"", 5, "black"),
 		/obj/item/minerupgrade/overclock = list(CAT_ENGSUP, "Mining well overclock upgrade", 4, "black"),
 		/obj/item/minerupgrade/reinforcement = list(CAT_ENGSUP, "Mining well reinforcement upgrade", 4, "black"),
+		/obj/item/minerupgrade/automatic = list(CAT_ENGSUP, "Mining well automation upgrade", 4, "black"),
 		/obj/item/storage/pouch/explosive/razorburn = list(CAT_ENGSUP, "Pack of Razorburn grenades", 11, "orange"),
 		/obj/item/explosive/grenade/chem_grenade/razorburn_large = list(CAT_ENGSUP, "Razorburn canister", 7, "black"),
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_ENGSUP, "Razorburn grenade", 3, "black"),
@@ -186,7 +187,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 //A way to give them everything at once that still works with loadouts would be nice, but barring that make sure that your point calculation is set up so they don't get more than what they're supposed to
 GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/clothing/glasses/night/m56_goggles = list(CAT_ESS, "KLTD Smart Goggles", 0, "white"),
-	/obj/effect/vendor_bundle/smartgunner_pistol = list(CAT_ESS, "SP-13 smart pistol bundle", 0, "white"),
+	/obj/effect/vendor_bundle/smartgunner_pistol = list(CAT_ESS, "SP-13 smart pistol and KLTD Smart Goggles bundle", 0, "white"),
 	/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "black"),
 	/obj/item/weapon/gun/rifle/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Smart Machine Gun", 29, "orange"), //If a smartgunner buys a SG-29, then they will have 16 points to purchase 4 SG-29 drums
 	/obj/item/ammo_magazine/standard_smartmachinegun = list(CAT_SGSUP, "SG-29 Ammo Drum", 4, "black"),
@@ -258,11 +259,11 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 	),
 	VENDOR_FACTION_VALHALLA = list(
 		/obj/machinery/vending/weapon/valhalla,
-		/obj/machinery/vending/uniform_supply,
-		/obj/machinery/vending/armor_supply,
-		/obj/machinery/vending/marineFood,
+		/obj/machinery/vending/uniform_supply/valhalla,
+		/obj/machinery/vending/armor_supply/valhalla,
+		/obj/machinery/vending/marineFood/valhalla,
 		/obj/machinery/vending/MarineMed/valhalla,
-		/obj/machinery/vending/cigarette,
+		/obj/machinery/vending/cigarette/valhalla,
 	),
 	SQUAD_CORPSMAN = list(
 		/obj/machinery/vending/medical/shipside,
@@ -685,7 +686,6 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "black"),
 		/obj/item/storage/pouch/surgery = list(CAT_POU, "White surgical pouch", 0, "black"),
 		/obj/item/storage/holster/flarepouch/full = list(CAT_POU, "Flare pouch", 0, "black"),
-		/obj/item/storage/pouch/radio = list(CAT_POU, "Radio pouch", 0, "black"),
 		/obj/item/storage/pouch/field_pouch/full = list(CAT_POU, "Field pouch", 0, "black"),
 		/obj/item/clothing/head/hardhat = list(CAT_SHN, "Hard hat", 0, "black"),
 		/obj/item/clothing/head/welding = list(CAT_SHN, "Welding helmet", 0, "black"),
