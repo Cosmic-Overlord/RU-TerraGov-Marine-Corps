@@ -1,5 +1,4 @@
 /datum/job/terragov/command
-	job_category = JOB_CAT_COMMAND
 	selection_color = "#ddddff"
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_COMMAND
@@ -83,7 +82,7 @@ Godspeed, captain! And remember, you are not above the law."})
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -142,7 +141,7 @@ Make the TGMC proud!"})
 		return
 	SSdirection.set_leader(TRACKING_ID_MARINE_COMMANDER, new_mob)
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -227,7 +226,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -296,7 +295,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -372,7 +371,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -398,7 +397,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	gloves = /obj/item/clothing/gloves/marine
 
 /datum/job/terragov/engineering
-	job_category = JOB_CAT_ENGINEERING
 	selection_color = "#fff5cc"
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_ENGINEERING
@@ -439,7 +437,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -513,7 +511,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -549,7 +547,6 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	back = /obj/item/storage/backpack/marine/engineerpack
 
 /datum/job/terragov/requisitions
-	job_category = JOB_CAT_REQUISITIONS
 	selection_color = "#BAAFD9"
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_REQUISITIONS
@@ -592,7 +589,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -628,7 +625,6 @@ A happy ship is a well-functioning ship."})
 	r_store = /obj/item/storage/pouch/general/large
 
 /datum/job/terragov/medical
-	job_category = JOB_CAT_MEDICAL
 	selection_color = "#BBFFBB"
 	exp_type_department = EXP_TYPE_MEDICAL
 
@@ -681,7 +677,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -758,7 +754,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -853,7 +849,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -893,7 +889,6 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
 
 /datum/job/terragov/civilian
-	job_category = JOB_CAT_CIVILIAN
 	selection_color = "#ffeedd"
 
 
@@ -931,7 +926,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 		return
 
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -964,7 +959,6 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 
 
 /datum/job/terragov/silicon
-	job_category = JOB_CAT_SILICON
 	selection_color = "#aaee55"
 
 
@@ -1017,7 +1011,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	if(!ishuman(new_mob))
 		return
 	var/mob/living/carbon/human/new_human = new_mob
-	var/playtime_mins = user?.client?.get_exp(title)
+	var/playtime_mins = user?.client?.get_exp_job(title)
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
@@ -1050,7 +1044,6 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 
 /datum/job/terragov/silicon/ai
 	title = SILICON_AI
-	job_category = JOB_CAT_SILICON
 	req_admin_notify = TRUE
 	comm_title = "AI"
 	total_positions = 1

@@ -94,6 +94,8 @@
 #define JOB_CAT_CIVILIAN "Civilian"
 #define JOB_CAT_MARINE "Marine"
 #define JOB_CAT_XENO "Xenomorph"
+#define JOB_CAT_TGMC "TGMC"
+#define JOB_CAT_SOM "SOM"
 #define JOB_CAT_UNASSIGNED "Unassigned"
 
 #define JOB_COMM_TITLE_SQUAD_LEADER "SL"

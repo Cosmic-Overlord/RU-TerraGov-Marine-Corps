@@ -31,38 +31,38 @@
 	qdel(source)
 
 /datum/job/fallen/marine
-	title = SQUAD_MARINE
+	title = "Fallen " + SQUAD_MARINE
 	outfit = /datum/outfit/job/marine/standard
 
 /datum/job/fallen/marine/standard
 
 /datum/job/fallen/marine/engineer
-	title = SQUAD_ENGINEER
+	title = "Fallen " + SQUAD_ENGINEER
 	skills_type = /datum/skills/combat_engineer
 	outfit = /datum/outfit/job/marine/engineer
 
 /datum/job/fallen/marine/corpsman
-	title = SQUAD_CORPSMAN
+	title = "Fallen " + SQUAD_CORPSMAN
 	skills_type = /datum/skills/combat_medic
 	outfit = /datum/outfit/job/marine/corpsman
 
 /datum/job/fallen/marine/smartgunner
-	title = SQUAD_SMARTGUNNER
+	title = "Fallen " + SQUAD_SMARTGUNNER
 	skills_type = /datum/skills/smartgunner
 	outfit = /datum/outfit/job/marine/smartgunner
 
 /datum/job/fallen/marine/leader
-	title = SQUAD_LEADER
+	title = "Fallen " + SQUAD_LEADER
 	skills_type = /datum/skills/sl
 	outfit = /datum/outfit/job/marine/leader
 
 /datum/job/fallen/marine/mechpilot
-	title = MECH_PILOT
+	title = "Fallen " + MECH_PILOT
 	skills_type = /datum/skills/mech_pilot
 	outfit = /datum/outfit/job/command/mech_pilot
 
 /datum/job/fallen/marine/fieldcommander
-	title = FIELD_COMMANDER
+	title = "Fallen " + FIELD_COMMANDER
 	skills_type = /datum/skills/fo
 	outfit = /datum/outfit/job/command/fieldcommander
 	multiple_outfits = TRUE
@@ -72,7 +72,7 @@
 	)
 
 /datum/job/fallen/marine/synthetic
-	title = SYNTHETIC
+	title = "Fallen " + SYNTHETIC
 	skills_type = /datum/skills/synthetic
 	outfit = /datum/outfit/job/civilian/synthetic
 
@@ -90,4 +90,4 @@
 	return ..()
 
 /datum/job/fallen/xenomorph
-	title = ROLE_XENOMORPH
+	title = "Fallen " + ROLE_XENOMORPH

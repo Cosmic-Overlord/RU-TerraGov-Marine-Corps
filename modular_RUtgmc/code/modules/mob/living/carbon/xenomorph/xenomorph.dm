@@ -1,5 +1,5 @@
 /mob/living/carbon/xenomorph/generate_name()
-	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
+	var/playtime_mins = client?.get_exp_job(xeno_caste.caste_name)
 	var/rank_name
 	switch(playtime_mins)
 		if(0 to 600)

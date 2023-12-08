@@ -15,7 +15,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/queen/generate_name()
-	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
+	var/playtime_mins = client?.get_exp_job(xeno_caste.caste_name)
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
 	switch(playtime_mins)
 		if(0 to 600)

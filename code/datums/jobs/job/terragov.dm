@@ -1,4 +1,5 @@
 /datum/job/terragov
+	job_category = JOB_CAT_TGMC
 	faction = FACTION_TERRAGOV
 
 /datum/job/terragov/radio_help_message(mob/M)

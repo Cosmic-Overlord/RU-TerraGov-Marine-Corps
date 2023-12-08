@@ -1,5 +1,4 @@
 /datum/job/upp/commando
-	job_category = JOB_CAT_MARINE
 	access = ALL_ANTAGONIST_ACCESS
 	minimal_access = ALL_ANTAGONIST_ACCESS
 	skills_type = /datum/skills/commando
@@ -119,7 +118,6 @@
 
 //USL Elite Captain
 /datum/job/upp/commando/leader
-	job_category = JOB_CAT_COMMAND
 	title = "USL Elite Captain"
 	paygrade = "UPPC3"
 	skills_type = /datum/skills/commando/leader

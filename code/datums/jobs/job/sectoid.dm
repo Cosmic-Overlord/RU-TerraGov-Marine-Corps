@@ -1,5 +1,4 @@
 /datum/job/sectoid
-	job_category = JOB_CAT_MARINE
 	access = ALL_ANTAGONIST_ACCESS
 	minimal_access = ALL_ANTAGONIST_ACCESS
 	skills_type = /datum/skills/sectoid
@@ -48,7 +47,6 @@
 
 //Sectoid Leader
 /datum/job/sectoid/leader
-	job_category = JOB_CAT_COMMAND
 	title = "Sectoid Leader"
 	outfit = /datum/outfit/job/sectoid/leader
 

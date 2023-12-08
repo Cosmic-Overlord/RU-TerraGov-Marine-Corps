@@ -111,6 +111,7 @@
 #define INIT_ORDER_PATH -50
 #define INIT_ORDER_EXPLOSIONS -69
 #define INIT_ORDER_EXCAVATION -78
+#define INIT_ORDER_EXP_TRACKER -90
 #define INIT_ORDER_STATPANELS -97
 #define INIT_ORDER_CHAT -100 //Should be last to ensure chat remains smooth during init.
 

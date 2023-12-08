@@ -121,7 +121,7 @@
 			M.client_mobs_in_contents -= source
 		if(sterile || M.status_flags & XENO_HOST)
 			if(source?.client && isnormalhive(source.hive))
-				source.client.facehugger_exp_update(4)
+				source.client.exp.play_records[EXP_TYPE_FACEHUGGER_STAT] += 4	//rewrite, add stat table
 			source.death()
 		qdel(src)
 

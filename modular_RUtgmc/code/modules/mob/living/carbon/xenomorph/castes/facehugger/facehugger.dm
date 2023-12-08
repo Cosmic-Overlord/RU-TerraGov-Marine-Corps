@@ -80,7 +80,7 @@
 		if(mask.Attach(host, FALSE)) //Attach hugger-mask
 			src.forceMove(host) //Moving sentient hugger inside host
 			if(client && isnormalhive(hive))
-				client.facehugger_exp_update(1)
+				client.exp.play_records[EXP_TYPE_FACEHUGGER_STAT] +=1	//rewrite, add stat table
 			return TRUE
 		else
 			qdel(mask)
@@ -90,7 +90,7 @@
 		return FALSE
 
 /mob/living/carbon/xenomorph/facehugger/generate_name()
-	var/playtime_mins = client?.get_exp(EXP_TYPE_FACEHUGGER_STAT)
+	var/playtime_mins = client?.get_exp_job(EXP_TYPE_FACEHUGGER_STAT)
 	var/rank_name
 	switch(playtime_mins)
 		if(0 to 14)
@@ -113,7 +113,7 @@
 		mind.name = name
 
 /mob/living/carbon/xenomorph/facehugger/playtime_as_number()
-	var/playtime_mins = client?.get_exp(EXP_TYPE_FACEHUGGER_STAT)
+	var/playtime_mins = client?.get_exp_job(EXP_TYPE_FACEHUGGER_STAT)
 	switch(playtime_mins)
 		if(0 to 14)
 			return 0

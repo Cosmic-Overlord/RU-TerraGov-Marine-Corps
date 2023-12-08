@@ -1,5 +1,4 @@
 /datum/job/necoarc
-	job_category = JOB_CAT_MARINE
 	access = ALL_ANTAGONIST_ACCESS
 	minimal_access = ALL_ANTAGONIST_ACCESS
 	skills_type = /datum/skills/sectoid
@@ -43,7 +42,6 @@
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BELT)
 
 /datum/job/necoarc/leader
-	job_category = JOB_CAT_COMMAND
 	title = "Neco Arc Leader"
 	outfit = /datum/outfit/job/necoarc/leader
 
