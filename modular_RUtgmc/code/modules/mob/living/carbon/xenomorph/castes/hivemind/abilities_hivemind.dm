@@ -8,20 +8,20 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 		GROWTH_DOOR = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = GROWTH_DOOR)
 		))
 
-/datum/action/xeno_action/sow/hivemind
-	cooldown_timer = 70 SECONDS
+/datum/action/ability/xeno_action/sow/hivemind
+	cooldown_duration = 70 SECONDS
 
-/datum/action/xeno_action/sow/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
+/datum/action/ability/xeno_action/sow/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
 
-/datum/action/xeno_action/place_acidwell/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
+/datum/action/ability/xeno_action/place_acidwell/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
 
-/datum/action/xeno_action/place_jelly_pod/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
+/datum/action/ability/xeno_action/place_jelly_pod/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
 	if (owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 // ***************************************
 // *********** Secrete Resin
 // ***************************************
-/datum/action/xeno_action/activable/secrete_resin/hivemind
+/datum/action/ability/activable/xeno/secrete_resin/hivemind
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
 		/obj/alien/resin/sticky,
@@ -39,7 +39,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 		/obj/alien/resin/resin_growth/door,
 		)
 
-/datum/action/xeno_action/activable/secrete_resin/hivemind/action_activate()
+/datum/action/ability/activable/xeno/secrete_resin/hivemind/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.selected_ability != src)
 		return ..()
@@ -52,7 +52,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	X.balloon_alert(X, initial(A.name))
 	update_button_icon()
 
-/datum/action/xeno_action/activable/secrete_resin/hivemind/get_wait()
+/datum/action/ability/activable/xeno/secrete_resin/hivemind/get_wait()
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
 	switch(X.selected_resin)
@@ -64,13 +64,13 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 // ***************************************
 // *********** Psy Gain
 // ***************************************
-/datum/action/xeno_action/psy_gain/hivemind
+/datum/action/ability/xeno_action/psy_gain/hivemind
 	name = "Psy Gain"
 	action_icon_state = "psy_gain"
 	desc = "Gives your hive 100 psy points, if marines are on the ground."
-	cooldown_timer = 200 SECONDS
+	cooldown_duration = 200 SECONDS
 
-/datum/action/xeno_action/psy_gain/hivemind/action_activate()
+/datum/action/ability/xeno_action/psy_gain/hivemind/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))\
 		SSpoints.add_psy_points("[X.hivenumber]", 100)

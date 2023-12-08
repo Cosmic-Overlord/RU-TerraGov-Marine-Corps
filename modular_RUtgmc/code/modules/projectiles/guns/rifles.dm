@@ -60,6 +60,7 @@
 //AR-18 Carbine
 
 /obj/item/weapon/gun/rifle/standard_carbine
+	colorable_allowed = NONE
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_carbine,
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
@@ -69,10 +70,17 @@
 //AR-12 Assault Rifle
 
 /obj/item/weapon/gun/rifle/standard_assaultrifle
+	colorable_allowed = NONE
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
 		)
+
+//-------------------------------------------------------
+//DMR-37 DMR
+
+/obj/item/weapon/gun/rifle/standard_dmr
+	colorable_allowed = NONE
 
 //-------------------------------------------------------
 //BR-64 BR
@@ -83,11 +91,91 @@
 		/obj/item/ammo_magazine/rifle/standard_br/ap,
 		)
 
+//-------------------------------------------------------
+// M412 PMC elite
+
+/obj/item/weapon/gun/rifle/m412/elite
+	attachable_allowed = list(
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/grenade_launcher/underslung/elite,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+	)
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung/elite)
+
+//-------------------------------------------------------
+//MG-42 Light Machine Gun
+
+/obj/item/weapon/gun/rifle/standard_lmg
+	colorable_allowed = NONE
+	icon_state = "t42"
+	item_state = "t42"
+	item_icons = list(
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
+	)
+
+//-------------------------------------------------------
+//MG-60 General Purpose Machine Gun
+
+/obj/item/weapon/gun/rifle/standard_gpmg
+	colorable_allowed = NONE
+
+//-------------------------------------------------------
+//SH-15 AUTOMATIC SHOTGUN
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun
+	colorable_allowed = NONE
+
+//-------------------------------------------------------
+//SG-29 Smart Machine Gun (It's more of a rifle than the SG.)
+
+/obj/item/weapon/gun/rifle/standard_smartmachinegun
+	colorable_allowed = NONE
+
+//-------------------------------------------------------
+//SR-127 bolt action sniper rifle
+
+/obj/item/weapon/gun/rifle/chambered
+	colorable_allowed = NONE
+
+//-------------------------------------------------------
+//SR-81 Auto-Sniper
+
+/obj/item/weapon/gun/rifle/standard_autosniper
+	colorable_allowed = NONE
+
+//-------------------------------------------------------
+//AR-11 Rifle, based on the gamer-11
+
+/obj/item/weapon/gun/rifle/tx11
+	colorable_allowed = NONE
 
 //-------------------------------------------------------
 //AR-21 Assault Rifle
 
 /obj/item/weapon/gun/rifle/standard_skirmishrifle
+	colorable_allowed = NONE
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
@@ -158,44 +246,3 @@
 
 /datum/ammo/bullet/spottingrifle/tungsten/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, max_range = 12)
-
-//-------------------------------------------------------
-// MG-42 LMG
-
-/obj/item/weapon/gun/rifle/standard_lmg
-	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
-	)
-
-//-------------------------------------------------------
-// M412 PMC elite
-
-/obj/item/weapon/gun/rifle/m412/elite
-	attachable_allowed = list(
-		/obj/item/attachable/suppressor,
-		/obj/item/attachable/bayonet,
-		/obj/item/attachable/bayonetknife,
-		/obj/item/attachable/bayonetknife/som,
-		/obj/item/attachable/reddot,
-		/obj/item/attachable/verticalgrip,
-		/obj/item/attachable/angledgrip,
-		/obj/item/attachable/lasersight,
-		/obj/item/attachable/gyro,
-		/obj/item/attachable/flashlight,
-		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/foldable/bipod,
-		/obj/item/attachable/burstfire_assembly,
-		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/scope,
-		/obj/item/attachable/scope/mini,
-		/obj/item/weapon/gun/pistol/plasma_pistol,
-		/obj/item/weapon/gun/shotgun/combat/masterkey,
-		/obj/item/weapon/gun/flamer/mini_flamer,
-		/obj/item/weapon/gun/grenade_launcher/underslung,
-		/obj/item/weapon/gun/grenade_launcher/underslung/elite,
-		/obj/item/attachable/buildasentry,
-		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
-		/obj/item/attachable/shoulder_mount,
-	)
-	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung/elite)

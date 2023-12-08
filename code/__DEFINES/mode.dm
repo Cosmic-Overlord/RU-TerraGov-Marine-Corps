@@ -48,6 +48,7 @@
 #define MODE_NO_PERMANENT_WOUNDS (1<<12)
 #define MODE_SILOS_SPAWN_MINIONS (1<<13)
 #define MODE_ALLOW_XENO_QUICKBUILD (1<<14)
+#define MODE_DISALLOW_RAILGUN (1<<15)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
@@ -152,17 +153,3 @@
 
 #define SENSOR_CAP_ADDITION_TIME_BONUS 3 MINUTES //additional time granted by capturing a sensor tower
 #define SENSOR_CAP_TIMER_PAUSED "paused"
-
-//mission defines
-#define MISSION_STATE_NEW "mission state new"
-#define MISSION_STATE_ACTIVE "mission state active"
-#define MISSION_STATE_FINISHED "mission state finished"
-
-#define MISSION_OUTCOME_MAJOR_VICTORY "major victory"
-#define MISSION_OUTCOME_MINOR_VICTORY "minor victory"
-#define MISSION_OUTCOME_DRAW "draw"
-#define MISSION_OUTCOME_MINOR_LOSS "minor loss"
-#define MISSION_OUTCOME_MAJOR_LOSS "major loss"
-
-#define MISSION_DISALLOW_DROPPODS (1<<0)
-#define MISSION_DISALLOW_FIRESUPPORT (1<<1)
