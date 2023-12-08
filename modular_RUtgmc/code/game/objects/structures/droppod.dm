@@ -1,4 +1,4 @@
-/obj/structure/droppod/launchpod(mob/user)
+/obj/structure/droppod/launch_pod(mob/user)
 	. = ..()
 	var/turf/target = locate(target_x, target_y, 2)
 	var/obj/effect/overlay/blinking_laser/marine/pod_warning/laserpod = new /obj/effect/overlay/blinking_laser/marine/pod_warning(target)
