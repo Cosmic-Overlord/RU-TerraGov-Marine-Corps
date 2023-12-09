@@ -891,12 +891,12 @@
 /client/proc/set_fullscreen(fullscreen_mode)
 	if(fullscreen_mode)
 		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false")
-		winset(src, "mainwindow", "menu=null;statusbar=false")
+		winset(src, "mainwindow", "menu=null")
 		winset(src, "mainwindow.split", "pos=0x0")
 		winset(src, "mainwindow", "is-maximized=true")
 		return
 	winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true")
-	winset(src, "mainwindow", "menu=menu;statusbar=true")
+	winset(src, "mainwindow", "menu=menu")
 	winset(src, "mainwindow.split", "pos=3x0")
 	winset(src, "mainwindow", "is-maximized=true")
 
