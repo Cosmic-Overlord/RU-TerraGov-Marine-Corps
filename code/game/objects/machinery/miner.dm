@@ -335,6 +335,7 @@
 			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[X.ckey]
 			personal_statistics.miner_sabotages_performed++
 
+/* RUTGMC DELETION
 /obj/machinery/miner/proc/set_miner_status()
 	var/health_percent = round((miner_integrity / max_miner_integrity) * 100)
 	switch(health_percent)
@@ -354,6 +355,7 @@
 			SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, marker_icon))  //RUTGMC edit - icon change
 			miner_status = MINER_RUNNING
 	update_icon()
+*/
 
 ///Called via global signal to prevent perpetual mining
 /obj/machinery/miner/proc/disable_on_hijack()
