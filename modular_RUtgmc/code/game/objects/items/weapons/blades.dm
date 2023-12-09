@@ -44,6 +44,18 @@
 		attack_speed = initial(attack_speed)
 		force = initial(force)
 
+/obj/item/weapon/claymore/mercsword/officersword/equipped(mob/user, slot)
+	. = ..()
+	toggle_item_bump_attack(user, TRUE)
+
+/obj/item/weapon/claymore/mercsword/officersword/dropped(mob/user)
+	. = ..()
+	toggle_item_bump_attack(user, FALSE)
+
+/obj/item/weapon/claymore/mercsword/officersword/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/strappable)
+
 /obj/item/weapon/claymore/mercsword/officersword/sabre
 	name = "\improper ceremonial officer sabre"
 	desc = "Gold plated, smoked dark wood handle, your name on it, what else do you need?"
