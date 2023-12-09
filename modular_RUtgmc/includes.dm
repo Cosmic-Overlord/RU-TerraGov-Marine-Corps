@@ -105,7 +105,6 @@
 #include "code\modules\clothing\head\jobs.dm"
 #include "code\modules\clothing\head\misc.dm"
 #include "code\modules\clothing\head\soft_caps.dm"
-#include "code\modules\clothing\head\collectable.dm"
 #include "code\modules\clothing\masks\miscellaneous.dm"
 #include "code\modules\clothing\modular_armor\combat_robot.dm"
 #include "code\modules\clothing\modular_armor\jaeger.dm"
