@@ -129,7 +129,6 @@ GLOBAL_LIST_INIT(plant_images_list, list(
 		STEALTH_PLANT = image('icons/Xeno/plants.dmi', icon_state = "stealth_plant")
 		))
 
-//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\__DEFINES\xeno.dm
 //List of resin structure images
 GLOBAL_LIST_INIT(resin_images_list, list(
 		RESIN_WALL = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL),
@@ -145,12 +144,15 @@ GLOBAL_LIST_INIT(puppeteer_order_images_list, list(
 		PUPPET_RECALL = image('icons/mob/actions.dmi', icon_state = "rally")
 		))
 
+//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\__DEFINES\xeno.dm
+/*
 //List of puppeteer pheromone images
 GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
 		AURA_XENO_BLESSFURY = image('icons/mob/actions.dmi', icon_state = "Fury"),
 		AURA_XENO_BLESSWARDING = image('icons/mob/actions.dmi', icon_state = "Warding"),
 		AURA_XENO_BLESSFRENZY = image('icons/mob/actions.dmi', icon_state = "Frenzy"),
 		))
+*/ //RUTGMC EDIT END
 
 //xeno upgrade flags
 ///Message the hive when we buy this upgrade
