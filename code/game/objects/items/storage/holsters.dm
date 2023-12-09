@@ -414,11 +414,13 @@
 	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/machete/officersword)
 	can_hold = list(/obj/item/weapon/claymore/mercsword/machete/officersword)
 
+//RUTGMC EDIT CHANGE
+/*
 /obj/item/storage/holster/blade/officer/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/mercsword/machete/officersword(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
-
+*/
 //guns
 
 /obj/item/storage/holster/m37

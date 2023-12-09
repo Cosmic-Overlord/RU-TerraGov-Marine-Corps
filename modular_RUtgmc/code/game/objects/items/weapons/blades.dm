@@ -18,14 +18,17 @@
 /obj/item/weapon/claymore/mercsword/machete
 	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
 
-/obj/item/weapon/claymore/mercsword/machete/officersword
+/obj/item/weapon/claymore/mercsword/officersword
+	icon_state = "officer_sword"
+	item_state = "officer_sword"
+	force = 80
 	attack_speed = 5
 	sharp = IS_SHARP_ITEM_ACCURATE
 	resistance_flags = UNACIDABLE
 	hitsound = 'modular_RUtgmc/sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
 
-/obj/item/weapon/claymore/mercsword/machete/officersword/attack(mob/living/carbon/M, mob/living/user)
+/obj/item/weapon/claymore/mercsword/officersword/attack(mob/living/carbon/M, mob/living/user)
 	. = ..()
 	if(user.skills.getRating("swordplay") == SKILL_SWORDPLAY_DEFAULT)
 		attack_speed = 20
@@ -41,9 +44,10 @@
 		attack_speed = initial(attack_speed)
 		force = initial(force)
 
-/obj/item/weapon/claymore/mercsword/machete/officersword/sabre
+/obj/item/weapon/claymore/mercsword/officersword/sabre
 	name = "\improper ceremonial officer sabre"
 	desc = "Gold plated, smoked dark wood handle, your name on it, what else do you need?"
+	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',

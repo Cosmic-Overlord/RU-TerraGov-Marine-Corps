@@ -78,6 +78,13 @@
 	draw_sound = 'modular_RUtgmc/sound/items/unsheath.ogg'
 	sheathe_sound = 'modular_RUtgmc/sound/items/sheath.ogg'
 	worn_layer = CAPE_LAYER
+	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword)
+	can_hold = list(/obj/item/weapon/claymore/mercsword/officersword)
+
+/obj/item/storage/holster/blade/officer/full/Initialize(mapload)
+	. = ..()
+	var/obj/item/new_item = new /obj/item/weapon/claymore/mercsword/officersword(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
