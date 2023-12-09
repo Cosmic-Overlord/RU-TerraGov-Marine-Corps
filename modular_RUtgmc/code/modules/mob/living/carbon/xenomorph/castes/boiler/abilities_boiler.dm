@@ -85,21 +85,20 @@
 // ***************************************
 // *********** Gas cloud bombs
 // ***************************************
-/datum/action/xeno_action/activable/bombard
+/datum/action/ability/activable/xeno/bombard
 	name = "Bombard"
 	action_icon_state = "bombard"
 	desc = "Launch a glob of neurotoxin or acid. Must be rooted to use."
-	ability_name = "bombard"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BOMBARD,
 	)
 	use_state_flags = NONE
 
-/datum/action/xeno_action/activable/bombard/get_cooldown()
+/datum/action/ability/activable/xeno/bombard/get_cooldown()
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 	return boiler_owner.xeno_caste.bomb_delay - ((boiler_owner.neuro_ammo + boiler_owner.corrosive_ammo) * (BOILER_BOMBARD_COOLDOWN_REDUCTION SECONDS))
 
-/datum/action/xeno_action/activable/bombard/on_cooldown_finish()
+/datum/action/ability/activable/xeno/bombard/on_cooldown_finish()
 	to_chat(owner, span_notice("We feel your toxin glands swell. We are able to bombard an area again."))
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 	if(boiler_owner.selected_ability == src)
@@ -107,12 +106,12 @@
 	return ..()
 
 /// Signal proc for clicking at a distance
-/datum/action/xeno_action/activable/bombard/proc/on_ranged_attack(mob/living/carbon/xenomorph/X, atom/A, params)
+/datum/action/ability/activable/xeno/bombard/proc/on_ranged_attack(mob/living/carbon/xenomorph/X, atom/A, params)
 	SIGNAL_HANDLER
 	if(can_use_ability(A, TRUE))
 		INVOKE_ASYNC(src, PROC_REF(use_ability), A)
 
-/datum/action/xeno_action/activable/bombard/can_use_ability(atom/A, silent = FALSE, override_flags)
+/datum/action/ability/activable/xeno/bombard/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -139,7 +138,7 @@
 			boiler_owner.balloon_alert(boiler_owner, "Too close!")
 		return FALSE
 
-/datum/action/xeno_action/activable/bombard/on_activation()
+/datum/action/ability/activable/xeno/bombard/on_selection()
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 	var/current_ammo = boiler_owner.corrosive_ammo + boiler_owner.neuro_ammo
 	if(current_ammo <= 0)
@@ -149,7 +148,7 @@
 	boiler_owner.visible_message(span_notice("\The [boiler_owner] begins digging their claws into the ground."), \
 	span_notice("We begin digging ourselves into place."), null, 5)
 	if(!do_after(boiler_owner, 4 SECONDS, FALSE, null, BUSY_ICON_HOSTILE))
-		on_deactivation()
+		on_deselection()
 		boiler_owner.selected_ability = null
 		boiler_owner.update_action_button_icons()
 		boiler_owner.reset_bombard_pointer()
@@ -158,9 +157,9 @@
 	boiler_owner.visible_message(span_notice("\The [boiler_owner] digs itself into the ground!"), \
 		span_notice("We dig ourselves into place! If we move, we must wait again to fire."), null, 5)
 	boiler_owner.set_bombard_pointer()
-	RegisterSignal(boiler_owner, COMSIG_MOB_ATTACK_RANGED, TYPE_PROC_REF(/datum/action/xeno_action/activable/bombard, on_ranged_attack))
+	RegisterSignal(boiler_owner, COMSIG_MOB_ATTACK_RANGED, TYPE_PROC_REF(/datum/action/ability/activable/xeno/bombard, on_ranged_attack))
 
-/datum/action/xeno_action/activable/bombard/on_deactivation()
+/datum/action/ability/activable/xeno/bombard/on_deselection()
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 	if(boiler_owner.selected_ability == src)
 		boiler_owner.reset_bombard_pointer()
@@ -169,9 +168,9 @@
 
 /mob/living/carbon/xenomorph/boiler/Moved(atom/OldLoc, Dir)
 	. = ..()
-	if(selected_ability?.type == /datum/action/xeno_action/activable/bombard)
-		var/datum/action/xeno_action/activable/bomb = actions_by_path[/datum/action/xeno_action/activable/bombard]
-		bomb.on_deactivation()
+	if(selected_ability?.type == /datum/action/ability/activable/xeno/bombard)
+		var/datum/action/ability/activable/xeno/bombard/bomb = actions_by_path[/datum/action/ability/activable/xeno/bombard]
+		bomb.on_deselection()
 		selected_ability.button.icon_state = "template"
 		selected_ability = null
 		update_action_button_icons()
@@ -184,7 +183,7 @@
 	if(client)
 		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
-/datum/action/xeno_action/activable/bombard/use_ability(atom/A)
+/datum/action/ability/activable/xeno/bombard/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 	var/turf/target = get_turf(A)
 
@@ -206,7 +205,7 @@
 		to_chat(boiler_owner, span_warning("We decide not to launch."))
 		return fail_activate()
 
-	if(!can_use_ability(target, FALSE, XACT_IGNORE_PLASMA))
+	if(!can_use_ability(target, FALSE, ABILITY_IGNORE_PLASMA))
 		return fail_activate()
 
 	boiler_owner.visible_message(span_xenowarning("\The [boiler_owner] launches a huge glob of acid hurling into the distance!"), \
