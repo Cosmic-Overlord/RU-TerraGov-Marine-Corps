@@ -2,11 +2,11 @@
 // *********** Universal abilities
 // ***************************************
 // Resting
-/datum/action/xeno_action/xeno_resting
-	use_state_flags = XACT_USE_LYING|XACT_USE_CRESTED|XACT_USE_AGILITY|XACT_USE_CLOSEDTURF|XACT_USE_STAGGERED|XACT_USE_INCAP
+/datum/action/ability/xeno_action/xeno_resting
+	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_AGILITY|ABILITY_USE_CLOSEDTURF|ABILITY_USE_STAGGERED|ABILITY_USE_INCAP
 
 // Secrete Resin
-/datum/action/xeno_action/activable/secrete_resin
+/datum/action/ability/activable/xeno/secrete_resin
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
 		/obj/alien/resin/sticky,
@@ -15,7 +15,7 @@
 		)
 
 /// Extra handling for adding the action for draggin functionality (for instant building)
-/datum/action/xeno_action/activable/secrete_resin/give_action(mob/living/L)
+/datum/action/ability/activable/xeno/secrete_resin/give_action(mob/living/L)
 	. = ..()
 	if(!(CHECK_BITFIELD(SSticker?.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) || !SSresinshaping.active))
 		return
@@ -31,7 +31,7 @@
 	RegisterSignal(owner, COMSIG_MOB_MOUSEUP, PROC_REF(stop_resin_drag))
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LAUNCHED,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(end_resin_drag))
 
-/datum/action/xeno_action/activable/secrete_resin/update_button_icon()
+/datum/action/ability/activable/xeno/secrete_resin/update_button_icon()
 	var/mob/living/carbon/xenomorph/X = owner
 	var/atom/A = X.selected_resin
 	action_icon_state = initial(A.name)
@@ -46,14 +46,14 @@
 		visual_references[VREF_MUTABLE_BUILDING_COUNTER] = null
 	return ..()
 
-/datum/action/xeno_action/activable/secrete_resin/use_ability(atom/A)
+/datum/action/ability/activable/xeno/secrete_resin/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/xowner = owner
 	if(get_dist(owner, A) > xowner.xeno_caste.resin_max_range) //Maximum range is defined in the castedatum with resin_max_range, defaults to 0
 		build_resin(get_turf(owner))
 	else
 		build_resin(get_turf(A))
 
-/datum/action/xeno_action/activable/secrete_resin/build_resin(turf/T)
+/datum/action/ability/activable/xeno/secrete_resin/build_resin(turf/T)
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.selected_resin == /obj/structure/bed/nest)
 		for(var/obj/structure/bed/nest/xeno_nest in range (2,T))
@@ -63,7 +63,7 @@
 	return ..()
 
 /// A version of build_resin with the plasma drain and distance checks removed.
-/datum/action/xeno_action/activable/secrete_resin/proc/preshutter_build_resin(turf/T)
+/datum/action/ability/activable/xeno/secrete_resin/proc/preshutter_build_resin(turf/T)
 	if(!SSresinshaping.active)
 		stack_trace("[owner] ([key_name(owner)]) didn't have their quickbuild signals unregistered properly and tried using quickbuild after the subsystem was off!")
 		end_resin_drag()

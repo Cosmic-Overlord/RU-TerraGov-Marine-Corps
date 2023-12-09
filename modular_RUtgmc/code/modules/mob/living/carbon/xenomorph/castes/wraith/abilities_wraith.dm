@@ -1,23 +1,23 @@
 // ***************************************
 // *********** Blink
 // ***************************************
-/datum/action/xeno_action/activable/blink
-	plasma_cost = 15
+/datum/action/ability/activable/xeno/blink
+	ability_cost = 15
 
 
 // ***************************************
 // *********** Timestop
 // ***************************************
-/datum/action/xeno_action/timestop
-	plasma_cost = 50
-	cooldown_timer = 30 SECONDS
+/datum/action/ability/xeno_action/timestop
+	ability_cost = 50
+	cooldown_duration = 30 SECONDS
 
 // ***************************************
 // *********** Banish
 // ***************************************
 
 ///Ends the effect of the Banish ability
-/datum/action/xeno_action/activable/banish/banish_deactivate()
+/datum/action/ability/activable/xeno/banish/banish_deactivate()
 	if(QDELETED(banishment_target))
 		return
 	var/turf/return_turf = get_turf(portal)
@@ -44,21 +44,21 @@
 // ***************************************
 // *********** Portal
 // ***************************************
-/datum/action/xeno_action/portal
-	plasma_cost = 30
+/datum/action/ability/xeno_action/portal
+	ability_cost = 30
 
 
 // ***************************************
 // *********** Rewind
 // ***************************************
 
-/datum/action/xeno_action/activable/rewind
+/datum/action/ability/activable/xeno/rewind
 	/// Initial fire stacks of the target
 	var/target_initial_fire_stacks = 0
 	/// Initial on_fire value
 	var/target_initial_on_fire = FALSE
 
-/datum/action/xeno_action/activable/rewind/use_ability(atom/A)
+/datum/action/ability/activable/xeno/rewind/use_ability(atom/A)
 	targeted = A
 	last_target_locs_list = list(get_turf(A))
 	target_initial_brute_damage = targeted.getBruteLoss()
@@ -78,7 +78,7 @@
 	return
 
 /// Move the target two tiles per tick
-/datum/action/xeno_action/activable/rewind/rewind()
+/datum/action/ability/activable/xeno/rewind/rewind()
 	var/turf/loc_a = pop(last_target_locs_list)
 	if(loc_a)
 		new /obj/effect/temp_visual/xenomorph/afterimage(targeted.loc, targeted)
@@ -101,7 +101,7 @@
 	new /obj/effect/temp_visual/xenomorph/afterimage(loc_a, targeted)
 	INVOKE_NEXT_TICK(src, PROC_REF(rewind))
 
-/datum/action/xeno_action/activable/rewind/proc/handle_fire()
+/datum/action/ability/activable/xeno/rewind/proc/handle_fire()
 	if(target_initial_on_fire == TRUE && target_initial_fire_stacks >= 0)
 		targeted.fire_stacks = target_initial_fire_stacks
 		targeted.IgniteMob()

@@ -685,6 +685,11 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	hit_chance = min(hit_chance , hit_chance + 100 - proj.accuracy)
 	return prob(hit_chance)
 
+/obj/machinery/deployable/mounted/sentry/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
+	if(proj.iff_signal & iff_signal)
+		return FALSE
+	return ..()
+
 /obj/machinery/door/poddoor/railing/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	return src == proj.original_target
 
@@ -766,6 +771,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		evasion_bonus = (100 - evasion_bonus) / 100 //turn it into a multiplier
 		BULLET_DEBUG("Moving (*[evasion_bonus]).")
 		hit_chance = round(hit_chance * evasion_bonus)
+
+	if(proj.ammo.flags_ammo_behavior & AMMO_UNWIELDY)
+		hit_chance *= 0.5
 
 	hit_chance = max(5, hit_chance) //It's never impossible to hit
 
@@ -892,16 +900,14 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		record_projectile_damage(proj.firer, damage)	//Tally up whoever the shooter was
 
 	if(damage)
-		var/shrapnel_roll = do_shrapnel_roll(proj, damage)
-		if(shrapnel_roll)
+		if(do_shrapnel_roll(proj, damage))
 			feedback_flags |= (BULLET_FEEDBACK_SHRAPNEL|BULLET_FEEDBACK_SCREAM)
+			embed_projectile_shrapnel(proj)
 		else if(prob(damage * 0.25))
 			feedback_flags |= BULLET_FEEDBACK_SCREAM
 		bullet_message(proj, feedback_flags, damage)
 		proj.play_damage_effect(src)
 		apply_damage(damage, proj.ammo.damage_type, proj.def_zone, updating_health = TRUE) //This could potentially delete the source.
-		if(shrapnel_roll)
-			embed_projectile_shrapnel(proj)
 	else
 		bullet_message(proj, feedback_flags)
 
@@ -953,7 +959,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 		//If we have the the right kind of ammo, we can fire several projectiles at once.
 		if(ammo.bonus_projectiles_amount)
-			ammo.fire_bonus_projectiles(src, shooter, source, range, speed, dir_angle)
+			ammo.fire_bonus_projectiles(src, shooter, source, range, speed, dir_angle, target)
 
 	if(shooter.Adjacent(target) && ismob(target))
 		var/mob/mob_to_hit = target

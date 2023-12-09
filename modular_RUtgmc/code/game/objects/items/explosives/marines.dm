@@ -9,10 +9,8 @@
 	var/our_fire_stacks = 0
 	var/our_fire_damage = 0
 
-/obj/item/explosive/grenade/sticky/trailblazer/throw_impact(atom/hit_atom, speed)
+/obj/item/explosive/grenade/sticky/trailblazer/stuck_to(atom/hit_atom)
 	. = ..()
-	if(.)
-		return
 	RegisterSignal(stuck_to, COMSIG_MOVABLE_MOVED, PROC_REF(make_fire))
 	var/turf/T = get_turf(src)
 	T.ignite(fire_level, burn_level, fire_color, our_fire_stacks, our_fire_damage)
