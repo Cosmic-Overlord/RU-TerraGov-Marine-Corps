@@ -7,11 +7,9 @@
 /turf/closed/shuttle/dropship2/interiorwindow
 	icon_state = "shuttle_interior_inwards"
 	allow_pass_flags = PASS_GLASS
-
-/turf/closed/shuttle/dropship2/panel
 	opacity = FALSE
 
-/turf/closed/shuttle/dropship2/interiorwindow
+/turf/closed/shuttle/dropship2/panel
 	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/glassthree
