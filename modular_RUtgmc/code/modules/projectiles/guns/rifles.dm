@@ -60,7 +60,14 @@
 //AR-18 Carbine
 
 /obj/item/weapon/gun/rifle/standard_carbine
+	icon_state = "t18"
+	item_state = "t18"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_carbine,
 		/obj/item/ammo_magazine/rifle/standard_carbine/ap,
@@ -70,17 +77,73 @@
 //AR-12 Assault Rifle
 
 /obj/item/weapon/gun/rifle/standard_assaultrifle
+	icon_state = "t12"
+	item_state = "t12"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle,
 		/obj/item/ammo_magazine/rifle/standard_assaultrifle/ap,
 		)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/t12stock,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+	)
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock)
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 17,"rail_x" = 0, "rail_y" = 23, "under_x" = 17, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
+
+/obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+
+/obj/item/weapon/gun/rifle/standard_assaultrifle/engineer
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
+
+/obj/item/weapon/gun/rifle/standard_assaultrifle/medic
+	starting_attachment_types = list(/obj/item/attachable/stock/t12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 //-------------------------------------------------------
 //DMR-37 DMR
 
 /obj/item/weapon/gun/rifle/standard_dmr
+	icon_state = "t37"
+	item_state = "t37"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	)
 
 //-------------------------------------------------------
 //BR-64 BR
@@ -127,6 +190,7 @@
 //MG-42 Light Machine Gun
 
 /obj/item/weapon/gun/rifle/standard_lmg
+	greyscale_config = null
 	colorable_allowed = NONE
 	icon_state = "t42"
 	item_state = "t42"
@@ -134,48 +198,142 @@
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
 	)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/t42stock,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+	)
+	starting_attachment_types = list(/obj/item/attachable/stock/t42stock)
 
 //-------------------------------------------------------
 //MG-60 General Purpose Machine Gun
 
 /obj/item/weapon/gun/rifle/standard_gpmg
+	icon_state = "t60"
+	item_state = "t60"
+	fire_animation = "t60_fire"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	)
 
 //-------------------------------------------------------
 //SH-15 AUTOMATIC SHOTGUN
 
 /obj/item/weapon/gun/rifle/standard_autoshotgun
+	icon_state = "tx15"
+	item_state = "tx15"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 
 //-------------------------------------------------------
 //SG-29 Smart Machine Gun (It's more of a rifle than the SG.)
 
 /obj/item/weapon/gun/rifle/standard_smartmachinegun
+	icon_state = "sg29"
+	item_state = "sg29"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 
 //-------------------------------------------------------
 //SR-127 bolt action sniper rifle
 
 /obj/item/weapon/gun/rifle/chambered
+	icon_state = "tl127"
+	item_state = "tl127"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	)
+	cock_animation = "tl127_cock"
 
 //-------------------------------------------------------
 //SR-81 Auto-Sniper
 
 /obj/item/weapon/gun/rifle/standard_autosniper
+	icon_state = "t81"
+	item_state = "t81"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
+	attachable_allowed = list(
+		/obj/item/attachable/autosniperbarrel,
+		/obj/item/attachable/scope/nightvision,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+	)
+	starting_attachment_types = list(
+		/obj/item/attachable/autosniperbarrel,
+		/obj/item/attachable/scope/nightvision,
+	)
 
 //-------------------------------------------------------
 //AR-11 Rifle, based on the gamer-11
 
 /obj/item/weapon/gun/rifle/tx11
+	icon_state = "tx11"
+	item_state = "tx11"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 
 //-------------------------------------------------------
 //AR-21 Assault Rifle
 
 /obj/item/weapon/gun/rifle/standard_skirmishrifle
+	icon_state = "t21"
+	item_state = "t21"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
