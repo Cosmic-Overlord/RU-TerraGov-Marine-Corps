@@ -38,6 +38,9 @@
 /datum/hive_upgrade/building/silo
 	psypoint_cost = 600
 
+/datum/hive_upgrade/building/evotower
+	desc = "Constructs a tower that increases the rate of evolution point."
+
 /datum/hive_upgrade/building/pherotower
 	psypoint_cost = 150
 
@@ -46,3 +49,18 @@
 
 /datum/hive_upgrade/defence/turret/sticky
 	psypoint_cost = 50
+
+/datum/hive_upgrade/primordial
+	category = "Primordial"
+
+/datum/hive_upgrade/primordial/tier_four
+	psypoint_cost = 700
+
+/datum/hive_upgrade/primordial/tier_three
+	psypoint_cost = 800
+
+/datum/hive_upgrade/primordial/tier_two
+	psypoint_cost = 700
+
+/datum/hive_upgrade/primordial/tier_one
+	psypoint_cost = 600

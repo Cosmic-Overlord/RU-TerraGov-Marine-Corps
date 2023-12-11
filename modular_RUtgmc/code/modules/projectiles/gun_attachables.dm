@@ -1,19 +1,26 @@
 /obj/item/attachable/stock/sgstock
+	greyscale_config = null
 	colorable_allowed = NONE
 
 /obj/item/attachable/stock/tl127stock
+	greyscale_config = null
 	colorable_allowed = NONE
 
 /obj/item/attachable/stock/t60stock
+	greyscale_config = null
 	colorable_allowed = NONE
 
 /obj/item/attachable/verticalgrip
+	greyscale_config = null
 	colorable_allowed = NONE
 
 /obj/item/attachable/angledgrip
+	greyscale_config = null
 	colorable_allowed = NONE
 
 /obj/item/attachable/foldable/t35stock
+	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
+	greyscale_config = null
 	colorable_allowed = NONE
 
 /obj/item/attachable/stock/t500stock

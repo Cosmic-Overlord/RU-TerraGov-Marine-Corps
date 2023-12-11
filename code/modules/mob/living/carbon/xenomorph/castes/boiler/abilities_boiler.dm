@@ -171,6 +171,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	action_icon_state = "bomb_count_[X.corrosive_ammo][X.neuro_ammo]"
 	return ..()
 
+/* RUTGMC EDIT, FULLY REWRITTEN IN modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\boiler\abilities_boiler.dm
 // ***************************************
 // *********** Gas cloud bombs
 // ***************************************
@@ -250,11 +251,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 	to_chat(boiler_owner, span_xenonotice("We begin building up pressure."))
 
-	/* //RUTGMC EDIT REMOVAL BEGIN
 	if(!do_after(boiler_owner, 2 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_DANGER))
 		to_chat(boiler_owner, span_warning("We decide not to launch."))
 		return fail_activate()
-	*/ //RUTGMC EDIT REMOVAL END
 
 	if(!can_use_ability(target, FALSE, ABILITY_IGNORE_PLASMA))
 		return fail_activate()
@@ -323,7 +322,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 			boiler_owner.client.mouse_pointer_icon = initial(boiler_owner.client.mouse_pointer_icon)
 
 	boiler_owner.anchored = on
-
+RUTGMC EDIT END*/
 
 // ***************************************
 // *********** Acid spray

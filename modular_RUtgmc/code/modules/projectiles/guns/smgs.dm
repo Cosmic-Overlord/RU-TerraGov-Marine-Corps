@@ -2,7 +2,14 @@
 // War is hell. Not glorious.
 
 /obj/item/weapon/gun/smg/standard_smg
+	icon_state = "t90"
+	item_state = "t90"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 
 ///////////////////////////////////////////////////////////////////////
 ////////////// Vector, based on KRISS Vector 45ACP. ///////////////////
