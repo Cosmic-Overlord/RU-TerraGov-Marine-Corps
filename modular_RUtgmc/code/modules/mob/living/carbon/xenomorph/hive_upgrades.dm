@@ -50,6 +50,9 @@
 /datum/hive_upgrade/defence/turret/sticky
 	psypoint_cost = 50
 
+/datum/hive_upgrade/primordial
+	category = "Primordial"
+
 /datum/hive_upgrade/primordial/tier_four
 	psypoint_cost = 800
 
