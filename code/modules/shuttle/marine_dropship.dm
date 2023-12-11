@@ -380,6 +380,7 @@
 
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
 
+/* RUTGMC DELETION
 /datum/game_mode/proc/can_summon_dropship(mob/user)
 	if(user.do_actions)
 		user.balloon_alert(user, span_warning("Busy"))
@@ -454,6 +455,7 @@
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
 		return FALSE
 	return TRUE
+*/
 
 // summon dropship to closest lz to A
 /datum/game_mode/proc/summon_dropship(atom/A)
@@ -646,6 +648,7 @@
 		if("cycle_time_change")
 			M.time_between_cycle = params["cycle_time_change"]
 
+/* RUTGMC DELETION
 /obj/machinery/computer/shuttle/marine_dropship/Topic(href, href_list)
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
 	if(!M)
@@ -719,6 +722,7 @@
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 		return
+*/
 
 /obj/machinery/computer/shuttle/marine_dropship/proc/do_hijack(obj/docking_port/mobile/marine_dropship/crashing_dropship, obj/docking_port/stationary/marine_dropship/crash_target/crash_target, mob/living/carbon/xenomorph/user)
 	crashing_dropship.set_hijack_state(HIJACK_STATE_CRASHING)
@@ -752,12 +756,13 @@
 	possible_destinations = "lz1;lz2;alamo"
 	opacity = FALSE
 
+/* RUTGMC DELETION
 /obj/machinery/computer/shuttle/marine_dropship/one/Initialize(mapload)
 	. = ..()
 	for(var/trait in SSmapping.configs[SHIP_MAP].environment_traits)
 		if(ZTRAIT_DOUBLE_SHIPS in trait)
-			//possible_destinations = "lz2;alamo" // RUTGMC CHANGE, it is now Normandy
-			possible_destinations = "lz2;normandy"
+			possible_destinations = "lz2;alamo"=
+*/
 
 /obj/machinery/computer/shuttle/marine_dropship/two
 	name = "\improper 'Normandy' flight controls"

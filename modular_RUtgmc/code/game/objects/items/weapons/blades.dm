@@ -19,6 +19,8 @@
 	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
 
 /obj/item/weapon/claymore/mercsword/officersword
+	icon_state = "officer_sword"
+	item_state = "officer_sword"
 	force = 80
 	attack_speed = 5
 	sharp = IS_SHARP_ITEM_ACCURATE
