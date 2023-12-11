@@ -112,9 +112,11 @@
 		if(new_xeno)
 			qdel(new_xeno)
 		return
+	/* RUTGMC DELETION
 	new_xeno.upgrade_stored = upgrade_stored
 	while(new_xeno.upgrade_stored >= new_xeno.xeno_caste?.upgrade_threshold && new_xeno.upgrade_possible())
 		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
+	*/
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_EVOLVED, new_xeno)
 
@@ -175,9 +177,11 @@
 			if(XENO_TIER_FOUR)
 				SSmonitor.stats.primo_T4--
 
+	/* RUTGMC DELETION
 	new_xeno.upgrade_stored = max(upgrade_stored, new_xeno.upgrade_stored)
 	while(new_xeno.upgrade_possible() && new_xeno.upgrade_stored >= new_xeno.xeno_caste.upgrade_threshold)
 		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
+	*/
 	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
 	selector?.set_selected_zone(zone_selected, new_xeno)
 	qdel(src)

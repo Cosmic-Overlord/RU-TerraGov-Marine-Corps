@@ -27,7 +27,7 @@
 	// The only evolution path does not require threshold
 	// evolution_threshold = 225
 	maximum_active_caste = 1
-	upgrade_threshold = TIER_TWO_THRESHOLD
+	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 	evolves_to = list(/mob/living/carbon/xenomorph/queen)
 	deevolves_to = /mob/living/carbon/xenomorph/drone

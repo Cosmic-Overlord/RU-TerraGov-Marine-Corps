@@ -46,3 +46,15 @@
 
 /datum/hive_upgrade/defence/turret/sticky
 	psypoint_cost = 50
+
+/datum/hive_upgrade/primordial/tier_four
+	psypoint_cost = 800
+
+/datum/hive_upgrade/primordial/tier_three
+	psypoint_cost = 800
+
+/datum/hive_upgrade/primordial/tier_two
+	psypoint_cost = 800
+
+/datum/hive_upgrade/primordial/tier_one
+	psypoint_cost = 800

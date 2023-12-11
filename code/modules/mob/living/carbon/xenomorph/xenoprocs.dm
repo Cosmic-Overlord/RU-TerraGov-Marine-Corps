@@ -109,7 +109,8 @@
 		. += "Evolve Progress: [evolution_stored]/[xeno_caste.evolution_threshold]"
 
 	if(upgrade_possible())
-		. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]"
+		//. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]" // RUTGMC DELETION
+		. += "Upgrade Progress: (HALTED)"
 	else //Upgrade process finished or impossible
 		. += "Upgrade Progress: (FINISHED)"
 

@@ -59,7 +59,7 @@
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
 	///Threshold amount of upgrade points to next maturity
-	var/upgrade_threshold = 0
+	//var/upgrade_threshold = 0 // RUTGMC DELETION
 
 	///Type paths to the castes that this xenomorph can evolve to
 	var/list/evolves_to = list()
@@ -305,7 +305,7 @@
 	///How much evolution they have stored
 	var/evolution_stored = 0
 	///How much upgrade points they have stored.
-	var/upgrade_stored = 0
+	//var/upgrade_stored = 0 // RUTGMC DELETION
 	///This will track their upgrade level.
 	var/upgrade = XENO_UPGRADE_INVALID
 	///sunder affects armour values and does a % removal before dmg is applied. 50 sunder == 50% effective armour values
