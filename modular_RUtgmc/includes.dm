@@ -211,6 +211,7 @@
 #include "code\modules\projectiles\tracer.dm"
 #include "code\modules\projectiles\guns\energy.dm"
 #include "code\modules\projectiles\guns\grenade_launchers.dm"
+#include "code\modules\projectiles\guns\mounted.dm"
 #include "code\modules\projectiles\guns\pistols.dm"
 #include "code\modules\projectiles\guns\revolvers.dm"
 #include "code\modules\projectiles\guns\rifles.dm"
