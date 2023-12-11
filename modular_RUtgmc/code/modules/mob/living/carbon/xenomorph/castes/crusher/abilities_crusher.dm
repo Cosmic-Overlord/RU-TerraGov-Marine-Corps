@@ -1,25 +1,24 @@
 // ***************************************
 // *********** Regenerate Skin
 // ***************************************
-/datum/action/xeno_action/regenerate_skin/crusher
+/datum/action/ability/xeno_action/regenerate_skin/crusher
 	name = "Regenerate Armor"
 	action_icon_state = "regenerate_skin"
 	desc = "Regenerate your hard exoskeleton armor, removing all sunder."
-	ability_name = "regenerate skin"
-	use_state_flags = XACT_TARGET_SELF|XACT_IGNORE_SELECTED_ABILITY|XACT_KEYBIND_USE_ABILITY
-	plasma_cost = 400
-	cooldown_timer = 3 MINUTES
-	keybind_flags = XACT_KEYBIND_USE_ABILITY
+	use_state_flags = ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY
+	ability_cost = 400
+	cooldown_duration = 3 MINUTES
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REGENERATE_SKIN,
 	)
 
-/datum/action/xeno_action/regenerate_skin/crusher/on_cooldown_finish()
+/datum/action/ability/xeno_action/regenerate_skin/crusher/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/X = owner
 	to_chat(X, span_notice("We feel we are ready to shred our armor and grow another."))
 	return ..()
 
-/datum/action/xeno_action/regenerate_skin/crusher/action_activate()
+/datum/action/ability/xeno_action/regenerate_skin/crusher/action_activate()
 	var/mob/living/carbon/xenomorph/crusher/X = owner
 
 	if(!can_use_action(TRUE))

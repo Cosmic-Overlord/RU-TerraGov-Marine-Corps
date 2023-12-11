@@ -3,6 +3,7 @@
 
 /datum/skills/fo
 	swordplay = SKILL_SWORDPLAY_TRAINED
+	smartgun = SKILL_SMART_TRAINED
 
 /datum/skills/so
 	swordplay = SKILL_SWORDPLAY_TRAINED

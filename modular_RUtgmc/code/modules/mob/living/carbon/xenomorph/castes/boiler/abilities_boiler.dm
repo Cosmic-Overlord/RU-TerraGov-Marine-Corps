@@ -5,22 +5,21 @@
 // *********** Dump acid
 // ***************************************
 
-/datum/action/xeno_action/dump_acid
+/datum/action/ability/xeno_action/dump_acid
 	name = "Dump Acid"
 	action_icon_state = "dump_acid"
 	desc = "You dump your acid to escape, creating clouds of deadly acid mist behind you, while becoming faster for a short period of time. Unroots you if you are rooted."
-	ability_name = "dump acid"
-	plasma_cost = 150
-	cooldown_timer = 180 SECONDS
-	keybind_flags = XACT_KEYBIND_USE_ABILITY|XACT_IGNORE_SELECTED_ABILITY
-	use_state_flags = XACT_USE_STAGGERED|XACT_USE_ROOTED
+	ability_cost = 150
+	cooldown_duration = 180 SECONDS
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY |ABILITY_IGNORE_SELECTED_ABILITY
+	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_ROOTED
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_DUMP_ACID,
 	)
 	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
 	var/obj/effect/abstract/particle_holder/particle_holder
 
-/datum/action/xeno_action/dump_acid/action_activate()
+/datum/action/ability/xeno_action/dump_acid/action_activate()
 	var/mob/living/carbon/xenomorph/boiler/caster = owner
 	toggle_particles(TRUE)
 
@@ -30,21 +29,21 @@
 	caster.visible_message(span_xenodanger("[caster] emits an acid!"),
 	span_xenodanger("You dump your acid, disabling your offensive abilities to escape!"))
 
-	var/datum/action/xeno_action/activable/bombard/bombard_action = caster.actions_by_path[/datum/action/xeno_action/activable/bombard]
+	var/datum/action/ability/activable/xeno/bombard/bombard_action = caster.actions_by_path[/datum/action/ability/activable/xeno/bombard]
 	if(HAS_TRAIT_FROM(caster, TRAIT_IMMOBILE, BOILER_ROOTED_TRAIT))
 		bombard_action.set_rooted(FALSE)
 
 	dispense_gas()
 
-	var/datum/action/xeno_action/activable/spray_acid = caster.actions_by_path[/datum/action/xeno_action/activable/spray_acid/line/boiler]
+	var/datum/action/ability/activable/xeno/spray_acid = caster.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/boiler]
 	if(spray_acid)
 		spray_acid.add_cooldown()
 
-/datum/action/xeno_action/dump_acid/fail_activate()
+/datum/action/ability/xeno_action/dump_acid/fail_activate()
 	toggle_particles(FALSE)
 	return ..()
 
-/datum/action/xeno_action/dump_acid/proc/dispense_gas(time_left = 6)
+/datum/action/ability/xeno_action/dump_acid/proc/dispense_gas(time_left = 6)
 	if(time_left <= 0)
 		toggle_particles(FALSE)
 		owner.remove_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP)
@@ -74,7 +73,7 @@
 	addtimer(CALLBACK(src, PROC_REF(dispense_gas), time_left - 1), BOILER_GAS_DELAY)
 
 // Toggles particles on or off, depending on the defined var. эта хуйня нужна
-/datum/action/xeno_action/dump_acid/proc/toggle_particles(activate)
+/datum/action/ability/xeno_action/dump_acid/proc/toggle_particles(activate)
 	if(!activate)
 		QDEL_NULL(particle_holder)
 		return

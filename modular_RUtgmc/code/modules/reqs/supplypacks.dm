@@ -27,7 +27,7 @@ WEAPONS
 
 /datum/supply_packs/weapons/valihalberd
 	name = "VAL-HAL-A"
-	contains = list(/obj/item/weapon/twohanded/glaive/harvester)
+	contains = list(/obj/item/weapon/twohanded/glaive/halberd/harvester)
 	cost = 600
 
 /datum/supply_packs/weapons/t500case
