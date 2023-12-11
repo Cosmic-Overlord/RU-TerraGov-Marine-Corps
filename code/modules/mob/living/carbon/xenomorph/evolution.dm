@@ -102,6 +102,7 @@
 	SStgui.close_user_uis(src) //Force close all UIs upon evolution.
 	finish_evolve(new_mob_type)
 
+/* RUTGMC DELETION
 ///Actually changes the xenomorph to another caste
 /mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type)
 	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src))
@@ -112,11 +113,11 @@
 		if(new_xeno)
 			qdel(new_xeno)
 		return
-	/* RUTGMC DELETION
+
 	new_xeno.upgrade_stored = upgrade_stored
 	while(new_xeno.upgrade_stored >= new_xeno.xeno_caste?.upgrade_threshold && new_xeno.upgrade_possible())
 		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
-	*/
+
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_EVOLVED, new_xeno)
 
@@ -177,17 +178,17 @@
 			if(XENO_TIER_FOUR)
 				SSmonitor.stats.primo_T4--
 
-	/* RUTGMC DELETION
 	new_xeno.upgrade_stored = max(upgrade_stored, new_xeno.upgrade_stored)
 	while(new_xeno.upgrade_possible() && new_xeno.upgrade_stored >= new_xeno.xeno_caste.upgrade_threshold)
 		new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)
-	*/
+
 	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
 	selector?.set_selected_zone(zone_selected, new_xeno)
 	qdel(src)
 	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
 
 	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
+*/
 
 ///Check if the xeno is currently able to evolve
 /mob/living/carbon/xenomorph/proc/generic_evolution_checks()
