@@ -1,3 +1,9 @@
+//-------------------------------------------------------
+//R-44 COMBAT REVOLVER
+
+/obj/item/weapon/gun/revolver/standard_revolver
+	colorable_allowed = NONE
+
 ///////////////////////////////////////////////////////////////////////
 //////// Сoltrifle, based on Colt Model 1855 Revolving Rifle. /////////
 ///////////////////////////////////////////////////////////////////////
@@ -8,6 +14,7 @@
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
+	greyscale_config = null
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
