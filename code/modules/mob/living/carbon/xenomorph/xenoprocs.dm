@@ -108,11 +108,12 @@
 	else
 		. += "Evolve Progress: [evolution_stored]/[xeno_caste.evolution_threshold]"
 
+	/* RUTGMC DELETION
 	if(upgrade_possible())
-		//. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]" // RUTGMC DELETION
-		. += "Upgrade Progress: (HALTED)"
+		. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]"
 	else //Upgrade process finished or impossible
 		. += "Upgrade Progress: (FINISHED)"
+	*/
 
 	. += "Health: [overheal ? "[overheal] + ": ""][health]/[maxHealth]" //Changes with balance scalar, can't just use the caste
 

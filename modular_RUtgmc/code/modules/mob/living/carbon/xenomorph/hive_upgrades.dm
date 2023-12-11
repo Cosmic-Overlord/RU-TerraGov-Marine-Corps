@@ -38,6 +38,9 @@
 /datum/hive_upgrade/building/silo
 	psypoint_cost = 600
 
+/datum/hive_upgrade/building/evotower
+	desc = "Constructs a tower that increases the rate of evolution point."
+
 /datum/hive_upgrade/building/pherotower
 	psypoint_cost = 150
 

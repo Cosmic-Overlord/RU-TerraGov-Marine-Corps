@@ -383,7 +383,6 @@
 
 /mob/living/carbon/xenomorph/baneling/primordial
 	upgrade = XENO_UPGRADE_PRIMO
- // RUTGMC DELETION
 //----BANELING END----//
 //============//
 //----PUPPETEER START----//

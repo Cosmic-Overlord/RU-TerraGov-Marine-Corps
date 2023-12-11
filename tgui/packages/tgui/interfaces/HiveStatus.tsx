@@ -32,8 +32,6 @@ type InputPack = {
   user_watched_xeno: string;
   user_evolution: number;
   user_purchase_perms: boolean;
-  user_maturity: number;
-  user_next_mat_level: number;
   user_tracked: string;
   user_show_compact: boolean;
   user_show_empty: boolean;
@@ -235,9 +233,6 @@ const GeneralInfo = (_props, context) => {
           <LarvaBar />
         </Flex.Item>
         <Flex.Item>
-          <MaturityBar />
-        </Flex.Item>
-        <Flex.Item>
           <EvolutionBar />
         </Flex.Item>
         <DeadXenoTimerCountdowns hive_death_timers={hive_death_timers} />
@@ -320,35 +315,6 @@ const LarvaBar = (_props, context) => {
             value={hive_larva_current / hive_larva_threshold}>
             {`${hive_larva_rate} per minute ` + // Linters eating my white space.
               `(${hive_larva_current}/${hive_larva_threshold})`}
-          </ProgressBar>
-        </Flex.Item>
-      </Flex>
-    </Tooltip>
-  );
-};
-
-const MaturityBar = (_props, context) => {
-  const { data } = useBackend<InputPack>(context);
-  const { user_xeno, user_maturity, user_next_mat_level } = data;
-
-  if (!user_xeno || user_next_mat_level === 0) {
-    return <Box />; // Empty.
-  }
-
-  return (
-    <Tooltip content="Your next maturity upgrade">
-      <Flex mb={1}>
-        <Flex.Item ml={1} mr={1} width={bar_text_width} align="center">
-          Upgrade Progress:
-        </Flex.Item>
-        <Flex.Item grow>
-          <ProgressBar
-            ranges={{
-              good: [0.75, Infinity],
-              average: [-Infinity, 0.75],
-            }}
-            value={user_maturity / user_next_mat_level}>
-            {round((user_maturity / user_next_mat_level) * 100, 0)}%
           </ProgressBar>
         </Flex.Item>
       </Flex>
