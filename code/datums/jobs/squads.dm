@@ -1,5 +1,6 @@
 /datum/squad
 	var/name = ""
+	var/additional_name = "Squad"
 	/// custom squad only: allows users to set a description for the squad
 	var/desc = ""
 	var/id = NO_SQUAD
@@ -393,7 +394,7 @@
 	qdel(wl)
 	if(!(job.title in current_positions))
 		CRASH("Attempted to insert [job.title] into squad [name]")
-	if((job.title == SQUAD_LEADER || job.title == REBEL_SQUAD_LEADER) && role < FOREIGN_ALLOWED_LEADER)
+	if(job.title == SQUAD_LEADER && role < FOREIGN_ALLOWED_LEADER)
 		return FALSE
 	if(!latejoin)
 		current_positions[job.title]++
@@ -445,7 +446,7 @@ GLOBAL_LIST_EMPTY_TYPED(custom_squad_radio_freqs, /datum/squad)
 	var/squad_faction = creator.faction
 	var/datum/squad/new_squad = new(squad_color, squad_name)
 	new_squad.id = new_id
-	new_squad.access = list(ACCESS_MARINE_ALPHA, ACCESS_MARINE_BRAVO, ACCESS_MARINE_CHARLIE, ACCESS_MARINE_DELTA)
+	new_squad.access = list(ACCESS_MARINE_ALPHA, ACCESS_MARINE_BRAVO, ACCESS_MARINE_CHARLIE, ACCESS_MARINE_DELTA, ACCESS_MARINE_FOREIGN)
 	new_squad.radio_freq = freq
 	GLOB.custom_squad_radio_freqs["[freq]"] = new_squad
 	var/radio_channel_name = new_squad.name
