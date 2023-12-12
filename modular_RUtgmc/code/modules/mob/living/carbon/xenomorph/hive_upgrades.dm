@@ -54,13 +54,13 @@
 	category = "Primordial"
 
 /datum/hive_upgrade/primordial/tier_four
-	psypoint_cost = 700
+	psypoint_cost = 900
 
 /datum/hive_upgrade/primordial/tier_three
-	psypoint_cost = 800
+	psypoint_cost = 1000
 
 /datum/hive_upgrade/primordial/tier_two
-	psypoint_cost = 700
+	psypoint_cost = 900
 
 /datum/hive_upgrade/primordial/tier_one
-	psypoint_cost = 600
+	psypoint_cost = 800
