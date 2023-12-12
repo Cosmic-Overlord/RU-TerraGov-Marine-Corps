@@ -891,8 +891,12 @@
 	icon_state = "upp_key"
 	access = list(ACCESS_YAUTJA_SECURE)
 	w_class = WEIGHT_CLASS_TINY
-	flags_item = ITEM_PREDATOR|NODROP
+	flags_item = ITEM_PREDATOR
 	paygrade = null
+
+/obj/item/card/id/bracer_chip/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 
 /obj/item/card/id/bracer_chip/set_user_data(mob/living/carbon/human/human_user)
 	if(!istype(human_user))

@@ -4,7 +4,7 @@
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	icon_state = "globe"
 
-	allowed_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
+	minimap_flag = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
 
 /obj/machinery/autolathe/yautja
 	name = "yautja autolathe"

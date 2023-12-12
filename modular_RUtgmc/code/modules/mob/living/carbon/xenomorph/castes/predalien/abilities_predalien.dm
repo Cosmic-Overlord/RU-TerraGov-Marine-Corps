@@ -6,7 +6,7 @@
 	desc = "Leap at your targer stunning and slashing them. Stun duration and damage increases with each stack of hunted prey."
 	action_icon_state = "powerful_pounce"
 
-	range = 5
+	pounce_range = 5
 	mob_hit_sound = 'sound/voice/predalien_pounce.ogg'
 
 	var/base_damage = 25

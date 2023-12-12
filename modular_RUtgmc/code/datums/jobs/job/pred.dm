@@ -35,7 +35,7 @@
 	SSpredships.load_new(clan_id)
 	var/turf/spawn_point = SAFEPICK(SSpredships.get_clan_spawnpoints(clan_id))
 	if(!isturf(spawn_point))
-		log_debug("Failed to find spawn point for new_predator ship in transform_predator - clan_id=[clan_id]")
+		//log_debug("Failed to find spawn point for new_predator ship in transform_predator - clan_id=[clan_id]")
 		to_chat(player, span_warning("Unable to setup spawn location - you might want to tell someone about this."))
 		return
 

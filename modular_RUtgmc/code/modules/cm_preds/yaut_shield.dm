@@ -39,10 +39,11 @@
 		return ..()
 	if(!(user.l_hand == src || user.r_hand == src))
 		return ..()
-	TOGGLE_BITFIELD(flags_item, NODROP)
-	if(CHECK_BITFIELD(flags_item, NODROP))
+	if(!HAS_TRAIT(src, TRAIT_NODROP))
+		ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 		to_chat(user, span_warning("You tighten the strap of [src] around your hand!"))
 	else
+		REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 		to_chat(user, span_notice("You loosen the strap of [src] around your hand!"))
 
 /obj/item/weapon/shield/riot/yautja/proc/raise_shield(mob/user as mob) // Prepare for an attack. Slows you down slightly, but increases chance to block.

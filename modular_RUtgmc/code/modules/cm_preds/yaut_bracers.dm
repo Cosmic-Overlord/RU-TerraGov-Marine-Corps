@@ -1241,7 +1241,7 @@
 	else
 		to_chat(H, span_notice("You expose your ID chip."))
 		playsound(src, 'sound/machines/click.ogg', 15, 1)
-		if(!H.equip_to_slot_if_possible(embedded_id, SLOT_WEAR_ID, permanent = TRUE, override_nodrop = TRUE))
+		if(!H.equip_to_slot_if_possible(embedded_id, SLOT_WEAR_ID, override_nodrop = TRUE))
 			to_chat(H, span_warning("Something went wrong during your chip's deployment! (Make a Bug Report about this)"))
 			move_chip_to_bracer()
 
@@ -1293,8 +1293,8 @@
 
 /// The actual unlock/lock function.
 /obj/item/clothing/gloves/yautja/proc/toggle_lock_internal(mob/wearer, force_lock)
-	if(flags_item & NODROP && !force_lock)
-		flags_item &= ~NODROP
+	if(HAS_TRAIT(src, TRAIT_NODROP) && !force_lock)
+		REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 		if(!isyautja(wearer))
 			to_chat(wearer, span_warning("The bracer beeps pleasantly, releasing it's grip on your forearm."))
 		else
@@ -1302,7 +1302,7 @@
 		playsound(src, 'modular_RUtgmc/sound/items/air_release.ogg', 15, 1)
 		return TRUE
 
-	flags_item |= NODROP
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 	if(isyautja(wearer))
 		to_chat(wearer, span_warning("The bracer clamps securely around your forearm and beeps in a comfortable, familiar way."))
 	else

@@ -334,7 +334,7 @@
 			xeno_owner.set_throwing(FALSE)
 			return COMPONENT_KEEP_THROWING
 //RUTGMC EDIT ADDITION BEGIN - Preds
-	playsound(X.loc, mob_hit_sound, 25, TRUE)
+	playsound(xeno_owner.loc, mob_hit_sound, 25, TRUE)
 	xeno_owner.Immobilize(freeze_on_hit_time)
 	xeno_owner.forceMove(get_turf(living_target))
 	living_target.Knockdown(victim_paralyze_time)

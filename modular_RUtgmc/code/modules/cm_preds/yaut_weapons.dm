@@ -182,11 +182,12 @@
 /obj/item/weapon/yautja/AltClick(mob/user)
 	if(!can_interact(user) || !ishuman(user) || !(user.l_hand == src || user.r_hand == src))
 		return ..()
-	TOGGLE_BITFIELD(flags_item, NODROP)
-	if(CHECK_BITFIELD(flags_item, NODROP))
+	if(!HAS_TRAIT(src, TRAIT_NODROP))
+		ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 		to_chat(user, span_warning("You tighten the grip around [src]!"))
-		return
-	to_chat(user, span_notice("You loosen the grip around [src]!"))
+	else
+		REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
+		to_chat(user, span_notice("You loosen the grip around [src]!"))
 
 /obj/item/weapon/yautja/chain
 	name = "chainwhip"
@@ -800,11 +801,12 @@
 /obj/item/weapon/twohanded/yautja/glaive/AltClick(mob/user)
 	if(!can_interact(user) || !ishuman(user) || !(user.l_hand == src || user.r_hand == src))
 		return ..()
-	TOGGLE_BITFIELD(flags_item, NODROP)
-	if(CHECK_BITFIELD(flags_item, NODROP))
+	if(!HAS_TRAIT(src, TRAIT_NODROP))
+		ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 		to_chat(user, span_warning("You tighten the grip around [src]!"))
-		return
-	to_chat(user, span_notice("You loosen the grip around [src]!"))
+	else
+		REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
+		to_chat(user, span_notice("You loosen the grip around [src]!"))
 
 /obj/item/weapon/twohanded/yautja/glaive/alt
 	icon_state = "glaive_alt"
