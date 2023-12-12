@@ -174,7 +174,7 @@
 			"Blood Red" = ARMOR_PALETTE_BLOOD_RED,\
 			"Dark Red" = ARMOR_PALETTE_RED,\
 			"Copper" = ARMOR_PALETTE_COPPER,\
-			"Alpha" = ARMOR_PALETTE_ALPHA,\
+			RADIO_CHANNEL_ALPHA = ARMOR_PALETTE_ALPHA,\
 			"Syndicate Red" = ARMOR_PALETTE_SYNDIE_RED,\
 			"Gorlex Red" = ARMOR_PALETTE_GORLEX_RED,\
 		),\
@@ -192,7 +192,7 @@
 			"Olive" = ARMOR_PALETTE_OLIVE,\
 			"Angelic Gold" = ARMOR_PALETTE_ANGELIC,\
 			"Cathay Spice" = ARMOR_PALETTE_CATHAY,\
-			"Bravo" = ARMOR_PALETTE_BRAVO,\
+			RADIO_CHANNEL_BRAVO = ARMOR_PALETTE_BRAVO,\
 		),\
 		"Green" = list(\
 			"Green" = ARMOR_PALETTE_GREEN,\
@@ -226,7 +226,7 @@
 			"Lilac" = ARMOR_PALETTE_LILAC,\
 			"Grape" = ARMOR_PALETTE_GRAPE,\
 			"Red Violet" = ARMOR_PALETTE_MAGENTA,\
-			"Charlie" = ARMOR_PALETTE_CHARLIE,\
+			RADIO_CHANNEL_CHARLIE = ARMOR_PALETTE_CHARLIE,\
 		),\
 	)
 */

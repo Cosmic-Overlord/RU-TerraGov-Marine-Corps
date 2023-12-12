@@ -34,7 +34,7 @@
 
 
 /datum/squad/alpha
-	name = "Alpha"
+	name = RADIO_CHANNEL_ALPHA
 	id = ALPHA_SQUAD
 	color = "#e61919" // rgb(230,25,25)
 	access = list(ACCESS_MARINE_ALPHA)
@@ -42,7 +42,7 @@
 
 
 /datum/squad/bravo
-	name = "Bravo"
+	name = RADIO_CHANNEL_BRAVO
 	id = BRAVO_SQUAD
 	color = "#ffc32d" // rgb(255,195,45)
 	access = list(ACCESS_MARINE_BRAVO)
@@ -50,18 +50,26 @@
 
 
 /datum/squad/charlie
-	name = "Charlie"
+	name = RADIO_CHANNEL_CHARLIE
 	id = CHARLIE_SQUAD
 	color = "#c864c8" // rgb(200,100,200)
 	access = list(ACCESS_MARINE_CHARLIE)
 	radio_freq = FREQ_CHARLIE
 
 /datum/squad/delta
-	name = "Delta"
+	name = RADIO_CHANNEL_DELTA
 	id = DELTA_SQUAD
 	color = "#4148c8" // rgb(65,72,200)
 	access = list(ACCESS_MARINE_DELTA)
 	radio_freq = FREQ_DELTA
+
+/datum/squad/foreign
+	name = RADIO_CHANNEL_FOREIGN
+	additional_name = "Legion"
+	id = FOREIGN_SQUAD
+	color = "#3f7d30" // rgb(42, 134, 53)
+	access = list(ACCESS_MARINE_FOREIGN)
+	radio_freq = FREQ_FOREIGN
 
 //SOM squads
 /datum/squad/zulu
@@ -377,8 +385,16 @@
 //This reserves a player a spot in the squad by using a mind variable.
 //It is necessary so that they can smoothly reroll a squad role in case of the strict preference.
 /datum/squad/proc/assign_initial(mob/new_player/player, datum/job/job, latejoin = FALSE)
+	var/datum/db_query/wl = SSdbcore.NewQuery("SELECT role FROM [format_table_name("foreign_legion")] WHERE ckey = :ckey", list("ckey" = ckey(player.ckey)))
+	if(!wl.warn_execute() || !wl.NextRow())
+		qdel(wl)
+		return FALSE
+	var/role = wl.item[1]
+	qdel(wl)
 	if(!(job.title in current_positions))
 		CRASH("Attempted to insert [job.title] into squad [name]")
+	if((job.title == SQUAD_LEADER || job.title == REBEL_SQUAD_LEADER) && role < FOREIGN_ALLOWED_LEADER)
+		return FALSE
 	if(!latejoin)
 		current_positions[job.title]++
 	player.assigned_squad = src
@@ -467,6 +483,7 @@ GLOBAL_LIST_INIT(custom_squad_colors, list(
 	COLOR_VERY_SOFT_YELLOW = "bravoradio",
 	COLOR_STRONG_MAGENTA = "charlieradio",
 	COLOR_NAVY = "deltaradio",
+	COLOR_GREEN = "foreignradio",
 	COLOR_PURPLE = "sciradio",
 	COLOR_TAN_ORANGE = "zuluradio",
 	COLOR_TEAL = "yankeeradio",

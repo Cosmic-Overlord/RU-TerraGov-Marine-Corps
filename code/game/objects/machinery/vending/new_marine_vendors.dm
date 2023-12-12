@@ -229,20 +229,24 @@
 	listed_products = GLOB.marine_clothes_listed_products + GLOB.marine_gear_listed_products
 
 /obj/machinery/marine_selector/clothes/alpha
-	squad_tag = "Alpha"
+	squad_tag = RADIO_CHANNEL_ALPHA
 	req_access = list(ACCESS_MARINE_ALPHA)
 
 /obj/machinery/marine_selector/clothes/bravo
-	squad_tag = "Bravo"
+	squad_tag = RADIO_CHANNEL_BRAVO
 	req_access = list(ACCESS_MARINE_BRAVO)
 
 /obj/machinery/marine_selector/clothes/charlie
-	squad_tag = "Charlie"
+	squad_tag = RADIO_CHANNEL_CHARLIE
 	req_access = list(ACCESS_MARINE_CHARLIE)
 
 /obj/machinery/marine_selector/clothes/delta
-	squad_tag = "Delta"
+	squad_tag = RADIO_CHANNEL_DELTA
 	req_access = list(ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/foreign
+	squad_tag = RADIO_CHANNEL_FOREIGN
+	req_access = list(ACCESS_MARINE_FOREIGN)
 
 
 /obj/machinery/marine_selector/clothes/engi
@@ -256,20 +260,24 @@
 	listed_products = GLOB.engineer_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/engi/alpha
-	squad_tag = "Alpha"
+	squad_tag = RADIO_CHANNEL_ALPHA
 	req_access = list(ACCESS_MARINE_ENGPREP, ACCESS_MARINE_ALPHA)
 
 /obj/machinery/marine_selector/clothes/engi/bravo
-	squad_tag = "Bravo"
+	squad_tag = RADIO_CHANNEL_BRAVO
 	req_access = list(ACCESS_MARINE_ENGPREP, ACCESS_MARINE_BRAVO)
 
 /obj/machinery/marine_selector/clothes/engi/charlie
-	squad_tag = "Charlie"
+	squad_tag = RADIO_CHANNEL_CHARLIE
 	req_access = list(ACCESS_MARINE_ENGPREP, ACCESS_MARINE_CHARLIE)
 
 /obj/machinery/marine_selector/clothes/engi/delta
-	squad_tag = "Delta"
+	squad_tag = RADIO_CHANNEL_DELTA
 	req_access = list(ACCESS_MARINE_ENGPREP, ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/engi/foreign
+	squad_tag = RADIO_CHANNEL_FOREIGN
+	req_access = list(ACCESS_MARINE_ENGPREP, ACCESS_MARINE_FOREIGN)
 
 /obj/machinery/marine_selector/clothes/engi/valhalla
 	vendor_role = /datum/job/fallen/marine/engineer
@@ -288,20 +296,24 @@
 	listed_products = GLOB.medic_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/medic/alpha
-	squad_tag = "Alpha"
+	squad_tag = RADIO_CHANNEL_ALPHA
 	req_access = list(ACCESS_MARINE_MEDPREP, ACCESS_MARINE_ALPHA)
 
 /obj/machinery/marine_selector/clothes/medic/bravo
-	squad_tag = "Bravo"
+	squad_tag = RADIO_CHANNEL_BRAVO
 	req_access = list(ACCESS_MARINE_MEDPREP, ACCESS_MARINE_BRAVO)
 
 /obj/machinery/marine_selector/clothes/medic/charlie
-	squad_tag = "Charlie"
+	squad_tag = RADIO_CHANNEL_CHARLIE
 	req_access = list(ACCESS_MARINE_MEDPREP, ACCESS_MARINE_CHARLIE)
 
 /obj/machinery/marine_selector/clothes/medic/delta
-	squad_tag = "Delta"
+	squad_tag = RADIO_CHANNEL_DELTA
 	req_access = list(ACCESS_MARINE_MEDPREP, ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/medic/foreign
+	squad_tag = RADIO_CHANNEL_FOREIGN
+	req_access = list(ACCESS_MARINE_MEDPREP, ACCESS_MARINE_FOREIGN)
 
 /obj/machinery/marine_selector/clothes/medic/valhalla
 	vendor_role = /datum/job/fallen/marine/corpsman
@@ -319,20 +331,24 @@
 	listed_products = GLOB.smartgunner_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/smartgun/alpha
-	squad_tag = "Alpha"
+	squad_tag = RADIO_CHANNEL_ALPHA
 	req_access = list(ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_ALPHA)
 
 /obj/machinery/marine_selector/clothes/smartgun/bravo
-	squad_tag = "Bravo"
+	squad_tag = RADIO_CHANNEL_BRAVO
 	req_access = list(ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_BRAVO)
 
 /obj/machinery/marine_selector/clothes/smartgun/charlie
-	squad_tag = "Charlie"
+	squad_tag = RADIO_CHANNEL_CHARLIE
 	req_access = list(ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_CHARLIE)
 
 /obj/machinery/marine_selector/clothes/smartgun/delta
-	squad_tag = "Delta"
+	squad_tag = RADIO_CHANNEL_DELTA
 	req_access = list(ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/smartgun/foreign
+	squad_tag = RADIO_CHANNEL_FOREIGN
+	req_access = list(ACCESS_MARINE_SMARTPREP, ACCESS_MARINE_FOREIGN)
 
 /obj/machinery/marine_selector/clothes/smartgun/valhalla
 	vendor_role = /datum/job/fallen/marine/smartgunner
@@ -350,20 +366,24 @@
 	listed_products = GLOB.leader_clothes_listed_products
 
 /obj/machinery/marine_selector/clothes/leader/alpha
-	squad_tag = "Alpha"
+	squad_tag = RADIO_CHANNEL_ALPHA
 	req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_ALPHA)
 
 /obj/machinery/marine_selector/clothes/leader/bravo
-	squad_tag = "Bravo"
+	squad_tag = RADIO_CHANNEL_BRAVO
 	req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_BRAVO)
 
 /obj/machinery/marine_selector/clothes/leader/charlie
-	squad_tag = "Charlie"
+	squad_tag = RADIO_CHANNEL_CHARLIE
 	req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_CHARLIE)
 
 /obj/machinery/marine_selector/clothes/leader/delta
-	squad_tag = "Delta"
+	squad_tag = RADIO_CHANNEL_DELTA
 	req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_DELTA)
+
+/obj/machinery/marine_selector/clothes/leader/foreign
+	squad_tag = RADIO_CHANNEL_FOREIGN
+	req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_FOREIGN)
 
 /obj/machinery/marine_selector/clothes/leader/valhalla
 	vendor_role = /datum/job/fallen/marine/leader
