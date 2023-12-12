@@ -183,7 +183,6 @@
 				)
 		if(JOB_PREFERENCES)
 			.["squads"] = get_selectable_squads()
-			.["squads"] = SELECTABLE_SQUADS
 			.["squads_som"] = SELECTABLE_SQUADS_SOM
 			.["jobs"] = list()
 			for(var/datum/job/job AS in SSjob.joinable_occupations)
