@@ -22,7 +22,7 @@
 			"Copper" = ARMOR_PALETTE_COPPER,\
 			"Red" = ARMOR_PALETTE_LIGHT_RED,\
 			"Blood Red" = ARMOR_PALETTE_BLOOD_RED,\
-			RADIO_CHANNEL_ALPHA = ARMOR_PALETTE_ALPHA,\
+			"Alpha" = ARMOR_PALETTE_ALPHA,\
 		),\
 		"Orange" = list(\
 			"Ginger" = ARMOR_PALETTE_GINGER,\
@@ -32,7 +32,7 @@
 			"Yellow" = ARMOR_PALETTE_LIGHT_YELLOW,\
 			"Angelic Gold" = ARMOR_PALETTE_ANGELIC,\
 			"Cathay Spice" = ARMOR_PALETTE_CATHAY,\
-			RADIO_CHANNEL_BRAVO = ARMOR_PALETTE_BRAVO,\
+			"Bravo" = ARMOR_PALETTE_BRAVO,\
 		),\
 		"Green" = list(\
 			"Green" = ARMOR_PALETTE_GREEN,\
@@ -49,7 +49,7 @@
 			"Stone Blue" = ARMOR_PALETTE_STONE_BLUE,\
 			"Sea Blue" = ARMOR_PALETTE_SEA_BLUE,\
 			"Cloud" = ARMOR_PALETTE_CLOUD,\
-			RADIO_CHANNEL_DELTA = ARMOR_PALETTE_DELTA,\
+			"Delta" = ARMOR_PALETTE_DELTA,\
 			"Dark Blue" = ARMOR_PALETTE_DARK_BLUE,\
 		),\
 		"Purple" = list(\
@@ -57,6 +57,6 @@
 			"Violet" = ARMOR_PALETTE_VIOLET,\
 			"Heron" = ARMOR_PALETTE_HERON,\
 			"Grape" = ARMOR_PALETTE_GRAPE,\
-			RADIO_CHANNEL_CHARLIE = ARMOR_PALETTE_LILAC,\
+			"Charlie" = ARMOR_PALETTE_LILAC,\
 		),\
 	)

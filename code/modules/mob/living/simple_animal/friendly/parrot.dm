@@ -600,6 +600,8 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 				parrot_source.available_channels.Add(RADIO_TOKEN_CHARLIE)
 			if(RADIO_CHANNEL_DELTA)
 				parrot_source.available_channels.Add(RADIO_TOKEN_DELTA)
+			if(RADIO_CHANNEL_FOREIGN)
+				parrot_source.available_channels.Add(RADIO_TOKEN_FOREIGN)
 
 
 /datum/strippable_item/parrot_headset/start_unequip(atom/source, mob/user)
