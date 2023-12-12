@@ -2,14 +2,17 @@
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
 	var/scalpel
+	///Channel time per shrap removal
 	var/do_after_time
+	///Fumble time for unskilled users
+	var/fumble_duration
 
-/datum/element/shrapnel_removal/Attach(datum/target, _do_after_time, _scalpel = TRUE)
+/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, _scalpel = TRUE)
 	. = ..()
-	if(!isitem(target) || (_do_after_time < 1))
+	if(!isitem(target) || (duration < 1))
 		return ELEMENT_INCOMPATIBLE
-	scalpel = _scalpel
-	do_after_time = _do_after_time
+	do_after_time = duration
+	fumble_duration = fumble_time ? fumble_time : do_after_time
 	if(scalpel)
 		RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
 	else
@@ -42,17 +45,17 @@
 	if(skill < SKILL_MEDICAL_PRACTICED)
 		user.visible_message(span_notice("[user] fumbles around with the [removaltool]."),
 		span_notice("You fumble around figuring out how to use [removaltool]."))
-		if(!do_after(user, do_after_time * (SKILL_MEDICAL_PRACTICED - skill), TRUE, target, BUSY_ICON_UNSKILLED))
+		if(!do_after(user, fumble_duration * (SKILL_MEDICAL_PRACTICED - skill), NONE, target, BUSY_ICON_UNSKILLED))
 			return
 	user.visible_message(span_notice("[user] starts searching for shrapnel in [target] with the [removaltool]."), span_notice("You start searching for shrapnel in [target] with the [removaltool]."))
-	if(!do_after(user, do_after_time, TRUE, target, BUSY_ICON_MEDICAL))
+	if(!do_after(user, do_after_time, NONE, target, BUSY_ICON_MEDICAL))
 		to_chat(user, span_notice("You stop searching for shrapnel in [target]"))
 		return
 	remove_shrapnel(user, target, targetlimb, skill)
 	//iterates over the rest of the patient's limbs, attempting to remove shrapnel
 	for(targetlimb AS in target.limbs)
 		while(has_shrapnel(targetlimb))
-			if(!do_after(user, do_after_time, TRUE, target, BUSY_ICON_MEDICAL))
+			if(!do_after(user, do_after_time, NONE, target, BUSY_ICON_MEDICAL))
 				to_chat(user, span_notice("You stop searching for shrapnel in [target]"))
 				return
 			remove_shrapnel(user, target, targetlimb, skill)

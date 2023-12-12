@@ -17,6 +17,35 @@
 		new /obj/effect/temp_visual/healing(get_turf(target_xeno))
 
 // ***************************************
+// *********** Frenzy Screech
+// ***************************************
+
+/datum/status_effect/frenzy_screech
+	id = "frenzy_screech"
+	status_type = STATUS_EFFECT_REFRESH
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/modifier
+
+/datum/status_effect/frenzy_screech/on_creation(mob/living/new_owner, set_duration, damage_modifier)
+	duration = set_duration
+	owner = new_owner
+	modifier = damage_modifier
+	return ..()
+
+/datum/status_effect/frenzy_screech/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	buff_owner.xeno_melee_damage_modifier += modifier
+	owner.add_filter("frenzy_screech_outline", 3, outline_filter(1, COLOR_VIVID_RED))
+	return TRUE
+
+/datum/status_effect/frenzy_screech/on_remove()
+	buff_owner.xeno_melee_damage_modifier -= modifier
+	owner.remove_filter("frenzy_screech_outline")
+	return ..()
+
+// ***************************************
 // *********** Buff
 // ***************************************
 /atom/movable/screen/alert/status_effect/xeno_buff

@@ -1,7 +1,7 @@
 // ***************************************
 // *********** Pouncey
 // ***************************************
-/datum/action/xeno_action/activable/pounce/predalien
+/datum/action/ability/activable/xeno/pounce/predalien
 	name = "Leap"
 	desc = "Leap at your targer stunning and slashing them. Stun duration and damage increases with each stack of hunted prey."
 	action_icon_state = "powerful_pounce"
@@ -12,7 +12,7 @@
 	var/base_damage = 25
 	var/damage_scale = 10 // How much it scales by every kill
 
-/datum/action/xeno_action/activable/pounce/predalien/mob_hit(datum/source, mob/living/M)
+/datum/action/ability/activable/xeno/pounce/predalien/mob_hit(datum/source, mob/living/M)
 	. = ..()
 	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 	if(ishuman(target) || isdroid(target))
@@ -22,22 +22,21 @@
 // *********** Roar
 // ***************************************
 
-/datum/action/xeno_action/activable/predalien_roar
+/datum/action/ability/activable/xeno/predalien_roar
 	name = "Roar"
 	desc = "Buffs nearby xenomorphs with increased slash damage and movement speed, additionally removes invisibility from any prey nearby. Buff strength and duration increases with each stack of hunted prey."
 	action_icon_state = "rage_screech"
-	ability_name = "roar"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ROAR,
 	)
-	cooldown_timer = 25 SECONDS
-	plasma_cost = 50
+	cooldown_duration = 25 SECONDS
+	ability_cost = 50
 
 	var/predalien_roar = list("sound/voice/predalien_roar.ogg")
 	var/bonus_damage_scale = 2.5
 	var/bonus_speed_scale = 0.05
 
-/datum/action/xeno_action/activable/predalien_roar/use_ability(atom/target)
+/datum/action/ability/activable/xeno/predalien_roar/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 
 	playsound(xeno.loc, pick(predalien_roar), 75, 0)
@@ -54,7 +53,7 @@
 				if(YG.cloaked)
 					YG.decloak(human)
 
-				YG.cloak_timer = cooldown_timer * 0.1
+				YG.cloak_timer = cooldown_duration * 0.1
 		else if(isxeno(carbon))
 			var/mob/living/carbon/xenomorph/xeno_target = carbon
 			if(xeno_target.stat == DEAD)
@@ -72,21 +71,20 @@
 // *********** Smash
 // ***************************************
 
-/datum/action/xeno_action/activable/smash
+/datum/action/ability/activable/xeno/smash
 	name = "Smash"
 	desc = "Stun a prey in front of you and paralyzes any prey around the target. Paralyze duration increases with each stack of hunted prey."
 	action_icon_state = "super_stomp"
-	ability_name = "smash"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SMASH,
 	)
-	cooldown_timer = 20 SECONDS
-	plasma_cost = 80
+	cooldown_duration = 20 SECONDS
+	ability_cost = 80
 
 	var/freeze_duration = 1.5 SECONDS
 	var/smash_sounds = list('sound/effects/alien_footstep_charge1.ogg', 'sound/effects/alien_footstep_charge2.ogg', 'sound/effects/alien_footstep_charge3.ogg')
 
-/datum/action/xeno_action/activable/smash/can_use_ability(atom/target, silent = FALSE, override_flags)
+/datum/action/ability/activable/xeno/smash/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return
@@ -106,7 +104,7 @@
 
 	return TRUE
 
-/datum/action/xeno_action/activable/smash/use_ability(atom/target)
+/datum/action/ability/activable/xeno/smash/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 
 	playsound(xeno.loc, pick(smash_sounds), 50, 0)
@@ -133,23 +131,22 @@
 // *********** Devastate
 // ***************************************
 
-/datum/action/xeno_action/activable/devastate
+/datum/action/ability/activable/xeno/devastate
 	name = "Devastate"
 	desc = "Pull out the guts and viscera of your prey dealing brutal damage. Damage increases with each stack of hunted prey."
 	action_icon_state = "butchering"
-	ability_name = "devastate"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_DEVASTATE,
 	)
-	cooldown_timer = 20 SECONDS
-	plasma_cost = 110
+	cooldown_duration = 20 SECONDS
+	ability_cost = 110
 
 	var/activation_delay = 1 SECONDS
 
 	var/base_damage = 25
 	var/damage_scale = 10 // How much it scales by every kill
 
-/datum/action/xeno_action/activable/devastate/can_use_ability(atom/target, silent = FALSE, override_flags)
+/datum/action/ability/activable/xeno/devastate/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return
@@ -169,7 +166,7 @@
 
 	return TRUE
 
-/datum/action/xeno_action/activable/devastate/use_ability(atom/target)
+/datum/action/ability/activable/xeno/devastate/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 	var/mob/living/carbon/carbon = target
 

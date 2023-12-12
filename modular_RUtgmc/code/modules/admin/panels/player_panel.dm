@@ -97,7 +97,7 @@
 		<b>Transformation:</b>
 		<br> Special:
 		<a href='?src=[ref];transform=observer;mob=[REF(M)]'>Observer</a> |
-		<a href='?src=[ref];transform=ai;mob=[REF(M)]'>AI</a>
+		<a href='?src=[ref];transform=ai;mob=[REF(M)]'>AI</a> |
 		<a href='?src=[ref];transform=sectoid;mob=[REF(M)]'>Sectoid</a> |
 		<a href='?src=[ref];transform=SKELETON;mob=[REF(M)]'>SKELETON</a>
 		<br> Humanoid:
@@ -129,7 +129,8 @@
 		<a href='?src=[ref];transform=spitter;mob=[REF(M)]'>Spitter</a> |
 		<a href='?src=[ref];transform=hivelord;mob=[REF(M)]'>Hivelord</a> |
 		<a href='?src=[ref];transform=carrier;mob=[REF(M)]'>Carrier</a> |
-		<a href='?src=[ref];transform=wraith;mob=[REF(M)]'>Wraith</a>
+		<a href='?src=[ref];transform=wraith;mob=[REF(M)]'>Wraith</a> |
+		<a href='?src=[ref];transform=puppeteer;mob=[REF(M)]'>Puppeteer</a>
 		<br> Alien Tier 3:
 		<a href='?src=[ref];transform=ravager;mob=[REF(M)]'>Ravager</a> |
 		<a href='?src=[ref];transform=widow;mob=[REF(M)]'>Widow</a> |
@@ -138,7 +139,8 @@
 		<a href='?src=[ref];transform=defiler;mob=[REF(M)]'>Defiler</a> |
 		<a href='?src=[ref];transform=crusher;mob=[REF(M)]'>Crusher</a> |
 		<a href='?src=[ref];transform=gorger;mob=[REF(M)]'>Gorger</a> |
-		<a href='?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a>
+		<a href='?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a> |
+		<a href='?src=[ref];transform=behemoth;mob=[REF(M)]'>Behemoth</a>
 		<br> Alien Tier 4:
 		<a href='?src=[ref];transform=queen;mob=[REF(M)]'>Queen</a> |
 		<a href='?src=[ref];transform=shrike;mob=[REF(M)]'>Shrike</a> |

@@ -553,7 +553,7 @@
 
 /obj/item/weapon/yautja/knife/Initialize()
 	. = ..()
-	AddElement(/datum/element/shrapnel_removal, 4 SECONDS, TRUE)
+	AddElement(/datum/element/shrapnel_removal, 4 SECONDS, , TRUE)
 
 /obj/item/weapon/yautja/knife/attack(mob/living/target, mob/living/carbon/human/user)
 	if(target.stat != DEAD)

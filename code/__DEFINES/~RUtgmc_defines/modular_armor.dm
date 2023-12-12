@@ -14,24 +14,24 @@
 			"Syndie Black" = ARMOR_PALETTE_SYNDIE_BLACK,\
 		),\
 		"Pink" = list(\
-			"Salmon" = ARMOR_PALETTE_SALMON_PINK,\
-			"Magenta" = ARMOR_PALETTE_MAGENTA_PINK,\
-			"Sakura" = ARMOR_PALETTE_SAKURA,\
+			"Pearl Pink" = ARMOR_PALETTE_PEARL_PINK,\
+			"Coral" = ARMOR_PALETTE_CORAL_PINK,\
+			"Azalea" = ARMOR_PALETTE_AZALEA_PINK,\
 		),\
 		"Red" = list(\
-			"Bronze Red" = ARMOR_PALETTE_BRONZE_RED,\
+			"Copper" = ARMOR_PALETTE_COPPER,\
 			"Red" = ARMOR_PALETTE_LIGHT_RED,\
 			"Blood Red" = ARMOR_PALETTE_BLOOD_RED,\
 			"Alpha" = ARMOR_PALETTE_ALPHA,\
 		),\
 		"Orange" = list(\
-			"Orange" = ARMOR_PALETTE_BEIGE,\
+			"Ginger" = ARMOR_PALETTE_GINGER,\
 			"Earth" = ARMOR_PALETTE_EARTH,\
 		),\
 		"Yellow" = list(\
 			"Yellow" = ARMOR_PALETTE_LIGHT_YELLOW,\
 			"Angelic Gold" = ARMOR_PALETTE_ANGELIC,\
-			"Honey" = ARMOR_PALETTE_HONEY,\
+			"Cathay Spice" = ARMOR_PALETTE_CATHAY,\
 			"Bravo" = ARMOR_PALETTE_BRAVO,\
 		),\
 		"Green" = list(\
@@ -40,22 +40,22 @@
 			"Lime" = ARMOR_PALETTE_LIME,\
 			"Leaf" = ARMOR_PALETTE_LEAF,\
 			"Forest" = ARMOR_PALETTE_FOREST,\
-			"Smoked Green" = ARMOR_PALETTE_SMOKED_GREEN,\
+			"Rifle Green" = ARMOR_PALETTE_RIFLE_GREEN,\
 			"Pine" = ARMOR_PALETTE_PINE,\
 		),\
 		"Blue" = list(\
 			"Dark Blue" = ARMOR_PALETTE_BLUE,\
-			"Aqua" = ARMOR_PALETTE_AQUA,\
-			"Cerulean" = ARMOR_PALETTE_CERULEAN,\
+			"Teal" = ARMOR_PALETTE_TEAL,\
+			"Stone Blue" = ARMOR_PALETTE_STONE_BLUE,\
 			"Sea Blue" = ARMOR_PALETTE_SEA_BLUE,\
 			"Cloud" = ARMOR_PALETTE_CLOUD,\
 			"Delta" = ARMOR_PALETTE_DELTA,\
 			"Dark Blue" = ARMOR_PALETTE_DARK_BLUE,\
 		),\
 		"Purple" = list(\
-			"Purple" = ARMOR_PALETTE_PURPLE,\
-			"Lavander" = ARMOR_PALETTE_LAVANDER,\
-			"Orchid" = ARMOR_PALETTE_ORCHID,\
+			"Red Violet" = ARMOR_PALETTE_MAGENTA,\
+			"Violet" = ARMOR_PALETTE_VIOLET,\
+			"Heron" = ARMOR_PALETTE_HERON,\
 			"Grape" = ARMOR_PALETTE_GRAPE,\
 			"Charlie" = ARMOR_PALETTE_LILAC,\
 		),\

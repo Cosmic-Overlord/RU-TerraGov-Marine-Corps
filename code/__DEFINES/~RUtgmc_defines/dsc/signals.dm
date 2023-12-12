@@ -52,3 +52,7 @@
 #define COMSIG_HUMAN_FLAY_ATTEMPT "human_flay_attempt"
 
 #define COMSIG_XENOMORPH_INTERFERENCE "xenomorph_interference"
+
+#define COMSIG_XENOABILITY_HEAL_SCREECH "xenoability_heal_screech"
+#define COMSIG_XENOABILITY_PLASMA_SCREECH "xenoability_plasma_screech"
+#define COMSIG_XENOABILITY_FRENZY_SCREECH "xenoability_frenzy_screech"

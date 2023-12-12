@@ -128,6 +128,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"pilot",
 	"praetorian",
 	"private",
+	"puppeteer",
 	"ravager",
 	"requisition",
 	"researcher",
@@ -146,6 +147,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"xenominion",
 	"xenoqueen",
 	"xenoshrike",
+	"behemoth",
 ))
 */
 //RUTGMC EDIT END
@@ -188,7 +190,44 @@ GLOBAL_LIST_INIT(campaign_icon_types, list(
 	"mortar_disabled",
 	"droppod_disabled",
 	"tele_disabled",
+	"reserve_force",
+	"tyr",
+	"lorica",
+	"riot_shield",
+	"xeno",
+	"grenade",
+	"shotgun",
+	"scout",
+	"ballistic",
+	"lasergun",
+	"volkite",
+	"smartgun",
+	"at_mine",
+	"binoculars",
+	"respawn",
+	"support_1",
+	"support_2",
+	"support_3",
 ))
+
+GLOBAL_LIST_INIT(campaign_mission_icon_types, list(
+	"combat_patrol",
+	"mortar_raid",
+	"cas_raid",
+	"mech_war",
+	"teleporter_raid",
+	"supply_depot",
+	"raiding_base",
+	"comm_uplink",
+	"asat_capture",
+	"phoron_raid",
+	"nt_rescue",
+	"speahead_som",
+	"spearhead_tgmc",
+	"final_som",
+	"final_tgmc",
+))
+
 GLOBAL_LIST_INIT(minimap_icons, init_minimap_icons())
 
 /proc/init_minimap_icons()
@@ -204,3 +243,12 @@ GLOBAL_LIST_INIT(campaign_icons, init_campaign_icons())
 	for(var/icon_state in GLOB.campaign_icon_types)
 		for(var/colour in colours)
 			.["[icon_state]_[colour]"] = icon2base64(icon('icons/UI_icons/campaign_icons.dmi', "[icon_state]_[colour]", frame = 1))
+
+GLOBAL_LIST_INIT(campaign_mission_icons, init_campaign_mission_icons())
+
+/proc/init_campaign_mission_icons()
+	. = list()
+	var/list/colours = list("green", "yellow", "grey", "red", "blue")
+	for(var/icon_state in GLOB.campaign_mission_icon_types)
+		for(var/colour in colours)
+			.["[icon_state]_[colour]"] = icon2base64(icon('icons/UI_icons/mission_icons.dmi', "[icon_state]_[colour]", frame = 1))

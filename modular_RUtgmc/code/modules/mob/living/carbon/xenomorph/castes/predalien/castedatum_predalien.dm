@@ -29,13 +29,13 @@
 
 	// *** Abilities *** ///
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain,
-		/datum/action/xeno_action/activable/pounce/predalien,
-		/datum/action/xeno_action/activable/predalien_roar,
-		/datum/action/xeno_action/activable/smash,
-		/datum/action/xeno_action/activable/devastate,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/pounce/predalien,
+		/datum/action/ability/activable/xeno/predalien_roar,
+		/datum/action/ability/activable/xeno/smash,
+		/datum/action/ability/activable/xeno/devastate,
 	)
 
 

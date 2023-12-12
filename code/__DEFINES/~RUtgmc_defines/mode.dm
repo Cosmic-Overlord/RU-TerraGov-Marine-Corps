@@ -1,8 +1,13 @@
+#define MODE_GENERAL_QUICKBUILD_POINTS (1<<1)
+#define MODE_PERSONAL_QUICKBUILD_POINTS (1<<2)
+
 #define MAX_FACEHUGGERS 5
 
-#define MODE_SHIPSIDE_SD (1<<16)
-#define MODE_PREDATOR (1<<17)
-#define MODE_ALLOW_PINPOINTER (1<<18)
+//Time (after shutters open) before siloless timer can start
+#define MINIMUM_TIME_SILO_LESS_COLLAPSE 15 MINUTES
+
+//Distress mode collapse duration
+#define DISTRESS_SILO_COLLAPSE 5 MINUTES
 
 #define WHITELIST_YAUTJA (1<<0)
 ///Old holders of YAUTJA_ELDER
@@ -37,3 +42,6 @@
 		return status_limit
 
 	return desired_status
+
+#define MODE_SHIPSIDE_SD (1<<16)
+#define MODE_PREDATOR (1<<17)

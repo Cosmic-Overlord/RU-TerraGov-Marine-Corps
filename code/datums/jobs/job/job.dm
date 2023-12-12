@@ -183,10 +183,7 @@ GLOBAL_PROTECT(exp_specialmap)
 
 
 /datum/outfit/job/proc/handle_id(mob/living/carbon/human/H, client/override_client)
-	var/datum/job/job = SSjob.GetJobType(jobtype)
-	if(!job)
-		job = H.job
-
+	var/datum/job/job = H.job ? H.job : SSjob.GetJobType(jobtype)
 	var/obj/item/card/id/id = H.wear_id
 	if(istype(id))
 		id.access = job.get_access()
@@ -226,7 +223,7 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/job/proc/free_job_positions(amount)
 	if(amount <= 0)
 		CRASH("free_job_positions() called with amount: [amount]")
-	current_positions -= amount
+	current_positions = max(current_positions - amount, 0)
 	for(var/index in jobworth)
 		var/datum/job/scaled_job = SSjob.GetJobType(index)
 		if(!(scaled_job in SSjob.active_joinable_occupations))
@@ -249,7 +246,6 @@ GLOBAL_PROTECT(exp_specialmap)
 	var/previous_amount = total_positions
 	total_positions += amount
 	manage_job_lists(previous_amount)
-	log_debug("[amount] positions were added to [src]. It has [total_positions] positions and [current_positions] were taken")
 	return TRUE
 
 /datum/job/proc/remove_job_positions(amount)
@@ -284,7 +280,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!player && client)
 		player = client
 	job = assigned_role
-	skills = getSkillsType(job.return_skills_type(player?.prefs))
+	set_skills(getSkillsType(job.return_skills_type(player?.prefs)))
 	faction = job.faction
 	job.announce(src)
 	GLOB.round_statistics.total_humans_created[faction]++

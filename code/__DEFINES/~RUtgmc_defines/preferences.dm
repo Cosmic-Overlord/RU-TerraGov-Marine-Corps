@@ -4,3 +4,4 @@
 #define JOB_PREFERENCES 5
 #define GAME_SETTINGS 6
 #define KEYBIND_SETTINGS 7
+#define DRAW_ORDER 8

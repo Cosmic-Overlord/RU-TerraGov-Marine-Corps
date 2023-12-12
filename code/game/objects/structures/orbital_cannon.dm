@@ -412,6 +412,7 @@
 	name = "\improper Orbital Cannon Console"
 	desc = "The console controlling the orbital cannon loading systems."
 	icon_state = "ob_console"
+	screen_overlay = "ob_console_screen"
 	dir = WEST
 	flags_atom = ON_BORDER|CONDUCT
 	var/orbital_window_page = 0
@@ -441,7 +442,7 @@
 		user.visible_message(span_notice("[user] fumbles around figuring out how to use the console."),
 		span_notice("You fumble around figuring out how to use the console."))
 		var/fumbling_time = 5 SECONDS * ( SKILL_ENGINEER_ENGI - user.skills.getRating(SKILL_ENGINEER) )
-		if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED))
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 			return
 
 	var/dat

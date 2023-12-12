@@ -1,4 +1,6 @@
 
+/mob/living/carbon/xenomorph/queen
+	footstep_type = FOOTSTEP_XENO_STOMPY
 // ***************************************
 // *********** Front Armor
 // ***************************************
