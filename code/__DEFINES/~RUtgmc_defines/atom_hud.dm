@@ -4,5 +4,5 @@
 #define HUNTER_CLAN "hunter_clan_hud" //displays a colored icon to represent ingame Hunter Clans
 #define HUNTER_HEALTH_HUD "hunter_health_hud" //displays a predator health
 
-#define DATA_HUD_HUNTER 18
-#define DATA_HUD_HUNTER_CLAN 19
+#define DATA_HUD_HUNTER 17
+#define DATA_HUD_HUNTER_CLAN 18

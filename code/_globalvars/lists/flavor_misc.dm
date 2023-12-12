@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(ethnicities_list, init_ethnicities())
 
 	for(var/path in subtypesof(/datum/ethnicity) - /datum/ethnicity/human - /datum/ethnicity/yautja)
 		var/datum/ethnicity/E = new path()
-		GLOB.ethnicities_list[E.name] = E
+		.[E.name] = E
 
 		if(istype(E, /datum/ethnicity/human))
 			GLOB.human_ethnicities_list[E.name] = E
