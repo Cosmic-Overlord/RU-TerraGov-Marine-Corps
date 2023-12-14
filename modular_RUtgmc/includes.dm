@@ -70,6 +70,7 @@
 #include "code\game\objects\machinery\miner.dm"
 #include "code\game\objects\machinery\mortar.dm"
 #include "code\game\objects\machinery\squad_manager.dm"
+#include "code\game\objects\machinery\bots\roomba.dm"
 #include "code\game\objects\machinery\camera\camera.dm"
 #include "code\game\objects\machinery\cloning\cloning.dm"
 #include "code\game\objects\machinery\doors\airlock.dm"
