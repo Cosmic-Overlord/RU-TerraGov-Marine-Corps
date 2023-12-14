@@ -1,3 +1,6 @@
+/atom
+	var/status_flags = CANSTUN|CANKNOCKDOWN|CANKNOCKOUT|CANPUSH|CANUNCONSCIOUS|CANCONFUSE	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)
+
 /atom/prepare_huds()
 	hud_list = new
 	for(var/hud in hud_possible) //Providing huds.

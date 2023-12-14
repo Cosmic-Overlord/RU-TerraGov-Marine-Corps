@@ -279,3 +279,43 @@ var/global/image/hud_icon_hunter_thralled
 /mob/living/carbon/human/species/yautja/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, tts_message, list/tts_filter)
 	. = ..()
 	playsound(loc, pick('sound/voice/pred_click1.ogg', 'sound/voice/pred_click2.ogg'), 25, 1)
+
+/mob/living/carbon/human/species/yautja/get_idcard(hand_first = TRUE)
+	. = ..()
+	if(!.)
+		var/obj/item/clothing/gloves/yautja/hunter/bracer = gloves
+		if(istype(bracer))
+			. = bracer.embedded_id
+	return .
+
+/mob/living/carbon/human/proc/disable_special_items()
+	set waitfor = FALSE // Scout decloak animation uses sleep(), which is problematic for taser gun
+
+	if(istype(back, /obj/item/storage/backpack/marine/satchel/scout_cloak))
+		var/obj/item/storage/backpack/marine/satchel/scout_cloak/SC = back
+		if(SC.camo_active)
+			SC.camo_off(src)
+			return
+	var/list/cont = list()
+	for(var/atom/A in contents)
+		cont += A
+		if(A.contents.len)
+			cont += A.contents
+
+	for(var/i in cont)
+		if(istype(i, /obj/item/assembly/prox_sensor))
+			var/obj/item/assembly/prox_sensor/prox = i
+			if(prox.scanning)
+				prox.toggle_scan()
+		if(istype(i, /obj/item/attachable/motiondetector))
+			var/obj/item/attachable/motiondetector/md = i
+			md.clean_operator()
+
+/mob/living/carbon/human/species/yautja/get_reagent_tags()
+	return species?.reagent_tag
+
+/mob/living/carbon/human/species/yautja/can_be_operated_on(mob/user)
+	if(user == src)
+		return TRUE
+	else
+		..()

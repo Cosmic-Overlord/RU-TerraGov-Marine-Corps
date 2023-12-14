@@ -1,5 +1,5 @@
 /datum/action/predator_action
-	action_icon = 'icons/mob/actions.dmi'
+	action_icon = 'modular_RUtgmc/icons/mob/actions.dmi'
 	background_icon_state = "template_pred"
 
 /datum/action/predator_action/can_use_action()

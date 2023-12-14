@@ -1,3 +1,6 @@
+/obj/alien/egg
+	var/can_spawn_player = TRUE
+
 /obj/alien/egg/hugger
 	plane = FLOOR_PLANE
 

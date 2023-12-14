@@ -1,3 +1,9 @@
+/mob
+	///Slowdown from readying shields
+	var/shield_slowdown = 0
+	///Color matrices to be applied to the client window. Assoc. list.
+	var/list/client_color_matrices
+
 // Shows three different messages depending on who does it to who and how does it look like to outsiders
 // message_mob: "You do something to X!"
 // message_affected: "Y does something to you!"

@@ -1307,26 +1307,3 @@ GLOBAL_LIST_INIT(survivor_outfits, typecacheof(/datum/outfit/job/survivor))
 			return FALSE
 		line_count ++
 	return TRUE
-
-//RUTGMC EDIT ADDITION BEGIN - Preds
-//yautja ship AI announcement
-/proc/yautja_announcement(message, title = "You receive a message from your ship AI...", sound_to_play = sound('sound/misc/notice1.ogg'))
-	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
-	for(var/mob/M in targets)
-		if(!isobserver(M)) //observers see everything
-			var/mob/living/carbon/human/H = M
-			if(!isyautja(H) || H.stat != CONSCIOUS)
-				continue
-
-		to_chat(M, html = "<span class='big bold'>[title]</span><BR><BR>[span_alert(message)]")
-		SEND_SOUND(M, sound_to_play)
-
-/// Will attempt to find what's holding this item if it's being contained by something, ie if it's in a satchel held by a human, this'll return the human
-/proc/recursive_holder_check(obj/item/held_item, recursion_limit = 3)
-	if(recursion_limit <= 0)
-		return held_item
-	if(!held_item.loc || isturf(held_item.loc))
-		return held_item
-	recursion_limit--
-	return recursive_holder_check(held_item.loc, recursion_limit)
-//RUTGMC EDIT ADDITION END

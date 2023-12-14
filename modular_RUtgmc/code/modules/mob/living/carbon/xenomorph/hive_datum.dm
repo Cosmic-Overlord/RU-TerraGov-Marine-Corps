@@ -6,6 +6,10 @@
 	var/list/hive_forbiden_castes = list()
 	var/forbid_count = 0
 
+	///list of thick resin nests
+	var/max_thick_nests = 0
+	var/list/obj/structure/xeno/thick_nest/thick_nests = list()
+
 // ***************************************
 // *********** Init
 // ***************************************

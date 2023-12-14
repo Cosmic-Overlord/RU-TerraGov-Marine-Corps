@@ -68,6 +68,10 @@
 	//and display them
 	add_to_all_mob_huds()
 
+/*
+	GLOB.huds[DATA_HUD_BASIC].add_hud_to(src)
+	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
+*/
 //RUTGMC EDIT ADDITION BEGIN - Preds
 	var/datum/atom_hud/hud_to_add = GLOB.huds[DATA_HUD_BASIC]
 	hud_to_add.add_hud_to(src)
@@ -274,39 +278,6 @@
 		id_card = W.front_id
 
 	return istype(id_card) ? id_card : null
-
-//RUTGMC EDIT ADDITION BEGIN - Preds
-/mob/living/carbon/human/species/yautja/get_idcard(hand_first = TRUE)
-	. = ..()
-	if(!.)
-		var/obj/item/clothing/gloves/yautja/hunter/bracer = gloves
-		if(istype(bracer))
-			. = bracer.embedded_id
-	return .
-
-/mob/living/carbon/human/proc/disable_special_items()
-	set waitfor = FALSE // Scout decloak animation uses sleep(), which is problematic for taser gun
-
-	if(istype(back, /obj/item/storage/backpack/marine/satchel/scout_cloak))
-		var/obj/item/storage/backpack/marine/satchel/scout_cloak/SC = back
-		if(SC.camo_active)
-			SC.camo_off(src)
-			return
-	var/list/cont = list()
-	for(var/atom/A in contents)
-		cont += A
-		if(A.contents.len)
-			cont += A.contents
-
-	for(var/i in cont)
-		if(istype(i, /obj/item/assembly/prox_sensor))
-			var/obj/item/assembly/prox_sensor/prox = i
-			if(prox.scanning)
-				prox.toggle_scan()
-		if(istype(i, /obj/item/attachable/motiondetector))
-			var/obj/item/attachable/motiondetector/md = i
-			md.clean_operator()
-//RUTGMC EDIT ADDITION END
 
 //Removed the horrible safety parameter. It was only being used by ninja code anyways.
 //Now checks siemens_coefficient of the affected area by default

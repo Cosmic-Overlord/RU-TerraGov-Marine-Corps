@@ -491,8 +491,14 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/z in z_levels)
 		for(var/i in GLOB.humans_by_zlevel["[z]"])
 			var/mob/living/carbon/human/H = i
+/*
+			if(!istype(H)) // Small fix?
+				continue
+*/
+//RUTGMC EDIT ADDITION BEGIN - Preds
 			if(!istype(H) || isyautja(H)) // Small fix?
 				continue
+//RUTGMC EDIT ADDITION END
 			if(count_flags & COUNT_IGNORE_HUMAN_SSD && !H.client && H.afk_status == MOB_DISCONNECTED)
 				continue
 			if(H.status_flags & XENO_HOST)
@@ -508,8 +514,14 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/z in z_levels)
 		for(var/i in GLOB.hive_datums[XENO_HIVE_NORMAL].xenos_by_zlevel["[z]"])
 			var/mob/living/carbon/xenomorph/X = i
+/*
+			if(!istype(X)) // Small fix?
+				continue
+*/
+//RUTGMC EDIT ADDITION BEGIN - Preds
 			if(!istype(X) || isxenohellhound(X)) // Small fix?
 				continue
+//RUTGMC EDIT ADDITION END
 			if(count_flags & COUNT_IGNORE_XENO_SSD && !X.client && X.afk_status == MOB_DISCONNECTED)
 				continue
 			if(count_flags & COUNT_IGNORE_XENO_SPECIAL_AREA && is_xeno_in_forbidden_zone(X))

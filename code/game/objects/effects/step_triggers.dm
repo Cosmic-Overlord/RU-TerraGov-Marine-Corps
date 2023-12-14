@@ -128,6 +128,11 @@
 				sleep(animation_teleport_spooky_out(A))
 
 		if(A?.loc)
+/*
+			A.x = teleport_x
+			A.y = teleport_y
+			A.z = teleport_z
+*/
 //RUTGMC edit start - fucking teleports
 			A.forceMove(get_turf(locate(teleport_x, teleport_y, teleport_z)))
 //RUTGMC edit end

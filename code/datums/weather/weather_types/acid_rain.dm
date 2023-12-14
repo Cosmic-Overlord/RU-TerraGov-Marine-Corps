@@ -57,6 +57,7 @@
 	if(L.fire_stacks > -20)
 		L.fire_stacks = max(-20, L.fire_stacks - 1)
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
@@ -65,6 +66,7 @@
 		if(gloves.cloaked)
 			gloves.decloak(L)
 			to_chat(L, span_highdanger("<i>Rain interferes with your cloaking device!</i>"))
+//RUTGMC EDIT ADDITION END
 
 /datum/weather/acid_rain/harmless
 	target_trait = ZTRAIT_RAIN
@@ -99,6 +101,7 @@
 			)
 			to_chat(L, span_warning(wetmessage))
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
@@ -107,3 +110,4 @@
 		if(gloves.cloaked)
 			gloves.decloak(L)
 			to_chat(L, span_highdanger("<i>Rain interferes with your cloaking device!</i>"))
+//RUTGMC EDIT ADDITION END

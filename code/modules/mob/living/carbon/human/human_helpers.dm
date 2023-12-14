@@ -159,9 +159,6 @@
 	. = ..()
 	return .|IS_HUMAN
 
-/mob/living/carbon/human/species/yautja/get_reagent_tags()
-	return species?.reagent_tag
-
 /mob/living/carbon/human/can_inject(mob/user, error_msg, target_zone, penetrate_thick = FALSE)
 	. = reagents
 

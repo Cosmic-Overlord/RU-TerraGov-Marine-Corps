@@ -48,3 +48,7 @@
 	icon_gen.Shift(NORTH, minimaps_by_z["[zlevel]"].y_offset)
 
 	minimaps_by_z["[zlevel]"].hud_image = icon_gen //done making the image!
+
+/datum/action/minimap/yautja
+	minimap_flags = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
+	marker_flags = MINIMAP_FLAG_YAUTJA

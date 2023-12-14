@@ -29,7 +29,12 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/fire()
 	for(var/I in active_queries)
 		var/datum/db_query/Q = I
+/*
+		if(world.time - Q.last_activity_time > (5 MINUTES))
+*/
+//RUTGMC EDIT ADDITION BEGIN - Preds
 		if(world.time - Q.last_activity_time > (5 MINUTES) && !Q.no_auto_delete)
+//RUTGMC EDIT ADDITION END
 			message_admins("Found undeleted query, please check the server logs and notify coders.")
 			log_sql("Undeleted query: \"[Q.sql]\" LA: [Q.last_activity] LAT: [Q.last_activity_time]")
 			qdel(Q)
@@ -292,8 +297,6 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	var/next_row_to_take = 1
 	var/affected
 	var/last_insert_id
-
-	var/no_auto_delete = FALSE
 
 	var/list/item  //list of data values populated by NextRow()
 

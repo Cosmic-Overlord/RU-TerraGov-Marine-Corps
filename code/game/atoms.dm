@@ -11,8 +11,6 @@
 	var/blood_color
 	var/list/blood_DNA
 
-	var/status_flags = CANSTUN|CANKNOCKDOWN|CANKNOCKOUT|CANPUSH|CANUNCONSCIOUS|CANCONFUSE	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)
-
 	///Things can move past this atom if they have the corrosponding flag
 	var/allow_pass_flags = NONE
 

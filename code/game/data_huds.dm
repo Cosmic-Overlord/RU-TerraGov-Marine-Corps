@@ -373,10 +373,10 @@
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
 		return FALSE
-//RUTGMC edit start - yautaj features
+//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO))
 		return FALSE
-//RUTGMC edit end
+//RUTGMC EDIT ADDITION END
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"

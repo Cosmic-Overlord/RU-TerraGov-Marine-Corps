@@ -133,10 +133,12 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
-//RUTGMC edit start - yautaj features
+//RUTGMC EDIT ADDITION BEGIN - Preds
 		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
 			continue
-//RUTGMC edit end
+//RUTGMC EDIT ADDITION END
+		if(nearby_human.last_move_time + move_sensitivity < world.time)
+			continue
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
 		if(nearby_xeno.last_move_time + move_sensitivity < world.time )

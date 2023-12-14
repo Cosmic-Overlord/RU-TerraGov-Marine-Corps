@@ -142,16 +142,6 @@
 	if(species_flags & GREYSCALE_BLOOD)
 		brute_damage_icon_state = "grayscale"
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
-/datum/species/proc/larva_impregnated(obj/item/alien_embryo/embryo)
-	return
-
-/datum/species/proc/handle_cryo(mob/living/carbon/human/H)
-
-/datum/species/proc/get_hairstyle(style)
-	return GLOB.hair_styles_list[style]
-//RUTGMC EDIT ADDITION END
-
 /datum/species/proc/create_organs(mob/living/carbon/human/organless_human) //Handles creation of mob organs and limbs.
 
 	organless_human.limbs = list()

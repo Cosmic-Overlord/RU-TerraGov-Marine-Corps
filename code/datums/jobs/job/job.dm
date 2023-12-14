@@ -314,6 +314,7 @@ GLOBAL_PROTECT(exp_specialmap)
 
 		job.outfit.handle_id(src, player)
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
 		var/job_whitelist = job.title
 		var/whitelist_status = job.get_whitelist_status(GLOB.roles_whitelist, player)
 
@@ -331,6 +332,7 @@ GLOBAL_PROTECT(exp_specialmap)
 				var/datum/outfit/variant = pick(job.outfits)
 				variant = new variant
 				variant.equip(src)
+//RUTGMC EDIT ADDITION END
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
 		equip_preference_gear(player)
@@ -380,7 +382,9 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/job/proc/return_skills_type(datum/preferences/prefs)
 	return skills_type
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
 /datum/job/proc/return_spawn_turf(mob/living/new_character, client/player)
+//RUTGMC EDIT ADDITION END
 	return pick(GLOB.spawns_by_job[type])
 
 /datum/job/proc/handle_special_preview(client/parent)

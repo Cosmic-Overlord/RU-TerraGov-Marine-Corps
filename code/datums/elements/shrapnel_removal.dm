@@ -1,12 +1,11 @@
 /datum/element/shrapnel_removal
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
-	var/scalpel
 	///Channel time per shrap removal
 	var/do_after_time
 	///Fumble time for unskilled users
 	var/fumble_duration
-
+/*
 /datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, _scalpel = TRUE)
 	. = ..()
 	if(!isitem(target) || (duration < 1))
@@ -24,7 +23,7 @@
 		UnregisterSignal(source, COMSIG_ITEM_ATTACK)
 	else
 		UnregisterSignal(source, COMSIG_ITEM_ATTACK_ALTERNATE)
-
+*/
 /datum/element/shrapnel_removal/proc/on_attack(datum/source, mob/living/M, mob/living/user)
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, PROC_REF(attempt_remove), source, M, user)

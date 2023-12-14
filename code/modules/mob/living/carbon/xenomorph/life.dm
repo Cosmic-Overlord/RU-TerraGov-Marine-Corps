@@ -37,15 +37,6 @@
 	update_action_button_icons()
 	update_icons(FALSE)
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
-/mob/living/carbon/xenomorph/proc/handle_interference()
-	if(interference)
-		interference = max(interference-2, 0)
-		SEND_SIGNAL(src, COMSIG_XENOMORPH_INTERFERENCE)
-
-	return interference
-//RUTGMC EDIT ADDITION END
-
 /mob/living/carbon/xenomorph/handle_fire()
 	. = ..()
 	if(.)
