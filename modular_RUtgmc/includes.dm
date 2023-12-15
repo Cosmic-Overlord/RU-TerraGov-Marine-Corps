@@ -230,3 +230,5 @@
 #include "code\modules\shuttle\marine_dropship.dm"
 #include "code\modules\vehicles\powerloader.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\puppet\castedatum_puppet.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\puppeteer\abilities_puppeteer.dm"
