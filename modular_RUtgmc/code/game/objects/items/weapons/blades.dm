@@ -66,3 +66,8 @@
 	)
 	icon_state = "saber"
 	item_state = "saber"
+
+/obj/item/stack/throwing_knife/melee_attack_chain(mob/user, atom/target, params, rightclick)
+	if(target == user && !user.do_self_harm)
+		return
+	return ..()

@@ -61,3 +61,5 @@ GLOBAL_LIST_INIT(panther_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_sanguinal,
 		))
+
+#define PRIMAL_WRATH_GAIN_MULTIPLIER 0.5

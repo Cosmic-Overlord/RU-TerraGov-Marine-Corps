@@ -16,7 +16,7 @@
 	plasma_regen_limit = 0
 	plasma_icon_state = "fury"
 	max_health = 365
-	upgrade_threshold = TIER_TWO_THRESHOLD
+	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 	evolution_threshold = 225
 
 	evolves_to = list(/mob/living/carbon/xenomorph/widow, /mob/living/carbon/xenomorph/warlock)
