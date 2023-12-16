@@ -140,6 +140,7 @@
 	actions_types = list(/datum/action/item_action/toggle)
 	flags_armor_features = ARMOR_LAMP_OVERLAY|ARMOR_NO_DECAP
 	flags_item = SYNTH_RESTRICTED
+	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/hachimaki/attack_self(mob/user)
 	var/mob/living/carbon/human/activator = user
