@@ -25,7 +25,7 @@
 	cost = 1
 	slot = SLOT_IN_BACKPACK
 
-/datum/gear/og
+/datum/gear/orange_glasses
 	display_name = "Orange glasses"
 	path = /obj/item/clothing/glasses/ru/orange
 	cost = 2
