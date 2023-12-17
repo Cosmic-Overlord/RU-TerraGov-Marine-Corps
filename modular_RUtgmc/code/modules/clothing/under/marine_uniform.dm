@@ -2,6 +2,7 @@
 	name = "RUTGMC UNIFORM"
 	desc = "RUTGMC UNIFORM"
 	icon = 'modular_RUtgmc/icons/obj/clothing/uniform.dmi'
+	icon_state = ""
 	item_icons = list(
 		slot_w_uniform_str = 'modular_RUtgmc/icons/mob/clothing/uniforms/marine_uniforms.dmi')
 	adjustment_variants = list()

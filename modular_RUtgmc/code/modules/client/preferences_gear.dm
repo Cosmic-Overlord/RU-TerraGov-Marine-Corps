@@ -24,3 +24,9 @@
 	path = /obj/item/namaz
 	cost = 1
 	slot = SLOT_IN_BACKPACK
+
+/datum/gear/og
+	display_name = "Orange glasses"
+	path = /obj/item/clothing/glasses/ru/orange
+	cost = 2
+	slot = SLOT_GLASSES

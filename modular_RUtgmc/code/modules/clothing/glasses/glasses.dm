@@ -6,7 +6,7 @@
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/clothing/eyes.dmi')
 
 /obj/item/clothing/glasses/ru/orange
-	name = "Orange glasses"
+	name = "orange glasses"
 	desc = "Just orange glasses."
 	icon_state = "og"
 	item_state = "og"

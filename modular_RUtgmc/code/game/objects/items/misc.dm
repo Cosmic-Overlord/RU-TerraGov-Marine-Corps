@@ -11,6 +11,7 @@
 		user.visible_message(span_notice("[user] presses [src]! Oink! "), \
 							span_notice("You press [src]. Oink! "))
 		last_hug_time = world.time + 50 //5 second cooldown
+		playsound(src, 'modular_RUtgmc/sound/items/khryu.ogg', 50)
 
 /obj/item/toy/plush/pig/Initialize()
 	. = ..()
