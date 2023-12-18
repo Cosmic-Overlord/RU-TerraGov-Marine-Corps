@@ -72,5 +72,6 @@
 			targetlimb.take_damage_limb(15 * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE) // RUTGMC EDITION, SHRAPNEL REMOVAL WITH KNIVES
 		else
 			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
-			// targetlimb.take_damage_limb(15, 0, FALSE, FALSE) // RUTGMC DELETION
+			// targetlimb.take_damage_limb(15, 0, FALSE, FALSE) // RUTGMC EDITION, ORIGINAL
+			targetlimb.take_damage_limb(5, 0, FALSE, FALSE) // RUTGMC EDITION, SHRAPNEL REMOVAL WITH KNIVES
 		break
