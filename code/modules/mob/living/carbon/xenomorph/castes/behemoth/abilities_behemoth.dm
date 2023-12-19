@@ -930,7 +930,7 @@
 #define PRIMAL_WRATH_SPEED_BONUS -0.3
 #define PRIMAL_WRATH_DECAY_MULTIPLIER 1.2
 #define PRIMAL_WRATH_ACTIVE_DECAY_DIVISION 40
-#define PRIMAL_WRATH_GAIN_MULTIPLIER 0.3
+//#define PRIMAL_WRATH_GAIN_MULTIPLIER 0.3 // RUTGMC EDIT
 
 /particles/primal_wrath
 	icon = 'icons/effects/particles/generic_particles.dmi'

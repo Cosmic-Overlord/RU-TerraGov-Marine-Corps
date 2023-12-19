@@ -93,3 +93,8 @@
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
 	)
+
+/obj/item/attachable/melee_attack_chain(mob/user, atom/target, params, rightclick)
+	if(target == user && !user.do_self_harm)
+		return
+	return ..()

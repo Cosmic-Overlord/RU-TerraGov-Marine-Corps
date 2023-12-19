@@ -270,7 +270,7 @@
 	name = "Toggle evasive maneuvers"
 	action_icon_state = "evasive_maneuvers"
 	desc = "Toggle evasive action, forcing non-friendly projectiles that would hit you to miss."
-	ability_cost = 10
+	ability_cost = 35
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_EVASIVE_MANEUVERS,
 	)

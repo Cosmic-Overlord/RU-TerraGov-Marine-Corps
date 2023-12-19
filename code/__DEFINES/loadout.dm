@@ -130,6 +130,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 45, "black"),
 		//RUTGMC EDIT ADDITION  BEGIN - MEDICAL ITEMS
 		/obj/item/tool/surgery/solderingtool = list(CAT_MEDSUP, "Soldering tool", 2, "black"),
+		/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 12, "black"),
 		/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat = list(CAT_MEDSUP, "Combat Trauma Kit", 3, "black"),
 		/obj/item/stack/medical/heal_pack/advanced/burn_pack/combat = list(CAT_MEDSUP, "Combat Burn Kit", 3, "black"),
 		//RUTGMC EDIT ADDITION  END

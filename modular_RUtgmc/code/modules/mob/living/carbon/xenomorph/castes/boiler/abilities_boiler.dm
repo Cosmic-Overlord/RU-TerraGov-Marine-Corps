@@ -147,7 +147,7 @@
 
 	boiler_owner.visible_message(span_notice("\The [boiler_owner] begins digging their claws into the ground."), \
 	span_notice("We begin digging ourselves into place."), null, 5)
-	if(!do_after(boiler_owner, 4 SECONDS, FALSE, null, BUSY_ICON_HOSTILE))
+	if(!do_after(boiler_owner, 3 SECONDS, FALSE, null, BUSY_ICON_HOSTILE))
 		on_deselection()
 		boiler_owner.selected_ability = null
 		boiler_owner.update_action_button_icons()
@@ -201,7 +201,7 @@
 
 	to_chat(boiler_owner, span_xenonotice("We begin building up pressure."))
 
-	if(!do_after(boiler_owner, 3 SECONDS, FALSE, target, BUSY_ICON_DANGER))
+	if(!do_after(boiler_owner, 2 SECONDS, FALSE, target, BUSY_ICON_DANGER))
 		to_chat(boiler_owner, span_warning("We decide not to launch."))
 		return fail_activate()
 
