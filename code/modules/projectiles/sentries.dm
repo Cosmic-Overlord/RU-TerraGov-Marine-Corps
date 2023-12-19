@@ -102,7 +102,12 @@
 
 /obj/machinery/deployable/mounted/sentry/deconstruct(disassembled = TRUE)
 	if(!disassembled)
+/*
 		explosion(loc, light_impact_range = 3)
+*/
+//RUTGMC ADDITION - Explosions
+		explosion(loc, light_impact_range = 3)
+//RUTGMC ADDITION END
 	return ..()
 
 /obj/machinery/deployable/mounted/sentry/on_deconstruction()

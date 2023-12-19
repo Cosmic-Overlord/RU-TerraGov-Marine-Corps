@@ -198,6 +198,11 @@
 
 		if(!isspaceturf(src))
 			M.inertia_dir = 0
+//RUTGMC ADDITION - Explosions
+	// Let explosions know that the atom entered
+	for(var/datum/automata_cell/explosion/E in autocells)
+		E.on_turf_entered(arrived)
+//RUTGMC ADDITION END
 	..()
 
 /turf/effect_smoke(obj/effect/particle_effect/smoke/S)
@@ -881,6 +886,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	return TRUE
 
 
+/* RUTGMC REMOVED - Explosions update
 /turf/contents_explosion(severity)
 	for(var/thing in contents)
 		var/atom/movable/thing_in_turf = thing
@@ -911,6 +917,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 					continue
 				for(var/a in thing_in_turf.contents)
 					SSexplosions.weakMovAtom[a] += list(src)
+RU TGMC REMOVENT END */
 
 
 /turf/vv_edit_var(var_name, new_value)

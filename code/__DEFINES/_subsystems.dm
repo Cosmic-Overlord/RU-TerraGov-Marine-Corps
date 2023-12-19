@@ -109,7 +109,9 @@
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_SHUTTLE -21
 #define INIT_ORDER_PATH -50
+/* RUTGMC REMOVED - Explosions update
 #define INIT_ORDER_EXPLOSIONS -69
+RU TGMC REMOVENT END */
 #define INIT_ORDER_EXCAVATION -78
 #define INIT_ORDER_STATPANELS -97
 #define INIT_ORDER_CHAT -100 //Should be last to ensure chat remains smooth during init.
@@ -150,7 +152,12 @@
 #define FIRE_PRIORITY_TTS 425
 #define FIRE_PRIORITY_AUTOFIRE 450
 #define FIRE_PRIORITY_OVERLAYS 500
+/*
 #define FIRE_PRIORITY_EXPLOSIONS 666
+*/
+//RUTGMC ADDITION - Explosions
+#define FIRE_PRIORITY_CELLAUTO 666
+//RUTGMC ADDITION END
 #define FIRE_PRIORITY_TIMER 700
 #define FIRE_PRIORITY_SPEECH_CONTROLLER 900
 #define FIRE_PRIORITY_INPUT 1000 // This must always always be the max highest priority. Player input must never be lost.

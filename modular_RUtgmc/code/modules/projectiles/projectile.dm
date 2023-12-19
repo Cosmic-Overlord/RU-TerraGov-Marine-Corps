@@ -1,5 +1,7 @@
 /obj/projectile
 	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
+	/// Flags for behaviors of the projectile itself
+	var/projectile_flags = NONE
 
 /mob/living/carbon/xenomorph/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	if(SEND_SIGNAL(src, COMSIG_XENO_PROJECTILE_HIT, proj, cardinal_move, uncrossing) & COMPONENT_PROJECTILE_DODGE)

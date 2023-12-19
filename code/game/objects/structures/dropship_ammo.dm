@@ -29,12 +29,14 @@
 	///Type of ammo
 	var/ammo_type
 
+/* RUTGMC REMOVED - Explosions update
 	///Range of the centre of the explosion
 	var/devastating_explosion_range = 0
 	///Range of the middle bit of the explosion
 	var/heavy_explosion_range = 0
 	///Range of the outer radius of the explosion
 	var/light_explosion_range = 0
+RU TGMC REMOVENT END */
 	///Fire radius, for incendiary weapons
 	var/fire_range = 0
 	///Type of CAS dot indicator effect to be used
@@ -98,7 +100,12 @@
 	if(!epicenter)
 		return
 
+/*
 	var/max_range = max(devastating_explosion_range, heavy_explosion_range, light_explosion_range)
+*/
+//RUTGMC ADDITION - Explosions
+	var/max_range = round(power / fallof)
+//RUTGMC ADDITION END
 
 	var/list/turfs_in_range = block(
 		locate(
@@ -175,7 +182,12 @@
 
 			if(isnull(turfs_by_dist[expansion_wave_loc]))
 				turfs_by_dist[expansion_wave_loc] = dist
+/*
 				if(devastating_explosion_range > dist || heavy_explosion_range > dist || light_explosion_range > dist)
+*/
+//RUTGMC ADDITION - Explosions
+				if(max_range > dist)
+//RUTGMC ADDITION END
 					turfs_impacted += expansion_wave_loc
 				else
 					outline_turfs_impacted += expansion_wave_loc
@@ -252,7 +264,12 @@
 	for(var/i=1 to attack_width)
 		strafed = strafelist[1]
 		strafelist -= strafed
+/*
 		strafed.ex_act(EXPLODE_LIGHT)
+*/
+//RUTGMC ADDITION - Explosions
+		strafed.ex_act(150)
+//RUTGMC ADDITION END
 		new /obj/effect/temp_visual/heavyimpact(strafed)
 		for(var/atom/movable/AM AS in strafed)
 			if(QDELETED(AM))
@@ -287,14 +304,21 @@
 	transferable_ammo = TRUE
 	point_cost = 0
 	ammo_type = RAILGUN_AMMO
+/* RUTGMC REMOVED - Explosions update
 	devastating_explosion_range = 0
 	heavy_explosion_range = 2
 	light_explosion_range = 4
+RU TGMC REMOVENT END */
 	prediction_type = CAS_AMMO_EXPLOSIVE
 
 /obj/structure/ship_ammo/railgun/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE, color = COLOR_CYAN)//no messaging admin, that'd spam them.
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof, color = COLOR_CYAN)
+//RUTGMC ADDITION END
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last railgun has fired and impacted the ground.
 
@@ -396,15 +420,22 @@
 	travelling_time = 3 SECONDS //not powerful, but reaches target fast
 	ammo_id = ""
 	point_cost = 225
+/* RUTGMC REMOVED - Explosions update
 	devastating_explosion_range = 2
 	heavy_explosion_range = 4
 	light_explosion_range = 7
+RU TGMC REMOVENT END */
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/widowmaker
 
 /obj/structure/ship_ammo/cas/rocket/widowmaker/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range)
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof)
+//RUTGMC ADDITION END
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/banshee
@@ -413,16 +444,23 @@
 	icon_state = "banshee"
 	ammo_id = "b"
 	point_cost = 225
+/*
 	devastating_explosion_range = 2
 	heavy_explosion_range = 4
 	light_explosion_range = 7
+*/
 	fire_range = 7
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/banshee
 
 /obj/structure/ship_ammo/cas/rocket/banshee/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, flame_range = fire_range) //more spread out, with flames
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof, flame_range = fire_range) //more spread out, with flames
+//RUTGMC ADDITION END
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/keeper
@@ -431,14 +469,21 @@
 	icon_state = "keeper"
 	ammo_id = "k"
 	point_cost = 300
+/*
 	devastating_explosion_range = 4
 	heavy_explosion_range = 4
 	light_explosion_range = 5
+*/
 	prediction_type = CAS_AMMO_EXPLOSIVE
 
 /obj/structure/ship_ammo/cas/rocket/keeper/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //tighter blast radius, but more devastating near center
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof) //tighter blast radius, but more devastating near center
+//RUTGMC ADDITION END
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/fatty
@@ -447,15 +492,22 @@
 	icon_state = "fatty"
 	ammo_id = "f"
 	point_cost = 325
+/*
 	devastating_explosion_range = 2
 	heavy_explosion_range = 3
 	light_explosion_range = 4
+*/
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //first explosion is small to trick xenos into thinking its a minirocket.
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof) //first explosion is small to trick xenos into thinking its a minirocket.
+//RUTGMC ADDITION END
 	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
 
 /**
@@ -471,7 +523,12 @@
 		var/list/coords = impact_coords[i]
 		var/turf/detonation_target = locate(impact.x+coords[1],impact.y+coords[2],impact.z)
 		detonation_target.ceiling_debris_check(2)
+/*
 		explosion(detonation_target, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE)
+*/
+//RUTGMC ADDITION - Explosions
+		SScellauto.explode(detonation_target, power, fallof)
+//RUTGMC ADDITION END
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/napalm
@@ -480,16 +537,23 @@
 	icon_state = "napalm"
 	ammo_id = "n"
 	point_cost = 250
+/*
 	devastating_explosion_range = 2
 	heavy_explosion_range = 3
 	light_explosion_range = 4
+*/
 	fire_range = 5
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/incendiary
 
 /obj/structure/ship_ammo/cas/rocket/napalm/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //relatively weak
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof) //relatively weak
+//RUTGMC ADDITION END
 	flame_radius(fire_range, impact, 60, 30) //cooking for a long time
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
 	warcrime.set_up(fire_range + 1, impact, 7)
@@ -512,15 +576,22 @@
 	transferable_ammo = TRUE
 	point_cost = 175
 	ammo_type = CAS_MINI_ROCKET
+/*
 	devastating_explosion_range = 0
 	heavy_explosion_range = 2
 	light_explosion_range = 3
+*/
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/minirocket
 
 /obj/structure/ship_ammo/cas/minirocket/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE)//no messaging admin, that'd spam them.
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof, flame_range = fire_range) //no messaging admin, that'd spam them.
+//RUTGMC ADDITION END
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
 
@@ -538,7 +609,9 @@
 	icon_state = "minirocket_inc"
 	point_cost = 250
 	travelling_time = 4 SECONDS
+/*
 	light_explosion_range = 3 //Slightly weaker than standard minirockets
+*/
 	fire_range = 3 //Fire range should be the same as the explosion range. Explosion should leave fire, not vice versa
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/incendiary
@@ -554,9 +627,11 @@
 	point_cost = 75
 	travelling_time = 4 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/smoke
+/*
 	devastating_explosion_range = 0
 	heavy_explosion_range = 0
 	light_explosion_range = 2
+*/
 
 /obj/structure/ship_ammo/cas/minirocket/smoke/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
@@ -569,15 +644,22 @@
 	desc = "A pack of laser guided mini rockets loaded with plasma-draining Tanglefoot gas. Moving this will require some sort of lifter."
 	icon_state = "minirocket_tfoot"
 	point_cost = 200
-	devastating_explosion_range = 0
 	travelling_time = 4 SECONDS
+/*
+	devastating_explosion_range = 0
 	heavy_explosion_range = 0
 	light_explosion_range = 2
+*/
 	cas_effect = /obj/effect/overlay/blinking_laser/tfoot
 
 /obj/structure/ship_ammo/cas/minirocket/tangle/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
+/*
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, throw_range = 0)
+*/
+//RUTGMC ADDITION - Explosions
+	SScellauto.explode(impact, power, fallof)
+//RUTGMC ADDITION END
 	var/datum/effect_system/smoke_spread/plasmaloss/S = new
 	S.set_up(9, impact, 9)// Between grenade and mortar
 	S.start()
@@ -589,9 +671,11 @@
 	point_cost = 50 // Not a real rocket, so its cheap
 	travelling_time = 4 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/flare
+/*
 	devastating_explosion_range = 0
 	heavy_explosion_range = 0
 	light_explosion_range = 0
+*/
 	prediction_type = CAS_AMMO_HARMLESS
 
 /obj/structure/ship_ammo/cas/minirocket/illumination/detonate_on(turf/impact, attackdir = NORTH)

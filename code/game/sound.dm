@@ -182,6 +182,12 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/effects/explosion_far1.ogg','sound/effects/explosion_far2.ogg','sound/effects/explosion_far3.ogg','sound/effects/explosion_far4.ogg','sound/effects/explosion_far5.ogg')
 		if("explosion_creak")
 			S = pick('sound/effects/creak1.ogg','sound/effects/creak2.ogg')
+//RUTGMC ADDITION - Explosions
+		if("explosion")
+			S = pick('modular_RUtgmc/sound/effects/explosion1.ogg','modular_RUtgmc/sound/effects/explosion2.ogg','modular_RUtgmc/sound/effects/explosion3.ogg','modular_RUtgmc/sound/effects/explosion4.ogg','modular_RUtgmc/sound/effects/explosion5.ogg')
+		if("bigboom")
+			S = pick('modular_RUtgmc/sound/effects/bigboom1.ogg','modular_RUtgmc/sound/effects/bigboom2.ogg','modular_RUtgmc/sound/effects/bigboom3.ogg','modular_RUtgmc/sound/effects/bigboom4.ogg')
+//RUTGMC ADDITION END
 		if("sparks")
 			S = pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg','sound/effects/sparks4.ogg')
 		if("rustle")
