@@ -1,4 +1,4 @@
-/obj/item/clothing/head/squadhb
+/obj/item/clothing/head/squad_headband
 	name = "\improper Squad headband"
 	desc = "Headband made from ultra-thin special cloth. Cloth thickness provides more than just a stylish fluttering of headband. You can tie around headband onto a helmet. This squad version of a headband has secret unique features created by the cloth coloring component. "
 	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
@@ -10,23 +10,23 @@
 	w_class = WEIGHT_CLASS_TINY
 	species_exception = list(/datum/species/robot, /datum/species/synthetic, /datum/species/human, /datum/species/early_synthetic, /datum/species/zombie)
 
-/obj/item/clothing/head/squadhb/a
+/obj/item/clothing/head/squad_headband/alpha
 	name = "\improper Alpha Squad headband"
 	icon_state = "as_headband"
 
-/obj/item/clothing/head/squadhb/b
+/obj/item/clothing/head/squad_headband/bravo
 	name = "\improper Bravo Squad headband"
 	icon_state = "bs_headband"
 
-/obj/item/clothing/head/squadhb/c
+/obj/item/clothing/head/squad_headband/charlie
 	name = "\improper Charlie Squad headband"
 	icon_state = "cs_headband"
 
-/obj/item/clothing/head/squadhb/d
+/obj/item/clothing/head/squad_headband/delta
 	name = "\improper Delta Squad headband"
 	icon_state = "ds_headband"
 
-/obj/item/clothing/head/squadhb/fl
+/obj/item/clothing/head/squad_headband/foreign
 	name = "\improper Foreign Legion headband"
 	icon_state = "fl_headband"
 
