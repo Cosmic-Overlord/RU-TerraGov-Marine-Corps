@@ -1,4 +1,3 @@
-/* RUTGMC DELETION, SHRAPNEL REMOVAL FOR KNIVES
 /datum/element/shrapnel_removal
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
@@ -21,6 +20,8 @@
 
 /datum/element/shrapnel_removal/proc/on_attack(datum/source, mob/living/M, mob/living/user)
 	SIGNAL_HANDLER
+	if(user.a_intent != INTENT_HELP)
+		return
 	INVOKE_ASYNC(src, PROC_REF(attempt_remove), source, M, user)
 	return COMPONENT_ITEM_NO_ATTACK
 
@@ -69,9 +70,8 @@
 		I.unembed_ourself(FALSE)
 		if(skill < SKILL_MEDICAL_PRACTICED)
 			user.visible_message(span_notice("[user] violently rips out [I] from [target]!"), span_notice("You violently rip out [I] from [target]!"))
-			targetlimb.take_damage_limb(30 * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
+			targetlimb.take_damage_limb(15 * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
 		else
 			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
-			targetlimb.take_damage_limb(15, 0, FALSE, FALSE)
+			targetlimb.take_damage_limb(5, 0, FALSE, FALSE)
 		break
-*/
