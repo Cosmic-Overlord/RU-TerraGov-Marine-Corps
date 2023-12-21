@@ -11,3 +11,11 @@
 	desc = "Usual combat boots. There is nothing unusual about them. Nothing."
 	icon_state = "headskin"
 	item_state = "headskin"
+	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+
+/obj/item/clothing/shoes/marine/ru/separatist
+	name = "Reinforced boots TS-28"
+	desc = "Well-robusted rubberized boots that protect against moisture, small fragments and impacts. The artisanal design of these shoes, of course, was canceled by production machines in order to provide for all employees as much as possible."
+	icon_state = "separatist"
+	item_state = "separatist"
+	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
