@@ -15,3 +15,33 @@
 	full_name = "Queen: Frenzy Screech"
 	description = "Screech that increases damage for nearby xenos."
 	keybind_signal = COMSIG_XENOABILITY_FRENZY_SCREECH
+
+/datum/keybinding/xeno/phantom
+	name = "phantom"
+	full_name = "Chimera: Phantom"
+	description = "Create a physical clone and hide in shadows."
+	keybind_signal = COMSIG_XENOABILITY_CHIMERA_PHANTOM
+
+/datum/keybinding/xeno/abduction
+	name = "abduction"
+	full_name = "Chimera: Abduction"
+	description = "Abduct the prey."
+	keybind_signal = COMSIG_XENOABILITY_CHIMERA_ABDUCTION
+
+/datum/keybinding/xeno/warp_blast
+	name = "warp_blast"
+	full_name = "Chimera: Warp Blast"
+	description = "Create a pure force explosion that damages and knockbacks targets around."
+	keybind_signal = COMSIG_XENOABILITY_CHIMERA_WARP_BLAST
+
+/datum/keybinding/xeno/bodyswap
+	name = "bodyswap"
+	full_name = "Chimera: Bodyswap"
+	description = "Swap places with another alien."
+	keybind_signal = COMSIG_XENOABILITY_CHIMERA_BODYSWAP
+
+/datum/keybinding/xeno/crippling_strike
+	name = "crippling_strike"
+	full_name = "Chimera: Crippling Strike"
+	description = "Toggle on to enable crippling attacks"
+	keybind_signal = COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE
