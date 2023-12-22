@@ -19,6 +19,7 @@
 #include "code\datums\actions\xeno_action.dm"
 #include "code\datums\actions\actions\action.dm"
 #include "code\datums\components\overlay_lighting.dm"
+#include "code\datums\elements\shrapnel_removal.dm"
 #include "code\datums\emergency_calls\necoarc.dm"
 #include "code\datums\gamemodes\_game_mode.dm"
 #include "code\datums\gamemodes\crash.dm"
