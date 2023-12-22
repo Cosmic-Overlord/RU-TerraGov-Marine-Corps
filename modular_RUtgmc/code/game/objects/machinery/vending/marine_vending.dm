@@ -118,7 +118,7 @@
 
 /obj/machinery/vending/uniform_supply
 	products = list(
-		"Standard" = list(
+		"Uniforms" = list(
 			/obj/item/clothing/under/marine/robotic = -1,
 			/obj/item/clothing/under/marine = -1,
 			/obj/item/clothing/under/marine/camo = -1,
@@ -138,18 +138,27 @@
 			/obj/item/clothing/under/marine/squad/neck/bravo = -1,
 			/obj/item/clothing/under/marine/squad/neck/alpha = -1,
 			/obj/item/clothing/under/marine/squad/neck/foreign = -1,
+			/obj/item/clothing/under/marine/whites = -1,
+			/obj/item/clothing/under/marine/service = -1,
+			/obj/item/clothing/suit/white_dress_jacket = -1,
+			/obj/item/armor_module/armor/badge = -1,
+			/obj/item/armor_module/armor/cape/kama = -1,
+			/obj/item/armor_module/module/pt_belt = -1,
+		),
+		"Gloves" = list(
 			/obj/item/clothing/gloves/marine/black = -1,
 			/obj/item/clothing/gloves/marine/fingerless = -1,
 			/obj/item/clothing/gloves/marine/veteran = -1,
 			/obj/item/clothing/gloves/marine/separatist = -1,
+			/obj/item/clothing/gloves/white = -1,
+		),
+		"Shoes" = list(
 			/obj/item/clothing/shoes/marine/full = -1,
 			/obj/item/clothing/shoes/marine/brown/full = -1,
 			/obj/item/clothing/shoes/marine/ru/headskin = -1,
 			/obj/item/clothing/shoes/marine/ru/separatist = -1,
 			/obj/item/clothing/shoes/cowboy = -1,
-			/obj/item/armor_module/armor/badge = -1,
-			/obj/item/armor_module/armor/cape/kama = -1,
-			/obj/item/armor_module/module/pt_belt = -1,
+			/obj/item/clothing/shoes/white = -1,
 		),
 		"Webbings" = list(
 			/obj/item/armor_module/storage/uniform/black_vest = -1,
@@ -229,6 +238,10 @@
 			/obj/item/clothing/head/tgmcberet/commando = -1,
 			/obj/item/clothing/head/beret/marine = -1,
 			/obj/item/clothing/head/tgmcberet = -1,
+			/obj/item/clothing/head/white_dress = -1,
+			/obj/item/clothing/head/garrisoncap = -1,
+			/obj/item/clothing/head/serviceberet = -1,
+			/obj/item/clothing/head/servicecap = -1,
 		),
 		"Masks" = list(
 			/obj/item/clothing/mask/rebreather/scarf = -1,
@@ -276,19 +289,6 @@
 			/obj/item/instrument/recorder = -1,
 			/obj/item/instrument/harmonica = -1,
 		),
-		"Dress Uniform" = list(
-			/obj/effect/vendor_bundle/white_dress = -1,
-			/obj/item/clothing/under/marine/whites = -1,
-			/obj/item/clothing/suit/white_dress_jacket = -1,
-			/obj/item/clothing/head/white_dress = -1,
-			/obj/item/clothing/shoes/white = -1,
-			/obj/item/clothing/gloves/white = -1,
-			/obj/effect/vendor_bundle/service_uniform = -1,
-			/obj/item/clothing/under/marine/service = -1,
-			/obj/item/clothing/head/garrisoncap = -1,
-			/obj/item/clothing/head/serviceberet = -1,
-			/obj/item/clothing/head/servicecap = -1,
-		),
 		"Eyewear" = list(
 			/obj/item/clothing/glasses/regular = -1,
 			/obj/item/clothing/glasses/eyepatch = -1,
@@ -300,6 +300,12 @@
 			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 			/obj/item/clothing/glasses/ru/orange = -1,
 		),
+		"Clothes bundles" = list(
+			/obj/effect/vendor_bundle/white_dress = -1,
+			/obj/effect/vendor_bundle/service_uniform = -1,
+			/obj/effect/vendor_bundle/separatist_uniform = -1,
+			/obj/effect/vendor_bundle/veteran_uniform = -1,
+		)
 	)
 
 /obj/machinery/vending/medical_uniform_supply
