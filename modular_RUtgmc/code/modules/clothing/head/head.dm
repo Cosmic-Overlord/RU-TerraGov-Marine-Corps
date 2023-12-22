@@ -49,7 +49,7 @@
 /obj/item/clothing/head/tgmcberet/squad/alpha/black
 	name = "\improper Alpha Squad black beret"
 	icon_state = "as_black_beret"
-	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Charlie Squad."
+	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Alpha Squad."
 
 /obj/item/clothing/head/tgmcberet/squad/bravo
 	name = "\improper Bravo Squad beret"
