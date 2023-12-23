@@ -787,7 +787,9 @@ const XenoList = (_props, context) => {
                     height="16px"
                     fontSize={0.75}
                     tooltip={
-                      user_queen && !static_entry.is_queen && entry.can_be_leader
+                      user_queen &&
+                      !static_entry.is_queen &&
+                      entry.can_be_leader
                         ? 'Toggle leadership'
                         : ''
                     }
