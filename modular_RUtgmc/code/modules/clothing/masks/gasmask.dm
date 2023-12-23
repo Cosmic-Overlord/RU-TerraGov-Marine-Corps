@@ -23,6 +23,7 @@
 	name = "Military grade gas mask"
 	desc = "A military grade gas mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "sgmask"
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/ru/redmask
 	name = "Coifed gas mask"
