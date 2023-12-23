@@ -1,4 +1,5 @@
 /datum/xeno_caste/hivemind
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
 	// *** Abilities *** //
 	actions = list(
 		/datum/action/ability/xeno_action/watch_xeno/hivemind,
