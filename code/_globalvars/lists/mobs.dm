@@ -161,6 +161,7 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 			"tier" = GLOB.tier_as_number[tier],
 			"is_unique" = caste.maximum_active_caste == 1,
 			"can_transfer_plasma" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_GIVEN_PLASMA),
+			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER), //RUTGMC ADDITION
 			"evolution_max" = initial(caste.evolution_threshold)
 		))
 
