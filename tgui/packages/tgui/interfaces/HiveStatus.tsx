@@ -61,7 +61,6 @@ type StaticData = {
   tier: number;
   is_unique: boolean;
   can_transfer_plasma: boolean;
-  can_be_leader: boolean;
   evolution_max: number;
 };
 
