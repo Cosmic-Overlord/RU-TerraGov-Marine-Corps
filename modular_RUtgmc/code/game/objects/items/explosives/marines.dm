@@ -43,3 +43,6 @@
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
+
+/obj/item/explosive/grenade/smokebomb/drain
+	icon_state_mini = "grenade_purple"
