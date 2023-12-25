@@ -148,7 +148,7 @@
 		"Gloves" = list(
 			/obj/item/clothing/gloves/marine/black = -1,
 			/obj/item/clothing/gloves/marine/fingerless = -1,
-			/obj/item/clothing/gloves/marine/veteran = -1,
+			/obj/item/clothing/gloves/marine/veteran/marine = -1,
 			/obj/item/clothing/gloves/marine/separatist = -1,
 			/obj/item/clothing/gloves/white = -1,
 		),

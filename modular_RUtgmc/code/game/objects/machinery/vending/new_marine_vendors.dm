@@ -33,7 +33,7 @@
 	gear_to_spawn = list(
 		/obj/item/clothing/mask/gas/ru/veteran,
 		/obj/item/clothing/under/marine/ru/veteran,
-		/obj/item/clothing/gloves/marine/veteran,
+		/obj/item/clothing/gloves/marine/veteran/marine,
 		/obj/item/clothing/shoes/marine/ru/headskin,
 	)
 
