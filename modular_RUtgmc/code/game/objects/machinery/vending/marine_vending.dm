@@ -451,6 +451,7 @@
 			/obj/item/ammo_magazine/rifle/martini = -1,
 			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
+			/obj/item/ammo_magazine/packet/long_special = -1,
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -671,6 +672,7 @@
 			/obj/item/ammo_magazine/rifle/martini = -1,
 			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
+			/obj/item/ammo_magazine/packet/long_special = -1,
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -800,6 +802,7 @@
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/ammo_magazine/packet/long_special = -1,
 			/obj/item/storage/box/visual/magazine = -1,
 			/obj/item/storage/box/visual/grenade = -1,
 			/obj/structure/closet/crate/mass_produced_crate = 5,
@@ -878,6 +881,7 @@
 			/obj/item/ammo_magazine/rifle/martini = -1,
 			/obj/item/weapon/gun/revolver/standard_revolver/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
+			/obj/item/ammo_magazine/packet/long_special = -1,
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -1032,6 +1036,7 @@
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
+			/obj/item/ammo_magazine/packet/long_special = -1,
 			/obj/item/storage/box/visual/magazine = -1,
 			/obj/item/storage/box/visual/grenade = -1,
 			/obj/structure/closet/crate/mass_produced_crate = -1,
