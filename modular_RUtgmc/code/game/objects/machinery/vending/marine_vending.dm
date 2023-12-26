@@ -216,6 +216,11 @@
 			/obj/item/clothing/head/tgmcberet/commando = -1,
 			/obj/item/clothing/head/beret/marine = -1,
 			/obj/item/clothing/head/tgmcberet = -1,
+			/obj/item/clothing/head/military = -1,
+			/obj/item/clothing/head/military/beret = -1,
+			/obj/item/clothing/head/military/cap = -1,
+			/obj/item/clothing/glasses/mgoggles = -1,
+			/obj/item/clothing/glasses/mgoggles/prescription = -1,
 		),
 		"Masks" = list(
 			/obj/item/clothing/mask/rebreather/scarf = -1,
@@ -234,6 +239,10 @@
 			/obj/item/clothing/mask/gas = -1,
 			/obj/item/clothing/mask/gas/tactical = -1,
 			/obj/item/clothing/mask/gas/tactical/coif = -1,
+			/obj/item/clothing/mask/gas/rutgmc/metal = -1,
+			/obj/item/clothing/mask/gas/rutgmc/plastic = -1,
+			/obj/item/clothing/mask/gas/rutgmc/skull = -1,
+			/obj/item/clothing/mask/gas/rutgmc/heavy = -1,
 		),
 		"Backpacks" = list(
 			/obj/item/storage/backpack/marine/standard = -1,

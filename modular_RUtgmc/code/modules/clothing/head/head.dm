@@ -279,5 +279,72 @@
 /obj/item/clothing/head/strawhat
 	species_exception = list(/datum/species/robot)
 
+/obj/item/clothing/head/military
+	name = "tactical bandana"
+	desc = "A tactical rag, a bandana will help keep fragments of your skull and brain, even if you have them, intact after the first cut or bullet hit. The main thing is to tighten it more tightly. You can color it using facepaint. It reads: 'knit by Marine Widows Association'"
+	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "bandana"
+	item_icons = list(
+		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+	flags_inventory = BLOCKSHARPOBJ
+	flags_armor_features = ARMOR_NO_DECAP
+	species_exception = list(/datum/species/robot)
 
+
+	icon_state_variants = list(
+		"drab",
+		"black",
+		"desert",
+		"snow",
+	)
+
+	current_variant = "black"
+
+/obj/item/clothing/head/military/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(!istype(I, /obj/item/facepaint) || !length(icon_state_variants))
+		return
+	var/obj/item/facepaint/paint = I
+	if(paint.uses < 1)
+		to_chat(user, span_warning("\the [paint] is out of color!"))
+		return
+	paint.uses--
+	var/variant = tgui_input_list(user, "Choose a color.", "Color", icon_state_variants)
+
+	if(!variant)
+		return
+
+	if(!do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
+		return
+
+	current_variant = variant
+	update_icon()
+
+/obj/item/clothing/head/military/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/head/military/update_icon()
+	. = ..()
+	if(current_variant)
+		icon_state = initial(icon_state) + "_[current_variant]"
+		item_state = initial(item_state) + "_[current_variant]"
+	update_clothing_icon()
+
+/obj/item/clothing/head/military/beret
+	name = "battle beret"
+	desc = "A very durable beret for combat operations. For those who like to let their heads and their brains breathe. Literally. You can color it using facepaint. It reads: 'knit by Marine Widows Association'"
+	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "beret"
+	item_icons = list(
+		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
+
+/obj/item/clothing/head/military/cap
+	name = "field cap"
+	desc = "Combat cap for field operations in the thick of battle will emphasize you as an officer, a lover of fashion and an easy target. You can color it using facepaint. It reads: 'knit by Marine Widows Association'"
+	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
+	icon_state = "cap"
+	item_icons = list(
+		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
 
