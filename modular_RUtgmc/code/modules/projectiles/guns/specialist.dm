@@ -1,3 +1,15 @@
+/obj/item/weapon/gun/launcher/rocket/recoillessrifle
+	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+
+/obj/item/weapon/gun/launcher/rocket/recoillessrifle
+	attachable_allowed = list(
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/scope/mini
+	)
+
+
 /obj/item/weapon/gun/launcher/rocket/sadar
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "sadar"
