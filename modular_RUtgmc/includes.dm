@@ -7,6 +7,7 @@
 #include "code\_onclick\hud\hud.dm"
 #include "code\_onclick\hud\screen_objects\menu_text_objects.dm"
 #include "code\_onclick\hud\screen_objects\screen_objects.dm"
+#include "code\_onclick\hud\xeno\larva.dm"
 #include "code\_onclick\hud\xeno\xeno.dm"
 #include "code\controllers\subsystem\job.dm"
 #include "code\controllers\subsystem\points.dm"
