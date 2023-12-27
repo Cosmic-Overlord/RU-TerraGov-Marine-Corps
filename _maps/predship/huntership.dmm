@@ -52,10 +52,7 @@
 	layer = 3
 	},
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/structure/table/reinforced/prison,
 /turf/open/floor/sandstone/runed,
@@ -75,10 +72,7 @@
 	layer = 3
 	},
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/structure/table/reinforced/prison,
 /turf/open/floor/sandstone/runed,
@@ -93,20 +87,14 @@
 	layer = 3
 	},
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/structure/table/reinforced/prison,
 /turf/open/floor/sandstone/runed,
 /area/yautja)
 "ak" = (
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/item/clothing/shoes/marine/yautja/hunter,
 /obj/item/clothing/suit/armor/yautja/hunter,
@@ -121,10 +109,7 @@
 /area/yautja)
 "al" = (
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/item/clothing/shoes/marine/yautja/hunter,
 /obj/item/clothing/suit/armor/yautja/hunter,
@@ -144,10 +129,7 @@
 /area/yautja)
 "am" = (
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/item/clothing/shoes/marine/yautja/hunter,
 /obj/item/clothing/suit/armor/yautja/hunter,
@@ -163,7 +145,7 @@
 "an" = (
 /obj/machinery/autodoc{
 	dir = 4;
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	resistance_flags = 1
 	},
 /turf/open/floor/corsat{
@@ -286,10 +268,7 @@
 	layer = 3
 	},
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/item/clothing/suit/armor/yautja/thrall,
 /obj/item/clothing/mask/gas/yautja/thrall,
@@ -313,10 +292,7 @@
 	layer = 3
 	},
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /obj/item/clothing/suit/armor/yautja/thrall,
 /obj/item/clothing/mask/gas/yautja/thrall,
@@ -489,7 +465,7 @@
 /area/yautja)
 "aW" = (
 /obj/machinery/optable{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -507,7 +483,7 @@
 /obj/structure/showcase{
 	desc = "A console equipped with a radar used by the Hunters to detect gear and good hunting grounds.";
 	dir = 8;
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	icon_state = "terminal";
 	name = "Radar Console";
 	pixel_x = -1
@@ -519,7 +495,7 @@
 /area/yautja)
 "aY" = (
 /obj/machinery/portable_atmospherics/canister/oxygen{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	anchored = 1;
 	resistance_flags = 1
 	},
@@ -600,15 +576,6 @@
 /obj/item/weapon/harpoon/yautja,
 /obj/item/weapon/harpoon/yautja,
 /obj/item/weapon/harpoon/yautja,
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
-/area/yautja)
-"bo" = (
-/obj/machinery/body_scanconsole{
-	resistance_flags = 1
-	},
 /turf/open/floor/corsat{
 	dir = 1;
 	icon_state = "squareswood"
@@ -699,22 +666,7 @@
 /area/yautja)
 "bA" = (
 /obj/machinery/chem_dispenser{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
-	},
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
-/area/yautja)
-"bC" = (
-/obj/structure/table/reinforced/prison{
-	color = "#6b675e";
-	resistance_flags = 1
-	},
-/obj/item/weapon/claymore/mercsword/machete/arnold{
-	desc = "Won by an Elder during their youthful hunting days. None are allowed to touch it.";
-	name = "\improper Dutch's Machete";
-	anchored = 1
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -798,7 +750,7 @@
 /area/yautja)
 "bO" = (
 /obj/structure/bed/alien{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -826,7 +778,7 @@
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = null;
 	locked = 0;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor{
 	dir = 4;
@@ -841,6 +793,9 @@
 	},
 /obj/effect/turf_decal/lvsanddecal/full{
 	icon_state = "desert1"
+	},
+/obj/effect/turf_decal/lvsanddecal/full{
+	icon_state = "desert"
 	},
 /turf/open/beach/sand,
 /area/yautja)
@@ -995,25 +950,9 @@
 	},
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
-"co" = (
-/obj/machinery/gravity_generator,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	resistance_flags = 1
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow";
-	resistance_flags = 1
-	},
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
-/area/yautja)
 "cq" = (
 /obj/structure/bed/chair/comfy/black{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	dir = 4
 	},
 /turf/open/floor/corsat{
@@ -1029,7 +968,7 @@
 /obj/machinery/chem_dispenser/soda{
 	dir = 8;
 	pixel_y = 7;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -1046,7 +985,7 @@
 "cu" = (
 /obj/structure/closet/secure_closet/freezer/meat{
 	locked = 0;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /obj/item/reagent_containers/food/snacks/rawmeatball,
 /obj/item/reagent_containers/food/snacks/rawmeatball,
@@ -1096,32 +1035,6 @@
 	pixel_x = 14
 	},
 /turf/open/shuttle/dropship/fourteen,
-/area/yautja)
-"cx" = (
-/obj/machinery/autodoc_console{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
-	resistance_flags = 1
-	},
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
-/area/yautja)
-"cy" = (
-/obj/machinery/gravity_generator,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	resistance_flags = 1
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow";
-	resistance_flags = 1
-	},
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
 /area/yautja)
 "cz" = (
 /obj/item/skull/deacon{
@@ -1179,19 +1092,6 @@
 	icon_state = "multi_tiles"
 	},
 /area/yautja)
-"cI" = (
-/obj/item/weapon/twohanded/sledgehammer{
-	anchored = 1
-	},
-/obj/structure/table/reinforced/prison{
-	color = "#6b675e";
-	resistance_flags = 1
-	},
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
-/area/yautja)
 "cJ" = (
 /obj/structure/table/mainship{
 	color = "#6b675e";
@@ -1199,7 +1099,7 @@
 	},
 /obj/machinery/reagentgrinder{
 	pixel_y = 6;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -1272,19 +1172,24 @@
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50
+	amount = 50;
+	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50
+	amount = 50;
+	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50
+	amount = 50;
+	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50
+	amount = 50;
+	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50
+	amount = 50;
+	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -1302,7 +1207,7 @@
 /obj/structure/showcase{
 	desc = "A console equipped with a radar used by the Hunters to detect gear and good hunting grounds.";
 	dir = 4;
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	icon_state = "terminal";
 	name = "Radar Console"
 	},
@@ -1480,7 +1385,7 @@
 /obj/item/storage/fancy/egg_box,
 /obj/structure/closet/secure_closet/freezer/fridge{
 	locked = 0;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor{
 	dir = 1;
@@ -1512,6 +1417,9 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /obj/effect/turf_decal/lvsanddecal/full{
 	icon_state = "desert3"
+	},
+/obj/effect/turf_decal/lvsanddecal/full{
+	icon_state = "desert"
 	},
 /turf/open/beach/sand,
 /area/yautja)
@@ -1584,7 +1492,7 @@
 /area/yautja)
 "eY" = (
 /obj/structure/bed/chair/comfy/black{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	dir = 4
 	},
 /turf/open/shuttle/dropship/fourteen,
@@ -1608,7 +1516,8 @@
 "fq" = (
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
-	icon_state = "pred_window0"
+	icon_state = "pred_window-0";
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
 	},
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
@@ -1624,10 +1533,11 @@
 /area/yautja)
 "fx" = (
 /obj/machinery/computer/crew{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	pixel_y = 28;
 	density = 0;
-	resistance_flags = 1
+	resistance_flags = 1;
+	icon_state = "crew"
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -1738,7 +1648,7 @@
 /area/yautja)
 "gp" = (
 /obj/structure/bed/chair/comfy/black{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -1766,6 +1676,15 @@
 /turf/open/floor{
 	color = "#525151";
 	icon_state = "dark2"
+	},
+/area/yautja)
+"hR" = (
+/obj/machinery/computer/autodoc_console{
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	},
+/turf/open/floor/corsat{
+	dir = 1;
+	icon_state = "squareswood"
 	},
 /area/yautja)
 "hV" = (
@@ -1839,7 +1758,8 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 4
@@ -1906,16 +1826,6 @@
 	icon_state = "multi_tiles"
 	},
 /area/yautja)
-"jR" = (
-/obj/machinery/sleep_console{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
-	resistance_flags = 1
-	},
-/turf/open/floor/corsat{
-	dir = 1;
-	icon_state = "squareswood"
-	},
-/area/yautja)
 "jU" = (
 /obj/structure/stairs/seamless{
 	icon_state = "staircorners_seamless";
@@ -1974,13 +1884,15 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 8
@@ -2015,13 +1927,15 @@
 	icon_state = "handrail_strata";
 	name = "handrail";
 	resistance_flags = 1;
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/ground/grass,
 /area/yautja)
@@ -2040,12 +1954,16 @@
 /area/yautja)
 "nh" = (
 /obj/item/storage/box/bracer{
-	pixel_y = 16
+	pixel_y = 16;
+	icon = 'modular_RUtgmc/icons/obj/structures/closet.dmi'
 	},
 /obj/item/storage/box/bracer{
-	pixel_y = 8
+	pixel_y = 8;
+	icon = 'modular_RUtgmc/icons/obj/structures/closet.dmi'
 	},
-/obj/item/storage/box/bracer,
+/obj/item/storage/box/bracer{
+	icon = 'modular_RUtgmc/icons/obj/structures/closet.dmi'
+	},
 /obj/structure/rack{
 	color = "#6b675e";
 	layer = 2.79;
@@ -2077,14 +1995,16 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	dir = 4;
 	icon_state = "handrail_strata";
 	name = "handrail";
 	resistance_flags = 1;
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/ground/grass,
 /area/yautja)
@@ -2111,10 +2031,7 @@
 	layer = 3
 	},
 /obj/machinery/door/window/right{
-	dir = 2;
-	resistance_flags = 1;
-	base_state = "leftalt";
-	icon_state = "leftalt"
+	dir = 2
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -2136,7 +2053,7 @@
 /area/yautja)
 "oe" = (
 /obj/structure/closet{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -2147,6 +2064,9 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /obj/effect/turf_decal/lvsanddecal/full{
 	icon_state = "desert2"
+	},
+/obj/effect/turf_decal/lvsanddecal/full{
+	icon_state = "desert"
 	},
 /turf/open/beach/sand,
 /area/yautja)
@@ -2200,14 +2120,16 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	dir = 8;
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner,
 /area/yautja)
@@ -2232,12 +2154,15 @@
 	pixel_x = 10;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/food/snacks/stew{
-	pixel_x = -10
+/turf/open/floor/corsat{
+	dir = 1;
+	icon_state = "squareswood"
 	},
-/obj/item/reagent_containers/food/snacks/xemeatpie{
-	pixel_y = -23;
-	pixel_x = -17
+/area/yautja)
+"qY" = (
+/obj/machinery/computer/body_scanconsole{
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
+	icon_state = "sleeperconsole"
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -2308,7 +2233,8 @@
 "sx" = (
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
-	icon_state = "pred_window0"
+	icon_state = "pred_window-0";
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -2358,13 +2284,6 @@
 /turf/open/floor/strata{
 	color = "#5e5d5d";
 	icon_state = "multi_tiles"
-	},
-/area/yautja)
-"tm" = (
-/turf/closed/wall/huntership{
-	smoothing_behavior = 0;
-	smoothing_groups = 0;
-	icon_state = "metal14"
 	},
 /area/yautja)
 "tn" = (
@@ -2448,7 +2367,7 @@
 "vI" = (
 /obj/structure/closet/secure_closet/freezer/meat{
 	locked = 0;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor{
 	dir = 4;
@@ -2589,6 +2508,15 @@
 	},
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
+"yc" = (
+/obj/machinery/computer/sleep_console{
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	},
+/turf/open/floor/corsat{
+	dir = 1;
+	icon_state = "squareswood"
+	},
+/area/yautja)
 "yY" = (
 /obj/machinery/door_control{
 	id = "Cell Lockdown 5";
@@ -2603,10 +2531,16 @@
 	},
 /area/yautja)
 "zr" = (
-/turf/closed/wall/huntership{
-	smoothing_behavior = 0;
-	smoothing_groups = 0;
-	icon_state = "metal12"
+/obj/structure/bed{
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	},
+/obj/item/bedsheet/captain{
+	color = "#aba9a9";
+	pixel_x = -1
+	},
+/turf/open/floor/corsat{
+	dir = 1;
+	icon_state = "squareswood"
 	},
 /area/yautja)
 "zA" = (
@@ -2630,7 +2564,7 @@
 /area/yautja)
 "AA" = (
 /obj/structure/reagent_dispensers/fueltank{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -2731,7 +2665,7 @@
 "DF" = (
 /obj/structure/closet/secure_closet/freezer/fridge{
 	locked = 0;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor{
 	dir = 9;
@@ -2740,7 +2674,8 @@
 /area/yautja)
 "DJ" = (
 /obj/machinery/computer/crew{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
+	icon_state = "crew"
 	},
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e";
@@ -2756,13 +2691,6 @@
 /turf/open/floor/corsat{
 	dir = 1;
 	icon_state = "squareswood"
-	},
-/area/yautja)
-"Et" = (
-/turf/closed/wall/huntership{
-	icon_state = "metal13";
-	smoothing_behavior = 0;
-	smoothing_groups = 0
 	},
 /area/yautja)
 "EB" = (
@@ -2800,7 +2728,7 @@
 	anchored = 1;
 	desc = "A console used by the Hunters for navigation purposes.";
 	dir = 8;
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	icon_state = "cameras";
 	name = "Hunter Nav Console"
 	},
@@ -2812,7 +2740,8 @@
 "Fy" = (
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
-	icon_state = "pred_window0"
+	icon_state = "pred_window-0";
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -2846,7 +2775,8 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/ground/grass,
 /area/yautja)
@@ -2900,12 +2830,12 @@
 	},
 /area/yautja)
 "Hv" = (
-/obj/structure/bed{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
-	},
 /obj/item/bedsheet/captain{
 	color = "#aba9a9";
 	pixel_x = -1
+	},
+/obj/structure/bed{
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -2918,14 +2848,16 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	dir = 8;
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/ground/grass,
 /area/yautja)
@@ -3108,7 +3040,8 @@
 	icon_state = "handrail_strata";
 	name = "handrail";
 	resistance_flags = 1;
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 8
@@ -3137,7 +3070,7 @@
 	},
 /obj/machinery/chem_dispenser/beer{
 	pixel_y = 9;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -3188,7 +3121,7 @@
 /obj/item/moneybag{
 	anchored = 1;
 	desc = "A console designed by the Hunters to assist in flight pathing and navigation.";
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	icon_state = "overwatch";
 	name = "Hunter Flight Console"
 	},
@@ -3255,6 +3188,9 @@
 /obj/effect/turf_decal/lvsanddecal/full{
 	icon_state = "desert0"
 	},
+/obj/effect/turf_decal/lvsanddecal/full{
+	icon_state = "desert"
+	},
 /turf/open/beach/sand,
 /area/yautja)
 "Nq" = (
@@ -3294,7 +3230,7 @@
 /area/yautja)
 "OZ" = (
 /obj/structure/bed/chair/comfy/black{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	dir = 1
 	},
 /turf/open/floor/corsat{
@@ -3308,13 +3244,15 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/ground/grass,
 /area/yautja)
@@ -3367,7 +3305,7 @@
 /area/yautja)
 "Qi" = (
 /obj/machinery/gibber{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor{
 	dir = 6;
@@ -3407,13 +3345,15 @@
 	icon_state = "handrail_strata";
 	name = "handrail";
 	resistance_flags = 1;
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 4
@@ -3434,7 +3374,7 @@
 "RE" = (
 /obj/structure/closet/secure_closet/freezer/fridge{
 	locked = 0;
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /obj/item/reagent_containers/food/snacks/grown/potato,
@@ -3469,7 +3409,7 @@
 /area/yautja)
 "SB" = (
 /obj/structure/bed/chair/comfy/black{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	dir = 8
 	},
 /turf/open/shuttle/dropship/fourteen,
@@ -3503,7 +3443,8 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/ground/grass,
 /area/yautja)
@@ -3552,7 +3493,7 @@
 /area/yautja)
 "VN" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	resistance_flags = 1
 	},
 /turf/open/floor/corsat{
@@ -3569,7 +3510,7 @@
 	anchored = 1;
 	desc = "A console used by the Hunters for navigation purposes.";
 	dir = 4;
-	icon = 'icons/obj/machines/yautja_machines.dmi';
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi';
 	icon_state = "cameras";
 	name = "Hunter Nav Console"
 	},
@@ -3581,7 +3522,8 @@
 "VY" = (
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
-	icon_state = "pred_window0"
+	icon_state = "pred_window-0";
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -3656,14 +3598,16 @@
 	resistance_flags = 1;
 	icon_state = "handrail_strata";
 	name = "handrail";
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /obj/structure/barricade/metal{
 	dir = 4;
 	icon_state = "handrail_strata";
 	name = "handrail";
 	resistance_flags = 1;
-	barricade_type = "handrail"
+	barricade_type = "handrail";
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 1
@@ -3726,7 +3670,7 @@
 /area/yautja)
 "Ys" = (
 /obj/structure/reagent_dispensers/watertank{
-	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
 /turf/open/floor{
 	dir = 10;
@@ -3745,6 +3689,9 @@
 /obj/effect/turf_decal/lvsanddecal/full{
 	icon_state = "desert3"
 	},
+/obj/effect/turf_decal/lvsanddecal/full{
+	icon_state = "desert"
+	},
 /turf/open/beach/sand,
 /area/yautja)
 "Za" = (
@@ -3756,10 +3703,6 @@
 /obj/item/reagent_containers/food/snacks/meatsteak{
 	pixel_y = 9;
 	pixel_x = 12
-	},
-/obj/item/reagent_containers/food/snacks/xenomeatbreadslice{
-	pixel_y = -19;
-	pixel_x = 19
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -3813,6 +3756,9 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /obj/effect/turf_decal/lvsanddecal/full{
 	icon_state = "desert1"
+	},
+/obj/effect/turf_decal/lvsanddecal/full{
+	icon_state = "desert"
 	},
 /turf/open/beach/sand,
 /area/yautja)
@@ -4999,9 +4945,9 @@ fx
 cP
 cP
 bL
-jR
+yc
 bL
-cx
+hR
 rt
 bj
 cU
@@ -5287,7 +5233,7 @@ aE
 aW
 aQ
 bj
-bo
+qY
 bL
 cP
 cP
@@ -5850,7 +5796,7 @@ aa
 aa
 aa
 ad
-tm
+bj
 af
 GP
 cP
@@ -5922,7 +5868,7 @@ aa
 aa
 bj
 bj
-Et
+bj
 ay
 ap
 cP
@@ -5994,7 +5940,7 @@ aa
 aa
 aa
 ac
-zr
+bj
 aA
 ap
 cP
@@ -6066,7 +6012,7 @@ aa
 aa
 aa
 ad
-tm
+bj
 af
 ap
 cP
@@ -6082,7 +6028,7 @@ bL
 bj
 JH
 ab
-cI
+ly
 bL
 bL
 cP
@@ -6138,7 +6084,7 @@ aa
 aa
 bj
 bj
-Et
+bj
 ah
 ap
 cP
@@ -6210,7 +6156,7 @@ aa
 aa
 aa
 ac
-zr
+bj
 ai
 ap
 cP
@@ -6266,7 +6212,7 @@ bj
 bj
 cP
 bL
-zr
+bj
 bL
 bL
 bL
@@ -6282,7 +6228,7 @@ aa
 aa
 aa
 ae
-zr
+bj
 aj
 ap
 cP
@@ -6354,7 +6300,7 @@ aa
 aa
 aa
 ae
-tm
+bj
 GP
 ap
 cP
@@ -6373,7 +6319,7 @@ bL
 bL
 bL
 bI
-bC
+ly
 bE
 bL
 bL
@@ -6410,7 +6356,7 @@ JH
 ti
 cP
 bL
-zr
+bj
 wu
 JH
 JH
@@ -6426,7 +6372,7 @@ aa
 aa
 aa
 ae
-zr
+bj
 ak
 ap
 cP
@@ -6498,7 +6444,7 @@ aa
 aa
 aa
 ad
-zr
+bj
 al
 ap
 cP
@@ -6554,7 +6500,7 @@ bj
 bj
 cP
 bL
-zr
+bj
 bL
 bL
 bL
@@ -6570,7 +6516,7 @@ aa
 aa
 bj
 bj
-Et
+bj
 am
 ap
 cP
@@ -6642,7 +6588,7 @@ aa
 aa
 aa
 ac
-tm
+bj
 af
 ap
 cP
@@ -6714,7 +6660,7 @@ aa
 aa
 aa
 ad
-zr
+bj
 ay
 ap
 cP
@@ -6786,7 +6732,7 @@ aa
 aa
 bj
 bj
-Et
+bj
 aA
 ap
 cP
@@ -6858,7 +6804,7 @@ aa
 aa
 aa
 ac
-tm
+bj
 af
 GP
 cP
@@ -6910,7 +6856,7 @@ bj
 GY
 CK
 JL
-Hv
+zr
 bj
 bj
 bj
@@ -7588,7 +7534,7 @@ ae
 bj
 az
 aI
-co
+bL
 bL
 JH
 bL
@@ -7660,7 +7606,7 @@ ae
 bj
 az
 aK
-cy
+bL
 bL
 JH
 bL

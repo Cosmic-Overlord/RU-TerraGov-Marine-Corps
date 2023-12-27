@@ -918,6 +918,7 @@
 /obj/item/storage/medicomp
 	name = "medicomp"
 	desc = "A complex kit of alien tools and medicines."
+	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
 	icon_state = "medicomp"
 	use_sound = "toolbox"
 	w_class = WEIGHT_CLASS_SMALL

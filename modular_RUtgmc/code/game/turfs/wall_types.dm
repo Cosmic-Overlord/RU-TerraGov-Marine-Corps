@@ -31,8 +31,8 @@
 	name = "sandstone temple wall"
 	desc = "A heavy wall of sandstone."
 	icon = 'icons/turf/walls/cult.dmi'
-	icon_state = "cult_wall-0-0-0-0"
-	walltype = "cult_wall"
+	icon_state = "cult-0"
+	walltype = "cult"
 	mineral = "runed sandstone"
 	color = "#DDB5A4"
 	smoothing_behavior = DIAGONAL_SMOOTHING
@@ -47,8 +47,8 @@
 	name = "hunter wall"
 	desc = "Nigh indestructible walls that make up the hull of a hunter ship."
 	icon = 'modular_RUtgmc/icons/turf/walls/hunter.dmi'
-	icon_state = "metal0"//DMI specific name
-	walltype = "metal"
+	icon_state = "hunter-0"//DMI specific name
+	walltype = "hunter"
 	resistance_flags = RESIST_ALL
 
 /turf/closed/wall/huntership/destructible

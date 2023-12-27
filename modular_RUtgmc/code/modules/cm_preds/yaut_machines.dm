@@ -10,6 +10,7 @@
 	name = "yautja autolathe"
 	desc = "It produces items using metal and glass."
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "autholate_r"
 
 /obj/machinery/prop/yautja/bubbler
 	name = "yautja cauldron"
@@ -95,3 +96,57 @@
 
 /obj/structure/xenoautopsy/tank/escaped/yautja
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+
+//YAUTJA SHIP - CURRENTLY USES STRATA DOORS
+/obj/machinery/door/airlock/yautja
+	name = "\improper Airlock"
+	icon = 'modular_RUtgmc/icons/obj/doors/strata_doors.dmi'
+	openspeed = 5
+	req_access = null
+	req_one_access = null
+	no_panel = TRUE
+	not_weldable = TRUE
+	resistance_flags = RESIST_ALL
+
+/obj/machinery/door/airlock/yautja/secure
+	req_one_access = list(ACCESS_YAUTJA_SECURE, ACCESS_YAUTJA_ELDER, ACCESS_YAUTJA_ANCIENT)
+
+/obj/machinery/door/airlock/yautja/secure/elder
+	req_one_access = list(ACCESS_YAUTJA_ELDER, ACCESS_YAUTJA_ANCIENT)
+
+/obj/machinery/door/airlock/yautja/secure/ancient
+	req_one_access = list(ACCESS_YAUTJA_ANCIENT)
+
+/obj/machinery/door/airlock/sandstone/runed
+	name = "\improper Runed Sandstone Airlock"
+	icon = 'modular_RUtgmc/icons/obj/doors/doorrunedsand.dmi'
+	mineral = "runed sandstone"
+	openspeed = 4 SECONDS
+	resistance_flags = RESIST_ALL
+	color = "#b29082"
+
+/obj/machinery/door/poddoor/shutters/almayer/yautja
+	name = "Armory Shutter"
+	id = "Yautja Armory"
+	resistance_flags = RESIST_ALL
+
+/obj/machinery/door/poddoor/shutters/almayer/yautja/Initialize()
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GLOB_YAUTJA_ARMORY_OPENED, PROC_REF(open))
+
+/obj/structure/closet/coffin/predator
+	name = "strange coffin"
+	desc = "It's a burial receptacle for the dearly departed. Seems to have weird markings on the side..?"
+	icon = 'modular_RUtgmc/icons/obj/structures/closet.dmi'
+	icon_state = "pred_coffin"
+	icon_closed = "pred_coffin"
+	icon_opened = "pred_coffin_open"
+
+/obj/structure/bed/chair/hunter
+	name = "hunter chair"
+	desc = "An exquisitely crafted chair for a large humanoid hunter."
+	icon = 'modular_RUtgmc/icons/obj/hunter/chair.dmi'
+	icon_state = "chair"
+	color = rgb(255,255,255)
+	buildstacktype = null
+	resistance_flags = UNACIDABLE
