@@ -219,6 +219,7 @@
 #include "code\modules\projectiles\ammo_datums.dm"
 #include "code\modules\projectiles\gun_attachables.dm"
 #include "code\modules\projectiles\projectile.dm"
+#include "code\modules\projectiles\sentries.dm"
 #include "code\modules\projectiles\tracer.dm"
 #include "code\modules\projectiles\guns\energy.dm"
 #include "code\modules\projectiles\guns\grenade_launchers.dm"
