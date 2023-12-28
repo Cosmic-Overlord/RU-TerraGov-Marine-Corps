@@ -371,9 +371,9 @@ MEDICAL
 		/obj/item/storage/pill_bottle/hypervene,
 		/obj/item/storage/pill_bottle/dylovene,
 		/obj/item/storage/pill_bottle/tricordrazine,
-		/obj/item/reagent_containers/hypospray/autoinjector/arithrazine,
-		/obj/item/reagent_containers/hypospray/autoinjector/arithrazine,
-		/obj/item/reagent_containers/hypospray/autoinjector/arithrazine,
+		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
+		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
+		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
 		)
 	cost = 40
 
