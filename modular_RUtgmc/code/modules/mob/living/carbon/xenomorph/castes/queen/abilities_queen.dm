@@ -125,3 +125,17 @@
 	var/datum/action/ability/xeno_action/plasma_screech = X.actions_by_path[/datum/action/ability/activable/xeno/plasma_screech]
 	if(plasma_screech)
 		plasma_screech.add_cooldown(5 SECONDS)
+
+/// Promote the passed xeno to a hive leader, should not be called direct
+/datum/action/ability/xeno_action/set_xeno_lead/proc/set_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
+	var/mob/living/carbon/xenomorph/xeno_ruler = owner
+	xeno_ruler.balloon_alert(xeno_ruler, "Xeno promoted")
+	selected_xeno.balloon_alert(selected_xeno, "Promoted to leader")
+	to_chat(selected_xeno, span_xenoannounce("[xeno_ruler] has selected us as a Hive Leader. The other Xenomorphs must listen to us. We will also act as a beacon for the Queen's pheromones."))
+
+	xeno_ruler.hive.add_leader(selected_xeno)
+	selected_xeno.hud_set_queen_overwatch()
+	selected_xeno.handle_xeno_leader_pheromones(xeno_ruler)
+	notify_ghosts("\ [xeno_ruler] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
+
+	selected_xeno.update_leader_icon(TRUE)
