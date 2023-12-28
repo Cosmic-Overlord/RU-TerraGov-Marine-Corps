@@ -97,3 +97,10 @@
 	full_name = "Chimera: Crippling Strike"
 	description = "Toggle on to enable crippling attacks"
 	keybind_signal = COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE
+
+/datum/keybinding/xeno/hugger_pounce
+	name = "hugger_pounce"
+	full_name = "Facehugger: Pounce"
+	description = "Leap at your target and knock them down, if you jump close you will hug the target."
+	keybind_signal = COMSING_XENOABILITY_HUGGER_POUNCE
+	hotkey_keys = list("E")

@@ -10,6 +10,8 @@
 
 #define COMSIG_XENOABILITY_PSYCHIC_GRAB "xenoability_psychic_grab"
 
+#define COMSING_XENOABILITY_HUGGER_POUNCE "xenoability_hugger_pounce"
+
 /// Predalien signals
 #define COMSIG_XENOABILITY_ROAR "xenoability_roar"
 #define COMSIG_XENOABILITY_SMASH "xenoability_smash"
