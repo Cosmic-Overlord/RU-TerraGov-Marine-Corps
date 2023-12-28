@@ -20,10 +20,3 @@
 	real_name = name
 	if(mind)
 		mind.name = name
-
-/mob/living/carbon/xenomorph/Move(NewLoc, direct)
-	. = ..()
-	if(!.)
-		return
-	if(interactee)// moving stops any kind of interaction
-		unset_interaction()
