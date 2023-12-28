@@ -56,6 +56,7 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list())
 
+/* RUTGMC DELETION
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/effect/vendor_bundle/engi = list(CAT_ESS, "Essential Engineer Set", 0, "white"),
 		/obj/item/stack/sheet/metal/small_stack = list(CAT_ENGSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "orange"),
@@ -79,12 +80,8 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/cell/high = list(CAT_ENGSUP, "High capacity powercell", 1, "black"),
 		/obj/item/cell/rtg/small = list(CAT_ENGSUP, "Recharger powercell", 5, "black"),
 		/obj/item/cell/rtg/large = list(CAT_ENGSUP, "Large recharger powercell", 15, "black"),
-		///obj/item/storage/box/explosive_mines = list(CAT_ENGSUP, "M20 mine box", 18, "black"),
-		///obj/item/storage/box/explosive_mines/large = list(CAT_ENGSUP, "Large M20 mine box", 35, "black"),
-		// RUTGMC EDIT
-		/obj/item/storage/box/explosive_mines = list(CAT_ENGSUP, "M20 mine box", 10, "black"),
-		/obj/item/storage/box/explosive_mines/large = list(CAT_ENGSUP, "Large M20 mine box", 20, "black"),
-		// RUTGMC EDIT END
+		/obj/item/storage/box/explosive_mines = list(CAT_ENGSUP, "M20 mine box", 18, "black"),
+		/obj/item/storage/box/explosive_mines/large = list(CAT_ENGSUP, "Large M20 mine box", 35, "black"),
 		/obj/item/minelayer = list(CAT_ENGSUP, "M21 APRDS \"Minelayer\"", 5, "black"),
 		/obj/item/minerupgrade/overclock = list(CAT_ENGSUP, "Mining well overclock upgrade", 4, "black"),
 		/obj/item/minerupgrade/reinforcement = list(CAT_ENGSUP, "Mining well reinforcement upgrade", 4, "black"),
@@ -98,10 +95,8 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/mortal_shell/smoke = list(CAT_ENGSUP, "Smoke Mortar shell", 1, "black"),
 		/obj/item/mortal_shell/flare = list(CAT_ENGSUP, "Flare Mortar shell", 1, "black"),
 		/obj/item/ammo_magazine/flamer_tank/large = list(CAT_ENGSUP, "Flamethrower tank", 4, "black"),
-		//RUTGMC EDIT ADDITION BEGIN - Teleporters
-		/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "black"),
-		//RUTGMC EDIT ADDITION END
 	))
+*/
 
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/effect/vendor_bundle/medic = list(CAT_ESS, "Essential Medic Set", 0, "white"),
