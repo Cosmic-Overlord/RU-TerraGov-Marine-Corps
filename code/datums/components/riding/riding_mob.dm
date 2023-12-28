@@ -276,6 +276,7 @@
 	else if(riding_offsets["[RIDING_OFFSET_ALL]"])
 		. = riding_offsets["[RIDING_OFFSET_ALL]"]
 
+/* RUTGMC DELETION, WIDOW DELETION
 // ***************************************
 // *********** Widow
 // ***************************************
@@ -348,3 +349,4 @@
 	if(widow.stat == UNCONSCIOUS)
 		dir = SOUTH
 	return ..()
+*/
