@@ -373,16 +373,19 @@
 /obj/item/weapon/gun/rifle/standard_smarttargetrifle
 	fire_delay = 0.4 SECONDS
 
+/datum/ammo/bullet/smarttargetrifle
+	sundering = 1
+
 /obj/item/weapon/gun/rifle/standard_spottingrifle
 	accuracy_mult = 1.5
 	scatter = -5
 
 /datum/ammo/bullet/spottingrifle
-	accurate_range = 10
+	accurate_range = 12
 	max_range = 12
 
 /datum/ammo/bullet/spottingrifle/highimpact/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 3 SECONDS, slowdown = 1, max_range = 12)
+	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 1, max_range = 12)
 
 /datum/ammo/bullet/spottingrifle/heavyrubber/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, slowdown = 3, max_range = 12)
@@ -421,4 +424,4 @@
 	smoke_system = null
 
 /datum/ammo/bullet/spottingrifle/tungsten/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, max_range = 12)
+	staggerstun(M, P, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
