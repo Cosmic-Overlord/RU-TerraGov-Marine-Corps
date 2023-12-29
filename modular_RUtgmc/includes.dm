@@ -249,3 +249,4 @@
 #include "code\modules\shuttle\marine_dropship.dm"
 #include "code\modules\vehicles\powerloader.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
+#include "code\modules\projectiles\mounted.dm"
