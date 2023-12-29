@@ -126,3 +126,14 @@
 		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
 		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
 	)
+
+/obj/item/storage/holster/backholster/mortar
+	can_hold = list(
+		/obj/item/mortal_shell/he,
+		/obj/item/mortal_shell/incendiary,
+		/obj/item/mortal_shell/smoke,
+		/obj/item/mortal_shell/flare,
+		/obj/item/mortal_shell/plasmaloss,
+		/obj/item/mortar_kit,
+		/obj/item/hud_tablet/artillery,
+	)
