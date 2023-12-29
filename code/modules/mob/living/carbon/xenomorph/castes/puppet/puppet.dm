@@ -42,7 +42,7 @@
 	if(get_dist(src, master) > PUPPET_WITHER_RANGE)
 		adjustBruteLoss(15)
 	else
-		adjustBruteLoss(-15) //adjustBruteLoss(-5) //RUTGMC EDIT
+		adjustBruteLoss(-5)
 
 /mob/living/carbon/xenomorph/puppet/can_receive_aura(aura_type, atom/source, datum/aura_bearer/bearer)
 	. = ..()
