@@ -1,3 +1,55 @@
+/datum/keybinding/xeno/tearing_tail
+	name = "Tearing Tail"
+	full_name = "Panther: Tearing Tail"
+	description = "Hit all adjacent units around you, poisoning them toxin for their mind."
+	keybind_signal = COMSIG_XENOABILITY_TEARING_TAIL
+	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/panther_pounce
+	name = "panther_pounce"
+	full_name = "Panther: Pounce"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_PANTHER_POUNCE
+	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/adrenaline_jump
+	name = "Adrenaline Jump"
+	full_name = "Panther: Adrenaline Jump"
+	description = "Jump from some distance to target, knocking them down."
+	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_JUMP
+	hotkey_keys = list("F")
+
+/datum/keybinding/xeno/evasive_maneuvers
+	name = "Toggle evasive maneuvers"
+	full_name = "Panther: Evasive Maneuvers"
+	description = "Toggle evasive action, forcing non-friendly projectiles that would hit you to miss."
+	keybind_signal = COMSIG_XENOABILITY_EVASIVE_MANEUVERS
+	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/adrenaline_rush
+	name = "Adrenaline rush"
+	full_name = "Panther: Adrenaline Rush"
+	description = "Move faster."
+	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_RUSH
+	hotkey_keys = list("V")
+
+/datum/keybinding/xeno/dump_acid
+	name = "dump_acid"
+	full_name = "Boiler: Dump Acid"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_DUMP_ACID
+	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/place_trap
+	hotkey_keys = list("G")
+
+/datum/keybinding/xeno/psychic_grab
+	name = "psychic_grab"
+	full_name = "Shrike: Psychic Grab"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_GRAB
+	hotkey_keys = list("X")
+
 /datum/keybinding/xeno/heal_screech
 	name = "heal_screech"
 	full_name = "Queen: Heal Screech"
@@ -45,3 +97,10 @@
 	full_name = "Chimera: Crippling Strike"
 	description = "Toggle on to enable crippling attacks"
 	keybind_signal = COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE
+
+/datum/keybinding/xeno/hugger_pounce
+	name = "hugger_pounce"
+	full_name = "Facehugger: Pounce"
+	description = "Leap at your target and knock them down, if you jump close you will hug the target."
+	keybind_signal = COMSING_XENOABILITY_HUGGER_POUNCE
+	hotkey_keys = list("E")

@@ -1,6 +1,7 @@
 
 /// Xeno signals
 #define COMSIG_XENOABILITY_TEARING_TAIL "xenoability_tearing_tail"
+#define COMSIG_XENOABILITY_PANTHER_POUNCE "xenoability_panther_pounce"
 #define COMSIG_XENOABILITY_ADRENALINE_JUMP "xenoability_adrenaline_jump"
 #define COMSIG_XENOABILITY_ADRENALINE_RUSH "xenoability_adrenaline_rush"
 #define COMSIG_XENOABILITY_EVASIVE_MANEUVERS "xenoability_evasive_maneuvers"
@@ -8,6 +9,8 @@
 #define COMSIG_XENOABILITY_DUMP_ACID "xenoability_dump_acid"
 
 #define COMSIG_XENOABILITY_PSYCHIC_GRAB "xenoability_psychic_grab"
+
+#define COMSING_XENOABILITY_HUGGER_POUNCE "xenoability_hugger_pounce"
 
 /// Predalien signals
 #define COMSIG_XENOABILITY_ROAR "xenoability_roar"

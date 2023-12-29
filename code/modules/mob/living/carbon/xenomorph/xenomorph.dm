@@ -184,6 +184,7 @@
 		if(XENO_UPGRADE_PRIMO)
 			return 1
 
+/* MOVED TO MODULE
 ///Returns the playtime as a number, used for rank icons
 /mob/living/carbon/xenomorph/proc/playtime_as_number()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
@@ -200,6 +201,7 @@
 			return 4
 		else
 			return 0
+*/
 
 /mob/living/carbon/xenomorph/proc/upgrade_next()
 	switch(upgrade)
