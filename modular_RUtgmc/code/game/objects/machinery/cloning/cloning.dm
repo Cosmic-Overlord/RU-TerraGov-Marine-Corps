@@ -6,3 +6,6 @@
 		return FALSE
 	occupant.take_over(user)
 	return TRUE
+
+/obj/machinery/computer/cloning_console/vats/attack_ai(mob/living/user)
+	return attack_hand(user)

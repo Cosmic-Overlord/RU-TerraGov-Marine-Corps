@@ -47,6 +47,7 @@ type XenoData = {
   location: string;
   health: number;
   plasma: number;
+  can_be_leader: boolean;
   is_leader: number; // boolean but is used in bitwise ops.
   is_ssd: boolean;
   index: number; // Corresponding to static data index.
@@ -786,13 +787,15 @@ const XenoList = (_props, context) => {
                     height="16px"
                     fontSize={0.75}
                     tooltip={
-                      user_queen && !static_entry.is_queen
+                      user_queen &&
+                      !static_entry.is_queen &&
+                      entry.can_be_leader
                         ? 'Toggle leadership'
                         : ''
                     }
                     verticalAlignContent="middle"
                     icon="star"
-                    disabled={static_entry.is_queen}
+                    disabled={static_entry.is_queen || !entry.can_be_leader}
                     selected={entry.is_leader}
                     opacity={
                       entry.is_leader || user_queen || static_entry.is_queen

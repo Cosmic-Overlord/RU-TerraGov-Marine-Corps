@@ -11,7 +11,7 @@
 	ability_cost = 25
 	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RUNNER_POUNCE,
+		KEYBINDING_NORMAL = COMSING_XENOABILITY_HUGGER_POUNCE,
 	)
 	use_state_flags = ABILITY_USE_BUCKLED
 	///How far can we leap.

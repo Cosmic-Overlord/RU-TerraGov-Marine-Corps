@@ -3,6 +3,9 @@
 	ability_cost = 10
 
 /datum/action/ability/activable/xeno/pounce/panther
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_POUNCE,
+	)
 	cooldown_duration = 13 SECONDS
 	ability_cost = 20
 	var/pantherplasmaheal = 45

@@ -238,3 +238,184 @@ FACTORY
 	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
 	contains = list(/obj/item/factory_refill/pizza_refill)
 	cost = 890 //fuck you
+
+/*******************************************************************************
+MEDICAL
+*******************************************************************************/
+
+/datum/supply_packs/medical/tweezers_advanced
+	name = "Advanced Tweezers"
+	notes = "contains advanced tweezers."
+	contains = list(/obj/item/tweezers_advanced)
+	cost = 400
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/defibrillator_gloves
+	name = "Advanced defibrillator medical gloves"
+	notes = "contains advanced defibrillator medical gloves."
+	contains = list(/obj/item/defibrillator/gloves)
+	cost = 300
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/healthanalyzer_gloves
+	name = "Health scanner gloves"
+	notes = "contains health scanner gloves."
+	contains = list(/obj/item/healthanalyzer/gloves)
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/advanced_medical_kits
+	name = "Advanced medical kits"
+	notes = "contains pair advanced medical kits from medical vendors."
+	contains = list(/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat, /obj/item/stack/medical/heal_pack/advanced/burn_pack/combat)
+	cost = 230
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/combat_medicine
+	name = "Battleground medicine"
+	notes = "contains 4 hypospray with MD, many injectors peri+ and quick+, neuraline, nanopaste."
+	contains = list(
+		/obj/item/reagent_containers/hypospray/advanced/meraderm,
+		/obj/item/reagent_containers/hypospray/advanced/meraderm,
+		/obj/item/reagent_containers/hypospray/advanced/meraderm,
+		/obj/item/reagent_containers/hypospray/advanced/meraderm,
+		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
+		/obj/item/reagent_containers/hypospray/advanced/oxycodone,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+		/obj/item/stack/nanopaste,
+	)
+// Кто-то скажет, что это имба, а я вам скажу, что этот набор уже есть в игре буквально самой первой строчкой в медкарго, я просто перепаковал его выставив на общее обозрение.
+	cost = 300
+
+/datum/supply_packs/medical/combat_robot_medicine
+	name = "Combat repairing for robots"
+	notes = "contains 5 nanopaste for robots or technic."
+	contains = list(
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/nanopaste,
+	)
+	cost = 230
+
+/datum/supply_packs/medical/soldering_tool
+	name = "Soldering tool"
+	notes = "contains 1 soldering tool for repair robots."
+	contains = list(/obj/item/tool/surgery/solderingtool)
+	cost = 200
+
+/datum/supply_packs/medical/nanoblood_hypo
+	name = "Nanoblood hypospray"
+	notes = "contains 2 hypo with nanoblood."
+	contains = list(
+		/obj/item/reagent_containers/hypospray/advanced/nanoblood,
+		/obj/item/reagent_containers/hypospray/advanced/nanoblood,
+	)
+	cost = 250
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/meraderm_pills
+	name = "Meraderm pills"
+	notes = "contains meralyne and dermaline pill bottle."
+	contains = list(
+		/obj/item/storage/pill_bottle/dermaline,
+		/obj/item/storage/pill_bottle/meralyne,
+	)
+	cost = 250
+
+/datum/supply_packs/medical/bs_beakers
+	name = "Bluespace beakers"
+	notes = "contains two BS beakers."
+	contains = list(
+		/obj/item/reagent_containers/glass/beaker/bluespace,
+		/obj/item/reagent_containers/glass/beaker/bluespace,
+	)
+	cost = 120
+
+/datum/supply_packs/medical/bkkt_dispenser
+	name = "BKKT Dispenser"
+	notes = "contains one BKKT dispenser."
+	contains = list(/obj/item/storage/reagent_tank/bktt)
+	cost = 120
+
+/datum/supply_packs/medical/antitox_kit
+	name = "Anti-tox kit"
+	notes = "contains some things against toxins."
+	contains = list(
+		/obj/item/storage/pill_bottle/hypervene,
+		/obj/item/storage/pill_bottle/dylovene,
+		/obj/item/storage/pill_bottle/tricordrazine,
+		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
+		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
+		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
+		)
+	cost = 40
+
+/datum/supply_packs/medical/imialky_kit
+	name = "ImiAlky kit"
+	notes = "contains pill bottles imidazoline and alkysine."
+	contains = list(
+		/obj/item/storage/pill_bottle/imidazoline,
+		/obj/item/storage/pill_bottle/alkysine,
+		)
+	cost = 80
+
+/datum/supply_packs/medical/quick_peri_plus_kit
+	name = "QuickPeri+ kit"
+	notes = "contains injector quick+ and peri+."
+	contains = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+		)
+	cost = 80
+
+/datum/supply_packs/medical/russian_red_kit
+	name = "Russian Red pill bottle"
+	notes = "contains one pill bottle red russian."
+	contains = list(/obj/item/storage/pill_bottle/russian_red)
+	cost = 80
+
+/datum/supply_packs/medical/bkkt_kit
+	name = "BKKT kit"
+	notes = "contains pill bottles BKKT."
+	contains = list(
+		/obj/item/storage/pill_bottle/bicaridine,
+		/obj/item/storage/pill_bottle/kelotane,
+		/obj/item/storage/pill_bottle/tricordrazine,
+		/obj/item/storage/pill_bottle/tramadol,
+		)
+	cost = 20
+
+/datum/supply_packs/medical/medicine_defibrillator
+	name = "Medical defibrillator"
+	notes = "contains medical defibrillator."
+	contains = list(/obj/item/defibrillator)
+	cost = 150
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY

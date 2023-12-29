@@ -73,7 +73,7 @@
 			current_iteration++
 
 /obj/item/storage/box/visual/grenade/trailblazer/phosphorus
-	name = "\improper M45 Phosphorus railblazer grenade box"
+	name = "\improper M45 Phosphorus trailblazer grenade box"
 	desc = "A secure box holding 25 M45 Phosphorus trailblazer grenades. Warning: VERY flammable!!!"
 	spawn_type = /obj/item/explosive/grenade/sticky/trailblazer/phosphorus
 	closed_overlay = "grenade_box_overlay_M45_phosphorus"

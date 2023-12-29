@@ -430,6 +430,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 /obj/item/attachable/bayonetknife/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/scalping)
+	AddElement(/datum/element/shrapnel_removal, 20 SECONDS)
 
 /obj/item/attachable/bayonetknife/som
 	name = "\improper S20 SOM bayonet"
