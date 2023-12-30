@@ -353,7 +353,7 @@
 
 /mob/living/carbon/xenomorph/wraith/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
+	//upgrade_stored = TIER_TWO_THRESHOLD
 
 //----WRAITH END----//
 //============//
