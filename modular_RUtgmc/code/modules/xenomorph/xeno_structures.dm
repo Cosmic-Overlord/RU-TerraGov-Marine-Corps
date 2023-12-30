@@ -41,6 +41,10 @@
 /obj/structure/xeno/plant
 	icon = 'modular_RUtgmc/icons/Xeno/plants.dmi'
 
+/obj/structure/xeno/plant/Initialize(mapload, _hivenumber)
+	. = ..()
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "[mature_icon_state]"))
+
 //Sentient facehugger can get in the trap
 /obj/structure/xeno/trap/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
 	. = ..()
