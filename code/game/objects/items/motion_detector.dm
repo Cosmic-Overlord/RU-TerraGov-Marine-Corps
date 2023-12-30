@@ -142,6 +142,9 @@
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 7, 2)
+// RUTGMC EDITION START - Smartgun
+	handle_power()
+// RUTGMC EDITION END
 	addtimer(CALLBACK(src, PROC_REF(clean_blips)), 1 SECONDS)
 
 ///Clean all blips from operator screen

@@ -245,6 +245,19 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = list(/datum/ammo/bullet/smartgun)
 
+/obj/item/attachable/motiondetector/activate(mob/user, turn_off)
+	var/obj/item/weapon/gun/smartgun/smartgun = master_gun
+	if(istype(smartgun) && !smartgun.drain_battery(50))
+		return FALSE
+	. = ..()
+
+/obj/item/attachable/motiondetector/proc/handle_power()
+	var/obj/item/weapon/gun/smartgun/smartgun = master_gun
+	if(istype(smartgun) && !smartgun.drain_battery(50))
+		operator = null
+		clean_operator()
+		return FALSE
+
 //Come get some.
 /obj/item/weapon/gun/smartgun
 	name = "M56B smartgun"
