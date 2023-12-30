@@ -33,6 +33,13 @@
 	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_RUSH
 	hotkey_keys = list("V")
 
+/datum/keybinding/xeno/panther_select_reagent
+	name = "Select Reagent"
+	full_name = "Panther: Select Reagent"
+	description = "Cycles through reagents to choose one for Defiler abilities."
+	keybind_signal = COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT
+	hotkey_keys = list("V")
+
 /datum/keybinding/xeno/dump_acid
 	name = "dump_acid"
 	full_name = "Boiler: Dump Acid"
