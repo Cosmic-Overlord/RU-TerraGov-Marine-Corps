@@ -5,7 +5,7 @@
 	name = "smartgun DV9 battery"
 	desc = "A standard-issue 9-volt lithium dry-cell battery, most commonly used within the USCMC to power smartguns. Per the manual, one battery is good for up to 50000 rounds and plugs directly into the smartgun's power receptacle, which is only compatible with this type of battery. Various auxiliary modes usually bring the round count far lower. While this cell is incompatible with most standard electrical system, it can be charged by common rechargers in a pinch. USCMC smartgunners often guard them jealously."
 
-	icon = 'modular_RUtgmc/icons/obj/items/smargun_cell.dmi'
+	icon = 'modular_RUtgmc/icons/obj/items/smartgun.dmi'
 	icon_state = "smartguncell"
 
 	force = 5
@@ -32,7 +32,7 @@
 /obj/item/storage/box/m56_system
 	name = "\improper M56 smartgun system case"
 	desc = "A large case containing an M56B Smartgun, M56 combat harness, head mounted sight and powerpack.\nDrag this sprite into you to open it up! NOTE: You cannot put items back inside this case."
-	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon = 'modular_RUtgmc/icons/obj/items/storage/storage_boxes.dmi'
 	icon_state = "kit_case"
 	w_class = WEIGHT_CLASS_HUGE
 	storage_slots = 4
@@ -63,8 +63,12 @@
 /obj/item/clothing/suit/storage/marine/smartgunner
 	name = "\improper M56 combat harness"
 	desc = "A heavy protective vest designed to be worn with the M56 Smartgun System. \nIt has specially designed straps and reinforcement to carry the Smartgun and accessories."
-	icon_state = "8"
-	item_state = "armor"
+	icon = 'modular_RUtgmc/icons/obj/clothing/suits/marine_armor.dmi'
+	icon_state = "m56_harness"
+	item_state = "m56_harness"
+	item_icons = list(
+		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/clothing/suits/marine_armor.dmi',
+	)
 	soft_armor = list(MELEE = 60, BULLET = 70, LASER = 70, ENERGY = 55, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	flags_inventory = BLOCKSHARPOBJ|SMARTGUN_HARNESS
@@ -84,7 +88,7 @@
 	name = "\improper M56 head mounted sight"
 	gender = NEUTER
 	desc = "A headset and goggles system for the M56 Smartgun. Has a low-res short-range imager, allowing for view of terrain."
-	icon = 'modular_RUtgmc/icons/obj/clothing/clothing.dmi'
+	icon = 'modular_RUtgmc/icons/obj/clothing/glasses.dmi'
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	toggleable = TRUE
@@ -192,11 +196,51 @@
 //-------------------------------------------------------
 //SMARTGUN
 
+/obj/item/storage/belt/marine/smartgunner
+	name = "\improper M280 pattern smartgunner drum belt"
+	desc = "Despite the fact that 1. drum magazines are incredibly non-ergonomical, and 2. require incredibly precise machining in order to fit universally (spoiler, they don't, adding further to the myth of 'Smartgun Personalities'), the USCM decided to issue a modified marine belt (more formally known by the designation M280) with hooks and dust covers (overly complex for the average jarhead) for the M56B system's drum munitions. When the carry catch on the drum isn't getting stuck in the oiled up velcro, the rig actually does do a decent job at holding a plentiful amount of drums. But at the end of the day, compared to standard rigs... it sucks, but isn't that what being a Marine is all about?"
+	icon = 'modular_RUtgmc/icons/obj/items/smartgun.dmi'
+	icon_state = "sgbelt_ammo"
+	storage_slots = 6
+	bypass_w_limit = list(
+		/obj/item/ammo_magazine/smartgun,
+	)
+	max_w_class = WEIGHT_CLASS_NORMAL
+	can_hold = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/ammo_magazine/smartgun,
+		/obj/item/ammo_magazine/rifle,
+		/obj/item/ammo_magazine/smg,
+		/obj/item/ammo_magazine/pistol,
+		/obj/item/ammo_magazine/revolver,
+		/obj/item/ammo_magazine/sniper,
+		/obj/item/ammo_magazine/handful,
+		/obj/item/explosive/grenade,
+		/obj/item/explosive/mine,
+	)
+
+/obj/item/storage/belt/marine/smartgunner/Initialize(mapload)
+	. = ..()
+	new /obj/item/ammo_magazine/smartgun(src)
+	new /obj/item/ammo_magazine/smartgun(src)
+
+/obj/item/storage/belt/marine/smartgunner/full/Initialize(mapload)
+	. = ..()
+	new /obj/item/ammo_magazine/smartgun(src)
+	new /obj/item/ammo_magazine/smartgun(src)
+	new /obj/item/ammo_magazine/smartgun(src)
+	new /obj/item/ammo_magazine/smartgun(src)
+	new /obj/item/ammo_magazine/smartgun(src)
+	new /obj/item/ammo_magazine/smartgun(src)
+
 /obj/item/ammo_magazine/smartgun
 	name = "smartgun drum"
 	max_rounds = 500 //Should be 500 in total.
-	icon = 'modular_RUtgmc/icons/obj/items/weapons/guns/smartgun.dmi'
+	icon = 'modular_RUtgmc/icons/obj/items/smartgun.dmi'
 	icon_state = "m56_drum"
+	item_icons = list(
+		slot_belt_str = 'modular_RUtgmc/icons/mob/belt.dmi',
+		)
 	max_rounds = 500 //Should be 500 in total.
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = list(/datum/ammo/bullet/smartgun)
@@ -205,9 +249,15 @@
 /obj/item/weapon/gun/smartgun
 	name = "M56B smartgun"
 	desc = "The actual firearm in the 4-piece M56B Smartgun System. Essentially a heavy, mobile machinegun.\nYou may toggle firing restrictions by using a special action.\nAlt-click it to open the feed cover and allow for reloading."
-	icon = 'modular_RUtgmc/icons/obj/items/weapons/guns/smartgun.dmi'
+	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "m56"
 	item_state = "m56"
+	item_icons = list(
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		)
 	fire_sound = "gun_smartgun"
 	fire_rattle = "gun_smartgun_rattle"
 	reload_sound = 'modular_RUtgmc/sound/handling/gun_sg_reload.ogg'
@@ -251,12 +301,10 @@
 	var/cover_open = FALSE
 
 	attachable_allowed = list(
-		/obj/item/attachable/smartbarrel,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/motiondetector,
 	)
 	starting_attachment_types = list(
-		/obj/item/attachable/smartbarrel,
 		/obj/item/attachable/motiondetector,
 	)
 

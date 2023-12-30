@@ -233,6 +233,10 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/weapons/guns/fire/silenced_shot1.ogg','sound/weapons/guns/fire/silenced_shot2.ogg')
 		if("gun_smartgun")
 			S = pick('sound/weapons/guns/fire/smartgun1.ogg', 'sound/weapons/guns/fire/smartgun2.ogg', 'sound/weapons/guns/fire/smartgun3.ogg')
+// RUTGMC EDIT START - Smartgun
+		if("gun_smartgun")
+			S = pick('modular_RUtgmc/sound/handling/gun_smartgun1.ogg', 'modular_RUtgmc/sound/handling/gun_smartgun2.ogg', 'modular_RUtgmc/sound/handling/gun_smartgun3.ogg', 'modular_RUtgmc/sound/handling/gun_smartgun4.ogg')
+// RUTGMC EDIT END
 		if("gun_flamethrower")
 			S = pick('sound/weapons/guns/fire/flamethrower1.ogg', 'sound/weapons/guns/fire/flamethrower2.ogg', 'sound/weapons/guns/fire/flamethrower3.ogg')
 		if("gun_ar12")
