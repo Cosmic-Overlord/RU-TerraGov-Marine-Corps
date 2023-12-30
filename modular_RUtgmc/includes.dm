@@ -216,12 +216,13 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\shrike\castedatum_shrike.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\spitter\castedatum_spitter.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\warlock\abilities_warlock.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\warlock\castedatum_warlock.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\warrior\abilities_warrior.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\warrior\castedatum_warrior.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\widow\castedatum_widow.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\wraith\wraith.dm"
+// #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\wraith.dm" RU TGMC EDIT
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\abilities_wraith.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\wraith\castedatum_wraith.dm"
+// #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\castedatum_wraith.dm" RU TGMC EDIT
 #include "code\modules\mob\living\silicon\ai\ai.dm"
 #include "code\modules\organs\limb_objects.dm"
 #include "code\modules\power\fusion_engine.dm"

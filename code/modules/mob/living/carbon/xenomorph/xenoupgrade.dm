@@ -345,6 +345,7 @@
 
 //----SHRIKE END----//
 //============//
+/* RU TGMC EDITION START
 //----WRAITH START----//
 
 /mob/living/carbon/xenomorph/wraith
@@ -356,6 +357,7 @@
 
 //----WRAITH END----//
 //============//
+RU TGMC EDITION END*/
 //----WIDOW START----//
 
 /mob/living/carbon/xenomorph/widow

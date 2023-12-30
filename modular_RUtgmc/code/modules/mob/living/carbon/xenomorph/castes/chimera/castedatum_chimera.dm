@@ -25,7 +25,7 @@
 	// *** Evolution *** //
 	// upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
-	deevolves_to = /mob/living/carbon/xenomorph/wraith
+	deevolves_to = /mob/living/carbon/xenomorph/panther
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
