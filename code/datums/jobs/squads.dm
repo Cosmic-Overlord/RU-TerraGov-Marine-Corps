@@ -35,7 +35,7 @@
 
 
 /datum/squad/alpha
-	name = RADIO_CHANNEL_ALPHA
+	name = "Alpha"
 	id = ALPHA_SQUAD
 	color = "#e61919" // rgb(230,25,25)
 	access = list(ACCESS_MARINE_ALPHA)
@@ -43,7 +43,7 @@
 
 
 /datum/squad/bravo
-	name = RADIO_CHANNEL_BRAVO
+	name = "Bravo"
 	id = BRAVO_SQUAD
 	color = "#ffc32d" // rgb(255,195,45)
 	access = list(ACCESS_MARINE_BRAVO)
@@ -51,21 +51,21 @@
 
 
 /datum/squad/charlie
-	name = RADIO_CHANNEL_CHARLIE
+	name = "Charlie"
 	id = CHARLIE_SQUAD
 	color = "#c864c8" // rgb(200,100,200)
 	access = list(ACCESS_MARINE_CHARLIE)
 	radio_freq = FREQ_CHARLIE
 
 /datum/squad/delta
-	name = RADIO_CHANNEL_DELTA
+	name = "Delta"
 	id = DELTA_SQUAD
 	color = "#4148c8" // rgb(65,72,200)
 	access = list(ACCESS_MARINE_DELTA)
 	radio_freq = FREQ_DELTA
 
 /datum/squad/foreign
-	name = RADIO_CHANNEL_FOREIGN
+	name = "Foreign"
 	additional_name = "Legion"
 	id = FOREIGN_SQUAD
 	color = "#3f7d30" // rgb(42, 134, 53)

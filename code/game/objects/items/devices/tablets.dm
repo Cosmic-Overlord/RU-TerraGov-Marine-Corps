@@ -34,23 +34,23 @@
 			if(/datum/job/terragov/squad/leader)
 				if(squad)
 					switch(squad.name)
-						if(RADIO_CHANNEL_ALPHA)
+						if("Alpha")
 							dat += " alpha"
 							network = list("alpha")
 							req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_ALPHA)
-						if(RADIO_CHANNEL_BRAVO)
+						if("Bravo")
 							dat += " bravo"
 							network = list("bravo")
 							req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_BRAVO)
-						if(RADIO_CHANNEL_CHARLIE)
+						if("Charlie")
 							dat += " charlie"
 							network = list("charlie")
 							req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_CHARLIE)
-						if(RADIO_CHANNEL_DELTA)
+						if("Delta")
 							dat += " delta"
 							network = list("delta")
 							req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_DELTA)
-						if(RADIO_CHANNEL_FOREIGN)
+						if("Foreign")
 							dat += " foreign"
 							network = list("foreign")
 							req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_FOREIGN)
