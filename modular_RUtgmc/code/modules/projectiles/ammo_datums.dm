@@ -109,6 +109,28 @@
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
 
+/datum/ammo/bullet/smartgun
+	name = "smartgun bullet"
+	icon_state = "redbullet"
+	hud_state = "smartgun"
+	hud_state_empty = "smartgun_empty"
+	flags_ammo_behavior = AMMO_BALLISTIC
+
+	max_range = 18
+	accuracy = 20
+	damage = 30
+	penetration = 0
+
+/datum/ammo/bullet/smartgun/armor_piercing
+	name = "armor-piercing smartgun bullet"
+	icon_state = "bullet"
+	hud_state = "smartgun_ap"
+
+	accurate_range = 18
+	accuracy = 10
+	damage = 20
+	penetration = 40
+
 /*
 //================================================
 					Xeno Spits

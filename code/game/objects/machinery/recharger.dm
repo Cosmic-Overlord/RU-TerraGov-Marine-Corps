@@ -8,7 +8,9 @@
 	active_power_usage = 15000	//15 kW
 	var/obj/item/charging = null
 	var/percent_charge_complete = 0
+/* RUTGMC EDIT
 	var/list/allowed_devices = list(/obj/item/weapon/baton, /obj/item/cell, /obj/item/weapon/gun/energy/taser, /obj/item/defibrillator)
+*/
 
 /obj/machinery/recharger/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -128,6 +130,18 @@
 				update_icon()
 			return
 
+// RUTGMC EDIT START - Smartgun
+		if(istype(charging, /obj/item/smartgun_battery))
+			var/obj/item/smartgun_battery/charging_smartgun_battery = charging
+			if(charging_smartgun_battery.power_cell && !charging_smartgun_battery.power_cell.fully_charged())
+				charging_smartgun_battery.power_cell.give(active_power_usage*GLOB.CELLRATE)
+				percent_charge_complete = charging_smartgun_battery.power_cell.percent()
+				update_icon()
+			else
+				percent_charge_complete = 100
+				update_icon()
+			return
+// RUTGMC EDIT END
 
 /obj/machinery/recharger/emp_act(severity)
 	if(machine_stat & (NOPOWER|BROKEN) || !anchored)
