@@ -304,7 +304,6 @@
 	var/recoil_compensation = 0
 	var/accuracy_improvement = 0
 	var/auto_fire = 0
-	var/motion_detector = 0
 	var/drain = 11
 	var/range = 7
 	var/angle = 2
@@ -321,7 +320,8 @@
 		/obj/item/attachable/motiondetector,
 	)
 
-	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER
+	flags_item = IS_DEPLOYABLE|TWOHANDED
+	flags_gun_features = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16,"rail_x" = 17, "rail_y" = 18, "under_x" = 22, "under_y" = 14, "stock_x" = 22, "stock_y" = 14)
 	fire_delay = 2
 
@@ -352,12 +352,7 @@
 	else
 		scatter = 5
 		recoil = 3
-/*
-/obj/item/weapon/gun/smartgun/set_bullet_traits()
-	LAZYADD(traits_to_give, list(
-		BULLET_TRAIT_ENTRY_ID("iff", /datum/element/bullet_trait_iff)
-	))
-*/
+
 /obj/item/weapon/gun/smartgun/examine(mob/user)
 	. = ..()
 	var/rounds = get_current_rounds(chamber_items[current_chamber_position])
@@ -595,18 +590,16 @@
 	to_chat(user, "[icon2html(src, usr)] You [iff_enabled? "<B>disable</b>" : "<B>enable</b>"] \the [src]'s fire restriction. You will [iff_enabled ? "harm anyone in your way" : "target through IFF"].")
 	playsound(loc,'sound/machines/click.ogg', 25, 1)
 	iff_enabled = !iff_enabled
-/*
+
 	ammo_datum_type = ammo_primary
 	secondary_toggled = FALSE
 	if(iff_enabled)
-		add_bullet_trait(BULLET_TRAIT_ENTRY_ID("iff", /datum/element/bullet_trait_iff))
+		flags_gun_features |= GUN_IFF
 		drain += 10
-		MD.faction = faction
-	if(!iff_enabled)
-		remove_bullet_trait("iff")
+	else
+		flags_gun_features &= ~GUN_IFF
 		drain -= 10
-		MD.faction = null
-*/
+
 /obj/item/weapon/gun/smartgun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
 	if(!requires_battery)
 		return ..()
@@ -671,15 +664,13 @@
 /obj/item/weapon/gun/smartgun/proc/auto_fire()
 	if(auto_fire)
 		drain += 150
-		if(!motion_detector)
-			START_PROCESSING(SSobj, src)
+		START_PROCESSING(SSobj, src)
 	if(!auto_fire)
 		drain -= 150
-		if(!motion_detector)
-			STOP_PROCESSING(SSobj, src)
+		STOP_PROCESSING(SSobj, src)
 
 /obj/item/weapon/gun/smartgun/process()
-	if(!auto_fire && !motion_detector)
+	if(!auto_fire)
 		STOP_PROCESSING(SSobj, src)
 	if(auto_fire)
 		auto_prefire()
@@ -784,13 +775,3 @@
 		Fire(target,user)
 
 	target = null
-
-/obj/item/weapon/gun/smartgun/proc/motion_detector()
-	if(motion_detector)
-		drain += 15
-		if(!auto_fire)
-			START_PROCESSING(SSobj, src)
-	if(!motion_detector)
-		drain -= 15
-		if(!auto_fire)
-			STOP_PROCESSING(SSobj, src)
