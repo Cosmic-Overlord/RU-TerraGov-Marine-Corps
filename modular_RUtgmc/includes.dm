@@ -10,6 +10,7 @@
 #include "code\_onclick\hud\xeno\larva.dm"
 #include "code\_onclick\hud\xeno\xeno.dm"
 #include "code\controllers\subsystem\job.dm"
+#include "code\controllers\subsystem\minimaps.dm"
 #include "code\controllers\subsystem\points.dm"
 #include "code\controllers\subsystem\processing\resinshaping.dm"
 #include "code\datums\namepool.dm"
