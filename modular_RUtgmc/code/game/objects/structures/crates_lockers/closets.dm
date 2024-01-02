@@ -2,7 +2,7 @@
 	//var to prevent welding stasis bags and tarps
 	var/can_be_welded = TRUE
 	//the amount of material you drop
-	var/drop_material_amount = 2
+	var/drop_material_amount = 1
 
 /obj/structure/closet/welder_act(mob/living/user, obj/item/tool/weldingtool/welder)
 	if(!can_be_welded)
@@ -27,8 +27,7 @@
 	return TRUE
 
 /obj/structure/closet/deconstruct(disassembled = TRUE)
-	if(!(resistance_flags & INDESTRUCTIBLE))
-		if(ispath(drop_material) && drop_material_amount)
+	if(ispath(drop_material) && drop_material_amount)
 			new drop_material(loc, drop_material_amount)
 	dump_contents()
 	return ..()
