@@ -28,6 +28,6 @@
 
 /obj/structure/closet/deconstruct(disassembled = TRUE)
 	if(ispath(drop_material) && drop_material_amount)
-			new drop_material(loc, drop_material_amount)
+		new drop_material(loc, drop_material_amount)
 	dump_contents()
 	return ..()
