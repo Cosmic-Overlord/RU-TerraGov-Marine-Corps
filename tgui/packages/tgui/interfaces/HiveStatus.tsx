@@ -13,7 +13,9 @@ type InputPack = {
   hive_larva_rate: number;
   hive_larva_burrowed: number;
   hive_psy_points: number;
+  hive_silo_collapse: number;
   hive_orphan_collapse: number;
+  hive_silo_max: number;
   hive_orphan_max: number;
   hive_minion_count: number;
   hive_primos: PrimoUpgrades[];
@@ -200,8 +202,10 @@ const GeneralInfo = (_props, context) => {
   const {
     hive_larva_burrowed,
     hive_psy_points,
+    hive_silo_collapse,
     hive_orphan_collapse,
     hive_death_timers,
+    hive_silo_max,
     hive_orphan_max,
   } = data;
 
@@ -237,6 +241,14 @@ const GeneralInfo = (_props, context) => {
           <EvolutionBar />
         </Flex.Item>
         <DeadXenoTimerCountdowns hive_death_timers={hive_death_timers} />
+        <Flex.Item>
+          <XenoCountdownBar
+            time={hive_silo_collapse}
+            max={hive_silo_max}
+            tooltip="Hive must construct a silo!"
+            left_side="Silo Collapse:"
+          />
+        </Flex.Item>
         <Flex.Item>
           <XenoCountdownBar
             time={hive_orphan_collapse}

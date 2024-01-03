@@ -28,6 +28,14 @@
 /datum/hive_status/ui_data(mob/user)
 	. = ..()
 	.["hive_forbiden_castes"] = hive_forbiden_castes
+	if(hive_flags & HIVE_CAN_COLLAPSE_FROM_SILO)
+		var/siloless_countdown = SSticker.mode?.get_siloless_collapse_countdown()
+		.["hive_silo_collapse"] = !isnull(siloless_countdown) ? siloless_countdown : 0
+
+/datum/hive_status/ui_static_data(mob/user)
+	. = ..()
+	if(hive_flags & HIVE_CAN_COLLAPSE_FROM_SILO)
+		.["hive_silo_max"] = DISTRESS_SILO_COLLAPSE MILLISECONDS //Timers are defined in miliseconds.
 
 // ***************************************
 // *********** Facehuggers proc
