@@ -840,7 +840,7 @@
 	///What message it sends to the user when you switch to this mode.
 	var/message_to_user = ""
 	///Which icon file the radial menu will use.
-	var/radial_icon = 'icons/mob/radial.dmi'
+	var/radial_icon = 'modular_RUtgmc/icons/mob/radial.dmi'
 	///The icon state the radial menu will use.
 	var/radial_icon_state = "laser"
 	///The muzzleflash color of the weapon we use.

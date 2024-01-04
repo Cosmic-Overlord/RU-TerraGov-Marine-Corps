@@ -32,7 +32,7 @@
 #define JOB_PREDATOR "Predator"
 
 #define CATEGORY_YAUTJA "YAUTJA"
-#define HUNTERSHIPS_TEMPLATE_PATH "_maps/predship/huntership.dmm"
+#define HUNTERSHIPS_TEMPLATE_PATH "_maps/~RUTGMC/predship/huntership.dmm"
 
 #define DUMMY_HUMAN_SLOT_PREFERENCES_ADDITIONAL "dummy_preference_preview_second"
 
