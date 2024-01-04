@@ -287,7 +287,6 @@
 #include "code\__HELPERS\unsorted.dm"
 #include "code\_onclick\hud\defines.dm"
 #include "code\_onclick\hud\yautja.dm"
-#include "code\controllers\subsystem\minimaps.dm"
 #include "code\datums\elements\yautja_tracked_item.dm"
 #include "code\datums\jobs\job\job.dm"
 #include "code\datums\jobs\job\pred.dm"

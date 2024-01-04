@@ -49,6 +49,7 @@
 	icon = 'modular_RUtgmc/icons/turf/walls/hunter.dmi'
 	icon_state = "hunter-0"//DMI specific name
 	walltype = "hunter"
+	base_icon_state = "hunter"
 	resistance_flags = RESIST_ALL
 
 /turf/closed/wall/huntership/destructible

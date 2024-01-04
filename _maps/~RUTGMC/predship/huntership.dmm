@@ -12,7 +12,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ac" = (
@@ -134,7 +135,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ao" = (
@@ -164,7 +166,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ap" = (
@@ -200,7 +203,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ar" = (
@@ -226,7 +230,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "av" = (
@@ -237,7 +242,8 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aw" = (
@@ -306,14 +312,16 @@
 /obj/item/hunting_trap,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aD" = (
 /obj/structure/xenoautopsy/tank/hugger/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aE" = (
@@ -328,7 +336,8 @@
 /obj/item/tool/surgery/scalpel/predatorscalpel,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aF" = (
@@ -355,7 +364,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aI" = (
@@ -373,7 +383,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aK" = (
@@ -391,7 +402,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aL" = (
@@ -400,7 +412,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aP" = (
@@ -421,7 +434,8 @@
 /obj/item/tool/surgery/surgicaldrill/predatorsurgicaldrill,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aT" = (
@@ -439,7 +453,8 @@
 /obj/item/weapon/yautja/knife,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aW" = (
@@ -448,7 +463,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "aX" = (
@@ -480,7 +496,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bc" = (
@@ -527,7 +544,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bj" = (
@@ -557,7 +575,8 @@
 /obj/item/weapon/harpoon/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bp" = (
@@ -579,7 +598,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "br" = (
@@ -593,7 +613,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bu" = (
@@ -607,7 +628,8 @@
 /obj/structure/closet/coffin/predator,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bx" = (
@@ -636,7 +658,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bA" = (
@@ -645,7 +668,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bD" = (
@@ -666,7 +690,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bG" = (
@@ -683,13 +708,15 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bL" = (
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bM" = (
@@ -729,7 +756,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bR" = (
@@ -746,7 +774,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "bU" = (
@@ -815,7 +844,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cb" = (
@@ -887,7 +917,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cl" = (
@@ -898,7 +929,8 @@
 /obj/item/alienjar,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cm" = (
@@ -932,7 +964,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cr" = (
@@ -1022,7 +1055,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cA" = (
@@ -1031,7 +1065,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cB" = (
@@ -1045,7 +1080,8 @@
 /obj/machinery/autolathe/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cF" = (
@@ -1127,14 +1163,16 @@
 /obj/structure/cryofeed,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cO" = (
 /obj/structure/cryofeed/right,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cP" = (
@@ -1168,7 +1206,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cR" = (
@@ -1203,7 +1242,8 @@
 /obj/item/clothing/under/gladiator,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cT" = (
@@ -1215,7 +1255,8 @@
 /obj/item/tool/pickaxe,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cU" = (
@@ -1227,7 +1268,8 @@
 /obj/item/tool/extinguisher,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cV" = (
@@ -1240,7 +1282,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cW" = (
@@ -1255,7 +1298,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cX" = (
@@ -1278,7 +1322,8 @@
 /obj/item/storage/belt/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "cY" = (
@@ -1311,7 +1356,8 @@
 /obj/item/tool/pickaxe/jackhammer,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "dc" = (
@@ -1352,7 +1398,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "di" = (
@@ -1430,7 +1477,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "eA" = (
@@ -1444,7 +1492,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "eS" = (
@@ -1462,7 +1511,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "eY" = (
@@ -1492,7 +1542,8 @@
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
 	icon_state = "pred_window-0";
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi';
+	base_icon_state = "pred_window"
 	},
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
@@ -1516,7 +1567,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "fF" = (
@@ -1627,7 +1679,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "gG" = (
@@ -1641,7 +1694,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "hI" = (
@@ -1659,7 +1713,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "hV" = (
@@ -1676,7 +1731,8 @@
 /obj/item/reagent_containers/glass/rag/polishing_rag,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "il" = (
@@ -1736,7 +1792,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ja" = (
@@ -1760,7 +1817,8 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "jy" = (
@@ -1773,7 +1831,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "jP" = (
@@ -1819,7 +1878,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "kA" = (
@@ -1833,7 +1893,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "kF" = (
@@ -1889,7 +1950,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "mb" = (
@@ -1933,7 +1995,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "nh" = (
@@ -1955,7 +2018,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "nv" = (
@@ -2015,7 +2079,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ob" = (
@@ -2037,7 +2102,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ol" = (
@@ -2066,7 +2132,8 @@
 /obj/item/storage/belt/utility/pred/full,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "oO" = (
@@ -2122,7 +2189,8 @@
 /obj/item/tool/crowbar/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "qS" = (
@@ -2136,7 +2204,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "qY" = (
@@ -2146,7 +2215,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "rt" = (
@@ -2157,7 +2227,8 @@
 /obj/item/storage/medicomp/full,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "rH" = (
@@ -2166,7 +2237,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "rY" = (
@@ -2214,7 +2286,8 @@
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
 	icon_state = "pred_window-0";
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi';
+	base_icon_state = "pred_window"
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -2254,7 +2327,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ti" = (
@@ -2300,7 +2374,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ua" = (
@@ -2316,7 +2391,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "uU" = (
@@ -2343,7 +2419,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "vE" = (
@@ -2443,7 +2520,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "wT" = (
@@ -2457,7 +2535,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "xO" = (
@@ -2471,7 +2550,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "xQ" = (
@@ -2483,7 +2563,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "xY" = (
@@ -2503,7 +2584,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "yY" = (
@@ -2529,7 +2611,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "zA" = (
@@ -2547,7 +2630,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "AA" = (
@@ -2556,7 +2640,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Be" = (
@@ -2596,7 +2681,8 @@
 /obj/machinery/prop/yautja/bubbler,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "BY" = (
@@ -2613,7 +2699,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "CK" = (
@@ -2627,7 +2714,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Dk" = (
@@ -2640,7 +2728,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Dr" = (
@@ -2678,7 +2767,8 @@
 /obj/structure/bed/chair/hunter,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "EB" = (
@@ -2689,7 +2779,8 @@
 /obj/item/tool/soap,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Fh" = (
@@ -2729,11 +2820,13 @@
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
 	icon_state = "pred_window-0";
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi';
+	base_icon_state = "pred_window"
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "FG" = (
@@ -2754,7 +2847,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "GG" = (
@@ -2782,7 +2876,8 @@
 /obj/item/weapon/chainofcommand,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Ha" = (
@@ -2814,7 +2909,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Hv" = (
@@ -2827,7 +2923,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Hz" = (
@@ -2857,7 +2954,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Ia" = (
@@ -2920,7 +3018,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "IC" = (
@@ -2952,7 +3051,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Jy" = (
@@ -2975,7 +3075,8 @@
 /obj/item/stack/yautja_rope,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "JH" = (
@@ -2993,7 +3094,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "JU" = (
@@ -3070,14 +3172,16 @@
 /obj/item/trash/plate,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Lo" = (
 /obj/machinery/vending/dinnerware/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "LB" = (
@@ -3112,7 +3216,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Mb" = (
@@ -3126,7 +3231,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "MD" = (
@@ -3191,7 +3297,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "NA" = (
@@ -3210,7 +3317,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "OZ" = (
@@ -3220,7 +3328,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Pb" = (
@@ -3258,7 +3367,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Pr" = (
@@ -3278,7 +3388,8 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "PN" = (
@@ -3321,7 +3432,8 @@
 /obj/machinery/chem_master/yautja,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Qx" = (
@@ -3353,7 +3465,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "RE" = (
@@ -3412,7 +3525,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Uv" = (
@@ -3439,7 +3553,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "UT" = (
@@ -3471,7 +3586,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "VN" = (
@@ -3481,7 +3597,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "VT" = (
@@ -3506,7 +3623,8 @@
 /obj/structure/window/framed/colony/reinforced/hull{
 	basestate = "pred_window";
 	icon_state = "pred_window-0";
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi';
+	base_icon_state = "pred_window"
 	},
 /turf/open/floor/strata{
 	color = "#5e5d5d";
@@ -3542,7 +3660,8 @@
 /obj/item/tool/kitchen/utensil/spoon,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Xg" = (
@@ -3557,7 +3676,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Xk" = (
@@ -3689,7 +3809,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "Zi" = (
@@ -3721,7 +3842,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ZD" = (
@@ -3732,7 +3854,8 @@
 	},
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 "ZE" = (
@@ -3754,7 +3877,8 @@
 /obj/item/stack/yautja_rope,
 /turf/open/floor/corsat{
 	dir = 1;
-	icon_state = "squareswood"
+	icon_state = "squareswood";
+	base_icon_state = "squareswood"
 	},
 /area/yautja)
 
