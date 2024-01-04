@@ -15,3 +15,6 @@
 		/obj/item/attachable/scope/unremovable/mmg,
 		/obj/item/attachable/stock/t27,
 	)
+
+/obj/item/weapon/gun/heavymachinegun
+	deployable_item = /obj/machinery/deployable/mounted/moveable/fast

@@ -47,6 +47,9 @@
 /datum/action/ability/xeno_action/portal
 	ability_cost = 30
 
+/obj/effect/wraith_portal/Initialize(mapload, _hivenumber)
+	. = ..()
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "[icon_state]"))
 
 // ***************************************
 // *********** Rewind

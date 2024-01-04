@@ -171,3 +171,6 @@
 	if(T.density)
 		return
 	new /obj/effect/xenomorph/spray/weak(T, puddle_duration, puddle_acid_damage)
+
+/datum/ammo/xeno/spine //puppeteer
+	damage = 45

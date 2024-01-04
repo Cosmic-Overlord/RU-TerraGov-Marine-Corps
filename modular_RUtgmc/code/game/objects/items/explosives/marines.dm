@@ -27,8 +27,8 @@
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"
-	fire_level = 50
-	burn_level = 50
+	fire_level = 45
+	burn_level = 45
 	fire_color = "blue"
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
@@ -43,3 +43,6 @@
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
+
+/obj/item/explosive/grenade/smokebomb/drain
+	icon_state_mini = "grenade_purple"

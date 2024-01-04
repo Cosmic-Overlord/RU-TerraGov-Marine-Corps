@@ -24,10 +24,14 @@
 			var/marker_icon = "miner_[mineral_value >= PLATINUM_CRATE_SELL_AMOUNT ? "platinum" : "phoron"]_on"
 			SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, marker_icon))
 			miner_status = MINER_RUNNING
-			camera.toggle_cam(null, FALSE)
+			if(!camera.status)
+				camera.toggle_cam(null, FALSE)
 	update_icon()
 
 /obj/machinery/miner/Destroy()
 	qdel(camera)
 	camera = null
 	return ..()
+
+/obj/machinery/miner/attack_ai(mob/user)
+	return attack_hand(user)
