@@ -863,14 +863,12 @@
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_CURE
 	hotkey_keys = list("F")
 
-/* RUTGMC EDIT DELETION, PSYCHIC_GRAB
 /datum/keybinding/xeno/psychic_storm
 	name = "gravnade"
 	full_name = "Shrike: Psychic Vortex"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_VORTEX
 	hotkey_keys = list("X")
-*/
 
 /datum/keybinding/xeno/scatter_spit
 	name = "scatter_spit"

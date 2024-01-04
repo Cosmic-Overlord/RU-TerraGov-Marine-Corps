@@ -9,8 +9,6 @@
 
 #define COMSIG_XENOABILITY_DUMP_ACID "xenoability_dump_acid"
 
-#define COMSIG_XENOABILITY_PSYCHIC_GRAB "xenoability_psychic_grab"
-
 #define COMSING_XENOABILITY_HUGGER_POUNCE "xenoability_hugger_pounce"
 
 /// Predalien signals

@@ -50,13 +50,6 @@
 /datum/keybinding/xeno/place_trap
 	hotkey_keys = list("G")
 
-/datum/keybinding/xeno/psychic_grab
-	name = "psychic_grab"
-	full_name = "Shrike: Psychic Grab"
-	description = ""
-	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_GRAB
-	hotkey_keys = list("X")
-
 /datum/keybinding/xeno/heal_screech
 	name = "heal_screech"
 	full_name = "Queen: Heal Screech"
