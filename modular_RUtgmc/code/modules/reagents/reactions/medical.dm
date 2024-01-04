@@ -12,3 +12,8 @@
 	name = "Hyronalin"
 	results = list(/datum/reagent/medicine/hyronalin = 2)
 	required_reagents = list(/datum/reagent/radium = 1, /datum/reagent/medicine/dylovene = 1)
+
+/datum/chemical_reaction/fasygin
+	name = "Fasygin"
+	results = list(/datum/reagent/medicine/fasygin = 2)
+	required_reagents = list(/datum/reagent/medicine/dylovene = 1, /datum/reagent/copper = 1)

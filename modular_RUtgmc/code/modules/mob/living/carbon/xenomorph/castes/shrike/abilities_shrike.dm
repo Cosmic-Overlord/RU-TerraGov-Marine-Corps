@@ -69,3 +69,6 @@
 	var/datum/action/ability/xeno_action/grab = X.actions_by_path[/datum/action/ability/activable/xeno/psychic_grab]
 	if(grab)
 		grab.add_cooldown(3 SECONDS)
+
+/datum/action/ability/xeno_action/place_acidwell
+	ability_cost = 300

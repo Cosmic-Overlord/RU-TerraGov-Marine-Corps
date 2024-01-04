@@ -1,6 +1,7 @@
 /mob/living/carbon/xenomorph/larva
-	talk_sound = "larva_talk"
+	hud_possible = list(HEALTH_HUD_XENO, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, HUNTER_CLAN, HUNTER_HUD)
 
+	talk_sound = "larva_talk"
 	life_value = 0
 	default_honor_value = 0
 

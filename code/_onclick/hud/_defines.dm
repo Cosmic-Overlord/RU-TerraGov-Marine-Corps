@@ -100,6 +100,7 @@
 */
 #define ui_alien_nightvision "EAST-1:28,6:13"
 #define ui_alien_health "EAST-1:12,8:13"
+#define ui_alien_health_larva "EAST-1:28,8:13"
 #define ui_queen_locator "EAST-1:28,6:13"
 #define ui_alienplasmadisplay "EAST-1:45,8:13"
 #define ui_evolvehud "EAST-1:28,6:13"
