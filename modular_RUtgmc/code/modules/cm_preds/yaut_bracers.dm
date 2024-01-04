@@ -808,21 +808,19 @@
 		return
 
 	SSminimaps.remove_marker(owner)
-/* fuck da shit
+
 	if(!isyautja(owner))
+		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "bracer_stolen"))
 		if(owner.stat >= DEAD)
 			if(HAS_TRAIT(owner, TRAIT_UNDEFIBBABLE))
-				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, "bracer_stolen", overlay_iconstates = list("undefibbable"))
+				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 			else
-				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, "bracer_stolen", overlay_iconstates = list("defibbable"))
-		else
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, "bracer_stolen")
+				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "defibbable"))
 	else
+		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, minimap_icon))
 		if(owner?.stat >= DEAD)
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, minimap_icon, overlay_iconstates = list("undefibbable")) //defib/undefib status doesn't really matter because they're gonna explode in the end regardless
-		else
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, minimap_icon)
-*/
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "undefibbable"))
+
 /*
 *This is the main proc for checking AND draining the bracer energy. It must have human passed as an argument.
 *It can take a negative value in amount to restore energy.
@@ -984,19 +982,17 @@
 /obj/item/clothing/gloves/yautja/thrall/update_minimap_icon()
 	if(!ishuman(owner))
 		return
-/*
+
 	var/turf/wearer_turf = get_turf(owner)
 	if(!wearer_turf)
 		return
 
+	SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, minimap_icon))
 	if(owner.stat >= DEAD)
 		if(HAS_TRAIT(owner, TRAIT_UNDEFIBBABLE))
-			SSminimaps.add_marker(owner, wearer_turf.z, MINIMAP_FLAG_YAUTJA, minimap_icon, overlay_iconstates = list("undefibbable"))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 		else
-			SSminimaps.add_marker(owner, wearer_turf.z, MINIMAP_FLAG_YAUTJA, minimap_icon, overlay_iconstates = list("defibbable"))
-	else
-		SSminimaps.add_marker(owner, wearer_turf.z, MINIMAP_FLAG_YAUTJA, minimap_icon)
-*/
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "defibbable"))
 
 /obj/item/clothing/gloves/yautja/hunter
 	name = "clan bracers"
