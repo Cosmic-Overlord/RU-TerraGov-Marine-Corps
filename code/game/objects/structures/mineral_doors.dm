@@ -19,8 +19,7 @@
 	var/material_type
 
 /obj/structure/mineral_door/Initialize(mapload)
-	if((locate(/mob/living) in loc) && !open)	//If we build a door below ourselves, it starts open.
-		toggle_state()
+	toggle_state()
 	/*
 	We are calling parent later because if we toggle state, the opacity changes only to change to
 	non opaque after the parent procs do their thing, this is an issue because this changes the
