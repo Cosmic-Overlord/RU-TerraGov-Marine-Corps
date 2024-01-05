@@ -479,6 +479,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
 			if("panther")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/panther, location, null, delmob)
+			if("chimera")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
 			//RUTGMC EDIT END
 
 		C.holder.show_player_panel(newmob)
