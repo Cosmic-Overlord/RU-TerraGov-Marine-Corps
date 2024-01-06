@@ -70,3 +70,13 @@
 		holder.icon_state = "xeno_banished"
 	holder.pixel_x = -4
 	holder.pixel_y = -6
+
+/mob/living/carbon/xenomorph/proc/hud_update_rank()
+	var/image/holder = hud_list[XENO_RANK_HUD]
+	if(!holder)
+		return
+	holder.icon_state = "hudblank"
+	if(stat != DEAD && playtime_as_number() > 0)
+		holder.icon_state = "hudxenoupgrade[playtime_as_number()]"
+
+	hud_list[XENO_RANK_HUD] = holder
