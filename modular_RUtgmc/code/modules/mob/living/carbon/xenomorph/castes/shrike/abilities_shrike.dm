@@ -47,6 +47,9 @@
 
 	victim.throw_at(T, fling_distance, 1, owner, TRUE)
 
+/datum/action/ability/activable/xeno/unrelenting_force
+	cooldown_duration = 30 SECONDS
+
 /datum/action/ability/activable/xeno/unrelenting_force/use_ability(atom/target)
 	succeed_activate()
 	add_cooldown()
