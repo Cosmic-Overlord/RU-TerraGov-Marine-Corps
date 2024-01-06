@@ -353,7 +353,7 @@
 // *********** Psychic Vortex
 // ***************************************
 #define VORTEX_RANGE 4
-#define VORTEX_INITIAL_CHARGE 0.8 SECONDS // RUTMGC EDITION, SHRIKE TWEAKS, ORIGINAL is 2 SECONDS
+#define VORTEX_INITIAL_CHARGE 1 SECONDS // RUTMGC EDITION, SHRIKE TWEAKS, ORIGINAL is 2 SECONDS
 #define VORTEX_POST_INITIAL_CHARGE 0.5 SECONDS
 /datum/action/ability/activable/xeno/psychic_vortex
 	name = "Pyschic vortex"

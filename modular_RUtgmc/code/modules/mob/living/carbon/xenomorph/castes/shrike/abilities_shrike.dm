@@ -48,7 +48,7 @@
 	victim.throw_at(T, fling_distance, 1, owner, TRUE)
 
 /datum/action/ability/activable/xeno/unrelenting_force
-	cooldown_duration = 30 SECONDS
+	cooldown_duration = 35 SECONDS
 
 /datum/action/ability/activable/xeno/unrelenting_force/use_ability(atom/target)
 	succeed_activate()
@@ -86,7 +86,7 @@
 				var/mob/living/carbon/human/H = affected
 				if(H.stat == DEAD) //unless they are dead, then the blast mysteriously ignores them.
 					continue
-				H.apply_effects(0.8 SECONDS, 2 SECONDS) // Stun // reduced stun from 2 seconds to 0.5
+				H.apply_effects(1 SECONDS, 2 SECONDS) // Stun // reduced stun from 2 seconds to 0.5
 				shake_camera(H, 2, 1)
 			var/throwlocation = affected.loc //first we get the target's location
 			for(var/x in 1 to 6)
