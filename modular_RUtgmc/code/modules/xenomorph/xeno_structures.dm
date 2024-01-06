@@ -41,6 +41,10 @@
 /obj/structure/xeno/plant
 	icon = 'modular_RUtgmc/icons/Xeno/plants.dmi'
 
+/obj/structure/xeno/plant/Initialize(mapload, _hivenumber)
+	. = ..()
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "[mature_icon_state]"))
+
 //Sentient facehugger can get in the trap
 /obj/structure/xeno/trap/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
 	. = ..()
@@ -73,3 +77,49 @@
 /obj/structure/xeno/spawner/Initialize(mapload)
 	. = ..()
 	set_light(2, 2, LIGHT_COLOR_GREEN)
+
+/obj/structure/xeno/acidwell/HasProximity(atom/movable/AM)
+	if(!charges)
+		return
+	if(!isliving(AM))
+		return
+	var/mob/living/stepper = AM
+	if(stepper.stat == DEAD)
+		return
+
+	var/charges_used = 0
+
+	for(var/obj/item/explosive/grenade/sticky/sticky_bomb in stepper.contents)
+		if(charges_used >= charges)
+			break
+		if(sticky_bomb.stuck_to == stepper)
+			sticky_bomb.clean_refs()
+			sticky_bomb.forceMove(loc) // i'm not sure if this is even needed, but just to prevent possible bugs
+			visible_message(span_danger("[src] sizzles as [sticky_bomb] melts down in the acid."))
+			qdel(sticky_bomb)
+			charges_used ++
+
+	if(stepper.on_fire && (charges_used < charges))
+		stepper.ExtinguishMob()
+		charges_used ++
+
+	if(!isxeno(stepper))
+		stepper.next_move_slowdown += charges * 2 //Acid spray has slow down so this should too; scales with charges, Min 2 slowdown, Max 10
+		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_L_FOOT, ACID,  penetration = 33)
+		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_R_FOOT, ACID,  penetration = 33)
+		stepper.visible_message(span_danger("[stepper] is immersed in [src]'s acid!") , \
+		span_danger("We are immersed in [src]'s acid!") , null, 5)
+		playsound(stepper, "sound/bullets/acid_impact1.ogg", 10 * charges)
+		new /obj/effect/temp_visual/acid_bath(get_turf(stepper))
+		charges_used = charges //humans stepping on it empties it out
+
+	if(!charges_used)
+		return
+
+	var/datum/effect_system/smoke_spread/xeno/acid/extuingishing/acid_smoke
+	acid_smoke = new(get_turf(stepper)) //spawn acid smoke when charges are actually used
+	acid_smoke.set_up(0, src) //acid smoke in the immediate vicinity
+	acid_smoke.start()
+
+	charges -= charges_used
+	update_icon()

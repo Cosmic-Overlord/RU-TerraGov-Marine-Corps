@@ -313,6 +313,7 @@
 
 	selected_xeno.update_leader_icon(FALSE)
 
+/* RUTGMC DELETION
 /// Promote the passed xeno to a hive leader, should not be called direct
 /datum/action/ability/xeno_action/set_xeno_lead/proc/set_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
 	var/mob/living/carbon/xenomorph/xeno_ruler = owner
@@ -329,6 +330,7 @@
 	notify_ghosts("\ [xeno_ruler] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
 
 	selected_xeno.update_leader_icon(TRUE)
+*/
 
 // ***************************************
 // *********** Queen Acidic Salve

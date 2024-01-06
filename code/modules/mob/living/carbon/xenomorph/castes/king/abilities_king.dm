@@ -47,6 +47,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PETRIFY,
 	)
 
+/* TGMC Delete Begin
 /datum/action/ability/xeno_action/petrify/action_activate()
 	var/obj/effect/overlay/eye/eye = new
 	owner.vis_contents += eye
@@ -98,6 +99,7 @@
 	addtimer(CALLBACK(src, PROC_REF(end_effects), humans), PETRIFY_DURATION)
 	add_cooldown()
 	succeed_activate()
+	TGMC DELETE END*/
 
 ///cleans up when the charge up is finished or interrupted
 /datum/action/ability/xeno_action/petrify/proc/finish_charging()
