@@ -353,7 +353,7 @@
 // *********** Psychic Vortex
 // ***************************************
 #define VORTEX_RANGE 4
-#define VORTEX_INITIAL_CHARGE 2 SECONDS
+#define VORTEX_INITIAL_CHARGE 0.8 SECONDS // RUTMGC EDITION, SHRIKE TWEAKS, ORIGINAL is 2 SECONDS
 #define VORTEX_POST_INITIAL_CHARGE 0.5 SECONDS
 /datum/action/ability/activable/xeno/psychic_vortex
 	name = "Pyschic vortex"
@@ -430,3 +430,7 @@
 		var/turf/targetturf = get_turf(owner)
 		targetturf = locate(targetturf.x + rand(1, 4), targetturf.y + rand(1, 4), targetturf.z)
 		movable_victim.throw_at(targetturf, 4, 1, owner, FALSE, FALSE)
+
+#undef VORTEX_RANGE
+#undef VORTEX_INITIAL_CHARGE
+#undef VORTEX_POST_INITIAL_CHARGE // RUTGMC ADDITION, SHRIKE TWEAKS, they aren't used anywhere so why keep it defined?
