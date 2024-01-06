@@ -145,6 +145,26 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
 	cost = 500
 
+/datum/supply_packs/weapons/ar12_incend
+	name = "AR-12 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary)
+	cost = 18
+
+/datum/supply_packs/weapons/ar18_incend
+	name = "AR-18 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_carbine/incendiary)
+	cost = 15
+
+/datum/supply_packs/weapons/ar21_incend
+	name = "AR-21 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary)
+	cost = 15
+
+/datum/supply_packs/weapons/ar11_incend
+	name = "AR-11 incendiary magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/tx11/incendiary)
+	cost = 23
+
 /*******************************************************************************
 EXPLOSIVES
 *******************************************************************************/

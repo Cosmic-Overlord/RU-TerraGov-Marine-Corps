@@ -101,3 +101,27 @@
 	max_rounds = 50
 	icon_state_mini = "mag_rifle_big_green"
 
+/obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary
+	name = "\improper AR-12 incendiary magazine (10x24mm)"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "t12_incend"
+	default_ammo = /datum/ammo/bullet/rifle/incendiary
+
+/obj/item/ammo_magazine/rifle/standard_carbine/incendiary
+	name = "\improper AR-18 incendiary magazine (10x24mm)"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "t18_incend"
+	default_ammo = /datum/ammo/bullet/rifle/incendiary
+
+/obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary
+	name = "\improper AR-21 incendiary skirmish rifle magazine"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "t21_incend"
+	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
+
+/obj/item/ammo_magazine/rifle/tx11/incendiary
+	name = "\improper AR-11 incendiary combat rifle magazine"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "tx11_incend"
+	default_ammo = /datum/ammo/bullet/rifle/hv/incendiary
+	max_rounds = 70

@@ -174,3 +174,22 @@
 
 /datum/ammo/xeno/spine //puppeteer
 	damage = 45
+
+/datum/ammo/bullet/rifle/incendiary
+	name = "incendiary rifle bullet"
+	hud_state = "rifle_fire"
+	hud_state_empty = "rifle_empty"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	damage_type = BURN
+
+/datum/ammo/bullet/rifle/heavy/incendiary
+	name = "heavy incendiary rifle bullet"
+	hud_state = "rifle_heavy_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	damage_type = BURN
+
+/datum/ammo/bullet/rifle/hv/incendiary
+	name = "high-velocity incendiary rifle bullet"
+	hud_state = "hivelo_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	damage_type = BURN
