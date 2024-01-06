@@ -110,5 +110,8 @@
 		if(FH.stat != DEAD)
 			FH.kill_hugger()
 
+/datum/action/ability/activable/xeno/psychic_vortex
+	ability_cost = 500
+
 /datum/action/ability/xeno_action/place_acidwell
 	ability_cost = 300
