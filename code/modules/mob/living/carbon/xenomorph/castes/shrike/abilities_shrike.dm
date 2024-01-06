@@ -430,7 +430,3 @@
 		var/turf/targetturf = get_turf(owner)
 		targetturf = locate(targetturf.x + rand(1, 4), targetturf.y + rand(1, 4), targetturf.z)
 		movable_victim.throw_at(targetturf, 4, 1, owner, FALSE, FALSE)
-
-#undef VORTEX_RANGE
-#undef VORTEX_INITIAL_CHARGE
-#undef VORTEX_POST_INITIAL_CHARGE // RUTGMC ADDITION, SHRIKE TWEAKS, they aren't used anywhere so why keep it defined?
