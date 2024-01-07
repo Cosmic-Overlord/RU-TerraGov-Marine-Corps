@@ -211,6 +211,11 @@ ARMOR
 	cost = 600
 	available_against_xeno_only = TRUE
 
+/datum/supply_packs/armor/sniper_cloak
+	name = "Sniper Cloak"
+	contains = list(/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper)
+	cost = 250
+
 /*******************************************************************************
 CLOTHING
 *******************************************************************************/

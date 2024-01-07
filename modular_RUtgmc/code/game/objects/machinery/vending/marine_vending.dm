@@ -377,6 +377,7 @@
 			/obj/item/defibrillator = 8,
 			/obj/item/healthanalyzer = 16,
 			/obj/item/bodybag/cryobag = 24,
+			/obj/item/healthanalyzer/gloves = 5
 		),
 	)
 
@@ -569,6 +570,7 @@
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = 2,
+			/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper = 2
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
