@@ -738,7 +738,7 @@
 		"Sidearm" = list(
 			/obj/item/weapon/gun/pistol/standard_pistol = -1,
 			/obj/item/ammo_magazine/pistol/standard_pistol = -1,
-			/obj/item/weapon/gun/pistol/standard_heavypistol = 5,
+			/obj/item/weapon/gun/pistol/standard_heavypistol = -1,
 			/obj/item/ammo_magazine/pistol/standard_heavypistol = -1,
 			/obj/item/weapon/gun/revolver/standard_revolver = 5,
 			/obj/item/ammo_magazine/revolver/standard_revolver = -1,
