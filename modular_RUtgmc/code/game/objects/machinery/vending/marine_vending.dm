@@ -483,7 +483,7 @@
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
-			/obj/item/weapon/gun/shotgun/combat/standardmarine = 5,
+			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/storage/holster/belt/ts34/full = 5,
 			/obj/item/ammo_magazine/shotgun = -1,
 			/obj/item/ammo_magazine/shotgun/buckshot = -1,
@@ -702,7 +702,7 @@
 		),
 		"Shotgun" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
-			/obj/item/weapon/gun/shotgun/combat/standardmarine = 5,
+			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/storage/holster/belt/ts34/full = 5,
 			/obj/item/ammo_magazine/shotgun = -1,
 			/obj/item/ammo_magazine/shotgun/buckshot = -1,
