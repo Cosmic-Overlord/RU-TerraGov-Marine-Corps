@@ -3,9 +3,6 @@
 	// *** Sunder *** //
 	sunder_recover = 2
 
-	// *** Defense *** //
-	soft_armor = list(MELEE = 90, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 130, BIO = 100, FIRE = 30, ACID = 100)
-
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
