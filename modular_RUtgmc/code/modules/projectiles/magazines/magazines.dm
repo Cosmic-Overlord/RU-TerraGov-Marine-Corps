@@ -106,12 +106,14 @@
 	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
 	icon_state = "t12_incend"
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
+	bonus_overlay = "t12_incend"
 
 /obj/item/ammo_magazine/rifle/standard_carbine/incendiary
 	name = "\improper AR-18 incendiary magazine (10x24mm)"
 	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
 	icon_state = "t18_incend"
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
+	bonus_overlay = "t18_incend"
 
 /obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary
 	name = "\improper AR-21 incendiary skirmish rifle magazine"
@@ -125,3 +127,4 @@
 	icon_state = "tx11_incend"
 	default_ammo = /datum/ammo/bullet/rifle/hv/incendiary
 	max_rounds = 70
+	bonus_overlay = "tx11_incend"

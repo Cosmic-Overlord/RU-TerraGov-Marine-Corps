@@ -427,13 +427,17 @@
 	staggerstun(M, P, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
 
 /obj/item/weapon/gun/rifle/standard_assaultrifle
+	icon = 'modular_RUtgmc/icons/obj/items/gun.dmi'
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_assaultrifle, /obj/item/ammo_magazine/rifle/standard_assaultrifle/incendiary)
 
 /obj/item/weapon/gun/rifle/standard_carbine
+	icon = 'modular_RUtgmc/icons/obj/items/gun.dmi'
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_carbine, /obj/item/ammo_magazine/rifle/standard_carbine/incendiary)
 
 /obj/item/weapon/gun/rifle/standard_skirmishrifle
-	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary)
+	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/standard_skirmishrifle, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/incendiary, /obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended)
 
 /obj/item/weapon/gun/rifle/tx11
+	icon = 'modular_RUtgmc/icons/obj/items/gun.dmi'
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/tx11, /obj/item/ammo_magazine/rifle/tx11/incendiary)
