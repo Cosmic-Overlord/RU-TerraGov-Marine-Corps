@@ -9,6 +9,7 @@
 #include "code\_onclick\hud\screen_objects\screen_objects.dm"
 #include "code\_onclick\hud\xeno\larva.dm"
 #include "code\_onclick\hud\xeno\xeno.dm"
+#include "code\controllers\configuration\entries\general.dm"
 #include "code\controllers\subsystem\job.dm"
 #include "code\controllers\subsystem\minimaps.dm"
 #include "code\controllers\subsystem\points.dm"
