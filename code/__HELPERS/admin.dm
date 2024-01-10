@@ -29,7 +29,8 @@ params
 
 	if(!length(active_admins)) // If no admin just return the default option
 		log_admin("Admin Approval: '[admin_message]' was answered with [default_option] due to lack of online admin.")
-		send2tgs_adminless_only("Approval", "'[admin_message]' was answered with [default_option] due to lack of online admin")
+		// RUTGMC EDIT diactivating tgsbot approval spam to achat
+		// send2tgs_adminless_only("Approval", "'[admin_message]' was answered with [default_option] due to lack of online admin")
 		return
 
 	var/approval_id = num2text(UNIQUEID)
