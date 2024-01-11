@@ -290,13 +290,13 @@
 		signal.levels = list(0)
 		signal.broadcast()
 		return
-
+/* RU TGMC EDIT
 	var/area/A = get_area(src)
 	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.flags_area & ALWAYS_RADIO))
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
 			return
 		signal.data["compression"] += rand(20, 40)
-
+RU TGMC EDIT */
 	// All non-independent radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
 
@@ -345,10 +345,11 @@
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in levels))
 			return FALSE
+/* RU TGMC EDIT
 		var/area/A = get_area(src)
 		if(A?.ceiling >= CEILING_DEEP_UNDERGROUND)
 			return FALSE
-
+RU TGMC EDIT */
 	// allow checks: are we listening on that frequency?
 	if(input_frequency == frequency)
 		return TRUE
