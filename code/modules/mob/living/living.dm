@@ -413,6 +413,11 @@
 
 	if(ismovableatom(A))
 		if(isxeno(src) && ishuman(A))
+// RU TGMC EDIT
+			var/datum/component/bump_attack/bump_attack = GetComponent(/datum/component/bump_attack)
+			if(bump_attack.active)
+				return
+// RU TGMC EDIT
 			var/mob/living/carbon/human/H = A
 			if(!COOLDOWN_CHECK(H,  xeno_push_delay))
 				return
