@@ -1,3 +1,7 @@
+/obj/item/weapon/gun/rifle
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-12/AR12_SIL.ogg'
+	wield_sound =    'modular_RUtgmc/sound/weapons/guns/rifles/Deploy_Wave_RIFLES.ogg'
+
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////  T25, old version .///////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -9,10 +13,10 @@
 	icon_state = "T25"
 	item_state = "T25"
 	item_icons = list(
-		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str =  'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str =  'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
 		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
-		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_back_str =    'modular_RUtgmc/icons/mob/clothing/back.dmi',
 	)
 	caliber = CALIBER_10x26_CASELESS //codex
 	max_shells = 80 //codex
@@ -21,8 +25,8 @@
 	wield_delay = 0.9 SECONDS
 	fire_sound = "gun_smartgun"
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
-	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
+	unload_sound =   'sound/weapons/guns/interact/T42_unload.ogg'
+	reload_sound =   'sound/weapons/guns/interact/T42_reload.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/rifle/T25
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/T25, /obj/item/ammo_magazine/rifle/T25/extended)
 	attachable_allowed = list(
@@ -64,6 +68,10 @@
 	item_state = "t18"
 	greyscale_config = null
 	colorable_allowed = NONE
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/rifles/AR-18/AR18_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/rifles/AR-18/AR18_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/rifles/AR-18/AR18_boltpull.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-11/AR11_SIL.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -81,6 +89,10 @@
 	item_state = "t12"
 	greyscale_config = null
 	colorable_allowed = NONE
+	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/rifles/AR-12/AR12_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/rifles/AR-12/AR12_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/rifles/AR-12/AR12_boltpull.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -140,6 +152,11 @@
 	item_state = "t37"
 	greyscale_config = null
 	colorable_allowed = NONE
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/dmr/DMR-37/DMR37_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/dmr/DMR-37/DMR37_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/dmr/DMR-37/DMR37_boltpull.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/dmr/DMR-37/DMR37_SIL.ogg'
+	wield_sound =    'modular_RUtgmc/sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -149,6 +166,11 @@
 //BR-64 BR
 
 /obj/item/weapon/gun/rifle/standard_br
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/dmr/BR-64/BR64_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/dmr/BR-64/BR64_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/dmr/BR-64/BR64_boltpull.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/dmr/BR-64/BR64_SIL.ogg'
+	wield_sound =    'modular_RUtgmc/sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/standard_br,
 		/obj/item/ammo_magazine/rifle/standard_br/ap,
@@ -194,6 +216,10 @@
 	colorable_allowed = NONE
 	icon_state = "t42"
 	item_state = "t42"
+	unload_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/MG-42/MG42_clipout.ogg'
+	reload_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/MG-42/MG42_clipin.ogg'
+	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/MG-42/MG42_boltpull.ogg'
+	wield_sound =  'modular_RUtgmc/sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
@@ -236,6 +262,10 @@
 	item_state = "t60"
 	fire_animation = "t60_fire"
 	greyscale_config = null
+	unload_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/MG-60/MG60_boxout.ogg'
+	reload_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/MG-60/MG60_boxin.ogg'
+	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/MG-60/MG60_boltpull.ogg'
+	wield_sound =  'modular_RUtgmc/sound/weapons/guns/machineguns/Deploy_Wave_MACHINEGUN.ogg'
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
@@ -294,6 +324,13 @@
 	item_state = "tl127"
 	greyscale_config = null
 	colorable_allowed = NONE
+	fire_sound =     'modular_RUtgmc/sound/weapons/guns/sniper/SR-127/SR127.ogg'
+	fire_rattle = null
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/sniper/SR-127/SR127_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/sniper/SR-127/SR127_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/sniper/SR-127/SR127_boltpull.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/sniper/SR-127/SR127_SIL.ogg'
+	wield_sound =    'modular_RUtgmc/sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -335,6 +372,9 @@
 	item_state = "tx11"
 	greyscale_config = null
 	colorable_allowed = NONE
+	unload_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-11/AR11_clipout.ogg'
+	reload_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-11/AR11_clipin.ogg'
+	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-11/AR11_boltpull.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
@@ -348,6 +388,9 @@
 	item_state = "t21"
 	greyscale_config = null
 	colorable_allowed = NONE
+	unload_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-21/AR21_clipout.ogg'
+	reload_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-21/AR21_clipin.ogg'
+	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/rifles/AR-21/AR21_boltpull.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
@@ -357,6 +400,15 @@
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/extended,
 		/obj/item/ammo_magazine/rifle/standard_skirmishrifle/ap,
 		)
+
+//-------------------------------------------------------
+//SH-15 AUTOMATIC SHOTGUN
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun
+	fire_sound =   'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15.ogg'
+	unload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15_clipout.ogg'
+	reload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15_clipin.ogg'
+	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15_boltpull.ogg'
 
 //-------------------------------------------------------
 // AR-55 rifle

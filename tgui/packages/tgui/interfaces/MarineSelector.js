@@ -140,12 +140,42 @@ const ItemLine = (props, context) => {
         <>
           {prod_color === 'white' && (
             <Box inline mr="6px" ml="6px">
-              Essential!
+              Essential
             </Box>
           )}
           {prod_color === 'orange' && (
-            <Box inline mr="6px" ml="6px" color="orange">
+            <Box inline mr="6px" ml="6px" color="green">
               Recommended
+            </Box>
+          )}
+          {prod_color === 'orange2' && (
+            <Box inline mr="6px" ml="6px" color="orange">
+              Munition
+            </Box>
+          )}
+          {prod_color === 'orange3' && (
+            <Box inline mr="6px" ml="6px" color="orange">
+              Explosive
+            </Box>
+          )}
+          {prod_color === 'yellow' && (
+            <Box inline mr="6px" ml="6px" color="yellow">
+              Tool
+            </Box>
+          )}
+          {prod_color === 'blue' && (
+            <Box inline mr="6px" ml="6px" color="blue">
+              Specialist
+            </Box>
+          )}
+          {prod_color === 'cyan' && (
+            <Box inline mr="6px" ml="6px" color="cyan">
+              Medicine
+            </Box>
+          )}
+          {prod_color === 'red' && (
+            <Box inline mr="6px" ml="6px" color="red">
+              Weapon
             </Box>
           )}
           {prod_color === 'synth-cosmetic' && (

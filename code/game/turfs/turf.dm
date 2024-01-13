@@ -441,7 +441,10 @@
 					new /obj/item/shard(pick(turfs))
 					new /obj/item/shard(pick(turfs))
 		if(CEILING_METAL, CEILING_OBSTRUCTED)
+			/* ORIGINAL
 			playsound(src, "sound/effects/metal_crash.ogg", 60, 1)
+			*/
+			playsound(src, "sound/effects/metal_crash.ogg", 30, 1) //RUTGMC EDIT
 			spawn(8)
 				if(amount >1)
 					visible_message(span_boldnotice("Pieces of metal crash down from above!"))
