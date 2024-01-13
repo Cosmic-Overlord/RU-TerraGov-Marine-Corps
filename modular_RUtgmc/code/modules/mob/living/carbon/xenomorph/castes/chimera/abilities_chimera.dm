@@ -9,7 +9,7 @@
 	ability_cost = 50
 	cooldown_duration = 3 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BLINK,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CHIMERA_BLINK,
 	)
 
 ///Check target Blink turf to see if it can be blinked to

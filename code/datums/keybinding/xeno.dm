@@ -948,6 +948,7 @@
 	keybind_signal = COMSIG_XENOABILITY_JAB
 	hotkey_keys = list("E")
 
+/* RUTGMC DELETION, WIDOW DELETION
 /datum/keybinding/xeno/burrow
 	name = "burrow"
 	full_name = "Widow: Burrow"
@@ -1010,6 +1011,7 @@
 	description = "Signal your spawn to a target they shall attack."
 	keybind_signal = COMSIG_XENOABILITY_SPIDERLING_MARK
 	hotkey_keys = list("V")
+*/
 
 /* RU TGMC EDIT START
 /datum/keybinding/xeno/rewind
