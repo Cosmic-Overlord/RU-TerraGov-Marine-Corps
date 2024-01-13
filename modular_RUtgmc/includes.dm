@@ -256,3 +256,4 @@
 #include "code\modules\vehicles\powerloader.dm"
 #include "code\modules\xenomorph\xeno_structures.dm"
 #include "code\modules\projectiles\mounted.dm"
+#include "code\modules\auth.dm"
