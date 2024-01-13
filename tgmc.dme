@@ -1713,11 +1713,9 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\widow\abilities_widow.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\widow\castedatum_widow.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\widow\widow.dm"
-/* RU TGMC EDIT
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\abilities_wraith.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\castedatum_wraith.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\wraith\wraith.dm"
-RU TGMC EDIT */
 #include "code\modules\mob\living\silicon\death.dm"
 #include "code\modules\mob\living\silicon\say.dm"
 #include "code\modules\mob\living\silicon\silicon.dm"
