@@ -46,7 +46,9 @@
 	color = "#4b3f7e"
 
 // ***************************************
-
+// *********** Psychic shield
+// ***************************************
+/datum/action/ability/activable/xeno/psychic_shield
 	name = "Psychic Shield"
 	action_icon_state = "psy_shield"
 	desc = "Channel a psychic shield at your current location that can reflect most projectiles. Activate again while the shield is active to detonate the shield forcibly, producing knockback. Must remain static to use."
