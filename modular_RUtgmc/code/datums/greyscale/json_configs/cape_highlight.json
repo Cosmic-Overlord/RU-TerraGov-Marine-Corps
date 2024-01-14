@@ -23,6 +23,13 @@
 			"icon_state": "long"
 		}
 	],
+
+	"highlight_regaly":[
+		{
+			"type": "hyperscale",
+			"icon_state": "regaly"
+		}
+	],
 	"highlight_regaly_h":[
 		{
 			"type": "hyperscale",
