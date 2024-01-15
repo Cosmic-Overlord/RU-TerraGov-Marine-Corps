@@ -1,4 +1,4 @@
-/datum/loadout_manager/update_attachments(list/datum/item_representation/armor_module/attachments, version)
+/datum/loadout_manager/proc/update_attachments(list/datum/item_representation/armor_module/attachments, version)
 	for(var/datum/item_representation/armor_module/module AS in attachments)
 		if(version < 13)
 			if(ispath(module.item_type, /obj/item/armor_module/greyscale))

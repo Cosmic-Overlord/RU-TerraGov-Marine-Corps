@@ -159,6 +159,7 @@
 	. = ..()
 	user.client?.prefs.save_loadout_list(loadouts_data, CURRENT_LOADOUT_VERSION)
 
+/* RUTGMC DELETION, CAPES
 ///Recursive function to update attachment lists.
 /datum/loadout_manager/proc/update_attachments(list/datum/item_representation/armor_module/attachments, version)
 	for(var/datum/item_representation/armor_module/module AS in attachments)
@@ -221,6 +222,7 @@
 				new_glyph.item_type = /obj/item/armor_module/armor/visor_glyph/old
 				module.attachments.Add(new_glyph)
 		update_attachments(module.attachments, version)
+*/
 
 ///Modifies a legacy loadout to make it valid for the current loadout version
 /datum/loadout_manager/proc/legacy_version_fix(datum/loadout/loadout, loadout_name, loadout_job, datum/tgui/ui)
