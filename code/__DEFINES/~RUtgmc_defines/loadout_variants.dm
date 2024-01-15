@@ -14,5 +14,6 @@ GLOBAL_LIST_INIT(loadout_variant_keys, list(
 	MARK_ONE_WEBBING = "webbing",
 	NORMAL = "normal",
 	SOM_BLACK = "black",
+	CAPE_HIGHLIGHT_NONE = "none",
 	CAPE_HIGHLIGHT_NORMAL_ALT = "normal (alt)",
 ))
