@@ -9,11 +9,11 @@ GLOBAL_LIST_INIT(loadout_variant_keys, list(
 	CAPE_LONG = "long",
 	CAPE_REGALY = "regaly",
 	CAPE_ONELONG = "onelong",
-	MARK_FIVE_WEBBING = "webbing", // just so it doesn't call runtimes even if we don't use it
+	CAPE_HIGHLIGHT_NONE = "none",
+	NORMAL = "normal", // just so it doesn't call runtimes even if we don't use it
+	CAPE_HIGHLIGHT_NORMAL_ALT = "normal (alt)",
+	MARK_FIVE_WEBBING = "webbing",
 	MARK_THREE_WEBBING = "webbing",
 	MARK_ONE_WEBBING = "webbing",
-	NORMAL = "normal",
 	SOM_BLACK = "black",
-	CAPE_HIGHLIGHT_NONE = "none",
-	CAPE_HIGHLIGHT_NORMAL_ALT = "normal (alt)",
 ))
