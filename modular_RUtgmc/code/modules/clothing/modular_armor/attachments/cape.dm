@@ -14,3 +14,6 @@
 			HIGHLIGHT_VARIANTS = list("none"),
 		),
 	)
+
+/obj/item/armor_module/armor/cape_highlight
+	greyscale_colors = CAPE_PALETTE_GOLD

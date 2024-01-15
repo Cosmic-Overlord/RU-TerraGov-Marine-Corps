@@ -60,3 +60,5 @@
 			"Charlie" = ARMOR_PALETTE_LILAC,\
 		),\
 	)
+
+#define CAPE_PALETTE_GOLD "#6a5b2d#928446#a08f61#a59770"
