@@ -19,7 +19,7 @@
 /datum/greyscale_config/cape
 	icon_file = 'modular_RUtgmc/icons/mob/modular/capes.dmi'
 	json_config = 'modular_RUtgmc/code/datums/greyscale/json_configs/cape.json'
-
+	greyscale_flags = HYPERSCALE_ALLOW_GREYSCALE
 
 //Cape highlights
 /datum/greyscale_config/cape_highlight
