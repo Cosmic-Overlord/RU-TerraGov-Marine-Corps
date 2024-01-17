@@ -1,4 +1,3 @@
-///Adds the slashed mob to tracked damage mobs
 /datum/action/ability/xeno_action/vampirism/proc/on_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
 	if(target.stat == DEAD)
