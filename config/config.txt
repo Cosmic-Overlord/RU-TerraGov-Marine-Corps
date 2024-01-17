@@ -242,6 +242,6 @@ CACHE_ASSETS 0
 ## Will only seek to waste disk space if ran on production.
 #SAVE_SPRITESHEETS
 
-## If this is uncommented TGS bot will send specific spam messages to discord or wherever it sends it
+## If this is uncommented TGS bot will send specific spam messages to discord or wherever
 #TGS_EVENT_APPROVAL_MESSAGING
 #TGS_ADMINLESS_MESSAGING
