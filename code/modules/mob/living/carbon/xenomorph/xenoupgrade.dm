@@ -357,13 +357,15 @@
 //----WRAITH END----//
 //============//
 //----WIDOW START----//
+/* RUTGMC DELETION, WIDOW DELETION
 
 /mob/living/carbon/xenomorph/widow
 	upgrade = XENO_UPGRADE_NORMAL
 
 /mob/living/carbon/xenomorph/widow/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	//upgrade_stored = TIER_THREE_THRESHOLD
+	upgrade_stored = TIER_THREE_THRESHOLD
+*/
 
 //----WIDOW END----//
 //============//

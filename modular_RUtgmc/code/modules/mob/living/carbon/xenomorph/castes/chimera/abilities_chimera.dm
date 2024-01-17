@@ -1,6 +1,9 @@
 /datum/action/ability/activable/xeno/blink/chimera
 	cooldown_duration = 3 SECONDS
 	ability_cost = 50
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CHIMERA_BLINK,
+	)
 
 /datum/action/ability/xeno_action/phantom
 	name = "Phantom"

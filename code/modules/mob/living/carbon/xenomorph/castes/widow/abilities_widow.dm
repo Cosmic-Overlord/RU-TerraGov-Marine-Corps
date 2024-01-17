@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 /datum/action/ability/activable/xeno/web_spit
 	name = "Web Spit"
 	desc = "Spit a web to your target, this causes different effects depending on where you hit. Spitting the head causes the target to be temporarily blind, body and arms will cause the target to be weakened, and legs will snare the target for a brief while."
@@ -474,3 +475,4 @@
 /atom/movable/web_hook
 	name = "You can't see this"
 	invisibility = INVISIBILITY_ABSTRACT
+*/
