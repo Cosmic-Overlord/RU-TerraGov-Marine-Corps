@@ -120,6 +120,7 @@
 #include "code\modules\clothing\gloves\marine_gloves.dm"
 #include "code\modules\clothing\head\collectable.dm"
 #include "code\modules\clothing\head\head.dm"
+#include "code\modules\clothing\head\helmet.dm"
 #include "code\modules\clothing\head\jobs.dm"
 #include "code\modules\clothing\head\misc.dm"
 #include "code\modules\clothing\head\soft_caps.dm"

@@ -62,3 +62,8 @@
 	)
 
 #define CAPE_PALETTE_GOLD "#6a5b2d#928446#a08f61#a59770"
+
+#define HAIR_NO_CONCEALING "Fully revealing hair"
+#define TOP_HAIR_CONCEALING "Concealing only top hair"
+#define HAIR_PARTIALLY_CONCEALING "Partially concealing hair"
+#define HAIR_FULL_CONCEALING "Fully concealing hair"
