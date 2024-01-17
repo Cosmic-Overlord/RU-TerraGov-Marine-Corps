@@ -394,7 +394,7 @@
 		holder.owner = null
 		GLOB.admins -= src
 		//if (!length(GLOB.admins) && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing. // ORIGINAL
-		if(!length(GLOB.admins) && SSticker.IsRoundInProgress() && CONFIG_GET(flag/tgs_adminless_messaging)) // RUTGMC ADDITION, TGS CONFIG FLAGS
+		if(!length(GLOB.admins) && SSticker.IsRoundInProgress() && CONFIG_GET(flag/tgs_adminless_messaging)) //RUTGMC ADDITION, TGS CONFIG FLAGS
 			var/cheesy_message = pick(
 				"I have no admins online!",\
 				"I'm all alone :(",\
