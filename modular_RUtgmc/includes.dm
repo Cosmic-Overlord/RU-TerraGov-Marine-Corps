@@ -214,6 +214,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\queen\castedatum_queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\queen\queen.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\ravager\ravager.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\ravager\abilities_ravager.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\runner\runner.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\runner\abilities_runner.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\runner\castedatum_runner.dm"
