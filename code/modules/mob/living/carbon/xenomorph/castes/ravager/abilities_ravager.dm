@@ -295,7 +295,7 @@
 	if(!can_use_action(override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
 	return TRUE
-
+/* RU TGMC EDIT //Overwritten in modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\ravager\abilities_ravager.dm
 // ***************************************
 // *********** Rage
 // ***************************************
@@ -475,7 +475,7 @@
 	rage_power = 0
 	rage_plasma = 0
 	X.playsound_local(X, 'sound/voice/hiss5.ogg', 50) //Audio cue
-
+RU TGMC EDIT */
 
 // ***************************************
 // *********** Vampirism
