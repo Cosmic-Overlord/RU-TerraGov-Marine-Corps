@@ -14,7 +14,7 @@
 			variant = key
 			break
 
-	if(item_to_copy.colorable_allowed & HAIR_CONCEALING_CHANGE_ALLOWED)
+	if(item_to_copy.current_hair_concealment && item_to_copy.colorable_allowed & HAIR_CONCEALING_CHANGE_ALLOWED)
 		hair_concealing_option = item_to_copy.current_hair_concealment
 
 	if(!item_to_copy.greyscale_config)
