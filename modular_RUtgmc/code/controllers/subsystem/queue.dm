@@ -69,7 +69,7 @@ SUBSYSTEM_DEF(queue)
 	if(discord.warn_execute() && discord.NextRow())
 		sublevel = discord.item[1]
 	qdel(discord)
-	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && sublevel == 0)
+	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && sublevel < 2)
 		que_data = SSqueue.queue_player(src)
 		queue_player_panel()
 
