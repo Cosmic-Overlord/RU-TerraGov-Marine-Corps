@@ -32,6 +32,7 @@
 
 /obj/item/armor_module/armor/cape_highlight
 	greyscale_colors = CAPE_PALETTE_GOLD
+	colorable_colors = CAPE_PALETTES_LIST
 	icon_state_variants = list(
 		"long",
 		"none",
