@@ -50,7 +50,7 @@
 	//Get the players who are ready
 	unassigned.Cut()
 	occupations_reroll = null
-	var/list/unassigned_subs[MAX_SUB_LEVEL]
+	var/list/unassigned_subs = list()
 	for(var/p in GLOB.ready_players)
 		var/mob/new_player/player = p
 		if(player.assigned_role)
@@ -59,8 +59,8 @@
 		var/datum/db_query/discord = SSdbcore.NewQuery("SELECT sublevel FROM [format_table_name("overlord")] WHERE ckey = :ckey", list("ckey" = ckey(player.ckey)))
 		if(discord.warn_execute() && discord.NextRow())
 			sublevel = discord.item[1]
-		if(sublevel)
-			unassigned_subs[MAX_SUB_LEVEL - sublevel + 1] += player
+		if(sublevel == MAX_SUB_LEVEL)
+			unassigned_subs += player
 		else
 			unassigned += player
 
@@ -82,11 +82,7 @@
 		else
 			CONFIG_SET(flag/jobs_have_minimal_access, TRUE)
 
-	unassigned = list()
-	//Shuffle players and jobs
-	for(var/i = 1 to MAX_SUB_LEVEL)
-		unassigned += unassigned_subs[i]
-	unassigned += shuffle(unassigned)
+	unassigned = unassigned_subs + shuffle(unassigned)
 
 	//Other jobs are now checked
 	JobDebug("DO, Running Standard Check")
