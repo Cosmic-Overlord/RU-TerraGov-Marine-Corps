@@ -40,6 +40,7 @@
 #include "code\datums\keybinding\communication.dm"
 #include "code\datums\keybinding\xeno.dm"
 #include "code\datums\loadout\loadout_manager.dm"
+#include "code\datums\loadout\item_representation\_item_representation.dm"
 #include "code\datums\status_effects\debuffs.dm"
 #include "code\datums\status_effects\xeno_buffs.dm"
 #include "code\datums\looping_sounds\miscellaneous.dm"

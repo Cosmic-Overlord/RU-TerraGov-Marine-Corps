@@ -1,3 +1,7 @@
+/obj/item
+	///Current hair concealing option selected.
+	var/current_hair_concealment
+
 /obj/item/color_item(obj/item/facepaint/paint, mob/living/carbon/human/user)
 
 	if(paint.uses < 1)
@@ -62,16 +66,8 @@
 			if(!concealment_variant || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 				return
 
-			switch(concealment_variant)
-				if(HAIR_NO_CONCEALING) // if you apply it to something that has different inv hide flags it will break it, so just don't i guess?
-					flags_inv_hide = HIDEEARS
-				if(TOP_HAIR_CONCEALING)
-					flags_inv_hide = HIDEEARS|HIDETOPHAIR
-				if(HAIR_PARTIALLY_CONCEALING)
-					flags_inv_hide = HIDEEARS|HIDE_EXCESS_HAIR
-				if(HAIR_FULL_CONCEALING)
-					flags_inv_hide = HIDEEARS|HIDEALLHAIR
-			user.update_hair()
+			current_hair_concealment = concealment_variant
+			switch_hair_concealment_flags(user)
 
 	if(!new_color || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		return
@@ -79,3 +75,15 @@
 	set_greyscale_colors(new_color)
 	update_icon()
 	update_greyscale()
+
+/obj/item/proc/switch_hair_concealment_flags(mob/living/carbon/human/user)
+	switch(current_hair_concealment)
+		if(HAIR_NO_CONCEALING) // if you apply it to something that has different inv hide flags it will break it, so just don't i guess?
+			flags_inv_hide = HIDEEARS
+		if(TOP_HAIR_CONCEALING)
+			flags_inv_hide = HIDEEARS|HIDETOPHAIR
+		if(HAIR_PARTIALLY_CONCEALING)
+			flags_inv_hide = HIDEEARS|HIDE_EXCESS_HAIR
+		if(HAIR_FULL_CONCEALING)
+			flags_inv_hide = HIDEEARS|HIDEALLHAIR
+	user.update_hair()
