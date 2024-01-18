@@ -1,5 +1,5 @@
 /datum/item_representation
-	///If the item has an hair concealing changed, save it.
+	///If the item has hair concealing changed, save it.
 	var/hair_concealing_option
 
 /datum/item_representation/New(obj/item/item_to_copy)
