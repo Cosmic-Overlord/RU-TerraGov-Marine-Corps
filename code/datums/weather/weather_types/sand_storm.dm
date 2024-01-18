@@ -19,7 +19,7 @@
 
 	probability = 40
 	repeatable = FALSE
-
+/* RU TGMC EDIT //Overwritten in modular_RUtgmc\code\datums\weather\weather_types\sand_storm.dm
 /datum/weather/ash_storm/sand/weather_act(mob/living/L)
 	if(L.stat == DEAD)
 		return
@@ -27,7 +27,7 @@
 		return
 	L.adjustBruteLoss(6)
 	to_chat(L, span_boldannounce("You are battered by the coarse sand!"))
-
+RU TGMC EDIT */
 /datum/weather/ash_storm/sand/harmless
 	name = "Sandfall"
 	desc = "A passing sandstorm blankets the area in sand."

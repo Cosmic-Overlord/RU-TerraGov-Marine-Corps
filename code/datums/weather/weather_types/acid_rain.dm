@@ -46,7 +46,7 @@
 /datum/weather/acid_rain/end()
 	. = ..()
 	sound_active_acidrain.stop()
-
+/* RU TGMC EDIT //Overwritten in modular_RUtgmc\code\datums\weather\weather_types\acid_rain.dm
 /datum/weather/acid_rain/weather_act(mob/living/L)
 	if(L.stat == DEAD)
 		return
@@ -56,7 +56,7 @@
 	L.clean_mob()
 	if(L.fire_stacks > -20)
 		L.fire_stacks = max(-20, L.fire_stacks - 1)
-
+RU TGMC EDIT */
 /datum/weather/acid_rain/harmless
 	target_trait = ZTRAIT_RAIN
 

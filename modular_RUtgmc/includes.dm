@@ -41,6 +41,8 @@
 #include "code\datums\keybinding\xeno.dm"
 #include "code\datums\status_effects\debuffs.dm"
 #include "code\datums\status_effects\xeno_buffs.dm"
+#include "code\datums\weather\weather_types\acid_rain.dm"
+#include "code\datums\weather\weather_types\sand_storm.dm"
 #include "code\datums\looping_sounds\miscellaneous.dm"
 #include "code\game\atoms.dm"
 #include "code\game\buckling.dm"
