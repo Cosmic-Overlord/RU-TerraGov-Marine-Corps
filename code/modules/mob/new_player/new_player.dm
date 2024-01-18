@@ -368,6 +368,12 @@
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
 		to_chat(src, span_warning("The game is still setting up, please try again later."))
 		return
+//RUTGMC EDIT START
+	if(client in GLOB.que_clients)
+		to_chat(usr, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
+		return
+	late_choices()
+//RUTGMC EDIT END
 	if(tgui_alert(src, "Are you sure you wish to observe?[SSticker.mode?.observe_respawn_message()]", "Observe", list("Yes", "No")) != "Yes")
 		return
 	if(!client)
@@ -441,6 +447,9 @@
 	if(queue_override)
 		late_choices()
 		return
+
+//RUTGMC EDIT START
+/*
 	var/relevant_cap
 	var/hpc = CONFIG_GET(number/hard_popcap)
 	var/epc = CONFIG_GET(number/extreme_popcap)
@@ -462,3 +471,9 @@
 			to_chat(usr, span_notice("You have been added to the queue to join the game. Your position in queue is [length(SSticker.queued_players)]."))
 		return
 	late_choices()
+*/
+	if(client in GLOB.que_clients)
+		to_chat(usr, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
+		return
+	late_choices()
+//RUTGMC EDIT END

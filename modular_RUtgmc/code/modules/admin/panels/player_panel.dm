@@ -8,6 +8,10 @@
 	if(!istype(M))
 		return
 
+	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT discordid, randomid, sublevel, stablelevel FROM [format_table_name("overlord")] WHERE ckey = :ckey", list("ckey" = ckey(M.ckey)))
+	if(!discord.warn_execute() || !discord.NextRow())
+		qdel(discord)
+
 	var/ref = "[REF(usr.client.holder)];[HrefToken()]"
 	var/body
 
@@ -34,6 +38,14 @@
 		<a href='?src=[ref];individuallog=[REF(M)]'>LOGS</a></b><br>
 		<b>Mob Type:</b> [M.type]<br>
 		<b>Mob Location:</b> [AREACOORD(M.loc)]<br>"}
+
+	if(discord)
+		body += {"
+			<b>Discord ID:</b> [discord[1] ? discord[1] : "NOT SET"]<br>
+			<b>Sublevel:</b> [SUBLEVEL_TO_STRING["[discord[3]]"]]<br>
+			<b>Forced:</b> <a href='?src=[ref];force_sublevel=TRUE;target=[REF(M)]'>[discord[4]]</a><br>"}
+
+	qdel(discord)
 
 	if(isliving(M))
 		var/mob/living/L = M

@@ -12,6 +12,7 @@
 #include "code\controllers\subsystem\job.dm"
 #include "code\controllers\subsystem\minimaps.dm"
 #include "code\controllers\subsystem\points.dm"
+#include "code\controllers\subsystem\queue.dm"
 #include "code\controllers\subsystem\processing\resinshaping.dm"
 #include "code\datums\namepool.dm"
 #include "code\datums\shuttles.dm"

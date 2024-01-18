@@ -18,11 +18,12 @@
 	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT randomid, discordid FROM [format_table_name("overlord")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
 	if(discord.warn_execute() && discord.NextRow())
 		if(discord.item[1])
-			tgui_alert(src, "Your password is [discord.item[1]]. Please use [CONFIG_GET(string/bot_command)] slash command [discord.item[1]] to certify.", "One Time Password")
+			tgui_alert(src, "Your password is [discord.item[1]]. Please use [CONFIG_GET(string/bot_command)] slash command [discord.item[1]] to certify.", "Discord Link")
 			qdel(discord)
 			return
 		else if(discord.item[2])
 			to_chat(src, span_alert("You already have a linked Discord. Ask an Admin to remove it."))
+			tgui_alert(src, "Your linked discordId [discord.item[2]], pass [discord.item[1]].", "Discord Link")
 			qdel(discord)
 			return
 
@@ -32,7 +33,7 @@
 	var/token
 
 	while(not_unique)
-		token = rand(1, 99999999)
+		token = "[rand(1, 999999999)][rand(1, 999999999)]"
 		discord = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("overlord")] WHERE randomid = :randomid", list("randomid" = token))
 		if(!discord.warn_execute() || !discord.NextRow())
 			not_unique = FALSE
@@ -42,4 +43,4 @@
 	discord.Execute()
 	qdel(discord)
 
-	tgui_alert(src, "Your password is [token]. Please use [CONFIG_GET(string/bot_command)] slash command [token] to certify.", "One Time Password")
+	tgui_alert(src, "Your password is [token]. Please use [CONFIG_GET(string/bot_command)] slash command [token] to certify.", "Discord Link")
