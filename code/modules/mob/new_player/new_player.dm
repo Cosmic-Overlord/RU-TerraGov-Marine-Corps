@@ -427,6 +427,13 @@
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		to_chat(src, span_warning("The round has already started."))
 		return
+	var/sublevel = 0
+	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT sublevel FROM [format_table_name("overlord")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
+	if(discord.warn_execute() && discord.NextRow())
+		sublevel = discord.item[1]
+	qdel(discord)
+	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && sublevel < 2)
+		return
 	ready = !ready
 	if(ready)
 		GLOB.ready_players += src
