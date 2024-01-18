@@ -570,9 +570,14 @@
 
 /obj/item/toy/plush/gnome/living/Initialize(mapload)
 	. = ..()
+/*
 	gnome_origin = get_turf(src)
 	addtimer(CALLBACK(src, PROC_REF(gnome_act)), 5 MINUTES)
 	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
+*/
+//RUTGMC START OF BOOK РЕЗНЯ ГНОМОВ НАХУЙ, 1984
+	return INITIALIZE_HINT_QDEL_FORCE
+//RUTGMC END OF BOOK
 
 ///root proc for handling gnome AI routines
 /obj/item/toy/plush/gnome/living/proc/gnome_act()
