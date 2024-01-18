@@ -60,7 +60,7 @@
 		if(discord.warn_execute() && discord.NextRow())
 			sublevel = discord.item[1]
 		if(sublevel)
-			unassigned_subs[sublevel] += player
+			unassigned_subs[MAX_SUB_LEVEL - sublevel + 1] += player
 		else
 			unassigned += player
 
