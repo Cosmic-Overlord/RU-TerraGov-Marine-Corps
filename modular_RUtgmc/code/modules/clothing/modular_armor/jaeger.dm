@@ -6,3 +6,6 @@
 
 /obj/item/clothing/head/modular/marine
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+
+/obj/item/clothing/head/modular/marine
+	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
