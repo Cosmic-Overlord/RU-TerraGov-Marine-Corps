@@ -204,6 +204,25 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 				SSticker.mode.attempt_to_join_as_larva(ghost.client)
 		return
 
+	else if (href_list["become_burst_larva"]) // RUTMGC ADDITION START
+		var/mob/dead/observer/ghost = usr
+		var/mob/living/target = locate(href_list["become_burst_larva"]) in GLOB.offered_mob_list
+		if(!ghost)
+			return
+
+		if(!istype(target))
+			to_chat(ghost, span_warning("Too late!"))
+			return
+
+		if(is_banned_from(ghost.ckey, ROLE_XENOMORPH))
+			to_chat(ghost, span_warning("Sorry, but you are <b>banned</b> from xeno roles!"))
+			return
+
+		target.take_over(ghost)
+		to_chat(target, span_xenoannounce("We are a xenomorph larva inside a host! Move to burst out of it!"))
+		target << sound('sound/effects/xeno_newlarva.ogg')
+		return  // RUTMGC ADDITION END
+
 	else if(href_list["preference"])
 		if(!client?.prefs)
 			return

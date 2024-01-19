@@ -59,6 +59,25 @@
 				var/mob/living/carbon/xenomorph/larva/L = locate() in affected_mob
 				L?.initiate_burst(affected_mob)
 
+/obj/item/alien_embryo/become_larva()
+	if(!affected_mob)
+		return
+
+	if(is_centcom_level(affected_mob.z) && !admin)
+		return
+
+	var/mob/living/carbon/xenomorph/larva/new_xeno
+
+	new_xeno = new(affected_mob)
+
+	new_xeno.transfer_to_hive(hivenumber)
+	new_xeno.update_icons()
+
+	GLOB.offered_mob_list += new_xeno
+	notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), enter_link = "become_burst_larva=[REF(new_xeno)]", enter_text = "Become a burst larva", source = new_xeno, action = NOTIFY_ORBIT)
+
+	stage = 6
+
 /mob/living/carbon/xenomorph/larva/initiate_burst(mob/living/carbon/victim)
 	. = ..()
 	var/nestburst_message = pick("You feel hive's psychic power getting stronger, after host [victim.name] gave birth on a nest!", "You feel hive's psychic power getting stronger, after breeding host [victim.name] on a nest!")
