@@ -551,14 +551,14 @@
 	owner.balloon_alert(owner, "We channel our psychic power")
 
 	generate_particles(A, 7)
-	ADD_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT)
+	//ADD_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT) // RUTGMC DELETION, PSYBLAST IMMOBILIZING REMOVAL
 	var/datum/ammo/energy/xeno/ammo_type = xeno_owner.ammo
 	xeno_owner.update_glow(3, 3, ammo_type.glow_color)
 
 	if(!do_after(xeno_owner, 1 SECONDS, NONE, target_turf, BUSY_ICON_DANGER) || !can_use_ability(A, FALSE))
 		owner.balloon_alert(owner, "Our focus is disrupted")
 		end_channel()
-		REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT)
+		//REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT) // RUTGMC DELETION, PSYBLAST IMMOBILIZING REMOVAL
 		return fail_activate()
 
 	succeed_activate()
@@ -578,7 +578,7 @@
 
 	add_cooldown()
 	update_button_icon()
-	REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT)
+	//REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT) // RUTGMC DELETION, PSYBLAST IMMOBILIZING REMOVAL
 	addtimer(CALLBACK(src, PROC_REF(end_channel)), 5)
 
 /datum/action/ability/activable/xeno/psy_blast/update_button_icon()
