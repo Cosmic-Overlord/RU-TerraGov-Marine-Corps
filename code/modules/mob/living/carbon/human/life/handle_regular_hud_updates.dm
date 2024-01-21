@@ -50,7 +50,7 @@
 				severity = 9
 			if(-INFINITY to -95)
 				severity = 10
-		overlay_fullscreen("crit", /atom/movable/screen/fullscreen/crit, severity)
+		overlay_fullscreen("crit", /atom/movable/screen/fullscreen/impaired/crit, severity)
 	else
 		clear_fullscreen("crit")
 		if(oxyloss)
@@ -70,7 +70,7 @@
 					severity = 6
 				if(45 to INFINITY)
 					severity = 7
-			overlay_fullscreen("oxy", /atom/movable/screen/fullscreen/oxy, severity)
+			overlay_fullscreen("oxy", /atom/movable/screen/fullscreen/damage/oxy, severity)
 		else
 			clear_fullscreen("oxy")
 
@@ -93,7 +93,7 @@
 					severity = 5
 				if(85 to INFINITY)
 					severity = 6
-			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
+			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/damage/brute, severity)
 		else
 			clear_fullscreen("brute")
 
