@@ -18,6 +18,7 @@
 /obj/item/tool/surgery/retractor/predatorretractor
 	name = "opener"
 	desc = "Retracts stuff."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_retractor"
 
 /*
@@ -34,6 +35,7 @@
 /obj/item/tool/surgery/hemostat/predatorhemostat
 	name = "pincher"
 	desc = "You think you have seen this before."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_hemostat"
 
 /*
@@ -50,6 +52,7 @@
 /obj/item/tool/surgery/cautery/predatorcautery
 	name = "cauterizer"
 	desc = "This stops bleeding."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_cautery"
 	flags_item = ITEM_PREDATOR
 
@@ -73,6 +76,7 @@
 /obj/item/tool/surgery/surgicaldrill/predatorsurgicaldrill
 	name = "bone drill"
 	desc = "You can drill using this item. You dig?"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_drill"
 
 /*
@@ -139,6 +143,7 @@
 /obj/item/tool/surgery/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "saw3"
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	flags_atom = CONDUCT
@@ -154,6 +159,7 @@
 /obj/item/tool/surgery/circular_saw/predatorbonesaw
 	name = "bone saw"
 	desc = "For heavy-duty cutting."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bonesaw"
 	flags_item = ITEM_PREDATOR
 	force = 20.0
@@ -161,6 +167,7 @@
 //misc, formerly from code/defines/weapons.dm
 /obj/item/tool/surgery/bonegel
 	name = "bone gel"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "bone-gel"
 	force = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -168,10 +175,12 @@
 
 /obj/item/tool/surgery/bonegel/predatorbonegel
 	name = "gel gun"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bone-gel"
 
 /obj/item/tool/surgery/FixOVein
 	name = "FixOVein"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "fixovein"
 	force = 0
 	throwforce = 1.0
@@ -179,10 +188,12 @@
 
 /obj/item/tool/surgery/FixOVein/predatorFixOVein
 	name = "vein fixer"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_fixovein"
 
 /obj/item/tool/surgery/bonesetter
 	name = "bone setter"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "bone setter"
 	force = 8.0
 	throwforce = 9.0
@@ -217,15 +228,26 @@
 /obj/item/tool/surgery/stabilizer_gel
 	name = "stabilizer gel vial"
 	desc = "Used for stabilizing wounds for treatment."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "stabilizer_gel"
 	force = 0
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
 	flags_item = ITEM_PREDATOR
 
+/obj/item/tool/surgery/stabilizer_gel/attack(mob/living/M as mob, mob/user as mob)
+	if(!istype(M) || !istype(user))
+		return FALSE
+
+	if(M.can_be_operated_on() && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
+		return TRUE
+
+	return FALSE
+
 /obj/item/tool/surgery/healing_gun
 	name = "healing gun"
 	desc = "Used for mending stabilized wounds."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "healing_gun"
 	force = 0
 	throwforce = 1
@@ -258,6 +280,7 @@
 /obj/item/tool/surgery/healing_gel
 	name = "healing gel capsule"
 	desc = "Used for reloading the healing gun."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "healing_gel"
 	force = 0
 	throwforce = 1
@@ -267,6 +290,7 @@
 /obj/item/tool/surgery/wound_clamp
 	name = "wound clamp"
 	desc = "Used for clamping wounds after treatment."
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "wound_clamp"
 	force = 0
 	throwforce = 1

@@ -98,7 +98,7 @@
 	message_all_yautja("[real_name] has chosen [hunter_data.prey] ([max(hunter_data.prey.life_kills_total, hunter_data.prey.default_honor_value)] honor) as their next target at \the [get_area_name(hunter_data.prey)].")
 
 	// log to server file
-	log_game(src, hunter_data.prey, "[key_name(src)] has marked [key_name(hunter_data.prey)] for the Hunt in [get_area(hunter_data.prey)] ([x],[y],[z]).")
+	log_game("[key_name(src)] has marked [key_name(hunter_data.prey)] for the Hunt in [get_area(hunter_data.prey)] ([x],[y],[z]).")
 
 // Removing prey from hunt (i.e. it died, it bugged, it left the game, etc.)
 /mob/living/carbon/human/proc/remove_from_hunt()
@@ -116,7 +116,7 @@
 	to_chat(src, span_yautjabold("You have removed [prey] from your hunt."))
 	prey.hunter_data.hunter = null
 	prey.hunter_data.hunted = FALSE
-	log_game(src, hunter_data.prey, "[key_name(src)] has un-marked [key_name(hunter_data.prey)] for the Hunt")
+	log_game("[key_name(src)] has un-marked [key_name(hunter_data.prey)] for the Hunt")
 	hunter_data.prey = null
 	prey.hud_set_hunter()
 
@@ -144,7 +144,7 @@
 	if(!reason)
 		return
 
-	log_game(src, T, "[key_name(src)] has marked [key_name(T)] as Honored for '[reason]'.")
+	log_game("[key_name(src)] has marked [key_name(T)] as Honored for '[reason]'.")
 	message_all_yautja("[real_name] has marked [T] as Honored for '[reason]'.")
 
 	T.hunter_data.honored_set = src
@@ -175,7 +175,7 @@
 
 	if(!T.hunter_data.honored_set || src == T.hunter_data.honored_set)
 
-		log_game(src, T, "[key_name(src)] has un-marked [key_name(T)] as honored!")
+		log_game("[key_name(src)] has un-marked [key_name(T)] as honored!")
 		message_all_yautja("[real_name] has un-marked [T] as honored!'.")
 
 		T.hunter_data.honored_set = null
@@ -213,7 +213,7 @@
 	if(!reason)
 		return
 
-	log_game(src, T, "[key_name(src)] has marked [key_name(T)] as Dishonorable for '[reason]'.")
+	log_game("[key_name(src)] has marked [key_name(T)] as Dishonorable for '[reason]'.")
 	message_all_yautja("[real_name] has marked [T] as Dishonorable for '[reason]'.")
 
 	T.hunter_data.dishonored_set = src
@@ -248,7 +248,7 @@
 
 	if(!T.hunter_data.dishonored_set || src == T.hunter_data.dishonored_set)
 
-		log_game(src, T, "[key_name(src)] has un-marked [key_name(T)] as dishonorable!")
+		log_game("[key_name(src)] has un-marked [key_name(T)] as dishonorable!")
 		message_all_yautja("[real_name] has un-marked [T] as dishonorable!'.")
 
 		T.hunter_data.dishonored_set = null
@@ -278,7 +278,7 @@
 		to_chat(src, span_yautjabold("[T] has already been marked as a gear carrier by [T.hunter_data.gear_set]!"))
 		return
 
-	log_game(src, T, "[key_name(src)] has marked [key_name(T)] as a Gear Carrier!")
+	log_game("[key_name(src)] has marked [key_name(T)] as a Gear Carrier!")
 	message_all_yautja("[real_name] has marked [T] as a Gear Carrier!'.")
 
 	T.hunter_data.gear_set = src
@@ -308,7 +308,7 @@
 
 	if(!T.hunter_data.gear_set || src == T.hunter_data.gear_set)
 
-		log_game(src, T, "[key_name(src)] has un-marked [key_name(T)] as a Gear Carrier!")
+		log_game("[key_name(src)] has un-marked [key_name(T)] as a Gear Carrier!")
 		message_all_yautja("[real_name] has un-marked [T] as a Gear Carrier!'.")
 
 		T.hunter_data.gear_set = null
@@ -347,7 +347,7 @@
 	if(!reason)
 		return
 
-	log_game(src, T, "[key_name(src)] has taken [key_name(T)] as their Thrall for '[reason]'.")
+	log_game("[key_name(src)] has taken [key_name(T)] as their Thrall for '[reason]'.")
 	message_all_yautja("[real_name] has taken [T] as their Thrall for '[reason]'.")
 
 	T.hunter_data.thralled_set = src
@@ -383,7 +383,7 @@
 
 	if(!T.hunter_data.thralled_set || src == T.hunter_data.thralled_set)
 
-		log_game(src, T, "[key_name(src)] has released [key_name(T)] from thralldom!")
+		log_game("[key_name(src)] has released [key_name(T)] from thralldom!")
 		message_all_yautja("[real_name] has released [T] from thralldom!'.")
 
 		T.hunter_data.thralled_set = null

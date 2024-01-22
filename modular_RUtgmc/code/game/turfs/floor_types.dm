@@ -3,7 +3,8 @@
 
 /turf/open/floor/corsat
 	icon = 'modular_RUtgmc/icons/turf/corsat.dmi'
-	icon_state = "plating"
+	icon_state = "squareswood"
+	base_icon_state = "squareswood"
 
 /turf/open/floor/strata //Instance me!
 	icon = 'modular_RUtgmc/icons/turf/strata_floor.dmi'

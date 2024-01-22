@@ -2,7 +2,7 @@
 	chat_color = "#aa0000"
 
 /mob/living/carbon/human/species/yautja/get_paygrade()
-	if(client)
+	if(client.clan_info)
 		return client.clan_info.item[2] <= clan_ranks_ordered.len ? clan_ranks_ordered[client.clan_info.item[2]] : clan_ranks_ordered[1]
 
 /datum/species/yautja

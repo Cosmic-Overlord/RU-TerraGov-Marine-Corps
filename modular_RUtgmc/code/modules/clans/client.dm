@@ -42,17 +42,19 @@
 			clan_info.no_auto_delete = TRUE
 			if(!clan_info.warn_execute())
 				qdel(clan_info)
-				return
+				return FALSE
+
 		if(!clan_info.NextRow())
 			clan_info.sql = "INSERT INTO [format_table_name("clan_player")] (byond_ckey, clan_rank, permissions, clan_id, honor) VALUES (:byond_ckey, 0, 0, 0, 0)"
 			clan_info.Execute()
-
 			clan_info.sql = "SELECT byond_ckey, clan_rank, permissions, clan_id, honor FROM [format_table_name("clan_player")] WHERE byond_ckey = :byond_ckey"
 			if(!clan_info.warn_execute())
 				qdel(clan_info)
-				return
+				return FALSE
+
 			clan_info.next_row_to_take = 1
 			clan_info.NextRow()
+
 		return TRUE
 	else
 		return FALSE
@@ -64,7 +66,7 @@
 	if(!SSdbcore.IsConnected())
 		return
 
-	if(!clan_info)
+	if(!istype(clan_info))
 		return
 
 	if(!(clan_info.item[3] & CLAN_PERMISSION_ADMIN_MANAGER))
@@ -83,15 +85,14 @@
 	set name = "View Clan Info"
 	set category = "OOC"
 
-	var/clan_to_get
+	if(!istype(clan_info))
+		to_chat(src, span_warning("You don't have a yautja whitelist!"))
+		return
 
 	if(!has_clan_permission(CLAN_PERMISSION_VIEW))
 		return
 
-	if(!clan_info)
-		to_chat(src, span_warning("You don't have a yautja whitelist!"))
-		return
-
+	var/clan_to_get
 	if(clan_info.item[3] & CLAN_PERMISSION_ADMIN_VIEW)
 		var/datum/db_query/db_clans = SSdbcore.NewQuery("SELECT id, name, description, honor, color FROM [format_table_name("clan")]")
 		if(!db_clans.warn_execute())
@@ -133,7 +134,7 @@
 	SSpredships.clan_ui.ui_interact(mob)
 
 /client/proc/has_clan_permission(permission_flag, clan_id, warn = TRUE)
-	if(!update_clan_info() || !clan_info || length(clan_info.item) != 5)
+	if(!update_clan_info() || !istype(clan_info) || length(clan_info.item) != 5)
 		if(warn)
 			to_chat(src, "You do not have a yautja whitelist!")
 		return FALSE
@@ -153,7 +154,7 @@
 	return TRUE
 
 /client/proc/add_honor(number)
-	if(!clan_info)
+	if(!istype(clan_info))
 		return FALSE
 
 	clan_info.sql = "UPDATE [format_table_name("clan_player")] SET honor = :honor WHERE byond_ckey = :byond_ckey"
