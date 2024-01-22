@@ -7,7 +7,7 @@
 	desc = "Regenerate your hard exoskeleton armor, removing all sunder."
 	use_state_flags = ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY
 	ability_cost = 400
-	cooldown_duration = 3 MINUTES
+	cooldown_duration = 90 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REGENERATE_SKIN,
@@ -33,7 +33,7 @@
 		span_notice("We shed our armor, showing the fresh new layer underneath!"))
 
 	X.do_jitter_animation(1000)
-	X.set_sunder(0)
+	X.adjust_sunder(-50)
 	add_cooldown()
 	return succeed_activate()
 
