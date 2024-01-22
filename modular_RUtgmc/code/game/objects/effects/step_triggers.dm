@@ -1,3 +1,13 @@
+//RUTGMC MESSY FIX
+/obj/effect/landmark/start/job/survivor/Initialize(mapload)
+	. = ..()
+	new /obj/effect/landmark/yautja_teleport(loc)
+
+/obj/effect/landmark/start/job/squadmarine/Initialize(mapload)
+	. = ..()
+	new /obj/effect/landmark/yautja_teleport(loc)
+//END OF MESSY FIX TO DELETE
+
 /* Predator Ship Teleporter - set in each individual gamemode */
 
 /obj/effect/step_trigger/teleporter/yautja_ship/Trigger(atom/movable/A)
