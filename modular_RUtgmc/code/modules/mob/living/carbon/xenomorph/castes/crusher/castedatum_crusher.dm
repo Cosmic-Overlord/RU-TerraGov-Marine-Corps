@@ -1,5 +1,8 @@
 /datum/xeno_caste/crusher
 
+	// *** Sunder *** //
+	sunder_recover = 2
+
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,

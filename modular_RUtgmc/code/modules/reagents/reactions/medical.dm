@@ -17,3 +17,8 @@
 	name = "Fasygin"
 	results = list(/datum/reagent/medicine/fasygin = 2)
 	required_reagents = list(/datum/reagent/medicine/dylovene = 1, /datum/reagent/copper = 1)
+
+/datum/chemical_reaction/dupl_tricordrazine
+	name = "Duplicate Tricordrazine"
+	results = list(/datum/reagent/medicine/tricordrazine = 2)
+	required_reagents = list(/datum/reagent/virilyth = 1, /datum/reagent/medicine/tricordrazine = 1)

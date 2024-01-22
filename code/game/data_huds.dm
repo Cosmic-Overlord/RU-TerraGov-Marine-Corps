@@ -521,6 +521,7 @@
 				holder.overlays += I
 	hud_list[QUEEN_OVERWATCH_HUD] = holder
 
+/* RUTGMC DELETION
 /mob/living/carbon/xenomorph/proc/hud_update_rank()
 	var/image/holder = hud_list[XENO_RANK_HUD]
 	holder.icon_state = "hudblank"
@@ -528,6 +529,7 @@
 		holder.icon_state = "hudxenoupgrade[playtime_as_number()]"
 
 	hud_list[XENO_RANK_HUD] = holder
+*/
 
 /datum/atom_hud/security
 	hud_icons = list(WANTED_HUD)

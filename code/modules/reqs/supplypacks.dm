@@ -930,6 +930,7 @@ EXPLOSIVES
 	contains = list(/obj/item/storage/box/mlrs_rockets_gas)
 	cost = 60
 
+/* RU TGMC EDIT BEGIN
 /datum/supply_packs/explosives/howitzer
 	name = "MG-100Y howitzer"
 	contains = list(/obj/item/mortar_kit/howitzer)
@@ -956,6 +957,7 @@ EXPLOSIVES
 	cost = 60
 	available_against_xeno_only = TRUE
 
+	RU TGMC EDIT END	*/
 /datum/supply_packs/explosives/ai_target_module
 	name = "AI artillery targeting module"
 	contains = list(/obj/item/ai_target_beacon)

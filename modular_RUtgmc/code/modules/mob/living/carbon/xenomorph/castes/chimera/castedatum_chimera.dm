@@ -25,7 +25,7 @@
 	// *** Evolution *** //
 	// upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
-	deevolves_to = /mob/living/carbon/xenomorph/wraith
+	deevolves_to = /mob/living/carbon/xenomorph/panther
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
@@ -43,7 +43,7 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/blink/chimera,
+		/datum/action/ability/activable/xeno/blink,
 		/datum/action/ability/xeno_action/phantom,
 		/datum/action/ability/activable/xeno/pounce/abduction,
 		/datum/action/ability/activable/xeno/body_swap,
@@ -62,7 +62,7 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
-		/datum/action/ability/activable/xeno/blink/chimera,
+		/datum/action/ability/activable/xeno/blink,
 		/datum/action/ability/xeno_action/phantom,
 		/datum/action/ability/activable/xeno/pounce/abduction,
 		/datum/action/ability/activable/xeno/body_swap,
