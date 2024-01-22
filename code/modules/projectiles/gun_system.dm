@@ -643,6 +643,7 @@
 		return
 	to_chat(user, "[dat.Join(" ")]")
 
+/* MOVED TO MODULE
 /obj/item/weapon/gun/wield(mob/user)
 	if(CHECK_BITFIELD(flags_gun_features, GUN_DEPLOYED_FIRE_ONLY))
 		to_chat(user, span_notice("[src] cannot be fired by hand and must be deployed."))
@@ -669,7 +670,7 @@
 	do_wield(user, wdelay)
 	if(HAS_TRAIT(src, TRAIT_GUN_AUTO_AIM_MODE))
 		toggle_aim_mode(user)
-
+*/
 
 /obj/item/weapon/gun/unwield(mob/user)
 	. = ..()
