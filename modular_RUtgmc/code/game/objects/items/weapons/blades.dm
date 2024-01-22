@@ -16,7 +16,16 @@
 	throw_range = 8
 
 /obj/item/weapon/claymore/mercsword/machete
+	force = 90
+	penetration = 15
 	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	item_icons = list(
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_left.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
+		slot_belt_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
+	)
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 
 /obj/item/weapon/claymore/mercsword/officersword
 	icon_state = "officer_sword"
@@ -71,3 +80,43 @@
 	if(target == user && !user.do_self_harm)
 		return
 	return ..()
+
+/*
+				TOMAHAWK
+*/
+
+/obj/item/weapon/claymore/tomahawk
+	name = "Tomahawk H23"
+	desc = "A specialist tactical weapon, ancient and beloved by many. Issued to TGMC by CAU."
+	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon_state = "tomahawk_tactic"
+	item_state = "tomahawk_tactic"
+	item_icons = list(
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
+	)
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+	flags_atom = CONDUCT
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	force = 70
+	attack_speed = 8
+	throwforce = 130 //throw_dmg = throwforce * (throw_speed * 0.2)
+	throw_range = 9
+	throw_speed = 5
+	sharp = IS_SHARP_ITEM_BIG
+	edge = 1
+	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/weapon/claymore/tomahawk/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/strappable)
+
+/obj/item/weapon/claymore/tomahawk/equipped(mob/user, slot)
+	. = ..()
+	toggle_item_bump_attack(user, TRUE)
+
+/obj/item/weapon/claymore/tomahawk/dropped(mob/user)
+	. = ..()
+	toggle_item_bump_attack(user, FALSE)

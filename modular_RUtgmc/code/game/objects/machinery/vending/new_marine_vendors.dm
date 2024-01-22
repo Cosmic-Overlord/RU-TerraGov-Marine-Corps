@@ -1,3 +1,6 @@
+/obj/effect/vendor_bundle/stretcher
+	desc = "A collapsed medevac stretcher that can be carried around, beacon included."
+
 /obj/effect/vendor_bundle/gorka_engineer
 	gear_to_spawn = list(
 		/obj/item/clothing/under/marine/ru/gorka_eng,

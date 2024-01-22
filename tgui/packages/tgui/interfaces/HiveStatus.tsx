@@ -103,7 +103,7 @@ export const HiveStatus = (_props, context) => {
       theme="xeno"
       title={hive_name + ' Hive Status'}
       resizable
-      width={1200}
+      width={1000}
       height={800}>
       <Window.Content scrollable>
         <CachedCollapsible
