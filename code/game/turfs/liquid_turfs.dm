@@ -232,6 +232,7 @@
 	if(!burn_stuff())
 		STOP_PROCESSING(SSobj, src)
 
+/* RUTGMC DELETION, FIRE JUMPING
 /turf/open/liquid/lava/proc/burn_stuff(AM)
 	. = FALSE
 
@@ -261,6 +262,7 @@
 					L.adjust_fire_stacks(20)
 					L.IgniteMob()
 				. = TRUE
+*/
 
 /turf/open/liquid/lava/attackby(obj/item/C, mob/user, params)
 	. = ..()
