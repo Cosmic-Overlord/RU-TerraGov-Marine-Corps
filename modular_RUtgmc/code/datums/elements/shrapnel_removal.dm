@@ -13,6 +13,7 @@
 		return ELEMENT_INCOMPATIBLE
 	do_after_time = duration
 	fumble_duration = fumble_time ? fumble_time : do_after_time
+	scalpel = _scalpel
 	if(scalpel)
 		RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
 	else
