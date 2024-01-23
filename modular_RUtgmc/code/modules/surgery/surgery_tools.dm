@@ -143,7 +143,6 @@
 /obj/item/tool/surgery/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "saw3"
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	flags_atom = CONDUCT
@@ -167,7 +166,6 @@
 //misc, formerly from code/defines/weapons.dm
 /obj/item/tool/surgery/bonegel
 	name = "bone gel"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "bone-gel"
 	force = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -180,7 +178,6 @@
 
 /obj/item/tool/surgery/FixOVein
 	name = "FixOVein"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "fixovein"
 	force = 0
 	throwforce = 1.0
@@ -193,7 +190,6 @@
 
 /obj/item/tool/surgery/bonesetter
 	name = "bone setter"
-	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "bone setter"
 	force = 8.0
 	throwforce = 9.0
@@ -204,6 +200,7 @@
 
 /obj/item/tool/surgery/bonesetter/predatorbonesetter
 	name = "bone placer"
+	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bonesetter"
 
 /obj/item/tool/surgery/suture
