@@ -427,13 +427,20 @@
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		to_chat(src, span_warning("The round has already started."))
 		return
+//RUTGMC EDIT SUBS
 	var/sublevel = 0
-	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT sublevel FROM [format_table_name("overlord")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
+	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT sublevel FROM [format_table_name("discord_links")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
 	if(discord.warn_execute() && discord.NextRow())
 		sublevel = discord.item[1]
 	qdel(discord)
-	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && sublevel < 2)
+	var/datum/db_query/db_sublevels = SSdbcore.NewQuery("SELECT perms FROM [format_table_name("sublevels")]  WHERE level = :level", list("level" = sublevel))
+	var/list/perms = list()
+	if(discord.warn_execute() && discord.NextRow())
+		perms = json_decode(db_sublevels.item[1])
+	qdel(db_sublevels)
+	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && "que_priority" in perms)
 		return
+//RUTGMC EDIT END
 	ready = !ready
 	if(ready)
 		GLOB.ready_players += src

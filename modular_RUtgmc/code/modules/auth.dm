@@ -15,7 +15,7 @@
 		to_chat(src, span_alert("You don't have enough minutes - [CONFIG_GET(number/certification_minutes) - total_playtime] remaining."))
 		return
 
-	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT randomid, discordid FROM [format_table_name("overlord")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
+	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT randomid, discordid FROM [format_table_name("discord_links")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
 	if(discord.warn_execute() && discord.NextRow())
 		if(discord.item[1])
 			tgui_alert(src, "Your password is [discord.item[1]]. Please use [CONFIG_GET(string/bot_command)] slash command [discord.item[1]] to certify.", "Discord Link")
@@ -34,12 +34,12 @@
 
 	while(not_unique)
 		token = "[rand(1, 999999999)][rand(1, 999999999)]"
-		discord = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("overlord")] WHERE randomid = :randomid", list("randomid" = token))
+		discord = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("discord_links")] WHERE randomid = :randomid", list("randomid" = token))
 		if(!discord.warn_execute() || !discord.NextRow())
 			not_unique = FALSE
 		qdel(discord)
 
-	discord = SSdbcore.NewQuery("INSERT INTO [format_table_name("overlord")] (ckey, randomid) VALUES (:ckey, :randomid)", list("ckey" = ckey, "randomid" = token))
+	discord = SSdbcore.NewQuery("INSERT INTO [format_table_name("discord_links")] (ckey, randomid) VALUES (:ckey, :randomid)", list("ckey" = ckey, "randomid" = token))
 	discord.Execute()
 	qdel(discord)
 

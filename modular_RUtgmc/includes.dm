@@ -108,6 +108,7 @@
 #include "code\modules\atmospherics\machinery\components\unary_devices\vent_pump.dm"
 #include "code\modules\atmospherics\machinery\components\unary_devices\vent_scrubber.dm"
 #include "code\modules\client\preferences_gear.dm"
+#include "code\modules\client\subs_color.dm"
 #include "code\modules\clothing\clothing.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\night.dm"

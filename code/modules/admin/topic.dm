@@ -2180,11 +2180,25 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!target.ckey)
 			to_chat(usr, span_warning("Mob without ckey, try later."))
 			return
-		var/new_sublevel = tgui_input_list(usr, "Select sublevel for [target.ckey], warning, this is action is logging, any messing with it can result bad", "Sublevels", ALL_SUBLEVEL)
+		var/datum/db_query/db_sublevels = SSdbcore.NewQuery("SELECT name, level FROM [format_table_name("sublevels")] ORDER BY level")
+		var/list/sublevels = list()
+		if(!db_sublevels.warn_execute())
+			to_chat(usr, span_warning("Something wrong, try again later."))
+			qdel(db_sublevels)
+			return
+		while (db_sublevels.NextRow())
+			sublevels["[db_sublevels.item[1]]"] = db_sublevels.item[2]
+		qdel(db_sublevels)
+
+		var/new_sublevel = tgui_input_list(usr, "Select sublevel for [target.ckey], warning, this is action is logging, any messing with it can result bad", "Sublevels", sublevels)
 		if(!new_sublevel)
 			return
 
-		var/datum/db_query/discord = SSdbcore.NewQuery("UPDATE [format_table_name("overlord")] SET sublevel = :sublevel, stablelevel = 1 WHERE ckey = :ckey", list("ckey" = ckey(target.ckey), "sublevel" = SUBLEVEL_TO_STRING[new_sublevel]))
+		var/stablelevel = TRUE
+		if(!new_sublevel)
+			stablelevel = FALSE
+
+		var/datum/db_query/discord = SSdbcore.NewQuery("UPDATE [format_table_name("discord_links")] SET sublevel = :sublevel, stablelevel = :stablelevel WHERE ckey = :ckey", list("ckey" = ckey(target.ckey), "sublevel" = new_sublevel, "stablelevel" = stablelevel))
 		if(!discord.warn_execute() || !discord.NextRow())
 			to_chat(usr, span_warning("Something wrong, try again later."))
 			qdel(discord)
