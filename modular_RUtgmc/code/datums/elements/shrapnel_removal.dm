@@ -7,7 +7,7 @@
 	var/fumble_duration
 	var/scalpel
 
-/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, _scalpel = TRUE)
+/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, _scalpel = FALSE)
 	. = ..()
 	if(!isitem(target) || (duration < 1))
 		return ELEMENT_INCOMPATIBLE
