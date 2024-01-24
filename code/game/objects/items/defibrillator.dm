@@ -221,7 +221,10 @@
 	sparks.start()
 	dcell.use(charge_cost)
 	update_icon()
+	/* ORIGINAL
 	playsound(get_turf(src), 'sound/items/defib_release.ogg', 25, 1)
+	*/
+	playsound(get_turf(src), 'sound/items/defib_release.ogg', 30, 0) //RUTGMC EDIT
 	user.visible_message(span_notice("[user] shocks [H] with the paddles."),
 	span_notice("You shock [H] with the paddles."))
 	H.visible_message(span_danger("[H]'s body convulses a bit."))

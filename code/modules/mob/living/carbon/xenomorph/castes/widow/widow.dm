@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 /mob/living/carbon/xenomorph/widow
 	caste_base_type = /mob/living/carbon/xenomorph/widow
 	name = "Widow"
@@ -62,4 +63,4 @@
 	for(var/mob/living/carbon/xenomorph/spider AS in create_spiderling_action.spiderlings)
 		spider.revive(TRUE)
 		spider.forceMove(destination)
-
+*/

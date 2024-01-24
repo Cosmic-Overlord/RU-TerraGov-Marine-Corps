@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 #define SPIDERLING_ATTEMPTING_GUARD "spiderling_attempting_guard"
 #define SPIDERLING_NOT_GUARDING "spiderling_not_guarding"
 #define SPIDERLING_GUARDING "spiderling_guarding"
@@ -272,3 +273,4 @@
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/spiderling/beno_to_coat = mob_parent
 	beno_to_coat?.apply_status_effect(STATUS_EFFECT_RESIN_JELLY_COATING)
+*/

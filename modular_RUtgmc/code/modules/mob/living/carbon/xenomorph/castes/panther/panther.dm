@@ -40,6 +40,7 @@
 /obj/item/reagent_containers/food/drinks/pantherheart
 	name = "Panther heart"
 	desc = "This is Panther heart... Wait, what?"
+	icon = 'modular_RUtgmc/icons/obj/items/drinks.dmi'
 	icon_state = "pantherheart"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 0
