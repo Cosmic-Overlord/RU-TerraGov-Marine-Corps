@@ -258,6 +258,8 @@
 	log_admin("[key_name(usr)] checked the contents of [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] checked the contents of [ADMIN_TPMONTY(L)].")
 
+
+
 /datum/admins/proc/reestablish_db_connection()
 	set category = "Debug"
 	set name = "Reestablish DB Connection"

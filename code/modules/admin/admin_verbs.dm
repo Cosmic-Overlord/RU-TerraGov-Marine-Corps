@@ -274,6 +274,7 @@
 
 	usr.client.holder.browse_server_logs("[GLOB.log_directory]/")
 
+
 /*datum/admins/proc/logs_folder()
 	set category = "Admin"
 	set name = "Get Server Logs Folder"
