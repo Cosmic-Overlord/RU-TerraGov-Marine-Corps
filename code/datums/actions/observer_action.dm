@@ -48,7 +48,12 @@
 
 	var/list/mob/living/free_ssd_mobs = list()
 	for(var/mob/living/ssd_mob AS in GLOB.ssd_living_mobs)
+/*
 		if(is_centcom_level(ssd_mob.z) || ssd_mob.afk_status == MOB_RECENTLY_DISCONNECTED)
+*/
+//RUTGMC EDIT PREDS
+		if(is_centcom_level(ssd_mob.z) || ssd_mob.afk_status == MOB_RECENTLY_DISCONNECTED || isyautja(ssd_mob))
+//RUTGMC EDIT END
 			continue
 		free_ssd_mobs += ssd_mob
 
