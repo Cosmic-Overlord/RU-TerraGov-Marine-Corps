@@ -27,7 +27,104 @@
 // ***************************************
 /datum/hive_status/ui_data(mob/user)
 	. = ..()
+	.["hive_max_tier_two"] = tier2_xeno_limit
+	.["hive_max_tier_three"] = tier3_xeno_limit
+	.["hive_minion_count"] = length(xenos_by_tier[XENO_TIER_MINION])
+
+	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	.["hive_larva_current"] = xeno_job.job_points
+	.["hive_larva_rate"] = SSsilo.current_larva_spawn_rate
+	.["hive_larva_burrowed"] = xeno_job.total_positions - xeno_job.current_positions
+
+	var/psy_points = SSpoints.xeno_points_by_hive[hivenumber]
+	.["hive_psy_points"] = !isnull(psy_points) ? psy_points : 0
+
+	var/hivemind_countdown = SSticker.mode?.get_hivemind_collapse_countdown()
+	.["hive_orphan_collapse"] = !isnull(hivemind_countdown) ? hivemind_countdown : 0
+	// Show all the death timers in milliseconds
+	.["hive_death_timers"] = list()
+	// The key for caste_death_timer is the mob's type
+	for(var/mob in caste_death_timers)
+		var/datum/xeno_caste/caste = GLOB.xeno_caste_datums[mob][XENO_UPGRADE_BASETYPE]
+		var/timeleft = timeleft(caste_death_timers[caste.caste_type_path])
+		.["hive_death_timers"] += list(list(
+			"caste" = caste.caste_name,
+			"time_left" = round(timeleft MILLISECONDS),
+			"end_time" = caste.death_evolution_delay MILLISECONDS,
+		))
+
+	.["hive_primos"] = list()
+	for(var/tier in GLOB.tier_to_primo_upgrade)
+		.["hive_primos"] += list(list(
+			"tier" = GLOB.tier_as_number[tier],
+			"purchased" = purchases.upgrades_by_name[GLOB.tier_to_primo_upgrade[tier]]?.times_bought
+		))
+
+	.["hive_structures"] = list()
+	// Silos
+	for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos_by_hive[hivenumber])
+		.["hive_structures"] += list(get_structure_packet(resin_silo))
+	// Acid, sticky, and hugger turrets.
+	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[hivenumber])
+		.["hive_structures"] += list(get_structure_packet(turret))
+	// Psychic relays
+	for(var/obj/structure/xeno/psychictower/tower AS in GLOB.hive_datums[hivenumber].psychictowers)
+		.["hive_structures"] += list(get_structure_packet(tower))
+	// Evolution towers (if they're ever built)
+	for(var/obj/structure/xeno/evotower/tower AS in GLOB.hive_datums[hivenumber].evotowers)
+		.["hive_structures"] += list(get_structure_packet(tower))
+	// Pheromone towers
+	for(var/obj/structure/xeno/pherotower/tower AS in GLOB.hive_datums[hivenumber].pherotowers)
+		.["hive_structures"] += list(get_structure_packet(tower))
+	// Hivemind cores
+	for(var/obj/structure/xeno/hivemindcore/core AS in GLOB.hive_datums[hivenumber].hivemindcores)
+		.["hive_structures"] += list(get_structure_packet(core))
+	// Spawners
+	for(var/obj/structure/xeno/spawner/spawner AS in GLOB.xeno_spawners_by_hive[hivenumber])
+		.["hive_structures"] += list(get_structure_packet(spawner))
+
+	.["xeno_info"] = list()
+	for(var/mob/living/carbon/xenomorph/xeno AS in get_all_xenos())
+		if(initial(xeno.tier) == XENO_TIER_MINION)
+			continue // Skipping minions
+		var/datum/xeno_caste/caste = xeno?.xeno_caste
+		var/plasma_multi = caste.plasma_regen_limit == 0 ? 1 : caste.plasma_regen_limit // Division by 0 bad.
+		var/health = xeno.health > 0 ? xeno.health / xeno.maxHealth : -xeno.health / xeno.get_death_threshold()
+		.["xeno_info"] += list(list(
+			"ref" = REF(xeno),
+			"name" = xeno.name,
+			"location" = get_xeno_location(xeno),
+			"health" = round(health * 100, 1),
+			"plasma" = round((xeno.plasma_stored / (caste.plasma_max * plasma_multi)) * 100, 1),
+			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER), //RUTGMC ADDITION
+			"is_leader" = xeno.queen_chosen_lead,
+			"is_ssd" = !xeno.client,
+			"index" = GLOB.hive_ui_caste_index[caste.caste_type_path],
+		))
+
+	var/mob/living/carbon/xenomorph/xeno_user
+	if(isxeno(user))
+		xeno_user = user
+
+	var/mob/watched = ""
+	if(isobserver(user) && !QDELETED(user.orbiting))
+		watched = !QDELETED(user.orbiting.parent) ? REF(user.orbiting.parent) : ""
+	else if(isxeno(user))
+		watched = !QDELETED(xeno_user.observed_xeno) ? REF(xeno_user.observed_xeno) : ""
+	.["user_watched_xeno"] = watched
+
+	.["user_evolution"] = isxeno(user) ? xeno_user.evolution_stored : 0
+
 	.["hive_forbiden_castes"] = hive_forbiden_castes
+
+	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
+
+	.["user_show_empty"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY : 0
+	.["user_show_compact"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_COMPACT_MODE : 0
+	.["user_show_general"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_GENERAL : 0
+	.["user_show_population"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_POPULATION : 0
+	.["user_show_xeno_list"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_XENO_LIST : 0
+	.["user_show_structures"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_STRUCTURES : 0
 
 // ***************************************
 // *********** Facehuggers proc

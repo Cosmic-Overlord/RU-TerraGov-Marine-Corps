@@ -69,6 +69,7 @@
 	. = ..()
 	. += get_asset_datum(/datum/asset/spritesheet/hivestatus)
 
+/* RUTGMC DELETION, moved to modular
 /datum/hive_status/ui_data(mob/user)
 	. = ..()
 	.["hive_max_tier_two"] = tier2_xeno_limit
@@ -159,10 +160,8 @@
 
 	.["user_evolution"] = isxeno(user) ? xeno_user.evolution_stored : 0
 
-	/* RUTGMC DELETION
 	.["user_maturity"] = isxeno(user) ? xeno_user.upgrade_stored : 0
 	.["user_next_mat_level"] = isxeno(user) && xeno_user.upgrade_possible() ? xeno_user.xeno_caste.upgrade_threshold : 0
-	*/
 	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
 
 	.["user_show_empty"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY : 0
@@ -171,6 +170,7 @@
 	.["user_show_population"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_POPULATION : 0
 	.["user_show_xeno_list"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_XENO_LIST : 0
 	.["user_show_structures"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_STRUCTURES : 0
+*/
 
 /// Returns a data entry for the "xeno structures" list based on the structure passed
 /datum/hive_status/proc/get_structure_packet(obj/structure/xeno/struct)
