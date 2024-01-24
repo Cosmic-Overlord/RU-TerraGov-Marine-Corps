@@ -48,6 +48,7 @@
 	else
 		to_chat(usr, span_boldnotice("You will no longer get debug log messages."))
 
+/*RUTGMC REMOVE SUBS
 /datum/admins/proc/set_ooc_color_self()
 	set category = "Preferences"
 	set name = "OOC Text Color"
@@ -62,6 +63,7 @@
 	usr.client.prefs.load_preferences()
 	usr.client.prefs.ooccolor = new_ooccolor
 	usr.client.prefs.save_preferences()
+*/
 
 /datum/admins/proc/toggle_prayers()
 	set category = "Preferences"

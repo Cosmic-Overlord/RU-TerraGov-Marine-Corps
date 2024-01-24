@@ -12,11 +12,11 @@
 	if(discord.warn_execute() && discord.NextRow())
 		perms = json_decode(db_sublevels.item[1])
 	qdel(db_sublevels)
-	if("ooc_color" in perms)
+	if(("ooc_color" in perms) || check_rights(R_COLOR))
 		var/new_ooccolor = input(src, "Please select your OOC colour", "OOC colour") as color|null
 		if(!new_ooccolor)
 			return
 
-		usr.client.prefs.load_preferences()
-		usr.client.prefs.ooccolor = new_ooccolor
-		usr.client.prefs.save_preferences()
+		prefs.load_preferences()
+		prefs.ooccolor = new_ooccolor
+		prefs.save_preferences()
