@@ -254,6 +254,26 @@
 			log_admin("[key_name(usr)] has unslept everyone in view.")
 			message_admins("[ADMIN_TPMONTY(usr)] has unslept everyone in view.")
 
+/datum/admins/proc/logs_server()
+	set category = "Admin"
+	set name = "Get Server Logs"
+
+	if(!check_rights(R_LOG))
+		return
+
+	usr.client.holder.browse_server_logs()
+
+
+/datum/admins/proc/logs_current()
+	set category = "Admin"
+	set name = "Get Current Logs"
+	set desc = "View/retrieve logfiles for the current round."
+
+	if(!check_rights(R_LOG))
+		return
+
+	usr.client.holder.browse_server_logs("[GLOB.log_directory]/")
+
 /*datum/admins/proc/logs_folder()
 	set category = "Admin"
 	set name = "Get Server Logs Folder"

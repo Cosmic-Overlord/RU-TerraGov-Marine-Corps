@@ -498,7 +498,7 @@ GLOBAL_PROTECT(admin_verbs_spawn)
 	return list(
 	/datum/admins/proc/logs_server,
 	/datum/admins/proc/logs_current,
-	/datum/admins/proc/logs_folder,
+//datum/admins/proc/logs_folder,
 	/client/proc/log_viewer_new
 	)
 GLOBAL_LIST_INIT(admin_verbs_log, world.AVlog())
