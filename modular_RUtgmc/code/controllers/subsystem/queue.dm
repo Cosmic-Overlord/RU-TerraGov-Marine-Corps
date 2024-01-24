@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(queue)
 	if(discord.warn_execute() && discord.NextRow())
 		perms = json_decode(db_sublevels.item[1])
 	qdel(db_sublevels)
-	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && "que_priority" in perms)
+	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && ("que_priority" in perms)ь)
 		que_data = SSqueue.queue_player(src)
 		queue_player_panel()
 

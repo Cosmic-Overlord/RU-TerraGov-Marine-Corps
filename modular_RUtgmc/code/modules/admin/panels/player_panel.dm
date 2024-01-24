@@ -48,7 +48,7 @@
 		<b>Mob Type:</b> [M.type]<br>
 		<b>Mob Location:</b> [AREACOORD(M.loc)]<br>"}
 
-	if(discord && discord[3] in sublevels)
+	if(discord && (discord[3] in sublevels))
 		body += {"
 			<b>Discord ID:</b> [discord[1] ? discord[1] : "NOT SET"]<br>
 			<b>Sublevel:</b> [sublevels["[discord[3]]"]]<br>
