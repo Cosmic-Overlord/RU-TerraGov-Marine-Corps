@@ -1,9 +1,178 @@
-/datum/action/ability/activable/xeno/blink/chimera
-	cooldown_duration = 3 SECONDS
+// ***************************************
+// *********** Blink
+// ***************************************
+/datum/action/ability/activable/xeno/blink
+	name = "Blink"
+	action_icon_state = "blink"
+	desc = "We teleport ourselves a short distance to a location within line of sight."
+	use_state_flags = ABILITY_TURF_TARGET
 	ability_cost = 50
+	cooldown_duration = 3 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CHIMERA_BLINK,
 	)
+
+///Check target Blink turf to see if it can be blinked to
+/datum/action/ability/activable/xeno/blink/proc/check_blink_tile(turf/T, ignore_blocker = FALSE, silent = FALSE)
+	if(isclosedturf(T) || isspaceturf(T) || isspacearea(T))
+		if(!silent)
+			to_chat(owner, span_xenowarning("We cannot blink here!"))
+		return FALSE
+
+	if(!line_of_sight(owner, T)) //Needs to be in line of sight.
+		if(!silent)
+			to_chat(owner, span_xenowarning("We can't blink without line of sight to our destination!"))
+		return FALSE
+
+	if(IS_OPAQUE_TURF(T))
+		if(!silent)
+			to_chat(owner, span_xenowarning("We can't blink into this space without vision!"))
+		return FALSE
+
+	if(ignore_blocker) //If we don't care about objects occupying the target square, return TRUE; used for checking pathing through transparents
+		return TRUE
+
+	if(turf_block_check(owner, T, FALSE, TRUE, TRUE, TRUE, TRUE)) //Check if there's anything that blocks us; we only care about Canpass here
+		if(!silent)
+			to_chat(owner, span_xenowarning("We can't blink here!"))
+		return FALSE
+
+	var/area/A = get_area(src)
+	if(isspacearea(A))
+		if(!silent)
+			to_chat(owner, span_xenowarning("We cannot blink here!"))
+		return FALSE
+
+
+	return TRUE
+
+///Check for whether the target turf has dense objects inside
+/datum/action/ability/activable/xeno/blink/proc/check_blink_target_turf_density(turf/T, silent = FALSE)
+	for(var/atom/blocker AS in T)
+		if(!blocker.CanPass(owner, T))
+			if(!silent)
+				to_chat(owner, span_xenowarning("We can't blink into a solid object!"))
+			return FALSE
+
+	return TRUE
+
+/datum/action/ability/activable/xeno/blink/use_ability(atom/A)
+	. = ..()
+	var/mob/living/carbon/xenomorph/X = owner
+	var/turf/T = X.loc
+	var/turf/temp_turf = X.loc
+	var/check_distance = min(X.xeno_caste.wraith_blink_range, get_dist(X,A))
+	var/list/fully_legal_turfs = list()
+
+	for (var/x = 1 to check_distance)
+		temp_turf = get_step(T, get_dir(T, A))
+		if (!temp_turf)
+			break
+		if(!check_blink_tile(temp_turf, TRUE, TRUE)) //Verify that the turf is legal; if not we cancel out. We ignore transparent dense objects like windows here for now
+			break
+		if(check_blink_target_turf_density(temp_turf, TRUE)) //If we could ultimately teleport to this square, it is fully legal; add it to the list
+			fully_legal_turfs += temp_turf
+		T = temp_turf
+
+	check_distance = min(length(fully_legal_turfs), check_distance) //Cap the check distance to the number of fully legal turfs
+	T = X.loc //Reset T to be our initial position
+	if(check_distance)
+		T = fully_legal_turfs[check_distance]
+
+	X.face_atom(T) //Face the target so we don't look like an ass
+
+	var/cooldown_mod = 1
+	var/mob/pulled_target = owner.pulling
+	if(pulled_target) //bring the pulled target with us if applicable but at the cost of sharply increasing the next cooldown
+
+		if(pulled_target.issamexenohive(X))
+			cooldown_mod = X.xeno_caste.wraith_blink_drag_friendly_multiplier
+		else
+			if(!do_after(owner, 0.5 SECONDS, NONE, owner, BUSY_ICON_HOSTILE)) //Grap-porting hostiles has a slight wind up
+				return fail_activate()
+			cooldown_mod = X.xeno_caste.wraith_blink_drag_nonfriendly_living_multiplier
+			if(ishuman(pulled_target))
+				var/mob/living/carbon/human/H = pulled_target
+				if(H.stat == UNCONSCIOUS) //Apply critdrag damage as if they were quickly pulled the same distance
+					var/critdamage = HUMAN_CRITDRAG_OXYLOSS * get_dist(H.loc, T)
+					if(!H.adjustOxyLoss(critdamage))
+						H.adjustBruteLoss(critdamage)
+
+		to_chat(X, span_xenodanger("We bring [pulled_target] with us. We won't be ready to blink again for [cooldown_duration * cooldown_mod * 0.1] seconds due to the strain of doing so."))
+
+	teleport_debuff_aoe(X) //Debuff when we vanish
+
+	if(pulled_target) //Yes, duplicate check because otherwise we end up with the initial teleport debuff AoE happening prior to the wind up which looks really bad and is actually exploitable via deliberate do after cancels
+		pulled_target.forceMove(T) //Teleport to our target turf
+
+	X.forceMove(T) //Teleport to our target turf
+	teleport_debuff_aoe(X) //Debuff when we reappear
+
+	succeed_activate()
+	add_cooldown(cooldown_duration * cooldown_mod)
+
+	GLOB.round_statistics.wraith_blinks++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "wraith_blinks") //Statistics
+
+///Called by many of the Wraith's teleportation effects
+/datum/action/ability/activable/xeno/proc/teleport_debuff_aoe(atom/movable/teleporter, silent = FALSE)
+	var/mob/living/carbon/xenomorph/ghost = owner
+
+	if(!silent) //Sound effects
+		playsound(teleporter, 'sound/effects/EMPulse.ogg', 25, 1) //Sound at the location we are arriving at
+
+	new /obj/effect/temp_visual/blink_portal(get_turf(teleporter))
+
+	new /obj/effect/temp_visual/wraith_warp(get_turf(teleporter))
+
+	for(var/mob/living/living_target in range(1, teleporter.loc))
+
+		if(living_target.stat == DEAD)
+			continue
+
+		if(isxeno(living_target))
+			var/mob/living/carbon/xenomorph/X = living_target
+			if(X.issamexenohive(ghost)) //No friendly fire
+				continue
+
+		living_target.adjust_stagger(WRAITH_TELEPORT_DEBUFF_STAGGER_STACKS)
+		living_target.add_slowdown(WRAITH_TELEPORT_DEBUFF_SLOWDOWN_STACKS)
+		to_chat(living_target, span_warning("You feel nauseous as reality warps around you!"))
+
+/datum/action/ability/activable/xeno/blink/on_cooldown_finish()
+	to_chat(owner, span_xenodanger("We are able to blink again."))
+	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
+	return ..()
+
+///Return TRUE if we have a block, return FALSE otherwise
+/proc/turf_block_check(atom/subject, atom/target, ignore_can_pass = FALSE, ignore_density = FALSE, ignore_closed_turf = FALSE, ignore_invulnerable = FALSE, ignore_objects = FALSE, ignore_mobs = FALSE, ignore_space = FALSE)
+	var/turf/T = get_turf(target)
+	if(isspaceturf(T) && !ignore_space)
+		return TRUE
+	if(isclosedturf(T) && !ignore_closed_turf) //If we care about closed turfs
+		return TRUE
+	for(var/atom/blocker AS in T)
+		if((blocker.flags_atom & ON_BORDER) || blocker == subject) //If they're a border entity or our subject, we don't care
+			continue
+		if(!blocker.CanPass(subject, T) && !ignore_can_pass) //If the subject atom can't pass and we care about that, we have a block
+			return TRUE
+		if(!blocker.density) //Check if we're dense
+			continue
+		if(!ignore_density) //If we care about all dense atoms or only certain types of dense atoms
+			return TRUE
+		if((blocker.resistance_flags & INDESTRUCTIBLE) && !ignore_invulnerable) //If we care about dense invulnerable objects
+			return TRUE
+		if(isobj(blocker) && !ignore_objects) //If we care about dense objects
+			var/obj/obj_blocker = blocker
+			if(!isstructure(obj_blocker)) //If it's not a structure and we care about objects, we have a block
+				return TRUE
+			var/obj/structure/blocker_structure = obj_blocker
+			if(!blocker_structure.climbable) //If it's a structure and can't be climbed, we have a block
+				return TRUE
+		if(ismob(blocker) && !ignore_mobs) //If we care about mobs
+			return TRUE
+
+	return FALSE
 
 /datum/action/ability/xeno_action/phantom
 	name = "Phantom"

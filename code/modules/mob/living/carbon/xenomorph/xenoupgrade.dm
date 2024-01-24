@@ -345,6 +345,7 @@
 
 //----SHRIKE END----//
 //============//
+/* RU TGMC EDITION START
 //----WRAITH START----//
 
 /mob/living/carbon/xenomorph/wraith
@@ -352,10 +353,11 @@
 
 /mob/living/carbon/xenomorph/wraith/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
+	//upgrade_stored = TIER_TWO_THRESHOLD
 
 //----WRAITH END----//
 //============//
+RU TGMC EDITION END*/
 //----WIDOW START----//
 /* RUTGMC DELETION, WIDOW DELETION
 

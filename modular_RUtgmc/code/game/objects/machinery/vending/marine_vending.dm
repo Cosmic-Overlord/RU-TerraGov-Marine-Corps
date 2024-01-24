@@ -142,6 +142,7 @@
 			/obj/item/clothing/under/marine/service = -1,
 			/obj/item/clothing/suit/white_dress_jacket = -1,
 			/obj/item/armor_module/armor/badge = -1,
+			/obj/item/armor_module/armor/cape = -1,
 			/obj/item/armor_module/armor/cape/kama = -1,
 			/obj/item/armor_module/module/pt_belt = -1,
 		),

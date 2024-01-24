@@ -39,7 +39,6 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"synth",
 	"warlock",
 	"warrior",
-	"wraith",
 	"xenoking",
 	"xenominion",
 	"xenoqueen",

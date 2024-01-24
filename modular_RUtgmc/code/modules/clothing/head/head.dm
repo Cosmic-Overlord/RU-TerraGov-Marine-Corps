@@ -1,3 +1,8 @@
+/obj/item/clothing/head/examine(mob/user)
+	. = ..()
+	if(colorable_allowed & HAIR_CONCEALING_CHANGE_ALLOWED)
+		. += span_notice("You can change the way it conceals the hair by using <b>facepaint</b> on it.")
+
 /obj/item/clothing/head/squad_headband
 	name = "\improper Squad headband"
 	desc = "Headband made from ultra-thin special cloth. Cloth thickness provides more than just a stylish fluttering of headband. You can tie around headband onto a helmet. This squad version of a headband has secret unique features created by the cloth coloring component. "
