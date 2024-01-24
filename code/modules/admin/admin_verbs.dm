@@ -272,6 +272,7 @@
 	usr.client.holder.recursive_download(path)
 
 */
+
 /datum/admins/proc/browse_server_logs(path = "data/logs/")
 	if(!check_rights(R_LOG))
 		return
