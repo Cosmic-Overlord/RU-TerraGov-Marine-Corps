@@ -258,28 +258,6 @@
 	log_admin("[key_name(usr)] checked the contents of [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] checked the contents of [ADMIN_TPMONTY(L)].")
 
-
-
-/datum/admins/proc/logs_server()
-	set category = "Debug"
-	set name = "Get Server Logs"
-
-	if(!check_rights(R_LOG))
-		return
-
-	usr.client.holder.browse_server_logs()
-
-
-datum/admins/proc/logs_current()
-	set category = "Debug"
-	set name = "Get Current Logs"
-	set desc = "View/retrieve logfiles for the current round."
-
-	if(!check_rights(R_LOG))
-		return
-
-	usr.client.holder.browse_server_logs("[GLOB.log_directory]/")
-
 /datum/admins/proc/reestablish_db_connection()
 	set category = "Debug"
 	set name = "Reestablish DB Connection"
