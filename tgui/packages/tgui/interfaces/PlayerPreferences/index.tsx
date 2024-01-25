@@ -44,7 +44,7 @@ export const PlayerPreferences = (props, context) => {
     case 7:
       CurrentTab = KeybindSettings;
       break;
-    case 7:
+    case 8:
       CurrentTab = DrawOrder;
       break;
     default:
@@ -128,8 +128,8 @@ const NavigationSelector = (props, context) => {
         Keybindings
       </Tabs.Tab>
       <Tabs.Tab
-        selected={tabIndex === 7}
-        onClick={() => act('tab_change', { tabIndex: 7 })}>
+        selected={tabIndex === 8}
+        onClick={() => act('tab_change', { tabIndex: 8 })}>
         Draw Order
       </Tabs.Tab>
     </Tabs>
