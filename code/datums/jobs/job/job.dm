@@ -324,14 +324,14 @@ GLOBAL_PROTECT(exp_specialmap)
 		if(job.gear_preset_whitelist[job_whitelist])
 			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
 		else
-			///if there is only one outfit, just equips it
-			if(!job.multiple_outfits)
-				job.outfit.equip(src)
 			///chooses an outfit from the list under the job
 			if(job.multiple_outfits)
 				var/datum/outfit/variant = pick(job.outfits)
 				variant = new variant
 				variant.equip(src)
+			///if there is only one outfit, just equips it
+			else
+				job.outfit.equip(src)
 //RUTGMC EDIT ADDITION END
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)

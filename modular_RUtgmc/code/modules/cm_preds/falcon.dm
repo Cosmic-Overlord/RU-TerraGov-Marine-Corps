@@ -53,8 +53,9 @@
 	parent_drone = drone
 	owned_bracers = bracers
 	RegisterSignal(owned_bracers, COMSIG_ITEM_DROPPED, PROC_REF(handle_bracer_drop))
-	M.client.eye = src
-	M.client.perspective = EYE_PERSPECTIVE
+	if(M)
+		M.client.eye = src
+		M.client.perspective = EYE_PERSPECTIVE
 	med_hud_set_status()
 	add_to_all_mob_huds()
 
