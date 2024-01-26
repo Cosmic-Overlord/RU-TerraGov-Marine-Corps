@@ -122,8 +122,6 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 		/obj/item/explosive/grenade/phosphorus = list(CAT_FCSUP, "M40 HSDP phosphorous grenade", 3, "orange3"),
 		/obj/item/storage/box/visual/grenade/trailblazer/phosphorus = list(CAT_FCSUP, "M45 Phosphorus trailblazer grenade box", 15, "blue"),
 		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus = list(CAT_FCSUP, "M45 Phosphorus trailblazer grenade", 3, "orange3"),
-		/obj/item/storage/box/visual/grenade/drain = list(CAT_FCSUP, "M40-T gas grenade box", 15, "blue"),
-		/obj/item/explosive/grenade/smokebomb/drain = list(CAT_FCSUP, "M40-T gas grenade", 3, "orange3"),
 		/obj/item/storage/pouch/explosive/razorburn = list(CAT_FCSUP, "Pack of Razorburn grenades", 15, "orange3"),
 		/obj/item/explosive/grenade/chem_grenade/razorburn_large = list(CAT_FCSUP, "Razorburn canister", 10, "orange3"),
 		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_FCSUP, "Razorburn grenade", 5, "orange3"),
