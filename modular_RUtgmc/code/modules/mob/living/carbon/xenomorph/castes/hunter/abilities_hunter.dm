@@ -189,7 +189,7 @@
 	target.adjust_stagger(2 SECONDS)
 	target.add_slowdown(1)
 	target.ParalyzeNoChain(1 SECONDS)
-	target.apply_damage(damage, BRUTE, xeno.zone_selected) // additional damage
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE) // additional damage
 
 	cancel_stealth()
 
@@ -238,12 +238,13 @@
 	if(!isliving(mark.marked_target))
 		owner.balloon_alert(owner, "You cannot turn into this object!")
 		return
-	if(do_after(xenoowner, 1.5 SECONDS, IGNORE_USER_LOC_CHANGE, xenoowner, BUSY_ICON_HOSTILE))
-		old_appearance = xenoowner.appearance
-		ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
-		xenoowner.update_wounds()
-		xenoowner.add_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE, 0, NONE, TRUE, DISGUISE_SLOWDOWN)
-		return ..()
+	if(!do_after(xenoowner, 1.5 SECONDS, IGNORE_LOC_CHANGE, xenoowner, BUSY_ICON_HOSTILE))
+		return
+	old_appearance = xenoowner.appearance
+	ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
+	xenoowner.update_wounds()
+	xenoowner.add_movespeed_modifier(MOVESPEED_ID_HUNTER_DISGUISE, TRUE, 0, NONE, TRUE, DISGUISE_SLOWDOWN)
+	return ..()
 
 /datum/action/ability/xeno_action/stealth/disguise/cancel_stealth()
 	. = ..()
@@ -277,7 +278,7 @@
 	owner.visible_message(span_danger("\The [owner] strikes [target] with deadly precision!"), \
 	span_danger("We strike [target] with deadly precision!"))
 	target.ParalyzeNoChain(1 SECONDS)
-	target.apply_damage(20, BRUTE, xeno.zone_selected, blocked = FALSE) // additional damage
+	target.apply_damage(20, BRUTE, xeno.zone_selected) // additional damage
 
 	cancel_stealth()
 
