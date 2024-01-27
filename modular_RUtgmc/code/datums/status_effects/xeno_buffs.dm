@@ -6,7 +6,9 @@
 /datum/status_effect/xeno_feast/tick()
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
-	var/heal_amount = X?.maxHealth*0.08
+	if(!X)
+		return
+	var/heal_amount = X.maxHealth*0.08
 	for(var/mob/living/carbon/xenomorph/target_xeno AS in cheap_get_xenos_near(X, 4))
 		if(target_xeno == X)
 			continue
