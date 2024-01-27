@@ -236,7 +236,7 @@
 	if(!istype(M) || !istype(user))
 		return FALSE
 
-	if(M.can_be_operated_on() && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
+	if(M.can_be_operated_on(user) && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
 		return TRUE
 
 	return FALSE

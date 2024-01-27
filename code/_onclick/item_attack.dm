@@ -182,7 +182,12 @@
 	if(M.status_flags & INCORPOREAL || user.status_flags & INCORPOREAL)
 		return FALSE
 
+/*
 	if(M.can_be_operated_on() && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
+*/
+//RUTGMC EDIT PREDS
+	if(M.can_be_operated_on(user) && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
+//RUTGMC EDIT END
 		return TRUE
 
 	if(flags_item & NOBLUDGEON)
