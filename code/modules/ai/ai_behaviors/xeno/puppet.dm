@@ -159,6 +159,8 @@
 			return COMSIG_OBSTACLE_DEALT_WITH
 		if(istype(thing, /obj/alien)) //dont attack resin and such
 			return
+		if(istype(thing, /obj/structure/bed/nest)) //RUTGMC ADDITION, no nest breaking minions
+			return
 		if(isobj(thing)) //otherwise smash it if its damageable
 			var/obj/obstacle = thing
 			if(obstacle.resistance_flags & XENO_DAMAGEABLE)
