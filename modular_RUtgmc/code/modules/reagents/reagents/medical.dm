@@ -66,7 +66,7 @@
 	description = "Fasygin is a component medicine capable of extremely fast but short reagent purging."
 	custom_metabolism = 0.25 //u
 	color = COLOR_REAGENT_FASYGIN
-	overdose_threshold = REAGENTS_OVERDOSE/15 //1u
+	overdose_threshold = REAGENTS_OVERDOSE/30 //1u
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/25 //2u
 	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium, /datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/synaptizine) //Nu-uh
 	purge_rate = 8

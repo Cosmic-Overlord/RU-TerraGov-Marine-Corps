@@ -1013,6 +1013,7 @@
 	hotkey_keys = list("V")
 */
 
+/* RU TGMC EDIT START
 /datum/keybinding/xeno/rewind
 	name = "rewind"
 	full_name = "Wraith: Time Shift"
@@ -1061,6 +1062,7 @@
 	description = "Freezes bullets in their course, and they will start to move again only after a certain time"
 	keybind_signal = COMSIG_XENOABILITY_TIMESTOP
 	hotkey_keys = list("V")
+RU TGMC EDIT END*/
 
 /datum/keybinding/xeno/flay
 	name = "Flay"
