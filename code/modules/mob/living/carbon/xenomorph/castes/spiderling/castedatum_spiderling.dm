@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 /datum/xeno_caste/spiderling
 	caste_name = "spiderling"
 	display_name = "spiderling"
@@ -35,3 +36,4 @@
 	actions = list(
 		/datum/action/ability/xeno_action/burrow,
 	)
+*/

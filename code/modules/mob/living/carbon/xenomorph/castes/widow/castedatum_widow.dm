@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 /datum/xeno_caste/widow
 	caste_name = "Widow"
 	display_name = "Widow"
@@ -23,7 +24,7 @@
 	max_health = 450
 
 	// *** Evolution *** //
-	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
+	upgrade_threshold = TIER_THREE_THRESHOLD
 
 	deevolves_to = list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/puppeteer)
 
@@ -92,3 +93,4 @@
 		/datum/action/ability/activable/xeno/spiderling_mark,
 		/datum/action/ability/activable/xeno/web_hook,
 	)
+*/

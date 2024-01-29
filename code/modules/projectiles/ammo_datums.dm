@@ -3971,6 +3971,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/hugger/acid
 	hugger_type = /obj/item/clothing/mask/facehugger/combat/acid
 
+/* RUTGMC DELETION, WIDOW DELETION
 /// For Widows Web Spit Ability
 /datum/ammo/xeno/web
 	icon_state = "web_spit"
@@ -4043,6 +4044,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /// This spawns a leash ball and checks if the turf is dense before doing so
 /datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/T)
 	new /obj/structure/xeno/aoe_leash(get_turf(T), hivenumber)
+*/
 
 /datum/ammo/xeno/spine //puppeteer
 	name = "spine"

@@ -166,6 +166,32 @@ EXPLOSIVES
 	contains = list(/obj/item/storage/box/visual/grenade/trailblazer/phosphorus)
 	cost = 600
 
+/datum/supply_packs/explosives/howitzer
+	name = "TA-100Y howitzer"
+	contains = list(/obj/item/mortar_kit/howitzer)
+	cost = 600
+
+/datum/supply_packs/explosives/howitzer_ammo_he
+	name = "TA-100Y howitzer HE shell"
+	contains = list(/obj/item/mortal_shell/howitzer/he)
+	cost = 40
+
+/datum/supply_packs/explosives/howitzer_ammo_incend
+	name = "TA-100Y howitzer incendiary shell"
+	contains = list(/obj/item/mortal_shell/howitzer/incendiary)
+	cost = 40
+
+/datum/supply_packs/explosives/howitzer_ammo_wp
+	name = "TA-100Y howitzer white phosporous smoke shell"
+	contains = list(/obj/item/mortal_shell/howitzer/white_phos)
+	cost = 60
+
+/datum/supply_packs/explosives/howitzer_ammo_plasmaloss
+	name = "TA-100Y howitzer tanglefoot shell"
+	contains = list(/obj/item/mortal_shell/howitzer/plasmaloss)
+	cost = 60
+	available_against_xeno_only = TRUE
+
 /*******************************************************************************
 ARMOR
 *******************************************************************************/
