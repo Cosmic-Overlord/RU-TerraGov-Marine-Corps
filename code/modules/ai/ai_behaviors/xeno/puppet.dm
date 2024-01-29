@@ -110,7 +110,7 @@
 /datum/ai_behavior/puppet/proc/seek_and_attack()
 	var/list/mob/living/carbon/human/possible_victims = list()
 	for(var/mob/living/carbon/human/victim in cheap_get_humans_near(mob_parent, 9))
-		if(victim.stat == DEAD)
+		if(victim.stat == DEAD || isnestedhost(victim)) // RUTGMC ADDITION, no nest killing puppets
 			continue
 		possible_victims += victim
 	if(!length(possible_victims))
