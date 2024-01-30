@@ -120,7 +120,7 @@
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			busy = TRUE
 
-			if(!do_after(user, 50, NONE, src, BUSY_ICON_BUILD))
+			if(!do_after(user, 50, TRUE, src, BUSY_ICON_BUILD))
 				busy = FALSE
 				return
 
