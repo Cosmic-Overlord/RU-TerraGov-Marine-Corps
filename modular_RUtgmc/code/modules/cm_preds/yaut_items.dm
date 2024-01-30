@@ -413,7 +413,7 @@
 	timer = 1
 	user.visible_message(span_info("[user] starts becoming shimmery and indistinct..."))
 
-	if(do_after(user, 10 SECONDS, TRUE, src, BUSY_ICON_GENERIC, BUSY_ICON_GENERIC))
+	if(do_after(user, 10 SECONDS, NONE, src, BUSY_ICON_GENERIC, BUSY_ICON_GENERIC))
 		// Display fancy animation for you and the person you might be pulling (Legacy)
 		user.visible_message(span_warning("[icon2html(user, viewers(src))][user] disappears!"))
 		var/tele_time = animation_teleport_quick_out(user)
@@ -723,7 +723,7 @@
 		var/wait_time = 3 SECONDS
 		if(!HAS_TRAIT(user, TRAIT_YAUTJA_TECH))
 			wait_time = rand(5 SECONDS, 10 SECONDS)
-		if(!do_after(user, wait_time, TRUE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+		if(!do_after(user, wait_time, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 			return
 		armed = TRUE
 		anchored = TRUE
@@ -809,7 +809,7 @@
 
 /obj/item/hunting_trap/proc/resisted()
 	to_chat(trapped_mob, span_danger("You attempt to break out of your tether to [src]. (This will take around [resist_time/10] seconds and you need to stand still)"))
-	if(!do_after(trapped_mob, resist_time, FALSE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(!do_after(trapped_mob, resist_time, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		return
 	to_chat(trapped_mob, span_warning("You have broken out of your tether to [src]!"))
 	cleanup_tether()
@@ -980,7 +980,7 @@
 		return ..()
 
 	to_chat(user, span_warning("You start wiping [current_limb] with the [name]."))
-	if(!do_after(user, 5 SECONDS, TRUE, current_limb, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 5 SECONDS, NONE, current_limb, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		to_chat(user, span_notice("You stop polishing [current_limb]."))
 		return
 	to_chat(user, span_notice("You polish [current_limb] to perfection."))

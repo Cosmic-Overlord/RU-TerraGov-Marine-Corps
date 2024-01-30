@@ -120,7 +120,7 @@
 			T.butchery_progress = 1
 
 		if(T.butchery_progress == 1)
-			if(do_after(src, 7 SECONDS, FALSE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+			if(do_after(src, 7 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 				visible_message(span_danger("[src] makes careful slices and tears out the viscera in \the [T]'s abdominal cavity."), span_notice("You carefully vivisect \the [T], ripping out the guts and useless organs. What a stench!"))
 				T.butchery_progress = 2
 				playsound(loc, 'sound/weapons/slash.ogg', 25)
@@ -128,7 +128,7 @@
 				to_chat(src, span_notice("You pause your butchering for later."))
 
 		if(T.butchery_progress == 2)
-			if(do_after(src, 6.5 SECONDS, FALSE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+			if(do_after(src, 6.5 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 				visible_message(span_danger("[src] hacks away at \the [T]'s limbs and slices off strips of dripping meat."), span_notice("You slice off a few of \the [T]'s limbs, making sure to get the finest cuts."))
 				if(xeno_victim && isturf(xeno_victim.loc))
 					var/obj/item/reagent_containers/food/snacks/meat/xenomeat = new /obj/item/reagent_containers/food/snacks/meat/xenomeat(T.loc)
@@ -143,7 +143,7 @@
 				to_chat(src, span_notice("You pause your butchering for later."))
 
 		if(T.butchery_progress == 3)
-			if(do_after(src, 7 SECONDS, FALSE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+			if(do_after(src, 7 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 				visible_message(span_danger("[src] tears apart \the [T]'s ribcage and begins chopping off bit and pieces."), span_notice("You rip open \the [T]'s ribcage and start tearing the tastiest bits out."))
 				if(xeno_victim && isturf(xeno_victim.loc))
 					var/obj/item/reagent_containers/food/snacks/meat/xenomeat = new /obj/item/reagent_containers/food/snacks/meat/xenomeat(T.loc)
@@ -158,7 +158,7 @@
 				to_chat(src, span_notice("You pause your butchering for later."))
 
 		if(T.butchery_progress == 4)
-			if(do_after(src, 9 SECONDS, FALSE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+			if(do_after(src, 9 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 				if(xeno_victim && isturf(T.loc))
 					visible_message(span_danger("[src] flenses the last of [victim]'s exoskeleton, revealing only bones!."), span_notice("You flense the last of [victim]'s exoskeleton clean off!"))
 					new /obj/effect/decal/remains/xeno(xeno_victim.loc)
@@ -204,7 +204,7 @@
 			visible_message("<b>[src] reaches down and starts beheading [T].</b>","<b>You reach down and start beheading [T].</b>")
 		else
 			visible_message("<b>[src] reaches down and starts removing [T]'s [limbName].</b>","<b>You reach down and start removing [T]'s [limbName].</b>")
-		if(do_after(src, 9 SECONDS, FALSE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+		if(do_after(src, 9 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 			if(limb_datum.limb_status & LIMB_DESTROYED)
 				to_chat(src, span_warning("The victim lacks a [limbName]."))
 				return

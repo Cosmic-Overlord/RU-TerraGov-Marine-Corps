@@ -174,7 +174,7 @@
 	xeno.anchored = TRUE
 	xeno.Immobilize(30 SECONDS)
 
-	if(do_after(xeno, activation_delay, TRUE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(do_after(xeno, activation_delay, NONE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		xeno.visible_message(span_xenohighdanger("[xeno] rips open the guts of [carbon]!"), span_xenohighdanger("You rip open the guts of [carbon]!"))
 		carbon.spawn_gibs()
 		playsound(get_turf(carbon), 'modular_RUtgmc/sound/effects/gibbed.ogg', 75, 1)

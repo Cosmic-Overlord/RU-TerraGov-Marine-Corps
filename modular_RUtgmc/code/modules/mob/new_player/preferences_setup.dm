@@ -10,19 +10,20 @@
 	if(job_override)
 		previewJob = job_override
 
+	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(dummy_type)
+	for(var/obj/item/I in mannequin)
+		qdel(I)
+	mannequin.set_species()
+	copy_to(mannequin)
+	mannequin.update_body()
+	mannequin.update_hair()
 	if(!previewJob)
-		var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(dummy_type)
-		copy_to(mannequin)
 		parent.show_character_previews(new /mutable_appearance(mannequin))
 		unset_busy_human_dummy(dummy_type)
 		return
 
 	if(previewJob.handle_special_preview(parent))
 		return
-
-	// Set up the dummy for its photoshoot
-	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(dummy_type)
-	copy_to(mannequin)
 
 	if(previewJob)
 		mannequin.job = previewJob

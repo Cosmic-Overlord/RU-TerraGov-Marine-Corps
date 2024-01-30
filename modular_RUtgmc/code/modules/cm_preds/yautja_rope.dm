@@ -29,13 +29,13 @@
 
 	var/mob/living/carbon/human/victim = mob_victim
 
-	if(!do_after(user, 1 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 1 SECONDS, NONE, victim, BUSY_ICON_HOSTILE))
 		return TRUE
 
 	user.visible_message(span_notice("[user] starts to secure \his rope to the ceiling..."),
 		span_notice("You start securing the rope to the ceiling..."))
 
-	if(do_after(user, 4 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE))
+	if(do_after(user, 4 SECONDS, NONE, victim, BUSY_ICON_HOSTILE))
 		var/turf/rturf = get_turf(victim)
 		var/area/rarea = get_area(victim)
 		if(rturf.density)
@@ -46,11 +46,11 @@
 			return TRUE
 		user.visible_message(span_notice("[user] secures the rope."),
 			span_notice("You secure the rope."))
-		if(!do_after(user, 1 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE))
+		if(!do_after(user, 1 SECONDS, NONE, victim, BUSY_ICON_HOSTILE))
 			return
 		user.visible_message(span_warning("[user] begins hanging [victim] up by the rope..."),
 			span_notice("You start hanging [victim] up by the rope..."))
-		if(!do_after(user, 3 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE))
+		if(!do_after(user, 3 SECONDS, NONE, victim, BUSY_ICON_HOSTILE))
 			return
 		user.visible_message(span_warning("[user] hangs [victim] from the ceiling!"), span_notice("You finish hanging [victim]."))
 		playsound(loc, 'modular_RUtgmc/sound/effects/noosed.ogg', 15, 1)

@@ -111,7 +111,7 @@
 			return FALSE
 		user.visible_message(span_danger("[user] jams their [name] into [door] and strains to rip it open..."), span_danger("You jam your [name] into [door] and strain to rip it open..."))
 		playsound(loc, 'sound/effects/metal_creaking.ogg', 25, TRUE)
-		if(do_after(user, 3 SECONDS, TRUE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && door.density)
+		if(do_after(user, 3 SECONDS, NONE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && door.density)
 			user.visible_message(span_danger("[user] forces [door] open with the [name]!"), span_danger("You force [door] open with the [name]."))
 			door.open(TRUE)
 
@@ -122,13 +122,13 @@
 		if(door.density)
 			user.visible_message(span_danger("[user] jams their [name] into [door] and strains to rip it open..."), span_danger("You jam your [name] into [door] and strain to rip it open..."))
 			playsound(loc, 'sound/weapons/wristblades_hit.ogg', 15, TRUE)
-			if(do_after(user, 1.5 SECONDS, TRUE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && door.density)
+			if(do_after(user, 1.5 SECONDS, NONE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && door.density)
 				user.visible_message(span_danger("[user] forces [door] open using the [name]!"), span_danger("You force [door] open with your [name]."))
 				door.toggle_state()
 		else
 			user.visible_message(span_danger("[user] pushes [door] with their [name] to force it closed..."), span_danger("You push [door] with your [name] to force it closed..."))
 			playsound(loc, 'sound/weapons/wristblades_hit.ogg', 15, TRUE)
-			if(do_after(user, 2 SECONDS, TRUE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && !door.density)
+			if(do_after(user, 2 SECONDS, NONE, door, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE) && !door.density)
 				user.visible_message(span_danger("[user] forces [door] closed using the [name]!"), span_danger("You force [door] closed with your [name]."))
 				door.toggle_state()
 
@@ -520,7 +520,7 @@
 	if(!human_adapted && !HAS_TRAIT(user, TRAIT_SUPER_STRONG))
 		user.visible_message(span_danger("[user] starts to untangle the chain on \the [src]..."), span_notice("You start to untangle the chain on \the [src]..."))
 		playsound(loc, 'modular_RUtgmc/sound/items/chain_fumble.ogg', 25)
-		if(do_after(user, 3 SECONDS, TRUE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, PROGRESS_BRASS))
+		if(do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, PROGRESS_BRASS))
 			..()
 	else ..()
 
@@ -584,13 +584,13 @@
 	if(victim.overlays_standing[FLAY_LAYER]) //Already fully flayed. Possibly the user wants to cut them down?
 		return ..()
 
-	if(!do_after(user, 1 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 1 SECONDS, NONE, victim, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		return TRUE
 
 	user.visible_message(span_danger("<B>[user] begins to flay [victim] with \a [src]...</B>"),
 		span_danger("<B>You start flaying [victim] with your [src.name]...</B>"))
 	playsound(loc, 'sound/weapons/pierce.ogg', 25)
-	if(do_after(user, 4 SECONDS, FALSE, victim, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(do_after(user, 4 SECONDS, NONE, victim, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		if(SEND_SIGNAL(victim, COMSIG_HUMAN_FLAY_ATTEMPT, user, src) & COMPONENT_ITEM_NO_ATTACK) //In case two preds try to flay the same person at once.
 			return TRUE
 		user.visible_message(span_danger("<B>[user] makes a series of cuts in [victim]'s skin.</B>"),
@@ -635,7 +635,7 @@
 	return COMPONENT_ITEM_NO_ATTACK
 
 /datum/flaying_datum/proc/flay(mob/living/carbon/human/target, mob/living/carbon/human/user, obj/item/tool)
-	if(!do_after(user, 4 SECONDS, TRUE, victim, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 4 SECONDS, NONE, victim, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		to_chat(user, span_warning("You were interrupted before you could finish your work!"))
 		current_flayer = null
 		return
@@ -735,7 +735,7 @@
 
 	playsound(loc, 'sound/weapons/pierce.ogg', 25)
 	to_chat(user, span_warning("You start flaying the skin from [current_limb]."))
-	if(!do_after(user, 2 SECONDS, FALSE, current_limb, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 2 SECONDS, NONE, current_limb, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		to_chat(user, span_notice("You decide not to flay [current_limb]."))
 		return
 	to_chat(user, span_warning("You finish flaying [current_limb]."))

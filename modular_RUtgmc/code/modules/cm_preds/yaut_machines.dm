@@ -42,7 +42,7 @@
 		return
 	icon_state = "vat_boiling"
 	to_chat(user, span_warning("You place [current_limb] in and start the cauldron."))
-	if(!do_after(user, 15 SECONDS, FALSE, current_limb, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(!do_after(user, 15 SECONDS, NONE, current_limb, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		to_chat(user, span_notice("You pull [current_limb] back out of the cauldron."))
 		icon_state = initial(icon_state)
 		return

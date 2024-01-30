@@ -158,7 +158,7 @@
 	to_chat(user, span_notice("You press a few buttons..."))
 	//Add a little delay so the user wouldn't be just spamming all the buttons
 	user.next_move = world.time + 3
-	if(do_after(usr, 3, TRUE, src, BUSY_ICON_FRIENDLY))
+	if(do_after(usr, 3, NONE, src, BUSY_ICON_FRIENDLY))
 		if(prob(randomProbability))
 			return activate_random_verb(user)
 		if(!prob(workingProbability))
