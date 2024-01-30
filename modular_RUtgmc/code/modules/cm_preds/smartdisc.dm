@@ -54,17 +54,19 @@
 		boomerang(user)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/boomerang(mob/user)
+	active = TRUE
+	icon_state = initial(icon_state) + "_active"
 	sleep(1 SECONDS)
 	var/mob/living/L = find_target(user)
-	icon_state = initial(icon_state) + "_active"
 	if(L)
 		throw_at(L.loc, 4, 6.67, usr)
-	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 3 SECONDS)
-	sleep(1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 4 SECONDS)
+	sleep(2 SECONDS)
 	throw_at(usr, 12, 1, usr)
 	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/clear_boomerang()
+	active = FALSE
 	icon_state = initial(icon_state)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/find_target(mob/user)

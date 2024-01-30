@@ -5,23 +5,23 @@
 	var/do_after_time
 	///Fumble time for unskilled users
 	var/fumble_duration
-	var/scalpel
+	var/alt_attack
 
-/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, _scalpel = FALSE)
+/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, _alt_attack = FALSE)
 	. = ..()
 	if(!isitem(target) || (duration < 1))
 		return ELEMENT_INCOMPATIBLE
 	do_after_time = duration
 	fumble_duration = fumble_time ? fumble_time : do_after_time
-	scalpel = _scalpel
-	if(scalpel)
+	alt_attack = _alt_attack
+	if(!alt_attack)
 		RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
 	else
 		RegisterSignal(target, COMSIG_ITEM_ATTACK_ALTERNATE, PROC_REF(on_attack))
 
 /datum/element/shrapnel_removal/Detach(datum/source, force)
 	. = ..()
-	if(scalpel)
+	if(!alt_attack)
 		UnregisterSignal(source, COMSIG_ITEM_ATTACK)
 	else
 		UnregisterSignal(source, COMSIG_ITEM_ATTACK_ALTERNATE)

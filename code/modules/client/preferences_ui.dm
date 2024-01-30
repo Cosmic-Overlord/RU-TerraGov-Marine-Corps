@@ -187,7 +187,7 @@
 			.["mapRef"] = "player_pref_map"
 //RUTGMC EDIT ADDITION BEGIN - Preds
 		if(PRED_CHARACTER_CUSTOMIZATION)
-			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_HUMAN_SLOT_PREFERENCES_ADDITIONAL)
+			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_PRED_SLOT_PREFERENCES)
 			.["mapRef"] = "player_pref_map"
 //RUTGMC EDIT ADDITION END
 		if(GEAR_CUSTOMIZATION)
@@ -1014,7 +1014,7 @@
 		if(CHARACTER_CUSTOMIZATION)
 			update_preview_icon()
 		if(PRED_CHARACTER_CUSTOMIZATION)
-			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_HUMAN_SLOT_PREFERENCES_ADDITIONAL)
+			update_preview_icon(SSjob.GetJobType(/datum/job/predator), DUMMY_PRED_SLOT_PREFERENCES)
 //RUTGMC EDIT ADDITION END
 	ui_interact(user, ui)
 	SEND_SIGNAL(current_client, COMSIG_CLIENT_PREFERENCES_UIACTED)

@@ -34,7 +34,7 @@
 #define CATEGORY_YAUTJA "YAUTJA"
 #define HUNTERSHIPS_TEMPLATE_PATH "_maps/~RUTGMC/predship/huntership.dmm"
 
-#define DUMMY_HUMAN_SLOT_PREFERENCES_ADDITIONAL "dummy_preference_preview_second"
+#define DUMMY_PRED_SLOT_PREFERENCES "dummy_preference_preview_second"
 
 #define PRED_MATERIALS list("ebony", "silver", "bronze", "crimson", "bone")
 #define PRED_TRANSLATORS list("Modern", "Retro", "Combo")

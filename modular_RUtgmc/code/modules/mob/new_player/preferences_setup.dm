@@ -27,7 +27,7 @@
 
 	if(previewJob)
 		mannequin.job = previewJob
-		previewJob.equip_dummy(mannequin, preference_source = parent)
+		previewJob.equip_dummy(mannequin, null, parent)
 
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(dummy_type)
