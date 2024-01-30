@@ -156,3 +156,11 @@
 /obj/item/armor_module/module/fire_proof_helmet
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+
+/obj/item/armor_module/module/valkyrie_autodoc/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	var/list/bicaridine = list(/datum/reagent/medicine/bicaridine)
+	var/list/kelotane = list(/datum/reagent/medicine/kelotane)
+	var/list/tramadol = list(/datum/reagent/medicine/tramadol)
+	/// This will do nothing without the autodoc update
+	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES,  kelotane, kelotane, bicaridine, bicaridine, tramadol, 0.5)
