@@ -2,6 +2,9 @@
 	var/required_trait = TRAIT_YAUTJA_TECH// Only predators can do this
 	var/depth_op = 0
 
+/datum/surgery_step/mcomp_wounds/is_valid_target(mob/living/carbon/target)
+	return TRUE
+
 /datum/surgery_step/mcomp_wounds/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(target_zone != "chest")
 		return SURGERY_CANNOT_USE

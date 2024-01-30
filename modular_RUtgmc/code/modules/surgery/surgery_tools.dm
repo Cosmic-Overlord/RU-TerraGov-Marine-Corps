@@ -22,27 +22,14 @@
 /obj/item/tool/surgery/scalpel/predatorscalpel
 	name = "cutter"
 	icon_state = "predator_scalpel"
-	force = 20.0
-
-/obj/item/tool/surgery/scalpel/laser1
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks basic and could be improved."
-	icon_state = "scalpel_laser1_on"
-	damtype = BURN
-
-/obj/item/tool/surgery/scalpel/laser2
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks somewhat advanced."
-	icon_state = "scalpel_laser2_on"
-	damtype = BURN
-	force = 12.0
+	force = 20
 
 /obj/item/tool/surgery/circular_saw/predatorbonesaw
 	name = "bone saw"
 	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bonesaw"
 	flags_item = ITEM_PREDATOR
-	force = 20.0
+	force = 20
 
 /obj/item/tool/surgery/bonegel/predatorbonegel
 	name = "gel gun"

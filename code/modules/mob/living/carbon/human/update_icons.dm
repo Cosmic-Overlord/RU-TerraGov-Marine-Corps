@@ -329,13 +329,13 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
 	if(h_style && !(head?.flags_inv_hide & HIDETOPHAIR))
-		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
+		var/datum/sprite_accessory/hair_style = species.get_hairstyle(h_style)
 		if(hair_style && (species.name in hair_style.species_allowed))
 			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			if(hair_style.do_colouration)
 				var/icon/grad_s
 				if(grad_style && grad_style != "None")
-					var/datum/sprite_accessory/gradient = species.get_hairstyle(h_style)
+					var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
 					grad_s = new/icon("icon" = gradient.icon, "icon_state" = gradient.icon_state)
 					grad_s.Blend(hair_s, ICON_ADD)
 					grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_ADD)
