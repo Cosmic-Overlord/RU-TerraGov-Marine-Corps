@@ -60,15 +60,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	flags_item = ITEM_PREDATOR
 
-/obj/item/tool/surgery/stabilizer_gel/attack(mob/living/M as mob, mob/user as mob)
-	if(!istype(M) || !istype(user))
-		return FALSE
-
-	if(M.can_be_operated_on(user) && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
-		return TRUE
-
-	return FALSE
-
 /obj/item/tool/surgery/healing_gun
 	name = "healing gun"
 	desc = "Used for mending stabilized wounds."
