@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(predships)
 		)
 
 	while(clan_players.NextRow())
-		var/clan_rank = clan_players.item[2] > 0 && clan_players.item[2] <= clan_ranks_ordered.len ? clan_ranks_ordered[clan_players.item[2]] : clan_ranks_ordered[1]
+		var/clan_rank = clan_players.item[2] > 0 && clan_players.item[2] <= GLOB.clan_ranks_ordered.len ? GLOB.clan_ranks_ordered[clan_players.item[2]] : GLOB.clan_ranks_ordered[1]
 		.["clan_keys"] += list(list(
 			name = clan_players.item[1],
 			rank = clan_rank, // rank_to_give not used here, because we need to get their visual rank, not their position
@@ -364,7 +364,7 @@ SUBSYSTEM_DEF(predships)
 				log_admin("[key_name_admin(user)] has removed [db_query.item[1]] from their current clan.")
 
 				db_query.sql = "UPDATE [format_table_name("clan_player")] SET clan_rank = :clan_rank, clan_id = 0 WHERE byond_ckey = :byond_ckey"
-				db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = clan_ranks_ordered[CLAN_RANK_YOUNG])
+				db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = GLOB.clan_ranks_ordered[CLAN_RANK_YOUNG])
 				db_query.Execute()
 
 			else if(input == "Remove from Ancient")
@@ -372,7 +372,7 @@ SUBSYSTEM_DEF(predships)
 				log_admin("[key_name_admin(user)] has removed [db_query.item[1]] from ancient.")
 
 				db_query.sql = "UPDATE [format_table_name("clan_player")] SET clan_rank = :clan_rank, permissions = :permissions WHERE byond_ckey = :byond_ckey"
-				db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = clan_ranks_ordered[CLAN_RANK_YOUNG], "permissions" = clan_ranks[CLAN_RANK_YOUNG].permissions)
+				db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = GLOB.clan_ranks_ordered[CLAN_RANK_YOUNG], "permissions" = GLOB.clan_ranks[CLAN_RANK_YOUNG].permissions)
 				db_query.Execute()
 
 			else if(input == "Make Ancient" && is_clan_manager)
@@ -380,7 +380,7 @@ SUBSYSTEM_DEF(predships)
 				log_admin("[key_name_admin(user)] has made [db_query.item[1]] an ancient.")
 
 				db_query.sql = "UPDATE [format_table_name("clan_player")] SET clan_rank = :clan_rank, permissions = :permissions WHERE byond_ckey = :byond_ckey"
-				db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = clan_ranks_ordered[CLAN_RANK_ADMIN], "permissions" = CLAN_PERMISSION_ADMIN_ANCIENT)
+				db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = GLOB.clan_ranks_ordered[CLAN_RANK_ADMIN], "permissions" = CLAN_PERMISSION_ADMIN_ANCIENT)
 				db_query.Execute()
 
 			else
@@ -389,7 +389,7 @@ SUBSYSTEM_DEF(predships)
 
 				if(!(db_query.item[3] & CLAN_PERMISSION_ADMIN_ANCIENT))
 					db_query.sql = "UPDATE [format_table_name("clan_player")] SET clan_rank = :clan_rank, permissions = :permissions WHERE byond_ckey = :byond_ckey"
-					db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = clan_ranks_ordered[CLAN_RANK_BLOODED], "permissions" = clan_ranks[CLAN_RANK_BLOODED].permissions)
+					db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = GLOB.clan_ranks_ordered[CLAN_RANK_BLOODED], "permissions" = GLOB.clan_ranks[CLAN_RANK_BLOODED].permissions)
 					db_query.Execute()
 
 				db_query.sql = "UPDATE [format_table_name("clan_player")] SET clan_id = :clan_id WHERE byond_ckey = :byond_ckey"
@@ -414,7 +414,7 @@ SUBSYSTEM_DEF(predships)
 				to_chat(user, span_warning("This player doesn't belong to a clan!"))
 				return
 
-			var/list/datum/yautja_rank/ranks = clan_ranks.Copy()
+			var/list/datum/yautja_rank/ranks = GLOB.clan_ranks.Copy()
 			ranks -= CLAN_RANK_ADMIN // Admin rank should not and cannot be obtained from here
 
 			var/datum/yautja_rank/chosen_rank
@@ -440,7 +440,7 @@ SUBSYSTEM_DEF(predships)
 
 				if(chosen_rank.limit_type)
 					db_query.sql = "SELECT byond_ckey, clan_rank, permissions, clan_id, honor FROM [format_table_name("clan_player")] WHERE clan_id = :clan_id AND clan_rank = :clan_rank"
-					db_query.arguments = list("clan_id" = clan_id, "clan_rank" = clan_ranks_ordered[input])
+					db_query.arguments = list("clan_id" = clan_id, "clan_rank" = GLOB.clan_ranks_ordered[input])
 					db_query.Execute()
 
 					var/players_in_rank = length(db_query.rows)
@@ -470,7 +470,7 @@ SUBSYSTEM_DEF(predships)
 			to_chat(user, span_notice("Set [db_query.item[1]]'s rank to [chosen_rank.name]"))
 
 			db_query.sql = "UPDATE [format_table_name("clan_player")] SET clan_rank = :clan_rank, permissions = :permissions WHERE byond_ckey = :byond_ckey"
-			db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = clan_ranks_ordered[chosen_rank.name], "permissions" = chosen_rank.permissions)
+			db_query.arguments = list("byond_ckey" = params["ckey"], "clan_rank" = GLOB.clan_ranks_ordered[chosen_rank.name], "permissions" = chosen_rank.permissions)
 			db_query.Execute()
 
 /datum/clan_ui/ui_status(mob/user, datum/ui_state/state)

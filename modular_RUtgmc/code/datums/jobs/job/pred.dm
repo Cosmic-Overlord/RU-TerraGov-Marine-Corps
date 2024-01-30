@@ -30,7 +30,7 @@
 	var/clan_rank = CLAN_RANK_BLOODED
 	if(player.clan_info)
 		clan_id = player.clan_info.item[4]
-		clan_rank = player.clan_info.item[2] > 0 && player.clan_info.item[2] <= clan_ranks_ordered.len ? clan_ranks_ordered[player.clan_info.item[2]] : clan_ranks_ordered[1]
+		clan_rank = player.clan_info.item[2] > 0 && player.clan_info.item[2] <= GLOB.clan_ranks_ordered.len ? GLOB.clan_ranks_ordered[player.clan_info.item[2]] : GLOB.clan_ranks_ordered[1]
 
 	SSpredships.load_new(clan_id)
 	var/turf/spawn_point = SAFEPICK(SSpredships.get_clan_spawnpoints(clan_id))
@@ -52,7 +52,7 @@
 	if(!player || !player.clan_info)
 		return CLAN_RANK_BLOODED
 
-	var/title = player.clan_info.item[2] > 0 && player.clan_info.item[2] <= clan_ranks_ordered.len ? clan_ranks_ordered[player.clan_info.item[2]] : clan_ranks_ordered[1]
+	var/title = player.clan_info.item[2] > 0 && player.clan_info.item[2] <= GLOB.clan_ranks_ordered.len ? GLOB.clan_ranks_ordered[player.clan_info.item[2]] : GLOB.clan_ranks_ordered[1]
 
 	if(!title)
 		return CLAN_RANK_BLOODED
