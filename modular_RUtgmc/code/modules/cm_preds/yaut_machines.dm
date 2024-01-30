@@ -6,12 +6,6 @@
 
 	minimap_flag = MINIMAP_FLAG_XENO|MINIMAP_FLAG_MARINE|MINIMAP_FLAG_MARINE_SOM|MINIMAP_FLAG_EXCAVATION_ZONE|MINIMAP_FLAG_YAUTJA
 
-/obj/machinery/autolathe/yautja
-	name = "yautja autolathe"
-	desc = "It produces items using metal and glass."
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
-	icon_state = "autholate_r"
-
 /obj/machinery/prop/yautja/bubbler
 	name = "yautja cauldron"
 	desc = "A large, black machine emitting an ominous hum with an attached pot of boiling fluid. Bits of what appears to be leftover lard and balls of hair can be seen floating inside of it."
@@ -81,6 +75,31 @@
 		/obj/item/tool/kitchen/utensil/knife = 2,
 		/obj/item/tool/kitchen/rollingpin = 2,
 		/obj/item/tool/kitchen/knife/butcher = 2,
+	)
+
+/obj/machinery/vending/engivend/yautja
+	name = "yautja autolathe"
+	desc = "Weird alien industrial fabricator."
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "autolathe"
+	icon_vend = "autholate_n"
+	products = list(
+		/obj/item/multitool/yautja = -1,
+		/obj/item/tool/analyzer = -1,
+		/obj/item/t_scanner = -1,
+		/obj/item/taperecorder = -1,
+		/obj/item/assembly/igniter = -1,
+		/obj/item/assembly/signaler = -1,
+		/obj/item/assembly/infra = -1,
+		/obj/item/assembly/timer = -1,
+		/obj/item/assembly/prox_sensor = -1,
+		/obj/item/light_bulb/tube = -1,
+		/obj/item/light_bulb/bulb = -1,
+		/obj/item/ashtray/glass = -1,
+		/obj/item/frame/camera = -1,
+		/obj/item/frame/table/reinforced = 10,
+		/obj/item/frame/table = 10,
+		/obj/item/reagent_containers/glass/bucket = -1,
 	)
 
 /obj/machinery/griddle/yautja

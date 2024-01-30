@@ -21,6 +21,8 @@
 	throwforce = 35
 	throw_speed = 1
 
+	G_hit_sound = null
+	G_throw_sound = 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg'
 	hitsound = 'modular_RUtgmc/sound/effects/smartdisk_hit.ogg'
 
 	var/mob/living/simple_animal/hostile/smartdisc/spawned_item
