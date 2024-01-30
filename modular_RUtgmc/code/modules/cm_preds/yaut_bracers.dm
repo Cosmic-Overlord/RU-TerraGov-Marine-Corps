@@ -503,7 +503,7 @@
 		ADD_TRAIT(M, TRAIT_LIGHT_STEP, TRAIT_LIGHT_STEP)
 		log_game("[key_name_admin(usr)] has enabled their cloaking device.")
 		M.visible_message(span_warning("[M] vanishes into thin air!"), span_notice("You are now invisible to normal detection."))
-		playsound(M.loc,'sound/effects/pred_cloakon.ogg', 30)
+		playsound(M.loc,'modular_RUtgmc/sound/effects/pred_cloakon.ogg', 30)
 		animate(M, alpha = new_alpha, time = 1.5 SECONDS, easing = SINE_EASING|EASE_OUT)
 
 		var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
@@ -1129,7 +1129,7 @@
 	REMOVE_TRAIT(user, TRAIT_LIGHT_STEP, TRAIT_LIGHT_STEP)
 	log_game("[key_name_admin(usr)] has disabled their cloaking device.")
 	user.visible_message(span_warning("[user] shimmers into existence!"), span_warning("Your cloaking device deactivates."))
-	playsound(user.loc, 'sound/effects/pred_cloakoff.ogg', 35)
+	playsound(user.loc, 'modular_RUtgmc/sound/effects/pred_cloakoff.ogg', 35)
 	user.alpha = initial(user.alpha)
 	if(true_cloak)
 		user.invisibility = initial(user.invisibility)

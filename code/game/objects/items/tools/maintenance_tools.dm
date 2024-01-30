@@ -75,11 +75,12 @@
 	sharp = IS_SHARP_ITEM_SIMPLE
 	edge = 1
 	tool_behaviour = TOOL_WIRECUTTER
+	var/has_color = TRUE //RUTGMC EDIT
 
 
 /obj/item/tool/wirecutters/Initialize(mapload)
 	. = ..()
-	if(prob(50))
+	if(prob(50) & has_color == TRUE) //RUTGMC EDIT
 		icon_state = "cutters-y"
 		item_state = "cutters_yellow"
 

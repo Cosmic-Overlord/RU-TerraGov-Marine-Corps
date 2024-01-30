@@ -1227,7 +1227,7 @@
 /obj/item/weapon/gun/energy/yautja/plasma_caster/change_ammo_type(mob/user)
 	var/list/available_modes = list()
 	for(var/proj_mode in modes)
-		available_modes += list("[proj_mode]" = image(icon = 'icons/mob/radial.dmi', icon_state = modes[proj_mode]))
+		available_modes += list("[proj_mode]" = image(icon = 'modular_RUtgmc/icons/mob/radial.dmi', icon_state = modes[proj_mode]))
 
 	var/selected_mode = show_radial_menu(user, user, modes, null, 64, tooltips = TRUE)
 	if(selected_mode)

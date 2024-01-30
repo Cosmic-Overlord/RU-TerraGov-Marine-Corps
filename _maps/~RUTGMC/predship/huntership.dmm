@@ -515,11 +515,6 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/weapon/gun/energy/yautja/plasma_caster{
-	anchored = 1;
-	desc = "A powerful, shoulder-mounted energy weapon. This one is damaged beyond use.";
-	name = "damaged plasma caster"
-	},
 /turf/open/floor/corsat,
 /area/yautja)
 "br" = (
@@ -937,7 +932,7 @@
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
 "cC" = (
-/obj/machinery/autolathe/yautja,
+/obj/machinery/vending/engivend/yautja,
 /turf/open/floor/corsat,
 /area/yautja)
 "cF" = (
@@ -1156,6 +1151,20 @@
 	icon_state = "multi_tiles"
 	},
 /area/yautja)
+"cZ" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e";
+	resistance_flags = 1
+	},
+/obj/item/weapon/claymore/mercsword/machete{
+	anchored = 1;
+	icon_state = "arnold-machete";
+	desc = "Won by an Elder during their youthful hunting days. None are allowed to touch it.";
+	name = "\improper Dutch's Machete";
+	force = 130
+	},
+/turf/open/floor/corsat,
+/area/yautja)
 "da" = (
 /obj/structure/table/mainship{
 	color = "#6b675e";
@@ -1337,6 +1346,18 @@
 "fj" = (
 /obj/machinery/cryopod,
 /turf/open/shuttle/dropship/fourteen,
+/area/yautja)
+"fk" = (
+/obj/structure/table/reinforced/prison{
+	color = "#6b675e";
+	resistance_flags = 1
+	},
+/obj/item/weapon/twohanded/rocketsledge{
+	anchored = 1;
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/open/floor/corsat,
 /area/yautja)
 "fq" = (
 /obj/structure/window/framed/colony/reinforced/hull{
@@ -5656,7 +5677,7 @@ bL
 bj
 JH
 ab
-ly
+fk
 bL
 bL
 cP
@@ -5947,7 +5968,7 @@ bL
 bL
 bL
 bI
-ly
+cZ
 bE
 bL
 bL

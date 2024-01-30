@@ -245,11 +245,15 @@
 	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
-	starting_attachments = list(/obj/item/storage/internal/shoes/boot_knife/full_yautja)
+	attachments_allowed = list(
+		/obj/item/armor_module/storage/boot/yautja_knife
+	)
+	starting_attachments = list(/obj/item/armor_module/storage/boot/yautja_knife)
 
-/obj/item/storage/internal/shoes/boot_knife/full_yautja/Initialize()
+/obj/item/armor_module/storage/boot/yautja_knife/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/yautja/knife(src)
+	new /obj/item/weapon/yautja/knife(storage)
+
 
 /obj/item/clothing/under/chainshirt
 	name = "ancient alien mesh suit"
@@ -1154,6 +1158,7 @@
 	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wirescutter"
 	item_state = "wirescutter"
+	has_color = FALSE
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'
