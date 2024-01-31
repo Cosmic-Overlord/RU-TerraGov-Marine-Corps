@@ -331,7 +331,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(SSmonitor.gamestate == SHUTTERS_CLOSED && is_ground_level(owner.z))
+	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
 		if(!silent)
 			owner.balloon_alert("too early")
 		return FALSE
