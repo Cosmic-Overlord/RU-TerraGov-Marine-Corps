@@ -38,14 +38,14 @@
 	var/list/pain_chems
 
 	var/static/list/default_burn_chems = list(
-		/datum/reagent/medicine/dermaline, //RUTGMC EDIT /datum/reagent/medicine/kelotane
+		/datum/reagent/medicine/kelotane,
 		/datum/reagent/medicine/tricordrazine)
 	var/static/list/default_oxy_chems = list(
 		/datum/reagent/medicine/dexalinplus,
 		/datum/reagent/medicine/inaprovaline,
 		/datum/reagent/medicine/tricordrazine)
 	var/static/list/default_brute_chems = list(
-		/datum/reagent/medicine/meralyne, //RUTGMC EDIT  /datum/reagent/medicine/bicaridine
+		/datum/reagent/medicine/bicaridine,
 		/datum/reagent/medicine/quickclot,
 		/datum/reagent/medicine/tricordrazine)
 	var/static/list/default_tox_chems = list(
