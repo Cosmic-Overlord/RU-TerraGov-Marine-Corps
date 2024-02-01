@@ -1,3 +1,11 @@
+/obj/structure/xeno/proc/weed_removed()
+	SIGNAL_HANDLER
+	var/obj/alien/weeds/found_weed = locate(/obj/alien/weeds) in loc
+	if(found_weed.obj_integrity <= 0)
+		obj_destruction(damage_flag = MELEE)
+	else
+		obj_destruction()
+
 /obj/structure/xeno/silo
 	plane = FLOOR_PLANE
 	icon = 'modular_RUtgmc/icons/Xeno/resin_silo.dmi'
