@@ -11,8 +11,6 @@
 		previewJob = job_override
 
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(dummy_type)
-	for(var/obj/item/I in mannequin)
-		qdel(I)
 	mannequin.set_species()
 	copy_to(mannequin)
 	mannequin.update_body()
