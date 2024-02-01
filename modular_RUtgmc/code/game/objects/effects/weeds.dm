@@ -4,7 +4,7 @@
 /obj/alien/weeds/check_for_parent_node()
 	if(parent_node)
 		return
-	obj_integrity = 0 // used for xeno structures to destroy with effects
+	obj_integrity = 0 // used for xeno structures, such as acid wells and traps, to destroy with effects
 	qdel(src)
 
 /obj/alien/weeds/weedwall
