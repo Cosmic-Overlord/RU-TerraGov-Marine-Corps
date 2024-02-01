@@ -4,3 +4,6 @@
 /obj/structure/xenoautopsy/tank/hugger/release_occupant()
 	if(mob_occupant)
 		new mob_occupant(loc)
+
+/obj/structure/cryopods
+	icon_state = "body_scanner"
