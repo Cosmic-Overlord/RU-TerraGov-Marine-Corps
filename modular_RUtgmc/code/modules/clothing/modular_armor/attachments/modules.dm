@@ -159,8 +159,12 @@
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	var/list/bicaridine = list(/datum/reagent/medicine/bicaridine)
-	var/list/kelotane = list(/datum/reagent/medicine/kelotane)
-	var/list/tramadol = list(/datum/reagent/medicine/tramadol)
+	var/static/list/valkyrie_burn_chemicals = list(
+		/datum/reagent/medicine/kelotane,
+		/datum/reagent/medicine/tricordrazine)
+	var/static/list/valkyrie_brute_chemicals = list(
+		/datum/reagent/medicine/bicaridine,
+		/datum/reagent/medicine/tricordrazine)
+	var/list/oxycodone = list(/datum/reagent/medicine/oxycodone)
 	/// This will do nothing without the autodoc update
-	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES,  kelotane, kelotane, bicaridine, bicaridine, tramadol, 0.5)
+	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES,  valkyrie_burn_chemicals, valkyrie_burn_chemicals, valkyrie_brute_chemicals, valkyrie_brute_chemicals, oxycodone, 0.5)
