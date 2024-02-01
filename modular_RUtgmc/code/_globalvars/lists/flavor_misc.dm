@@ -43,6 +43,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"xenominion",
 	"xenoqueen",
 	"xenoshrike",
+	"chimera",
 ))
 
 GLOBAL_LIST_INIT(minimap_icons, init_minimap_icons())
