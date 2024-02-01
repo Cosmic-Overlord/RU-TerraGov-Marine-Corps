@@ -1129,7 +1129,7 @@
 	decay_time = initial(decay_time)
 	decay_amount = initial(decay_amount)
 	if(xeno_owner.wrath_stored < xeno_owner.xeno_caste.wrath_max)
-		clamp(xeno_owner.wrath_stored + (amount * PRIMAL_WRATH_GAIN_MULTIPLIER), 0, xeno_owner.xeno_caste.wrath_max)
+		xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored + (amount * PRIMAL_WRATH_GAIN_MULTIPLIER), 0, xeno_owner.xeno_caste.wrath_max)
 
 /**
  * Toggles the buff, which increases the owner's damage based on a multiplier, and gives them a particle effect.
