@@ -44,6 +44,8 @@
 		//RUTGMC EDIT ADDITION BEGIN - XENO_STOMP
 		if(FOOTSTEP_XENO_STOMPY)
 			footstep_sounds = GLOB.xenostompy
+		if(FOOTSTEP_PREDALIEN_STOMPY)
+			footstep_sounds = GLOB.predalienstompy
 		//RUTGMC EDIT ADDITION END
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(simplestep_wrapper))
 	RegisterSignal(target, COMSIG_ELEMENT_JUMP_ENDED, PROC_REF(play_simplestep))
@@ -143,6 +145,8 @@
 			turf_footstep = source_loc.shoefootstep
 		//RUTGMC EDIT ADDITION BEGIN - XENO_STOMP
 		if(FOOTSTEP_XENO_STOMPY)
+			turf_footstep = source_loc.mediumxenofootstep
+		if(FOOTSTEP_PREDALIEN_STOMPY)
 			turf_footstep = source_loc.mediumxenofootstep
 		//RUTGMC EDIT ADDITION END
 	if(!turf_footstep)
