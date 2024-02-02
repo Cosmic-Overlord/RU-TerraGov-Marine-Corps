@@ -14,7 +14,7 @@ GLOBAL_LIST_EMPTY(hologram_list)
 	var/action_icon_state = "hologram_exit"
 
 	var/mob/linked_mob
-	var/datum/action/leave_hologram/leave_button
+	var/datum/action/predator_action/leave_hologram/leave_button
 
 /mob/hologram/Initialize(mapload, mob/M)
 	if(!M)
