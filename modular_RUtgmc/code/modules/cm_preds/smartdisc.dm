@@ -62,9 +62,9 @@
 	var/mob/living/L = find_target(user)
 	if(L)
 		throw_at(L.loc, 4, 6.67, usr)
-	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 4 SECONDS)
-	sleep(2 SECONDS)
+	sleep(1 SECONDS)
 	throw_at(usr, 12, 1, usr)
+	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 2 SECONDS)
 	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/clear_boomerang()
@@ -145,7 +145,8 @@
 		if(H.put_in_hands(src))
 			hit_atom.visible_message("[hit_atom] expertly catches [src] out of the air.","You catch [src] easily.")
 			throwing = FALSE
-		return
+			return TURF_ENTER_ALREADY_MOVED
+		return FALSE
 	..()
 
 /mob/living/simple_animal/hostile/smartdisc

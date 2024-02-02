@@ -1263,9 +1263,12 @@
 	if(!user)
 		return FALSE
 
+	if(!(flags_equip_slot & ITEM_SLOT_GLOVES))
+		return FALSE
+
 	var/obj/item/grab/held_mob = user.get_active_held_item()
 	if(!istype(held_mob))
-		log_attack("[key_name_admin(usr)] has unlocked their own bracer.")
+		log_attack("[key_name_admin(usr)] has [HAS_TRAIT(src, TRAIT_NODROP) ? "unlocked" : "locked"] their own bracer.")
 		toggle_lock_internal(user)
 		return TRUE
 

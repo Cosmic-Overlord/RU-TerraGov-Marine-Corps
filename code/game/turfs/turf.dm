@@ -156,8 +156,7 @@
 			if(COMPONENT_MOVABLE_PREBUMP_PLOWED)
 				//Continue. We've plowed through the obstacle.
 			else
-				mover.Bump(src)
-				return FALSE
+				return mover.Bump(src)
 	var/atom/firstbump
 	for(var/i in contents)
 		if(QDELETED(mover))

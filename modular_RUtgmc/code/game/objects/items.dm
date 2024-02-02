@@ -19,6 +19,8 @@
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
+			if(!user.item_verbs[v])
+				user.item_verbs[v] = list()
 			user.item_verbs[v] |= src
 	else
 		remove_item_verbs(user)
