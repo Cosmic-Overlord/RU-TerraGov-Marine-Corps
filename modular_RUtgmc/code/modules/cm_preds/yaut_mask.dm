@@ -181,7 +181,7 @@
 	item_state = "thrall_mask"
 	icon = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
 	item_icons = list(
-		slot_wear_mask_str = 'modular_RUtgmc/icons/obj/hunter/thrall_gear.dmi'
+		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/hunter/thrall_gear.dmi'
 	)
 	item_state_slots = list(slot_wear_mask_str = "thrall_mask")
 	thrall = TRUE
