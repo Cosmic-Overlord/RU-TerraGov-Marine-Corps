@@ -10,7 +10,8 @@
 		if(length(user.item_verbs[v]) == 1)
 			if(user.item_verbs[v][1] == src)
 				verbs_to_remove += v
-		user.item_verbs[v] -= src
+		if(user.item_verbs[v])
+			user.item_verbs[v] -= src
 	remove_verb(user, verbs_to_remove)
 
 /obj/item/equipped(mob/user, slot, silent)
