@@ -64,17 +64,17 @@ GLOBAL_LIST_EMPTY(hologram_list)
 
 	return ..()
 
-/datum/action/leave_hologram
+/datum/action/predator_action/leave_hologram
 	name = "Leave"
 	action_icon_state = "drone_return"
 	background_icon_state = "template_pred"
 
 	var/mob/hologram/linked_hologram
 
-/datum/action/leave_hologram/action_activate()
+/datum/action/predator_action/leave_hologram/action_activate()
 	qdel(src)
 
-/datum/action/leave_hologram/Destroy()
+/datum/action/predator_action/leave_hologram/Destroy()
 	if(!QDESTROYING(linked_hologram))
 		QDEL_NULL(linked_hologram)
 	return ..()

@@ -1,5 +1,5 @@
 
-/mob/var/list/list/item_verbs = list()
+/mob/var/list/item_verbs = list()
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(!user.item_verbs)
