@@ -8,13 +8,16 @@
 
 /turf/open/floor/strata //Instance me!
 	icon = 'modular_RUtgmc/icons/turf/strata_floor.dmi'
+	base_icon_state = "floor"
 	icon_state = "floor"
 
 /turf/open/floor/sandstone
 	name = "sandstone floor"
 	icon = 'modular_RUtgmc/icons/turf/sandstone.dmi'
+	base_icon_state = "whiteyellowfull"
 	icon_state = "whiteyellowfull"
 
 /turf/open/floor/sandstone/runed
 	name = "sandstone temple floor"
+	base_icon_state = "runedsandstone"
 	icon_state = "runedsandstone"
