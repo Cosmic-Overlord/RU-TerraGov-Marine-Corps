@@ -125,8 +125,9 @@
 				marines += list(serialized)
 				continue
 
-			serialized["icon"] = job.minimap_icon
-			serialized["job"] = job.title
+			if(job) // RUTGMC ADDITION, ORBIT BREAKAGE FIX
+				serialized["icon"] = job.minimap_icon
+				serialized["job"] = job.title
 
 			if(issommarinejob(human.job))
 				som += list(serialized)
