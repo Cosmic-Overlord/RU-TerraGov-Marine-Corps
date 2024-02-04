@@ -13,4 +13,5 @@
 
 
 /obj/item/weapon/gun/minigun
-	fire_delay = 0.12 SECONDS
+	fire_delay = 0.10 SECONDS
+	max_shells = 600

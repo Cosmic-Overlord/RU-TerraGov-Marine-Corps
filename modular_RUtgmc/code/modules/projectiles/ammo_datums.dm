@@ -190,6 +190,7 @@
 
 /datum/ammo/bullet/minigun
 	sundering = 1.5
+	damage = 15
 
 /*
 //================================================
