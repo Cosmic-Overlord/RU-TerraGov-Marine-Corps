@@ -423,6 +423,7 @@
 			/obj/item/stack/medical/splint = -1,
 		),
 		"Misc" = list(
+			/obj/item/defibrillator = -1,
 			/obj/item/healthanalyzer = -1,
 			/obj/item/healthanalyzer/gloves = -1,
 			/obj/item/bodybag/cryobag = -1,
