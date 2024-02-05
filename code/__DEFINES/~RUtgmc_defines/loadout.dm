@@ -230,3 +230,13 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "orange2"),
 	))
+
+///Assoc list linking the job title with their specific points vendor
+GLOBAL_LIST_INIT(job_specific_points_vendor, list(
+	SQUAD_MARINE = GLOB.marine_gear_listed_products,
+	SQUAD_ENGINEER = GLOB.engineer_gear_listed_products,
+	SQUAD_CORPSMAN = GLOB.medic_gear_listed_products,
+	SQUAD_LEADER = GLOB.leader_gear_listed_products,
+	FIELD_COMMANDER = GLOB.commander_gear_listed_products,
+	SQUAD_SMARTGUNNER = GLOB.smartgunner_gear_listed_products,
+))
