@@ -100,7 +100,6 @@
 		"Chilvaris Combat Robot" = 'icons/mob/species/robot/glasses_charlit.dmi',
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
-	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	flags_equip_slot = ITEM_SLOT_EYES
 	goggles = TRUE
 
