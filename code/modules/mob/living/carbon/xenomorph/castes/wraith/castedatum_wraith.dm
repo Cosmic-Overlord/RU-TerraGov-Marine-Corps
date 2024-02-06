@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 /datum/xeno_caste/wraith
 	caste_name = "Wraith"
 	display_name = "Wraith"
@@ -75,4 +76,4 @@
 		/datum/action/ability/activable/xeno/rewind,
 		/datum/action/ability/xeno_action/timestop,
 	)
-
+RU TGMC EDIT */

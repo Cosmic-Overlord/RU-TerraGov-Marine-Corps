@@ -718,6 +718,7 @@ RU TGMC REMOVENT END */
 //Larva defines
 #define LARVA_VENT_CRAWL_TIME 1 SECONDS //Larva can crawl into vents fast
 
+/* RUTGMC DELETION, WIDOW DELETION
 //Widow Defines
 #define WIDOW_SPEED_BONUS 1 // How much faster widow moves while she has wall_speedup element
 #define WIDOW_WEB_HOOK_RANGE 10 // how far the web hook can reach
@@ -727,6 +728,7 @@ RU TGMC REMOVENT END */
 //Spiderling defines
 #define TIME_TO_DISSOLVE 5 SECONDS
 #define SPIDERLING_RAGE_RANGE 10 // how close a nearby human has to be in order to be targeted
+*/
 
 //misc
 

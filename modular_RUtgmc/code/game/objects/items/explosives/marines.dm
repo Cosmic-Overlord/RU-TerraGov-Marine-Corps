@@ -1,5 +1,15 @@
+/obj/item/explosive/grenade/smokebomb
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+
+/obj/item/explosive/grenade/phosphorus
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+
 /obj/item/explosive/grenade/sticky
 	icon_state_mini = "grenade_sticky"
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = null
 
 /obj/item/explosive/grenade/sticky/trailblazer
 	icon_state_mini = "grenade_trailblazer"
@@ -27,8 +37,8 @@
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"
-	fire_level = 50
-	burn_level = 50
+	fire_level = 45
+	burn_level = 45
 	fire_color = "blue"
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
@@ -43,3 +53,10 @@
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
+
+/obj/item/explosive/grenade/smokebomb/drain
+	icon_state_mini = "grenade_purple"
+
+/obj/item/explosive/grenade/flare
+	G_hit_sound = null
+	G_throw_sound = null

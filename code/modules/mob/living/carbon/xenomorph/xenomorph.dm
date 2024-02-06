@@ -184,6 +184,7 @@
 		if(XENO_UPGRADE_PRIMO)
 			return 1
 
+/* MOVED TO MODULE
 ///Returns the playtime as a number, used for rank icons
 /mob/living/carbon/xenomorph/proc/playtime_as_number()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
@@ -200,6 +201,7 @@
 			return 4
 		else
 			return 0
+*/
 
 /mob/living/carbon/xenomorph/proc/upgrade_next()
 	switch(upgrade)
@@ -290,6 +292,7 @@
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
 	return FALSE
 
+/* RUTGMC DELETION, DRAG SLOWDOWN FIX
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
 		return FALSE //We are already occupied with something.
@@ -312,6 +315,7 @@
 	do_attack_animation(L, ATTACK_EFFECT_GRAB)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_GRAB)
 	return ..()
+*/
 
 /mob/living/carbon/xenomorph/stop_pulling()
 	if(ishuman(pulling))

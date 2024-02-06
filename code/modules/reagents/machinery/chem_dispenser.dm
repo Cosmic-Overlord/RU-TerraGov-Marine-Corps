@@ -195,7 +195,7 @@ RU TGMC REMOVENT END */
 			if(user.do_actions)
 				return
 			to_chat(user, span_notice("You start fiddling with \the [src]..."))
-			if(!do_after(user, SKILL_TASK_EASY, TRUE, src, BUSY_ICON_UNSKILLED))
+			if(!do_after(user, SKILL_TASK_EASY, IGNORE_HELD_ITEM, src, BUSY_ICON_UNSKILLED))
 				return
 //RUTGMC edit end
 

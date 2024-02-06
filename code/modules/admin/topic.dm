@@ -428,8 +428,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/boiler, location, null, delmob)
 			if("crusher")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/crusher, location, null, delmob)
-			if("widow")
-				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/widow, location, null, delmob)
+			//if("widow") //RUTGMC DELETION, WIDOW DELETION
+				//newmob = M.change_mob_type(/mob/living/carbon/xenomorph/widow, location, null, delmob)
 			if("defiler")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/defiler, location, null, delmob)
 			if("gorger")
@@ -444,8 +444,10 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/queen, location, null, delmob)
 			if("king")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/king, location, null, delmob)
+			/* RU TGMC EDIT START
 			if("wraith")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/wraith, location, null, delmob)
+			RU TGMC EDIT END */
 			if("puppeteer")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/puppeteer, location, null, delmob)
 			if("behemoth")
@@ -479,6 +481,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
 			if("panther")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/panther, location, null, delmob)
+			if("chimera")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
 			//RUTGMC EDIT END
 
 		C.holder.show_player_panel(newmob)

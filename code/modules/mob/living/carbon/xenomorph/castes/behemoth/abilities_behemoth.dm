@@ -1014,11 +1014,11 @@
 		if(xeno_owner.wrath_stored <= 0)
 			toggle_buff(FALSE)
 			return
-		xeno_owner.wrath_stored = max(0, xeno_owner.wrath_stored - round(xeno_owner.xeno_caste.wrath_max / PRIMAL_WRATH_ACTIVE_DECAY_DIVISION))
+		xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored - round(xeno_owner.xeno_caste.wrath_max / PRIMAL_WRATH_ACTIVE_DECAY_DIVISION), 0, xeno_owner.xeno_caste.wrath_max)
 		return
 	if(xeno_owner.wrath_stored <= 0)
 		return
-	xeno_owner.wrath_stored = max(0, xeno_owner.wrath_stored - decay_amount)
+	xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored - decay_amount, 0, xeno_owner.xeno_caste.wrath_max)
 	decay_amount = round(decay_amount * PRIMAL_WRATH_DECAY_MULTIPLIER)
 
 /datum/action/ability/xeno_action/primal_wrath/action_activate()
@@ -1103,7 +1103,7 @@
 	if(!ability_active || source_action == src)
 		return
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.wrath_stored = max(0, xeno_owner.wrath_stored - (action_cost / 2))
+	xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored - (action_cost / 2), 0, xeno_owner.xeno_caste.wrath_max)
 	return SUCCEED_ACTIVATE_CANCEL
 
 /**
@@ -1121,7 +1121,7 @@
 	if(ability_active)
 		if(amount >= xeno_owner.health)
 			var/damage_amount = (amount - xeno_owner.health)
-			xeno_owner.wrath_stored = max(0, xeno_owner.wrath_stored - damage_amount)
+			xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored - damage_amount, 0, xeno_owner.xeno_caste.wrath_max)
 			amount_mod += damage_amount + 1
 		if(xeno_owner.wrath_stored <= 0)
 			toggle_buff(FALSE)
@@ -1129,7 +1129,7 @@
 	decay_time = initial(decay_time)
 	decay_amount = initial(decay_amount)
 	if(xeno_owner.wrath_stored < xeno_owner.xeno_caste.wrath_max)
-		xeno_owner.wrath_stored = min(xeno_owner.wrath_stored + (amount * PRIMAL_WRATH_GAIN_MULTIPLIER), xeno_owner.xeno_caste.wrath_max)
+		xeno_owner.wrath_stored = clamp(xeno_owner.wrath_stored + (amount * PRIMAL_WRATH_GAIN_MULTIPLIER), 0, xeno_owner.xeno_caste.wrath_max)
 
 /**
  * Toggles the buff, which increases the owner's damage based on a multiplier, and gives them a particle effect.
