@@ -188,6 +188,10 @@
 	sundering = 2
 	damage_falloff = 3
 
+/datum/ammo/bullet/minigun
+	sundering = 1.5
+	damage = 15
+
 /*
 //================================================
 					Xeno Spits

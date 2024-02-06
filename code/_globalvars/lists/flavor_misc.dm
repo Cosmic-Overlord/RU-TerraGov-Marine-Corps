@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(ai_core_display_screens, list(
 		return "ai-[lowertext(input)]"
 
 	//Backpacks
-GLOBAL_LIST_INIT(backpacklist, list("Nothing", "Backpack", "Satchel"))
+//GLOBAL_LIST_INIT(backpacklist, list("Nothing", "Backpack", "Satchel")) // RUTGMC DELETION, moved to modular
 
 
 GLOBAL_LIST_INIT(genders, list(MALE, FEMALE, NEUTER))

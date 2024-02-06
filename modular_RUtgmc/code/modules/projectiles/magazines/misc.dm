@@ -35,25 +35,25 @@
 	icon_state = "boxt500"
 	default_ammo = /datum/ammo/bullet/revolver/t500
 	caliber = CALIBER_500
+	w_class = WEIGHT_CLASS_SMALL
 	current_rounds = 50
 	max_rounds = 50
-	w_class = WEIGHT_CLASS_SMALL
 	used_casings = 5
-
-/obj/item/ammo_magazine/packet/t500/attack_hand_alternate(mob/living/user)
-	if(current_rounds <= 0)
-		to_chat(user, span_notice("[src] is empty. There is nothing to grab."))
-		return
-	create_handful(user)
 
 /obj/item/ammo_magazine/packet/t500/qk
 	name = "packet of .500 'Queen Killer'"
 	icon_state = "boxt500_qk"
 	default_ammo = /datum/ammo/bullet/revolver/t500/qk
-	caliber = CALIBER_500
+
+/obj/item/ammo_magazine/packet/standard_magnum
+	name = "packet of .12x7mm"
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "box_t76"
+	default_ammo = /datum/ammo/bullet/revolver/t76
+	caliber = CALIBER_12x7
+	w_class = WEIGHT_CLASS_SMALL
 	current_rounds = 50
 	max_rounds = 50
-	w_class = WEIGHT_CLASS_SMALL
 	used_casings = 5
 
 /obj/item/ammo_magazine/packet/p10x24mm/ap
