@@ -4,10 +4,14 @@
 #define COLOR_WHEEL "Color Wheel"
 #define PRESET_COLORS "Preset Colors"
 #define VARIANTS "Variant"
+//RUTGMC ADDITION
+#define HAIR_CONCEALING_CHANGE "Hair Concealing"
 
 #define COLOR_WHEEL_ALLOWED (1<<0)
 #define PRESET_COLORS_ALLOWED (1<<1)
 #define ICON_STATE_VARIANTS_ALLOWED (1<<2)
+//RUTGMC ADDITION
+#define HAIR_CONCEALING_CHANGE_ALLOWED (1<<3)
 
 
 #define JUNGLE_VARIANT "jungle"
