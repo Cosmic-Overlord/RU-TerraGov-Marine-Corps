@@ -37,7 +37,7 @@
 	var/list/L = orange(sweep_range, X)		// Not actually the fruit
 
 		//RU TGMC GRENADE TURF THROW
-	for (var/obj/item/explosive/grenade/G in L)
+	for(var/obj/item/explosive/grenade/G in L)
 		G.knockback(X, 6, 2)
 		//RU TGMC GRENADE TURF THROW END
 
@@ -60,7 +60,6 @@
 
 		to_chat(H, span_xenowarning("We are struck by \the [X]'s tail sweep!"))
 		playsound(H,'sound/weapons/alien_claw_block.ogg', 50, 1)
-
 
 	addtimer(CALLBACK(X, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 	succeed_activate()
