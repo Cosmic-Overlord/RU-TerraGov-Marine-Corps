@@ -36,6 +36,11 @@
 	var/sweep_range = 1
 	var/list/L = orange(sweep_range, X)		// Not actually the fruit
 
+		//RU TGMC GRENADE TURF THROW
+	for (var/obj/item/explosive/grenade/G in L)
+		G.knockback(X, 6, 2)
+		//RU TGMC GRENADE TURF THROW END
+
 	for (var/mob/living/carbon/human/H in L)
 		if(H.stat == DEAD)
 			continue
@@ -56,33 +61,6 @@
 		to_chat(H, span_xenowarning("We are struck by \the [X]'s tail sweep!"))
 		playsound(H,'sound/weapons/alien_claw_block.ogg', 50, 1)
 
-		//RU TGMC GRENADE TURF THROW
-	var/turf/lower_left
-	var/turf/upper_right
-	switch(owner.dir)
-		if(NORTH)
-			lower_left = locate(owner.x - 1, owner.y + 1, owner.z)
-			upper_right = locate(owner.x + 1, owner.y + 0, owner.z)
-		if(SOUTH)
-			lower_left = locate(owner.x - 1, owner.y - 0, owner.z)
-			upper_right = locate(owner.x + 1, owner.y - 1, owner.z)
-		if(WEST)
-			lower_left = locate(owner.x - 0, owner.y - 1, owner.z)
-			upper_right = locate(owner.x - 1, owner.y + 1, owner.z)
-		if(EAST)
-			lower_left = locate(owner.x + 1, owner.y - 1, owner.z)
-			upper_right = locate(owner.x + 0, owner.y + 1, owner.z)
-
-	for(var/turf/affected_tile in block(lower_left, upper_right))
-		for(var/i in affected_tile)
-			var/atom/movable/affected = i
-			if(!istype(affected, /obj/item/explosive/grenade))
-				continue
-			var/throwlocation = affected.loc
-			for(var/x in 1 to 6)
-				throwlocation = get_step(throwlocation, owner.dir)
-			affected.throw_at(throwlocation, 6, 1, owner, TRUE)
-		//RU TGMC GRENADE TURF THROW END
 
 	addtimer(CALLBACK(X, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 	succeed_activate()
