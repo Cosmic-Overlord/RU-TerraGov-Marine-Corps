@@ -110,3 +110,6 @@
 	scatter = -1
 	recoil = 2
 	recoil_unwielded = 3
+
+/obj/item/ammo_magazine/revolver/standard_magnum
+	name = "\improper R-76 speed loader (12x7mm)"

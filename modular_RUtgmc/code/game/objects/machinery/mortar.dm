@@ -1,3 +1,9 @@
+/obj/item/mortar_kit
+	resistance_flags = XENO_DAMAGEABLE
+
+/obj/machinery/deployable/mortar
+	resistance_flags = XENO_DAMAGEABLE
+
 /obj/item/mortar_kit/knee
 	name = "\improper TA-10 knee mortar"
 	desc = "A manual, crew-operated mortar system intended to rain down 50mm shells on anything it's aimed at, typically best known as a 'Knee' mortar. Cannot be actually fired from your kneecaps, so it needs to be set down first to fire. Has a light payload, but an extremely high rate of fire."

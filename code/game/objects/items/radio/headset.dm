@@ -212,6 +212,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	user.ex_act(EXPLODE_LIGHT)
 	qdel(src)
 
+/* RUTGMC DELETION, SL_locator beheading runtime fix
 /obj/item/radio/headset/mainship/dropped(mob/living/carbon/human/user)
 	if(istype(user) && headset_hud_on)
 		disable_squadhud()
@@ -225,6 +226,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			camera.network -= lowertext(user.assigned_squad.name)
 	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE))
 	return ..()
+*/
 
 
 /obj/item/radio/headset/mainship/Destroy()

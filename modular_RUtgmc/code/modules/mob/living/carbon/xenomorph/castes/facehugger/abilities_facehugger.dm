@@ -11,7 +11,7 @@
 	ability_cost = 25
 	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RUNNER_POUNCE,
+		KEYBINDING_NORMAL = COMSING_XENOABILITY_HUGGER_POUNCE,
 	)
 	use_state_flags = ABILITY_USE_BUCKLED
 	///How far can we leap.
@@ -95,7 +95,7 @@
 	var/mob/living/carbon/xenomorph/caster = owner
 
 	prepare_to_pounce()
-	if(!do_after(caster, windup_time, FALSE, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, ABILITY_USE_BUSY)))
+	if(!do_after(caster, windup_time, IGNORE_HELD_ITEM, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, ABILITY_USE_BUSY)))
 		return fail_activate()
 
 	caster.icon_state = "[caster.xeno_caste.caste_name] Thrown"

@@ -34,7 +34,7 @@
 	if(!QDELETED(src))
 		gib()
 
-/mob/living/carbon/xenomorph/puppet/Life()
+/*	/mob/living/carbon/xenomorph/puppet/Life()
 	. = ..()
 	var/atom/movable/master = weak_master?.resolve()
 	if(!master)
@@ -43,7 +43,8 @@
 		adjustBruteLoss(15)
 	else
 		adjustBruteLoss(-5)
-
+				Moved to Modularity
+*/
 /mob/living/carbon/xenomorph/puppet/can_receive_aura(aura_type, atom/source, datum/aura_bearer/bearer)
 	. = ..()
 	var/atom/movable/master = weak_master?.resolve()

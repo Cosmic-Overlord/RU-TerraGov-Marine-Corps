@@ -269,10 +269,12 @@
 	layer = FLY_LAYER
 	pixel_x = -64
 
+/* RUTGMC DELETION, SPLASHSCREEN FIX
 /turf/closed/wall/indestructible/splashscreen/New()
 	..()
 	if(icon_state == "title_painting1")
 		icon_state = "title_painting[rand(0,35)]"
+*/
 
 /turf/closed/wall/indestructible/other
 	icon_state = "r_wall"

@@ -7,7 +7,7 @@
 	desc = "Spray a cone of dangerous acid at your target."
 	ability_cost = 300
 	cooldown_duration = 40 SECONDS
-
+/* RU TGMC EDIT //Overwritten in modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\praetorian\abilities_praetorian.dm
 /datum/action/ability/activable/xeno/spray_acid/cone/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	var/turf/target = get_turf(A)
@@ -40,7 +40,7 @@
 	if(QDELETED(spraying_xeno))
 		return
 	spraying_xeno.remove_movespeed_modifier(type)
-
+RU TGMC EDIT */
 /datum/action/ability/activable/xeno/spray_acid/ai_should_start_consider()
 	return TRUE
 
