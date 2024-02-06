@@ -44,7 +44,7 @@
 		message_admins("[ADMIN_TPMONTY(H)] became a debug military policeman.")
 
 /datum/admins/proc/add_foreign_legion()
-	set category = "Admin"
+	set category = "Debug"
 	set name = "Add Foreign Legion Member"
 
 	if(!check_rights(R_ADMIN))
@@ -67,7 +67,7 @@
 
 
 /datum/admins/proc/remove_foreign_legion()
-	set category = "Admin"
+	set category = "Debug"
 	set name = "Remove Foreign Legion Member"
 
 	if(!check_rights(R_ADMIN))
