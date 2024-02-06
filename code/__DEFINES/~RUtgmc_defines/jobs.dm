@@ -14,7 +14,7 @@
 
 #define FOREIGN_ALLOWED_LEADER 2
 
-var/global/list/foreign_legion_ranks_ordered = list(
+GLOBAL_LIST_INIT(foreign_legion_ranks_ordered, list(
 	FOREIGN_LEGION_MARINE = FOREIGN_LEGION_MARINE_INT,
 	FOREIGN_LEGION_LEADER = FOREIGN_LEGION_LEADER_INT
-)
+))
