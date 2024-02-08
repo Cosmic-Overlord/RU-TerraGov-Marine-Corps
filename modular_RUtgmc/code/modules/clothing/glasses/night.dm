@@ -24,6 +24,7 @@
 	deactive_state = "degoggles_medpatch"
 	toggleable = TRUE
 
+
 /obj/item/clothing/glasses/night/yautja
 	name = "bio-mask nightvision"
 	gender = NEUTER
@@ -55,3 +56,6 @@
 	if(slot == SLOT_GLASSES)
 		user.clear_fullscreen("robothalf", 5)
 	..()
+
+/obj/item/clothing/glasses/night/optgoggles
+	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
