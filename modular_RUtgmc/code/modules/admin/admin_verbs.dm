@@ -60,7 +60,7 @@
 	if(!role)
 		return FALSE
 
-	role = foreign_legion_ranks_ordered[role]
+	role = GLOB.foreign_legion_ranks_ordered[role]
 	var/datum/db_query/wl = SSdbcore.NewQuery("INSERT INTO [format_table_name("foreign_legion")] (ckey, role) VALUES (:ckey, :role)", list(ckey = ckey, "role" = role))
 	wl.Execute()
 	qdel(wl)

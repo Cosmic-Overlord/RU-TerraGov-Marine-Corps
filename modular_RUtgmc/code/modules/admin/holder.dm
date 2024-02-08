@@ -13,6 +13,8 @@
 	/datum/admins/proc/toggle_sleep,
 	/datum/admins/proc/toggle_sleep_panel,
 	/datum/admins/proc/toggle_sleep_area,
+	/datum/admins/proc/add_foreign_legion,
+	/datum/admins/proc/remove_foreign_legion,
 	/datum/admins/proc/jump,
 	/datum/admins/proc/get_mob,
 	/datum/admins/proc/send_mob,
