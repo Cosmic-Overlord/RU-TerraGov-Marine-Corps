@@ -368,6 +368,12 @@
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
 		to_chat(src, span_warning("The game is still setting up, please try again later."))
 		return
+//RUTGMC EDIT START
+	if(client in GLOB.que_clients)
+		to_chat(usr, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
+		return
+	late_choices()
+//RUTGMC EDIT END
 	if(tgui_alert(src, "Are you sure you wish to observe?[SSticker.mode?.observe_respawn_message()]", "Observe", list("Yes", "No")) != "Yes")
 		return
 	if(!client)
@@ -421,6 +427,20 @@
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		to_chat(src, span_warning("The round has already started."))
 		return
+//RUTGMC EDIT SUBS
+	var/sublevel = 0
+	var/datum/db_query/discord = SSdbcore.NewQuery("SELECT sublevel FROM [format_table_name("discord_links")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
+	if(discord.warn_execute() && discord.NextRow())
+		sublevel = discord.item[1]
+	qdel(discord)
+	var/datum/db_query/db_sublevels = SSdbcore.NewQuery("SELECT perms FROM [format_table_name("sublevels")]  WHERE level = :level", list("level" = sublevel))
+	var/list/perms = list()
+	if(discord.warn_execute() && discord.NextRow())
+		perms = json_decode(db_sublevels.item[1])
+	qdel(db_sublevels)
+	if(REAL_CLIENTS > SSqueue.hard_popcap && SSqueue.hard_popcap && !client.holder && ("que_priority" in perms))
+		return
+//RUTGMC EDIT END
 	ready = !ready
 	if(ready)
 		GLOB.ready_players += src
@@ -441,6 +461,9 @@
 	if(queue_override)
 		late_choices()
 		return
+
+//RUTGMC EDIT START
+/*
 	var/relevant_cap
 	var/hpc = CONFIG_GET(number/hard_popcap)
 	var/epc = CONFIG_GET(number/extreme_popcap)
@@ -462,3 +485,9 @@
 			to_chat(usr, span_notice("You have been added to the queue to join the game. Your position in queue is [length(SSticker.queued_players)]."))
 		return
 	late_choices()
+*/
+	if(client in GLOB.que_clients)
+		to_chat(usr, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
+		return
+	late_choices()
+//RUTGMC EDIT END

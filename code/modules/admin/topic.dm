@@ -2175,3 +2175,39 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		xeno_message("QUEEN MOTHER BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS))
 		xeno_message("By Queen Mother's will, [target] has been unbanished!\n[reason]", "xenobanishannonce", 5, target.hivenumber)
 		message_admins("[src.owner] has unbanish [ADMIN_TPMONTY(target)]. Reason: [reason ? "[reason]" : "no reason"]")
+
+//RUTGMC ADDITION START
+	else if(href_list["force_sublevel"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/target = locate(href_list["target"])
+		if(!target.ckey)
+			to_chat(usr, span_warning("Mob without ckey, try later."))
+			return
+		var/datum/db_query/db_sublevels = SSdbcore.NewQuery("SELECT name, level FROM [format_table_name("sublevels")] ORDER BY level")
+		var/list/sublevels = list()
+		if(!db_sublevels.warn_execute())
+			to_chat(usr, span_warning("Something wrong, try again later."))
+			qdel(db_sublevels)
+			return
+		while (db_sublevels.NextRow())
+			sublevels["[db_sublevels.item[1]]"] = db_sublevels.item[2]
+		qdel(db_sublevels)
+
+		var/new_sublevel = tgui_input_list(usr, "Select sublevel for [target.ckey], warning, this is action is logging, any messing with it can result bad", "Sublevels", sublevels)
+		if(!new_sublevel)
+			return
+
+		var/stablelevel = TRUE
+		if(!new_sublevel)
+			stablelevel = FALSE
+
+		var/datum/db_query/discord = SSdbcore.NewQuery("UPDATE [format_table_name("discord_links")] SET sublevel = :sublevel, stablelevel = :stablelevel WHERE ckey = :ckey", list("ckey" = ckey(target.ckey), "sublevel" = new_sublevel, "stablelevel" = stablelevel))
+		if(!discord.warn_execute() || !discord.NextRow())
+			to_chat(usr, span_warning("Something wrong, try again later."))
+			qdel(discord)
+			return
+
+		qdel(discord)
+		message_admins("[owner] forced [ADMIN_TPMONTY(target)] sublevel: [new_sublevel], and locked auto subleveling actions.")
+//RUTGMC ADDITION END

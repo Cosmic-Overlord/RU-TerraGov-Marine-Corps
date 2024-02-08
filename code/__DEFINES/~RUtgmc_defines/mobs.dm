@@ -1,3 +1,9 @@
+GLOBAL_LIST_EMPTY(que_clients) //all qued clients
+
+#define REAL_CLIENTS length(GLOB.clients) - length(GLOB.que_clients)
+
+GLOBAL_VAR_INIT(last_time_qued, 0)
+
 //Boiler defines
 #define BOILER_GAS_DELAY 0.5 SECONDS
 #define BOILER_DUMP_SPEED -1.5

@@ -281,7 +281,12 @@ SUBSYSTEM_DEF(job)
 
 
 /datum/controller/subsystem/job/proc/PopcapReached()
+//RUTGMC EDIT START
+/*
 	var/hpc = CONFIG_GET(number/hard_popcap)
+*/
+	var/hpc = 0
+//RUTGMC EDIT END
 	var/epc = CONFIG_GET(number/extreme_popcap)
 	if(hpc || epc)
 		var/relevent_cap = max(hpc, epc)

@@ -106,6 +106,21 @@
 		if(CONFIG_GET(flag/allow_admin_ooccolor) && check_rights(R_COLOR, FALSE))
 			display_colour = prefs.ooccolor
 
+//RUTGMC ADDITION SUBS
+		var/sublevel = 0
+		var/datum/db_query/discord = SSdbcore.NewQuery("SELECT sublevel FROM [format_table_name("discord_links")] WHERE ckey = :ckey", list("ckey" = ckey(ckey)))
+		if(discord.warn_execute() && discord.NextRow())
+			sublevel = discord.item[1]
+		qdel(discord)
+		var/datum/db_query/db_sublevels = SSdbcore.NewQuery("SELECT perms FROM [format_table_name("sublevels")]  WHERE level = :level", list("level" = sublevel))
+		var/list/perms = list()
+		if(discord.warn_execute() && discord.NextRow())
+			perms = json_decode(db_sublevels.item[1])
+		qdel(db_sublevels)
+		if("ooc_color" in perms)
+			display_colour = prefs.ooccolor
+//RUTGMC ADDITION END
+
 	for(var/client/C AS in GLOB.clients)
 		if(!(C.prefs.toggles_chat & CHAT_OOC))
 			continue

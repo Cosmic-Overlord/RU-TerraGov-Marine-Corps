@@ -468,7 +468,9 @@ GLOBAL_PROTECT(admin_verbs_permissions)
 
 /world/proc/AVcolor()
 	return list(
+/*RUTGMC REMOVE SUBS
 		/datum/admins/proc/set_ooc_color_self,
+*/
 	)
 GLOBAL_LIST_INIT(admin_verbs_color, world.AVcolor())
 GLOBAL_PROTECT(admin_verbs_color)

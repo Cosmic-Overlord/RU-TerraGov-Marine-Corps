@@ -351,7 +351,12 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/check_queue()
 	if(!length(queued_players))
 		return
+//RUTGMC EDIT START
+/*
 	var/hpc = CONFIG_GET(number/hard_popcap)
+*/
+	var/hpc = 0
+//RUTGMC EDIT END
 	if(!hpc)
 		listclearnulls(queued_players)
 		for(var/mob/new_player/NP in queued_players)
