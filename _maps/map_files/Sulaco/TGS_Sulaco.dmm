@@ -17683,6 +17683,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/sulaco/hallway/central_hall3)
+"lNr" = (
+/obj/effect/landmark/start/job/transportofficer,
+/turf/open/floor/prison,
+/area/mainship/living/pilotbunks)
 "lNU" = (
 /turf/open/shuttle/escapepod/five,
 /area/mainship/command/self_destruct)
@@ -24035,7 +24039,6 @@
 /area/sulaco/security)
 "tUA" = (
 /obj/structure/bed/bunkbed,
-/obj/effect/landmark/start/job/pilotofficer,
 /obj/effect/landmark/start/job/pilotofficer,
 /turf/open/floor/prison,
 /area/mainship/living/pilotbunks)
@@ -66288,7 +66291,7 @@ pWS
 hxN
 oLM
 ujq
-aZw
+lNr
 aZw
 tUA
 aXN
