@@ -47,6 +47,7 @@
 #define MARK_THREE_WEBBING "mark_three_webbing"
 #define MARK_ONE_WEBBING "mark_one_webbing"
 
+/* RUTGMC REDEFINITION
 ///saved loadout key = icon_state, AGAIN DO NOT EDIT THE KEYS IT WILL BREAK LOADOUTS
 GLOBAL_LIST_INIT(loadout_variant_keys, list(
 	NORMAL = "normal",
@@ -91,3 +92,4 @@ GLOBAL_LIST_INIT(loadout_variant_keys, list(
 	FOUR_EYE_FACEPLATE = "Four Eye",
 	FOUR_EYE_FACEPLATE_VISOR = "Four Eye",
 ))
+*/

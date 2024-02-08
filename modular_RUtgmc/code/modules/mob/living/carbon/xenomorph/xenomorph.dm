@@ -43,3 +43,26 @@
 			return 4
 		else
 			return 0
+
+/mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
+	if(do_actions)
+		return FALSE //We are already occupied with something.
+	if(!Adjacent(AM))
+		return FALSE //The target we're trying to pull must be adjacent and anchored.
+	if(status_flags & INCORPOREAL || AM.status_flags & INCORPOREAL)
+		return FALSE //Incorporeal things can't grab or be grabbed.
+	if(AM.anchored)
+		return FALSE //We cannot grab anchored items.
+	if(!isliving(AM) && AM.drag_windup && !do_after(src, AM.drag_windup, NONE, AM, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = src.health))))
+		return //If the target is not a living mob and has a drag_windup defined, calls a do_after. If all conditions are met, it returns. If the user takes damage during the windup, it breaks the channel.
+	var/mob/living/L = AM
+	if(L.buckled)
+		return FALSE //to stop xeno from pulling marines on roller beds.
+	if(ishuman(L))
+		if(L.stat == DEAD) //Can't drag dead human bodies.
+			to_chat(usr, span_xenowarning("This looks gross, better not touch it."))
+			return FALSE
+		if(L != pulling)
+			pull_speed += XENO_DEADHUMAN_DRAG_SLOWDOWN
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_GRAB)
+	return ..()

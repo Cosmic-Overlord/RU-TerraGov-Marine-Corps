@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 GLOBAL_LIST_INIT(wraith_banish_very_short_duration_list, typecacheof(list(
 	/obj/vehicle/sealed,
 	/obj/structure/barricade,
@@ -743,3 +744,4 @@ GLOBAL_LIST_INIT(wraith_banish_very_short_duration_list, typecacheof(list(
 	targeted.Move(loc_b, get_dir(loc_b, loc_a))
 	new /obj/effect/temp_visual/xenomorph/afterimage(loc_a, targeted)
 	INVOKE_NEXT_TICK(src, PROC_REF(rewind))
+RU TGMC EDIT */

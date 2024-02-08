@@ -27,8 +27,6 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/queen/primordial,
 	/mob/living/carbon/xenomorph/king,
 	/mob/living/carbon/xenomorph/king/primordial,
-	/mob/living/carbon/xenomorph/wraith,
-	/mob/living/carbon/xenomorph/wraith/primordial,
 	/mob/living/carbon/xenomorph/ravager,
 	/mob/living/carbon/xenomorph/ravager/primordial,
 	/mob/living/carbon/xenomorph/praetorian,
@@ -57,7 +55,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/facehugger,
 	))
 
-GLOBAL_LIST_INIT(xeno_types_tier_two, list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/panther, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/spitter, /mob/living/carbon/xenomorph/hivelord, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/bull, /mob/living/carbon/xenomorph/wraith, /mob/living/carbon/xenomorph/puppeteer))
+GLOBAL_LIST_INIT(xeno_types_tier_two, list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/panther, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/spitter, /mob/living/carbon/xenomorph/hivelord, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/bull, /mob/living/carbon/xenomorph/puppeteer))
 GLOBAL_LIST_INIT(xeno_types_tier_three, list(/mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/ravager, /mob/living/carbon/xenomorph/praetorian, /mob/living/carbon/xenomorph/boiler, /mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/shrike, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/chimera))
 
 GLOBAL_LIST_INIT(forbid_excepts, list(

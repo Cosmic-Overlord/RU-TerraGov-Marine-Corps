@@ -1,3 +1,28 @@
+/datum/hive_upgrade/building/silo/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
+	. = ..()
+	if(!.)
+		return
+
+	var/turf/buildloc = get_step(buyer, building_loc)
+	if(!buildloc)
+		return FALSE
+
+	if(buildloc.density)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("You cannot build in a dense location!"))
+		return FALSE
+
+	for(var/hive in GLOB.xeno_resin_silos_by_hive)
+		for(var/silo in hive)
+			if(get_dist(silo, buyer) < 15)
+				to_chat(buyer, span_xenowarning("Another silo is too close!"))
+				return FALSE
+
+	if(length(GLOB.xeno_resin_silos_by_hive[buyer.hivenumber]) >= 2)
+		if(!silent)
+			to_chat(buyer, span_xenowarning("Hive cannot support more than 2 active silos!"))
+		return FALSE
+
 /datum/hive_upgrade/defence/oblivion
     name = "Oblivion"
     desc = "Destroy the bodies beneath you "
