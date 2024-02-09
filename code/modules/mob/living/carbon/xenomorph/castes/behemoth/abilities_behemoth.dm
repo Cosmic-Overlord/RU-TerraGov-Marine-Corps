@@ -1115,7 +1115,7 @@
 */
 /datum/action/ability/xeno_action/primal_wrath/proc/taking_damage(datum/source, amount, list/amount_mod)
 	SIGNAL_HANDLER
-	if(amount <= 0 || owner.stat || owner.lying_angle)
+	if(amount <= 0 || owner.stat) //RUTGMC EDIT
 		return
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	if(ability_active)
