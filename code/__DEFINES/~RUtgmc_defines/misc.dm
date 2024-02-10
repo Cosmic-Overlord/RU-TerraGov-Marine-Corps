@@ -4,6 +4,3 @@
 #define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF 2
 
 #define EXPLOSION_MAX_POWER 5000
-
-/// Projectile is shrapnel which allows it to skip some collisions
-#define PROJECTILE_SHRAPNEL  (1<<0)
