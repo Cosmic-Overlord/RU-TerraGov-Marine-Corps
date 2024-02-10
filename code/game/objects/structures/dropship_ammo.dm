@@ -317,7 +317,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE, color = COLOR_CYAN)//no messaging admin, that'd spam them.
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff, color = COLOR_CYAN)
+	cell_explosion(impact, power, falloff, color = COLOR_CYAN)
 //RUTGMC ADDITION END
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last railgun has fired and impacted the ground.
@@ -434,7 +434,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range)
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff)
+	cell_explosion(impact, power, falloff)
 //RUTGMC ADDITION END
 	qdel(src)
 
@@ -459,7 +459,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, flame_range = fire_range) //more spread out, with flames
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff, flame_range = fire_range) //more spread out, with flames
+	cell_explosion(impact, power, falloff, flame_range = fire_range) //more spread out, with flames
 //RUTGMC ADDITION END
 	qdel(src)
 
@@ -482,7 +482,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //tighter blast radius, but more devastating near center
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff) //tighter blast radius, but more devastating near center
+	cell_explosion(impact, power, falloff) //tighter blast radius, but more devastating near center
 //RUTGMC ADDITION END
 	qdel(src)
 
@@ -506,7 +506,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //first explosion is small to trick xenos into thinking its a minirocket.
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff) //first explosion is small to trick xenos into thinking its a minirocket.
+	cell_explosion(impact, power, falloff) //first explosion is small to trick xenos into thinking its a minirocket.
 //RUTGMC ADDITION END
 	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
 
@@ -527,7 +527,7 @@ RU TGMC REMOVENT END */
 		explosion(detonation_target, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE)
 */
 //RUTGMC ADDITION - Explosions
-		SScellauto.explode(detonation_target, power, falloff)
+		cell_explosion(detonation_target, power, falloff)
 //RUTGMC ADDITION END
 	qdel(src)
 
@@ -552,7 +552,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //relatively weak
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff) //relatively weak
+	cell_explosion(impact, power, falloff) //relatively weak
 //RUTGMC ADDITION END
 	flame_radius(fire_range, impact, 60, 30) //cooking for a long time
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
@@ -590,7 +590,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, adminlog = FALSE)//no messaging admin, that'd spam them.
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff, flame_range = fire_range) //no messaging admin, that'd spam them.
+	cell_explosion(impact, power, falloff, flame_range = fire_range) //no messaging admin, that'd spam them.
 //RUTGMC ADDITION END
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
@@ -658,7 +658,7 @@ RU TGMC REMOVENT END */
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range, throw_range = 0)
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(impact, power, falloff)
+	cell_explosion(impact, power, falloff)
 //RUTGMC ADDITION END
 	var/datum/effect_system/smoke_spread/plasmaloss/S = new
 	S.set_up(9, impact, 9)// Between grenade and mortar

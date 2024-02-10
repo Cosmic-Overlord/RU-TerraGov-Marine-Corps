@@ -57,7 +57,7 @@
 	explosion(get_turf(src), 0, 1, 9, 0, 12)
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(loc, 450, 150)
+	cell_explosion(loc, 450, 150)
 //RUTGMC ADDITION END
 
 

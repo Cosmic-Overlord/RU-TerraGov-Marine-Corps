@@ -198,7 +198,7 @@
 					explosion(loc, 1, 2, 4, 0, 5)
 */
 //RUTGMC ADDITION - Explosions
-					SScellauto.explode(loc, 200, 150)
+					cell_explosion(loc, 200, 150)
 //RUTGMC ADDITION END
 		if ((3.6e6+1) to INFINITY)
 			if (overcharge_percent >= 115)
@@ -215,7 +215,7 @@
 					explosion(loc, 2, 4, 6, 0, 8)
 */
 //RUTGMC ADDITION - Explosions
-					SScellauto.explode(loc, 400, 150)
+					cell_explosion(loc, 400, 150)
 //RUTGMC ADDITION END
 		else //how the hell was this proc called for negative charge
 			charge = 0

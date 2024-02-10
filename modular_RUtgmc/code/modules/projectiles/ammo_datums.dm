@@ -76,7 +76,7 @@
 	shell_speed = 0.75
 
 /datum/ammo/mortar/knee/drop_nade(turf/T)
-	SScellauto.explode(T, 400, 150)
+	cell_explosion(T, 400, 150)
 
 /datum/ammo/bullet/rifle/standard_br/ap
 	name = "light marksman armor piercing bullet"
@@ -285,6 +285,7 @@
 	penetration = 20
 	shell_speed = 2
 	shrapnel_chance = 5
+
 /datum/ammo/bullet/shrapnel/incendiary
 	name = "flaming shrapnel"
 	icon_state = "beanbag" // looks suprisingly a lot like flaming shrapnel chunks
@@ -297,6 +298,7 @@
 /datum/ammo/bullet/shrapnel/metal
 	name = "metal shrapnel"
 	icon_state = "shrapnelshot_bit"
+
 	shell_speed = 1
 	damage = 30
 	shrapnel_chance = 15

@@ -25,5 +25,5 @@
 */
 //RUTGMC ADDITION - Explosions
 	var/range = round((2 * amount)**GLOB.DYN_EX_SCALE)
-	SScellauto.explode(location, amount, range*4, EXPLOSION_FALLOFF_SHAPE_LINEAR)
+	cell_explosion(location, amount, range*4, EXPLOSION_FALLOFF_SHAPE_LINEAR)
 //RUTGMC ADDITION END

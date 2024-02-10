@@ -331,7 +331,7 @@
 	explosion(loc, light_impact_range = 2, flash_range = 3, flame_range = 2)
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(loc, 400, 200)
+	cell_explosion(loc, 400, 200)
 //RUTGMC ADDITION END
 	return ..()
 
@@ -355,9 +355,9 @@
 	explosion(target, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 0, 15 - inaccuracy_amt)
 */
 //RUTGMC ADDITION - Explosions
-	SScellauto.explode(target, 2000 / max(inaccuracy_amt, 1), 200, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#d67234")
+	cell_explosion(target, 2000 / max(inaccuracy_amt, 1), 200, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#d67234")
 	sleep(3 SECONDS)
-	SScellauto.explode(target, 2000 / max(inaccuracy_amt, 1), 75, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#d67234")
+	cell_explosion(target, 2000 / max(inaccuracy_amt, 1), 75, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#d67234")
 //RUTGMC ADDITION END
 
 
@@ -395,7 +395,7 @@
 		explosion(U, 1, 4, 6, 0, 6, throw_range = 0, adminlog = FALSE) //rocket barrage
 */
 //RUTGMC ADDITION - Explosions
-		SScellauto.explode(U, 800 / max(inaccuracy_amt, 1), 200, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#79c1cb")
+		cell_explosion(U, 800 / max(inaccuracy_amt, 1), 200, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#79c1cb")
 //RUTGMC ADDITION END
 		sleep(0.1 SECONDS)
 

@@ -215,11 +215,11 @@
 			new /obj/effect/overlay/temp/blinking_laser (epicenter)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(delayed_detonate_bomb_napalm), get_turf(epicenter)), 1 SECONDS)
 		if("Small Bomb")
-			SScellauto.explode(epicenter, 400, 100)
+			cell_explosion(epicenter, 400, 100)
 		if("Medium Bomb")
-			SScellauto.explode(epicenter, 800, 150)
+			cell_explosion(epicenter, 800, 150)
 		if("Big Bomb")
-			SScellauto.explode(epicenter, 1400, 200)
+			cell_explosion(epicenter, 1400, 200)
 		if("Custom Bomb")
 			var/input_power_range = tgui_input_number(usr, "Power?", "Power?")
 			var/input_fallof_range = tgui_input_number(usr, "Falloff?", "Falloff?")
@@ -240,7 +240,7 @@
 					explosion_shape = EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL
 
 			if(tgui_alert(usr, "Deploy payload?", "POWER: [input_power_range] | FALLOFF: [input_fallof_range] | FLAME: [input_flame_range] | COLOR: [input_color]", list("Launch!", "Cancel")) == "Launch!")
-				SScellauto.explode(epicenter, input_power_range, input_fallof_range, explosion_shape, input_flame_range, color = input_color)
+				cell_explosion(epicenter, input_power_range, input_fallof_range, explosion_shape, input_flame_range, color = input_color)
 			else
 				return
 
@@ -254,11 +254,11 @@
 /proc/delayed_detonate_bomb(turf/impact, input_power, input_fallof, input_flame_range, ceiling_debris)
 	if(ceiling_debris)
 		impact.ceiling_debris_check(ceiling_debris)
-	SScellauto.explode(impact, input_power, input_fallof, flame_range = input_flame_range)
+	cell_explosion(impact, input_power, input_fallof, flame_range = input_flame_range)
 
 /proc/delayed_detonate_bomb_fatty(turf/impact)
 	impact.ceiling_debris_check(2)
-	SScellauto.explode(impact, 600, 150)
+	cell_explosion(impact, 600, 150)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(delayed_detonate_bomb_fatty_final), impact), 3 SECONDS)
 
 /proc/delayed_detonate_bomb_fatty_final(turf/impact)
@@ -267,9 +267,9 @@
 		var/list/coords = impact_coords[i]
 		var/turf/detonation_target = locate(impact.x+coords[1],impact.y+coords[2],impact.z)
 		detonation_target.ceiling_debris_check(2)
-		SScellauto.explode(detonation_target, 600, 150)
+		cell_explosion(detonation_target, 600, 150)
 
 /proc/delayed_detonate_bomb_napalm(turf/impact)
 	impact.ceiling_debris_check(3)
-	SScellauto.explode(impact, 600, 150)
+	cell_explosion(impact, 600, 150)
 	flame_radius(5, impact, 60, 30)

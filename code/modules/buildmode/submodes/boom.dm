@@ -36,7 +36,7 @@ RU TGMC REMOVENT END */
 		explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE)
 */
 //RUTGMC ADDITION - Explosions
-		SScellauto.explode(object, power, falloff, flame_range = flame, silent = TRUE)
+		cell_explosion(object, power, falloff, flame_range = flame, silent = TRUE)
 //RUTGMC ADDITION END
 		to_chat(c, span_notice("Success."))
 /*
