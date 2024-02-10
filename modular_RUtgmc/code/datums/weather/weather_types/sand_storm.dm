@@ -6,5 +6,5 @@
 	if(istype(L, /mob/living/carbon/xenomorph))
 		L.adjustBruteLoss(20)
 	else
-		L.adjustBruteLoss(10)
+		L.adjustBruteLoss(8)
 	to_chat(L, span_boldannounce("You are battered by the coarse sand!"))
