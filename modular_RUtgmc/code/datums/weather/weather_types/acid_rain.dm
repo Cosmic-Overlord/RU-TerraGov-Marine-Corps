@@ -3,7 +3,7 @@
 		return
 	if(prob(L.modify_by_armor(100, ACID)))
 		if(istype(L, /mob/living/carbon/xenomorph))
-			L.adjustFireLoss(25)
+			L.adjustFireLoss(20)
 		else
 			L.adjustFireLoss(7)
 		to_chat(L, span_boldannounce("You feel the acid rain melting you away!"))
