@@ -797,7 +797,7 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define GRAB_PIXEL_SHIFT_NECK 16
 
 #define HUMAN_CARRY_SLOWDOWN 0.35
-#define HUMAN_EXPLOSION_GIB_THRESHOLD 0.1
+//#define HUMAN_EXPLOSION_GIB_THRESHOLD 0.1 //RUTGMC DELETION, explosions
 
 
 // =============================
