@@ -1,6 +1,7 @@
 #include "atom_hud.dm"
 #include "calibers.dm"
 #include "colors.dm"
+#include "combat.dm"
 #include "conflict.dm"
 #include "footsteps.dm"
 #include "is_helpers.dm"

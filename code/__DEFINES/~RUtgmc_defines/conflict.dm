@@ -1,9 +1,3 @@
-#define EXPLOSION_THRESHOLD_VLOW 100
-#define EXPLOSION_THRESHOLD_LOW 200
-#define EXPLOSION_THRESHOLD_MLOW 300
-#define EXPLOSION_THRESHOLD_MEDIUM 600
-#define EXPLOSION_THRESHOLD_HIGH 1000
-
 /// how much it takes to gib a mob
 #define EXPLOSION_THRESHOLD_GIB 200
 /// prone mobs receive less damage from explosions
