@@ -1,3 +1,10 @@
+/obj/machinery/door/airlock/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
+	. = ..()
+	if(. && is_mainship_level(z) && proj.is_shrapnel == FALSE)
+		log_attack("[key_name(proj.firer)] shot [src] with [proj] at [AREACOORD(src)]")
+		if(SSmonitor.gamestate != SHIPSIDE)
+			msg_admin_ff("[ADMIN_TPMONTY(proj.firer)] shot [src] with [proj] in [ADMIN_VERBOSEJMP(src)].")
+
 /obj/machinery/door/airlock/attack_facehugger(mob/living/carbon/xenomorph/facehugger/M, isrightclick = FALSE)
 	for(var/atom/movable/AM in get_turf(src))
 		if(AM != src && AM.density && !AM.CanPass(M, M.loc))
