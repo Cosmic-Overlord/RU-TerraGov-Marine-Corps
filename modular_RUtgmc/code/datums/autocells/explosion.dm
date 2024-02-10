@@ -288,7 +288,7 @@ as having entered the turf.
 		create_shrapnel(epicenter, rand(5,9), , ,/datum/ammo/bullet/shrapnel/light/effect/ver2, explosion_cause_data)*/
 
 // Call controller for D.O.R.E.C explosion directly
-proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction, shrapnel = FALSE)
+proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction, shrapnel = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
