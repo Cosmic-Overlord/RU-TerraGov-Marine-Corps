@@ -15,7 +15,6 @@
 /datum/automata_cell
 	// Which turf is the cell contained in
 	var/turf/in_turf = null
-
 	// What type of neighborhood do we use?
 	// This affects what neighbors you'll get passed in update_state()
 	var/neighbor_type = NEIGHBORS_CARDINAL
@@ -35,9 +34,7 @@
 
 	in_turf = T
 	LAZYADD(in_turf.autocells, src)
-
 	cellauto_cells += src
-
 	birth()
 
 /datum/automata_cell/Destroy()
@@ -46,9 +43,7 @@
 	if(!QDELETED(in_turf))
 		LAZYREMOVE(in_turf.autocells, src)
 		in_turf = null
-
 	cellauto_cells -= src
-
 	death()
 
 // Called when the cell is created
@@ -84,30 +79,25 @@
 		return
 
 	var/list/neighbors = list()
-
 	// Get cardinal neighbors
 	if(neighbor_type & NEIGHBORS_CARDINAL)
 		for(var/dir in GLOB.cardinals)
 			var/turf/T = get_step(in_turf, dir)
 			if(QDELETED(T))
 				continue
-
 			// Only add neighboring cells of the same type
 			for(var/datum/automata_cell/C in T.autocells)
 				if(istype(C, type))
 					neighbors += C
-
 	// Get ordinal/diagonal neighbors
 	if(neighbor_type & NEIGHBORS_ORDINAL)
 		for(var/dir in GLOB.diagonals)
 			var/turf/T = get_step(in_turf, dir)
 			if(QDELETED(T))
 				continue
-
 			for(var/datum/automata_cell/C in T.autocells)
 				if(istype(C, type))
 					neighbors += C
-
 	return neighbors
 
 // Create a new cell in the given direction
