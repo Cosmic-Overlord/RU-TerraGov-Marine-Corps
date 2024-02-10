@@ -239,11 +239,11 @@ explosion resistance exactly as much as their health
 		for(var/atom/A in T)
 			spawn(0)
 				if(isliving(A))
-					var/mob/M = A
+					//var/mob/M = A
 					var/explosion_source
 					if(!explosion_source) // Gotta call them something
 						explosion_source = "unknown"
-					log_attack("Mob [M.name] ([M.ckey]) was harmed by explosion in [T.loc.name] caused by [explosion_source] at ([M.loc.x],[M.loc.y],[M.loc.z])")
+					/*log_attack("Mob [M.name] ([M.ckey]) was harmed by explosion in [T.loc.name] caused by [explosion_source] at ([M.loc.x],[M.loc.y],[M.loc.z])")
 					var/mob/explosion_source_mob = explosion_source
 					if(ismob(explosion_source_mob))
 						var/mob/firingMob = explosion_source_mob
@@ -277,7 +277,7 @@ explosion resistance exactly as much as their health
 					else if(explosion_source)
 						M.attack_log += "\[[time_stamp()]\] <b>[M]/[M.ckey]</b> was blown up with a <b>[explosion_source]</b> in [get_area(M)].</b>"
 					else
-						M.attack_log += "\[[time_stamp()]\] <b>[M]/[M.ckey]</b> was blown up in [get_area(M)]."
+						M.attack_log += "\[[time_stamp()]\] <b>[M]/[M.ckey]</b> was blown up in [get_area(M)]."*/
 				A.ex_act(severity, direction)
 
 		tiles_processed++
@@ -305,24 +305,7 @@ explosion resistance exactly as much as their health
 				return 40
 	return 0
 
-/obj/item/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
-	if(anchored)
-		return
-
-	if(!istype(src.loc, /turf))
-		return
-
-	if(!direction)
-		direction = pick(GLOB.alldirs)
-	var/range = min(round(severity/src.w_class * 0.2, 1), 14)
-	if(!direction)
-		range = round( range/2 ,1)
-
-	if(range < 1)
-		return
-
-
-	var/speed = max(range*2.5, SPEED_SLOW)
+	/*var/speed = max(range*2.5, 4)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
 
 	if(range >= 2)
@@ -332,7 +315,38 @@ explosion resistance exactly as much as their health
 		target = locate(target.x + round( scatter_x , 1),target.y + round( scatter_y , 1),target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_atom), target, range, speed, null, TRUE)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
+
+	return*/
+
+/obj/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
+	if(anchored)
+		return
+
+	if(!istype(src.loc, /turf))
+		return
+
+	if(!direction)
+		direction = pick(GLOB.alldirs)
+	var/range = min(round(severity * 0.2, 1), 14)
+	if(!direction)
+		range = round( range/2 ,1)
+
+	if(range < 1)
+		return
+
+
+	var/speed = max(range * 2.5, 4)
+	var/atom/target = get_ranged_target_turf(src, direction, range)
+
+	if(range >= 2)
+		var/scatter = range/4 * scatter_multiplier
+		var/scatter_x = rand(-scatter,scatter)
+		var/scatter_y = rand(-scatter,scatter)
+		target = locate(target.x + round( scatter_x , 1),target.y + round( scatter_y , 1),target.z) //Locate an adjacent turf.
+
+	//time for the explosion to destroy windows, walls, etc which might be in the way
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
 
 	return
 
@@ -355,13 +369,13 @@ explosion resistance exactly as much as their health
 			weight = 4
 	var/range = round( severity/weight * 0.02 ,1)
 	if(!direction)
-		range = round( 2 * range / 3, 1)
-		direction = pick(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST,SOUTHEAST,SOUTHWEST)
+		range = round( 2*range/3 ,1)
+		direction = pick(NORTH,SOUTH,EAST,WEST,NORTHEAST,NORTHWEST,SOUTHEAST,SOUTHWEST)
 
 	if(range <= 0)
 		return
 
-	var/speed = max(range * 1.5, SPEED_SLOW)
+	var/speed = max(range*1.5, 4)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
 
 	var/spin = 0
@@ -376,6 +390,6 @@ explosion resistance exactly as much as their health
 		target = locate(target.x + round( scatter_x , 1),target.y + round( scatter_y , 1),target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_atom), target, range, speed, null, spin)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, spin)
 
 	return

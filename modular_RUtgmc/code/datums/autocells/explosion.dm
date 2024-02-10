@@ -63,6 +63,7 @@
 
 	var/obj/effect/particle_effect/shockwave/shockwave = null
 
+/* we dont have stairs teleporters, i'll do it later
 // If we're on a fake z teleport, teleport over
 /datum/automata_cell/explosion/birth()
 	shockwave = new(in_turf)
@@ -73,6 +74,7 @@
 
 	var/turf/new_turf = locate(in_turf.x + V.vector_x, in_turf.y + V.vector_y, in_turf.z)
 	transfer_turf(new_turf)
+*/
 
 /datum/automata_cell/explosion/death()
 	if(shockwave)
@@ -155,7 +157,7 @@
 			continue
 		INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += A
-		log_explosion(A, src)
+		//log_explosion(A, src)
 
 	var/reflected = FALSE
 
@@ -241,7 +243,7 @@ as having entered the turf.
 		return
 
 	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
-	log_explosion(A, src)
+	//log_explosion(A, src)
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 
@@ -324,7 +326,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 	E.direction = direction
 
 	// Make explosion effect
-	new /obj/effect/temp_visual/explosion(epicenter, explosion_range, color, power)
+	new /obj/effect/temp_visual/explosion(epicenter, power / 2, color, power)
 	// Explosion enought powerful for making shrapnel
 	if(shrapnel)
 		create_shrapnel(epicenter, rand(5, 9), direction, /datum/ammo/bullet/shrapnel/light/effect/ver1)
