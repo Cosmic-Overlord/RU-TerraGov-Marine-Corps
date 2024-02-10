@@ -253,16 +253,16 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		playsound(epicenter, get_sfx("explosion_large_distant"), 100, 1, round(power ^ 2, 1), frequency = expo_frequency)
 
 		if(power >= 300) // Make BIG BOOMS
-			playsound(epicenter, get_sfx("bigboom"), 80, 1, max(round(power, 1), 7, frequency = expo_frequency))
+			playsound(epicenter, get_sfx("bigboom"), 80, 1, max(round(power, 1), 7), frequency = expo_frequency)
 		else
-			playsound(epicenter, get_sfx("explosion"), 90, 1, max(round(power, 1), 7, frequency = expo_frequency))
+			playsound(epicenter, get_sfx("explosion"), 90, 1, max(round(power, 1), 7), frequency = expo_frequency)
 
 		if(is_mainship_level(epicenter.z))
 			playsound(epicenter, get_sfx("explosion_creak"), 40, 1, 40, frequency = expo_frequency) // ship groaning under explosion effect
 
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
-		log_debug("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].")
+		msg_admin_ff("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
 		power = EXPLOSION_MAX_POWER
 
 	E.power = power
@@ -321,7 +321,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 
 				firing_mob.attack_log += "\[[time_stamp()]\] <b>[key_name(firing_mob)]</b> blew up <b>[key_name(M)]</b> with \a <b>[explosion_source]</b> in [get_area(T)]."
 
-				msg_admin_attack("[key_name(firing_mob)] blew up [key_name(M)] with \a [explosion_source] in [get_area(T)] ([T.x],[T.y],[T.z]).", T.x, T.y, T.z)
+				msg_admin_ff("[key_name(firing_mob)] blew up [key_name(M)] with \a [explosion_source] in [get_area(T)] ([T.x],[T.y],[T.z]).", T.x, T.y, T.z)
 		else
 			log_attack("[key_name(M)] was harmed by unknown explosion in [T.loc.name] at ([T.x],[T.y],[T.z])")*/
 
