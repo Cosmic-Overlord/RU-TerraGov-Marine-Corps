@@ -19,9 +19,6 @@ and falloff is the amount by which power is decreased with each tile
 For example, a 200 power, 50 falloff explosion will do 200 damage to an unarmored mob at the center, and 150 damage to an adjacent
 mob, and will peter out after 4 tiles
 
-Compared to the old explosion code, ex_act(3) should be equivalent to 0-100 power on a tile, ex_act(2) should be equivalent to 100-200,
-and ex_act(1) should be equivalent to 200+
-
 For explosion resistance, an explosion should never go through a wall or window it cannot destroy. Walls, windows and airlocks should give an
 explosion resistance exactly as much as their health
 */
@@ -44,28 +41,28 @@ explosion resistance exactly as much as their health
 	/// 1 = 100% increase
 	var/reflection_amplification_limit = 1
 	var/minimum_spread_power = 0
-	var/datum/cause_data/explosion_cause_data
 	//var/overlap_number = 0
 
 
 /obj/effect/explosion/ex_act()
-		return
-
+	return
 
 //the start of the explosion
 /obj/effect/explosion/proc/initiate_explosion(turf/epicenter, power0, falloff0 = 20)
-	if(power0 <= 1) return
+	if(power0 <= 1)
+		return
 	power = power0
 	epicenter = get_turf(epicenter)
-	if(!epicenter) return
+	if(!epicenter)
+		return
 
 	falloff = max(falloff0, power/100) //prevent explosions with a range larger than 100 tiles
 	minimum_spread_power = -power * reflection_amplification_limit
 
-	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z)
+	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z [ADMIN_JMP(epicenter)])
 
-	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power^2,1))
-	playsound(epicenter, "explosion", 90, 1, max(round(power,1),7) )
+	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power ^ 2,1))
+	playsound(epicenter, "explosion", 90, 1, max(round(power, 1), 7))
 
 	explosion_in_progress = 1
 	explosion_turfs = list()
@@ -75,16 +72,14 @@ explosion resistance exactly as much as their health
 
 	if(power >= 100) // powerful explosions send out some special effects
 		epicenter = get_turf(epicenter) // the ex_acts might have changed the epicenter
-		create_shrapnel(epicenter, rand(5,9), , ,/datum/ammo/bullet/shrapnel/light/effect/ver1)
-		sleep(1)
-		create_shrapnel(epicenter, rand(5,9), , ,/datum/ammo/bullet/shrapnel/light/effect/ver2)
+		create_shrapnel(epicenter, rand(5, 9), /datum/ammo/bullet/shrapnel/light/effect/ver1)
+		sleep(0.1 SECONDS)
+		create_shrapnel(epicenter, rand(5, 9), /datum/ammo/bullet/shrapnel/light/effect/ver2)
 
 	spawn(2) //just in case something goes wrong
 		if(explosion_in_progress)
 			explosion_damage()
-			QDEL_IN(src, 20)
-
-
+			QDEL_IN(src, 2 SECONDS)
 
 //direction is the direction that the spread took to come to this tile. So it is pointing in the main blast direction - meaning where this tile should spread most of it's force.
 /turf/proc/explosion_spread(obj/effect/explosion/Controller, power, direction)
@@ -98,9 +93,10 @@ explosion resistance exactly as much as their health
 	var/obj/structure/ladder/L
 
 	for(var/atom/A in src)  //add resistance
-		resistance += max(0, A.get_explosion_resistance(direction) )
+		resistance += max(0, A.get_explosion_resistance(direction))
 
-		/*//check for stair-teleporters. If there is a stair teleporter, switch to the teleported-to tile instead
+		/* as we don't have any stair-teleporters for the moment, we don't need it
+		//check for stair-teleporters. If there is a stair teleporter, switch to the teleported-to tile instead
 		if(istype(A, /obj/effect/step_trigger/teleporter_vector))
 			var/obj/effect/step_trigger/teleporter_vector/V = A
 			var/turf/T = locate(V.x + V.vector_x, V.y + V.vector_y, V.z)
@@ -110,7 +106,8 @@ explosion resistance exactly as much as their health
 					Controller.active_spread_num--
 					if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
 						Controller.explosion_damage()
-				return*/
+				return
+		*/
 
 		if(istype(A, /obj/structure/ladder)) //check for ladders
 			L = A
@@ -120,7 +117,7 @@ explosion resistance exactly as much as their health
 
 	//at the epicenter of an explosion, resistance doesn't subtract from power. This prevents stuff like explosions directly on reinforced walls being completely neutralized
 	if(direction)
-		resistance += max(0, src.get_explosion_resistance(direction) )
+		resistance += max(0, src.get_explosion_resistance(direction))
 		Controller.reflected_power += max(0, min(resistance, power))
 		power -= resistance
 
@@ -173,7 +170,6 @@ explosion resistance exactly as much as their health
 
 		//spreading up/down ladders
 		if(L)
-
 			var/ladder_spread_power
 			if(direction)
 				if(power >= 0)
@@ -196,17 +192,13 @@ explosion resistance exactly as much as their health
 					if(T_down)
 						T_down.explosion_spread(Controller, ladder_spread_power, null)
 
-
 		//if this is the last explosion spread, initiate explosion damage
 		Controller.active_spread_num--
 		if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
 			Controller.explosion_damage()
 
-
 /obj/effect/explosion/proc/explosion_damage() //This step applies the ex_act effects for the explosion
-
 	explosion_in_progress = 0
-
 	var/num_tiles_affected = 0
 
 	for(var/turf/T in explosion_turfs)
@@ -215,9 +207,7 @@ explosion resistance exactly as much as their health
 			num_tiles_affected++
 
 	reflected_power *= reflection_multiplier
-
 	var/damage_addon = min(power * reflection_amplification_limit, reflected_power/num_tiles_affected)
-
 	var/tiles_processed = 0
 	var/increment = min(50, sqrt(num_tiles_affected)*3 )//how many tiles we damage per tick
 
@@ -227,11 +217,12 @@ explosion resistance exactly as much as their health
 		var/severity = explosion_turfs[T] + damage_addon
 		if (severity <= 0)
 			continue
-		var/direction = explosion_turf_directions[T]
 
+		var/direction = explosion_turf_directions[T]
 		var/x = T.x
 		var/y = T.y
 		var/z = T.z
+
 		T.ex_act(severity, direction)
 		if(!T)
 			T = locate(x,y,z)
@@ -239,7 +230,7 @@ explosion resistance exactly as much as their health
 		for(var/atom/A in T)
 			spawn(0)
 				if(isliving(A))
-					//var/mob/M = A
+					//var/mob/M = A // eeeeeeeeeeeeeeeeeeeeeeh
 					var/explosion_source
 					if(!explosion_source) // Gotta call them something
 						explosion_source = "unknown"
@@ -283,7 +274,7 @@ explosion resistance exactly as much as their health
 		tiles_processed++
 		if(tiles_processed >= increment)
 			tiles_processed = 0
-			sleep(1)
+			sleep(0.1 SECONDS)
 
 	spawn(8)
 		qdel(src)
@@ -305,20 +296,6 @@ explosion resistance exactly as much as their health
 				return 40
 	return 0
 
-	/*var/speed = max(range*2.5, 4)
-	var/atom/target = get_ranged_target_turf(src, direction, range)
-
-	if(range >= 2)
-		var/scatter = range/4 * scatter_multiplier
-		var/scatter_x = rand(-scatter,scatter)
-		var/scatter_y = rand(-scatter,scatter)
-		target = locate(target.x + round( scatter_x , 1),target.y + round( scatter_y , 1),target.z) //Locate an adjacent turf.
-
-	//time for the explosion to destroy windows, walls, etc which might be in the way
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
-
-	return*/
-
 /obj/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
 	if(anchored)
 		return
@@ -330,24 +307,22 @@ explosion resistance exactly as much as their health
 		direction = pick(GLOB.alldirs)
 	var/range = min(round(severity * 0.2, 1), 14)
 	if(!direction)
-		range = round( range/2 ,1)
+		range = round( range / 2, 1)
 
 	if(range < 1)
 		return
-
 
 	var/speed = max(range * 2.5, 4)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
 
 	if(range >= 2)
-		var/scatter = range/4 * scatter_multiplier
+		var/scatter = range / 4 * scatter_multiplier
 		var/scatter_x = rand(-scatter,scatter)
 		var/scatter_y = rand(-scatter,scatter)
-		target = locate(target.x + round( scatter_x , 1),target.y + round( scatter_y , 1),target.z) //Locate an adjacent turf.
+		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
-
 	return
 
 /mob/proc/explosion_throw(severity, direction)
@@ -377,12 +352,10 @@ explosion resistance exactly as much as their health
 
 	var/speed = max(range*1.5, 4)
 	var/atom/target = get_ranged_target_turf(src, direction, range)
-
 	var/spin = 0
 
 	if(range > 1)
 		spin = 1
-
 	if(range >= 2)
 		var/scatter = range/4
 		var/scatter_x = rand(-scatter,scatter)
@@ -391,5 +364,4 @@ explosion resistance exactly as much as their health
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, spin)
-
 	return
