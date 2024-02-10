@@ -38,7 +38,7 @@
 	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline course through you! Time to go fast!"))
 
 	if(L.health < L.health_threshold_crit && volume > 3)
-		to_chat(L, span_userdanger("Heart explosion! Power is running through your veins!"))
+		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
 		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
 		L.jitter(5)
 
@@ -66,7 +66,7 @@
 	L.apply_damages(effect_str, effect_str, effect_str)
 
 /datum/reagent/medicine/adrenaline/on_mob_delete(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("The room spins as you start to come down off the adrenaline!"))
+	to_chat(L, span_userdanger("The room spins as your adrenaline starts to wear off!"))
 	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
 
 ///PARACETAMOL
