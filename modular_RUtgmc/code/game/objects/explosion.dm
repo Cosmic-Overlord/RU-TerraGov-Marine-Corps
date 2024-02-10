@@ -4,13 +4,14 @@
 
 	if(devastation_range > 0)
 		power = 300
-	else if (heavy_impact_range > 0)
+	else if(heavy_impact_range > 0)
 		power = 220
-	else if (light_impact_range > 0)
+	else if(light_impact_range > 0)
 		power = 120
+	else if(weak_impact_range > 0)
+		power = 20
 	else
 		return
 
-	var/falloff = power/(light_impact_range+2) // +1 would give the same range. +2 gives a bit of extra range now that explosions are blocked by walls
-	cell_explosion(epicenter, power, falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, )
-	return cell_explosion(epicenter, power, falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction)
+	var/falloff = power / (light_impact_range + 2) // +1 would give the same range. +2 gives a bit of extra range now that explosions are blocked by walls
+	cell_explosion(epicenter, power, falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, null)
