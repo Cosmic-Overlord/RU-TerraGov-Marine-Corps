@@ -279,8 +279,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 	if(flame_range)
 		flame_radius(flame_range, epicenter, color)
 
-	// for what is this shit, idk
-	//SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
 
 /*/proc/log_explosion(atom/A, datum/automata_cell/explosion/E)
 	if(isliving(A))
