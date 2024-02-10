@@ -20,5 +20,10 @@
 	if(explosion_message)
 		_location.visible_message(span_danger("The solution violently explodes!"), \
 								span_hear("You hear an explosion!"))
-
+/*
 	dyn_explosion(_location, amount, flashing_factor)
+*/
+//RUTGMC ADDITION - Explosions
+	var/range = round((2 * amount)**GLOB.DYN_EX_SCALE)
+	SScellauto.explode(location, amount, range*4, EXPLOSION_FALLOFF_SHAPE_LINEAR)
+//RUTGMC ADDITION END

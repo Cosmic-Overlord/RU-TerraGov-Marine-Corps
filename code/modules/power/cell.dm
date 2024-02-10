@@ -167,6 +167,7 @@
 			span_notice("You stabilize the [src] with [I]; it will no longer detonate on use."))
 
 
+/* RUTGMC REMOVED - Explosions update
 /obj/item/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)
 /*
@@ -183,6 +184,7 @@
 	explosion(T, devastation_range, heavy_impact_range, light_impact_range, 0, flash_range)
 
 	QDEL_IN(src, 1)
+RU TGMC REMOVENT END */
 
 /obj/item/cell/proc/corrupt()
 	charge /= 2

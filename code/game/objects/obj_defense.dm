@@ -49,6 +49,7 @@
 			playsound(loc, 'sound/items/welder.ogg', 50, 1)
 
 
+/* RUTGMC REMOVED - Explosions update
 /obj/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
@@ -64,6 +65,7 @@
 			take_damage(rand(10, 90), BRUTE, BOMB, 0)
 		if(EXPLODE_WEAK)
 			take_damage(rand(5, 45), BRUTE, BOMB, 0)
+RU TGMC REMOVENT END */
 
 
 /obj/hitby(atom/movable/AM, speed = 5)

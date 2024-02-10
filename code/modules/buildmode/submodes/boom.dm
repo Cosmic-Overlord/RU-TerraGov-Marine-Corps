@@ -1,11 +1,13 @@
 /datum/buildmode_mode/boom
 	key = "boom"
 
+/* RUTGMC REMOVED - Explosions update
 	var/devastation = 0
 	var/heavy = 0
 	var/light = 0
 	var/flash = 0
 	var/throw_input = 0
+RU TGMC REMOVENT END */
 
 
 /datum/buildmode_mode/boom/show_help(client/c)
@@ -15,12 +17,14 @@
 	to_chat(c, span_notice("***********************************************************"))
 
 
+/* RUTGMC REMOVED - Explosions update
 /datum/buildmode_mode/boom/change_settings(client/c)
 	devastation = input(c, "Range of total devastation.", "Input") as num|null
 	heavy = input(c, "Range of heavy impact.", "Input") as num|null
 	light = input(c, "Range of light impact.", "Input") as num|null
 	flash = input(c, "Range of flash.", "Input") as num|null
 	throw_input = input(c, "Range of throw.", "Input") as num|null
+RU TGMC REMOVENT END */
 
 
 /datum/buildmode_mode/boom/handle_click(client/c, params, obj/object)
@@ -28,6 +32,16 @@
 	var/left_click = pa.Find("left")
 
 	if(left_click)
+/*
 		explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE)
+*/
+//RUTGMC ADDITION - Explosions
+		SScellauto.explode(object, power, falloff, flame_range = flame, silent = TRUE)
+//RUTGMC ADDITION END
 		to_chat(c, span_notice("Success."))
+/*
 		log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]")
+*/
+//RUTGMC ADDITION - Explosions
+		log_admin("Build Mode: [key_name(c)] caused an explosion(p=[power], f=[falloff], flame=[flame]) at [AREACOORD(object)]")
+//RUTGMC ADDITION END

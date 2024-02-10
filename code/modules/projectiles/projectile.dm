@@ -183,7 +183,21 @@
 		shot_from = source
 	loc = loc_override
 	if(!isturf(loc))
+/*
 		forceMove(get_turf(src))
+*/
+//RUTGMC ADDITION - Explosions
+		loc = get_turf(src)
+		if(!loc)
+			if(is_shrapnel == TRUE)
+				var/move_turf = get_turf(source)
+				if(move_turf)
+					forceMove(move_turf)
+			else
+				var/move_turf = get_turf(shooter)
+				if(move_turf)
+					forceMove(move_turf)
+//RUTGMC ADDITION END
 	starting_turf = loc
 
 	if(target)
@@ -294,7 +308,12 @@
 	if(ammo.bonus_projectiles_amount && !recursivity) //Recursivity check in case the bonus projectiles have bonus projectiles of their own. Let's not loop infinitely.
 		ammo.fire_bonus_projectiles(src, shooter, source, range, speed, dir_angle, target)
 
+/*
 	if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles
+*/
+//RUTGMC ADDITION - Explosions
+	if((is_shrapnel == TRUE || shooter.Adjacent(target)) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles
+//RUTGMC ADDITION END
 		target.do_projectile_hit(src)
 		qdel(src)
 		return
@@ -1151,7 +1170,12 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	qdel(src)
 
 /mob/living/proc/embed_projectile_shrapnel(obj/projectile/proj)
+/*
 	var/obj/item/shard/shrapnel/shrap = new(get_turf(src), "[proj] shrapnel", " It looks like it was fired from [proj.shot_from ? proj.shot_from : "something unknown"].")
+*/
+//RUTGMC ADDITION - Explosions
+	var/obj/item/shard/shrapnel/shrap = new proj.ammo.shrapnel_type(get_turf(src), "[proj] shrapnel", " It looks like it was fired from [proj.shot_from ? proj.shot_from : "something unknown"].")
+//RUTGMC ADDITION END
 	if(!shrap.embed_into(src, proj.def_zone, TRUE))
 		qdel(shrap)
 
