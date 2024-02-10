@@ -95,6 +95,7 @@
 		if(EXPLODE_WEAK)
 			take_damage(rand(50, 100), BRUTE, BOMB, 0)
 
+/* RUTGMC DELETION, moved to modular
 /obj/vehicle/sealed/mecha/contents_explosion(severity)
 	severity--
 
@@ -119,6 +120,7 @@
 				SSexplosions.weakMovAtom += flat_equipment
 			if(trackers)
 				SSexplosions.weakMovAtom += trackers
+*/
 
 /obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
 	if(A in occupants) //todo does not work and in wrong file
