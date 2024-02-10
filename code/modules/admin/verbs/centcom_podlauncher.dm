@@ -98,6 +98,7 @@
 	data["styles"] = GLOB.pod_styles
 	return data
 
+/* RUTGMC DELETION, moved to modular
 /datum/centcom_podlauncher/ui_act(action, list/params)
 	. = ..()
 	if(.)
@@ -409,6 +410,7 @@
 				clearBay()
 				refreshBay()
 			. = TRUE
+*/
 
 /datum/centcom_podlauncher/ui_close() //Uses the destroy() proc. When the user closes the UI, we clean up the temp_pod and supplypod_selector variables.
 	qdel(src)
