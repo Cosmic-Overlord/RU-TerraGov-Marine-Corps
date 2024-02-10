@@ -62,7 +62,7 @@ explosion resistance exactly as much as their health
 	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z [ADMIN_JMP(epicenter)])
 
 	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power ^ 2,1))
-	playsound(epicenter, "explosion", 90, 1, max(round(power, 1), 7))
+	playsound(epicenter, get_sfx("explosion"), 90, 1, max(round(power, 1), 7))
 
 	explosion_in_progress = 1
 	explosion_turfs = list()
