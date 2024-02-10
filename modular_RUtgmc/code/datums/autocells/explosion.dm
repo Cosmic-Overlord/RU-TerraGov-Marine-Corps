@@ -34,7 +34,6 @@
 /datum/automata_cell/explosion
 	// Explosions only spread outwards and don't need to know their neighbors to propagate properly
 	neighbor_type = NEIGHBORS_NONE
-
 	// Power of the explosion at this cell
 	var/power = 0
 	// How much will the power drop off when the explosion propagates?
@@ -43,35 +42,25 @@
 	var/falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR
 	// How much power does the explosion gain (or lose) by bouncing off walls?
 	var/reflection_power_multiplier = 0.4
-
 	//Diagonal cells have a small delay when branching off from a non-diagonal cell. This helps the explosion look circular
 	var/delay = 0
-
 	// Which direction is the explosion traveling?
 	// Note that this will be null for the epicenter
 	var/direction = null
-
 	// Whether or not the explosion should merge with other explosions
 	var/should_merge = TRUE
-
-	// For stat tracking and logging purposes
-	var/datum/cause_data/explosion_cause_data
-
 	// Workaround to account for the fact that this is subsystemized
 	// See on_turf_entered
 	var/list/atom/exploded_atoms = list()
-
 	var/obj/effect/particle_effect/shockwave/shockwave = null
 
-/* we dont have stairs teleporters, i'll do it later
+/* This is used for stairs-teleporters, we don't have them yet!
 // If we're on a fake z teleport, teleport over
 /datum/automata_cell/explosion/birth()
 	shockwave = new(in_turf)
-
 	var/obj/effect/step_trigger/teleporter_vector/V = locate() in in_turf
 	if(!V)
 		return
-
 	var/turf/new_turf = locate(in_turf.x + V.vector_x, in_turf.y + V.vector_y, in_turf.z)
 	transfer_turf(new_turf)
 */
@@ -95,7 +84,8 @@
 	var/datum/automata_cell/explosion/dying = is_stronger ? E : src
 
 	// Two epicenters merging, or a new epicenter merging with a traveling wave
-	if((!survivor.direction && !dying.direction) || (survivor.direction && !dying.direction))
+	//if((!survivor.direction && !dying.direction) || (survivor.direction && !dying.direction))
+	if(!dying.direction && (!survivor.direction || survivor.direction))
 		survivor.power += dying.power
 
 	// A traveling wave hitting the epicenter weakens it
@@ -247,47 +237,7 @@ as having entered the turf.
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 
-/*
 // Spawns a cellular automaton of an explosion
-/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, datum/cause_data/explosion_cause_data)
-	if(!istype(epicenter))
-		epicenter = get_turf(epicenter)
-
-	if(!epicenter)
-		return
-
-	falloff = max(falloff, power/100)
-
-	msg_admin_attack("Explosion with Power: [power], Falloff: [falloff], Shape: [falloff_shape] in [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", epicenter.x, epicenter.y, epicenter.z)
-
-	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power^2,1))
-
-	if(power >= 300) //Make BIG BOOMS
-		playsound(epicenter, "bigboom", 80, 1, max(round(power,1),7))
-	else
-		playsound(epicenter, "explosion", 90, 1, max(round(power,1),7))
-
-	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
-	if(power > EXPLOSION_MAX_POWER)
-		log_debug("[explosion_cause_data.cause_name] exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].")
-		power = EXPLOSION_MAX_POWER
-
-	// something went wrong :(
-	if(QDELETED(E))
-		return
-
-	E.power = power
-	E.power_falloff = falloff
-	E.falloff_shape = falloff_shape
-	E.direction = direction
-	E.explosion_cause_data = explosion_cause_data
-
-	if(power >= 100) // powerful explosions send out some special effects
-		epicenter = get_turf(epicenter) // the ex_acts might have changed the epicenter
-		create_shrapnel(epicenter, rand(5,9), , ,/datum/ammo/bullet/shrapnel/light/effect/ver1, explosion_cause_data)
-		create_shrapnel(epicenter, rand(5,9), , ,/datum/ammo/bullet/shrapnel/light/effect/ver2, explosion_cause_data)*/
-
-// Call controller for D.O.R.E.C explosion directly
 proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction, shrapnel = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
@@ -295,48 +245,42 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 	if(!epicenter)
 		return
 
-	falloff = max(falloff, power/100)
-
-	log_game("Explosion with Power: [power], Falloff: [falloff], Shape: [falloff_shape] in [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", epicenter.x, epicenter.y, epicenter.z)
+	falloff = max(falloff, power / 100)
+	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff], Shape: [falloff_shape] in [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", epicenter.x, epicenter.y, epicenter.z)
 
 	if(!silent)
 		var/expo_frequency = GET_RAND_FREQUENCY
-		playsound(epicenter, get_sfx("explosion_large_distant"), 100, 1, frequency = expo_frequency)
+		playsound(epicenter, get_sfx("explosion_large_distant"), 100, 1, round(power ^ 2, 1), frequency = expo_frequency)
 
 		if(power >= 300) // Make BIG BOOMS
-			playsound(epicenter, get_sfx("bigboom"), 80, 1, frequency = expo_frequency)
+			playsound(epicenter, get_sfx("bigboom"), 80, 1, max(round(power, 1), 7, frequency = expo_frequency))
 		else
-			playsound(epicenter, get_sfx("explosion"), 90, 1, frequency = expo_frequency)
+			playsound(epicenter, get_sfx("explosion"), 90, 1, max(round(power, 1), 7, frequency = expo_frequency))
 
 		if(is_mainship_level(epicenter.z))
 			playsound(epicenter, get_sfx("explosion_creak"), 40, 1, 40, frequency = expo_frequency) // ship groaning under explosion effect
 
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
-//		log_debug("[epicenter] exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].")
+		log_debug("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].")
 		power = EXPLOSION_MAX_POWER
-
-	// Something went wrong :(
-	if(QDELETED(E))
-		return
 
 	E.power = power
 	E.power_falloff = falloff
 	E.falloff_shape = falloff_shape
 	E.direction = direction
 
-	// Make explosion effect
-	new /obj/effect/temp_visual/explosion(epicenter, power / 2, color, power)
-	// Explosion enought powerful for making shrapnel
-	if(shrapnel)
+	// powerful explosions send out some special effects
+	if(power >= 100 && shrapnel)
+		epicenter = get_turf(epicenter)
 		create_shrapnel(epicenter, rand(5, 9), direction, /datum/ammo/bullet/shrapnel/light/effect/ver1)
 		create_shrapnel(epicenter, rand(5, 9), direction, /datum/ammo/bullet/shrapnel/light/effect/ver2)
 	// Drop flames
 	if(flame_range)
-		flame_radius(flame_range, epicenter)
+		flame_radius(flame_range, epicenter, color)
 
-	// for what that shit, idk
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
+	// for what is this shit, idk
+	//SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
 
 /*/proc/log_explosion(atom/A, datum/automata_cell/explosion/E)
 	if(isliving(A))
