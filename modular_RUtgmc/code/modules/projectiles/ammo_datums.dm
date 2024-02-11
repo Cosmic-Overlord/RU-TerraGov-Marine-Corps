@@ -109,6 +109,11 @@
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
 
+/datum/ammo/bullet/sniper/martini
+	penetration = 40
+
+/datum/ammo/bullet/sniper/martini/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, weaken = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 10)
 /*
 //================================================
 					SH-Q6 AMMO DATUMS

@@ -147,7 +147,7 @@
 			/obj/item/armor_module/module/pt_belt = -1,
 		),
 		"Gloves" = list(
-			/obj/item/clothing/gloves/marine/black = -1,
+			/obj/item/clothing/gloves/marine = -1,
 			/obj/item/clothing/gloves/marine/fingerless = -1,
 			/obj/item/clothing/gloves/marine/veteran/marine = -1,
 			/obj/item/clothing/gloves/marine/separatist = -1,
