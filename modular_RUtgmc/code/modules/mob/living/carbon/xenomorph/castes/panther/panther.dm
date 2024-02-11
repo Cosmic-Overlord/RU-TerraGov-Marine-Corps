@@ -45,7 +45,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 0
 	throwforce = 0
-	gulp_size = 2
+	gulp_size = 3
 	possible_transfer_amounts = null
 	volume = 20
 	list_reagents = list(/datum/reagent/medicine/adrenaline = 20)
