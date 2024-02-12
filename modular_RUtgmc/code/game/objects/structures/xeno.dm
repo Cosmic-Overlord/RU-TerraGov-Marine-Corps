@@ -9,7 +9,7 @@
 	var/turf/cur_loc = X.loc
 	if(!istype(cur_loc))
 		return FALSE
-	if(X.a_intent != INTENT_HARM)
+	if(X.a_intent != INTENT_DISARM)
 		try_toggle_state(X)
 		return TRUE
 	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
@@ -71,7 +71,10 @@
 	if(X.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM)
+	if(X.a_intent != INTENT_DISARM)
+		return FALSE
+
+	if(X.a_intent == INTENT_DISARM)
 		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X) && refundable)
 			SSresinshaping.decrement_build_counter(X)
 		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
