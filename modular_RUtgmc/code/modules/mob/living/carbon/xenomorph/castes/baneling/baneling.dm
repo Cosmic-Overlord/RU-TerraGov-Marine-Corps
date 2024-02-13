@@ -5,7 +5,7 @@
 	icon = 'modular_RUtgmc/icons/Xeno/castes/baneling.dmi'
 	plane = FLOOR_PLANE
 
-/obj/structure/xeno/baneling_pod/deconstruct() // in case if something like plasmacutter cuts the pod
+/obj/structure/xeno/baneling_pod/deconstruct() // in case if something like plasmacutter deconstructs the pod
 	if(length(contents) <= 0)
 		return ..()
 	for(var/mob/living/carbon/xenomorph/xeno in contents)
