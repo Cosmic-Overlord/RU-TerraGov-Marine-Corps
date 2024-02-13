@@ -1,5 +1,5 @@
 /obj/item/tool/pickaxe/plasmacutter/start_cut(mob/user, name = "", atom/source, charge_amount = PLASMACUTTER_BASE_COST, custom_string, no_string, SFX = TRUE)
-	if(!(cell.charge >= charge_amount) || !powered) //Check power
+	if(!(cell.charge >= charge_amount) || !powered)
 		fizzle_message(user)
 		return FALSE
 	eyecheck(user)
