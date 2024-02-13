@@ -3560,9 +3560,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "neurotoxic splash"
 	added_spit_delay = 0
 	spit_cost = 100
-	damage = 40
+	damage = 5
 	smoke_strength = 1
 	reagent_transfer_amount = 10
+	slowdown_stacks = 7
 
 
 /datum/ammo/xeno/sticky
