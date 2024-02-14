@@ -14,7 +14,7 @@
 		return
 	X.visible_message(span_xenonotice("\The [X] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
-	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_GENERIC))
+	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_GENERIC))
 		return
 	if(!istype(src))
 		return
