@@ -312,7 +312,7 @@
 	if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles
 */
 //RUTGMC ADDITION - Explosions
-	if((is_shrapnel == TRUE || shooter.Adjacent(target)) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles
+	if((is_shrapnel == TRUE || shooter.Adjacent(target)) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null))
 //RUTGMC ADDITION END
 		target.do_projectile_hit(src)
 		qdel(src)

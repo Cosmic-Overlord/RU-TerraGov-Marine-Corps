@@ -1,31 +1,27 @@
-/mob/living/carbon/human/ex_act(severity, direction, datum/cause_data/cause_data)
+/mob/living/carbon/human/ex_act(severity, direction) // it isn't done
 	if(status_flags & GODMODE)
 		return
 
-	if(lying)
+	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
 	var/b_loss = 0
 	var/f_loss = 0
+	var/damage = severity
 	var/stagger_amount = 0
 	var/slowdown_amount = 0
 	var/ear_damage_amount = 0
 	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
 
-	if(bomb_armor_ratio <= 0) //we have 100 effective bomb armor
-		return
-
 	if((severity == EXPLODE_DEVASTATE) && (bomb_armor_ratio > EXPLOSION_THRESHOLD_GIB))
 		return gib() //you got OB'd naked
 
-	last_damage_data = istype(cause_data) ? cause_data : create_cause_data(cause_data)
-
 	if(damage >= EXPLOSION_THRESHOLD_GIB)
 		var/oldloc = loc
-		gib(last_damage_data)
-		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human, last_damage_data)
-		create_shrapnel(oldloc, rand(5, 9), direction, 30, /datum/ammo/bullet/shrapnel/light/human/var1, last_damage_data)
-		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2, last_damage_data)
+		gib()
+		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
+		create_shrapnel(oldloc, rand(5, 9), direction, 30, /datum/ammo/bullet/shrapnel/light/human/var1)
+		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
 		return
 
 	switch(severity)
