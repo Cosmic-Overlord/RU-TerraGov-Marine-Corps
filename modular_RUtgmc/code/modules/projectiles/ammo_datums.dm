@@ -75,9 +75,6 @@
 	icon_state = "howi"
 	shell_speed = 0.75
 
-/datum/ammo/mortar/knee/drop_nade(turf/T)
-	cell_explosion(T, 400, 150)
-
 /datum/ammo/bullet/rifle/standard_br/ap
 	name = "light marksman armor piercing bullet"
 	penetration = 25

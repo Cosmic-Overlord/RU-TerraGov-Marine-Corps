@@ -565,8 +565,6 @@
 	log_admin("[key_name(usr)] forced [O] ([O.type]) to: [method] [message]")
 	message_admins("[ADMIN_TPMONTY(usr)] forced [O] ([O.type]) to: [method] [message]")
 
-
-/* RUTGMC REMOVED - Explosions update
 /datum/admins/proc/drop_bomb()
 	set category = "Admin.Fun"
 	set name = "Drop Bomb"
@@ -655,7 +653,7 @@
 	explosion(impact, 2, 3, 4, 0, 6)
 	flame_radius(5, impact, 60, 30)
 
-
+/* RUTGMC DELETION
 /datum/admins/proc/drop_dynex_bomb()
 	set category = "Admin.Fun"
 	set name = "Drop DynEx Bomb"

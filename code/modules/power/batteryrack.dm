@@ -194,12 +194,7 @@
 					empulse(src.loc, 3, 8, 1)
 			if (overcharge_percent >= 150)
 				if (prob(1))
-/*
 					explosion(loc, 1, 2, 4, 0, 5)
-*/
-//RUTGMC ADDITION - Explosions
-					cell_explosion(loc, 200, 150)
-//RUTGMC ADDITION END
 		if ((3.6e6+1) to INFINITY)
 			if (overcharge_percent >= 115)
 				if (prob(8))
@@ -211,12 +206,7 @@
 					empulse(src.loc, 4, 10, 1)
 			if (overcharge_percent >= 140)
 				if (prob(1))
-/*
 					explosion(loc, 2, 4, 6, 0, 8)
-*/
-//RUTGMC ADDITION - Explosions
-					cell_explosion(loc, 400, 150)
-//RUTGMC ADDITION END
 		else //how the hell was this proc called for negative charge
 			charge = 0
 

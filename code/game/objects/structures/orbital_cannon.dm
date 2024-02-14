@@ -327,12 +327,7 @@
 
 
 /obj/structure/ob_ammo/obj_destruction(damage_amount, damage_type, damage_flag)
-/*
 	explosion(loc, light_impact_range = 2, flash_range = 3, flame_range = 2)
-*/
-//RUTGMC ADDITION - Explosions
-	cell_explosion(loc, 400, 200)
-//RUTGMC ADDITION END
 	return ..()
 
 
@@ -351,16 +346,7 @@
 
 /obj/structure/ob_ammo/warhead/explosive/warhead_impact(turf/target, inaccuracy_amt = 0)
 	. = ..()
-/*
 	explosion(target, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 0, 15 - inaccuracy_amt)
-*/
-//RUTGMC ADDITION - Explosions
-	cell_explosion(target, 2000 / max(inaccuracy_amt, 1), 200, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#d67234")
-	sleep(3 SECONDS)
-	cell_explosion(target, 2000 / max(inaccuracy_amt, 1), 75, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#d67234")
-//RUTGMC ADDITION END
-
-
 
 /obj/structure/ob_ammo/warhead/incendiary
 	name = "\improper Incendiary orbital warhead"
@@ -391,12 +377,7 @@
 	var/total_amt = max(25 - inaccuracy_amt, 20)
 	for(var/i = 1 to total_amt)
 		var/turf/U = pick_n_take(turf_list)
-/*
 		explosion(U, 1, 4, 6, 0, 6, throw_range = 0, adminlog = FALSE) //rocket barrage
-*/
-//RUTGMC ADDITION - Explosions
-		cell_explosion(U, 800 / max(inaccuracy_amt, 1), 200, EXPLOSION_FALLOFF_SHAPE_LINEAR, color = "#79c1cb")
-//RUTGMC ADDITION END
 		sleep(0.1 SECONDS)
 
 /obj/structure/ob_ammo/warhead/plasmaloss

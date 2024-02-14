@@ -53,13 +53,7 @@
 /mob/living/silicon/decoy/proc/post_mortem_explosion()
 	if(isnull(loc))
 		return
-/*
 	explosion(get_turf(src), 0, 1, 9, 0, 12)
-*/
-//RUTGMC ADDITION - Explosions
-	cell_explosion(loc, 450, 150)
-//RUTGMC ADDITION END
-
 
 /mob/living/silicon/decoy/say(message, new_sound, datum/language/language) //General communication across the ship.
 	if(stat || !message)
