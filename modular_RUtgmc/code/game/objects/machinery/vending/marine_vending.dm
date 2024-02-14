@@ -185,6 +185,7 @@
 			/obj/item/storage/belt/utility/full =-1,
 			/obj/item/storage/belt/medical_small = -1,
 			/obj/item/storage/belt/gun/revolver/t500 = -1,
+			/obj/item/storage/belt/mortar_belt = 4,
 		),
 		"Pouches" = list(
 			/obj/item/storage/pouch/pistol = -1,
@@ -572,6 +573,8 @@
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = 2,
+			/obj/item/mortar_kit/knee = 4,
+			/obj/item/mortal_shell/knee = 40,
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
