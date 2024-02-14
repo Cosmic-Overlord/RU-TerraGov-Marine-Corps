@@ -147,6 +147,7 @@
 			continue
 		INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += A
+		log_explosion()
 
 	var/reflected = FALSE
 
@@ -232,6 +233,7 @@ as having entered the turf.
 		return
 
 	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
+	log_explosion()
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 // Spawns a cellular automaton of an explosion
@@ -259,7 +261,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
-		msg_admin_ff("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
+		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
 		power = EXPLOSION_MAX_POWER
 
 	E.power = power
@@ -277,6 +279,11 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		flame_radius(flame_range, epicenter, color)
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
+
+/proc/log_explosion(turf/epicenter, power, falloff)
+	log_game("Explosion with power:[power] and falloff:[falloff] in [loc_name(epicenter)]")
+	if(is_mainship_level(epicenter.z))
+		message_admins("Explosion with power:[power] and falloff:[falloff] in [ADMIN_VERBOSEJMP(epicenter)]")
 
 /obj/effect/particle_effect/shockwave
 	name = "shockwave"
