@@ -37,7 +37,7 @@
 		if("Big Bomb")
 			cell_explosion(epicenter, 1400, 200)
 		if("Maxcap")
-			explosion(usr.loc, GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, 0, GLOB.MAX_EX_FLASH_RANGE)
+			cell_explosion(epicenter, 5000, 500)
 		if("Custom Bomb")
 			var/input_power_range = tgui_input_number(usr, "Power?", "Power?")
 			var/input_fallof_range = tgui_input_number(usr, "Falloff?", "Falloff?")

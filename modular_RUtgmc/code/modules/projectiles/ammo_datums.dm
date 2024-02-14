@@ -274,7 +274,7 @@
 */
 /datum/ammo/bullet/shrapnel
 	name = "shrapnel"
-	icon_state = "buckshot_v1"
+	icon_state = "buckshot_shrapnel"
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_BALLISTIC
 
