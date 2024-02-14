@@ -18,4 +18,4 @@
 	if(adminlog)
 		log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(epicenter)]!")
 		if(is_mainship_level(epicenter.z))
-			message_admins("Explosion with with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
+			message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
