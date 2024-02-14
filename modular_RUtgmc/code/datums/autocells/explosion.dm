@@ -54,16 +54,15 @@
 	var/list/atom/exploded_atoms = list()
 	var/obj/effect/particle_effect/shockwave/shockwave = null
 
-/* This is used for stairs-teleporters, we don't have them yet!
 // If we're on a fake z teleport, teleport over
 /datum/automata_cell/explosion/birth()
 	shockwave = new(in_turf)
-	var/obj/effect/step_trigger/teleporter_vector/V = locate() in in_turf
-	if(!V)
-		return
-	var/turf/new_turf = locate(in_turf.x + V.vector_x, in_turf.y + V.vector_y, in_turf.z)
+	//var/obj/effect/step_trigger/teleporter_vector/V = locate() in in_turf
+	//if(!V)
+	//	return
+	//var/turf/new_turf = locate(in_turf.x + V.vector_x, in_turf.y + V.vector_y, in_turf.z)
+	var/turf/new_turf = locate(in_turf.x, in_turf.y, in_turf.z)
 	transfer_turf(new_turf)
-*/
 
 /datum/automata_cell/explosion/death()
 	if(shockwave)
@@ -147,7 +146,6 @@
 			continue
 		INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += A
-		log_explosion()
 
 	var/reflected = FALSE
 
@@ -233,7 +231,6 @@ as having entered the turf.
 		return
 
 	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
-	log_explosion()
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 // Spawns a cellular automaton of an explosion
@@ -280,10 +277,6 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
 
-/proc/log_explosion(turf/epicenter, power, falloff)
-	log_game("Explosion with power:[power] and falloff:[falloff] in [loc_name(epicenter)]")
-	if(is_mainship_level(epicenter.z))
-		message_admins("Explosion with power:[power] and falloff:[falloff] in [ADMIN_VERBOSEJMP(epicenter)]")
 
 /obj/effect/particle_effect/shockwave
 	name = "shockwave"
