@@ -100,6 +100,7 @@
 #include "code\game\objects\machinery\bots\roomba.dm"
 #include "code\game\objects\machinery\camera\camera.dm"
 #include "code\game\objects\machinery\cloning\cloning.dm"
+#include "code\game\objects\machinery\computer\computer.dm"
 #include "code\game\objects\machinery\doors\airlock.dm"
 #include "code\game\objects\machinery\squad_supply\supply_beacon.dm"
 #include "code\game\objects\machinery\vending\marine_vending.dm"
