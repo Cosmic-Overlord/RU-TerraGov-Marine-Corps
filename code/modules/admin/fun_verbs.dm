@@ -601,8 +601,6 @@
 			explosion(usr.loc, 2, 3, 4, 0, 4)
 		if("Big Bomb")
 			explosion(usr.loc, 3, 5, 7, 0, 5)
-		if("Maxcap")
-			explosion(usr.loc, GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, 0, GLOB.MAX_EX_FLASH_RANGE)
 		if("Custom Bomb")
 			var/input_devastation_range = input("Devastation range (in tiles):", "Drop Bomb") as null|num
 			var/input_heavy_impact_range = input("Heavy impact range (in tiles):", "Drop Bomb") as null|num
