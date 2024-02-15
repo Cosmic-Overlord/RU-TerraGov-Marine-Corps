@@ -573,7 +573,7 @@
 	if(!check_rights(R_FUN))
 		return
 
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Maxcap", "Custom Bomb"))
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
 	switch(choice)
 		if("CAS: Widow Maker")
 			playsound(usr.loc, 'sound/machines/hydraulics_2.ogg', 70, TRUE)

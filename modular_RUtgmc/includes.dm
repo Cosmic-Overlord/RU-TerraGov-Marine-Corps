@@ -55,6 +55,7 @@
 #include "code\game\data_huds.dm"
 #include "code\game\objects\explosion_recursive.dm"
 #include "code\game\objects\explosion.dm"
+#include "code\game\objects\obj_defense.dm"
 #include "code\game\objects\shrapnel.dm"
 #include "code\game\objects\structures.dm"
 #include "code\game\objects\area\gelide_iv.dm"
