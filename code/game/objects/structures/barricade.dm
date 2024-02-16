@@ -685,6 +685,7 @@
 			return TRUE
 
 
+/*RUTGMC DELETION
 /obj/structure/barricade/metal/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -697,6 +698,7 @@
 			take_damage(rand(25, 50), BRUTE, BOMB)
 
 	update_icon()
+*/
 
 
 #undef BARRICADE_METAL_LOOSE
@@ -954,6 +956,7 @@
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == closed)
 				. += image('icons/Marine/barricades.dmi', icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
 
+/*RUTGMC DELETION
 /obj/structure/barricade/plasteel/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -966,6 +969,7 @@
 			take_damage(rand(25, 75), BRUTE, BOMB)
 
 	update_icon()
+*/
 
 #undef BARRICADE_PLASTEEL_LOOSE
 #undef BARRICADE_PLASTEEL_ANCHORED
