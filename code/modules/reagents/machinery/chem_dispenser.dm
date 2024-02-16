@@ -100,7 +100,6 @@
 	b_o.pixel_x = rand(-8, 8)
 	return b_o
 
-/* RUTGMC REMOVED - Explosions update
 /obj/machinery/chem_dispenser/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -108,7 +107,6 @@
 		if(EXPLODE_HEAVY)
 			if (prob(50))
 				take_damage(INFINITY)
-RU TGMC REMOVENT END */
 
 /obj/machinery/chem_dispenser/AltClick(mob/user)
 	. = ..()
