@@ -140,6 +140,7 @@
 					overlays += I
 
 
+/* RUTGMC DELETION
 //Explosion act
 /turf/open/floor/plating/ground/snow/ex_act(severity)
 	switch(severity)
@@ -155,6 +156,7 @@
 
 	update_icon(TRUE, FALSE)
 	return ..()
+*/
 
 //Fire act; fire now melts snow as it should; fire beats ice
 /turf/open/floor/plating/ground/snow/flamer_fire_act(burnlevel)

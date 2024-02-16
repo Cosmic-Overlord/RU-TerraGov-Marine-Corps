@@ -24,4 +24,17 @@
 	playsound(target, 'sound/weapons/tap.ogg', 20, TRUE)
 	qdel(src)
 
+/turf/open/floor/plating/ground/snow/ex_act(severity)
+	switch(severity)
+		if(0 to EXPLODE_LIGHT)
+			if(slayer && prob(20))
+				slayer = max(slayer - 1, 0)
+		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
+			if(slayer && prob(60))
+				slayer = max(slayer - 2, 0)
+		if(EXPLODE_HEAVY to INFINITY)
+			if(slayer)
+				slayer = 0
 
+	update_icon(TRUE, FALSE)
+	return ..()
