@@ -6,10 +6,10 @@
 
 	switch(severity)
 		if(0 to EXPLODE_LIGHT)
-			if (prob(25))
+			if(prob(25))
 				deconstruct(TRUE)
 		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-			if (prob(50))
+			if(prob(50))
 				deconstruct(TRUE)
 		if(EXPLODE_HEAVY to INFINITY)
 			deconstruct(FALSE)

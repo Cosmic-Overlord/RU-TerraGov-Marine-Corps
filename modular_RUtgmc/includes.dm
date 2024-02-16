@@ -123,6 +123,7 @@
 #include "code\game\objects\explosives\grenades\grenade.dm"
 #include "code\game\turfs\closed.dm"
 #include "code\game\turfs\floor_types.dm"
+#include "code\game\turfs\floor.dm"
 #include "code\game\turfs\liquid_turfs.dm"
 #include "code\game\turfs\snow.dm"
 #include "code\game\turfs\turf.dm"
