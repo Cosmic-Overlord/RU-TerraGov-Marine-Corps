@@ -6,7 +6,6 @@
 		balloon_alert(bodybag_occupant, "The explosion blows you out")
 		bodybag_occupant.ex_act(severity)
 		open()
-	switch(severity)
-		if(EXPLODE_HEAVY to INFINITY)
-			visible_message(span_danger("The shockwave blows [src] apart!"))
-			qdel(src) //blown apart
+	if(severity <= EXPLODE_HEAVY)
+		visible_message(span_danger("The shockwave blows [src] apart!"))
+		qdel(src) //blown apart
