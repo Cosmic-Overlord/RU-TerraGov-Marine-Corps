@@ -23,3 +23,7 @@
 
 /turf/closed/shuttle/dropship2/glasssix
 	opacity = FALSE
+
+/turf/closed/gm/ex_act(severity)
+	if(severity >= EXPLODE_DEVASTATE)
+		ChangeTurf(/turf/open/ground/grass)

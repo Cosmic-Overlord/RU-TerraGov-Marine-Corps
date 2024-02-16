@@ -1,6 +1,9 @@
 /obj/alien
 	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
 
+/obj/alien/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB)
+
 //Resin Doors
 /obj/structure/mineral_door/resin
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
@@ -22,6 +25,14 @@
 	if(do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
 		src.balloon_alert(X, "Destroyed")
 		qdel(src)
+
+
+/obj/structure/mineral_door/resin/ex_act(severity)
+	switch(severity)
+		if(0 to EXPLODE_LIGHT)
+			take_damage(severity / 2, BRUTE, BOMB)
+		if(EXPLODE_LIGHT to INFINITY)
+			qdel()
 
 /obj/alien/resin/resin_growth
 	name = GROWTH_WALL

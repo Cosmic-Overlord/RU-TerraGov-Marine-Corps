@@ -11,13 +11,12 @@
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/col_rwindow.dmi'
 
 
-/obj/structure/window/ex_act(severity)
-	switch(severity)
-		if(0 to EXPLODE_WEAK)
-			take_damage(rand(15, 35), BRUTE, BOMB)
-		if(EXPLODE_WEAK to EXPLODE_LIGHT)
-			take_damage(rand(25, 75), BRUTE, BOMB)
-		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-			take_damage(rand(75, 125), BRUTE, BOMB)
-		if(EXPLODE_HEAVY to INFINITY)
-			take_damage(rand(125, 250), BRUTE, BOMB)
+/obj/structure/window/ex_act(severity, explosion_direction)
+	take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WINDOW, BRUTE, BOMB)
+	if(obj_integrity < 0) // i didn't understand it
+		var/location = get_turf(src)
+		playsound(src, "windowshatter", 50, 1)
+		create_shrapnel(location, rand(1,5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
+
+	handle_debris(severity, explosion_direction)
+
