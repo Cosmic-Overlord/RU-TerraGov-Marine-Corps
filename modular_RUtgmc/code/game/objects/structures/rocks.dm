@@ -1,0 +1,7 @@
+/obj/structure/rock/ex_act(severity)
+	switch(severity)
+		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
+			if(prob(30))
+				qdel(src)
+		if(EXPLODE_HEAVY to INFINITY)
+			qdel(src)
