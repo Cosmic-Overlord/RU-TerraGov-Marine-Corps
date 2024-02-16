@@ -117,6 +117,8 @@
 #include "code\game\objects\machinery\vending\vending_types.dm"
 #include "code\game\objects\machinery\vending\vending.dm"
 #include "code\game\objects\structures\barricade.dm"
+#include "code\game\objects\structures\bookcase.dm"
+#include "code\game\objects\structures\displaycase.dm"
 #include "code\game\objects\structures\droppod.dm"
 #include "code\game\objects\structures\dropship_ammo.dm"
 #include "code\game\objects\structures\ladders.dm"
