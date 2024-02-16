@@ -10,5 +10,5 @@
 		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
 			if(prob(25))
 				qdel(src)
-		if(EXPLODE_HEAVY to INFINITITY)
+		if(EXPLODE_HEAVY to INFINITY)
 			qdel(src)
