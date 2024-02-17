@@ -16,7 +16,7 @@
 	if(obj_integrity < 0) // i didn't understand it
 		var/location = get_turf(src)
 		playsound(src, "windowshatter", 50, 1)
-		create_shrapnel(location, rand(1,5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
+		create_shrapnel(location, rand(1, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
 
 	handle_debris(severity, explosion_direction)
 

@@ -234,7 +234,7 @@ as having entered the turf.
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 // Spawns a cellular automaton of an explosion
-proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction, shrapnel = TRUE, adminlog = TRUE)
+proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, flame_color silent, color, direction, shrapnel = TRUE, adminlog = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
@@ -306,7 +306,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver2)
 	// Drop flames
 	if(flame_range)
-		flame_radius(flame_range, epicenter, colour = color)
+		flame_radius(flame_range, epicenter, colour = flame_color)
 	if(power >= EXPLODE_MEDIUM)
 		for(var/mob/living/carbon/carbon_viewers in viewers(power / falloff, epicenter))
 			carbon_viewers.flash_act()
