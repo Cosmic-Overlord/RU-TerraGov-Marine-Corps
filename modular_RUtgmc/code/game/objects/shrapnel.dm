@@ -7,10 +7,10 @@
 
 	if(shrapnel_direction)
 		initial_angle = dir2angle(shrapnel_direction) - shrapnel_spread
-		angle_increment = shrapnel_spread*2/shrapnel_number
+		angle_increment = shrapnel_spread * 2 /shrapnel_number
 	else
-		angle_increment = 360/shrapnel_number
-	var/angle_randomization = angle_increment/2
+		angle_increment = 360 / shrapnel_number
+	var/angle_randomization = angle_increment / 2
 
 	var/mob/living/mob_standing_on_turf
 	var/mob/living/mob_lying_on_turf
@@ -31,15 +31,14 @@
 		var/obj/projectile/S = new(epicenter)
 		S.generate_bullet(new shrapnel_type)
 
-		if(!(ignore_source_mob && mob_standing_on_turf) && mob_standing_on_turf && prob(100*on_hit_coefficient)) //if a non-prone mob is on the same turf as the shrapnel explosion, some of the shrapnel hits him
+		if(!(ignore_source_mob && mob_standing_on_turf) && mob_standing_on_turf && prob(100 * on_hit_coefficient)) //if a non-prone mob is on the same turf as the shrapnel explosion, some of the shrapnel hits him
 			S.ammo.on_hit_mob(mob_standing_on_turf, S)
 			S.projectile_hit(mob_standing_on_turf)
-		else if(!(ignore_source_mob && mob_lying_on_turf) && mob_lying_on_turf && prob(100*on_hit_coefficient))
+		else if (!(ignore_source_mob && mob_lying_on_turf) && mob_lying_on_turf && prob(100 * on_hit_coefficient))
 			S.ammo.on_hit_mob(mob_lying_on_turf, S)
 			S.projectile_hit(mob_lying_on_turf)
-
 		else
-			var/angle = initial_angle + i*angle_increment + rand(-angle_randomization,angle_randomization)
+			var/angle = initial_angle + i * angle_increment + rand(-angle_randomization, angle_randomization)
 			var/atom/target = get_angle_target_turf(epicenter, angle, 20)
 			S.is_shrapnel = FALSE
 			var/mob/user = usr
