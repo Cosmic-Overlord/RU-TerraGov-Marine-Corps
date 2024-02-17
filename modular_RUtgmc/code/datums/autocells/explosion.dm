@@ -306,7 +306,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		create_shrapnel(epicenter, rand(5, 9), direction, /datum/ammo/bullet/shrapnel/light/effect/ver2)
 	// Drop flames
 	if(flame_range)
-		flame_radius(flame_range, epicenter, color)
+		flame_radius(flame_range, epicenter, colour = color)
 	if(power >= EXPLODE_MEDIUM)
 		for(var/mob/living/carbon/carbon_viewers in viewers(power / falloff, epicenter))
 			carbon_viewers.flash_act()
