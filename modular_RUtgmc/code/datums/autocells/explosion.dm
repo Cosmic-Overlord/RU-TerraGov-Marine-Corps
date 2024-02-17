@@ -234,7 +234,7 @@ as having entered the turf.
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 // Spawns a cellular automaton of an explosion
-proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction, shrapnel = TRUE)
+proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, silent, color, direction, shrapnel = TRUE, adminlog = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
@@ -242,7 +242,10 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		return
 
 	falloff = max(falloff, power / 100)
-	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff], Shape: [falloff_shape] in [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", epicenter.x, epicenter.y, epicenter.z)
+	if(adminlog)
+		log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(epicenter)]!")
+		if(is_mainship_level(epicenter.z))
+			message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
 
 	var/far_dist = power / 100
 	if(!silent)
