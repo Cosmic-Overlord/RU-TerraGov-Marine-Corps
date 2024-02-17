@@ -245,16 +245,46 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff], Shape: [falloff_shape] in [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", epicenter.x, epicenter.y, epicenter.z)
 
 	if(!silent)
-		var/expo_frequency = GET_RAND_FREQUENCY
-		playsound(epicenter, get_sfx("explosion_large_distant"), 100, 1, round(power ^ 2, 1), frequency = expo_frequency)
+		var/frequency = GET_RAND_FREQUENCY
+		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
+		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
+		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
 
-		if(power >= 300) // Make BIG BOOMS
-			playsound(epicenter, get_sfx("bigboom"), 80, 1, max(round(power, 1), 7), frequency = expo_frequency)
-		else
-			playsound(epicenter, get_sfx("explosion"), 90, 1, max(round(power, 1), 7), frequency = expo_frequency)
-
-		if(is_mainship_level(epicenter.z))
-			playsound(epicenter, get_sfx("explosion_creak"), 40, 1, 40, frequency = expo_frequency) // ship groaning under explosion effect
+		for(var/MN in GLOB.player_list)
+			var/mob/M = MN
+			// Double check for client
+			var/turf/M_turf = get_turf(M)
+			if(M_turf && M_turf.z == epicenter.z)
+				var/dist = get_dist(M_turf, epicenter)
+				var/baseshakeamount
+				var/orig_max_distance = power / falloff
+				var/far_dist = power / 10
+				if(orig_max_distance - dist > 0)
+					baseshakeamount = sqrt((orig_max_distance - dist)*0.1)
+				switch(power)
+					if(0 to EXPLODE_LIGHT)
+						explosion_sound = sound(get_sfx("explosion_small"))
+						far_explosion_sound = sound(get_sfx("explosion_small_distant"))
+					if(EXPLODE_LIGHT to EXPLODE_HEAVY)
+						explosion_sound = sound(get_sfx("explosion_med"))
+					if(EXPLODE_HEAVY to INFINITY)
+						explosion_sound = sound(get_sfx("explosion_large"))
+				// If inside the blast radius + world.view - 2
+				if(dist <= round(far_dist + world.view - 2, 1))
+					M.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
+					if(is_mainship_level(epicenter.z))
+						M.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
+					if(baseshakeamount > 0)
+						shake_camera(M, 15, clamp(baseshakeamount, 0, 5))
+				// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
+				else if(dist <= far_dist)
+					var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
+					far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
+					M.playsound_local(epicenter, null, far_volume, 1, frequency, falloff = 5, S = far_explosion_sound)
+					if(is_mainship_level(epicenter.z))
+						M.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
+					if(baseshakeamount > 0)
+						shake_camera(M, 7, clamp(baseshakeamount * 0.15, 0, 1.5))
 
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
