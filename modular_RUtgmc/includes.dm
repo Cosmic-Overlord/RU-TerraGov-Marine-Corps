@@ -78,6 +78,7 @@
 #include "code\game\objects\items\shards.dm"
 #include "code\game\objects\items\explosives\bombvest.dm"
 #include "code\game\objects\items\explosives\marines.dm"
+#include "code\game\objects\items\radio\detpack.dm"
 #include "code\game\objects\items\radio\headset.dm"
 #include "code\game\objects\items\radio\intercom.dm"
 #include "code\game\objects\items\reagent_containers\autoinjectors.dm"
