@@ -156,3 +156,6 @@
 /obj/item/armor_module/module/fire_proof_helmet
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+
+/obj/item/armor_module/module/hlin_explosive_armor
+	soft_armor = list(MELEE = 0, BULLET = 20, LASER = 0, ENERGY = 0, BOMB = 40, BIO = 0, FIRE = 0, ACID = 0) // against shrapnel and bombs
