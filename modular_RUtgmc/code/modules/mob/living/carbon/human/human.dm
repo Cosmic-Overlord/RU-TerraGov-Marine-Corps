@@ -1,4 +1,4 @@
-/mob/living/carbon/human/ex_act(severity, direction) // it isn't done
+/mob/living/carbon/human/ex_act(severity, direction)
 	if(status_flags & GODMODE)
 		return
 
@@ -13,9 +13,6 @@
 	var/ear_damage_amount = 0
 	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
 
-	if((severity == EXPLODE_DEVASTATE) && (bomb_armor_ratio > EXPLOSION_THRESHOLD_GIB))
-		return gib() //you got OB'd naked
-
 	if(damage >= EXPLOSION_THRESHOLD_GIB)
 		var/oldloc = loc
 		gib()
@@ -24,34 +21,14 @@
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
 		return
 
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			b_loss = rand(160, 200)
-			f_loss = rand(160, 200)
-			stagger_amount = 24 SECONDS
-			slowdown_amount = 12
-			ear_damage_amount = 60
+	if(damage >= 0)
+		b_loss += damage * 0.5
+		f_loss += damage * 0.5
+	else
+		return
 
-		if(EXPLODE_HEAVY)
-			b_loss = rand(80, 100)
-			f_loss = rand(80, 100)
-			stagger_amount = 12 SECONDS
-			slowdown_amount = 6
-			ear_damage_amount = 30
-
-		if(EXPLODE_LIGHT)
-			b_loss = rand(40, 50)
-			f_loss = rand(40, 50)
-			stagger_amount = 6 SECONDS
-			slowdown_amount = 3
-			ear_damage_amount = 10
-
-		if(EXPLODE_WEAK)
-			b_loss = 20
-			f_loss = 20
-			stagger_amount = 2 SECONDS
-			slowdown_amount = 1
-			ear_damage_amount = 5
+	if(severity >= 30)
+		flash_act()
 
 	if(!istype(wear_ear, /obj/item/clothing/ears/earmuffs))
 		adjust_ear_damage(ear_damage_amount * bomb_armor_ratio, ear_damage_amount * 4 * bomb_armor_ratio)
