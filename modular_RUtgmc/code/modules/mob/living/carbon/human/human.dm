@@ -27,9 +27,6 @@
 	else
 		return
 
-	if(severity >= 30)
-		flash_act()
-
 	if(!istype(wear_ear, /obj/item/clothing/ears/earmuffs))
 		adjust_ear_damage(ear_damage_amount * bomb_armor_ratio, ear_damage_amount * 4 * bomb_armor_ratio)
 	adjust_stagger(stagger_amount * bomb_armor_ratio)
