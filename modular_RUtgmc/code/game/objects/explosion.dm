@@ -2,14 +2,14 @@
 /proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, weak_impact_range, flash_range, flame_range = 0, throw_range, adminlog = TRUE, silent = FALSE, smoke = FALSE, color = LIGHT_COLOR_LAVA, direction)
 	var/power = 0
 
-	if(devastation_range > 0)
-		power = 300
-	else if(heavy_impact_range > 0)
-		power = 220
-	else if(light_impact_range > 0)
-		power = 120
-	else if(weak_impact_range > 0)
-		power = 20
+	if(devastation_range)
+		power += (75 * devastation_range)
+	else if(heavy_impact_range)
+		power += (55 * heavy_impact_range)
+	else if(light_impact_range)
+		power += (30 * light_impact_range)
+	else if(weak_impact_range)
+		power += (5 * weak_impact_range)
 	else
 		return
 
