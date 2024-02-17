@@ -234,7 +234,7 @@ as having entered the turf.
 
 // I'll admit most of the code from here on out is basically just copypasta from DOREC
 // Spawns a cellular automaton of an explosion
-proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, flame_color silent, color, direction, shrapnel = TRUE, adminlog = TRUE)
+proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, flame_range, flame_color, silent, color, direction, shrapnel = TRUE, adminlog = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
