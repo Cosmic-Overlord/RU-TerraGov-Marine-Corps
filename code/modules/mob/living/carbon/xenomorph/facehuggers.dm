@@ -549,7 +549,13 @@
 		reset_attach_status(FALSE)
 		return
 	if(ishuman(user))
-		var/hugsound = user.gender == FEMALE ? get_sfx("female_hugged") : get_sfx("male_hugged")
+//RUTGMC EDIT ADDITION BEGIN - Preds
+		var/hugsound
+		if(isyautja(user))
+			hugsound = get_sfx("pred_hugged")
+		else
+			hugsound = user.gender == FEMALE ? get_sfx("female_hugged") : get_sfx("male_hugged")
+//RUTGMC EDIT ADDITION END
 		playsound(loc, hugsound, 25, 0)
 	if(!sterile && !issynth(user))
 		var/stamina_dmg = user.maxHealth + user.max_stamina
@@ -571,6 +577,10 @@
 			if(source?.client)
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 				personal_statistics.impregnations++
+//RUTGMC EDIT ADDITION BEGIN - Preds
+			if(target.species)
+				target.species.larva_impregnated(embryo)
+//RUTGMC EDIT ADDITION END
 			sterile = TRUE
 		kill_hugger()
 	else

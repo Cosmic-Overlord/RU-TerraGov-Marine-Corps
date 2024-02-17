@@ -1,0 +1,2 @@
+#define X_PRED_LASER_LAYER 10
+#define X_TOTAL_LAYERS 10

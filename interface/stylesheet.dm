@@ -140,6 +140,8 @@ a.popt {text-decoration: none;}
 .xrayradio				{color: #008000;}
 .whiskeyradio			{color: #CC00CC;}
 
+.yautjaradio {color: #b33d3d;}
+
 .binarysay    			{color: #20c20e; background-color: #000000; display: block;}
 .binarysay a  			{color: #00ff00;}
 .binarysay a:active, .binarysay a:visited {color: #88ff88;}
@@ -226,6 +228,9 @@ h1.alert, h2.alert		{color: #000000;}
 .connectionClosed, .fatalError {background: red; color: white; padding: 5px;}
 .connectionClosed.restored {background: green;}
 .internal.boldnshit {color: blue; font-weight: bold;}
+
+.retro_translator {font-weight: bold;}
+.yautja_translator {color: #aa0000; font-weight: bold;}
 
 .text-normal {font-weight: normal; font-style: normal;}
 .hidden {display: none; visibility: hidden;}

@@ -6,6 +6,10 @@
 	var/list/hive_forbiden_castes = list()
 	var/forbid_count = 0
 
+///list of thick resin nests
+	var/max_thick_nests = 0
+	var/list/obj/structure/xeno/thick_nest/thick_nests = list()
+
 // ***************************************
 // *********** Init
 // ***************************************
@@ -304,3 +308,20 @@
 /datum/hive_status/normal/on_shuttle_hijack(obj/docking_port/mobile/marine_dropship/hijacked_ship)
 	SSticker.mode.update_silo_death_timer(src)
 	return ..()
+
+/datum/hive_status/forsaken
+	name = "Forsaken Hive"
+	hivenumber = XENO_HIVE_FORSAKEN
+	prefix = "Forsaken "
+	color = "#cc8ec4"
+
+/datum/hive_status/forsaken/can_xeno_message()
+	return TRUE // can always talk in hivemind
+
+/datum/hive_status/yautja
+	name = "Yautja"
+	hivenumber = XENO_HIVE_YAUTJA
+	prefix = "Yautja "
+
+/datum/hive_status/yautja/can_xeno_message()
+	return FALSE

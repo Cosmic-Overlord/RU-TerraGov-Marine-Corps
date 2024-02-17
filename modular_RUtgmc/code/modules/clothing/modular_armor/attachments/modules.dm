@@ -72,6 +72,8 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
+		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
+			continue
 		if(nearby_human.last_move_time + move_sensitivity < world.time)
 			continue
 		if(!hostile_detected && (!operator.wear_id || !nearby_human.wear_id || nearby_human.wear_id.iff_signal != operator.wear_id.iff_signal))

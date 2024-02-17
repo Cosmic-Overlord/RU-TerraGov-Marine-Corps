@@ -20,6 +20,10 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/atom_hud, list(
 	DATA_HUD_SQUAD_SOM = new /datum/atom_hud/squad_som,
 	DATA_HUD_XENO_DEBUFF = new /datum/atom_hud/xeno_debuff,
 	DATA_HUD_XENO_HEART = new /datum/atom_hud/xeno_heart,
+	//RU TGMC EDIT
+	DATA_HUD_HUNTER = new /datum/atom_hud/hunter_hud,
+	DATA_HUD_HUNTER_CLAN = new /datum/atom_hud/hunter_clan
+	//RU TGMC EDIT
 	))
 
 

@@ -148,6 +148,12 @@
 				if((xeno_job.total_positions-xeno_job.current_positions) > length(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL]) * TOO_MUCH_BURROWED_PROPORTION)
 					if(tgui_alert(src, "There is a lack of xeno players on this round, unbalanced rounds are unfun for everyone. Are you sure you want to play as a marine? ", "Warning : the game is unbalanced", list("Yes", "No")) != "Yes")
 						return
+//RUTGMC EDIT ADDITION BEGIN - Preds
+			if(ispredatorjob(job_datum))
+				if(SSticker.mode.check_predator_late_join(src))
+					SSticker.mode.join_predator(src)
+				return
+//RUTGMC EDIT ADDITION END
 			if(!SSticker.mode.CanLateSpawn(src, job_datum)) // Try to assigns job to new player
 				return
 			SSticker.mode.LateSpawn(src)
@@ -358,6 +364,10 @@
 		return FALSE
 	if(job.required_playtime_remaining(client))
 		return FALSE
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(!job.special_check(src))
+		return FALSE
+//RUTGMC EDIT ADDITION END
 	if(latejoin && !job.special_check_latejoin(client))
 		return FALSE
 	if(faction && job.faction != faction)

@@ -9,6 +9,9 @@
 	maxHealth = 50
 	plasma_stored = 100
 
+	life_value = 0
+	default_honor_value = 0
+
 	pixel_x = -8
 	pixel_y = -3
 	old_x = -8

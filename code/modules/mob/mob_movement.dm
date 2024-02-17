@@ -121,6 +121,10 @@
 		return O.relaymove(L, direct)
 
 	var/add_delay = mob.cached_multiplicative_slowdown + mob.next_move_slowdown
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(mob.shield_slowdown)
+		add_delay += mob.shield_slowdown
+//RUTGMC EDIT ADDITION END
 	mob.next_move_slowdown = 0
 	if(old_move_delay + (add_delay * MOVEMENT_DELAY_BUFFER_DELTA) + MOVEMENT_DELAY_BUFFER > world.time)
 		move_delay = old_move_delay

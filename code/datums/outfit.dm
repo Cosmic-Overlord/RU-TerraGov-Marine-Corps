@@ -40,8 +40,8 @@
 	return
 
 
-/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	pre_equip(H, visualsOnly)
+/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/override_client)
+	pre_equip(H, visualsOnly, override_client)
 
 	//Start with uniform,suit,backpack for additional slots
 	if(w_uniform)

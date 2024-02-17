@@ -44,6 +44,12 @@
 	new_xeno.nicknumber = nicknumber
 	new_xeno.hivenumber = hivenumber
 	new_xeno.transfer_to_hive(hivenumber)
+	new_xeno.life_kills_total = life_kills_total
+	if(new_xeno.hunter_data)
+		new_xeno.hunter_data.clean_data()
+		qdel(new_xeno.hunter_data)
+		new_xeno.hunter_data = hunter_data
+		hunter_data = null
 	transfer_observers_to(new_xeno)
 
 	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though

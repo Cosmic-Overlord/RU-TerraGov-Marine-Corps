@@ -299,6 +299,10 @@
 	get_message_output("watchlist entry", ckey)
 	validate_key_in_db()
 
+//RUTGMC EDIT
+	load_player_predator_info()
+//RUTGMC EDIT
+
 	send_resources()
 
 	generate_clickcatcher()

@@ -32,6 +32,7 @@
 
 /datum/game_mode/infestation/distress/post_setup()
 	. = ..()
+	predator_round()
 	SSpoints.add_psy_points(XENO_HIVE_NORMAL, 2 * SILO_PRICE + 4 * XENO_TURRET_PRICE)
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)

@@ -42,3 +42,53 @@
 	buff_owner.xeno_melee_damage_modifier -= modifier
 	owner.remove_filter("frenzy_screech_outline")
 	return ..()
+
+// ***************************************
+// *********** Buff
+// ***************************************
+/atom/movable/screen/alert/status_effect/xeno_buff
+	name = "Empowered"
+	desc = "Your damage ands speed boosted for short time period."
+
+/datum/status_effect/xeno_buff
+	id = "buff"
+	duration = -1
+	status_type = STATUS_EFFECT_MULTIPLE
+	alert_type = /atom/movable/screen/alert/status_effect/xeno_buff
+
+	var/bonus_damage = 0
+	var/bonus_speed = 0
+
+/datum/status_effect/xeno_buff/on_creation(atom/A, mob/from = null, ttl = 35, bonus_damage = 0, bonus_speed = 0)
+	if(!isxeno(A))
+		qdel(src)
+		return
+
+	. = ..()
+
+	to_chat(A, span_xenonotice("You feel empowered"))
+
+	var/mob/living/carbon/xenomorph/X = A
+	X.melee_damage += bonus_damage
+
+	X.xeno_caste.speed -= bonus_speed
+
+	src.bonus_damage = bonus_damage
+	src.bonus_speed = bonus_speed
+
+
+	X.add_filter("overbonus_vis", 1, outline_filter(4 * (bonus_damage / 50), "#cf0b0b60")); \
+
+	addtimer(CALLBACK(src, PROC_REF(end_bonuses)), ttl)
+
+/datum/status_effect/xeno_buff/proc/end_bonuses()
+	if(owner)
+		to_chat(owner, span_xenonotice("You no longer feel empowered"))
+		var/mob/living/carbon/xenomorph/X = owner
+		X.melee_damage -= bonus_damage
+
+		X.xeno_caste.speed += bonus_speed
+
+		X.remove_filter("overbonus_vis");
+
+	qdel(src)

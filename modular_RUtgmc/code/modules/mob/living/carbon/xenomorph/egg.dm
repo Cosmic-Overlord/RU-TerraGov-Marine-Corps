@@ -1,3 +1,6 @@
+/obj/alien/egg
+	var/can_spawn_player = TRUE
+
 /obj/alien/egg/hugger
 	plane = FLOOR_PLANE
 
@@ -20,6 +23,8 @@
 
 	if(maturity_stage != stage_ready_to_burst)
 		balloon_alert(user, "Not fully grown")
+		return FALSE
+	if(!can_spawn_player)
 		return FALSE
 	if(!hugger_type)
 		balloon_alert(user, "Empty")
@@ -52,6 +57,10 @@
 	F.ghostize()
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
+
+/obj/alien/egg/hugger/forsaken
+	can_spawn_player = FALSE
+	hivenumber = XENO_HIVE_FORSAKEN
 
 /obj/alien/egg/gas
 	desc = "It looks like a suspiciously weird egg"

@@ -42,6 +42,15 @@
 			qdel(src)
 		return
 	set_stat(DEAD)
+//RUTGMC EDIT
+	if(SSticker.current_state != GAME_STATE_FINISHED && !is_centcom_level(z))
+		var/mob/living/living = last_damage_source
+		if(istype(living))
+			hunter_data.death(living)
+			if(ishuman(living) && isyautja(living) && living != src)
+				INVOKE_ASYNC(living.client, TYPE_PROC_REF(/client, add_honor), life_kills_total + life_value)
+			living.life_kills_total += life_kills_total + life_value
+//RUTGMC EDIT
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src)
 	SEND_SIGNAL(src, COMSIG_MOB_DEATH, gibbing)
 	log_combat(src, src, "[deathmessage]")

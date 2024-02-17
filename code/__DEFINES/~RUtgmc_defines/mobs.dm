@@ -17,3 +17,13 @@
 #define HIVE_CAN_COLLAPSE_FROM_SILO (1<<1)
 #define XENO_WEAK_ACID_PUDDLE_DAMAGE 8 //Weak acid damage dealt by acid puddles
 #define XENO_HIGH_ACID_PUDDLE_DAMAGE 20 //Strong acid damage dealt by acid puddles
+
+#define IS_YAUTJA (1<<6)
+
+#define MOTH_WINGS_LAYER 28
+#define MUTATIONS_LAYER 27
+#define DAMAGE_LAYER 26
+#define FLAY_LAYER 25
+#define PRED_LASER_LAYER 1.9
+#define LASER_LAYER 1.8
+#define TOTAL_LAYERS 30

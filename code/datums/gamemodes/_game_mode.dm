@@ -491,7 +491,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/z in z_levels)
 		for(var/i in GLOB.humans_by_zlevel["[z]"])
 			var/mob/living/carbon/human/H = i
-			if(!istype(H)) // Small fix?
+			if(!istype(H) || isyautja(H)) // Small fix? and // RU TGMC EDIT
 				continue
 			if(count_flags & COUNT_IGNORE_HUMAN_SSD && !H.client && H.afk_status == MOB_DISCONNECTED)
 				continue
@@ -508,7 +508,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/z in z_levels)
 		for(var/i in GLOB.hive_datums[XENO_HIVE_NORMAL].xenos_by_zlevel["[z]"])
 			var/mob/living/carbon/xenomorph/X = i
-			if(!istype(X)) // Small fix?
+			if(!istype(X) || isxenohellhound(X)) // Small fix? and // RU TGMC EDIT
 				continue
 			if(count_flags & COUNT_IGNORE_XENO_SSD && !X.client && X.afk_status == MOB_DISCONNECTED)
 				continue

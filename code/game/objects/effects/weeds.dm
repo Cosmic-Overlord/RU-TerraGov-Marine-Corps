@@ -151,6 +151,11 @@
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
 
+//RU TGMC EDIT
+	if(HAS_TRAIT(crosser, TRAIT_SUPER_STRONG))
+		return
+//RU TGMC EDIT
+
 	if(isxeno(crosser))
 		var/mob/living/carbon/xenomorph/X = crosser
 		X.next_move_slowdown += X.xeno_caste.weeds_speed_mod
@@ -323,6 +328,11 @@
 		var/obj/vehicle/vehicle = crosser
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
+
+//RU TGMC EDIT
+	if(HAS_TRAIT(crosser, TRAIT_SUPER_STRONG))
+		return
+//RU TGMC EDIT
 
 	if(!ishuman(crosser))
 		return

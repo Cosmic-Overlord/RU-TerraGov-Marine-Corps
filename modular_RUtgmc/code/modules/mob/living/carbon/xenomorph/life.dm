@@ -78,3 +78,10 @@
 /mob/living/carbon/xenomorph/updatehealth()
 	. = ..()
 	handle_regular_health_hud_updates()
+
+/mob/living/carbon/xenomorph/proc/handle_interference()
+	if(interference)
+		interference = max(interference-2, 0)
+		SEND_SIGNAL(src, COMSIG_XENOMORPH_INTERFERENCE)
+
+	return interference

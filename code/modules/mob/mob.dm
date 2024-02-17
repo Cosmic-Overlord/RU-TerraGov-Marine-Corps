@@ -22,6 +22,10 @@
 		var/datum/action/action_to_remove = a
 		action_to_remove.remove_action(src)
 	set_focus(null)
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(hunter_data)
+		hunter_data.clean_data()
+//RUTGMC EDIT ADDITION END
 	return ..()
 
 /mob/Initialize(mapload)
@@ -41,6 +45,11 @@
 	update_movespeed(TRUE)
 	log_mob_tag("\[[tag]\] CREATED: [key_name(src)]")
 	become_hearing_sensitive()
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(!hunter_data)
+		hunter_data = new /datum/huntdata(src)
+	hud_set_hunter()
+//RUTGMC EDIT ADDITION END
 
 /mob/proc/show_message(msg, type, alt_msg, alt_type, avoid_highlight)
 	if(!client)
@@ -359,6 +368,11 @@
 		if(!suppress_message)
 			to_chat(src, span_warning("Cannot grab, lacking free hands to do so!"))
 		return FALSE
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(SEND_SIGNAL(AM, COMSIG_ATTEMPT_MOB_PULL) & COMPONENT_CANCEL_MOB_PULL)
+		return FALSE
+//RUTGMC EDIT ADDITION END
 
 	AM.add_fingerprint(src, "pull")
 

@@ -15,6 +15,10 @@
 	var/fire_alert = FALSE
 	var/pressure_alert = FALSE
 
+//RUTGMC EDIT
+	var/butchery_progress = 0
+//RUTGMC EDIT
+
 	var/list/internal_organs = list()
 	///Overall drunkenness - check handle_status_effects() in life.dm for effects
 	var/drunkenness = 0

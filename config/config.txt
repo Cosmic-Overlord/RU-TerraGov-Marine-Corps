@@ -11,7 +11,7 @@ SERVER_NAME Something
 HOSTEDBY yournamehere
 
 ## The title of the main window.
-TITLE Change Me
+TITLE spaghetti
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 #HUB
@@ -20,7 +20,7 @@ TITLE Change Me
 #RESOURCE_URL url
 
 ## Add a # infront of this if you want to use the SQL based admin system, the legacy system uses admins.txt and files in the data folder. You need to set up your database to use the SQL based system.
-ADMIN_LEGACY_SYSTEM
+#ADMIN_LEGACY_SYSTEM
 
 ## Add a # infront of this to disable the shutdown server verb.
 ALLOW_SHUTDOWN

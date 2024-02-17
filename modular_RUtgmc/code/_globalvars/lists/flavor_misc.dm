@@ -47,6 +47,9 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"xenoqueen",
 	"xenoshrike",
 	"chimera",
+	"predator",
+	"thrall",
+	"hellhound",
 ))
 
 GLOBAL_LIST_INIT(minimap_icons, init_minimap_icons())

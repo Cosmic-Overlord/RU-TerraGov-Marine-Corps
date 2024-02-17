@@ -395,6 +395,9 @@
 	storage_slots = 1
 	draw_mode = TRUE
 	can_hold = list(
+//RUTGMC EDIT
+		/obj/item/weapon/yautja/knife,
+//RUTGMC EDIT
 		/obj/item/weapon/combat_knife,
 		/obj/item/weapon/gun/pistol/standard_pocketpistol,
 		/obj/item/weapon/gun/shotgun/double/derringer,
