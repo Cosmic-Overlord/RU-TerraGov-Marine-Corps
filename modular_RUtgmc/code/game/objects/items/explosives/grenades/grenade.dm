@@ -1,0 +1,5 @@
+/obj/item/explosive/grenade/m15/prime()
+	explosion(loc, light_impact_range = src.light_impact_range, weak_impact_range = src.weak_impact_range)
+	cell_explosion(loc, 90, 45)
+	create_shrapnel(loc, 20, 30)
+	qdel(src)

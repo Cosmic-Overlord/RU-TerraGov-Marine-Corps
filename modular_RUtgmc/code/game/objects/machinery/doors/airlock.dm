@@ -5,6 +5,14 @@
 		if(SSmonitor.gamestate != SHIPSIDE)
 			msg_admin_ff("[ADMIN_TPMONTY(proj.firer)] shot [src] with [proj] in [ADMIN_VERBOSEJMP(src)].")
 
+/obj/structure/machinery/door/airlock/ex_act(severity, explosion_direction)
+	var/exp_damage = severity * EXPLOSION_DAMAGE_MULTIPLIER_DOOR
+	var/location = get_turf(src)
+	if(!density)
+		exp_damage *= EXPLOSION_DAMAGE_MODIFIER_DOOR_OPEN
+	if(take_damage(exp_damage)) // destroyed by explosion, shards go flying
+		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
+
 /obj/machinery/door/airlock/attack_facehugger(mob/living/carbon/xenomorph/facehugger/M, isrightclick = FALSE)
 	for(var/atom/movable/AM in get_turf(src))
 		if(AM != src && AM.density && !AM.CanPass(M, M.loc))

@@ -78,6 +78,8 @@
 #include "code\game\objects\items\shards.dm"
 #include "code\game\objects\items\explosives\bombvest.dm"
 #include "code\game\objects\items\explosives\marines.dm"
+#include "code\game\objects\items\explosives\mine.dm"
+#include "code\game\objects\items\explosives\grenades\grenade.dm"
 #include "code\game\objects\items\radio\detpack.dm"
 #include "code\game\objects\items\radio\headset.dm"
 #include "code\game\objects\items\radio\intercom.dm"
