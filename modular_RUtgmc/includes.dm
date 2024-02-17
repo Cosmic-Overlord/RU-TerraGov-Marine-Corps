@@ -121,7 +121,6 @@
 #include "code\game\objects\structures\bookcase.dm"
 #include "code\game\objects\structures\displaycase.dm"
 #include "code\game\objects\structures\droppod.dm"
-#include "code\game\objects\structures\dropship_ammo.dm"
 #include "code\game\objects\structures\fence.dm"
 #include "code\game\objects\structures\flora.dm"
 #include "code\game\objects\structures\girders.dm"
