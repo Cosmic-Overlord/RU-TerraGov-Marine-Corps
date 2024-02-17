@@ -304,6 +304,9 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 	// Drop flames
 	if(flame_range)
 		flame_radius(flame_range, epicenter, color)
+	if(power >= EXPLODE_MEDIUM)
+		for(var/mob/living/carbon/carbon_viewers in viewers(flash_range, epicenter))
+			carbon_viewers.flash_act()
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
 
