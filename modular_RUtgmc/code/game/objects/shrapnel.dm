@@ -7,7 +7,7 @@
 
 	if(shrapnel_direction)
 		initial_angle = dir2angle(shrapnel_direction) - shrapnel_spread
-		angle_increment = shrapnel_spread * 2 /shrapnel_number
+		angle_increment = (shrapnel_spread * 2) / shrapnel_number
 	else
 		angle_increment = 360 / shrapnel_number
 	var/angle_randomization = angle_increment / 2
@@ -40,7 +40,7 @@
 		else
 			var/angle = initial_angle + i * angle_increment + rand(-angle_randomization, angle_randomization)
 			var/atom/target = get_angle_target_turf(epicenter, angle, 20)
-			S.is_shrapnel = FALSE
+			S.is_shrapnel = TRUE
 			var/mob/user = usr
 			if(!istype(user))
 				user = null

@@ -13,7 +13,7 @@
 		if(prob(50)) // no message spam pls
 			visible_message(span_warning("[src] blows apart in the explosion, sending shards flying!"))
 		deconstruct(FALSE)
-		create_shrapnel(location, rand(2,5), direction, , /datum/ammo/bullet/shrapnel/light)
+		create_shrapnel(location, rand(2,5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 	else
 		take_damage(severity, BRUTE, BOMB)
 	update_icon()

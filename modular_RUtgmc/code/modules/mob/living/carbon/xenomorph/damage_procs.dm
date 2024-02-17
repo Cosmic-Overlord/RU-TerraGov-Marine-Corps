@@ -16,7 +16,7 @@
 	if(damage >= (health) && damage >= EXPLOSION_THRESHOLD_GIB)
 		var/oldloc = loc
 		gib()
-		create_shrapnel(oldloc, rand(16, 24), /datum/ammo/bullet/shrapnel/light/xeno)
+		create_shrapnel(oldloc, rand(16, 24), shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
 	if(damage >= 0)
 		b_loss += damage * 0.5 * bomb_armor_ratio

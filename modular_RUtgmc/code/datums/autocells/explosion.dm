@@ -302,8 +302,8 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 	// powerful explosions send out some special effects
 	if(power >= 100 && shrapnel)
 		epicenter = get_turf(epicenter)
-		create_shrapnel(epicenter, rand(5, 9), direction, /datum/ammo/bullet/shrapnel/light/effect/ver1)
-		create_shrapnel(epicenter, rand(5, 9), direction, /datum/ammo/bullet/shrapnel/light/effect/ver2)
+		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver1)
+		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver2)
 	// Drop flames
 	if(flame_range)
 		flame_radius(flame_range, epicenter, colour = color)
