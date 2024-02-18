@@ -572,8 +572,6 @@
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = 3,
 			/obj/item/bodybag/tarp = 10,
-			/obj/item/mortar_kit/knee = 4,
-			/obj/item/mortal_shell/knee = 40,
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
