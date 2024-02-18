@@ -327,6 +327,7 @@
 	alpha = 0
 	animate(src, alpha = 255, time = ZEROFORM_CHARGE_TIME)
 
+/* RUTGMC DELETION
 /datum/action/ability/xeno_action/zero_form_beam/can_use_action(silent, override_flags)
 	. = ..()
 	if(!.)
@@ -335,6 +336,7 @@
 		if(!silent)
 			owner.balloon_alert("too early")
 		return FALSE
+*/
 
 /datum/action/ability/xeno_action/zero_form_beam/action_activate()
 	if(timer_ref)

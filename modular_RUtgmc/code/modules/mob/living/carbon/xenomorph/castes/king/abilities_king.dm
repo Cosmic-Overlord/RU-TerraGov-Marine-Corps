@@ -62,3 +62,28 @@
 	addtimer(CALLBACK(src, PROC_REF(end_effects), humans), PETRIFY_DURATION)
 	add_cooldown()
 	succeed_activate()
+
+/datum/action/ability/xeno_action/zero_form_beam
+	var/zero_form_beam_allowed = FALSE
+
+/datum/action/ability/xeno_action/zero_form_beam/New(mapload)
+	. = ..()
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(allow_zero_form_beam))
+
+/datum/action/ability/xeno_action/zero_form_beam/can_use_action(silent, override_flags)
+	. = ..()
+	if(!.)
+		return
+	if(is_ground_level(owner.z) && !zero_form_beam_allowed)
+		if(!silent)
+			owner.balloon_alert(owner, "too early")
+		return FALSE
+
+/datum/action/ability/xeno_action/zero_form_beam/proc/allow_zero_form_beam()
+	SIGNAL_HANDLER
+	zero_form_beam_allowed = TRUE
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
+
+/datum/action/ability/xeno_action/zero_form_beam/remove_action(mob/living/L)
+	. = ..()
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
