@@ -20,6 +20,7 @@
 	if(explosion_message)
 		_location.visible_message(span_danger("The solution violently explodes!"), \
 								span_hear("You hear an explosion!"))
+
 /*
 	dyn_explosion(_location, amount, flashing_factor)
 */
