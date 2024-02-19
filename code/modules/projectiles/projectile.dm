@@ -304,7 +304,7 @@
 	if(ammo.bonus_projectiles_amount && !recursivity) //Recursivity check in case the bonus projectiles have bonus projectiles of their own. Let's not loop infinitely.
 		ammo.fire_bonus_projectiles(src, shooter, source, range, speed, dir_angle, target)
 
-	if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles // RUTGMC DELETION
+	//if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles // RUTGMC DELETION
 	if((is_shrapnel == TRUE || shooter?.Adjacent(target)) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //RUTGMC ADDITION
 		target.do_projectile_hit(src)
 		qdel(src)
