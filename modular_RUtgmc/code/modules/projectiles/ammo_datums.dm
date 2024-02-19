@@ -274,6 +274,7 @@
 /datum/ammo/bullet/shrapnel
 	name = "shrapnel"
 	icon_state = "buckshot_shrapnel"
+	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_BALLISTIC
 	accuracy = 15
