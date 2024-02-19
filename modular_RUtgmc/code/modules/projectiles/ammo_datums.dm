@@ -267,17 +267,15 @@
 /datum/ammo/xeno/spine //puppeteer
 	damage = 45
 
-/*
-//======
-					Shrapnel
-//======
-*/
+//////////////////////////////////////////////////
+////////////////////Shrapnel//////////////////////
+//////////////////////////////////////////////////
+
 /datum/ammo/bullet/shrapnel
 	name = "shrapnel"
 	icon_state = "buckshot_shrapnel"
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_BALLISTIC
-
 	accuracy = 15
 	accurate_range = 32
 	max_range = 8
@@ -289,7 +287,6 @@
 /datum/ammo/bullet/shrapnel/metal
 	name = "metal shrapnel"
 	icon_state = "shrapnelshot_bit"
-
 	shell_speed = 1
 	damage = 30
 	shrapnel_chance = 15
@@ -299,7 +296,6 @@
 /datum/ammo/bullet/shrapnel/light // weak shrapnel
 	name = "light shrapnel"
 	icon_state = "shrapnel_light"
-
 	damage = 10
 	penetration = 5
 	shell_speed = 1
@@ -308,7 +304,6 @@
 /datum/ammo/bullet/shrapnel/light/human
 	name = "human bone fragments"
 	icon_state = "shrapnel_human"
-
 	shrapnel_chance = 50
 	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/human
 
@@ -321,14 +316,12 @@
 /datum/ammo/bullet/shrapnel/light/xeno
 	name = "alien bone fragments"
 	icon_state = "shrapnel_xeno"
-
 	shrapnel_chance = 50
 	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/xeno
 
 /datum/ammo/bullet/shrapnel/spall // weak shrapnel
 	name = "spall"
 	icon_state = "shrapnel_light"
-
 	damage = 10
 	penetration = 5
 	shell_speed = 1
@@ -340,7 +333,6 @@
 
 /datum/ammo/bullet/shrapnel/light/effect // no damage, but looks bright and neat
 	name = "sparks"
-
 	damage = 0 // Tickle tickle
 
 /datum/ammo/bullet/shrapnel/light/effect/ver1
