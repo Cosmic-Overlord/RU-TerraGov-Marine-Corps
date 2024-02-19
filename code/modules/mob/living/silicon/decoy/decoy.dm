@@ -55,6 +55,7 @@
 		return
 	explosion(get_turf(src), 0, 1, 9, 0, 12)
 
+
 /mob/living/silicon/decoy/say(message, new_sound, datum/language/language) //General communication across the ship.
 	if(stat || !message)
 		return FALSE
