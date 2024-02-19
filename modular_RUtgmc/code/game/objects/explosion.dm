@@ -3,11 +3,11 @@
 	var/power = 0
 
 	if(devastation_range)
-		power += (85 * devastation_range)
+		power += (100 * devastation_range)
 	else if(heavy_impact_range)
 		power += (65 * heavy_impact_range)
 	else if(light_impact_range)
-		power += (40 * light_impact_range)
+		power += (35 * light_impact_range)
 	else if(weak_impact_range)
 		power += (15 * weak_impact_range)
 	else
