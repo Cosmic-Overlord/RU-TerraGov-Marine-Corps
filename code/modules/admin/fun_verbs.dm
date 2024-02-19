@@ -565,6 +565,7 @@
 	log_admin("[key_name(usr)] forced [O] ([O.type]) to: [method] [message]")
 	message_admins("[ADMIN_TPMONTY(usr)] forced [O] ([O.type]) to: [method] [message]")
 
+
 /datum/admins/proc/drop_bomb()
 	set category = "Admin.Fun"
 	set name = "Drop Bomb"
@@ -573,7 +574,8 @@
 	if(!check_rights(R_FUN))
 		return
 
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
+	//var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Maxcap", "Custom Bomb")) // ORIGINAL
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")) // RUTGMC EDITION
 	switch(choice)
 		if("CAS: Widow Maker")
 			playsound(usr.loc, 'sound/machines/hydraulics_2.ogg', 70, TRUE)
@@ -601,6 +603,8 @@
 			explosion(usr.loc, 2, 3, 4, 0, 4)
 		if("Big Bomb")
 			explosion(usr.loc, 3, 5, 7, 0, 5)
+		//if("Maxcap") // RUTGMC DELETION
+			//explosion(usr.loc, GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, 0, GLOB.MAX_EX_FLASH_RANGE)
 		if("Custom Bomb")
 			var/input_devastation_range = input("Devastation range (in tiles):", "Drop Bomb") as null|num
 			var/input_heavy_impact_range = input("Heavy impact range (in tiles):", "Drop Bomb") as null|num
@@ -650,6 +654,7 @@
 	impact.ceiling_debris_check(3)
 	explosion(impact, 2, 3, 4, 0, 6)
 	flame_radius(5, impact, 60, 30)
+
 
 /* RUTGMC DELETION
 /datum/admins/proc/drop_dynex_bomb()
