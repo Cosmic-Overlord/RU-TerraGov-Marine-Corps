@@ -273,7 +273,7 @@ MEDICAL
 	name = "Advanced Tweezers"
 	notes = "contains advanced tweezers."
 	contains = list(/obj/item/tweezers_advanced)
-	cost = 400
+	cost = 120
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -281,7 +281,7 @@ MEDICAL
 	name = "Advanced defibrillator medical gloves"
 	notes = "contains advanced defibrillator medical gloves."
 	contains = list(/obj/item/defibrillator/gloves)
-	cost = 300
+	cost = 120
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -289,7 +289,7 @@ MEDICAL
 	name = "Health scanner gloves"
 	notes = "contains health scanner gloves."
 	contains = list(/obj/item/healthanalyzer/gloves)
-	cost = 200
+	cost = 60
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -297,7 +297,7 @@ MEDICAL
 	name = "Advanced medical kits"
 	notes = "contains pair advanced medical kits from medical vendors."
 	contains = list(/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat, /obj/item/stack/medical/heal_pack/advanced/burn_pack/combat)
-	cost = 230
+	cost = 120
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -353,7 +353,7 @@ MEDICAL
 	name = "Soldering tool"
 	notes = "contains 1 soldering tool for repair robots."
 	contains = list(/obj/item/tool/surgery/solderingtool)
-	cost = 200
+	cost = 30
 
 /datum/supply_packs/medical/nanoblood_hypo
 	name = "Nanoblood hypospray"
@@ -362,7 +362,7 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/advanced/nanoblood,
 		/obj/item/reagent_containers/hypospray/advanced/nanoblood,
 	)
-	cost = 250
+	cost = 100
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
@@ -382,7 +382,7 @@ MEDICAL
 		/obj/item/reagent_containers/glass/beaker/bluespace,
 		/obj/item/reagent_containers/glass/beaker/bluespace,
 	)
-	cost = 120
+	cost = 50
 
 /datum/supply_packs/medical/bkkt_dispenser
 	name = "BKKT Dispenser"
@@ -401,7 +401,7 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
 		/obj/item/reagent_containers/hypospray/autoinjector/fasygin,
 		)
-	cost = 40
+	cost = 20
 
 /datum/supply_packs/medical/imialky_kit
 	name = "ImiAlky kit"
@@ -410,7 +410,7 @@ MEDICAL
 		/obj/item/storage/pill_bottle/imidazoline,
 		/obj/item/storage/pill_bottle/alkysine,
 		)
-	cost = 80
+	cost = 30
 
 /datum/supply_packs/medical/quick_peri_plus_kit
 	name = "QuickPeri+ kit"
@@ -419,13 +419,13 @@ MEDICAL
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
 		)
-	cost = 80
+	cost = 30
 
 /datum/supply_packs/medical/russian_red_kit
 	name = "Russian Red pill bottle"
 	notes = "contains one pill bottle red russian."
 	contains = list(/obj/item/storage/pill_bottle/russian_red)
-	cost = 80
+	cost = 30
 
 /datum/supply_packs/medical/bkkt_kit
 	name = "BKKT kit"
@@ -442,6 +442,6 @@ MEDICAL
 	name = "Medical defibrillator"
 	notes = "contains medical defibrillator."
 	contains = list(/obj/item/defibrillator)
-	cost = 150
+	cost = 50
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
