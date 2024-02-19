@@ -7,6 +7,5 @@
 
 	if(wall_integrity + exp_damage > max_integrity * 2)
 		dismantle_wall(FALSE, TRUE)
-		if(!istype(src, /turf/closed/wall/resin))
-			create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
+		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 	return
