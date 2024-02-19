@@ -22,8 +22,4 @@
 								span_hear("You hear an explosion!"))
 
 	//dyn_explosion(_location, amount, flashing_factor) // RUTGMC DELETION
-
-//RUTGMC ADDITION - Explosions
-	var/range = round((2 * amount) * 0.5)
-	cell_explosion(location, amount, range * 4, EXPLOSION_FALLOFF_SHAPE_LINEAR)
-//RUTGMC ADDITION END
+	cell_explosion(location, amount, amount / 5, EXPLOSION_FALLOFF_SHAPE_LINEAR) //RUTGMC ADDITION
