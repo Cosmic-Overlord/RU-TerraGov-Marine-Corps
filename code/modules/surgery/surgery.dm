@@ -33,6 +33,13 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 	var/can_infect = 0 //Evil infection stuff that will make everyone hate me
 	var/blood_level = 0 //How much blood this step can get on surgeon. 1 - hands, 2 - full body
 
+	///In-progress surgery	[SOUND]
+	var/preop_sound
+	///Success surgery		[SOUND]
+	var/success_sound
+	///Failure surgery		[SOUND]
+	var/failure_sound
+
 ///Returns how well tool is suited for this step
 /datum/surgery_step/proc/tool_quality(obj/item/tool)
 	for(var/T in allowed_tools)
@@ -58,6 +65,12 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 /datum/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/limb/affected, only_checks)
 	return SURGERY_CANNOT_USE
 
+/// Plays Preop Sounds
+/datum/surgery_step/proc/play_preop_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/limb/affected)
+	if(!preop_sound)
+		return
+	playsound(get_turf(target), preop_sound, vol = 40, sound_range = 1)
+
 //Does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
 /datum/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	if(can_infect && affected)
@@ -69,11 +82,22 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 		if(blood_level > 1)
 			H.bloody_body(target, 0)
 
+/// Plays the selected success sound
+/datum/surgery_step/proc/play_success_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/limb/affected)
+	if(!success_sound)
+		return
+	playsound(get_turf(target), success_sound, vol = 40, sound_range = 1)
 
 //Does stuff to end the step, which is normally print a message + do whatever this step changes
 /datum/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	record_surgical_operation(user)
 	return
+
+/// Plays the failure sound
+/datum/surgery_step/proc/play_failure_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/limb/affected)
+	if(!failure_sound)
+		return
+	playsound(get_turf(target), failure_sound, vol = 40, sound_range = 1)
 
 //Stuff that happens when the step fails
 /datum/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
@@ -156,6 +180,7 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 
 		affected.in_surgery_op = TRUE
 		surgery_step.begin_step(user, M, user.zone_selected, tool, affected) //Start on it
+		surgery_step.play_preop_sound(user, M, user.zone_selected, tool, affected)
 
 		//Success multiplers!
 		var/multipler = 1 //1 = 100%
@@ -186,6 +211,7 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 		if(do_after(user, step_duration, NONE, M, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(user, TYPE_PROC_REF(/mob, break_do_after_checks), null, null, user.zone_selected)) && prob(surgery_step.tool_quality(tool) * CLAMP01(multipler)))
 			if(surgery_step.can_use(user, M, user.zone_selected, tool, affected, TRUE) == SURGERY_CAN_USE) //to check nothing changed during the do_mob
 				surgery_step.end_step(user, M, user.zone_selected, tool, affected) //Finish successfully
+				surgery_step.play_success_sound(user, M, user.zone_selected, tool, affected)
 			else
 				to_chat(user, span_warning("For some reason the surgery you were doing stopped being possible."))
 
@@ -197,8 +223,10 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 				else
 					to_chat(user, span_danger("[M] moved during the surgery!"))
 			surgery_step.fail_step(user, M, user.zone_selected, tool, affected) //Malpractice
+			surgery_step.play_failure_sound(user, M, user.zone_selected, tool, affected)
 		else //This failing silently was a pain.
 			to_chat(user, span_warning("You must remain close to your patient to conduct surgery."))
+			surgery_step.play_failure_sound(user, M, user.zone_selected, tool, affected)
 		affected.in_surgery_op = FALSE
 		return TRUE			   //Don't want to do weapony things after surgery
 
