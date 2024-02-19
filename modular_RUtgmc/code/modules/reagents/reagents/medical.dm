@@ -20,12 +20,12 @@
 /datum/reagent/medicine/synaptizine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2 * effect_str, 2 * effect_str, 3 * effect_str)
 
-//ADRENALINE, basically old synaptizine with buffs?
+///ADRENALINE, basically old synaptizine with buffs?
 /datum/reagent/medicine/adrenaline
 	name = "Adrenaline"
 	description = "Gotta go fast!"
 	color = "#f14a17"
-	overdose_threshold = REAGENTS_OVERDOSE/6
+	overdose_threshold = REAGENTS_OVERDOSE/5
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
 	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.5
