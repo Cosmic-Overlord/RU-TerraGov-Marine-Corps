@@ -8,4 +8,10 @@
 	if(wall_integrity + exp_damage > max_integrity * 2)
 		dismantle_wall(FALSE, TRUE)
 		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
+	else
+		if(prob(25))
+			if(prob(50)) // prevents spam in close corridors etc
+				src.visible_message(span_warning("The explosion causes shards to spall off of [src]!"))
+			create_shrapnel(location, rand(2,5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
+		take_damage(exp_damage, BRUTE, BOMB)
 	return
