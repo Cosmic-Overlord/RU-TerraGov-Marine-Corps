@@ -9,12 +9,4 @@
 		dismantle_wall(FALSE, TRUE)
 		if(!istype(src, /turf/closed/wall/resin))
 			create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
-	else
-		if(istype(src, /turf/closed/wall/resin))
-			exp_damage *= RESIN_EXPLOSIVE_MULTIPLIER
-		else if(prob(25))
-			if(prob(50)) // prevents spam in close corridors etc
-				src.visible_message(span_warning("The explosion causes shards to spall off of [src]!"))
-			create_shrapnel(location, rand(2,5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
-		take_damage(exp_damage, BRUTE, BOMB)
 	return
