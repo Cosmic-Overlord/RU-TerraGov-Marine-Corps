@@ -24,6 +24,6 @@
 	dyn_explosion(_location, amount, flashing_factor)
 */
 //RUTGMC ADDITION - Explosions
-	var/range = round((2 * amount)**GLOB.DYN_EX_SCALE)
-	cell_explosion(location, amount, range*4, EXPLOSION_FALLOFF_SHAPE_LINEAR)
+	var/range = round((2 * amount) * GLOB.DYN_EX_SCALE)
+	cell_explosion(location, amount, range * 4, EXPLOSION_FALLOFF_SHAPE_LINEAR)
 //RUTGMC ADDITION END
