@@ -14,6 +14,10 @@
 	min_duration = HEMOSTAT_REMOVE_MIN_DURATION
 	max_duration = HEMOSTAT_REMOVE_MAX_DURATION
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/hemostat1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/hemostat1.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+
 /datum/surgery_step/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(affected.surgery_open_stage >= 2)
 		return SURGERY_CAN_USE
