@@ -274,6 +274,7 @@
 */
 /datum/ammo/bullet/shrapnel
 	name = "shrapnel"
+	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
 	icon_state = "buckshot_shrapnel"
 	accurate_range_min = 5
 	flags_ammo_behavior = AMMO_BALLISTIC
@@ -285,15 +286,6 @@
 	penetration = 20
 	shell_speed = 2
 	shrapnel_chance = 5
-
-/datum/ammo/bullet/shrapnel/incendiary
-	name = "flaming shrapnel"
-	icon_state = "beanbag" // looks suprisingly a lot like flaming shrapnel chunks
-	flags_ammo_behavior = AMMO_INCENDIARY
-
-	shell_speed = 1
-	damage = 20
-	penetration = 20
 
 /datum/ammo/bullet/shrapnel/metal
 	name = "metal shrapnel"
@@ -350,7 +342,7 @@
 /datum/ammo/bullet/shrapnel/light/effect // no damage, but looks bright and neat
 	name = "sparks"
 
-	damage = 1 // Tickle tickle
+	damage = 0 // Tickle tickle
 
 /datum/ammo/bullet/shrapnel/light/effect/ver1
 	icon_state = "shrapnel_bright1"
