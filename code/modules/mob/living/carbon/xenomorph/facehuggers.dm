@@ -26,6 +26,7 @@
 	throw_range = 1
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
+	pass_flags = PASS_XENO
 
 	///Whether the hugger is dead, active or inactive
 	var/stat = CONSCIOUS
@@ -382,7 +383,7 @@
 		if(!Attach(carbon_victim))
 			go_idle()
 	else
-		step(src, REVERSE_DIR(dir))
+		//step(src, REVERSE_DIR(dir))
 		if(!issamexenohive(carbon_victim))
 			carbon_victim.adjust_stagger(3 SECONDS)
 			carbon_victim.add_slowdown(3)
