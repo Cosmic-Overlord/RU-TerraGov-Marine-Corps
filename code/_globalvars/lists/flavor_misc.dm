@@ -1,13 +1,15 @@
 //Preferences stuff
+/* RUTGMC EDIT EDITION
 GLOBAL_LIST_INIT(ethnicities_list, init_ethnicities())
 
 /// Ethnicity - Initialise all /datum/ethnicity into a list indexed by ethnicity name
 /proc/init_ethnicities()
 	. = list()
+
 	for(var/path in subtypesof(/datum/ethnicity))
 		var/datum/ethnicity/E = new path()
 		.[E.name] = E
-
+*/
 	//Hairstyles
 GLOBAL_LIST_EMPTY(hair_styles_list)			//stores /datum/sprite_accessory/hair indexed by name
 GLOBAL_LIST_EMPTY(hair_gradients_list)			//stores /datum/sprite_accessory/hair_gradient indexed by name

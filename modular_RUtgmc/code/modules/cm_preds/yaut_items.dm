@@ -1158,7 +1158,6 @@
 	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wirescutter"
 	item_state = "wirescutter"
-	has_color = FALSE
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/hunter/items_righthand.dmi'

@@ -99,7 +99,7 @@
 			)
 			to_chat(L, span_warning(wetmessage))
 // RU TGMC EDIT
-		if(ishuman(L))
+	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
 			return

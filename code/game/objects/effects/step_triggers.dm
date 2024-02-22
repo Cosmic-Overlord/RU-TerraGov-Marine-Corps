@@ -117,7 +117,7 @@
 
 	if(teleport_x && teleport_y && teleport_z)
 // RU TGMC EDIT
-	SEND_SIGNAL(A, COMSIG_ATOM_TELEPORT, src)
+		SEND_SIGNAL(A, COMSIG_ATOM_TELEPORT, src)
 // RU TGMC EDIT
 		switch(teleportation_type)
 			if(1)

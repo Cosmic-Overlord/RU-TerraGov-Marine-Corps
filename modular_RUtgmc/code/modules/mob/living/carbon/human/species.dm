@@ -36,3 +36,6 @@
 	return
 
 /datum/species/proc/handle_cryo(mob/living/carbon/human/H)
+
+/datum/species/proc/get_hairstyle(style)
+	return GLOB.hair_styles_list[style]

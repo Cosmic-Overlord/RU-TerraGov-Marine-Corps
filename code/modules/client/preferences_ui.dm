@@ -470,7 +470,7 @@
 
 
 		if("ethnicity")
-			var/choice = tgui_input_list(ui.user, "What ethnicity do you want to play with?", "Ethnicity choice", GLOB.ethnicities_list)
+			var/choice = tgui_input_list(ui.user, "What ethnicity do you want to play with?", "Ethnicity choice", GLOB.human_ethnicities_list)
 			if(!choice)
 				return
 			ethnicity = choice

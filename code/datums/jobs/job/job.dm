@@ -334,7 +334,7 @@ GLOBAL_PROTECT(exp_specialmap)
 		else
 			///chooses an outfit from the list under the job
 			if(job.multiple_outfits)
-			var/datum/outfit/variant = pick(job.outfits)
+				var/datum/outfit/variant = pick(job.outfits)
 				variant = new variant
 				variant.equip(src)
 			///if there is only one outfit, just equips it

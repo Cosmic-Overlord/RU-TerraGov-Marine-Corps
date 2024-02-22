@@ -1885,7 +1885,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				previous = H.gender
 				H.gender = change
 			if("ethnicity")
-				change = input("Select the ethnicity.", "Edit Appearance") as null|anything in sortList(GLOB.ethnicities_list)
+				change = input("Select the ethnicity.", "Edit Appearance") as null|anything in sortList(GLOB.human_ethnicities_list)
 				if(!change || !istype(H))
 					return
 				previous = H.ethnicity
