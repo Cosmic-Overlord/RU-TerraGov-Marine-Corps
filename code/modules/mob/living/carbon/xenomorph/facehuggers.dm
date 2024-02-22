@@ -383,7 +383,7 @@
 		if(!Attach(carbon_victim))
 			go_idle()
 	else
-		//step(src, REVERSE_DIR(dir))
+		//step(src, REVERSE_DIR(dir)) // RUTGMC DELETION
 		if(!issamexenohive(carbon_victim))
 			carbon_victim.adjust_stagger(3 SECONDS)
 			carbon_victim.add_slowdown(3)
