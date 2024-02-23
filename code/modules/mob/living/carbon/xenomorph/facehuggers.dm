@@ -26,7 +26,6 @@
 	throw_range = 1
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
-	pass_flags = PASS_XENO
 
 	///Whether the hugger is dead, active or inactive
 	var/stat = CONSCIOUS
