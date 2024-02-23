@@ -1,4 +1,4 @@
-/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat
+/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack
 	name = "combat trauma kit"
 	singular_name = "combat trauma kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
@@ -15,7 +15,7 @@
 	amount = 140
 	max_amount = 140
 
-/obj/item/stack/medical/heal_pack/advanced/burn_pack/combat
+/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack
 	name = "combat burn kit"
 	singular_name = "combat burn kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
