@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 /datum/ai_behavior/puppet
 	target_distance = 7
 	base_action = IDLE
@@ -183,3 +184,4 @@
 		return
 	if(feed.ai_should_use(target))
 		feed.use_ability(target)
+RU TGMC EDIT*/

@@ -1,3 +1,4 @@
+/*RU TGMC EDIT
 /datum/xeno_caste/puppet
 	caste_name = "Puppet"
 	display_name = "Puppet"
@@ -22,3 +23,4 @@
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/activable/xeno/feed,
 	)
+RU TGMC EDIT*/

@@ -1,3 +1,4 @@
+/*RU TGMC EDIT
 /datum/xeno_caste/puppeteer
 	caste_name = "Puppeteer"
 	display_name = "Puppeteer"
@@ -80,3 +81,4 @@
 	)
 
 	aura_strength = 3
+RU TGMC EDIT*/
