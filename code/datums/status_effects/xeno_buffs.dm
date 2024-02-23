@@ -553,7 +553,7 @@
 ///Calls slash proc
 /datum/status_effect/xeno_carnage/proc/carnage_slash(datum/source, mob/living/target, damage)
 	SIGNAL_HANDLER
-	if(!ishuman(target) || issynth(target))
+	if(!ishuman(target) || issynth(target) || target.stat == DEAD) // RUTGMC ADDITION - || target.stat == DEAD
 		return
 	UnregisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	INVOKE_ASYNC(src, PROC_REF(do_carnage_slash), source, target, damage)

@@ -29,6 +29,10 @@
 	max_duration = NECRO_REMOVE_MAX_DURATION
 	necro_step = 0
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+
 /datum/surgery_step/necro/fix_dead_tissue/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts cutting away necrotic tissue in [target]'s [affected.display_name] with \the [tool].") , \
 	span_notice("You start cutting away necrotic tissue in [target]'s [affected.display_name] with \the [tool]."))
@@ -63,6 +67,10 @@
 	min_duration = NECRO_TREAT_MIN_DURATION
 	max_duration = NECRO_TREAT_MAX_DURATION
 	necro_step = 1
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/necro/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts applying \the [tool] on the severed tissue in [target]'s [affected.display_name].") , \
