@@ -1,3 +1,7 @@
+#define BANDAGE (1<<0)
+#define SALVE (1<<1)
+#define DISINFECT (1<<2)
+
 /obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack
 	name = "combat trauma kit"
 	singular_name = "combat trauma kit"
@@ -14,7 +18,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	heal_brute = 15
 	number_of_extra_variants = 6
-	heal_flags = BANDAGE | DISINFECT
+	heal_flags = BANDAGE|DISINFECT
 
 /obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack/generate_treatment_messages(mob/user, mob/patient, datum/limb/target_limb, success)
 	if(!success)
@@ -39,7 +43,7 @@
 	max_amount = 140
 	heal_burn = 15
 	number_of_extra_variants = 6
-	heal_flags = SALVE | DISINFECT
+	heal_flags = SALVE|DISINFECT
 
 /obj/item/stack/medical/heal_pack/advanced/burn_combat_pack/generate_treatment_messages(mob/user, mob/patient, datum/limb/target_limb, success)
 	if(!success)
@@ -47,3 +51,7 @@
 		return
 	user.visible_message(span_notice("[user] covers the wounds on [patient]'s [target_limb.display_name] with regenerative membrane."),
 	span_notice("You cover the wounds on [patient]'s [target_limb.display_name] with regenerative membrane."))
+
+#undef BANDAGE
+#undef SALVE
+#undef DISINFECT
