@@ -41,4 +41,4 @@
 			var/angle = initial_angle + i * angle_increment + rand(-angle_randomization, angle_randomization)
 			var/atom/target = get_angle_target_turf(epicenter, angle, 20)
 			S.is_shrapnel = TRUE
-			S.fire_at(target, null, source, S.ammo.max_range, S.ammo.shell_speed, null, loc_override = source)
+			S.fire_at(target, null, source, S.ammo.max_range, S.ammo.shell_speed, null)
