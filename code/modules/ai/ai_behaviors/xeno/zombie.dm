@@ -14,7 +14,7 @@
 		return
 	if(!attacked)
 		//attacked = atom_to_walk_to // ORIGINAL
-		attacked = get_atom_on_turf(atom_to_walk_to) // RUTGMC EDITION
+		attacked = get_atom_on_turf(atom_to_walk_to) // RUTGMC EDITION, runtime
 	if(get_dist(attacked, mob_parent) > 1)
 		return
 	mob_parent.face_atom(attacked)
