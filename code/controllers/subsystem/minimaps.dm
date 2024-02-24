@@ -324,7 +324,7 @@ SUBSYSTEM_DEF(minimaps)
 	if(mover != src)
 		return
 	var/image/blip = SSminimaps.images_by_source[src]
-	blip.UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
+	blip?.UnregisterSignal(source, COMSIG_MOVABLE_MOVED) // RUTGMC ADDITION, added "?"
 	UnregisterSignal(source, COMSIG_ATOM_EXITED)
 
 
