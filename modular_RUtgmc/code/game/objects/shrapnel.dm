@@ -34,14 +34,11 @@
 		if(!(ignore_source_mob && mob_standing_on_turf) && mob_standing_on_turf && prob(100 * on_hit_coefficient)) //if a non-prone mob is on the same turf as the shrapnel explosion, some of the shrapnel hits him
 			S.ammo.on_hit_mob(mob_standing_on_turf, S)
 			S.projectile_hit(mob_standing_on_turf)
-		else if (!(ignore_source_mob && mob_lying_on_turf) && mob_lying_on_turf && prob(100 * on_hit_coefficient))
+		else if(!(ignore_source_mob && mob_lying_on_turf) && mob_lying_on_turf && prob(100 * on_hit_coefficient))
 			S.ammo.on_hit_mob(mob_lying_on_turf, S)
 			S.projectile_hit(mob_lying_on_turf)
 		else
 			var/angle = initial_angle + i * angle_increment + rand(-angle_randomization, angle_randomization)
 			var/atom/target = get_angle_target_turf(epicenter, angle, 20)
 			S.is_shrapnel = TRUE
-			var/mob/user = usr
-			if(!istype(user))
-				user = null
-			S.fire_at(target, user, source, S.ammo.max_range, S.ammo.shell_speed, null, loc_override = source)
+			S.fire_at(target, null, source, S.ammo.max_range, S.ammo.shell_speed, null, loc_override = source)
