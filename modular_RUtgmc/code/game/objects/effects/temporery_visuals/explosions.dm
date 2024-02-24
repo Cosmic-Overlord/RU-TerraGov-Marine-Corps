@@ -29,6 +29,7 @@
 			falling_debris = new(src, /particles/falling_debris/small)
 			large_kickup = new(src, /particles/dirt_kickup_large)
 		else if(power <= EXPLODE_MEDIUM)
+			smoke_wave = new(src, /particles/smoke_wave)
 			explosion_smoke = new(src, /particles/explosion_smoke)
 			falling_debris = new(src, /particles/falling_debris)
 			large_kickup = new(src, /particles/dirt_kickup_large)
