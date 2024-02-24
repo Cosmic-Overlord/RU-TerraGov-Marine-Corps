@@ -182,14 +182,14 @@ explosion resistance exactly as much as their health
 			var/ladder_spread_power
 			if(direction)
 				if(power >= 0)
-					ladder_spread_power = power*0.75 - Controller.falloff
+					ladder_spread_power = power * 0.75 - Controller.falloff
 				else
-					ladder_spread_power = power*1.25 - Controller.falloff
+					ladder_spread_power = power * 1.25 - Controller.falloff
 			else
 				if(power >= 0)
-					ladder_spread_power = power*0.5 - Controller.falloff
+					ladder_spread_power = power * 0.5 - Controller.falloff
 				else
-					ladder_spread_power = power*1.5 - Controller.falloff
+					ladder_spread_power = power * 1.5 - Controller.falloff
 
 			if (ladder_spread_power > Controller.minimum_spread_power)
 				if(L.up)
@@ -234,50 +234,14 @@ explosion resistance exactly as much as their health
 
 		T.ex_act(severity, direction)
 		if(!T)
-			T = locate(x,y,z)
+			T = locate(x, y, z)
 
 		for(var/atom/A in T)
 			spawn(0)
-				if(isliving(A))
-					//var/mob/M = A // eeeeeeeeeeeeeeeeeeeeeeh
-					var/explosion_source
-					if(!explosion_source) // Gotta call them something
-						explosion_source = "unknown"
-					/*log_attack("Mob [M.name] ([M.ckey]) was harmed by explosion in [T.loc.name] caused by [explosion_source] at ([M.loc.x],[M.loc.y],[M.loc.z])")
-					var/mob/explosion_source_mob = explosion_source
-					if(ismob(explosion_source_mob))
-						var/mob/firingMob = explosion_source_mob
-						var/turf/location_of_mob = get_turf(firingMob)
-						var/area/thearea = get_area(M)
-						if(M == firingMob)
-							M.attack_log += "\[[time_stamp()]\] <b>[M]/[M.ckey]</b> blew himself up with \a <b>[explosion_source]</b> in [thearea]."
-						else if(ishuman(firingMob) && ishuman(M) && M.faction == firingMob.faction && !thearea?.statistic_exempt) //One human blew up another, be worried about it but do everything basically the same //special_role should be null or an empty string if done correctly
-							M.attack_log += "\[[time_stamp()]\] <b>[firingMob]/[firingMob.ckey]</b> blew up <b>[M]/[M.ckey]</b> with \a <b>[explosion_source]</b> in [get_area(firingMob)]."
-							firingMob:attack_log += "\[[time_stamp()]\] <b>[firingMob]/[firingMob.ckey]</b> blew up <b>[M]/[M.ckey]</b> with \a <b>[explosion_source]</b> in [get_area(firingMob)]."
-							var/ff_msg = "[firingMob] ([firingMob.ckey]) blew up [M] ([M.ckey]) with \a [explosion_source] in [get_area(firingMob)] [ADMIN_JMP(location_of_mob)] [ADMIN_PM(firingMob)])"
-							var/ff_living = TRUE
-							if(M.stat == DEAD)
-								ff_living = FALSE
-							msg_admin_ff(ff_msg, ff_living)
-							if(ishuman(firingMob))
-								var/mob/living/carbon/human/H = firingMob
-								H.track_friendly_fire(explosion_source)
-						else
-							M.attack_log += "\[[time_stamp()]\] <b>[firingMob]/[firingMob.ckey]</b> blew up <b>[M]/[M.ckey]</b> with \a <b>[explosion_source]</b> in [get_area(firingMob)]."
-							firingMob:attack_log += "\[[time_stamp()]\] <b>[firingMob]/[firingMob.ckey]</b> blew up <b>[M]/[M.ckey]</b> with \a <b>[explosion_source]</b> in [get_area(firingMob)]."
-							msg_admin_ff("[firingMob] ([firingMob.ckey]) blew up [M] ([M.ckey]) with \a [explosion_source] in [get_area(firingMob)] ([location_of_mob.z],[location_of_mob.y],[location_of_mob.z])", location_of_mob.x, location_of_mob.y, location_of_mob.z)
-					else if(explosion_source_mob)
-						var/mob/firingMob = explosion_source_mob
-						var/turf/location_of_mob = get_turf(firingMob)
-						if(ishuman(firingMob))
-							var/mob/living/carbon/human/H = firingMob
-							H.track_shot_hit(initial(name), M)
-						M.attack_log += "\[[time_stamp()]\] <b>[firingMob]</b> blew up <b>[M]/[M.ckey]</b> with a <b>[explosion_source]</b> in [get_area(firingMob)]."
-						msg_admin_ff("[firingMob] ([firingMob.ckey]) blew up [M] ([M.ckey]) with \a [explosion_source] in [get_area(firingMob)] ([location_of_mob.z],[location_of_mob.y],[location_of_mob.z])", location_of_mob.x, location_of_mob.y, location_of_mob.z)
-					else if(explosion_source)
-						M.attack_log += "\[[time_stamp()]\] <b>[M]/[M.ckey]</b> was blown up with a <b>[explosion_source]</b> in [get_area(M)].</b>"
-					else
-						M.attack_log += "\[[time_stamp()]\] <b>[M]/[M.ckey]</b> was blown up in [get_area(M)]."*/
+				log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(T)]!")
+				if(is_mainship_level(T.z))
+					message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(T)]!")
+
 				A.ex_act(severity, direction)
 
 		tiles_processed++
@@ -287,7 +251,6 @@ explosion resistance exactly as much as their health
 
 	spawn(8)
 		qdel(src)
-
 
 /atom/proc/get_explosion_resistance()
 	return 0
