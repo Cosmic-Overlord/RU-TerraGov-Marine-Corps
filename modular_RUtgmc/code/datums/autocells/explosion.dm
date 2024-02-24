@@ -287,7 +287,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 						M.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 					if(baseshakeamount > 0)
 						shake_camera(M, 7, clamp(baseshakeamount * 0.15, 0, 1.5))
-	new /obj/effect/temp_visual/explosion(epicenter, far_dist, color)
+	new /obj/effect/temp_visual/explosion(epicenter, far_dist, color, power)
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
 		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
