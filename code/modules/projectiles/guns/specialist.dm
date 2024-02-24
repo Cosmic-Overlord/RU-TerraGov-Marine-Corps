@@ -500,7 +500,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	starting_attachment_types = list(/obj/item/weapon/gun/flamer/hydro_cannon/pepperball)
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	actions_types = list(/datum/action/item_action/aim_mode)
+	//actions_types = list(/datum/action/item_action/aim_mode) // RUTGMC DELETION
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 0.1
 
