@@ -58,5 +58,7 @@
 	icon_state_mini = "grenade_purple"
 
 /obj/item/explosive/grenade/flare
+	lower_fuel_limit = 450 // 450 * 2 (ticks) / 60 (seconds) = 15 minutes
+	upper_fuel_limit = 750 // 750 * 2 (ticks) / 60 (seconds) = 25 minutes
 	G_hit_sound = null
 	G_throw_sound = null

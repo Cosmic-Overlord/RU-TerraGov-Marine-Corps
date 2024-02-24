@@ -269,6 +269,14 @@ FACTORY
 MEDICAL
 *******************************************************************************/
 
+/datum/supply_packs/medical/incision_management
+	name = "Incision Management System"
+	notes = "contains incision management system."
+	contains = list(/obj/item/tool/surgery/scalpel/manager)
+	cost = 100
+	containertype = /obj/structure/closet/crate/secure/surgery
+	access = ACCESS_MARINE_MEDBAY
+
 /datum/supply_packs/medical/tweezers_advanced
 	name = "Advanced Tweezers"
 	notes = "contains advanced tweezers."
