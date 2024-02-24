@@ -246,14 +246,14 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		if(is_mainship_level(epicenter.z))
 			message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
 
-	var/far_dist = power / 100
+	var/far_dist = power / falloff - 2
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
 		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
 		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
 		var/baseshakeamount
-		var/orig_max_distance = power / falloff
+		var/orig_max_distance = power / falloff - 1
 
 		for(var/MN in GLOB.player_list)
 			var/mob/M = MN
@@ -262,7 +262,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 			if(M_turf && M_turf.z == epicenter.z)
 				var/dist = get_dist(M_turf, epicenter)
 				if(orig_max_distance - dist > 0)
-					baseshakeamount = sqrt((orig_max_distance - dist)*0.1)
+					baseshakeamount = sqrt((orig_max_distance - dist) * 0.1)
 				switch(power)
 					if(0 to EXPLODE_LIGHT)
 						explosion_sound = sound(get_sfx("explosion_small"))
