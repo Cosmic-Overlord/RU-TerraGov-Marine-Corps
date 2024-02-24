@@ -197,6 +197,13 @@
 	sundering = 1.5
 	damage = 15
 
+/datum/ammo/bullet/pepperball
+	damage = 1
+	damage_falloff = 0
+
+/datum/ammo/bullet/pepperball/pepperball_mini
+	damage = 1
+
 /*
 //================================================
 					Xeno Spits
