@@ -246,7 +246,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		if(is_mainship_level(epicenter.z))
 			message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
 
-	var/far_dist = power / falloff - 2
+	var/far_dist = round(power ^ 2, 1)
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
@@ -272,7 +272,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 					if(EXPLODE_HEAVY to INFINITY)
 						explosion_sound = sound(get_sfx("explosion_large"))
 				// If inside the blast radius + world.view - 2
-				if(dist <= round(far_dist + world.view - 2, 1))
+				if(dist <= max(round(power, 1)))
 					M.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
 					if(is_mainship_level(epicenter.z))
 						M.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
