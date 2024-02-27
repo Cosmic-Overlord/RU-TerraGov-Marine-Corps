@@ -74,7 +74,7 @@
 	// We only target living humans and xenos
 	var/list/target_list = list()
 	for(var/mob/living/prey in view(7, usr.client))
-		if((ishumanbasic(prey) || isxeno(prey)) && prey.stat != DEAD)
+		if((ishumanbasic(prey) || isxeno(prey)) && prey.stat != DEAD && prey.client)
 			target_list += prey
 
 	var/mob/living/carbon/M = tgui_input_list(usr, "Target", "Choose a prey.", target_list)
