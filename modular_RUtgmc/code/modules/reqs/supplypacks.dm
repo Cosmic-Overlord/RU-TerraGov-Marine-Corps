@@ -304,7 +304,7 @@ MEDICAL
 /datum/supply_packs/medical/advanced_medical_kits
 	name = "Advanced medical kits"
 	notes = "contains pair advanced medical kits from medical vendors."
-	contains = list(/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat, /obj/item/stack/medical/heal_pack/advanced/burn_pack/combat)
+	contains = list(/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack, /obj/item/stack/medical/heal_pack/advanced/burn_combat_pack)
 	cost = 120
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
