@@ -247,7 +247,7 @@
 /mob/living/silicon/ai/proc/toggle_camera_light()
 	if(camera_light_on)
 		for(var/obj/machinery/camera/C in lit_cameras)
-			C.set_light(0)
+			C.set_light(initial(C.light_range), initial(C.light_power))
 			lit_cameras = list()
 		to_chat(src, span_notice("Camera lights deactivated."))
 	else
@@ -345,6 +345,7 @@
 		else
 			clear_fullscreen("remote_view", 0)
 
+/* RUTGMC DELETION
 /mob/living/silicon/ai/update_sight()
 	. = ..()
 	if(HAS_TRAIT(src, TRAIT_SEE_IN_DARK))
@@ -357,7 +358,7 @@
 	eyeobj.lighting_alpha = initial(eyeobj.lighting_alpha)
 	see_in_dark = initial(see_in_dark)
 	lighting_alpha = initial(lighting_alpha) // yes you really have to change both the eye and the ai vars
-
+*/
 
 /mob/living/silicon/ai/get_status_tab_items()
 	. = ..()
@@ -390,9 +391,9 @@
 		. += "Railgun status: Railgun is ready to fire."
 
 		if(last_ai_bioscan + COOLDOWN_AI_BIOSCAN > world.time)
-			stat("AI bioscan status:", "Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time)/10] seconds.") //about 10 minutes
+			. += "AI bioscan status: Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time)/10] seconds." //about 10 minutes
 		else
-			stat("AI bioscan status:", "Instruments are ready to scan the planet.")
+			. += "AI bioscan status: Instruments are ready to scan the planet."
 
 /mob/living/silicon/ai/fully_replace_character_name(oldname, newname)
 	. = ..()

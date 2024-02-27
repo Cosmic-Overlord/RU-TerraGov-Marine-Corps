@@ -1,12 +1,16 @@
 /// runner abilities
-/datum/action/xeno_action/activable/psydrain/panther
-	plasma_cost = 10
+/datum/action/ability/activable/xeno/psydrain/panther
+	ability_cost = 10
 
-/datum/action/xeno_action/activable/pounce/panther
-	plasma_cost = 20
+/datum/action/ability/activable/xeno/pounce/panther
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_POUNCE,
+	)
+	cooldown_duration = 13 SECONDS
+	ability_cost = 20
 	var/pantherplasmaheal = 45
 
-/datum/action/xeno_action/activable/pounce/panther/mob_hit(datum/source, mob/living/M)
+/datum/action/ability/activable/xeno/pounce/panther/mob_hit(datum/source, mob/living/M)
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
 	X.plasma_stored += pantherplasmaheal
@@ -16,20 +20,19 @@
 // *********** Tearing tail
 // ***************************************
 
-/datum/action/xeno_action/tearingtail
+/datum/action/ability/xeno_action/tearingtail
 	name = "Tearing tail"
 	action_icon_state = "tearing_tail"
 	desc = "Hit all adjacent units around you, poisoning them with selected toxin and healing you for each creature hit."
-	ability_name = "tearing tail"
-	plasma_cost = 50
-	cooldown_timer = 15 SECONDS
+	ability_cost = 50
+	cooldown_duration = 15 SECONDS
 	var/tearing_tail_reagent
-	keybind_flags = XACT_KEYBIND_USE_ABILITY
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TEARING_TAIL,
 	)
 
-/datum/action/xeno_action/tearingtail/action_activate()
+/datum/action/ability/xeno_action/tearingtail/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 
 	X.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX
@@ -63,7 +66,7 @@
 	add_cooldown()
 
 
-/datum/action/xeno_action/tearingtail/on_cooldown_finish()
+/datum/action/ability/xeno_action/tearingtail/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/X = owner
 	to_chat(X, span_notice("We gather enough strength to tear the skin again."))
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
@@ -75,26 +78,25 @@
 // ***************************************
 // lunge+fling idk
 
-/datum/action/xeno_action/activable/adrenalinejump
+/datum/action/ability/activable/xeno/adrenalinejump
 	name = "Adrenaline Jump"
 	action_icon_state = "adrenaline_jump"
 	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target, this ability sends Pounce on cooldown."
-	ability_name = "adrenaline jump"
-	plasma_cost = 15
-	cooldown_timer = 12 SECONDS
+	ability_cost = 15
+	cooldown_duration = 12 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADRENALINE_JUMP,
 	)
-	target_flags = XABB_MOB_TARGET
+	target_flags = ABILITY_MOB_TARGET
 	/// The target of our lunge, we keep it to check if we are adjacent everytime we move
 	var/atom/lunge_target
 
-/datum/action/xeno_action/activable/adrenalinejump/on_cooldown_finish()
+/datum/action/ability/activable/xeno/adrenalinejump/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We ready ourselves to jump again."))
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
 	return ..()
 
-/datum/action/xeno_action/activable/adrenalinejump/can_use_ability(atom/A, silent = FALSE, override_flags)
+/datum/action/ability/activable/xeno/adrenalinejump/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -120,7 +122,7 @@
 			to_chat(owner, span_xenodanger("We can't jump at that!"))
 		return FALSE
 
-/datum/action/xeno_action/activable/adrenalinejump/use_ability(atom/A)
+/datum/action/ability/activable/xeno/adrenalinejump/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
 
 	X.visible_message(span_xenowarning("\The [X] jump towards [A]!"), \
@@ -141,21 +143,21 @@
 
 	succeed_activate()
 	add_cooldown()
-	var/datum/action/xeno_action/pounce = X.actions_by_path[/datum/action/xeno_action/activable/pounce/panther]
+	var/datum/action/ability/xeno_action/pounce = X.actions_by_path[/datum/action/ability/activable/xeno/pounce/panther]
 	if(pounce)
 		pounce.add_cooldown()
 
 	return TRUE
 
 ///Check if we are close enough to lunge, and if yes, fling them
-/datum/action/xeno_action/activable/adrenalinejump/proc/check_if_lunge_possible(datum/source)
+/datum/action/ability/activable/xeno/adrenalinejump/proc/check_if_lunge_possible(datum/source)
 	SIGNAL_HANDLER
 	if(!lunge_target.Adjacent(source))
 		return
 	INVOKE_ASYNC(src, PROC_REF(pantherfling), lunge_target)
 
 /// Null lunge target and reset throw vars
-/datum/action/xeno_action/activable/adrenalinejump/proc/clean_lunge_target()
+/datum/action/ability/activable/xeno/adrenalinejump/proc/clean_lunge_target()
 	SIGNAL_HANDLER
 	UnregisterSignal(lunge_target, COMSIG_QDELETING)
 	UnregisterSignal(owner, COMSIG_MOVABLE_POST_THROW)
@@ -164,7 +166,7 @@
 	owner.stop_throw()
 
 
-/datum/action/xeno_action/activable/adrenalinejump/proc/pantherfling(atom/A)
+/datum/action/ability/activable/xeno/adrenalinejump/proc/pantherfling(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	var/mob/living/lunge_target = A
 	var/fling_distance = 1
@@ -192,29 +194,29 @@
 // *********** Adrenaline rush
 // ***************************************
 
-/datum/action/xeno_action/adrenaline_rush
+/datum/action/ability/xeno_action/adrenaline_rush
 	name = "Adrenaline rush"
 	action_icon_state = "adrenaline_rush"
 	desc = "Move faster."
-	plasma_cost = 10
+	ability_cost = 10
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADRENALINE_RUSH,
 	)
-	use_state_flags = XACT_USE_LYING
+	use_state_flags = ABILITY_USE_LYING
 	action_type = ACTION_TOGGLE
 	var/speed_activated = FALSE
 	var/speed_bonus_active = FALSE
 
-/datum/action/xeno_action/adrenaline_rush/remove_action()
+/datum/action/ability/xeno_action/adrenaline_rush/remove_action()
 	rush_off(TRUE) // Ensure we remove the movespeed
 	return ..()
 
-/datum/action/xeno_action/adrenaline_rush/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/adrenaline_rush/can_use_action(silent = FALSE, override_flags)
 	. = ..()
 	if(speed_activated)
 		return TRUE
 
-/datum/action/xeno_action/adrenaline_rush/action_activate()
+/datum/action/ability/xeno_action/adrenaline_rush/action_activate()
 	if(speed_activated)
 		rush_off()
 		return fail_activate()
@@ -222,7 +224,7 @@
 	succeed_activate()
 
 
-/datum/action/xeno_action/adrenaline_rush/proc/rush_on(silent = FALSE)
+/datum/action/ability/xeno_action/adrenaline_rush/proc/rush_on(silent = FALSE)
 	var/mob/living/carbon/xenomorph/walker = owner
 	speed_activated = TRUE
 	if(!silent)
@@ -234,7 +236,7 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(rush_on_moved))
 
 
-/datum/action/xeno_action/adrenaline_rush/proc/rush_off(silent = FALSE)
+/datum/action/ability/xeno_action/adrenaline_rush/proc/rush_off(silent = FALSE)
 	var/mob/living/carbon/xenomorph/walker = owner
 	if(!silent)
 		owner.balloon_alert(owner, "Adrenaline rush is over")
@@ -246,7 +248,7 @@
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 
 
-/datum/action/xeno_action/adrenaline_rush/proc/rush_on_moved(datum/source, atom/oldloc, direction, Forced = FALSE)
+/datum/action/ability/xeno_action/adrenaline_rush/proc/rush_on_moved(datum/source, atom/oldloc, direction, Forced = FALSE)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/walker = owner
 	if(!isturf(walker.loc) || walker.plasma_stored < 3)
@@ -267,26 +269,26 @@
 // ***************************************
 // *********** Evasive maneuvers
 // ***************************************
-/datum/action/xeno_action/evasive_maneuvers
+/datum/action/ability/xeno_action/evasive_maneuvers
 	name = "Toggle evasive maneuvers"
 	action_icon_state = "evasive_maneuvers"
 	desc = "Toggle evasive action, forcing non-friendly projectiles that would hit you to miss."
-	plasma_cost = 10
+	ability_cost = 35
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_EVASIVE_MANEUVERS,
 	)
-	cooldown_timer = PANTHER_EVASION_COOLDOWN
+	cooldown_duration = PANTHER_EVASION_COOLDOWN
 	///Whether evasion is currently active
 	var/evade_active = FALSE
 	///Number of successful cooldown clears in a row
 	action_type = ACTION_TOGGLE
 
-/datum/action/xeno_action/evasive_maneuvers/remove_action(mob/living/L)
+/datum/action/ability/xeno_action/evasive_maneuvers/remove_action(mob/living/L)
 	if(evade_active)
 		evasion_deactivate()
 	return ..()
 
-/datum/action/xeno_action/evasive_maneuvers/can_use_action(silent = FALSE, override_flags)
+/datum/action/ability/xeno_action/evasive_maneuvers/can_use_action(silent = FALSE, override_flags)
 	. = ..()
 	var/mob/living/carbon/xenomorph/panther/R = owner
 
@@ -298,7 +300,7 @@
 		return FALSE
 	return TRUE
 
-/datum/action/xeno_action/evasive_maneuvers/action_activate()
+/datum/action/ability/xeno_action/evasive_maneuvers/action_activate()
 	var/mob/living/carbon/xenomorph/panther/R = owner
 
 	if(evade_active)
@@ -333,7 +335,7 @@
 	handle_evasion()
 	START_PROCESSING(SSprocessing, src)
 
-/datum/action/xeno_action/evasive_maneuvers/proc/handle_evasion()
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/handle_evasion()
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	if(owner.m_intent == MOVE_INTENT_RUN)
@@ -346,7 +348,7 @@
 		evasion_deactivate()
 
 ///Called when the owner is hit by a flamethrower projectile
-/datum/action/xeno_action/evasive_maneuvers/proc/evasion_flamer_hit(datum/source, obj/projectile/proj)
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_flamer_hit(datum/source, obj/projectile/proj)
 	SIGNAL_HANDLER
 
 	if((proj.ammo.flags_ammo_behavior & AMMO_FLAME)) //If it's not from a flamethrower, we don't care
@@ -354,7 +356,7 @@
 		evasion_deactivate()
 
 ///After getting hit with an Evasion disabling debuff, this is where we check to see if evasion is active, and if we actually have debuff stacks
-/datum/action/xeno_action/evasive_maneuvers/proc/evasion_debuff_check(datum/source, amount)
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_debuff_check(datum/source, amount)
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/xenomorph/X = owner
@@ -366,7 +368,7 @@
 
 
 ///Where we deactivate evasion and unregister the signals/zero out vars, etc.
-/datum/action/xeno_action/evasive_maneuvers/proc/evasion_deactivate()
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_deactivate()
 	SIGNAL_HANDLER
 	add_cooldown()
 	to_chat(owner, "<span class='xenodanger'>We stop evading.</span>")
@@ -393,19 +395,19 @@
 	owner.playsound_local(owner, 'sound/voice/hiss5.ogg', 50)
 
 
-/datum/action/xeno_action/evasive_maneuvers/on_cooldown_finish()
+/datum/action/ability/xeno_action/evasive_maneuvers/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to take evasive action again."))
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
 
 	return ..()
 
-/datum/action/xeno_action/evasive_maneuvers/process()
+/datum/action/ability/xeno_action/evasive_maneuvers/process()
 	if(!evade_active)
 		return PROCESS_KILL
 	handle_evasion()
 
 ///Determines whether or not a thrown projectile is dodged while the Evasion ability is active
-/datum/action/xeno_action/evasive_maneuvers/proc/evasion_throw_dodge(datum/source, atom/movable/proj)
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_throw_dodge(datum/source, atom/movable/proj)
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/xenomorph/X = owner
@@ -420,7 +422,7 @@
 	return COMPONENT_PRE_THROW_IMPACT_HIT
 
 ///This is where the dodgy magic happens
-/datum/action/xeno_action/evasive_maneuvers/proc/evasion_dodge(datum/source, obj/projectile/proj, cardinal_move, uncrossing)
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_dodge(datum/source, obj/projectile/proj, cardinal_move, uncrossing)
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/xenomorph/panther/R = owner
@@ -441,7 +443,7 @@
 	return COMPONENT_PROJECTILE_DODGE
 
 ///Handles dodge effects and visuals for the Evasion ability.
-/datum/action/xeno_action/evasive_maneuvers/proc/evasion_dodge_sfx(atom/movable/proj)
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_dodge_sfx(atom/movable/proj)
 
 	var/mob/living/carbon/xenomorph/X = owner
 
@@ -462,23 +464,23 @@
 // ***************************************
 // *********** Select reagent (panther)
 // ***************************************
-/datum/action/xeno_action/select_reagent/panther
+/datum/action/ability/xeno_action/select_reagent/panther
 	name = "Select Reagent"
 	action_icon_state = "select_reagent0"
 	desc = "Selects which reagent to use for tearing tail. Hemodile slows by 25%, increased to 50% with neurotoxin present, and deals 20% of damage received as stamina damage. Transvitox converts brute/burn damage to toxin based on 40% of damage received up to 45 toxin on target, upon reaching which causes a stun. Neurotoxin deals increasing stamina damage the longer it remains in the victim's system and prevents stamina regeneration. Ozelomelyn purges medical chemicals from humans, while also causing slight intoxication. Sanguinal does damage depending on presence and amount of all previously mentioned reagents, also causes light brute damage and bleeding."
-	use_state_flags = XACT_USE_BUSY|XACT_USE_LYING
+	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SELECT_REAGENT,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_RADIAL_SELECT_REAGENT,
 	)
 
-/datum/action/xeno_action/select_reagent/panther/give_action(mob/living/L)
+/datum/action/ability/xeno_action/select_reagent/panther/give_action(mob/living/L)
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
 	X.selected_reagent = GLOB.panther_toxin_type_list[1] //Set our default
 	update_button_icon() //Update immediately to get our default
 
-/datum/action/xeno_action/select_reagent/panther/action_activate()
+/datum/action/ability/xeno_action/select_reagent/panther/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 	var/i = GLOB.panther_toxin_type_list.Find(X.selected_reagent)
 	if(length_char(GLOB.panther_toxin_type_list) == i)
@@ -491,7 +493,7 @@
 	update_button_icon()
 	return succeed_activate()
 
-/datum/action/xeno_action/select_reagent/panther/select_reagent_radial()
+/datum/action/ability/xeno_action/select_reagent/panther/select_reagent_radial()
 	//List of toxin images
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.panther_toxin_type_list (or wait while offtgmc reworks the defiler code and then copy it )

@@ -48,6 +48,7 @@
 	ammo = GLOB.ammo_list[/datum/ammo/xeno/boiler_gas]
 	update_boiler_glow()
 	RegisterSignal(src, COMSIG_XENOMORPH_GIBBING, PROC_REF(gib_explode))
+/* RUTGMC EDIT BEGIN
 	RegisterSignal(src, COMSIG_MOB_STAT_CHANGED, PROC_REF(on_stat_change))
 	RegisterSignals(src, list(COMSIG_LIVING_STATUS_STUN,
 		COMSIG_LIVING_STATUS_KNOCKDOWN,
@@ -56,6 +57,7 @@
 		COMSIG_LIVING_STATUS_UNCONSCIOUS,
 		COMSIG_LIVING_STATUS_SLEEP,
 		COMSIG_LIVING_STATUS_STAGGER), PROC_REF(on_stun))
+RUTGMC EDIT END*/
 
 // ***************************************
 // *********** Gibbing behaviour
@@ -66,10 +68,11 @@
 	smoke.set_up(2, get_turf(src))
 	smoke.start()
 
+/* RUTGMC EDIT BEGIN
 /// Handles boilers changing stat, you unroot yourself if you change stat, like going from conscious to unconscious
 /mob/living/carbon/xenomorph/boiler/proc/on_stat_change(datum/source, old_state, new_state)
 	SIGNAL_HANDLER
-	var/datum/action/xeno_action/activable/bombard/bombard_action = actions_by_path[/datum/action/xeno_action/activable/bombard]
+	var/datum/action/ability/activable/xeno/bombard/bombard_action = actions_by_path[/datum/action/ability/activable/xeno/bombard]
 	if(HAS_TRAIT_FROM(src, TRAIT_IMMOBILE, BOILER_ROOTED_TRAIT))
 		bombard_action.set_rooted(FALSE)
 
@@ -78,6 +81,7 @@
 	SIGNAL_HANDLER
 	if(!(amount > 0) || !HAS_TRAIT_FROM(src, TRAIT_IMMOBILE, BOILER_ROOTED_TRAIT))
 		return
-	var/datum/action/xeno_action/activable/bombard/bombard_action = actions_by_path[/datum/action/xeno_action/activable/bombard]
+	var/datum/action/ability/activable/xeno/bombard/bombard_action = actions_by_path[/datum/action/ability/activable/xeno/bombard]
 	balloon_alert_to_viewers("[src] scrambles out of the ground from the impact!")
 	bombard_action.set_rooted(FALSE)
+RUTGMC EDIT END */

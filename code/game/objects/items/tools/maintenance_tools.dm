@@ -248,7 +248,7 @@
 		return 0
 	return 1
 
-
+/* RUTGMC EDIT | MOVED TO MODULE
 //Toggles the welder off and on
 /obj/item/tool/weldingtool/proc/toggle(message = 0)
 	var/mob/M
@@ -291,6 +291,7 @@
 				M.update_inv_l_hand()
 		set_light(0)
 		STOP_PROCESSING(SSobj, src)
+*/
 
 /obj/item/tool/weldingtool/proc/flamethrower_screwdriver(obj/item/I, mob/user)
 	if(welding)
@@ -373,7 +374,7 @@
 		var/obj/item/tool/weldingtool/T = I
 		if(T.welding)
 			balloon_alert(user, "That was stupid")
-			log_explosion("[key_name(user)] triggered a weldpack explosion at [AREACOORD(user.loc)].")
+			log_bomber(user, "triggered a weldpack explosion", src)
 			explosion(src, light_impact_range = 3)
 			qdel(src)
 		if(T.get_fuel() == T.max_fuel || !reagents.total_volume)
@@ -399,6 +400,17 @@
 		FT.caliber = CALIBER_FUEL
 		balloon_alert(user, "Refills with [lowertext(FT.caliber)]")
 		FT.update_icon()
+
+	else if(istype(I, /obj/item/storage/holster/backholster/flamer))
+		var/obj/item/storage/holster/backholster/flamer/flamer_bag = I
+		var/obj/item/ammo_magazine/flamer_tank/internal/internal_tank = flamer_bag.tank
+		if(internal_tank.current_rounds == internal_tank.max_rounds)
+			return ..()
+		var/fuel_to_transfer = min(reagents.total_volume, (internal_tank.max_rounds - internal_tank.current_rounds))
+		reagents.remove_reagent(/datum/reagent/fuel, fuel_to_transfer)
+		internal_tank.current_rounds += fuel_to_transfer
+		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
+		balloon_alert(user, "Refills")
 
 	else if(istype(I, /obj/item/weapon/twohanded/rocketsledge))
 		var/obj/item/weapon/twohanded/rocketsledge/RS = I
@@ -474,7 +486,7 @@
 		balloon_alert(user, "Too busy")
 		return
 
-	while(do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
+	while(do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		cell.charge = min(cell.charge + 200, cell.maxcharge)
 		balloon_alert(user, "Charges the cell")
 		playsound(user, 'sound/weapons/guns/interact/rifle_reload.ogg', 15, 1, 5)

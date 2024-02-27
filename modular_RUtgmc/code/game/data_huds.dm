@@ -60,7 +60,7 @@
 
 //Xeno status hud, for xenos
 /datum/atom_hud/xeno
-	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_BANISHED_HUD)
+	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 
 /mob/living/carbon/xenomorph/proc/hud_set_banished()
 	var/image/holder = hud_list[XENO_BANISHED_HUD]
@@ -70,3 +70,13 @@
 		holder.icon_state = "xeno_banished"
 	holder.pixel_x = -4
 	holder.pixel_y = -6
+
+/mob/living/carbon/xenomorph/proc/hud_update_rank()
+	var/image/holder = hud_list[XENO_RANK_HUD]
+	if(!holder)
+		return
+	holder.icon_state = "hudblank"
+	if(stat != DEAD && playtime_as_number() > 0)
+		holder.icon_state = "hudxenoupgrade[playtime_as_number()]"
+
+	hud_list[XENO_RANK_HUD] = holder

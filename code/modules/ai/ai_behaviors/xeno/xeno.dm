@@ -37,8 +37,8 @@
 		if(!action.ai_should_use(atom_to_walk_to))
 			continue
 		//xeno_action/activable is activated with a different proc for keybinded actions, so we gotta use the correct proc
-		if(istype(action, /datum/action/xeno_action/activable))
-			var/datum/action/xeno_action/activable/xeno_action = action
+		if(istype(action, /datum/action/ability/activable/xeno))
+			var/datum/action/ability/activable/xeno/xeno_action = action
 			xeno_action.use_ability(atom_to_walk_to)
 		else
 			action.action_activate()
@@ -109,7 +109,7 @@
 			return
 		if(isstructure(thing))
 			var/obj/structure/obstacle = thing
-			if(obstacle.resistance_flags & XENO_DAMAGEABLE)
+			if(obstacle.resistance_flags & XENO_DAMAGEABLE && !istype(obstacle, /obj/structure/bed/nest)) //RUTGMC ADDITION, no nest breaking minions
 				INVOKE_ASYNC(src, PROC_REF(attack_target), null, obstacle)
 				return COMSIG_OBSTACLE_DEALT_WITH
 		else if(istype(thing, /obj/machinery/door/airlock))
@@ -131,7 +131,7 @@
 	//Ok we found nothing, yet we are still blocked. Check for blockers on our current turf
 	obstacle_turf = get_turf(mob_parent)
 	for(var/obj/structure/obstacle in obstacle_turf.contents)
-		if(obstacle.dir & direction && obstacle.resistance_flags & XENO_DAMAGEABLE)
+		if(obstacle.dir & direction && obstacle.resistance_flags & XENO_DAMAGEABLE && !istype(obstacle, /obj/structure/bed/nest)) //RUTGMC ADDITION, no nest breaking minions
 			INVOKE_ASYNC(src, PROC_REF(attack_target), null, obstacle)
 			return COMSIG_OBSTACLE_DEALT_WITH
 

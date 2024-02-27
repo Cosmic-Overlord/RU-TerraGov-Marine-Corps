@@ -41,6 +41,6 @@
 
 /obj/item/storage/belt/lifesaver
 	bypass_w_limit = list(
-		/obj/item/stack/medical/heal_pack/advanced/burn_pack/combat,
-		/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat,
+		/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack,
+		/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack,
 	)

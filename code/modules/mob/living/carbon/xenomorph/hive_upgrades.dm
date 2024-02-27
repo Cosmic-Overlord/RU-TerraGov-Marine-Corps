@@ -3,7 +3,7 @@
 #define PRIMORDIAL_TIER_THREE "Primordial tier three"
 #define PRIMORDIAL_TIER_FOUR "Primordial tier four"
 
-GLOBAL_LIST_INIT(upgrade_categories, list("Buildings", "Defences", "Xenos"))//, "Primordial"))//uncomment to unlock globally
+GLOBAL_LIST_INIT(upgrade_categories, list("Buildings", "Defences", "Primordial"))//, "Xenos"))//uncomment to unlock globally
 GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	XENO_TIER_ONE = PRIMORDIAL_TIER_ONE,
 	XENO_TIER_TWO = PRIMORDIAL_TIER_TWO,
@@ -104,6 +104,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	SHOULD_CALL_PARENT(TRUE)
 	SSpoints.xeno_points_by_hive[buyer.hivenumber] -= psypoint_cost
 	times_bought++
+	/*RUTGMC EDIT begin */
+	if(buyer.status_flags & INCORPOREAL)
+		to_chat(buyer, span_xenowarning("You can't build in this form!"))
+		return FALSE
+	/*RUTGMC EDIT end*/
 	return TRUE
 
 /**
@@ -117,6 +122,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	SHOULD_CALL_PARENT(TRUE)
 	if((flags_upgrade & UPGRADE_FLAG_ONETIME) && times_bought)
 		return FALSE
+	/*RUTGMC EDIT begin*/
+	if(buyer.status_flags & INCORPOREAL)
+		to_chat(buyer, span_xenowarning("You can't build in this form!"))
+		return FALSE
+	/*RUTGMC EDIT end*/
 	if(SSpoints.xeno_points_by_hive[buyer.hivenumber] < psypoint_cost)
 		if(!silent)
 			to_chat(buyer, span_xenowarning("You need [psypoint_cost-SSpoints.xeno_points_by_hive[buyer.hivenumber]] more points to request this blessing!"))
@@ -156,7 +166,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		return FALSE
 
 /datum/hive_upgrade/building/on_buy(mob/living/carbon/xenomorph/buyer)
-	if(!do_after(buyer, building_time, TRUE, buyer, BUSY_ICON_BUILD))
+	if(!do_after(buyer, building_time, NONE, buyer, BUSY_ICON_BUILD))
 		return FALSE
 
 	if(!can_buy(buyer, FALSE))
@@ -178,6 +188,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/silo
 
+/* RUTGMC DELETION, SILO SCALING
 /datum/hive_upgrade/building/silo/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
 	if(!.)
@@ -197,6 +208,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			if(get_dist(silo, buyer) < 15)
 				to_chat(buyer, span_xenowarning("Another silo is too close!"))
 				return FALSE
+*/
 
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
@@ -277,7 +289,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	return TRUE
 
 /datum/hive_upgrade/defence/turret/on_buy(mob/living/carbon/xenomorph/buyer)
-	if(!do_after(buyer, build_time, TRUE, buyer, BUSY_ICON_BUILD))
+	if(!do_after(buyer, build_time, NONE, buyer, BUSY_ICON_BUILD))
 		return FALSE
 
 	if(!can_buy(buyer, FALSE))

@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 /datum/xeno_caste/widow
 	caste_name = "Widow"
 	display_name = "Widow"
@@ -25,7 +26,7 @@
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_THRESHOLD
 
-	deevolves_to = list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/carrier)
+	deevolves_to = list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/puppeteer)
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
@@ -43,18 +44,18 @@
 
 	// *** Abilities *** ///
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain,
-		/datum/action/xeno_action/activable/cocoon,
-		/datum/action/xeno_action/activable/web_spit,
-		/datum/action/xeno_action/burrow,
-		/datum/action/xeno_action/activable/leash_ball,
-		/datum/action/xeno_action/create_spiderling,
-		/datum/action/xeno_action/lay_egg,
-		/datum/action/xeno_action/attach_spiderlings,
-		/datum/action/xeno_action/activable/cannibalise,
-		/datum/action/xeno_action/activable/spiderling_mark,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/cocoon,
+		/datum/action/ability/activable/xeno/web_spit,
+		/datum/action/ability/xeno_action/burrow,
+		/datum/action/ability/activable/xeno/leash_ball,
+		/datum/action/ability/xeno_action/create_spiderling,
+		/datum/action/ability/xeno_action/lay_egg,
+		/datum/action/ability/xeno_action/attach_spiderlings,
+		/datum/action/ability/activable/xeno/cannibalise,
+		/datum/action/ability/activable/xeno/spiderling_mark,
 	)
 
 /datum/xeno_caste/widow/on_caste_applied(mob/xenomorph)
@@ -78,17 +79,18 @@
 
 	// *** Abilities *** ///
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain,
-		/datum/action/xeno_action/activable/cocoon,
-		/datum/action/xeno_action/activable/web_spit,
-		/datum/action/xeno_action/burrow,
-		/datum/action/xeno_action/activable/leash_ball,
-		/datum/action/xeno_action/create_spiderling,
-		/datum/action/xeno_action/lay_egg,
-		/datum/action/xeno_action/attach_spiderlings,
-		/datum/action/xeno_action/activable/cannibalise,
-		/datum/action/xeno_action/activable/spiderling_mark,
-		/datum/action/xeno_action/activable/web_hook,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/cocoon,
+		/datum/action/ability/activable/xeno/web_spit,
+		/datum/action/ability/xeno_action/burrow,
+		/datum/action/ability/activable/xeno/leash_ball,
+		/datum/action/ability/xeno_action/create_spiderling,
+		/datum/action/ability/xeno_action/lay_egg,
+		/datum/action/ability/xeno_action/attach_spiderlings,
+		/datum/action/ability/activable/xeno/cannibalise,
+		/datum/action/ability/activable/xeno/spiderling_mark,
+		/datum/action/ability/activable/xeno/web_hook,
 	)
+*/

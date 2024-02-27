@@ -1,5 +1,5 @@
 import { useBackend } from '../../backend';
-import { Button, Section, LabeledList, Box, Grid } from '../../components';
+import { Button, Section, LabeledList, Box, Stack } from '../../components';
 
 export const GearCustomization = (props, context) => {
   const { act, data } = useBackend<GearCustomizationData>(context);
@@ -12,6 +12,7 @@ export const GearCustomization = (props, context) => {
     10: 'Head',
     8: 'Eyewear',
     9: 'Mouth',
+    20: 'Miscellaneous',
   };
 
   const bySlot = {};
@@ -44,8 +45,8 @@ export const GearCustomization = (props, context) => {
           />
         </>
       }>
-      <Grid>
-        <Grid.Column>
+      <Stack>
+        <Stack.Item grow>
           <Section title={'Head'}>
             <LabeledList>
               {bySlot['Head']?.map((item) => (
@@ -66,8 +67,8 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
-        </Grid.Column>
-        <Grid.Column>
+        </Stack.Item>
+        <Stack.Item grow>
           <Section title={'Eyewear'}>
             <LabeledList>
               {bySlot['Eyewear']?.map((item) => (
@@ -89,10 +90,10 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
-        </Grid.Column>
-      </Grid>
-      <Grid>
-        <Grid.Column>
+        </Stack.Item>
+      </Stack>
+      <Stack>
+        <Stack.Item grow>
           <Section title={'Mouth'}>
             <LabeledList>
               {bySlot['Mouth']?.map((item) => (
@@ -113,8 +114,8 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
-        </Grid.Column>
-        <Grid.Column>
+        </Stack.Item>
+        <Stack.Item grow>
           <Section title={'Undershirt (select one)'}>
             <LabeledList>
               {clothing['undershirt'][gender]?.map((item, idx) => (
@@ -129,10 +130,10 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
-        </Grid.Column>
-      </Grid>
-      <Grid>
-        <Grid.Column>
+        </Stack.Item>
+      </Stack>
+      <Stack>
+        <Stack.Item grow>
           <Section title={'Underwear (select one)'}>
             <LabeledList>
               {clothing['underwear'][gender]?.map((item, idx) => (
@@ -147,8 +148,8 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
-        </Grid.Column>
-        <Grid.Column>
+        </Stack.Item>
+        <Stack.Item grow>
           <Section title={'Backpack (select one)'}>
             <LabeledList>
               {clothing['backpack']?.map((item, idx) => (
@@ -163,8 +164,32 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
-        </Grid.Column>
-      </Grid>
+        </Stack.Item>
+      </Stack>
+      <Stack>
+        <Stack.Item grow>
+          <Section title={'Miscellaneous'}>
+            <LabeledList>
+              {bySlot['Miscellaneous']?.map((item) => (
+                <LabeledList.Item
+                  key={item.name}
+                  label={`${item.name} (${item.cost})`}>
+                  <Button.Checkbox
+                    inline
+                    content={'Equipped'}
+                    checked={gear.includes(item.name)}
+                    onClick={() =>
+                      gear.includes(item.name)
+                        ? act('loadoutremove', { gear: item.name })
+                        : act('loadoutadd', { gear: item.name })
+                    }
+                  />
+                </LabeledList.Item>
+              ))}
+            </LabeledList>
+          </Section>
+        </Stack.Item>
+      </Stack>
     </Section>
   );
 };

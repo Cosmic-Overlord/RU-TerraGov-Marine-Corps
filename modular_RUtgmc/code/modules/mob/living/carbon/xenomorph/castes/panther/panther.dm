@@ -40,14 +40,15 @@
 /obj/item/reagent_containers/food/drinks/pantherheart
 	name = "Panther heart"
 	desc = "This is Panther heart... Wait, what?"
+	icon = 'modular_RUtgmc/icons/obj/items/drinks.dmi'
 	icon_state = "pantherheart"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 0
 	throwforce = 0
-	amount_per_transfer_from_this = 2
+	gulp_size = 3
 	possible_transfer_amounts = null
 	volume = 20
-	list_reagents = list(/datum/reagent/medicine/synaptizine/adrenaline = 20)
+	list_reagents = list(/datum/reagent/medicine/adrenaline = 20)
 
 /obj/item/reagent_containers/food/drinks/pantherheart/on_reagent_change()
 	if(!reagents.total_volume)
@@ -58,15 +59,3 @@
 	if(prob(44.81))
 		new /obj/item/reagent_containers/food/drinks/pantherheart(loc)
 		gib()
-
-/datum/reagent/medicine/synaptizine/adrenaline
-	name = "Adrenaline"
-	color = "#f14a17"
-
-/datum/reagent/medicine/synaptizine/adrenaline/on_mob_add(mob/living/L, metabolism)
-	. = ..()
-	var/mob/living/carbon/human/H = L
-	if(L.health < H.health_threshold_crit && volume >= 3)
-		to_chat(L, span_userdanger("Heart explosion! Power running in your veins!"))
-		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
-		L.jitter(5)

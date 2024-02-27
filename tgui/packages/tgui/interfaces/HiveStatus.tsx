@@ -13,7 +13,9 @@ type InputPack = {
   hive_larva_rate: number;
   hive_larva_burrowed: number;
   hive_psy_points: number;
+  hive_silo_collapse: number;
   hive_orphan_collapse: number;
+  hive_silo_max: number;
   hive_orphan_max: number;
   hive_minion_count: number;
   hive_primos: PrimoUpgrades[];
@@ -32,8 +34,6 @@ type InputPack = {
   user_watched_xeno: string;
   user_evolution: number;
   user_purchase_perms: boolean;
-  user_maturity: number;
-  user_next_mat_level: number;
   user_tracked: string;
   user_show_compact: boolean;
   user_show_empty: boolean;
@@ -49,6 +49,7 @@ type XenoData = {
   location: string;
   health: number;
   plasma: number;
+  can_be_leader: boolean;
   is_leader: number; // boolean but is used in bitwise ops.
   is_ssd: boolean;
   index: number; // Corresponding to static data index.
@@ -104,7 +105,7 @@ export const HiveStatus = (_props, context) => {
       theme="xeno"
       title={hive_name + ' Hive Status'}
       resizable
-      width={800}
+      width={1000}
       height={800}>
       <Window.Content scrollable>
         <CachedCollapsible
@@ -201,8 +202,10 @@ const GeneralInfo = (_props, context) => {
   const {
     hive_larva_burrowed,
     hive_psy_points,
+    hive_silo_collapse,
     hive_orphan_collapse,
     hive_death_timers,
+    hive_silo_max,
     hive_orphan_max,
   } = data;
 
@@ -235,12 +238,17 @@ const GeneralInfo = (_props, context) => {
           <LarvaBar />
         </Flex.Item>
         <Flex.Item>
-          <MaturityBar />
-        </Flex.Item>
-        <Flex.Item>
           <EvolutionBar />
         </Flex.Item>
         <DeadXenoTimerCountdowns hive_death_timers={hive_death_timers} />
+        <Flex.Item>
+          <XenoCountdownBar
+            time={hive_silo_collapse}
+            max={hive_silo_max}
+            tooltip="Hive must construct a silo!"
+            left_side="Silo Collapse:"
+          />
+        </Flex.Item>
         <Flex.Item>
           <XenoCountdownBar
             time={hive_orphan_collapse}
@@ -320,35 +328,6 @@ const LarvaBar = (_props, context) => {
             value={hive_larva_current / hive_larva_threshold}>
             {`${hive_larva_rate} per minute ` + // Linters eating my white space.
               `(${hive_larva_current}/${hive_larva_threshold})`}
-          </ProgressBar>
-        </Flex.Item>
-      </Flex>
-    </Tooltip>
-  );
-};
-
-const MaturityBar = (_props, context) => {
-  const { data } = useBackend<InputPack>(context);
-  const { user_xeno, user_maturity, user_next_mat_level } = data;
-
-  if (!user_xeno || user_next_mat_level === 0) {
-    return <Box />; // Empty.
-  }
-
-  return (
-    <Tooltip content="Your next maturity upgrade">
-      <Flex mb={1}>
-        <Flex.Item ml={1} mr={1} width={bar_text_width} align="center">
-          Upgrade Progress:
-        </Flex.Item>
-        <Flex.Item grow>
-          <ProgressBar
-            ranges={{
-              good: [0.75, Infinity],
-              average: [-Infinity, 0.75],
-            }}
-            value={user_maturity / user_next_mat_level}>
-            {round((user_maturity / user_next_mat_level) * 100, 0)}%
           </ProgressBar>
         </Flex.Item>
       </Flex>
@@ -820,13 +799,15 @@ const XenoList = (_props, context) => {
                     height="16px"
                     fontSize={0.75}
                     tooltip={
-                      user_queen && !static_entry.is_queen
+                      user_queen &&
+                      !static_entry.is_queen &&
+                      entry.can_be_leader
                         ? 'Toggle leadership'
                         : ''
                     }
                     verticalAlignContent="middle"
                     icon="star"
-                    disabled={static_entry.is_queen}
+                    disabled={static_entry.is_queen || !entry.can_be_leader}
                     selected={entry.is_leader}
                     opacity={
                       entry.is_leader || user_queen || static_entry.is_queen

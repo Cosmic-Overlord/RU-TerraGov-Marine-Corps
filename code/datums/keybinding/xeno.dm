@@ -130,13 +130,6 @@
 	keybind_signal = COMSIG_XENOABILITY_TRANSFER_PLASMA
 	hotkey_keys = list("N")
 
-/datum/keybinding/xeno/pounce
-	name = "pounce"
-	full_name = "Pounce"
-	description = ""
-	keybind_signal = COMSIG_XENOABILITY_POUNCE
-	hotkey_keys = list("E")
-
 /datum/keybinding/xeno/toggle_charge
 	name = "toggle_charge"
 	full_name = "Toggle Charge"
@@ -274,16 +267,6 @@
 	keybind_signal = COMSIG_XENOABILITY_BOMBARD
 	hotkey_keys = list("R")
 
-//RUTGMC EDIT BEGIN
-/datum/keybinding/xeno/dump_acid
-	name = "dump_acid"
-	full_name = "Boiler: Dump Acid"
-	description = ""
-	keybind_signal = COMSIG_XENOABILITY_DUMP_ACID
-	hotkey_keys = list("Q")
-
-//RUTGMC EDIT END
-
 /datum/keybinding/xeno/plow_charge
 	name = "plow_charge"
 	full_name = "Bull: Plow Charge"
@@ -324,10 +307,7 @@
 	full_name = "Carrier: Place Trap"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_PLACE_TRAP
-/*
 	hotkey_keys = list("Q")
-*/
-	hotkey_keys = list("G") //RUTGMC edit - change button
 
 /datum/keybinding/xeno/spawn_hugger
 	name = "spawn_hugger"
@@ -612,6 +592,13 @@
 	keybind_signal = COMISG_XENOMORPH_HIVEMIND_TELEPORT
 	hotkey_keys = list("C")
 
+/datum/keybinding/xeno/hunter_pounce
+	name = "hunter_pounce"
+	full_name = "Hunter: Pounce"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_HUNTER_POUNCE
+	hotkey_keys = list("E")
+
 /datum/keybinding/xeno/toggle_stealth
 	name = "toggle_stealth"
 	full_name = "Hunter: Toggle Stealth"
@@ -694,30 +681,6 @@
 	full_name = "King: Psychic Summon"
 	description = "Summons all xenos in a hive to the caller's location, uses all plasma to activate."
 	keybind_signal = COMSIG_XENOABILITY_HIVE_SUMMON
-
-//RUTGMC EDIT ADDITION BEGIN
-/datum/keybinding/xeno/tearing_tail
-	name = "Tearing Tail"
-	full_name = "Panther: Tearing Tail"
-	description = "Hit all adjacent units around you, poisoning them toxin for their mind."
-	keybind_signal = COMSIG_XENOABILITY_TEARING_TAIL
-	hotkey_keys = list("R")
-
-/datum/keybinding/xeno/adrenaline_jump
-	name = "Adrenaline Jump"
-	full_name = "Panther: Adrenaline Jump"
-	description = "Jump from some distance to target, knocking them down."
-	keybind_signal = COMSIG_XENOABILITY_ADRENALINE_JUMP
-	hotkey_keys = list("F")
-
-/datum/keybinding/xeno/evasive_maneuvers
-	name = "Toggle evasive maneuvers"
-	full_name = "Panther: Evasive Maneuvers"
-	description = "Toggle evasive action, forcing non-friendly projectiles that would hit you to miss."
-	keybind_signal = COMSIG_XENOABILITY_EVASIVE_MANEUVERS
-	hotkey_keys = list("Q")
-
-//RUTGMC EDIT END
 
 /datum/keybinding/xeno/acid_dash
 	name = "acid_dash"
@@ -819,19 +782,31 @@
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_RAVAGE_SELECT
 
+/datum/keybinding/xeno/pounce
+	name = "pounce"
+	full_name = "Runner: Pounce"
+	description = ""
+	keybind_signal = COMSIG_XENOABILITY_RUNNER_POUNCE
+	hotkey_keys = list("E")
+
 /datum/keybinding/xeno/toggle_savage
 	name = "toggle_savage"
 	full_name = "Runner: Toggle Savage"
 	description = ""
 	keybind_signal = COMSIG_XENOABILITY_TOGGLE_SAVAGE
-	hotkey_keys = list("R")
 
 /datum/keybinding/xeno/evasion
 	name = "evasion"
 	full_name = "Runner: Evasion"
 	description = "Take evasive action, forcing non-friendly projectiles that would hit you to miss so long as you keep moving."
 	keybind_signal = COMSIG_XENOABILITY_EVASION
-	hotkey_keys = list("Space")
+	hotkey_keys = list("Z")
+
+/datum/keybinding/xeno/auto_evasion
+	name = "auto_evasion"
+	full_name = "Runner: Toggle Auto Evasion"
+	description = "Toggles Auto Evasion on or off. While active, Auto Evasion will automatically use Evasion when you gain its cooldown reset bonus."
+	keybind_signal = COMSIG_XENOABILITY_AUTO_EVASION
 
 /datum/keybinding/xeno/snatch
 	name = "snatch"
@@ -888,8 +863,7 @@
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_CURE
 	hotkey_keys = list("F")
 
-//RUTGMC EDIT BEGIN
-/*
+/* RUTGMC EDIT DELETION, PSYCHIC_GRAB
 /datum/keybinding/xeno/psychic_storm
 	name = "gravnade"
 	full_name = "Shrike: Psychic Vortex"
@@ -897,14 +871,6 @@
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_VORTEX
 	hotkey_keys = list("X")
 */
-
-/datum/keybinding/xeno/psychic_grab
-	name = "psychic_grab"
-	full_name = "Shrike: Psychic Grab"
-	description = ""
-	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_GRAB
-	hotkey_keys = list("X")
-//RUTGMC EDIT END
 
 /datum/keybinding/xeno/scatter_spit
 	name = "scatter_spit"
@@ -982,6 +948,7 @@
 	keybind_signal = COMSIG_XENOABILITY_JAB
 	hotkey_keys = list("E")
 
+/* RUTGMC DELETION, WIDOW DELETION
 /datum/keybinding/xeno/burrow
 	name = "burrow"
 	full_name = "Widow: Burrow"
@@ -1044,7 +1011,9 @@
 	description = "Signal your spawn to a target they shall attack."
 	keybind_signal = COMSIG_XENOABILITY_SPIDERLING_MARK
 	hotkey_keys = list("V")
+*/
 
+/* RU TGMC EDIT START
 /datum/keybinding/xeno/rewind
 	name = "rewind"
 	full_name = "Wraith: Time Shift"
@@ -1093,3 +1062,108 @@
 	description = "Freezes bullets in their course, and they will start to move again only after a certain time"
 	keybind_signal = COMSIG_XENOABILITY_TIMESTOP
 	hotkey_keys = list("V")
+RU TGMC EDIT END*/
+
+/datum/keybinding/xeno/flay
+	name = "Flay"
+	full_name = "Puppeteer: Flay"
+	description = "Takes a chunk of flesh from the victim marine through a quick swiping motion, adding 100 biomass to your biomass collection."
+	keybind_signal = COMSIG_XENOABILITY_FLAY
+
+/datum/keybinding/xeno/pincushion
+	name = "Pincushion"
+	full_name = "Puppeteer: Pincushion"
+	description = "Launch a spine from your tail. This attack will help deter any organic as well as support your puppets and teammates in direct combat."
+	keybind_signal = COMSIG_XENOABILITY_PINCUSHION
+
+/datum/keybinding/xeno/dread
+	name = "Dreadful Presence"
+	full_name = "Puppeteer: Dreadful Presence"
+	description = "Emit a menacing presence, striking fear into the organics and slowing them for a short duration."
+	keybind_signal = COMSIG_XENOABILITY_DREADFULPRESENCE
+
+/datum/keybinding/xeno/refurbish_husk
+	name = "Refurbish Husk"
+	full_name = "Puppeteer: Refurbish Husk"
+	description = "Harvest the biomass and organs of a body in order to create a meat puppet to do your bidding."
+	keybind_signal = COMSIG_XENOABILITY_REFURBISHHUSK
+
+/datum/keybinding/xeno/stitch_puppet
+	name = "Stitch Puppet"
+	full_name = "Puppeteer: Stitch Puppet"
+	description = "Uses 350 biomass to create a flesh homunculus to do your bidding, at an adjacent target location."
+	keybind_signal = COMSIG_XENOABILITY_PUPPET
+
+/datum/keybinding/xeno/organic_bomb
+	name = "Organic Bomb"
+	full_name = "Puppeteer: Organic Bomb"
+	description = "Causes one of our puppets to detonate on selection, spewing acid out of the puppet's body in all directions, gibbing the puppet."
+	keybind_signal = COMSIG_XENOABILITY_ORGANICBOMB
+
+/datum/keybinding/xeno/tendrils
+	name = "Tendrils"
+	full_name = "Puppeteer: Tendrils"
+	description = "Burrow freshly created tendrils to tangle organics in a 3x3 patch."
+	keybind_signal = COMSIG_XENOABILITY_TENDRILS
+
+/datum/keybinding/xeno/send_orders_puppet_radial
+	name = "Give Orders to Puppets: Radial"
+	full_name = "Puppeteer: Give Orders to Puppets (Radial)"
+	description = "Give orders to your puppets, altering their behaviour."
+	keybind_signal = COMSIG_XENOABILITY_SENDORDERS_RADIAL
+
+/datum/keybinding/xeno/send_attack_order_puppet
+	name = "Give attack order"
+	full_name = "Puppeteer: Give Attack Order"
+	description = "Give your puppets order to attack"
+	keybind_signal = COMSIG_XENOABILITY_ATTACKORDER
+
+/datum/keybinding/xeno/send_recall_orders_puppet
+	name = "Give recall order"
+	full_name = "Puppeteer: Give Recall Order"
+	description = "Give your puppets order to recall"
+	keybind_signal = COMSIG_XENOABILITY_RECALLORDER
+
+/datum/keybinding/xeno/bestow_blessing
+	name = "Bestow Blessings"
+	full_name = "Puppeteer: Bestow Blessings"
+	description = "Give blessings to your puppets."
+	keybind_signal = COMSIG_XENOABILITY_BESTOWBLESSINGS
+
+/* RUTGMC DELETION
+/datum/keybinding/xeno/behemoth_roll
+	name = "Roll"
+	full_name = "Behemoth: Roll"
+	description = "Curl up into a ball, sacrificing some offensive capabilities in exchange for greater movement speed."
+	keybind_signal = COMSIG_XENOABILITY_BEHEMOTH_ROLL
+*/
+
+/datum/keybinding/xeno/landslide
+	name = "Landslide"
+	full_name = "Behemoth: Landslide"
+	description = "Rush forward in the selected direction, damaging enemies caught in a wide path."
+	keybind_signal = COMSIG_XENOABILITY_LANDSLIDE
+
+/datum/keybinding/xeno/earth_riser
+	name = "Earth Riser"
+	full_name = "Behemoth: Earth Riser"
+	description = "Raise a pillar of earth at the selected location. This solid structure can be used for defense, and it interacts with other abilities for offensive usage."
+	keybind_signal = COMSIG_XENOABILITY_EARTH_RISER
+
+/datum/keybinding/xeno/earth_riser_alternate
+	name = "Destroy Earth Pillar"
+	full_name = "Behemoth: Destroy Earth Pillar"
+	description = "Destroy active Earth Pillars created by Earth Riser, starting by the oldest one."
+	keybind_signal = COMSIG_XENOABILITY_EARTH_RISER_ALTERNATE
+
+/datum/keybinding/xeno/seismic_fracture
+	name = "Seismic Fracture"
+	full_name = "Behemoth: Seismic Fracture"
+	description = "Blast the earth around the selected location, inflicting heavy damage in a large radius."
+	keybind_signal = COMSIG_XENOABILITY_SEISMIC_FRACTURE
+
+/datum/keybinding/xeno/primal_wrath
+	name = "Primal Wrath"
+	full_name = "Behemoth: Primal Wrath"
+	description = "Unleash your wrath. Enhances your abilities, changing their functionality and allowing them to apply a damage over time debuff."
+	keybind_signal = COMSIG_XENOABILITY_PRIMAL_WRATH

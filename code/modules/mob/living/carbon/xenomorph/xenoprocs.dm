@@ -108,10 +108,12 @@
 	else
 		. += "Evolve Progress: [evolution_stored]/[xeno_caste.evolution_threshold]"
 
+	/* RUTGMC DELETION
 	if(upgrade_possible())
 		. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]"
 	else //Upgrade process finished or impossible
 		. += "Upgrade Progress: (FINISHED)"
+	*/
 
 	. += "Health: [overheal ? "[overheal] + ": ""][health]/[maxHealth]" //Changes with balance scalar, can't just use the caste
 
@@ -210,7 +212,7 @@
 
 //Stealth handling
 
-
+/* RUTGMC DELETION
 /mob/living/carbon/xenomorph/proc/update_progression()
 	// Upgrade is increased based on marine to xeno population taking stored_larva as a modifier.
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
@@ -223,7 +225,7 @@
 	if(incapacitated())
 		return
 	upgrade_xeno(upgrade_next())
-
+*/
 
 /mob/living/carbon/xenomorph/proc/update_evolving()
 	if(evolution_stored >= xeno_caste.evolution_threshold || !(xeno_caste.caste_flags & CASTE_EVOLUTION_ALLOWED) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
@@ -447,7 +449,7 @@
 /mob/living/carbon/xenomorph/proc/recurring_injection(mob/living/carbon/C, datum/reagent/toxin = /datum/reagent/toxin/xeno_neurotoxin, channel_time = XENO_NEURO_CHANNEL_TIME, transfer_amount = XENO_NEURO_AMOUNT_RECURRING, count = 4)
 	if(!C?.can_sting() || !toxin)
 		return FALSE
-	if(!do_after(src, channel_time, TRUE, C, BUSY_ICON_HOSTILE))
+	if(!do_after(src, channel_time, NONE, C, BUSY_ICON_HOSTILE))
 		return FALSE
 	var/i = 1
 	to_chat(C, span_danger("You feel a tiny prick."))
@@ -460,7 +462,7 @@
 			return FALSE
 		do_attack_animation(C)
 		C.reagents.add_reagent(toxin, transfer_amount)
-	while(i++ < count && do_after(src, channel_time, TRUE, C, BUSY_ICON_HOSTILE))
+	while(i++ < count && do_after(src, channel_time, NONE, C, BUSY_ICON_HOSTILE))
 	return TRUE
 
 /atom/proc/can_sting()
@@ -557,3 +559,6 @@
 		return
 	set_light_range_power_color(range, power, color)
 	set_light_on(TRUE)
+
+/mob/living/carbon/xenomorph/on_eord(turf/destination)
+	revive(TRUE)

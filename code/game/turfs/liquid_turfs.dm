@@ -232,6 +232,7 @@
 	if(!burn_stuff())
 		STOP_PROCESSING(SSobj, src)
 
+/* RUTGMC DELETION, FIRE JUMPING
 /turf/open/liquid/lava/proc/burn_stuff(AM)
 	. = FALSE
 
@@ -261,6 +262,7 @@
 					L.adjust_fire_stacks(20)
 					L.IgniteMob()
 				. = TRUE
+*/
 
 /turf/open/liquid/lava/attackby(obj/item/C, mob/user, params)
 	. = ..()
@@ -270,7 +272,7 @@
 		if(H)
 			to_chat(user, span_warning("There is already a catwalk here!"))
 			return
-		if(!do_after(user, 5 SECONDS, FALSE))
+		if(!do_after(user, 5 SECONDS, IGNORE_HELD_ITEM))
 			to_chat(user, span_warning("It takes time to construct a catwalk!"))
 			return
 		if(R.use(4))

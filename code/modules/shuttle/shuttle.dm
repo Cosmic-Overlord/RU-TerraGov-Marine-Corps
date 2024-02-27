@@ -493,9 +493,11 @@
 			return SHUTTLE_ALREADY_DOCKED
 
 	if(S?.reservedId != id) // Checks so two shuttles don't get the same dock and conflict.
+	/* //RUTGMC REMOVAL
 		var/obj/docking_port/mobile/M = SSshuttle.getShuttle(S.reservedId)
 		if(M?.destination == S)
 			return SHUTTLE_RESERVED
+	*/
 		S.reservedId = null //Assigned shuttle does not exist or doesn't have the port as it's destination.
 
 	return SHUTTLE_CAN_DOCK
@@ -516,7 +518,6 @@
 
 /obj/docking_port/mobile/proc/transit_failure()
 	message_admins("Shuttle [src] repeatedly failed to create transit zone.")
-	log_debug("Setting [src]/[src.id] idle")
 	set_idle()
 
 //call the shuttle to destination S

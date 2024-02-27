@@ -29,6 +29,7 @@
 	///For light sources that can be turned on and off.
 	var/overlay_lighting_flags = NONE
 
+	/* RUTGMC DELETION START
 	///Cache of the possible light overlays, according to size.
 	var/static/list/light_overlays = list(
 		"32" = 'icons/effects/light_overlays/light_32.dmi',
@@ -43,6 +44,7 @@
 		"320" = 'icons/effects/light_overlays/light_320.dmi',
 		"352" = 'icons/effects/light_overlays/light_352.dmi',
 		)
+	RUTGMC DELETION END */
 
 	///Overlay effect to cut into the darkness and provide light.
 	var/image/visible_mask
@@ -64,6 +66,8 @@
 	. = ..()
 
 	visible_mask = image('icons/effects/light_overlays/light_32.dmi', icon_state = "light")
+	visible_mask.pixel_x = movable_parent.light_pixel_x
+	visible_mask.pixel_y = movable_parent.light_pixel_y
 	visible_mask.plane = O_LIGHTING_VISUAL_PLANE
 	visible_mask.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
 	visible_mask.alpha = 0
@@ -214,6 +218,7 @@
 	make_luminosity_update()
 
 
+	/* RUTGMC DELETION START
 ///Changes the range which the light reaches. 0 means no light, 6 is the maximum value.
 /datum/component/overlay_lighting/proc/set_range(atom/source, new_range)
 	SIGNAL_HANDLER
@@ -238,7 +243,7 @@
 		current_holder.underlays += visible_mask
 	if(overlay_lighting_flags & LIGHTING_ON)
 		make_luminosity_update()
-
+	RUTGMC DELETION END */
 
 ///Changes the intensity/brightness of the light by altering the visual object's alpha.
 /datum/component/overlay_lighting/proc/set_power(atom/source, new_power)

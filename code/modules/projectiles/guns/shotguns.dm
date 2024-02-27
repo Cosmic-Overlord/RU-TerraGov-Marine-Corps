@@ -90,6 +90,7 @@
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/compensator,
@@ -153,6 +154,7 @@
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight/under,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
@@ -174,7 +176,7 @@
 	item_state = "sshotgun"
 	flags_equip_slot = ITEM_SLOT_BELT
 	attachable_allowed = list()
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 20,"rail_x" = 11, "rail_y" = 22, "under_x" = 18, "under_y" = 16, "stock_x" = 18, "stock_y" = 16)
 
 	fire_delay = 2
@@ -205,6 +207,7 @@
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/marine,
@@ -247,6 +250,7 @@
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/compensator,
@@ -287,6 +291,7 @@
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/magnetic_harness,
@@ -331,6 +336,7 @@
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/magnetic_harness,
@@ -396,6 +402,7 @@
 		/obj/item/attachable/scope/mosin,
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/motiondetector,
@@ -459,6 +466,7 @@
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
@@ -469,10 +477,11 @@
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 23,"rail_x" = 17, "rail_y" = 25, "under_x" = 19, "under_y" = 14, "stock_x" = 15, "stock_y" = 12)
-	actions_types = list(/datum/action/item_action/aim_mode)
+/* RU TGMC EDIT
+	actions_types = list(/datum/action/item_action/aim_mode) RU TGMC EDIT
 	aim_slowdown = 0.35
 	aim_time = 0.5 SECONDS
-
+RU TGMC EDIT */
 
 	fire_delay = 1 SECONDS
 
@@ -550,6 +559,7 @@
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/bayonet,
 	)
 	attachable_offset = list("muzzle_x" = 50, "muzzle_y" = 21,"rail_x" = 8, "rail_y" = 21, "under_x" = 37, "under_y" = 16, "stock_x" = 20, "stock_y" = 14)
@@ -589,6 +599,7 @@
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
@@ -635,6 +646,7 @@
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/lasersight,
@@ -661,12 +673,20 @@
 	desc = "The Terran Armories SH-35 is the shotgun used by the TerraGov Marine Corps. It's used as a close quarters tool when someone wants something more suited for close range than most people, or as an odd sidearm on your back for emergencies. Uses 12 gauge shells.\n<b>Requires a pump, which is the Unique Action key.</b>"
 	flags_equip_slot = ITEM_SLOT_BACK
 	icon = 'icons/Marine/gun64.dmi'
-	icon_state = "t35"
-	item_state = "t35"
-	cock_animation = "t35_pump"
+	icon_state = GUN_ICONSTATE_LOADED
+	item_state = GUN_ICONSTATE_LOADED
+	cock_animation = GUN_ICONSTATE_PUMP
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sh35.ogg'
 	max_chamber_items = 8
+	greyscale_config = /datum/greyscale_config/gun/gun64/shotgun
+	colorable_allowed = PRESET_COLORS_ALLOWED
+	item_icons = list(
+		slot_l_hand_str = /datum/greyscale_config/gun_inhand/t35,
+		slot_r_hand_str = /datum/greyscale_config/gun_inhand/r_hand/t35,
+		slot_back_str = /datum/greyscale_config/worn_gun/t35,
+		slot_s_store_str = /datum/greyscale_config/worn_gun/suit/t35,
+	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -676,6 +696,7 @@
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/compensator,
@@ -734,6 +755,7 @@
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/lasersight,
 		/obj/item/weapon/gun/flamer/mini_flamer,
@@ -780,6 +802,7 @@
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/reddot,

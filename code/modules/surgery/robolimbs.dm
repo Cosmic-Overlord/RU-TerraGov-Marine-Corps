@@ -31,6 +31,10 @@
 	max_duration = ROBOLIMB_CUT_MAX_DURATION
 	limb_step = 0
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+
 /datum/surgery_step/limb/cut/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts cutting away flesh where [target]'s [affected.display_name] used to be with \the [tool]."), \
 	span_notice("You start cutting away flesh where [target]'s [affected.display_name] used to be with \the [tool]."))
@@ -66,6 +70,11 @@
 	max_duration = ROBOLIMB_MEND_MAX_DURATION
 	limb_step = 1
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/retractor1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/retractor2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+
+
 /datum/surgery_step/limb/mend/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] is beginning to reposition flesh and nerve endings where where [target]'s [affected.display_name] used to be with [tool]."), \
 	span_notice("You start repositioning flesh and nerve endings where [target]'s [affected.display_name] used to be with [tool]."))
@@ -100,6 +109,10 @@
 	max_duration = ROBOLIMB_PREPARE_MAX_DURATION
 	limb_step = 2
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/cautery1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/cautery2.ogg'
+	failure_sound = 'sound/items/welder2.ogg'
+
 /datum/surgery_step/limb/prepare/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts adjusting the area around [target]'s [affected.display_name] with \the [tool]."), \
 	span_notice("You start adjusting the area around [target]'s [affected.display_name] with \the [tool]."))
@@ -130,6 +143,10 @@
 	min_duration = ROBOLIMB_ATTACH_MIN_DURATION
 	max_duration = ROBOLIMB_ATTACH_MAX_DURATION
 	limb_step = 0
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle5.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/limb/attach/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	if(..())

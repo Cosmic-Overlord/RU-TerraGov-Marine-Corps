@@ -2,6 +2,6 @@
 // ***************************************
 // *********** Inject Egg Neurogas
 // ***************************************
-/datum/action/xeno_action/activable/inject_egg_neurogas
-	plasma_cost = 80
-
+/datum/action/ability/activable/xeno/inject_egg_neurogas
+	ability_cost = 80
+	keybind_flags = null
