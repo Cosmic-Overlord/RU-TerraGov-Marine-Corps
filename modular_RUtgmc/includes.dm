@@ -100,7 +100,6 @@
 #include "code\game\objects\structures\ladders.dm"
 #include "code\game\objects\structures\misc.dm"
 #include "code\game\objects\structures\signs.dm"
-#include "code\game\objects\structures\teleporter.dm"
 #include "code\game\objects\structures\window_frame.dm"
 #include "code\game\objects\structures\window.dm"
 #include "code\game\objects\structures\xeno.dm"
