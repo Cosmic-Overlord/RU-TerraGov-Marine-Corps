@@ -42,6 +42,9 @@ The main purpose of this is to handle cleanup and setting up the initial ai beha
 	if(ai_behavior)
 		STOP_PROCESSING(SSprocessing, ai_behavior)
 		ai_behavior.cleanup_signals()
+		ai_behavior.current_node = null // RUTGMC ADDITION START
+		ai_behavior.escorted_atom = null
+		ai_behavior.mob_parent = null // RUTGMC ADDITION END
 		ai_behavior.atom_to_walk_to = null
 		if(register_for_logout)
 			RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(start_ai))
