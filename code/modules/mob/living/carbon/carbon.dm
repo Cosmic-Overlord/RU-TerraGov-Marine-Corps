@@ -167,7 +167,7 @@
 	var/obj/item/I = get_active_held_item()
 
 	if(issynth(user))
-		to_chat(user, span_warning("Your program does not allow you to use this."))
+		to_chat(user, span_warning("Your program does not allow you to do this."))
 		return
 
 	if(!I || HAS_TRAIT(I, TRAIT_NODROP))
