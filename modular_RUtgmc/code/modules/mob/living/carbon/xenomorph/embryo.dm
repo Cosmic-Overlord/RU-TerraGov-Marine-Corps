@@ -73,8 +73,15 @@
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.update_icons()
 
-	GLOB.offered_mob_list += new_xeno
-	notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), enter_link = "become_burst_larva=[REF(new_xeno)]", enter_text = "Become a burst larva", source = new_xeno, action = NOTIFY_ORBIT)
+	//If the bursted person themselves has Xeno enabled, they get the honor of first dibs on the new larva.
+	if(affected_mob.client?.prefs && (affected_mob.client.prefs.be_special & (BE_ALIEN|BE_ALIEN_UNREVIVABLE)) && !is_banned_from(affected_mob.ckey, ROLE_XENOMORPH))
+		new_xeno.take_over(affected_mob)
+		to_chat(new_xeno, span_xenoannounce("We are a xenomorph larva inside a host! Move to burst out of it!"))
+		new_xeno << sound('sound/effects/xeno_newlarva.ogg')
+		notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), source = new_xeno, action = NOTIFY_ORBIT)
+	else //Get a candidate from observers.
+		GLOB.offered_mob_list += new_xeno
+		notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), enter_link = "become_burst_larva=[REF(new_xeno)]", enter_text = "Become a burst larva", source = new_xeno, action = NOTIFY_ORBIT)
 
 	stage = 6
 
