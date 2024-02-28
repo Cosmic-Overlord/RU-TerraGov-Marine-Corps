@@ -9,14 +9,11 @@
 	var/static/image/medicalnanites_low_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_low")
 	var/static/image/jellyjuice_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "jellyjuice")
 	var/static/image/russianred_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "russian_red")
-	var/static/image/fasygin_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "fasygin")
 
 	if(stat != DEAD)
 		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/medicine/xenojelly)
 		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicine/research/medicalnanites)
 		var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
-		var/fasygin_amount = reagents.get_reagent_amount(/datum/reagent/medicine/fasygin)
-
 		if(medicalnanites_amount > 25) //NANTIES HUD (MEDHUD AVAILABLE)
 			xeno_reagent.overlays += medicalnanites_high_image
 		else if(medicalnanites_amount > 15)
@@ -26,9 +23,6 @@
 
 		if(russianred_amount > 0) //RUSSIAN RED HUD (MEDHUD AVAILABLE)
 			xeno_reagent.overlays += russianred_image
-
-		if(fasygin_amount > 0) //FASYGIN HUD (MEDHUD AVAILABLE)
-			xeno_reagent.overlays += fasygin_image
 
 		if(jellyjuice_amount > 0) //JELLY HUD
 			xeno_reagent.overlays += jellyjuice_image
