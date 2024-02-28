@@ -324,7 +324,7 @@ SUBSYSTEM_DEF(minimaps)
 	if(mover != src)
 		return
 	var/image/blip = SSminimaps.images_by_source[src]
-	blip.UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
+	blip?.UnregisterSignal(source, COMSIG_MOVABLE_MOVED) // RUTGMC ADDITION, added "?"
 	UnregisterSignal(source, COMSIG_ATOM_EXITED)
 
 
@@ -503,7 +503,7 @@ SUBSYSTEM_DEF(minimaps)
 		owner.client.screen -= locator
 		locator.UnregisterSignal(tracking, COMSIG_MOVABLE_MOVED)
 	else
-		if(locate(/atom/movable/screen/minimap) in owner.client.screen) //This seems like the most effective way to do this without some wacky code
+		if(locate(/atom/movable/screen/minimap) in owner?.client.screen) //This seems like the most effective way to do this without some wacky code // RUTGMC ADDITION, added "?"
 			to_chat(owner, span_warning("You already have a minimap open!"))
 			return
 		owner.client.screen += map
@@ -524,7 +524,7 @@ SUBSYSTEM_DEF(minimaps)
 		locator_override = to_track
 		if(to_track)
 			RegisterSignal(to_track, COMSIG_QDELETING, TYPE_PROC_REF(/datum/action/minimap, clear_locator_override))
-			if(owner.loc == to_track)
+			if(owner?.loc == to_track) // RUTGMC ADDITION, added "?"
 				RegisterSignal(to_track, COMSIG_ATOM_EXITED, TYPE_PROC_REF(/datum/action/minimap, on_exit_check))
 		if(owner)
 			RegisterSignal(new_track, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_owner_z_change))
