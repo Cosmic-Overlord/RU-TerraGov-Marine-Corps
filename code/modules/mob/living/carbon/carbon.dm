@@ -166,7 +166,7 @@
 	var/mob/living/user = usr
 	var/obj/item/I = get_active_held_item()
 
-	if(issynth(user))
+	if(issynth(user) & I.force > 19 )
 		to_chat(user, span_warning("Your program does not allow you to do this."))
 		return
 
