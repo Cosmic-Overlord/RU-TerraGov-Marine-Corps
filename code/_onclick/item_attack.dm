@@ -180,6 +180,10 @@
 	if(M.status_flags & INCORPOREAL || user.status_flags & INCORPOREAL)
 		return FALSE
 
+	if(issynth(user) & isxeno(M)) //Synthetics cannot attack xeno
+		to_chat(user, span_warning("Your program does not allow you to use this."))
+		return FALSE
+
 	if(M.can_be_operated_on() && do_surgery(M, user, src)) //Checks if mob is lying down on table for surgery
 		return TRUE
 
