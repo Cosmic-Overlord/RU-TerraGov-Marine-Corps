@@ -5,4 +5,4 @@
 	spit_types = list(/datum/ammo/xeno/acid/medium/passthrough)
 
 /datum/xeno_caste/spitter/primordial
-	spit_types = list(/datum/ammo/xeno/acid/auto, /datum/ammo/xeno/acid/medium/passthrough)
+	spit_types = list(/datum/ammo/xeno/acid/medium/passthrough, /datum/ammo/xeno/acid/auto)
