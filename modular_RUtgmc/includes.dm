@@ -337,3 +337,4 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
+#include "code\game\objects\items\reagent_containers\autoinjectors.dm"

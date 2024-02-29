@@ -203,9 +203,6 @@
 
 /mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[hud_holder]
-
-/mob/living/carbon/human/med_hud_set_health()
-	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"
 		return
@@ -253,32 +250,6 @@
 
 /mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
 	. = ..()
-		if(-4 to -1)
-			holder.icon_state = "hudhealth-5"
-		if(-9 to -5)
-			holder.icon_state = "hudhealth-10"
-		if(-19 to -10)
-			holder.icon_state = "hudhealth-20"
-		if(-29 to -20)
-			holder.icon_state = "hudhealth-30"
-		if(-39 to -30)
-			holder.icon_state = "hudhealth-40"
-		if(-49 to -40)
-			holder.icon_state = "hudhealth-50"
-		if(-59 to -50)
-			holder.icon_state = "hudhealth-60"
-		if(-69 to -60)
-			holder.icon_state = "hudhealth-70"
-		if(-79 to -70)
-			holder.icon_state = "hudhealth-80"
-		if(-89 to -80)
-			holder.icon_state = "hudhealth-90"
-		if(-94 to -90)
-			holder.icon_state = "hudhealth-95"
-		if(-99 to -95)
-			holder.icon_state = "hudhealth-99"
-		else
-			holder.icon_state = "hudhealth-100"
 
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
