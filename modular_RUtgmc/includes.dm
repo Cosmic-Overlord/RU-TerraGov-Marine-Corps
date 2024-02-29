@@ -177,6 +177,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\behemoth\castedatum_behemoth.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\behemoth\behemoth.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\boiler\abilities_boiler.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\boiler\boiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\boiler\castedatum_boiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\bull\bull.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\bull\castedatum_bull.dm"

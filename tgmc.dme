@@ -2001,5 +2001,4 @@
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
 #include "modular_RUtgmc\includes.dm"
-#include "modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\boiler\boiler.dm"
 // END_INCLUDE
