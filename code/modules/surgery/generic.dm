@@ -31,6 +31,10 @@
 	max_duration = INCISION_MANAGER_MAX_DURATION
 	open_step = 0
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+
 /datum/surgery_step/generic/incision_manager/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts to construct a prepared incision on and within [target]'s [affected.display_name] with \the [tool]."), \
 	span_notice("You start to construct a prepared incision on and within [target]'s [affected.display_name] with \the [tool]."))
@@ -74,6 +78,10 @@
 	max_duration = 80
 	open_step = 0
 	can_infect = FALSE
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/generic/cut_with_laser/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts the bloodless incision on [target]'s [affected.display_name] with \the [tool]."), \
@@ -122,6 +130,10 @@
 	max_duration = 80
 	open_step = 0
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/scalpel2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+
 /datum/surgery_step/generic/cut_open/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] starts the incision on [target]'s [affected.display_name] with \the [tool]."), \
 	span_notice("You start the incision on [target]'s [affected.display_name] with \the [tool]."))
@@ -160,6 +172,10 @@
 
 	min_duration = 40
 	max_duration = 60
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/hemostat1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/hemostat1.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
 
 /datum/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(..())
@@ -201,6 +217,10 @@
 	min_duration = 30
 	max_duration = 40
 	open_step = 1
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/retractor1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/retractor2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
 
 /datum/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	if(target_zone == "groin")
@@ -254,6 +274,10 @@
 	max_duration = CAUTERY_MAX_DURATION
 	can_infect = FALSE
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/cautery1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/cautery2.ogg'
+	failure_sound = 'sound/items/welder2.ogg'
+
 /datum/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(..())
 		if(affected.surgery_open_stage == 1 || affected.surgery_open_stage == 2)
@@ -294,6 +318,10 @@
 	max_duration = SUTURE_MAX_DURATION
 	///Healing applied on step success, split between burn and brute
 	var/base_healing = 30
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/retractor1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/retractor2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
 
 /datum/surgery_step/generic/repair/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(!..())

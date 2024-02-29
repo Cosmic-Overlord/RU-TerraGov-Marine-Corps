@@ -920,7 +920,9 @@
 #define COMSIG_XENOABILITY_DREADFULPRESENCE "xenoability_dreadfulpresence"
 #define COMSIG_XENOABILITY_PINCUSHION "xenoability_pincushion"
 #define COMSIG_XENOABILITY_FLAY "xenoability_flay"
-#define COMSIG_XENOABILITY_SENDORDERS "xenoability_sendorders"
+#define COMSIG_XENOABILITY_SENDORDERS_RADIAL "xenoability_sendorders_radial"
+#define COMSIG_XENOABILITY_ATTACKORDER "xenoability_attackorder"
+#define COMSIG_XENOABILITY_RECALLORDER "xenoability_recallorder"
 #define COMSIG_XENOABILITY_BESTOWBLESSINGS "xenoability_giveblessings"
 
 #define COMSIG_XENOABILITY_BANELING_EXPLODE "xenoability_baneling_explode"
