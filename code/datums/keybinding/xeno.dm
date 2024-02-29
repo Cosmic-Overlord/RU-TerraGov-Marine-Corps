@@ -1106,11 +1106,23 @@ RU TGMC EDIT END*/
 	description = "Burrow freshly created tendrils to tangle organics in a 3x3 patch."
 	keybind_signal = COMSIG_XENOABILITY_TENDRILS
 
-/datum/keybinding/xeno/send_orders_puppet
-	name = "Give Orders to Puppets"
-	full_name = "Puppeteer: Give Orders to Puppets"
+/datum/keybinding/xeno/send_orders_puppet_radial
+	name = "Give Orders to Puppets: Radial"
+	full_name = "Puppeteer: Give Orders to Puppets (Radial)"
 	description = "Give orders to your puppets, altering their behaviour."
-	keybind_signal = COMSIG_XENOABILITY_SENDORDERS
+	keybind_signal = COMSIG_XENOABILITY_SENDORDERS_RADIAL
+
+/datum/keybinding/xeno/send_attack_order_puppet
+	name = "Give attack order"
+	full_name = "Puppeteer: Give Attack Order"
+	description = "Give your puppets order to attack"
+	keybind_signal = COMSIG_XENOABILITY_ATTACKORDER
+
+/datum/keybinding/xeno/send_recall_orders_puppet
+	name = "Give recall order"
+	full_name = "Puppeteer: Give Recall Order"
+	description = "Give your puppets order to recall"
+	keybind_signal = COMSIG_XENOABILITY_RECALLORDER
 
 /datum/keybinding/xeno/bestow_blessing
 	name = "Bestow Blessings"
