@@ -206,16 +206,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	else if (href_list["become_burst_larva"]) // RUTMGC ADDITION START
 		var/mob/dead/observer/ghost = usr
-		var/mob/living/target = locate(href_list["become_burst_larva"]) in GLOB.offered_mob_list
-		if(!ghost)
-			return
+		var/mob/living/carbon/xenomorph/larva/target = locate(href_list["become_burst_larva"]) in GLOB.offered_mob_list
 
-		if(!istype(target))
+		if(!target)
 			to_chat(ghost, span_warning("Too late!"))
-			return
-
-		if(is_banned_from(ghost.ckey, ROLE_XENOMORPH))
-			to_chat(ghost, span_warning("Sorry, but you are <b>banned</b> from xeno roles!"))
 			return
 
 		target.take_over(ghost)
