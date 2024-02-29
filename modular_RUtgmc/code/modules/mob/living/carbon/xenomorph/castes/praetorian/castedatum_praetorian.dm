@@ -1,5 +1,8 @@
 /datum/xeno_caste/praetorian
 
+	// *** Ranged Attack *** //
+	spit_types = list(/datum/ammo/xeno/acid/heavy)
+
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 
