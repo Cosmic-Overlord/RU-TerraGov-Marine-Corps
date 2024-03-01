@@ -220,13 +220,13 @@
 /datum/ammo/xeno/acid
 	icon_state = "xeno_acid_weak"
 
-/datum/ammo/xeno/acid/medium //Spitter
+/datum/ammo/xeno/acid/medium/passthrough //Spitter
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/auto
 	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
 
-/datum/ammo/xeno/acid/heavy //Praetorian
+/datum/ammo/xeno/acid/heavy/passthrough //Praetorian
 	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/toxin/heavy
