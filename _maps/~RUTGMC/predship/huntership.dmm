@@ -267,10 +267,7 @@
 /obj/structure/closet/crate{
 	color = "#6b675e"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "aC" = (
 /obj/structure/rack{
@@ -314,10 +311,7 @@
 	desc = "The ship's on-board self destruct system, let's hope you never have to use it.";
 	name = "Self Destruct System"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "aG" = (
 /obj/machinery/power/smes/magical{
@@ -419,10 +413,7 @@
 	name = "Radar Console";
 	pixel_x = -1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "aY" = (
 /obj/machinery/portable_atmospherics/canister/oxygen{
@@ -436,10 +427,7 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bd" = (
 /obj/effect/step_trigger/teleporter/yautja_ship,
@@ -449,9 +437,7 @@
 /obj/machinery/door/airlock/yautja{
 	name = "\improper Blooded Teleporter"
 	},
-/turf/open/floor/strata{
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bg" = (
 /obj/structure/rack{
@@ -549,10 +535,7 @@
 "by" = (
 /obj/effect/decal/remains/human,
 /obj/alien/egg/hugger/forsaken,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bz" = (
 /obj/structure/window/reinforced{
@@ -614,10 +597,7 @@
 /obj/machinery/processor/yautja{
 	pixel_y = 4
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bN" = (
 /obj/structure/rack{
@@ -632,10 +612,7 @@
 /obj/item/weapon/gun/energy/yautja/plasmapistol{
 	pixel_y = 7
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bO" = (
 /obj/structure/bed/alien{
@@ -658,11 +635,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "bU" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = null;
-	locked = 0;
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
-	},
+/obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/open/floor{
 	dir = 4;
 	icon_state = "darkred2"
@@ -736,10 +709,7 @@
 	pixel_x = 9;
 	pixel_y = 7
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ce" = (
 /obj/machinery/door/poddoor/shutters/almayer/yautja{
@@ -773,10 +743,7 @@
 	pixel_y = 9;
 	dir = 8
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ch" = (
 /obj/effect/turf_decal/lvsanddecal/full,
@@ -841,10 +808,7 @@
 	pixel_y = 7;
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ct" = (
 /obj/machinery/door/airlock/yautja{
@@ -886,10 +850,7 @@
 	pixel_y = 11;
 	pixel_x = 9
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "cw" = (
 /obj/structure/table/reinforced/prison{
@@ -949,10 +910,7 @@
 	dir = 8;
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "cJ" = (
 /obj/structure/table/mainship{
@@ -963,10 +921,7 @@
 	pixel_y = 6;
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "cK" = (
 /obj/structure/rack{
@@ -1029,23 +984,18 @@
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
 	amount = 50;
-	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
 	amount = 50;
-	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
 	amount = 50;
-	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
 	amount = 50;
-	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
 	amount = 50;
-	icon = 'modular_RUtgmc/icons/obj/stack_objects.dmi'
 	},
 /turf/open/floor/corsat,
 /area/yautja)
@@ -1064,10 +1014,7 @@
 	icon_state = "terminal";
 	name = "Radar Console"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "cS" = (
 /obj/structure/table/reinforced/prison{
@@ -1146,10 +1093,7 @@
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "cZ" = (
 /obj/structure/table/reinforced/prison{
@@ -1171,10 +1115,7 @@
 	resistance_flags = 1
 	},
 /obj/machinery/microwave/yautja,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "db" = (
 /obj/structure/rack{
@@ -1190,10 +1131,7 @@
 	dir = 1;
 	name = "\improper Research Containment"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "de" = (
 /obj/structure/kitchenspike,
@@ -1241,19 +1179,13 @@
 	color = "#6b675e";
 	dir = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "dl" = (
 /obj/structure/stairs/seamless{
 	color = "#6b675e"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "dm" = (
 /obj/effect/turf_decal/lvsanddecal/full,
@@ -1279,10 +1211,7 @@
 	name = "Secure Yautja crate";
 	req_one_access = list(252)
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "eg" = (
 /obj/effect/turf_decal/lvsanddecal/full,
@@ -1373,10 +1302,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "fx" = (
 /obj/machinery/computer/crew{
@@ -1418,10 +1344,7 @@
 	pixel_x = 6;
 	pixel_y = 7
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "gb" = (
 /obj/structure/closet/crate{
@@ -1472,10 +1395,7 @@
 /obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator{
 	pixel_x = 6
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ge" = (
 /obj/machinery/door_control{
@@ -1485,10 +1405,7 @@
 	pixel_y = 9;
 	dir = 8
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "gp" = (
 /obj/structure/bed/chair/comfy/black{
@@ -1653,10 +1570,7 @@
 	name = "duelling claymore";
 	pixel_x = 10
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "jU" = (
 /obj/structure/stairs/seamless{
@@ -1684,10 +1598,7 @@
 	resistance_flags = 1
 	},
 /obj/item/research_resource/xeno/tier_three,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "lr" = (
 /obj/structure/table/mainship{
@@ -1739,10 +1650,7 @@
 	pixel_x = 7;
 	dir = 4
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "mj" = (
 /obj/structure/barricade/metal{
@@ -1801,10 +1709,7 @@
 /obj/item/weapon/twohanded/yautja/spear,
 /obj/item/weapon/twohanded/yautja/spear,
 /obj/item/weapon/twohanded/yautja/spear,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ny" = (
 /obj/structure/barricade/metal{
@@ -1827,10 +1732,7 @@
 /area/yautja)
 "nC" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "nT" = (
 /obj/structure/table/reinforced/prison{
@@ -1856,10 +1758,7 @@
 /obj/effect/decal/remains/human{
 	pixel_y = -25
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "oe" = (
 /obj/structure/closet{
@@ -1900,10 +1799,7 @@
 	pixel_x = -3;
 	pixel_y = 29
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "pA" = (
 /obj/machinery/door_control{
@@ -1913,10 +1809,7 @@
 	pixel_x = 7;
 	dir = 4
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "pJ" = (
 /obj/structure/barricade/metal{
@@ -2015,10 +1908,7 @@
 /obj/item/stack/medical/splint{
 	name = "splints"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "sx" = (
 /obj/structure/window/framed/colony/reinforced/hull{
@@ -2027,10 +1917,7 @@
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi';
 	base_icon_state = "pred_window"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "sV" = (
 /obj/machinery/door/airlock/yautja{
@@ -2047,10 +1934,7 @@
 	pixel_x = 7;
 	dir = 4
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "tf" = (
 /obj/structure/showcase{
@@ -2069,10 +1953,7 @@
 /obj/structure/shuttle/window{
 	color = "#6b675e"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "tn" = (
 /obj/structure/table/reinforced/prison{
@@ -2080,10 +1961,7 @@
 	resistance_flags = 1
 	},
 /obj/item/flashlight/lamp,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "tD" = (
 /obj/structure/rack{
@@ -2110,10 +1988,7 @@
 /area/yautja)
 "ua" = (
 /obj/alien/egg/hugger/forsaken,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "uO" = (
 /obj/structure/bed/chair/hunter{
@@ -2152,19 +2027,15 @@
 	dir = 1;
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "vI" = (
 /obj/structure/closet/secure_closet/freezer/meat{
 	locked = 0;
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
-/turf/open/floor{
+/turf/open/floor/tile/dark/red2{
 	dir = 4;
-	icon_state = "darkred2"
 	},
 /area/yautja)
 "vO" = (
@@ -2172,19 +2043,13 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "wu" = (
 /obj/machinery/cic_maptable/yautja{
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "wH" = (
 /obj/structure/rack{
@@ -2298,10 +2163,7 @@
 	pixel_y = 9;
 	dir = 8
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "zr" = (
 /obj/structure/bed{
@@ -2351,10 +2213,7 @@
 /obj/item/weapon/gun/energy/yautja/plasmarifle{
 	pixel_y = 7
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "BK" = (
 /obj/structure/table/reinforced/prison{
@@ -2362,10 +2221,7 @@
 	resistance_flags = 1
 	},
 /obj/item/storage/medicomp/full,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "BS" = (
 /obj/machinery/prop/yautja/bubbler,
@@ -2373,10 +2229,7 @@
 /area/yautja)
 "BY" = (
 /obj/machinery/griddle/yautja,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Cz" = (
 /obj/item/skull/queen{
@@ -2432,10 +2285,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Es" = (
 /obj/structure/bed/chair/hunter,
@@ -2450,11 +2300,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "Fh" = (
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	dir = 10;
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Ft" = (
 /obj/structure/table/reinforced/prison{
@@ -2477,10 +2323,7 @@
 	icon_state = "cameras";
 	name = "Hunter Nav Console"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Fy" = (
 /obj/structure/window/framed/colony/reinforced/hull{
@@ -2552,10 +2395,7 @@
 /obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator,
 /obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator,
 /obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Hp" = (
 /obj/structure/bed/chair/hunter{
@@ -2623,10 +2463,7 @@
 	name = "Secure Yautja crate";
 	req_one_access = list(252)
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Im" = (
 /obj/structure/rack{
@@ -2649,10 +2486,7 @@
 /obj/item/stack/medical/heal_pack/gauze,
 /obj/item/stack/medical/heal_pack/gauze,
 /obj/item/stack/medical/heal_pack/gauze,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Iw" = (
 /obj/machinery/door/airlock/yautja{
@@ -2691,10 +2525,7 @@
 /area/yautja)
 "Jy" = (
 /obj/machinery/grill/yautja,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "JE" = (
 /obj/structure/rack{
@@ -2710,10 +2541,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "JH" = (
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "JL" = (
 /obj/item/weapon/yautja/knife{
@@ -2734,18 +2562,12 @@
 	dir = 4;
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Kp" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/landmark/weed_node,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Ku" = (
 /obj/structure/barricade/metal{
@@ -2765,10 +2587,7 @@
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "KK" = (
 /obj/effect/decal/remains/human{
@@ -2785,10 +2604,7 @@
 	pixel_y = 9;
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "KV" = (
 /obj/structure/table/mainship{
@@ -2847,10 +2663,7 @@
 /area/yautja)
 "MD" = (
 /obj/effect/decal/remains/human,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ME" = (
 /obj/structure/stairs/seamless{
@@ -2858,19 +2671,13 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "MI" = (
 /obj/machinery/door/airlock/yautja{
 	name = "\improper Blooded Teleporter"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Nh" = (
 /obj/structure/stairs/seamless{
@@ -2879,10 +2686,7 @@
 	dir = 4;
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Nn" = (
 /obj/effect/turf_decal/lvsanddecal/full,
@@ -2969,10 +2773,7 @@
 /obj/machinery/door/airlock/yautja{
 	name = "\improper Research Containment"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "PJ" = (
 /obj/structure/table/reinforced/prison{
@@ -3075,11 +2876,7 @@
 /obj/machinery/cic_maptable/yautja{
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	dir = 10;
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Sx" = (
 /turf/open/floor{
@@ -3180,23 +2977,11 @@
 	icon_state = "cameras";
 	name = "Hunter Nav Console"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "VY" = (
-/obj/structure/window/framed/colony/reinforced/hull{
-	basestate = "pred_window";
-	icon_state = "pred_window-0";
-	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi';
-	base_icon_state = "pred_window"
-	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	dir = 10;
-	icon_state = "multi_tiles"
-	},
+/obj/structure/window/framed/colony/reinforced/hull,
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "We" = (
 /obj/structure/table/reinforced/prison{
@@ -3248,10 +3033,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Xn" = (
 /obj/structure/barricade/metal{
@@ -3306,10 +3088,7 @@
 	pixel_x = -7;
 	pixel_y = 6
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Xv" = (
 /obj/structure/table/reinforced/prison{
@@ -3317,17 +3096,11 @@
 	resistance_flags = 1
 	},
 /obj/item/research_resource/xeno/tier_one,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "XP" = (
 /obj/machinery/cryopod,
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Ys" = (
 /obj/structure/reagent_dispensers/watertank{
@@ -3381,10 +3154,7 @@
 /obj/machinery/door/poddoor/shutters/almayer/yautja{
 	name = "Yautja Armory"
 	},
-/turf/open/floor/strata{
-	color = "#5e5d5d";
-	icon_state = "multi_tiles"
-	},
+/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Zu" = (
 /obj/structure/table/reinforced/prison{

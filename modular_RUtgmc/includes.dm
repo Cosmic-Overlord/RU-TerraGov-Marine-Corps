@@ -338,3 +338,5 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
 #include "code\game\objects\items\reagent_containers\autoinjectors.dm"
+#include "code\game\objects\items\card_ids.dm"
+#include "code\game\objects\structures\crates_lockers\secure\freezer.dm"

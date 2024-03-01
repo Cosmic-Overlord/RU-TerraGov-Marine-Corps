@@ -88,11 +88,6 @@
 	icon_name = "costalafrican"
 	ethnic_category = "African"
 
-/datum/ethnicity/human/persian
-	name = "Persian"
-	icon_name = "persian"
-	ethnic_category = "Middle Eastern"
-
 /datum/ethnicity/human/arabian
 	name = "Arabian"
 	icon_name = "arabian"

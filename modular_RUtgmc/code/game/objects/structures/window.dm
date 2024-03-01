@@ -9,3 +9,9 @@
 
 /obj/structure/window/framed/colony/reinforced
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/col_rwindow.dmi'
+
+/obj/structure/window/framed/colony/reinforced/hull/pred
+	basestate = "pred_window"
+	icon_state = "pred_window-0"
+	icon = 'modular_RUtgmc/icons/obj/smooth_objects/pred_window.dmi'
+	base_icon_state = "pred_window"

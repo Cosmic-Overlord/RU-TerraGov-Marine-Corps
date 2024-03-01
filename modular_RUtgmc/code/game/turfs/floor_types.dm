@@ -11,6 +11,10 @@
 	base_icon_state = "floor"
 	icon_state = "floor"
 
+/turf/open/floor/strata/multi_tiles
+	icon_state = "multi_tiles"
+	color = "#5e5d5d"
+
 /turf/open/floor/sandstone
 	name = "sandstone floor"
 	icon = 'modular_RUtgmc/icons/turf/sandstone.dmi'
