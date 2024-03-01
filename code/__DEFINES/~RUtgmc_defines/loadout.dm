@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 1, "yellow"),
 		/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
 		/obj/item/stack/sandbags_empty/half = list(CAT_LEDSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
-		/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 10, "yellow"),
+		/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
 		/obj/item/storage/backpack/marine/satchel/scout_cloak/scout = list(CAT_LEDSUP, "Scout Cloak", 25, "yellow"),
 		/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
 		/obj/structure/closet/bodybag/tarp = list(CAT_LEDSUP, "V1 thermal-dampening tarp", 2, "yellow"),
@@ -88,8 +88,8 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = list(CAT_LEDSUP, "GL-54 Tanglefoot Magazine for AR-55/GL-54", 3, "orange2"),
 		/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_LEDSUP, "Terra Experimental recharger battery", 4, "orange2"),
 		/obj/item/storage/firstaid/adv = list(CAT_LEDSUP, "Advanced firstaid kit", 1, "cyan"),
-		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 3, "cyan"),
-		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 3, "cyan"),
+		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 2, "cyan"),
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 2, "cyan"),
 	))
 
 GLOBAL_LIST_INIT(commander_gear_listed_products, list(
@@ -167,14 +167,14 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 		/obj/item/storage/box/crate/minisentry = list(CAT_FCSUP, "ST-580 point defense sentry kit", 15, "yellow"),
 		/obj/item/healthanalyzer/gloves = list(CAT_FCSUP, "Health scanner gloves", 2, "yellow"),
 		/obj/item/defibrillator/gloves = list(CAT_FCSUP, "Advanced medical gloves", 4, "yellow"),
-		/obj/item/storage/pouch/medical_injectors/medic = list(CAT_FCSUP, "Advanced Injector Pouch", 23, "cyan"),
+		/obj/item/storage/pouch/medical_injectors/medic = list(CAT_FCSUP, "Advanced Injector Pouch", 16, "cyan"),
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = list(CAT_FCSUP, "Injector (Peridaxon Plus)", 4, "cyan"),
 		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = list(CAT_FCSUP, "Injector (Dexalin Plus)", 1, "cyan"),
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = list(CAT_FCSUP, "Injector (Quick-Clot Plus)", 4, "cyan"),
-		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 3, "cyan"),
-		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 3, "cyan"),
-		/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_FCSUP, "Combat Trauma Kit", 3, "cyan"),
-		/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_FCSUP, "Combat Burn Kit", 3, "cyan"),
+		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 2, "cyan"),
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 2, "cyan"),
+		/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack = list(CAT_FCSUP, "Combat Trauma Kit", 2, "cyan"),
+		/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack = list(CAT_FCSUP, "Combat Burn Kit", 2, "cyan"),
 	))
 
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
@@ -198,11 +198,11 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/reagent_containers/hypospray/advanced/peridaxonplus = list(CAT_MEDSUP, "Hypospray (Peridaxon Plus)", 7, "blue"),
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = list(CAT_MEDSUP, "Injector (Quickclot Plus)", 1, "cyan"),
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = list(CAT_MEDSUP, "Injector (Peridaxon Plus)", 1, "cyan"),
-		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_MEDSUP, "Injector (Advanced)", 3, "cyan"),
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_MEDSUP, "Injector (Advanced)", 2, "cyan"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_MEDSUP, "Injector (Synaptizine)", 2, "cyan"),
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline = list(CAT_MEDSUP, "Injector (Neuraline)", 14, "cyan"),
 		/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "yellow"),
-		/obj/item/defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 5, "yellow"),
+		/obj/item/defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 4, "yellow"),
 		/obj/item/tweezers_advanced = list(CAT_MEDSUP, "Advanced Tweezers", 8, "yellow"),
 		/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 16, "yellow"),
 	))
