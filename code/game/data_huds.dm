@@ -121,6 +121,7 @@
 	holder.icon_state = "xenohealth[amount]"
 
 
+/* RUTGMC MOVED TO MODULE
 /mob/living/carbon/human/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
@@ -167,6 +168,7 @@
 			holder.icon_state = "hudhealth-50"
 		else
 			holder.icon_state = "hudhealth-100"
+*/
 
 
 /mob/proc/med_hud_set_status() //called when mob stat changes, or get a virus/xeno host, etc
@@ -270,6 +272,7 @@
 		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
 		return TRUE
 
+/* RUTGMC MOVED TO MODULE
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		status_hud.icon_state = "huddead"
 		infection_hud.icon_state = ""
@@ -360,6 +363,7 @@
 					simple_status_hud.icon_state = ""
 					status_hud.icon_state = "hudhealthy"
 					return TRUE
+*/
 
 #define HEALTH_RATIO_PAIN_HUD 1
 #define PAIN_RATIO_PAIN_HUD 0.25
@@ -370,6 +374,7 @@
 	return
 
 
+/* RUTGMC MOVED TO MODULE
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
 		return FALSE
@@ -395,6 +400,7 @@
 		holder.icon_state = "hudhealth-50"
 
 	return TRUE
+*/
 
 
 //infection status that appears on humans and monkeys, viewed by xenos only.

@@ -65,7 +65,6 @@
 #include "code\game\objects\items\explosives\marines.dm"
 #include "code\game\objects\items\radio\headset.dm"
 #include "code\game\objects\items\radio\intercom.dm"
-#include "code\game\objects\items\reagent_containers\autoinjectors.dm"
 #include "code\game\objects\items\reagent_containers\glass\bottle.dm"
 #include "code\game\objects\items\robot\robot_parts.dm"
 #include "code\game\objects\items\sheets\sheet_types.dm"

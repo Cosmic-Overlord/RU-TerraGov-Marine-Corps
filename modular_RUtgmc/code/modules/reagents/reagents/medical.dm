@@ -108,33 +108,6 @@
 /datum/reagent/medicine/dexalinplus/on_mob_delete(mob/living/L, metabolism)
 	TIMER_COOLDOWN_START(L, name, 180 SECONDS)
 
-///FASYGIN
-
-/datum/reagent/medicine/fasygin
-	name = "Fasygin"
-	description = "Fasygin is a component medicine capable of extremely fast but short reagent purging."
-	custom_metabolism = 0.25 //u
-	color = COLOR_REAGENT_FASYGIN
-	overdose_threshold = REAGENTS_OVERDOSE/30 //1u
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/25 //2u
-	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium, /datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/synaptizine) //Nu-uh
-	purge_rate = 8
-	scannable = TRUE
-
-/datum/reagent/medicine/fasygin/on_mob_life(mob/living/L)
-	L.adjustOxyLoss(-5*effect_str)
-	L.adjustStaminaLoss(7.5 * effect_str)
-	ADD_TRAIT(L, TRAIT_INTOXICATION_RESISTANT, REAGENT_TRAIT(src))
-	return ..()
-
-/datum/reagent/medicine/fasygin/overdose_process(mob/living/L, metabolism)
-	L.adjustStaminaLoss(15* effect_str)
-	L.apply_damages(1, 1, 2) //Brute Burn Tox
-
-/datum/reagent/medicine/fasygin/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustStaminaLoss(15 * effect_str)
-	L.apply_damages(2, 2, 3) //Brute Burn Tox
-
 ///MEDICAL NANITES
 
 /datum/reagent/medicine/research/medicalnanites
