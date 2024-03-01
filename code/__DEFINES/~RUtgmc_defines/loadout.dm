@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/storage/box/crate/minisentry = list(CAT_ENGSUP, "ST-580 point defense sentry kit", 45, "blue"),
 		/obj/structure/closet/crate/uav_crate = list(CAT_ENGSUP, "Iguana Unmanned Vehicle", 50, "blue"),
 		/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "blue"),
-		/obj/item/tool/pickaxe/plasmacutter = list(CAT_ENGSUP, "Plasma cutter", 20, "blue"),
+		/obj/item/tool/pickaxe/plasmacutter = list(CAT_ENGSUP, "Plasma cutter", 23, "blue"),
 		/obj/item/attachable/buildasentry = list(CAT_ENGSUP, "Build-A-Sentry Attachment", 30, "blue"),
 		/obj/item/deployable_floodlight = list(CAT_ENGSUP, "Deployable floodlight", 2, "blue"),
 		/obj/item/weapon/shield/riot/marine/deployable = list(CAT_ENGSUP, "TL-182 deployable shield", 3, "yellow"),
