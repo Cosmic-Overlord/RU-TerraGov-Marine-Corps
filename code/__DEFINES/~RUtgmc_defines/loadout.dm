@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 		/obj/item/storage/belt/grenade/b17 = list(CAT_FCSUP, "High Capacity Grenade Belt", 5, "yellow"),
 		/obj/item/storage/backpack/lightpack = list(CAT_FCSUP, "Combat Backpack", 5, "yellow"),
 		/obj/item/storage/backpack/marine/radiopack = list(CAT_FCSUP, "Radio Pack", 5, "yellow"),
-		/obj/item/jetpack_marine = list(CAT_FCSUP, "Jetpack", 23, "yellow"),
+		/obj/item/jetpack_marine = list(CAT_FCSUP, "Jetpack", 10, "yellow"),
 		/obj/item/tool/pickaxe/plasmacutter = list(CAT_FCSUP, "Plasma cutter", 23, "yellow"),
 		/obj/item/clothing/glasses/welding/superior = list(CAT_FCSUP, "Superior welding goggles", 2, "yellow"),
 		/obj/item/armor_module/module/welding/superior = list(CAT_FCSUP, "Superior welding module", 2, "yellow"),
