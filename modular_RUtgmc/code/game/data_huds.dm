@@ -217,18 +217,6 @@
 					status_hud.icon_state = "hudhealthy"
 					return TRUE
 
-	if(stat == DEAD)
-		if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
-			return TRUE
-		if(!client)
-			var/mob/dead/observer/ghost = get_ghost()
-			if(!ghost?.can_reenter_corpse)
-				return TRUE
-		if(istype(wear_ear, /obj/item/radio/headset/mainship))
-			var/obj/item/radio/headset/mainship/headset = wear_ear
-			headset.update_minimap_icon() //Pls fix me
-			return TRUE
-
 //medical hud used by ghosts
 /datum/atom_hud/medical/observer
 	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, XENO_BANISHED_HUD)
