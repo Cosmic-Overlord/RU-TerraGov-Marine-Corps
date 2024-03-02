@@ -217,50 +217,6 @@
 					status_hud.icon_state = "hudhealthy"
 					return TRUE
 
-	
-		if(UNCONSCIOUS)
-			if(!client) //Nobody home.
-				simple_status_hud.icon_state = "hud_uncon_afk"
-				status_hud.icon_state = "hud_uncon_afk"
-				return TRUE
-			if(IsUnconscious()) //Should hopefully get out of it soon.
-				simple_status_hud.icon_state = "hud_uncon_ko"
-				status_hud.icon_state = "hud_uncon_ko"
-				return TRUE
-			status_hud.icon_state = "hud_uncon_sleep" //Regular sleep, else.
-			simple_status_hud.icon_state = "hud_uncon_sleep"
-			return TRUE
-		if(CONSCIOUS)
-			if(!key) //Nobody home. Shouldn't affect aghosting.
-				simple_status_hud.icon_state = "hud_uncon_afk"
-				status_hud.icon_state = "hud_uncon_afk"
-				return TRUE
-			if(IsParalyzed()) //I've fallen and I can't get up.
-				simple_status_hud.icon_state = "hud_con_kd"
-				status_hud.icon_state = "hud_con_kd"
-				return TRUE
-			if(IsStun())
-				simple_status_hud.icon_state = "hud_con_stun"
-				status_hud.icon_state = "hud_con_stun"
-				return TRUE
-			if(IsStaggered())
-				simple_status_hud.icon_state = "hud_con_stagger"
-				status_hud.icon_state = "hud_con_stagger"
-				return TRUE
-			if(slowdown)
-				simple_status_hud.icon_state = "hud_con_slowdown"
-				status_hud.icon_state = "hud_con_slowdown"
-				return TRUE
-			else
-				if(species.species_flags & ROBOTIC_LIMBS)
-					simple_status_hud.icon_state = ""
-					status_hud.icon_state = "hudrobot"
-					return TRUE
-				else
-					simple_status_hud.icon_state = ""
-					status_hud.icon_state = "hudhealthy"
-					return TRUE
-
 	if(stat == DEAD)
 		if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
 			return TRUE
