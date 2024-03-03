@@ -1,5 +1,10 @@
 /obj/structure/closet/secure_closet/freezer/kitchen/yautja
-	req_access = null;
-	locked = FALSE;
+	req_access = null
+	locked = FALSE
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	icon_state = "freezer"
+
+/obj/structure/closet/secure_closet/freezer/fridge/yautja
+	locked = FALSE
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "fridge"
