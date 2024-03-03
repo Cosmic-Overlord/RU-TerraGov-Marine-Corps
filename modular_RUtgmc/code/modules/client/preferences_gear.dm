@@ -30,3 +30,9 @@
 	path = /obj/item/clothing/glasses/ru/orange
 	cost = 2
 	slot = SLOT_GLASSES
+
+/datum/gear/straw_hat
+	display_name = "Straw Hat"
+	path = /obj/item/clothing/head/strawhat
+	cost = 2
+	slot = SLOT_HEAD
