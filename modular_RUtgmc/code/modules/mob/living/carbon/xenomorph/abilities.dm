@@ -134,4 +134,5 @@
 	var/freeze_on_hit_time = 0.5 SECONDS
 
 /datum/action/ability/activable/xeno/pounce/hellhound
-	action_icon_state = "alt_pounce"
+	cooldown_duration = 5 SECONDS
+
