@@ -48,12 +48,14 @@
 		if(!tossing_away)
 			tossing_away = TRUE
 			xeno_owner.balloon_alert(xeno_owner, "Tossing away!")
-			action_icon_state = initial(action_icon_state)
 		else
 			tossing_away = FALSE
 			xeno_owner.balloon_alert(xeno_owner, "Tossing behind you!")
-			action_icon_state = "cresttoss_behind"
 		update_button_icon()
+	return ..()
+
+/datum/action/ability/activable/xeno/cresttoss/update_button_icon()
+	action_icon_state = tossing_away ? "cresttoss_away" : "cresttoss_behind"
 	return ..()
 
 /datum/action/ability/activable/xeno/cresttoss/use_ability(atom/movable/A)
