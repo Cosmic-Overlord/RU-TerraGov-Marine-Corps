@@ -1,12 +1,13 @@
 ///Time it takes to impregnate someone
 #define IMPREGNATION_TIME 10 SECONDS
 
+/obj/item/clothing/mask/facehugger
+	pass_flags = PASS_XENO
+	impact_time = 1.25 SECONDS
+
 /obj/item/clothing/mask/facehugger/Initialize(mapload, input_hivenumber, input_source)
 	. = ..()
 	AddComponent(/datum/component/clothing_tint, TINT_BLIND)
-
-/obj/item/clothing/mask/facehugger
-	impact_time = 1.25 SECONDS
 
 /obj/item/clothing/mask/facehugger/attack_hand(mob/living/user)
 	if(isxeno(user))
