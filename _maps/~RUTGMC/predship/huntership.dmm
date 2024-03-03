@@ -1331,15 +1331,10 @@
 /obj/structure/shuttle/window{
 	color = "#6b675e"
 	},
-/turf/open/floor{
-	color = "#525151";
-	icon_state = "dark2"
-	},
+/turf/open/floor/tile/dark2,
 /area/yautja)
 "hR" = (
-/obj/machinery/computer/autodoc_console{
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
-	},
+/obj/machinery/computer/autodoc_console/pred,
 /turf/open/floor/corsat,
 /area/yautja)
 "hV" = (
@@ -1997,9 +1992,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "zA" = (
-/turf/open/floor{
-	icon_state = "dark2"
-	},
+/turf/open/floor/tile/dark2,
 /area/yautja)
 "zZ" = (
 /obj/structure/table/reinforced/prison{
@@ -2339,7 +2332,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "JU" = (
-/obj/structure/stairs/seamless{
+/obj/structure/stairs/seamless/pred{
 	color = "#6b675e"
 	},
 /obj/structure/stairs/seamless/pred{
@@ -2542,9 +2535,7 @@
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
 "Qi" = (
-/obj/machinery/gibber{
-	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
-	},
+/obj/machinery/gibber/pred,
 /turf/open/floor/tile/dark/red2{
 	dir = 6;
 	},
