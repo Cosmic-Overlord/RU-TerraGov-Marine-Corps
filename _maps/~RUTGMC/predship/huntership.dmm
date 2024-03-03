@@ -2333,9 +2333,6 @@
 /area/yautja)
 "JU" = (
 /obj/structure/stairs/seamless/pred{
-	color = "#6b675e"
-	},
-/obj/structure/stairs/seamless/pred{
 	color = "#6b675e";
 	dir = 4;
 	resistance_flags = 1
