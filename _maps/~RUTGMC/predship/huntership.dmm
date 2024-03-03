@@ -1473,8 +1473,8 @@
 /area/yautja)
 "ja" = (
 /obj/structure/barricade/metal/handrail{
-	dir = 8;
-},
+	dir = 8
+	},
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 4
 	},
