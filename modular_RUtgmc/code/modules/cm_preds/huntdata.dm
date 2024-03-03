@@ -51,6 +51,7 @@
 	INVOKE_ASYNC(user.client, TYPE_PROC_REF(/client, add_honor), owner.life_kills_total + owner.life_value + 3)
 	hunter = null
 	hunted = FALSE
+	prey = null
 	owner.hud_set_hunter()
 
 /datum/huntdata/proc/death(mob/killer)

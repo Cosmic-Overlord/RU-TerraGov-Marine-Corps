@@ -9,6 +9,9 @@
 
 	var/list/options = list()
 	var/list/optionsp = list(
+		"Mark as Prey",
+		"Un-Mark as Prey",
+		"Mark as Thralled",
 		"Un-Mark as Thralled",
 		"Mark as Honored",
 		"Un-Mark as Honored",
@@ -17,14 +20,6 @@
 		"Mark as Gear Carrier",
 		"Un-Mark as Gear Carrier"
 	)
-
-	if(!T.hunter_data.prey)
-		options += "Mark as Prey"
-	else
-		options += "Un-Mark as Prey"
-
-	if(!T.hunter_data.thrall)
-		options += "Mark as Thralled"
 
 	options += optionsp
 
@@ -110,7 +105,7 @@
 		to_chat(src, span_warning("How did you get this verb?"))
 		return
 
-	if (alert(usr, "Are you sure you want to abandon this prey?", "Remove from Hunt:", "Yes", "No") != "Yes")
+	if(alert(usr, "Are you sure you want to abandon this prey?", "Remove from Hunt:", "Yes", "No") != "Yes")
 		return
 	var/mob/living/carbon/prey = hunter_data.prey
 	to_chat(src, span_yautjabold("You have removed [prey] from your hunt."))
