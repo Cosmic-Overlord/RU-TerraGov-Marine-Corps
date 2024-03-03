@@ -64,7 +64,7 @@
 		throw_at(L.loc, 4, 6.67, usr)
 	sleep(1 SECONDS)
 	throw_at(usr, 12, 1, usr)
-	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(clear_boomerang)), 1 SECONDS)
 	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_throw.ogg', 25)
 
 /obj/item/explosive/grenade/spawnergrenade/smartdisc/proc/clear_boomerang()
@@ -118,7 +118,7 @@
 		log_attack("[key_name(user)] primed \a [src] in [get_area(user)] ([user.loc.x],[user.loc.y],[user.loc.z]).", user.loc.x, user.loc.y, user.loc.z)
 
 	icon_state = initial(icon_state) + "_active"
-	active = 1
+	active = TRUE
 	playsound(loc, 'sound/items/countdown.ogg', 25, 1)
 	update_icon()
 	spawn(det_time)
@@ -143,6 +143,7 @@
 	if(isyautja(hit_atom))
 		var/mob/living/carbon/human/H = hit_atom
 		if(H.put_in_hands(src))
+			clear_boomerang()
 			hit_atom.visible_message("[hit_atom] expertly catches [src] out of the air.","You catch [src] easily.")
 			throwing = FALSE
 			return TURF_ENTER_ALREADY_MOVED
