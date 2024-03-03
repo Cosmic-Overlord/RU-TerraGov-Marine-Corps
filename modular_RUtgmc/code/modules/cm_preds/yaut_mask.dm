@@ -198,6 +198,11 @@
 	eye_protection = 2
 	anti_hug = 100
 
+/obj/item/clothing/mask/gas/yautja/hunter/pred
+	anchored = TRUE
+	color = "#FFE55C"
+	icon_state = "pred_mask_elder_joshuu"
+
 /obj/item/clothing/mask/gas/yautja/hunter/togglesight()
 	set category = "Yautja"
 	if(!isyautja(usr))

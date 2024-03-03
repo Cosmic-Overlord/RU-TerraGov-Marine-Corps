@@ -8,3 +8,8 @@
 	locked = FALSE
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	icon_state = "fridge"
+
+/obj/structure/closet/secure_closet/freezer/meat/yautja
+	locked = FALSE
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "fridge"

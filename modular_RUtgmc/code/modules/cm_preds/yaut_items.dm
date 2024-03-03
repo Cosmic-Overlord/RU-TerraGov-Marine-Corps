@@ -120,6 +120,10 @@
 
 	soft_armor = list(MELEE = 15, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
 
+/obj/item/clothing/suit/armor/yautja/hunter/pred
+	anchored = TRUE
+	color = "#FFE55C"
+	icon_state = "halfarmor_elder_joshuu"
 
 /obj/item/clothing/suit/armor/yautja/hunter/full
 	name = "heavy clan armor"
@@ -243,6 +247,11 @@
 	desc = "A pair of armored, perfectly balanced boots. Perfect for running through the jungle."
 
 	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
+
+/obj/item/clothing/shoes/marine/yautja/hunter/pred
+	color = "#FFE55C"
+	icon_state = "y-boots2"
+	anchored = TRUE
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
 	attachments_allowed = list(
@@ -1200,3 +1209,11 @@
 	throwforce = 15
 	usesound = list('sound/items/welder.ogg', 'sound/items/welder2.ogg')
 	max_fuel = 150	//The max amount of fuel the welder can hold
+
+/obj/item/weapon/claymore/mercsword/machete/arnold
+	anchored = TRUE
+	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon_state = "arnold-machete"
+	desc = "Won by an Elder during their youthful hunting days. None are allowed to touch it."
+	name = "\improper Dutch's Machete"
+	force = 130

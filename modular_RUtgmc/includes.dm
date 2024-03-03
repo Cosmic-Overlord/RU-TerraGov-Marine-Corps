@@ -346,3 +346,8 @@
 #include "code\game\objects\structures\reagent_dispensers.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\chairs.dm"
 #include "code\modules\mining\money_bag.dm"
+#include "code\game\objects\machinery\adv_med.dm"
+#include "code\game\objects\machinery\OpTable.dm"
+#include "code\modules\atmospherics\machinery\components\unary_devices\thermomachine.dm"
+#include "code\modules\atmospherics\machinery\portable\canister.dm"
+#include "code\modules\reagents\machinery\reagentgrinder.dm"
