@@ -173,9 +173,10 @@
 					stage = 2
 				if(0.8 * TIME_BEFORE_DNR to INFINITY)
 					stage = 3
-			if(initial_stage != stage)
-				initial_stage = stage
-				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
+			if(initial_stage == stage)
+				return TRUE
+			initial_stage = stage
+			SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
 			if(species.species_flags & ROBOTIC_LIMBS)
 				status_hud.icon_state = "huddeaddefib_robot"
 			else
