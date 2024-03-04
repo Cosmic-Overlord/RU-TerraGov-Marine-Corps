@@ -1,3 +1,7 @@
+/mob/living/carbon/human
+	/// Used for preventing possible lags in the med_hud_set_status(), yes it's ugly
+	var/initial_stage
+
 /mob/living/carbon/human/med_hud_set_status()
 	var/image/status_hud = hud_list[STATUS_HUD] //Status for med-hud.
 	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD] //State of the xeno embryo.
@@ -169,7 +173,9 @@
 					stage = 2
 				if(0.8 * TIME_BEFORE_DNR to INFINITY)
 					stage = 3
-			SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
+			if(initial_stage != stage)
+				initial_stage = stage
+				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
 			if(species.species_flags & ROBOTIC_LIMBS)
 				status_hud.icon_state = "huddeaddefib_robot"
 			else
