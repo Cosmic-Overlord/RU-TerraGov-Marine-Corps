@@ -309,8 +309,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		for(var/mob/living/carbon/carbon_viewers in viewers(power / falloff, epicenter))
 			carbon_viewers.flash_act()
 
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
-
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape, (REALTIMEOFDAY - started_at) * 0.1)
 
 /obj/effect/particle_effect/shockwave
 	name = "shockwave"
