@@ -156,3 +156,13 @@
 /obj/item/armor_module/module/fire_proof_helmet
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+
+/**
+ * Extra armor module
+*/
+
+/obj/item/armor_module/module/tyr_extra_armor
+	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 5)
+
+/obj/item/armor_module/module/tyr_extra_armor/mark1
+	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, FIRE = 10, ACID = 0)
