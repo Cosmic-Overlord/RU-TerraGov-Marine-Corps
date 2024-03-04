@@ -245,14 +245,14 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		if(is_mainship_level(epicenter.z))
 			message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
 
-	var/far_dist = round(power ^ 2, 1)
+	var/far_dist = round(power ^ 2, 1) // used ONLY for sounds
+	var/orig_max_distance = power / falloff - 1 // used for stuff like radius of effects and light
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
 		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
 		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
 		var/baseshakeamount
-		var/orig_max_distance = power / falloff - 1
 
 		for(var/MN in GLOB.player_list)
 			var/mob/M = MN
@@ -286,7 +286,7 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 						M.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 					if(baseshakeamount > 0)
 						shake_camera(M, 7, clamp(baseshakeamount * 0.15, 0, 1.5))
-	new /obj/effect/temp_visual/explosion(epicenter, far_dist, color, power)
+	new /obj/effect/temp_visual/explosion(epicenter, orig_max_distance, color, power)
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
 		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
