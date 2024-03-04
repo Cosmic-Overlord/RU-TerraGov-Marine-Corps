@@ -57,11 +57,10 @@
 // If we're on a fake z teleport, teleport over
 /datum/automata_cell/explosion/birth()
 	shockwave = new(in_turf)
-	//var/obj/effect/step_trigger/teleporter_vector/V = locate() in in_turf
-	//if(!V)
-	//	return
-	//var/turf/new_turf = locate(in_turf.x + V.vector_x, in_turf.y + V.vector_y, in_turf.z)
-	var/turf/new_turf = locate(in_turf.x, in_turf.y, in_turf.z)
+	var/obj/effect/step_trigger/teleporter/our_tp = locate() in in_turf
+	if(!our_tp)
+		return
+	var/turf/new_turf = locate(in_turf.x + our_tp.teleport_x, in_turf.y + our_tp.teleport_y, in_turf.z)
 	transfer_turf(new_turf)
 
 /datum/automata_cell/explosion/death()

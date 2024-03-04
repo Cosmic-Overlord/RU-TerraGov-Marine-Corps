@@ -104,19 +104,17 @@ explosion resistance exactly as much as their health
 	for(var/atom/A in src)  //add resistance
 		resistance += max(0, A.get_explosion_resistance(direction))
 
-		/* as we don't have any stair-teleporters for the moment, we don't need it
 		//check for stair-teleporters. If there is a stair teleporter, switch to the teleported-to tile instead
-		if(istype(A, /obj/effect/step_trigger/teleporter_vector))
-			var/obj/effect/step_trigger/teleporter_vector/V = A
-			var/turf/T = locate(V.x + V.vector_x, V.y + V.vector_y, V.z)
-			if(T)
+		if(istype(A, /obj/effect/step_trigger/teleporter))
+			var/obj/effect/step_trigger/teleporter/our_tp = A
+			var/turf/our_turf = locate(our_tp.x + our_tp.teleport_x, our_tp.y + our_tp.teleport_y, our_tp.z)
+			if(our_turf)
 				spawn(0)
-					T.explosion_spread(Controller, power, direction)
+					our_turf.explosion_spread(Controller, power, direction)
 					Controller.active_spread_num--
 					if(Controller.active_spread_num <= 0 && Controller.explosion_in_progress)
 						Controller.explosion_damage()
 				return
-		*/
 
 		if(istype(A, /obj/structure/ladder)) //check for ladders
 			L = A
