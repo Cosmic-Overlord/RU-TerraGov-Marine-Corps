@@ -245,7 +245,11 @@ proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FA
 		if(is_mainship_level(epicenter.z))
 			message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(epicenter)]!")
 
-	var/far_dist = round(power ^ 2, 1) // used ONLY for sounds
+	// Play sounds; we want sounds to be different depending on distance so we will manually do it ourselves.
+	// Stereo users will also hear the direction of the explosion!
+
+	// Calculate far explosion sound range. Only allow the sound effect for heavy/devastating explosions.
+	var/far_dist = power / 10
 	var/orig_max_distance = power / falloff - 1 // used for stuff like radius of effects and light
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
