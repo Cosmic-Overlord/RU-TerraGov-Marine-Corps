@@ -3,13 +3,13 @@
 	var/power = 0
 
 	if(devastation_range)
-		power += (100 * devastation_range)
+		power += (50 * devastation_range)
 	if(heavy_impact_range)
-		power += (75 * heavy_impact_range)
+		power += (25 * heavy_impact_range)
 	if(light_impact_range)
-		power += (50 * light_impact_range)
+		power += (15 * light_impact_range)
 	if(weak_impact_range)
-		power += (25 * weak_impact_range)
+		power += (5 * weak_impact_range)
 
 	var/falloff = power / (light_impact_range + 2) // +1 would give the same range. +2 gives a bit of extra range now that explosions are blocked by walls
 	cell_explosion(epicenter, power, falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, flame_range, flame_color, silent, color, null, adminlog)
