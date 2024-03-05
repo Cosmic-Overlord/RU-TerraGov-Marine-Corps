@@ -1157,6 +1157,9 @@
 	rounds -= charge_cost
 	return in_chamber
 
+#define PRED_MODE_STUN "stun"
+#define PRED_MODE_LETHAL "lethal"
+
 /obj/item/weapon/gun/energy/yautja/plasma_caster
 	name = "plasma caster"
 	desc = "A powerful, shoulder-mounted energy weapon."
@@ -1189,7 +1192,9 @@
 	var/mode = "stun"//fire mode (stun/lethal)
 	var/strength = "low power stun bolts"//what it's shooting
 
-	var/list/modes = list("stun" = "pred_mode_stun", "lethal" = "pred_mode_lethal")
+	var/static/list/modes = list(
+	PRED_MODE_STUN = image(icon = 'modular_RUtgmc/icons/mob/radial.dmi', icon_state = "pred_mode_stun"),
+	PRED_MODE_LETHAL = image(icon = 'modular_RUtgmc/icons/mob/radial.dmi', icon_state = "pred_mode_lethal"))
 	var/list/mode_by_mode_list = list(
 		"stun" = list("low power stun bolts", "high power stun bolts", "plasma immobilizers"),
 		"lethal" = list("plasma bolts", "plasma spheres")
@@ -1227,7 +1232,7 @@
 /obj/item/weapon/gun/energy/yautja/plasma_caster/change_ammo_type(mob/user)
 	var/list/available_modes = list()
 	for(var/proj_mode in modes)
-		available_modes += list("[proj_mode]" = image(icon = 'modular_RUtgmc/icons/mob/radial.dmi', icon_state = modes[proj_mode]))
+		available_modes += list("[proj_mode]" = image(icon = modes))
 
 	var/selected_mode = show_radial_menu(user, user, modes, null, 64, tooltips = TRUE)
 	if(selected_mode)
@@ -1408,3 +1413,6 @@
 #undef FLAY_STAGE_SCALP
 #undef FLAY_STAGE_STRIP
 #undef FLAY_STAGE_SKIN
+
+#undef PRED_MODE_STUN
+#undef PRED_MODE_LETHAL
