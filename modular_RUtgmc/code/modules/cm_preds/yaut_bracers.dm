@@ -259,7 +259,7 @@
 	playsound(src, 'modular_RUtgmc/sound/effects/smartdisk_return.ogg', 30)
 	return TRUE
 
-/obj/item/clothing/gloves/yautja/proc/translate_internal(mob/caller, forced = FALSE)
+/obj/item/clothing/gloves/yautja/proc/translate_internal(mob/living/carbon/human/caller, forced = FALSE)
 	. = check_random_function(caller, forced)
 	if(.)
 		return
@@ -308,16 +308,12 @@
 		msg = replacetext(msg, "м", "m")
 		msg = replacetext(msg, "п", "n")
 
-	var/voice_name = "A strange voice"
-	if(caller.name == caller.real_name && caller.alpha == initial(caller.alpha))
-		voice_name = "<b>[caller.name]</b>"
-
 	for(var/mob/Q as anything in heard)
 		if(Q.stat)
 			continue //Unconscious
-		var/text = "[span_info("[voice_name] says,")] <span class='[span_class]'>'[msg]'</span>"
-		balloon_alert(Q, text)
-		to_chat(Q, text)
+		Q.create_chat_message(caller, /datum/language/common, msg,)
+		to_chat(Q, "<span class='[span_class]'>'[msg]'</span>")
+
 
 /obj/item/clothing/gloves/yautja/proc/injectors_internal(mob/living/caller, forced = FALSE, power_to_drain = 1000)
 	. = check_random_function(caller, forced)
