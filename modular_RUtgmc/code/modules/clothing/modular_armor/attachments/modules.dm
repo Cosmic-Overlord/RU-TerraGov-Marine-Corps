@@ -1,8 +1,12 @@
 /obj/item/armor_module/module/style/light_armor
-	soft_armor = list(MELEE = 40, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 50)
+	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+
+/obj/item/armor_module/module/style/medium_armor
+	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
 
 /obj/item/armor_module/module/style/heavy_armor
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
 
 /obj/item/armor_module/module/motion_detector
 	name = "Tactical sensor helmet module"
@@ -22,8 +26,6 @@
 	var/motion_timer = null
 	//время через которое будет срабатывать модуль
 	var/scan_time = 2 SECONDS
-	///The time needed after the last move to not be detected by this motion detector
-	var/move_sensitivity = 1 SECONDS
 	///The list of all the blips
 	var/list/obj/effect/blip/blips_list = list()
 
@@ -72,16 +74,12 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
-		if(nearby_human.last_move_time + move_sensitivity < world.time)
-			continue
 		if(!hostile_detected && (!operator.wear_id || !nearby_human.wear_id || nearby_human.wear_id.iff_signal != operator.wear_id.iff_signal))
 			hostile_detected = TRUE
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
 		if(!hostile_detected)
 			hostile_detected = TRUE
-		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
-			continue
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 1)
@@ -156,3 +154,9 @@
 /obj/item/armor_module/module/fire_proof_helmet
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+
+/**
+ * Mini autodoc module
+ */
+/obj/item/armor_module/module/valkyrie_autodoc
+	slowdown = 0
