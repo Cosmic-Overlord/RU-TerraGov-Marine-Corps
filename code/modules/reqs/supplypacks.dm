@@ -1035,7 +1035,7 @@ ARMOR
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/mimir_environment_protection,
+//		/obj/item/armor_module/module/mimir_environment_protection, RU TGMC EDIT
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/better_shoulder_lamp,
 		/obj/item/armor_module/module/hlin_explosive_armor,
@@ -1069,7 +1069,7 @@ ARMOR
 	name = "Mimir Mark 2 module set"
 	contains = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
-		/obj/item/armor_module/module/mimir_environment_protection,
+//		/obj/item/armor_module/module/mimir_environment_protection, RU TGMC EDIT
 	)
 	cost = 150
 

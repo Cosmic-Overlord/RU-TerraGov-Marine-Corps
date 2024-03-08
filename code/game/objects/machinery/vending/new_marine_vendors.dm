@@ -907,7 +907,7 @@
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/clothing/mask/gas/tactical,
-		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+//		/obj/item/armor_module/module/mimir_environment_protection/mark1, RU TGMC EDIT
 	)
 
 /obj/effect/vendor_bundle/vali

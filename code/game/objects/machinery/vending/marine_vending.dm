@@ -1081,7 +1081,6 @@
 			/obj/item/armor_module/module/artemis = -1,
 			/obj/item/armor_module/module/tyr_head = -1,
 			/obj/item/armor_module/module/antenna = -1,
-			/obj/item/armor_module/module/mimir_environment_protection/mark1 = -1,
 			/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1 = -1,
 			/obj/item/armor_module/module/tyr_extra_armor/mark1 = -1,
 			/obj/item/armor_module/module/ballistic_armor = -1,

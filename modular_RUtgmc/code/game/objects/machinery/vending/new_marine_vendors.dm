@@ -20,7 +20,6 @@
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/clothing/mask/gas/tactical,
-		/obj/item/armor_module/module/mimir_environment_protection,
 	)
 
 /obj/effect/vendor_bundle/tyr/two
