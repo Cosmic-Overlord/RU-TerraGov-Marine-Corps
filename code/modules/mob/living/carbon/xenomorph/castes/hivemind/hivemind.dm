@@ -328,14 +328,14 @@
 	var/datum/weakref/parent
 
 /* overriden by RU tgmc needs, modular_RUTGMC/mob/xeno/castes/hivemind
-obj/structure/xeno/hivemindcore/Initialize(mapload)
+/obj/structure/xeno/hivemindcore/Initialize(mapload)
 	. = ..()
 	GLOB.hive_datums[hivenumber].hivemindcores += src
 	new /obj/alien/weeds/node(loc)
 	set_light(7, 5, LIGHT_COLOR_PURPLE)
 	for(var/turfs in RANGE_TURFS(XENO_HIVEMIND_DETECTION_RANGE, src))
 		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(hivemind_proxy_alert))
-	*/
+*/
 
 /obj/structure/xeno/hivemindcore/Destroy()
 	GLOB.hive_datums[hivenumber].hivemindcores -= src
@@ -384,7 +384,7 @@ obj/structure/xeno/hivemindcore/Initialize(mapload)
  * atom/movable/hostile - the atom that triggered the crossed signal, in this case we're looking for a mob
  */
 /* overriden by RU tgmc needs, modular_RUTGMC/mob/xeno/castes/hivemind
-obj/structure/xeno/hivemindcore/proc/hivemind_proxy_alert(datum/source, atom/movable/hostile)
+/obj/structure/xeno/hivemindcore/proc/hivemind_proxy_alert(datum/source, atom/movable/hostile)
 	SIGNAL_HANDLER
 	if(!COOLDOWN_CHECK(src, hivemind_proxy_alert_cooldown)) //Proxy alert triggered too recently; abort
 		return
