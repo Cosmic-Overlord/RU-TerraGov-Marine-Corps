@@ -327,8 +327,8 @@
 	///The weakref to the parent hivemind mob that we're attached to
 	var/datum/weakref/parent
 
-//overriden by  RU tgmc needs, modular_RUTGMC->mob,xeno,castes,hivemind
-/*obj/structure/xeno/hivemindcore/Initialize(mapload)
+/* overriden by RU tgmc needs, modular_RUTGMC/mob/xeno/castes/hivemind
+obj/structure/xeno/hivemindcore/Initialize(mapload)
 	. = ..()
 	GLOB.hive_datums[hivenumber].hivemindcores += src
 	new /obj/alien/weeds/node(loc)
