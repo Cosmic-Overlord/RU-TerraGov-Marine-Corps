@@ -27,7 +27,7 @@
 			else
 RU TGMC EDIT */
 			to_chat(src, span_warning("Your tier does not allow you to regress."))
-				return
+			return
 		if(XENO_TIER_ONE)
 			tiers_to_pick_from = list(/mob/living/carbon/xenomorph/larva)
 		if(XENO_TIER_TWO)
