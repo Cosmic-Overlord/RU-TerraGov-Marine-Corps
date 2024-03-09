@@ -232,7 +232,7 @@ as having entered the turf.
 	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
 
 // Spawns a cellular automaton of an explosion
-proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, flame_range, flame_color, silent, color, shrapnel = TRUE, adminlog = TRUE)
+/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, flame_range, flame_color, silent, color, shrapnel = TRUE, adminlog = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
