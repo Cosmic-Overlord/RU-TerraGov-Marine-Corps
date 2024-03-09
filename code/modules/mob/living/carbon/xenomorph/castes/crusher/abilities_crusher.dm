@@ -95,6 +95,7 @@
 		if(L.stat == DEAD || isnestedhost(L)) //no bully
 			return FALSE
 
+/* RUTGMC DELETION, moved to modular
 /datum/action/ability/activable/xeno/cresttoss/use_ability(atom/movable/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	X.face_atom(A) //Face towards the target so we don't look silly
@@ -149,6 +150,7 @@
 
 	add_cooldown()
 	addtimer(CALLBACK(X, TYPE_PROC_REF(/mob, update_icons)), 3)
+*/
 
 /datum/action/ability/activable/xeno/cresttoss/ai_should_start_consider()
 	return TRUE

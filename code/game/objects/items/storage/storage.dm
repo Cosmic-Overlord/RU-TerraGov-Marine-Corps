@@ -842,7 +842,7 @@
 	attempt_draw_object(user)
 
 /obj/item/storage/AltRightClick(mob/user)
-	if(Adjacent(user))
+	if(Adjacent(user) && !isxeno(user))
 		open(user)
 
 /obj/item/storage/attack_hand_alternate(mob/living/user)
