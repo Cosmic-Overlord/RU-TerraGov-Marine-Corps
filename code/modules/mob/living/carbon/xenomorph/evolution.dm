@@ -21,8 +21,10 @@
 	var/tiers_to_pick_from
 	switch(tier)
 		if(XENO_TIER_ZERO, XENO_TIER_FOUR)
+/* RU TGMC EDIT
 			if(isxenoshrike(src))
 				tiers_to_pick_from = GLOB.xeno_types_tier_one
+RU TGMC EDIT */
 			else
 				to_chat(src, span_warning("Your tier does not allow you to regress."))
 				return
