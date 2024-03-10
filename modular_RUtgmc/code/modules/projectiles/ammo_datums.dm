@@ -197,6 +197,13 @@
 	sundering = 1.5
 	damage = 15
 
+/datum/ammo/bullet/pepperball
+	damage = 1
+	damage_falloff = 0
+
+/datum/ammo/bullet/pepperball/pepperball_mini
+	damage = 1
+
 /*
 //================================================
 					Xeno Spits
@@ -206,18 +213,27 @@
 /datum/ammo/xeno/toxin
 	bullet_color = COLOR_LIGHT_ORANGE
 
-/datum/ammo/xeno/toxin/heavy //Praetorian
-	spit_cost = 200
-	damage = 80
-	reagent_transfer_amount = 18
-	smoke_range = 1
-
 /datum/ammo/xeno/toxin/sent //Sentinel
 	spit_cost = 70
 	icon_state = "xeno_sent_neuro"
 
 /datum/ammo/xeno/acid
 	icon_state = "xeno_acid_weak"
+
+/datum/ammo/xeno/acid/medium/passthrough //Spitter
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+
+/datum/ammo/xeno/acid/auto
+	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+
+/datum/ammo/xeno/acid/heavy/passthrough //Praetorian
+	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+
+/datum/ammo/xeno/toxin/heavy
+	spit_cost = 200
+	damage = 80
+	reagent_transfer_amount = 18
+	smoke_range = 1
 
 /datum/ammo/xeno/acid/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
 	if(T.density)

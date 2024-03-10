@@ -899,6 +899,13 @@
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_BLAST
 	hotkey_keys = list("R")
 
+/datum/keybinding/xeno/toggle_warlock_zoom
+	name="Warlock Zoom"
+	full_name = "Warlock: Toggle Zoom"
+	description = "Zoom out for a larger view around wherever you are looking"
+	keybind_signal = COMSIG_XENOABILITY_TOGGLE_WARLOCK_ZOOM
+	hotkey_keys = list("F")
+
 /datum/keybinding/xeno/psychic_crush
 	name = "Psychic Crush"
 	full_name = "Warlock: Psychic Crush"

@@ -10,7 +10,8 @@
 		return FALSE
 	if(proj.ammo.flags_ammo_behavior & AMMO_SKIPS_ALIENS)
 		return FALSE
-	proj.damage -= proj.damage * (0.3 * get_sunder())
+	if((cardinal_move & REVERSE_DIR(dir)))
+		proj.damage -= proj.damage * (0.5 * get_sunder())
 	return ..()
 
 /mob/living/carbon/xenomorph/queen/generate_name()
