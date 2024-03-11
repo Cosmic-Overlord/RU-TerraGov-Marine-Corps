@@ -31,7 +31,6 @@
 				adjust_stagger(powerfactor_value / 2)
 			else
 				add_slowdown(powerfactor_value / 3)
-			explosion_throw(severity, direction)
 		else if(powerfactor_value > 10)
 			powerfactor_value /= 5
 			AdjustKnockdown(powerfactor_value / 5)
@@ -41,3 +40,4 @@
 				adjust_stagger(powerfactor_value / 2)
 			else
 				add_slowdown(powerfactor_value / 3)
+		explosion_throw(damage, direction)
