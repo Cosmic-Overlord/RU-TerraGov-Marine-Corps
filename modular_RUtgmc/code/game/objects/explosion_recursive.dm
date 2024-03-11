@@ -309,13 +309,13 @@ explosion resistance exactly as much as their health
 		if(MOB_SIZE_HUMAN)
 			weight = 1
 		if(MOB_SIZE_XENO)
-			weight = 2
+			weight = 1.5
 		if(MOB_SIZE_BIG)
 			weight = 4
 	var/range = round(severity / weight * 0.02, 1)
 	if(!direction)
 		range = round(2 * range / 3, 1)
-		direction = pick(NORTH,SOUTH,EAST,WEST,NORTHEAST,NORTHWEST,SOUTHEAST,SOUTHWEST)
+		direction = pick(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 
 	if(range <= 0)
 		return
@@ -330,7 +330,7 @@ explosion resistance exactly as much as their health
 		var/scatter = range / 4
 		var/scatter_x = rand(-scatter,scatter)
 		var/scatter_y = rand(-scatter,scatter)
-		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1),target.z) //Locate an adjacent turf.
+		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, spin)
