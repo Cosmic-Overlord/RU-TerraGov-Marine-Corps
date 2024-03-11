@@ -7,7 +7,7 @@
 
 /obj/machinery/chem_dispenser/beer/pred
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
-	icon_state = "booze_despenser"
+	icon_state = "booze_dispenser"
 
 /obj/machinery/chem_dispenser/pred
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'

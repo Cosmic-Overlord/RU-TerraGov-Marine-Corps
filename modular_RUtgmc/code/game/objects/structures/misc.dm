@@ -17,6 +17,7 @@
 
 /obj/structure/showcase/yautja/alt
 	name = "alien sarcophagus"
+	icon = 'icons/obj/stationobjs.dmi'
 	desc = "An ancient, dusty tomb with strange alien writing. It's best not to touch it."
 	icon_state = "yaut"
 

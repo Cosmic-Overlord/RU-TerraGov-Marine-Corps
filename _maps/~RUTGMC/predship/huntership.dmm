@@ -125,7 +125,7 @@
 /area/yautja)
 "an" = (
 /obj/machinery/autodoc/yautja{
-	dir = 4;
+	dir = 4
 	},
 /turf/open/floor/corsat,
 /area/yautja)
@@ -309,7 +309,7 @@
 	resistance_flags = 1
 	},
 /obj/structure/window/phoronreinforced/pred{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/corsat,
 /area/yautja)
@@ -396,12 +396,6 @@
 "bd" = (
 /obj/effect/step_trigger/teleporter/yautja_ship,
 /turf/open/floor/light,
-/area/yautja)
-"be" = (
-/obj/machinery/door/airlock/yautja{
-	name = "\improper Blooded Teleporter"
-	},
-/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bg" = (
 /obj/structure/rack{
@@ -577,7 +571,7 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bO" = (
-/obj/structure/bed/alien/pred/alt,
+/obj/structure/bed/pred/alt,
 /turf/open/floor/corsat,
 /area/yautja)
 "bR" = (
@@ -597,7 +591,7 @@
 "bU" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/open/floor/tile/dark/red2{
-	dir = 4;
+	dir = 4
 	},
 /area/yautja)
 "bV" = (
@@ -698,12 +692,6 @@
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
-"ch" = (
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/turf/open/beach/sand,
-/area/yautja)
 "cj" = (
 /obj/machinery/sleeper{
 	resistance_flags = 1
@@ -742,10 +730,6 @@
 	},
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
-"cq" = (
-/obj/structure/bed/chair/comfy/black/pred,
-/turf/open/floor/corsat,
-/area/yautja)
 "cr" = (
 /obj/structure/table/mainship{
 	color = "#6b675e";
@@ -753,7 +737,7 @@
 	},
 /obj/machinery/chem_dispenser/soda/pred{
 	dir = 8;
-	pixel_y = 7;
+	pixel_y = 7
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
@@ -774,7 +758,7 @@
 /obj/item/reagent_containers/food/snacks/rawmeatball,
 /obj/item/reagent_containers/food/snacks/rawmeatball,
 /turf/open/floor/tile/dark/red2{
-	dir = 10;
+	dir = 10
 	},
 /area/yautja)
 "cv" = (
@@ -859,7 +843,7 @@
 	resistance_flags = 1
 	},
 /obj/machinery/reagentgrinder{
-	pixel_y = 6;
+	pixel_y = 6
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
@@ -923,19 +907,19 @@
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50;
+	amount = 50
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50;
+	amount = 50
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50;
+	amount = 50
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50;
+	amount = 50
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
-	amount = 50;
+	amount = 50
 	},
 /turf/open/floor/corsat,
 /area/yautja)
@@ -948,7 +932,7 @@
 	pixel_x = 33
 	},
 /obj/structure/showcase/yautja{
-	dir = 4;
+	dir = 4
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
@@ -1077,7 +1061,7 @@
 	pixel_x = -3
 	},
 /turf/open/floor/tile/dark/red2{
-	dir = 5;
+	dir = 5
 	},
 /area/yautja)
 "df" = (
@@ -1095,7 +1079,7 @@
 /obj/item/storage/fancy/egg_box,
 /obj/structure/closet/secure_closet/freezer/fridge/yautja,
 /turf/open/floor/tile/dark/red2{
-	dir = 1;
+	dir = 1
 	},
 /area/yautja)
 "dk" = (
@@ -1175,7 +1159,7 @@
 /area/yautja)
 "fb" = (
 /turf/open/floor/tile/dark/red2{
-	dir = 4;
+	dir = 4
 	},
 /area/yautja)
 "fg" = (
@@ -1212,10 +1196,10 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "fx" = (
-/obj/machinery/computer/crew{
+/obj/machinery/computer/crew/pred{
 	pixel_y = 28;
 	density = 0;
-	resistance_flags = 1;
+	resistance_flags = 1
 	},
 /turf/open/floor/corsat,
 /area/yautja)
@@ -1392,7 +1376,7 @@
 	layer = 2
 	},
 /turf/open/floor/tile/dark/red2{
-	dir = 8;
+	dir = 8
 	},
 /area/yautja)
 "iV" = (
@@ -1463,13 +1447,6 @@
 	pixel_x = 10
 	},
 /turf/open/floor/strata/multi_tiles,
-/area/yautja)
-"jU" = (
-/obj/structure/stairs/seamless/pred{
-	dir = 4;
-	resistance_flags = 1
-	},
-/turf/open/floor/corsat,
 /area/yautja)
 "kA" = (
 /obj/item/weapon/twohanded/dualsaber{
@@ -1617,12 +1594,6 @@
 "oe" = (
 /obj/structure/closet/pred,
 /turf/open/floor/corsat,
-/area/yautja)
-"ol" = (
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/turf/open/beach/sand,
 /area/yautja)
 "ov" = (
 /obj/structure/rack{
@@ -1857,7 +1828,7 @@
 "vI" = (
 /obj/structure/closet/secure_closet/freezer/meat/yautja,
 /turf/open/floor/tile/dark/red2{
-	dir = 4;
+	dir = 4
 	},
 /area/yautja)
 "vO" = (
@@ -1912,7 +1883,7 @@
 	pixel_y = 9
 	},
 /turf/open/floor/tile/dark/red2{
-	dir = 8;
+	dir = 8
 	},
 /area/yautja)
 "wQ" = (
@@ -2081,7 +2052,7 @@
 "DF" = (
 /obj/structure/closet/secure_closet/freezer/fridge/yautja,
 /turf/open/floor/tile/dark/red2{
-	dir = 9;
+	dir = 9
 	},
 /area/yautja)
 "DJ" = (
@@ -2104,9 +2075,6 @@
 /obj/item/tool/soap,
 /turf/open/floor/corsat,
 /area/yautja)
-"Fh" = (
-/turf/open/floor/strata/multi_tiles,
-/area/yautja)
 "Ft" = (
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e";
@@ -2122,7 +2090,7 @@
 	},
 /obj/item/bedsheet/pred{
 	anchored = 1;
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
@@ -2371,7 +2339,7 @@
 	resistance_flags = 1
 	},
 /obj/machinery/chem_dispenser/beer/pred{
-	pixel_y = 9;
+	pixel_y = 9
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
@@ -2405,7 +2373,7 @@
 	pixel_y = -7
 	},
 /turf/open/floor/tile/dark/red2{
-	dir = 8;
+	dir = 8
 	},
 /area/yautja)
 "LX" = (
@@ -2468,8 +2436,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "NA" = (
-/turf/open/floor/tile/dark/red2{
-	},
+/turf/open/floor/tile/dark/red2,
 /area/yautja)
 "NB" = (
 /obj/structure/table/reinforced/prison{
@@ -2483,7 +2450,9 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "OZ" = (
-/obj/structure/bed/chair/comfy/black/pred,
+/obj/structure/bed/chair/comfy/black/pred{
+	dir = 1
+	},
 /turf/open/floor/corsat,
 /area/yautja)
 "Pb" = (
@@ -2534,7 +2503,7 @@
 "Qi" = (
 /obj/machinery/gibber/pred,
 /turf/open/floor/tile/dark/red2{
-	dir = 6;
+	dir = 6
 	},
 /area/yautja)
 "Qj" = (
@@ -2553,7 +2522,7 @@
 	pixel_x = 3
 	},
 /turf/open/floor/tile/dark/red2{
-	dir = 1;
+	dir = 1
 	},
 /area/yautja)
 "Qs" = (
@@ -2591,23 +2560,21 @@
 /obj/item/reagent_containers/food/snacks/grown/corn,
 /obj/item/reagent_containers/food/snacks/grown/corn,
 /turf/open/floor/tile/dark/red2{
-	dir = 6;
+	dir = 6
 	},
-/area/yautja)
-"Sh" = (
-/obj/machinery/cic_maptable/yautja{
-	resistance_flags = 1
-	},
-/turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Sx" = (
 /turf/open/floor/tile/dark/red2{
-	dir = 8;
+	dir = 8
 	},
 /area/yautja)
 "SB" = (
-/obj/structure/bed/chair/comfy/black/pred,
-/turf/open/shuttle/dropship/fourteen,
+/obj/structure/stairs/seamless{
+	dir = 4;
+	color = "#6b675e";
+	resistance_flags = 1
+	},
+/turf/open/floor/corsat,
 /area/yautja)
 "Ut" = (
 /obj/structure/table/reinforced/prison{
@@ -2679,12 +2646,8 @@
 	},
 /obj/item/bedsheet/pred{
 	anchored = 1;
-	dir = 4;
+	dir = 4
 	},
-/turf/open/floor/strata/multi_tiles,
-/area/yautja)
-"VY" = (
-/obj/structure/window/framed/colony/reinforced/hull/pred,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "We" = (
@@ -2797,9 +2760,9 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Ys" = (
-/obj/structure/reagent_dispensers/watertank/yautja,
+/obj/structure/reagent_dispensers/watertank/pred,
 /turf/open/floor/tile/dark/red2{
-	dir = 10;
+	dir = 10
 	},
 /area/yautja)
 "YL" = (
@@ -2808,12 +2771,6 @@
 	name = "\improper Cryo Room"
 	},
 /turf/open/shuttle/dropship/fourteen,
-/area/yautja)
-"YT" = (
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/turf/open/beach/sand,
 /area/yautja)
 "Za" = (
 /obj/structure/table/mainship{
@@ -2860,12 +2817,6 @@
 	resistance_flags = 1
 	},
 /turf/open/floor/corsat,
-/area/yautja)
-"ZE" = (
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/obj/effect/turf_decal/lvsanddecal/full,
-/turf/open/beach/sand,
 /area/yautja)
 "ZR" = (
 /obj/structure/rack{
@@ -4204,11 +4155,11 @@ cP
 cP
 bj
 Zu
-cq
+gp
 Qs
 bL
 bL
-VY
+sx
 Nh
 JH
 JH
@@ -4833,11 +4784,11 @@ cP
 bL
 bj
 bL
-SB
+eY
 bL
 bj
 bL
-SB
+eY
 bL
 bj
 hV
@@ -4917,7 +4868,7 @@ bL
 JH
 JH
 af
-be
+MI
 af
 JH
 JH
@@ -5020,7 +4971,7 @@ bj
 bj
 bj
 PJ
-SB
+eY
 cP
 cP
 bj
@@ -5338,9 +5289,9 @@ cP
 cP
 ar
 cP
-Fh
-Fh
-Fh
+JH
+JH
+JH
 cP
 aP
 cP
@@ -5373,7 +5324,7 @@ Hz
 ag
 bV
 dm
-ol
+Nn
 Xk
 Pb
 cP
@@ -5410,9 +5361,9 @@ bL
 bL
 ti
 cP
-Fh
-Sh
-Fh
+JH
+wu
+JH
 cP
 ti
 bL
@@ -5444,8 +5395,8 @@ cP
 GG
 ag
 eg
-ch
-ZE
+Nn
+Nn
 Xk
 UG
 cP
@@ -5482,9 +5433,9 @@ cP
 cP
 ar
 cP
-Fh
-Fh
-Fh
+JH
+JH
+JH
 cP
 aP
 cP
@@ -5493,8 +5444,8 @@ cP
 cP
 bL
 UR
+SB
 eT
-jU
 bL
 cP
 cP
@@ -5516,8 +5467,8 @@ cP
 ny
 ag
 Nn
-ol
-YT
+Nn
+Nn
 Xk
 mj
 cP
@@ -5752,7 +5703,7 @@ cP
 cP
 cP
 bj
-VY
+sx
 bj
 aa
 aa
