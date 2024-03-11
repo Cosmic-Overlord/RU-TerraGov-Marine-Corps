@@ -172,10 +172,10 @@
 			if(initial_stage != stage)
 				initial_stage = stage
 				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
-			if(species.species_flags & ROBOTIC_LIMBS)
-				status_hud.icon_state = "huddeaddefib_robot"
-			else
-				status_hud.icon_state = "huddeaddefib[stage]"
+				if(species.species_flags & ROBOTIC_LIMBS)
+					status_hud.icon_state = "huddeaddefib_robot"
+				else
+					status_hud.icon_state = "huddeaddefib[stage]"
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
