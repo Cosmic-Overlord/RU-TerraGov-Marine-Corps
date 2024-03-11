@@ -31,7 +31,7 @@
 	if(bomb_armor_ratio <= 0) //we have 100 effective bomb armor
 		return
 
-	//if((severity == EXPLODE_DEVASTATE) && (bomb_armor_ratio > XENO_EXPLOSION_GIB_THRESHOLD)) // stop yelling
+	//if((severity == EXPLODE_DEVASTATE) && (bomb_armor_ratio > XENO_EXPLOSION_GIB_THRESHOLD)) // RUTGMC DELETION, cause it yells
 	//	return gib() //Gibs unprotected benos
 
 	switch(severity)
