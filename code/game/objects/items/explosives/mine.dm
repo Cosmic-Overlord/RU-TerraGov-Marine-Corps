@@ -204,6 +204,7 @@ Stepping directly on the mine will also blow it up
 	linked_mine = null
 	return ..()
 
+/* RUTGMC DELETION
 /// When crossed the tripwire triggers the linked mine
 /obj/effect/mine_tripwire/proc/on_cross(datum/source, atom/movable/AM, oldloc, oldlocs)
 	SIGNAL_HANDLER
@@ -223,6 +224,7 @@ Stepping directly on the mine will also blow it up
 	if(!isliving(AM) && !(isvehicle(AM)))
 		return
 	linked_mine.trip_mine(AM)
+*/
 
 /// PMC specific mine, with IFF for PMC units
 /obj/item/explosive/mine/pmc
