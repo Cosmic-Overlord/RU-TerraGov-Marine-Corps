@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(hologram_list)
 
 	GLOB.hologram_list += src
 	RegisterSignal(M, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(handle_move))
-	RegisterSignal(M, list(
+	RegisterSignals(M, list(
 		COMSIG_HUMAN_DAMAGE_TAKEN,
 		COMSIG_XENOMORPH_TAKING_DAMAGE
 	), PROC_REF(take_damage))
@@ -38,10 +38,10 @@ GLOBAL_LIST_EMPTY(hologram_list)
 	leave_button.linked_hologram = src
 	leave_button.give_action(M)
 
-/mob/hologram/proc/take_damage(mob/M, damage, damagetype)
+/mob/hologram/proc/take_damage(mob/M, datum/source, amount)
 	SIGNAL_HANDLER
 
-	if(damage["damage"] > 5)
+	if(amount > 5)
 		qdel(src)
 
 /mob/hologram/proc/handle_move(mob/M, NewLoc, direct)
