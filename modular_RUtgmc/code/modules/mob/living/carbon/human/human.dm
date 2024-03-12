@@ -5,15 +5,12 @@
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
-	var/b_loss = 0
-	var/f_loss = 0
-	var/damage = severity
 	var/stagger_amount = 0
 	var/slowdown_amount = 0
 	var/ear_damage_amount = 0
 	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
 
-	if(damage >= EXPLOSION_THRESHOLD_GIB)
+	if(severity >= EXPLOSION_THRESHOLD_GIB)
 		var/oldloc = loc
 		gib()
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
@@ -21,10 +18,7 @@
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
 		return
 
-	if(damage >= 0)
-		b_loss += damage * 0.5
-		f_loss += damage * 0.5
-	else
+	if(severity <= 0)
 		return
 
 	if(!istype(wear_ear, /obj/item/clothing/ears/earmuffs))
@@ -33,8 +27,8 @@
 	add_slowdown(slowdown_amount * bomb_armor_ratio)
 
 	#ifdef DEBUG_HUMAN_ARMOR
-	to_chat(world, "DEBUG EX_ACT: bomb_armor_ratio: [bomb_armor_ratio], b_loss: [b_loss], f_loss: [f_loss]")
+	to_chat(world, "DEBUG EX_ACT: bomb_armor_ratio: [bomb_armor_ratio], severity: [severity]")
 	#endif
 
-	take_overall_damage(b_loss, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
-	take_overall_damage(f_loss, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
+	take_overall_damage(severity * 0.5, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
+	take_overall_damage(severity * 0.5,, BURN, BOMB, updating_health = TRUE, max_limbs = 4)

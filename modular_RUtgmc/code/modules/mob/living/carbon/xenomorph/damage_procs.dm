@@ -5,9 +5,6 @@
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
-	if(severity >= 30)
-		flash_act()
-
 	if(severity >= (health) && severity >= EXPLOSION_THRESHOLD_GIB)
 		var/oldloc = loc
 		gib()
