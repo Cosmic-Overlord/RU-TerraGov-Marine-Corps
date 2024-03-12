@@ -46,8 +46,6 @@
 
 	update_minimap_icon()
 
-	return INITIALIZE_HINT_LATELOAD
-
 /obj/structure/xeno/hivemindcore/proc/clear_warning()
 	warning = FALSE
 	update_minimap_icon()
