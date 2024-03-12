@@ -416,7 +416,8 @@
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
 	if(is_zoomed)
-		zoom_out()
+		if(!can_walk_zoomed)
+			zoom_out()
 	handle_weeds_on_movement()
 	return ..()
 
