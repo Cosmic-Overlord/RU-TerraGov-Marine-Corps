@@ -33,7 +33,7 @@
 	to_chat(get_parent(), span_xenoannounce("Our [src.name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).")) //message himself
 	SEND_SOUND(get_parent(), 'sound/voice/alien_help1.ogg') //sounds to himself
 	COOLDOWN_START(src, hivemind_proxy_alert_cooldown, XENO_HIVEMIND_DETECTION_COOLDOWN) //set the cooldown.
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_SILO_DETECTION_COOLDOWN) //clear warning
+	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_HIVEMIND_DETECTION_COOLDOWN) //clear warning
 
 /obj/structure/xeno/hivemindcore/Initialize(mapload, _hivenumber)
 	. = ..()
