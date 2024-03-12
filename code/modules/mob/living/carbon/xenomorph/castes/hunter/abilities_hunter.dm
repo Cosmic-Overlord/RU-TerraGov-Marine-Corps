@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 // ***************************************
 // *********** Stealth
 // ***************************************
@@ -255,7 +256,7 @@
 	if(!xenoowner.plasma_stored)
 		to_chat(xenoowner, span_xenodanger("We lack sufficient plasma to remain disguised."))
 		cancel_stealth()
-
+RU TGMC EDIT */
 
 // ***************************************
 // *********** Hunter's Pounce

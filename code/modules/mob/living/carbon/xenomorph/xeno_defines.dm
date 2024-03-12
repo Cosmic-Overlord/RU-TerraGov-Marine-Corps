@@ -335,6 +335,7 @@
 
 	var/is_zoomed = 0
 	var/zoom_turf = null
+	var/can_walk_zoomed = FALSE
 
 	///Type of weeds the xeno is standing on, null when not on weeds
 	var/obj/alien/weeds/loc_weeds_type

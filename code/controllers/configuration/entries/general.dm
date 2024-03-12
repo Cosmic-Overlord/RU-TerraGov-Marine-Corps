@@ -44,6 +44,10 @@ Basics, the most important.
 
 /datum/config_entry/string/restart_message
 
+/datum/config_entry/string/discord_ban_channel
+	config_entry_value = "game-bans"
+	protection = CONFIG_ENTRY_LOCKED|CONFIG_ENTRY_HIDDEN
+
 /datum/config_entry/flag/guest_ban
 
 /*
