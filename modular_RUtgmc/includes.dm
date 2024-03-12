@@ -295,6 +295,7 @@
 #include "code\modules\power\fusion_engine.dm"
 #include "code\modules\power\groundmap_geothermal.dm"
 #include "code\modules\power\lighting.dm"
+#include "code\modules\power\terminal.dm"
 #include "code\modules\projectiles\ammo_datums.dm"
 #include "code\modules\projectiles\gun_attachables.dm"
 #include "code\modules\projectiles\projectile.dm"
