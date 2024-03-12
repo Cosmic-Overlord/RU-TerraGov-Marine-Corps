@@ -1,4 +1,9 @@
 /mob/living/carbon/xenomorph/ex_act(severity, direction)
+	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
+	var/stagger_amount = severity / 50 * bomb_armor_ratio
+	var/slowdown_amount = severity / 33 * bomb_armor_ratio
+	var/sunder_amount = severity / 10 * bomb_armor_ratio
+
 	if(status_flags & (INCORPOREAL|GODMODE))
 		return
 
@@ -10,25 +15,10 @@
 		gib()
 		create_shrapnel(oldloc, rand(16, 24), shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
+
 	if(severity >= 0)
 		apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
-		var/powerfactor_value = round(severity * 0.05, 1)
-		powerfactor_value = min(severity, 20)
-		if(powerfactor_value > 0)
-			AdjustKnockdown(powerfactor_value / 5)
-			adjust_sunder(powerfactor_value * get_sunder())
-			if(mob_size < MOB_SIZE_BIG)
-				add_slowdown(powerfactor_value)
-				adjust_stagger(powerfactor_value / 2)
-			else
-				add_slowdown(powerfactor_value / 3)
-		else if(powerfactor_value > 10)
-			powerfactor_value /= 5
-			AdjustKnockdown(powerfactor_value / 5)
-			adjust_sunder(powerfactor_value * get_sunder())
-			if(mob_size < MOB_SIZE_BIG)
-				add_slowdown(powerfactor_value)
-				adjust_stagger(powerfactor_value / 2)
-			else
-				add_slowdown(powerfactor_value / 3)
 		explosion_throw(severity, direction)
+		adjust_stagger(clamp(stagger_amount, 0, 10))
+		add_slowdown(clamp(slowdown_amount, 0, 10))
+		adjust_sunder(clamp(sunder_amount, 0, 100))
