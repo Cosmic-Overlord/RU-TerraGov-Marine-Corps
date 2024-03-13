@@ -15,7 +15,6 @@
 #include "skills.dm"
 #include "loadout.dm"
 #include "predators.dm"
-#include "_radio.dm"
 #include "conflict.dm"
 #include "equipment.dm"
 #include "minimap.dm"
