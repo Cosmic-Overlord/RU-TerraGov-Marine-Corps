@@ -5,7 +5,7 @@
 	if(triggered)
 		return
 	triggered = TRUE
-	create_shrapnel(tripwire_triggered ? tripwire.loc : loc, 12, dir, shrapnel_type = /datum/ammo/bullet/shrapnel/metal, on_hit_coefficient = 0.45)
+	create_shrapnel(tripwire_triggered ? tripwire.loc : loc, 12, dir, shrapnel_type = /datum/ammo/bullet/shrapnel/metal, on_hit_coefficient = 45)
 	cell_explosion(tripwire_triggered ? tripwire.loc : loc, 90, 30, shrapnel = FALSE)
 	QDEL_NULL(tripwire)
 	qdel(src)
