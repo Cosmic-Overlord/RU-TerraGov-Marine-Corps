@@ -310,7 +310,7 @@ as having entered the turf.
 	if(flame_range)
 		flame_radius(flame_range, epicenter, colour = flame_color)
 	if(power >= EXPLODE_MEDIUM)
-		for(var/mob/living/carbon/carbon_viewers in viewers(power / falloff, epicenter))
+		for(var/mob/living/carbon/carbon_viewers in viewers(orig_max_distance, epicenter))
 			carbon_viewers.flash_act()
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
