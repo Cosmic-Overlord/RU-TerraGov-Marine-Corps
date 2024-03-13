@@ -1,6 +1,7 @@
 /datum/xeno_caste/praetorian
 
 	// *** Ranged Attack *** //
+	spit_delay = 1 SECONDS
 	spit_types = list(/datum/ammo/xeno/acid/heavy/passthrough)
 
 	// *** Flags *** //
