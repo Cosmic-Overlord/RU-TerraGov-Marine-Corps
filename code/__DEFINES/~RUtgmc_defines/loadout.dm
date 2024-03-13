@@ -98,6 +98,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/effect/vendor_bundle/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
+		/obj/item/armor_module/module/valkyrie_autodoc = list(CAT_LEDSUP, "Valkyrie Automedical Armor System", 25,"white"),
 		/obj/item/storage/backpack/lightpack = list(CAT_LEDSUP, "Combat Backpack", 5, "orange"),
 		/obj/item/storage/backpack/marine/radiopack = list(CAT_LEDSUP, "Radio Pack", 5, "orange"),
 		/obj/item/fulton_extraction_pack = list(CAT_LEDSUP, "Fulton Extraction Pack", 5, "orange"),

@@ -442,10 +442,10 @@ GLOBAL_LIST_INIT(module, list(
 	recipe = GLOB.module
 
 /obj/item/factory_part/module_mimir2
-	name = "\improper Mimir environmental resistance system" //RU TGMC EDIT
-	desc = "An unfinished Mimir environmental resistance system module." //RU TGMC EDIT
+	name = "\improper Mimir environmental resistance system"
+	desc = "An unfinished Mimir environmental resistance system module."
 	result = list(
-//		/obj/item/armor_module/module/mimir_environment_protection, RU TGMC EDIT
+		/obj/item/armor_module/module/mimir_environment_protection,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 	)
 

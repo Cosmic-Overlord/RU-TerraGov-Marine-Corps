@@ -171,6 +171,7 @@
 	slowdown = 0
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1
+	name = "Mimir Environmental Helmet System"
 	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
-	gas_transfer_coefficient_mod = -1.4
+	gas_transfer_coefficient_mod = -1

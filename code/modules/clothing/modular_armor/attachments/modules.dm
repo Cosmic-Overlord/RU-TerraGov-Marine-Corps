@@ -113,7 +113,7 @@
  * Extra armor module
 */
 /obj/item/armor_module/module/tyr_extra_armor
-	name = "\improper Mark 2 Tyr Armor Reinforcement"
+	name = "\improper Tyr Armor Reinforcement" // RU TGMC EDIT
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_armor"
