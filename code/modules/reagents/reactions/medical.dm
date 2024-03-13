@@ -39,12 +39,12 @@
 	name = "Meralyne"
 	results = list(/datum/reagent/medicine/meralyne = 3)
 	required_reagents = list(/datum/reagent/medicine/inaprovaline = 1, /datum/reagent/medicine/bicaridine = 1, /datum/reagent/iron = 1, /datum/reagent/medicine/lemoline = 1)
-
+/* RU TGMC EDIT
 /datum/chemical_reaction/ryetalyn
 	name = "Ryetalyn"
 	results = list(/datum/reagent/medicine/ryetalyn = 2)
 	required_reagents = list(/datum/reagent/medicine/arithrazine = 1, /datum/reagent/carbon = 1, /datum/reagent/medicine/lemoline = 1)
-
+RU TGMC EDIT */
 /datum/chemical_reaction/cryoxadone
 	name = "Cryoxadone"
 	results = list(/datum/reagent/medicine/cryoxadone = 3)
@@ -147,7 +147,7 @@
 /datum/chemical_reaction/peridaxon_plus
 	name = "Peridaxon Plus"
 	results = list(/datum/reagent/medicine/peridaxon_plus = 1)
-	required_reagents = list(/datum/reagent/medicine/ryetalyn = 5, /datum/reagent/toxin/phoron = 5)
+	required_reagents = list(/datum/reagent/medicine/hyronalin = 5, /datum/reagent/toxin/phoron = 5) //RU TGMC EDIT
 
 /datum/chemical_reaction/quickclot
 	name = "Quick-Clot"

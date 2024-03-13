@@ -1,8 +1,3 @@
-/datum/chemical_reaction/ryetalyn
-	name = "Ryetalyn"
-	results = list(/datum/reagent/medicine/ryetalyn = 2)
-	required_reagents = list(/datum/reagent/medicine/arithrazine = 1, /datum/reagent/carbon = 1)
-
 /datum/chemical_reaction/synaptizine
 	name = "Synaptizine"
 	results = list(/datum/reagent/medicine/synaptizine = 3)
