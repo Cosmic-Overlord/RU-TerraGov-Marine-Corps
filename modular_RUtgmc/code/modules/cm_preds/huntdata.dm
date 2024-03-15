@@ -59,10 +59,12 @@
 		var/honor_value = max(owner.life_kills_total + owner.life_value, owner.default_honor_value)
 		if(src in hunter.hunter_data.targets)
 			honor_value += 3
-		to_chat(hunter, span_yautjabold("Your killed your Prey"))
+		to_chat(hunter, span_yautjabold("You killed your Prey"))
 		INVOKE_ASYNC(hunter.client, TYPE_PROC_REF(/client, add_honor), honor_value + 1)
 		if(hunted)
 			hunter.hunter_data.prey = null
+			hunter = null
+			hunted = FALSE
 	else
 		if(hunter)
 			to_chat(hunter, span_yautjabold("Your Prey has been killed!"))
