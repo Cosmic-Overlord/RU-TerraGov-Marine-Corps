@@ -467,7 +467,7 @@
 
 /obj/machinery/marine_selector/clothes/synth/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.synthetic_clothes_listed_products
+	listed_products = GLOB.synthetic_clothes_listed_products + GLOB.synthetic_gear_listed_products //RUTGMC EDIT
 
 ////////////////////// Gear ////////////////////////////////////////////////////////
 

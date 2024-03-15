@@ -37,3 +37,79 @@
 	add_cooldown()
 	return succeed_activate()
 
+/datum/action/ability/activable/xeno/cresttoss
+	action_icon_state = "cresttoss_away"
+	desc = "Fling an adjacent target either over and behind you, or away from you by toggling the ability. Also works over barricades."
+	var/tossing_away = TRUE
+
+/datum/action/ability/activable/xeno/cresttoss/action_activate(atom/movable/A)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(xeno_owner.selected_ability == src)
+		if(!tossing_away)
+			tossing_away = TRUE
+			xeno_owner.balloon_alert(xeno_owner, "Tossing away!")
+		else
+			tossing_away = FALSE
+			xeno_owner.balloon_alert(xeno_owner, "Tossing behind you!")
+		update_button_icon()
+	return ..()
+
+/datum/action/ability/activable/xeno/cresttoss/update_button_icon()
+	action_icon_state = tossing_away ? "cresttoss_away" : "cresttoss_behind"
+	return ..()
+
+/datum/action/ability/activable/xeno/cresttoss/use_ability(atom/movable/A)
+	var/mob/living/carbon/xenomorph/X = owner
+	var/toss_distance = X.xeno_caste.crest_toss_distance
+	var/toss_direction
+	var/turf/throw_origin = get_turf(X)
+	var/turf/target_turf = throw_origin //throw distance is measured from the xeno itself
+	var/big_mob_message
+
+	X.face_atom(A) //Face towards the target so we don't look silly
+
+	if(!X.issamexenohive(A)) //xenos should be able to fling xenos into xeno passable areas!
+		for(var/obj/effect/forcefield/fog/fog in throw_origin)
+			A.balloon_alert(X, "Cannot, fog")
+			return fail_activate()
+	if(isliving(A))
+		var/mob/living/L = A
+		if(L.mob_size >= MOB_SIZE_BIG) //Penalize toss distance for big creatures
+			toss_distance = FLOOR(toss_distance * 0.5, 1)
+			big_mob_message = ", struggling mightily to heft its bulk"
+	else if(ismecha(A))
+		toss_distance = FLOOR(toss_distance * 0.5, 1)
+		big_mob_message = ", struggling mightily to heft its bulk"
+
+	if(!tossing_away)
+		toss_direction = get_dir(A, X)
+	else
+		toss_direction = get_dir(X, A)
+
+	var/turf/temp
+	for(var/x in 1 to toss_distance)
+		temp = get_step(target_turf, toss_direction)
+		if(!temp)
+			break
+		target_turf = temp
+
+	X.icon_state = "Crusher Charging" //Momentarily lower the crest for visual effect
+
+	X.visible_message(span_xenowarning("\The [X] flings [A] away with its crest[big_mob_message]!"), \
+	span_xenowarning("We fling [A] away with our crest[big_mob_message]!"))
+
+	succeed_activate()
+
+	A.forceMove(throw_origin)
+	A.throw_at(target_turf, toss_distance, 1, X, TRUE, TRUE)
+
+	//Handle the damage
+	if(!X.issamexenohive(A) && isliving(A)) //Friendly xenos don't take damage.
+		var/damage = toss_distance * 6
+		var/mob/living/L = A
+		L.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE)
+		shake_camera(L, 2, 2)
+		playsound(A, pick('sound/weapons/alien_claw_block.ogg','sound/weapons/alien_bite2.ogg'), 50, 1)
+
+	add_cooldown()
+	addtimer(CALLBACK(X, TYPE_PROC_REF(/mob, update_icons)), 3)
