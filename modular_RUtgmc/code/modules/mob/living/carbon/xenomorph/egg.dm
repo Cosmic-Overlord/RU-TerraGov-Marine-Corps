@@ -9,6 +9,23 @@
 	GLOB.xeno_egg_hugger -= src
 	return ..()
 
+/obj/alien/egg/hugger/burst(via_damage)
+	. = ..()
+	if(!.)
+		return
+	if(via_damage)
+		hugger_type = null
+		playsound(loc, "sound/effects/alien_egg_burst.ogg", 30)
+		flick("egg exploding", src)
+		return
+	playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
+	flick("egg opening", src)
+	addtimer(CALLBACK(src, PROC_REF(spawn_hugger), loc), 1 SECONDS)
+
+/obj/alien/egg/hugger/proc/spawn_hugger()
+	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(src), hivenumber)
+	hugger_type = null
+	hugger.go_active()
 
 //Observers can become playable facehuggers by clicking on the egg
 /obj/alien/egg/hugger/attack_ghost(mob/dead/observer/user)

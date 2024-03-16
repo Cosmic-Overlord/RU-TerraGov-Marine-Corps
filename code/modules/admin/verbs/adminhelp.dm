@@ -914,9 +914,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/list/powerlessmins = adm["noflags"]
 		var/list/allmins = adm["total"]
 		if(!length(afkmins) && !length(stealthmins) && !length(powerlessmins))
-			final = "[msg] - No admins online"
+			final = "ROUND:[GLOB.round_id], [msg] - No admins online"
 		else
-			final = "[msg] - No available admins - Stealth: ([english_list(stealthmins)]) | AFK: ([english_list(afkmins)]) | Mentors: ([english_list(powerlessmins)]) | Total: [length(allmins)]"
+			final = "ROUND:[GLOB.round_id], [msg] - No available admins - Stealth: ([english_list(stealthmins)]) | AFK: ([english_list(afkmins)]) | Mentors: ([english_list(powerlessmins)]) | Total: [length(allmins)]"
 		send2adminchat(source, final)
 
 

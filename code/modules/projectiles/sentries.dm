@@ -326,6 +326,8 @@
 	if(!internal_item)
 		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
+	if(!gun) // RUTGMC ADDITION
+		return
 	if(!alert_code || !CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS) || !CHECK_BITFIELD(gun.turret_flags, TURRET_ON))
 		return
 
