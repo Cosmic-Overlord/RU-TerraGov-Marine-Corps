@@ -1,7 +1,6 @@
 /datum/xeno_caste/crusher
 
 	// *** Sunder *** //
-	sunder_recover = 2
 	sunder_max = 30
 
 	actions = list(

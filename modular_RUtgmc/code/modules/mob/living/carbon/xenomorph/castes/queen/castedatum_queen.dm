@@ -3,7 +3,7 @@
 	max_health = 600
 
 	// *** Sunder *** //
-	sunder_recover = 1.5
+	sunder_recover = 2
 	sunder_max = 30
 
 	actions = list(
