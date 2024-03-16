@@ -62,7 +62,8 @@
 
 /obj/item/armor_module/module/valkyrie_autodoc/som
 	name = "\improper Apollo Automedical Armor System"
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	//icon = 'icons/mob/modular/modular_armor_modules.dmi' // RUTGMC DELETION
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi' // RUTGMC ADDITION
 	desc = "Designed to be mounted on SOM combat armor, or internally inside Gorgon assault armor. This module has advanced medical systems that inject tricordrazine and tramadol based on the user's needs, as well as automatically securing the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. Will definitely impact mobility."
 	icon_state = "mod_autodoc_som"
 	item_state = "mod_autodoc_som_a"
@@ -97,6 +98,7 @@
 	desc = "Designed for mounting on modular SOM armor. Provides excellent resistance to fire and prevents combustion. As it is not a sealed system, it does not completely protect the user from the heat of fire. Will impact mobility."
 	icon_state = "mod_fire_som"
 	item_state = "mod_fire_som_a"
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi' // RUTGMC ADDITION
 
 /obj/item/armor_module/module/fire_proof_helmet
 
@@ -133,7 +135,8 @@
 /obj/item/armor_module/module/tyr_extra_armor/som
 	name = "\improper Lorica Armor Reinforcement"
 	desc = "Designed for mounting on modular SOM armor. A substantial amount of additional armor plating designed to grant the user extra protection against all forms of damage. Will definitely impact mobility."
-	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	//icon = 'icons/mob/modular/modular_armor_modules.dmi' // RUTGMC DELETION
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi' // RUTGMC ADDITION
 	icon_state = "lorica_armor"
 	item_state = "lorica_armor_a"
 	attachment_layer = null
@@ -204,6 +207,7 @@
 /obj/item/armor_module/module/mimir_environment_protection/som
 	name = "\improper Mithridatius Hostile Environment System"
 	desc = "Designed for mounting on modular SOM armor. This module appears to be designed to protect the user from the effects of radiological attacks, although also provides improved resistance against other environmental threats such as acid and gas. Pairing this with a Mithridatius helmet module and mask will make the user impervious to gas clouds. Will impact mobility."
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi' // RUTGMC ADDITION
 	icon_state = "mithridatius"
 	item_state = "mithridatius_a"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
