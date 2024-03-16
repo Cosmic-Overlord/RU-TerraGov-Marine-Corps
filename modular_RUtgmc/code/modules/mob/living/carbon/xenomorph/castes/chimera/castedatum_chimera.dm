@@ -8,6 +8,9 @@
 	upgrade = XENO_UPGRADE_BASETYPE
 	wound_type = "chimera" //used to match appropriate wound overlays
 
+// *** Sunder *** //
+	sunder_max = 30
+
 	// *** Melee Attacks *** //
 	melee_damage = 25
 	attack_delay = 7

@@ -1,5 +1,8 @@
 /datum/xeno_caste/behemoth
 
+	// *** Sunder *** //
+	sunder_max = 30
+
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG|CASTE_STAGGER_RESISTANT
 

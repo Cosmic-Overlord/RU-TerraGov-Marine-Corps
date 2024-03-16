@@ -2,7 +2,9 @@
 
 	max_health = 600
 
+	// *** Sunder *** //
 	sunder_recover = 1.5
+	sunder_max = 30
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,

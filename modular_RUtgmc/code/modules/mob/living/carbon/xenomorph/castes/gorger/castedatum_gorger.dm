@@ -1,5 +1,8 @@
 /datum/xeno_caste/gorger
 
+// *** Sunder *** //
+	sunder_max = 30
+
 	// *** Plasma *** //
 	plasma_gain = 5
 	plasma_regen_limit = 0.1

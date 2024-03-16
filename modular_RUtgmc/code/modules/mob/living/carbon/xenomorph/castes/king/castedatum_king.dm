@@ -1,6 +1,8 @@
 /datum/xeno_caste/king
 
+// *** Sunder *** //
 	sunder_recover = 2
+	sunder_max = 30
 
 	// *** Flags *** //
 	caste_flags = CASTE_IS_INTELLIGENT|CASTE_STAGGER_RESISTANT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION

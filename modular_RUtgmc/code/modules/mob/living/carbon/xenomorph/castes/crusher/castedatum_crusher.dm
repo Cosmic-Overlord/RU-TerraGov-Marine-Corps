@@ -2,6 +2,7 @@
 
 	// *** Sunder *** //
 	sunder_recover = 2
+	sunder_max = 30
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
