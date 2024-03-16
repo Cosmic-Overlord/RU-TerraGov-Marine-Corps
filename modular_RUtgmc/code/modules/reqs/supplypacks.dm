@@ -206,7 +206,7 @@ ARMOR
 	cost = 300
 
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
-	cost = 250
+	cost = 150
 
 /datum/supply_packs/armor/robot/advanced/physical
 	name = "Cingulata physical protection armor set"
