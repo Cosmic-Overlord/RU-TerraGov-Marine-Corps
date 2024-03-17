@@ -704,6 +704,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/mask/gas/tactical/coif = list(CAT_MAS, "Tactical coifed gas mask", 0,"black"),
 	))
 
+/* RUTGMC REDEFINITION IN MODULAR
 ///Assoc list linking the job title with their specific clothes vendor
 GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 	SQUAD_MARINE = GLOB.marine_clothes_listed_products,
@@ -714,7 +715,6 @@ GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 	SYNTHETIC = GLOB.synthetic_clothes_listed_products,
 ))
 
-/* RUTGMC REDEFINITION IN MODULAR
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	SQUAD_ENGINEER = list (
 		/obj/item/explosive/plastique = 1,
