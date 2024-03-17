@@ -8,9 +8,6 @@
 	. = ..()
 	var/mob/living/carbon/xenomorph/queen/X = owner
 
-	var/datum/action/ability/xeno_action/heal_screech = X.actions_by_path[/datum/action/ability/activable/xeno/heal_screech]
-	if(heal_screech)
-		heal_screech.add_cooldown(15 SECONDS)
 	var/datum/action/ability/xeno_action/plasma_screech = X.actions_by_path[/datum/action/ability/activable/xeno/plasma_screech]
 	if(plasma_screech)
 		plasma_screech.add_cooldown(15 SECONDS)
@@ -49,9 +46,6 @@
 	var/datum/action/ability/xeno_action/screech = X.actions_by_path[/datum/action/ability/activable/xeno/screech]
 	if(screech)
 		screech.add_cooldown(10 SECONDS)
-	var/datum/action/ability/xeno_action/heal_screech = X.actions_by_path[/datum/action/ability/activable/xeno/heal_screech]
-	if(heal_screech)
-		heal_screech.add_cooldown(5 SECONDS)
 	var/datum/action/ability/xeno_action/frenzy_screech = X.actions_by_path[/datum/action/ability/activable/xeno/frenzy_screech]
 	if(frenzy_screech)
 		frenzy_screech.add_cooldown(5 SECONDS)
@@ -85,9 +79,6 @@
 	var/datum/action/ability/xeno_action/screech = X.actions_by_path[/datum/action/ability/activable/xeno/screech]
 	if(screech)
 		screech.add_cooldown(10 SECONDS)
-	var/datum/action/ability/xeno_action/heal_screech = X.actions_by_path[/datum/action/ability/activable/xeno/heal_screech]
-	if(heal_screech)
-		heal_screech.add_cooldown(5 SECONDS)
 	var/datum/action/ability/xeno_action/plasma_screech = X.actions_by_path[/datum/action/ability/activable/xeno/plasma_screech]
 	if(plasma_screech)
 		plasma_screech.add_cooldown(5 SECONDS)
