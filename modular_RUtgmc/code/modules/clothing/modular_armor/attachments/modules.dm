@@ -7,6 +7,7 @@
 
 /obj/item/armor_module/module/style/heavy_armor
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
+	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 
 /obj/item/armor_module/module/motion_detector
 	name = "Tactical sensor helmet module"
@@ -175,3 +176,10 @@
 	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
 	gas_transfer_coefficient_mod = -1
+
+/**
+ * Extra armor module
+*/
+/obj/item/armor_module/module/tyr_extra_armor
+	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 10)
+	slowdown = 0.4
