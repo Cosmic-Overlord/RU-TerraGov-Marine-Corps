@@ -450,3 +450,10 @@ MEDICAL
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/surgery
+	contains = list(
+		/obj/item/storage/surgical_tray,
+		/obj/item/clothing/mask/breath/medical,
+		/obj/item/tank/anesthetic,
+	)
