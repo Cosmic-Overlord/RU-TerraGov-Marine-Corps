@@ -128,6 +128,9 @@
 		span_danger("We slash [src]!"))
 		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		playsound(loc, "alien_claw_metal", 25)
+	if(!damage_flag) // RUTGMC ADDITION, xenos don't ignore obj armor, TODO later: delete this and just add MELEE to every attack_alien
+		damage_flag = MELEE
+	testing("attack_alien.damage_flag = [damage_flag]")
 	attack_generic(X, damage_amount, damage_type, damage_flag, effects, armor_penetration)
 	return TRUE
 
