@@ -1,24 +1,21 @@
-/obj/item/reagent_containers/hypospray/unique_action(mob/living/carbon/user)
+/obj/item/reagent_containers/hypospray/unique_action(mob/user)
 	. = ..()
-	if(user.species.species_flags & ROBOTIC_LIMBS)
-		return FALSE
-
 	if(inject_mode == HYPOSPRAY_INJECT_MODE_DRAW)
 		balloon_alert(user, "You don't think this is a good idea...")
-		return FALSE
+		return
 
 	if(!reagents.total_volume)
 		balloon_alert(user, "Hypospray is empty!")
-		return FALSE
+		return
 
 	if(skilllock && user.skills.getRating(SKILL_MEDICAL) < SKILL_MEDICAL_NOVICE)
 		user.visible_message(span_notice("[user] fumbles around figuring out how to use the [src]."),
 		span_notice("You fumble around figuring out how to use the [src]."))
 		if(!do_after(user, SKILL_TASK_EASY, NONE, user_display = BUSY_ICON_UNSKILLED))
-			return FALSE
+			return
 
 	if(!user.can_inject(user, TRUE, user.zone_selected, TRUE))
-		return FALSE
+		return
 
 	var/list/injected = list()
 	for(var/datum/reagent/R in reagents.reagent_list)
