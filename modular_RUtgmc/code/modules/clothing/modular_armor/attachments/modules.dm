@@ -183,3 +183,7 @@
 /obj/item/armor_module/module/tyr_extra_armor
 	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 5)
 	slowdown = 0.4
+
+/obj/item/armor_module/module/eshield
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	damaged_shield_cooldown = 20 SECONDS
