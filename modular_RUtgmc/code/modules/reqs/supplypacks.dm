@@ -436,6 +436,24 @@ MEDICAL
 	contains = list(/obj/item/storage/pill_bottle/russian_red)
 	cost = 30
 
+/datum/supply_packs/medical/neuraline_kit
+	name ="large neuraline kit"
+	notes = "contains five neuraline injectors"
+	contains = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+		)
+	cost = 250
+
+/datum/supply_packs/medical/neuraline_kit_injector
+	name ="Neuraline autoinjector"
+	notes = "contains one neuraline injector"
+	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/neuraline)
+	cost = 70
+
 /datum/supply_packs/medical/bkkt_kit
 	name = "BKKT kit"
 	notes = "contains pill bottles BKKT."
