@@ -24,6 +24,11 @@
 			wdelay -= skill_value * 2
 		else
 			wdelay += wield_penalty
+
+	if(istype(src, /obj/item/weapon/gun/launcher/rocket))
+		if(user.skills.getRating(SKILL_ENGINEER) > SKILL_ENGINEER_PLASTEEL)
+			wdelay -= user.skills.getRating(SKILL_ENGINEER) * 3 // magic
+
 	wield_time = world.time + wdelay
 	playsound(loc, wield_sound, 20, 1)
 	do_wield(user, wdelay)
