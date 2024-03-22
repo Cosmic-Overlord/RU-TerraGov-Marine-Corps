@@ -6,17 +6,17 @@
 
 ///List of globs, keyed by icon state. Used for radial selection.
 GLOBAL_LIST_INIT(boiler_glob_list, list(
-		BOILER_GLOB_NEURO = /datum/ammo/xeno/boiler_gas,
+//		BOILER_GLOB_NEURO = /datum/ammo/xeno/boiler_gas, RU TGMC EDIT
 		BOILER_GLOB_ACID = /datum/ammo/xeno/boiler_gas/corrosive,
-		BOILER_GLOB_NEURO_LANCE = /datum/ammo/xeno/boiler_gas/lance,
+//		BOILER_GLOB_NEURO_LANCE = /datum/ammo/xeno/boiler_gas/lance, RU TGMC EDIT
 		BOILER_GLOB_ACID_LANCE = /datum/ammo/xeno/boiler_gas/corrosive/lance,
 		))
 
 ///List of glob action button images, used for radial selection.
 GLOBAL_LIST_INIT(boiler_glob_image_list, list(
-		BOILER_GLOB_NEURO = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO),
+//		BOILER_GLOB_NEURO = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO), RU TGMC EDIT
 		BOILER_GLOB_ACID = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_ACID),
-		BOILER_GLOB_NEURO_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO_LANCE),
+//		BOILER_GLOB_NEURO_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO_LANCE), RU TGMC EDIT
 		BOILER_GLOB_ACID_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_ACID_LANCE),
 		))
 
@@ -49,6 +49,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		X.zoom_in(11)
 		..()
 
+/* RU TGMC EDIT // moved to modular
 // ***************************************
 // *********** Gas type toggle
 // ***************************************
@@ -171,7 +172,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	action_icon_state = "bomb_count_[X.corrosive_ammo][X.neuro_ammo]"
 	return ..()
 
-/* RUTGMC EDIT, FULLY REWRITTEN IN modular_RUtgmc\code\modules\mob\living\carbon\xenomorph\castes\boiler\abilities_boiler.dm
 // ***************************************
 // *********** Gas cloud bombs
 // ***************************************
@@ -322,7 +322,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 			boiler_owner.client.mouse_pointer_icon = initial(boiler_owner.client.mouse_pointer_icon)
 
 	boiler_owner.anchored = on
-RUTGMC EDIT END*/
+RU TGMC EDIT END*/
 
 // ***************************************
 // *********** Acid spray

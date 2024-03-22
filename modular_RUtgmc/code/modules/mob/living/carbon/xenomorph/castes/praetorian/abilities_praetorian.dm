@@ -21,6 +21,9 @@
 // *********** Acid spray
 // ***************************************
 
+/datum/action/ability/activable/xeno/spray_acid/cone
+	cooldown_duration = 20 SECONDS
+
 /datum/action/ability/activable/xeno/spray_acid/cone/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	var/turf/target = get_turf(A)
@@ -28,7 +31,7 @@
 	if(!istype(target)) //Something went horribly wrong. Clicked off edge of map probably
 		return
 
-	if(!do_after(X, 1 SECONDS, NONE, target, BUSY_ICON_DANGER))
+	if(!do_after(X, 0.5 SECONDS, NONE, target, BUSY_ICON_DANGER))
 		return fail_activate()
 
 	if(!can_use_ability(A, TRUE, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
