@@ -786,6 +786,7 @@
 	qdel(query_unban)
 	log_admin_private("[kn] has unbanned [target] from [role].")
 	message_admins("[kna] has unbanned [target] from [role].")
+	send2chat("[kn] has unbanned [target] from [role].", CONFIG_GET(string/discord_ban_channel))
 	var/client/C = GLOB.directory[player_key]
 	if(C)
 		build_ban_cache(C)

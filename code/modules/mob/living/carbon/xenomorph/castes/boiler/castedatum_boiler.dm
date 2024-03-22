@@ -43,8 +43,9 @@
 
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
+/* RU TGMC EDIT
 	spit_types = list(/datum/ammo/xeno/boiler_gas, /datum/ammo/xeno/boiler_gas/corrosive)
-
+RU TGMC EDIT */
 	// *** Minimap Icon *** //
 	minimap_icon = "boiler"
 
@@ -79,10 +80,10 @@
 	caste_desc = "A horrendously effective alien siege engine."
 	upgrade = XENO_UPGRADE_PRIMO
 	primordial_message = "We have refined the art of bombardement to perfection. End them before they can utter a desperate plea."
-
+/* RU TGMC EDIT
 	// *** Ranged Attack *** //
 	spit_types = list(/datum/ammo/xeno/boiler_gas, /datum/ammo/xeno/boiler_gas/lance, /datum/ammo/xeno/boiler_gas/corrosive, /datum/ammo/xeno/boiler_gas/corrosive/lance)
-
+RU TGMC EDIT */
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,

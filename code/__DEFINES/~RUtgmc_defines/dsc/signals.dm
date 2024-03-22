@@ -1,4 +1,3 @@
-
 /// Xeno signals
 #define COMSIG_XENOABILITY_TEARING_TAIL "xenoability_tearing_tail"
 #define COMSIG_XENOABILITY_PANTHER_POUNCE "xenoability_panther_pounce"
@@ -68,3 +67,5 @@
 #define COMSIG_HUMAN_FLAY_ATTEMPT "human_flay_attempt"
 
 #define COMSIG_XENOMORPH_INTERFERENCE "xenomorph_interference"
+///mob/living signals
+#define COMSIG_HUMAN_DEATH_STAGE_CHANGE "human_death_stage_change"

@@ -204,6 +204,15 @@
 /datum/ammo/bullet/pepperball/pepperball_mini
 	damage = 1
 
+/datum/ammo/bullet/shotgun/incendiary
+	damage = 100
+	sundering = 0
+	max_range = 10
+	incendiary_strength = 15
+
+/datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, weaken = 1 SECONDS, knockback = 1, slowdown = 1)
+
 /*
 //================================================
 					Xeno Spits
