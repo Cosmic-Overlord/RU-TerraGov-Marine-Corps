@@ -1,7 +1,10 @@
 /datum/xeno_caste/boiler
 
-// *** Sunder *** //
+	// *** Sunder *** //
 	sunder_max = 30
+
+	// *** Ranged Attack *** //
+	spit_types = list(/datum/ammo/xeno/boiler_gas/corrosive)
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
@@ -22,6 +25,11 @@
 	)
 
 /datum/xeno_caste/boiler/primordial
+
+	// *** Ranged Attack *** //
+	spit_types = list(/datum/ammo/xeno/boiler_gas/corrosive, /datum/ammo/xeno/boiler_gas/corrosive/lance)
+
+
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
 		/datum/action/ability/xeno_action/watch_xeno,

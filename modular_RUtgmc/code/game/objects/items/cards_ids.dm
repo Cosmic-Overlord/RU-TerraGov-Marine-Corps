@@ -7,11 +7,11 @@
 /// How many points the field commander can spend
 #define COMMANDER_TOTAL_BUY_POINTS 45
 /// How many points the synthetic can spend
-#define SYNTH_TOTAL_BUY_POINTS 80
+#define SYNTH_TOTAL_BUY_POINTS 50
 
 /obj/item/card/id/gold
 	marine_points = list(
-		CAT_SYNTH = 80,
+		CAT_SYNTH = SYNTH_TOTAL_BUY_POINTS,
 	)
 
 /obj/item/card/id/dogtag/full
