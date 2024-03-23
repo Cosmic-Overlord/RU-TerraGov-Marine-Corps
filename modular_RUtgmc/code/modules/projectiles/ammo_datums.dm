@@ -297,7 +297,8 @@
 	accurate_range = 32
 	max_range = 8
 	damage = 25
-	penetration = 20
+	damage_falloff = 8
+	penetration = 0
 	shell_speed = 2
 	shrapnel_chance = 5
 
@@ -308,13 +309,13 @@
 	damage = 30
 	shrapnel_chance = 15
 	accuracy = 40
-	penetration = 20
+	penetration = 0
 
 /datum/ammo/bullet/shrapnel/light // weak shrapnel
 	name = "light shrapnel"
 	icon_state = "shrapnel_light"
 	damage = 10
-	penetration = 5
+	penetration = 0
 	shell_speed = 1
 	shrapnel_chance = 0
 
@@ -340,7 +341,7 @@
 	name = "spall"
 	icon_state = "shrapnel_light"
 	damage = 10
-	penetration = 5
+	penetration = 0
 	shell_speed = 1
 	shrapnel_chance = 0
 
