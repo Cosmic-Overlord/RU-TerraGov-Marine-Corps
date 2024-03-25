@@ -498,7 +498,6 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.panther_toxin_type_list (or wait while offtgmc reworks the defiler code and then copy it )
 	var/static/list/panther_toxin_images_list = list(
-			PANTHER_NEUROTOXIN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_NEUROTOXIN),
 			PANTHER_HEMODILE = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_HEMODILE),
 			PANTHER_TRANSVITOX = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_TRANSVITOX),
 			PANTHER_OZELOMELYN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = PANTHER_OZELOMELYN),
@@ -517,7 +516,6 @@
 	update_button_icon()
 	return succeed_activate()
 
-#undef PANTHER_NEUROTOXIN
 #undef PANTHER_HEMODILE
 #undef PANTHER_TRANSVITOX
 #undef PANTHER_OZELOMELYN

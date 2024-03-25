@@ -184,7 +184,7 @@
 			/obj/item/weapon/twohanded/glaive/harvester = -1,
 			/obj/item/storage/belt/utility/full =-1,
 			/obj/item/storage/belt/medical_small = -1,
-			/obj/item/storage/belt/gun/revolver/t500 = -1,
+			/obj/item/storage/holster/belt/revolver/t500 = -1,
 			/obj/item/storage/belt/mortar_belt = 4,
 		),
 		"Pouches" = list(
