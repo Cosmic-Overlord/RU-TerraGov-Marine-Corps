@@ -8,7 +8,7 @@
 GLOBAL_LIST_INIT(hugger_type_list, list(
 		/obj/item/clothing/mask/facehugger/larval,
 		/obj/item/clothing/mask/facehugger/combat/slash,
-		/obj/item/clothing/mask/facehugger/combat/neuro,
+//		/obj/item/clothing/mask/facehugger/combat/neuro, RU TGMC EDIT
 		/obj/item/clothing/mask/facehugger/combat/acid,
 		/obj/item/clothing/mask/facehugger/combat/resin,
 		))
@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(hugger_type_list, list(
 GLOBAL_LIST_INIT(hugger_to_ammo, list(
 	/obj/item/clothing/mask/facehugger/larval = /datum/ammo/xeno/hugger,
 	/obj/item/clothing/mask/facehugger/combat/slash = /datum/ammo/xeno/hugger/slash,
-	/obj/item/clothing/mask/facehugger/combat/neuro = /datum/ammo/xeno/hugger/neuro,
+//	/obj/item/clothing/mask/facehugger/combat/neuro = /datum/ammo/xeno/hugger/neuro, RU TGMC EDIT
 	/obj/item/clothing/mask/facehugger/combat/acid = /datum/ammo/xeno/hugger/acid,
 	/obj/item/clothing/mask/facehugger/combat/resin = /datum/ammo/xeno/hugger/resin,
 ))
@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(hugger_to_ammo, list(
 GLOBAL_LIST_INIT(hugger_images_list,  list(
 		LARVAL_HUGGER = image('icons/Xeno/actions.dmi', icon_state = LARVAL_HUGGER),
 		CLAWED_HUGGER = image('icons/Xeno/actions.dmi', icon_state = CLAWED_HUGGER),
-		NEURO_HUGGER = image('icons/Xeno/actions.dmi', icon_state = NEURO_HUGGER ),
+//		NEURO_HUGGER = image('icons/Xeno/actions.dmi', icon_state = NEURO_HUGGER ), RU TGMC EDIT
 		ACID_HUGGER = image('icons/Xeno/actions.dmi', icon_state = ACID_HUGGER),
 		RESIN_HUGGER = image('icons/Xeno/actions.dmi', icon_state = RESIN_HUGGER),
 		))
