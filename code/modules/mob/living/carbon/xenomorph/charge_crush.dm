@@ -323,7 +323,7 @@
 		var/turf/crushed_turf = crushed
 		switch(precrush)
 			if(1 to 3)
-				crushed_turf.ex_act(precrush)
+				crushed_turf.ex_act(precrush * rand(10, 20)) //:3
 
 		if(QDELETED(crushed_turf))
 			charger.visible_message(span_danger("[charger] plows straight through [preserved_name]!"),
