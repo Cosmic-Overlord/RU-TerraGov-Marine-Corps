@@ -260,6 +260,7 @@
 		else
 			return NONE
 
+/* RUTGMC DELETION
 // Charge is divided into two acts: before and after the crushed thing taking damage, as that can cause it to be deleted.
 /datum/action/ability/xeno_action/ready_charge/proc/do_crush(datum/source, atom/crushed)
 	SIGNAL_HANDLER
@@ -323,7 +324,7 @@
 		var/turf/crushed_turf = crushed
 		switch(precrush)
 			if(1 to 3)
-				crushed_turf.ex_act(precrush * rand(10, 20)) //:3
+				crushed_turf.ex_act(precrush)
 
 		if(QDELETED(crushed_turf))
 			charger.visible_message(span_danger("[charger] plows straight through [preserved_name]!"),
@@ -334,7 +335,7 @@
 		span_xenowarning("We ram into [crushed_turf] and skid to a halt!"))
 		do_stop_momentum(FALSE)
 		return COMPONENT_MOVABLE_PREBUMP_STOPPED
-
+*/
 
 /datum/action/ability/xeno_action/ready_charge/bull_charge
 	action_icon_state = "bull_ready_charge"
