@@ -2344,6 +2344,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 100
 	max_range = 30
 
+/datum/ammo/rocket/oneuse/drop_nade(turf/T)
+	explosion(T, 0, 4, 3, 0, 2)
+
 /datum/ammo/rocket/som
 	name = "high explosive RPG"
 	icon_state = "rpg_he"
