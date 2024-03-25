@@ -31,9 +31,6 @@
 	if(!istype(target)) //Something went horribly wrong. Clicked off edge of map probably
 		return
 
-	if(!do_after(X, 0.5 SECONDS, NONE, target, BUSY_ICON_DANGER))
-		return fail_activate()
-
 	if(!can_use_ability(A, TRUE, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return fail_activate()
 
