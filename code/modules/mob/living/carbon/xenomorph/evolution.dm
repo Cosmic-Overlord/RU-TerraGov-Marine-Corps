@@ -20,12 +20,14 @@
 
 	var/tiers_to_pick_from
 	switch(tier)
-		if(XENO_TIER_ZERO, XENO_TIER_FOUR)
+		if(XENO_TIER_ZERO, XENO_TIER_FOUR, XENO_TIER_MINION)
+/* RU TGMC EDIT
 			if(isxenoshrike(src))
 				tiers_to_pick_from = GLOB.xeno_types_tier_one
 			else
-				to_chat(src, span_warning("Your tier does not allow you to regress."))
-				return
+RU TGMC EDIT */
+			to_chat(src, span_warning("Your tier does not allow you to regress."))
+			return
 		if(XENO_TIER_ONE)
 			tiers_to_pick_from = list(/mob/living/carbon/xenomorph/larva)
 		if(XENO_TIER_TWO)

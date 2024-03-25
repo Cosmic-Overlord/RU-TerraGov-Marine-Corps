@@ -32,11 +32,11 @@
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 50, ACID = 40)
-
+/* RU TGMC EDIT
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
 	spit_types = list(/datum/ammo/xeno/toxin/heavy, /datum/ammo/xeno/acid/heavy)
-
+RU TGMC EDIT */
 	acid_spray_duration = 10 SECONDS
 	acid_spray_range = 5
 	acid_spray_damage = 16

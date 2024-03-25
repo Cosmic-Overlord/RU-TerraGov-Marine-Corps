@@ -101,6 +101,7 @@
 		return
 	color = null
 
+/* RUTGMC DELETION
 /obj/alien/egg/hugger/burst(via_damage)
 	. = ..()
 	if(!.)
@@ -116,6 +117,7 @@
 	hugger_type = null
 	addtimer(CALLBACK(hugger, TYPE_PROC_REF(/atom/movable, forceMove), loc), 1 SECONDS)
 	hugger.go_active()
+*/
 
 /obj/alien/egg/hugger/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(xenomorph.status_flags & INCORPOREAL)

@@ -31,10 +31,6 @@
 #define DEFILER_TRANSVITOX "Transvitox"
 #define DEFILER_OZELOMELYN "Ozelomelyn"
 
-//Baneling specific reagent define
-#define BANELING_ACID "Sulphuric acid"
-#define BANELING_ACID_ICON "spray_acid"
-
 #define TRAP_HUGGER "hugger"
 #define TRAP_SMOKE_NEURO "neurotoxin gas"
 #define TRAP_SMOKE_ACID "acid gas"
@@ -88,7 +84,7 @@ GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
 		))
 
@@ -97,20 +93,11 @@ GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/xeno_sanguinal,
 		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
 		/datum/status_effect/stacking/intoxicated,
 		)))
-
-//List of Baneling chemical types available for selection
-GLOBAL_LIST_INIT(baneling_chem_type_list, list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
-		/datum/reagent/toxin/acid,
-		))
 
 //List of plant types
 GLOBAL_LIST_INIT(plant_type_list, list(
@@ -165,6 +152,9 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/scorpion/ai,
 	/mob/living/carbon/xenomorph/nymph/ai,
 ))
+
+GLOBAL_LIST_INIT(baneling_spawnable, list(
+	/mob/living/carbon/xenomorph/baneling))
 
 ///Heals a xeno, respecting different types of damage
 #define HEAL_XENO_DAMAGE(xeno, amount, passive) do { \
