@@ -2248,7 +2248,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 50
 
 /datum/ammo/rocket/recoilless/drop_nade(turf/T)
-	explosion(T, 0, 3, 4, 0, 2)
+	explosion(T, 0, 3, 3, 0, 2)
 
 /datum/ammo/rocket/recoilless/heat
 	name = "HEAT shell"
@@ -2287,7 +2287,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 25
 
 /datum/ammo/rocket/recoilless/light/drop_nade(turf/T)
-	explosion(T, 0, 1, 8, 0, 1)
+	explosion(T, 0, 1, 3, 0, 1)
 
 /datum/ammo/rocket/recoilless/chemical
 	name = "low velocity chemical shell"
