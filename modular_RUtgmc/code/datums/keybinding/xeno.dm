@@ -122,3 +122,10 @@
 	description = "Leap at your target and knock them down, if you jump close you will hug the target."
 	keybind_signal = COMSING_XENOABILITY_HUGGER_POUNCE
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/short_spray_acid
+	name = "short_spray_acid"
+	full_name = "Praetorian: Short Acid Spray"
+	description = "Sprays some acid"
+	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
+	hotkey_keys = list("E")
