@@ -12,7 +12,7 @@
 
 
 /obj/structure/window/ex_act(severity, explosion_direction)
-	take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WINDOW, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 	if(obj_integrity < 0) // i didn't understand it
 		var/location = get_turf(src)
 		playsound(src, "windowshatter", 50, 1)
