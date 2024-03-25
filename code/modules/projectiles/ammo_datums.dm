@@ -2078,16 +2078,19 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "rocket_he"
 	accurate_range = 20
 	max_range = 14
-	damage = 200
+	damage = 150
 	penetration = 100
 	sundering = 100
+
+/datum/ammo/rocket/he/drop_nade(turf/T)
+	explosion(T, 0, 5, 0, 0, 2)
 
 /datum/ammo/rocket/he/unguided
 	damage = 100
 	flags_ammo_behavior = AMMO_ROCKET|AMMO_SUNDERING // We want this one to specifically go over onscreen range.
 
 /datum/ammo/rocket/he/unguided/drop_nade(turf/T)
-	explosion(T, 0, 7, 0, 0, 2)
+	explosion(T, 0, 3, 5, 0, 2)
 
 /datum/ammo/rocket/ap
 	name = "kinetic penetrator"
