@@ -193,7 +193,7 @@
 		return
 	TIMER_COOLDOWN_START(user, "Banzai", 60 SECONDS)
 	if(user.gender == FEMALE)
-		user.balloon_alert(user, "Women cannot use that!")
+		user.balloon_alert(user, "Women can't use that!")
 	else
 		activator.say("Tenno Heika Banzai!!")
 		playsound(get_turf(user), 'modular_RUtgmc/sound/voice/banzai1.ogg', 30)
