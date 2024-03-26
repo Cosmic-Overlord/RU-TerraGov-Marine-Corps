@@ -11,6 +11,6 @@
 		if(prob(25))
 			if(prob(50)) // prevents spam in close corridors etc
 				src.visible_message(span_warning("The explosion causes shards to spall off of [src]!"))
-			create_shrapnel(location, rand(2,5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
-		take_damage(severity, BRUTE, BOMB)
+			create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
+		take_damage(severity * 1.5, BRUTE, BOMB) // 1.5 а почему бы и нет
 	return
