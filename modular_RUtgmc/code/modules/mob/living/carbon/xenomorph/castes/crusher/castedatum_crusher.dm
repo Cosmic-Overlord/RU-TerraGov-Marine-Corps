@@ -10,6 +10,7 @@
 		/datum/action/ability/activable/xeno/stomp,
 		/datum/action/ability/xeno_action/ready_charge,
 		/datum/action/ability/activable/xeno/cresttoss,
+		/datum/action/ability/activable/xeno/cresttoss/behind,
 		/datum/action/ability/xeno_action/regenerate_skin/crusher,
 	)
 
@@ -22,6 +23,7 @@
 		/datum/action/ability/activable/xeno/stomp,
 		/datum/action/ability/xeno_action/ready_charge,
 		/datum/action/ability/activable/xeno/cresttoss,
+		/datum/action/ability/activable/xeno/cresttoss/behind,
 		/datum/action/ability/activable/xeno/advance,
 		/datum/action/ability/xeno_action/regenerate_skin/crusher,
 	)

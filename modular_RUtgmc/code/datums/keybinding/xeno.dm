@@ -129,3 +129,15 @@
 	description = "Sprays some acid"
 	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/cresttoss
+	name = "cresttoss_away"
+	full_name = "Crusher: Crest Toss Away"
+	description = "Fling an adjacent target away from you."
+
+/datum/keybinding/xeno/cresttoss_behind
+	name = "cresttoss_behind"
+	full_name = "Crusher: Crest Toss Behind"
+	description = "Fling an adjacent target behind you."
+	keybind_signal = COMSIG_XENOABILITY_CRESTTOSS_BEHIND
+	hotkey_keys = list("R")
