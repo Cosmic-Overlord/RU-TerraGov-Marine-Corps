@@ -566,6 +566,7 @@
 	message_admins("[ADMIN_TPMONTY(usr)] forced [O] ([O.type]) to: [method] [message]")
 
 
+/* RUTGMC DELETION
 /datum/admins/proc/drop_bomb()
 	set category = "Admin.Fun"
 	set name = "Drop Bomb"
@@ -574,8 +575,7 @@
 	if(!check_rights(R_FUN))
 		return
 
-	//var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Maxcap", "Custom Bomb")) // ORIGINAL
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")) // RUTGMC EDITION
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("CANCEL", "CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Maxcap", "Custom Bomb"))
 	switch(choice)
 		if("CAS: Widow Maker")
 			playsound(usr.loc, 'sound/machines/hydraulics_2.ogg', 70, TRUE)
@@ -603,8 +603,8 @@
 			explosion(usr.loc, 2, 3, 4, 0, 4)
 		if("Big Bomb")
 			explosion(usr.loc, 3, 5, 7, 0, 5)
-		//if("Maxcap") // RUTGMC DELETION
-			//explosion(usr.loc, GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, 0, GLOB.MAX_EX_FLASH_RANGE)
+		if("Maxcap")
+			explosion(usr.loc, GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, 0, GLOB.MAX_EX_FLASH_RANGE)
 		if("Custom Bomb")
 			var/input_devastation_range = input("Devastation range (in tiles):", "Drop Bomb") as null|num
 			var/input_heavy_impact_range = input("Heavy impact range (in tiles):", "Drop Bomb") as null|num
@@ -631,6 +631,7 @@
 
 	log_admin("[key_name(usr)] dropped a [choice] at [AREACOORD(usr.loc)].")
 	message_admins("[ADMIN_TPMONTY(usr)] dropped a [choice] at [ADMIN_VERBOSEJMP(usr.loc)].")
+*/
 
 /proc/delayed_detonate_bomb(turf/impact, input_devastation_range, input_heavy_impact_range, input_light_impact_range, input_flash_range, input_flame_range, input_throw_range, ceiling_debris)
 	if(ceiling_debris)
