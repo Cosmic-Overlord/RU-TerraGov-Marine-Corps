@@ -34,6 +34,12 @@
 		if(EXPLODE_LIGHT to INFINITY)
 			qdel()
 
+/obj/structure/mineral_door/resin/get_explosion_resistance()
+	if(density)
+		return obj_integrity
+	else
+		return 0
+
 /obj/alien/resin/resin_growth
 	name = GROWTH_WALL
 	desc = "Some sort of resin growth. Looks incredibly fragile"

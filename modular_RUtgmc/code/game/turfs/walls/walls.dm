@@ -14,3 +14,9 @@
 			create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
 		take_damage(severity * 1.5, BRUTE, BOMB) // 1.5 а почему бы и нет
 	return
+
+/turf/closed/wall/get_explosion_resistance()
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return 1000000
+
+	return (max_integrity - (max_integrity - wall_integrity))

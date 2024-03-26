@@ -12,6 +12,15 @@
 	if(take_damage(severity)) // destroyed by explosion, shards go flying
 		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 
+/obj/structure/machinery/door/airlock/get_explosion_resistance()
+	if(density)
+		if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+			return 100000
+		else
+			return (max_integrity - (max_integrity - obj_integrity))
+	else
+		return FALSE
+
 /obj/machinery/door/airlock/attack_facehugger(mob/living/carbon/xenomorph/facehugger/M, isrightclick = FALSE)
 	for(var/atom/movable/AM in get_turf(src))
 		if(AM != src && AM.density && !AM.CanPass(M, M.loc))

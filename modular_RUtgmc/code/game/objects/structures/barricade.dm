@@ -18,6 +18,12 @@
 		take_damage(severity, BRUTE, BOMB)
 	update_icon()
 
+/obj/structure/barricade/get_explosion_resistance(direction)
+	if(!density || direction == turn(dir, 90) || direction == turn(dir, -90))
+		return 0
+	else
+		return min(obj_integrity, 40)
+
 /obj/structure/barricade/metal
 	max_integrity = 225 //4 sheets
 	can_upgrade = TRUE
