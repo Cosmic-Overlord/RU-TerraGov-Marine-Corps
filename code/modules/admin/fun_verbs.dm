@@ -631,7 +631,6 @@
 
 	log_admin("[key_name(usr)] dropped a [choice] at [AREACOORD(usr.loc)].")
 	message_admins("[ADMIN_TPMONTY(usr)] dropped a [choice] at [ADMIN_VERBOSEJMP(usr.loc)].")
-*/
 
 /proc/delayed_detonate_bomb(turf/impact, input_devastation_range, input_heavy_impact_range, input_light_impact_range, input_flash_range, input_flame_range, input_throw_range, ceiling_debris)
 	if(ceiling_debris)
@@ -657,7 +656,6 @@
 	flame_radius(5, impact, 60, 30)
 
 
-/* RUTGMC DELETION
 /datum/admins/proc/drop_dynex_bomb()
 	set category = "Admin.Fun"
 	set name = "Drop DynEx Bomb"
