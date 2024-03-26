@@ -25,9 +25,5 @@
 		explosion(plant_target, 3, 5, 6, 0, 6)
 	else //if we're not, focused boom.
 		cell_explosion(plant_target, 200, 150)
-	if(plant_target)
-		if(isobj(plant_target))
-			plant_target = null
-			if(!istype(plant_target,/obj/vehicle/multitile/root/cm_armored))
-				qdel(plant_target)
+	plant_target.plastique_act()
 	qdel(src)

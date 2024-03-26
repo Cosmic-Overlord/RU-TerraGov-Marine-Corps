@@ -20,3 +20,6 @@
 		return 1000000
 
 	return (max_integrity - (max_integrity - wall_integrity))
+
+/turf/closed/wall/plastique_act()
+	ex_act(5000) // У реинф стенок по 3000 тысячи хп и много брони?
