@@ -9,7 +9,7 @@
 	ability_cost = 280
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SHORT_SPRAY_ACID,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCATTER_SPIT,
 	)
 
 /datum/action/ability/activable/xeno/scatter_spit/on_cooldown_finish()
@@ -56,7 +56,7 @@
 	ability_cost = 100
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCATTER_SPIT,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SHORT_SPRAY_ACID,
 	)
 
 /datum/action/ability/activable/xeno/spray_acid/line/short/use_ability(atom/A)
