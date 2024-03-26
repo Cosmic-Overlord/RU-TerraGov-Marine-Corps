@@ -232,7 +232,7 @@ as having entered the turf.
 	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
 
 // Spawns a cellular automaton of an explosion
-/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, flame_range, flame_color, silent, color, shrapnel = TRUE, adminlog = TRUE)
+/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, flame_range, flame_color, silent, color, shrapnel = TRUE, adminlog = TRUE, orig_range)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
@@ -251,6 +251,8 @@ as having entered the turf.
 	// Calculate far explosion sound range. Only allow the sound effect for heavy/devastating explosions.
 	var/far_dist = power / 10
 	var/orig_max_distance = power / falloff - 1 // used for stuff like radius of effects and light
+	if(orig_range)
+		orig_max_distance = orig_range
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
