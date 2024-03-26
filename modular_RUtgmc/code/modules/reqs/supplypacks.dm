@@ -203,7 +203,7 @@ ARMOR
 
 /datum/supply_packs/armor/modular/attachments/tyr_extra_armor
 	name = "Tyr armor module"
-	cost = 250
+	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
 	cost = 150
