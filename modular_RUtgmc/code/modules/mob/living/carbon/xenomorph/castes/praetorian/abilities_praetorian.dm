@@ -6,14 +6,17 @@
 	name = "Scatter Spit"
 	action_icon_state = "scatter_spit"
 	desc = "Spits a spread of acid projectiles that splatter on the ground."
-	ability_cost = 200
-	cooldown_duration = 3 SECONDS
+	ability_cost = 280
+	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCATTER_SPIT,
 	)
 
 /datum/action/ability/activable/xeno/scatter_spit/praetorian/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/X = owner
+
+	if(!do_after(X, 0.5 SECONDS, NONE, target, BUSY_ICON_DANGER))
+		return fail_activate()
 
 	//Shoot at the thing
 	playsound(X.loc, 'sound/effects/blobattack.ogg', 50, 1)
