@@ -36,7 +36,6 @@
 #include "code\datums\jobs\job\militarypolice.dm"
 #include "code\datums\jobs\job\necoarc.dm"
 #include "code\datums\jobs\job\shipside.dm"
-#include "code\datums\jobs\job\sons_of_mars_shipside.dm"
 #include "code\datums\jobs\job\xenomorph.dm"
 #include "code\datums\keybinding\communication.dm"
 #include "code\datums\keybinding\xeno.dm"

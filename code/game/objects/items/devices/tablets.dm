@@ -255,7 +255,7 @@
 	max_view_dist = WORLD_VIEW_NUM
 
 /obj/item/hud_tablet/pilot
-	name = "pilot officers's hud tablet"
+	name = "cas officers's hud tablet"
 	network = list("dropship1")
 	req_access = list(ACCESS_MARINE_PILOT, ACCESS_MARINE_DROPSHIP)
 	max_view_dist = WORLD_VIEW_NUM

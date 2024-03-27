@@ -402,17 +402,17 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	H.equip_to_slot_or_hand(new /obj/item/stack/sandbags/large_stack, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_hand(new /obj/item/stack/barbed_wire/full, SLOT_IN_R_POUCH)
 
-//Pilot Officer
+//CAS Officer
 /datum/job/terragov/command/casofficer
-	title = PILOT_OFFICER
+	title = CAS_OFFICER
 	paygrade = "WO"
 	comm_title = "PO"
 	total_positions = 1
 	access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT)
 	minimal_access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO, ACCESS_MARINE_RO, ACCESS_MARINE_MEDBAY)
-	skills_type = /datum/skills/pilot
+	skills_type = /datum/skills/casofficer
 	display_order = JOB_DISPLAY_ORDER_PILOT_OFFICER
-	outfit = /datum/outfit/job/command/pilot
+	outfit = /datum/outfit/job/command/casofficer
 	exp_requirements = XP_REQ_EXPERT
 	exp_type = EXP_TYPE_REGULAR_ALL
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
@@ -458,8 +458,8 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 "})
 */
 
-/datum/outfit/job/command/pilot
-	name = PILOT_OFFICER
+/datum/outfit/job/command/casofficer
+	name = CAS_OFFICER
 	jobtype = /datum/job/terragov/command/casofficer
 
 	id = /obj/item/card/id/silver
@@ -645,7 +645,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 		<b>You answer to the</b> Chief Ship Engineer<br /><br />
 		<b>Unlock Requirement</b>: Starting Role<br /><br />
 		<b>Gamemode Availability</b>: Nuclear War<br /><br /><br />
-		<b>Duty</b>: Maintain the ship, be in charge of the engines. Be the secondary engineer to a forward operating base, prepare the shipside defenses if needed. Help the Pilot Officer in preparing the dropship.
+		<b>Duty</b>: Maintain the ship, be in charge of the engines. Be the secondary engineer to a forward operating base, prepare the shipside defenses if needed. Help the Transport Officer in preparing the dropship.
 	"}
 	minimap_icon = "st"
 
