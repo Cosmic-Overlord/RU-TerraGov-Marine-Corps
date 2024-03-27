@@ -403,7 +403,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	H.equip_to_slot_or_hand(new /obj/item/stack/barbed_wire/full, SLOT_IN_R_POUCH)
 
 //Pilot Officer
-/datum/job/terragov/command/pilot
+/datum/job/terragov/command/casofficer
 	title = PILOT_OFFICER
 	paygrade = "WO"
 	comm_title = "PO"
@@ -431,7 +431,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	"}
 	minimap_icon = "pilot"
 
-/datum/job/terragov/command/pilot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+/datum/job/terragov/command/casofficer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
@@ -450,7 +450,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 			new_human.wear_id.paygrade = "O2"
 
 /* RUTGMC DELETION
-/datum/job/terragov/command/pilot/radio_help_message(mob/M)
+/datum/job/terragov/command/casofficer/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"Your job is to support marines with either close air support via the Condor.
 You are expected to use the Condor as the Alamo is able to be ran automatically, though at some points you will be required to take control of the Alamo for the operation's success, though highly unlikey.
@@ -460,7 +460,7 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 
 /datum/outfit/job/command/pilot
 	name = PILOT_OFFICER
-	jobtype = /datum/job/terragov/command/pilot
+	jobtype = /datum/job/terragov/command/casofficer
 
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp70

@@ -23,7 +23,7 @@
 
 /obj/effect/landmark/start/job/crash/pilotofficer
 	icon_state = "PO"
-	job = /datum/job/terragov/command/pilot
+	job = /datum/job/terragov/command/casofficer
 
 /obj/effect/landmark/start/job/crash/chiefshipengineer
 	icon_state = "CSE"

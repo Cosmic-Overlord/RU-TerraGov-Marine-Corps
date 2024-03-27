@@ -32,7 +32,7 @@
 
 /obj/effect/landmark/start/job/pilotofficer
 	icon_state = "PO"
-	job = /datum/job/terragov/command/pilot
+	job = /datum/job/terragov/command/casofficer
 
 /obj/effect/landmark/start/job/transportofficer
 	icon_state = "TO"
