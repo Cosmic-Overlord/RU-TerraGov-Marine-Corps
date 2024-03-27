@@ -351,7 +351,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 		<b>Gamemode Availability</b>: Distress, Nuclear War<br /><br /><br />
 		<b>Duty</b>: Pilot the Tadpole, a versatile dropship capable of fulfilling roles ranging from ambulance to mobile bunker.
 	"}
-	minimap_icon = "transportofficer"
+	minimap_icon = "transport_officer"
 
 /datum/job/terragov/command/transportofficer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -429,7 +429,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 		<b>Gamemode Availability</b>: Distress, Nuclear War<br /><br /><br />
 		<b>Duty</b>: Pilot the Condor, a modular attack aircraft that provides close air support with a variety of weapons ranging from the inbuilt gatling to wing mounted rockets.
 	"}
-	minimap_icon = "pilot"
+	minimap_icon = "cas_officer"
 
 /datum/job/terragov/command/casofficer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
