@@ -411,7 +411,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 	access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT)
 	minimal_access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO, ACCESS_MARINE_RO, ACCESS_MARINE_MEDBAY)
 	skills_type = /datum/skills/casofficer
-	display_order = JOB_DISPLAY_ORDER_PILOT_OFFICER
+	display_order = JOB_DISPLAY_ORDER_CAS_OFFICER
 	outfit = /datum/outfit/job/command/casofficer
 	exp_requirements = XP_REQ_EXPERT
 	exp_type = EXP_TYPE_REGULAR_ALL
