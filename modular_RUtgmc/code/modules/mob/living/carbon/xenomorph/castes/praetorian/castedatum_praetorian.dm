@@ -1,5 +1,8 @@
 /datum/xeno_caste/praetorian
 
+	// *** Health *** //
+	max_health = 460
+
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
 	spit_types = list(/datum/ammo/xeno/acid/heavy/passthrough)

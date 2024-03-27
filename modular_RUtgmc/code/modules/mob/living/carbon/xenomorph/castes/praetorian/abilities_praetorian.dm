@@ -6,11 +6,31 @@
 	name = "Scatter Spit"
 	action_icon_state = "scatter_spit"
 	desc = "Spits a spread of acid projectiles that splatter on the ground."
-	ability_cost = 280
+	ability_cost = 200
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCATTER_SPIT,
 	)
+
+/datum/action/ability/activable/xeno/scatter_spit/praetorian/use_ability(atom/target)
+	var/mob/living/carbon/xenomorph/X = owner
+
+	//Shoot at the thing
+	playsound(X.loc, 'sound/effects/blobattack.ogg', 50, 1)
+
+	var/datum/ammo/xeno/acid/heavy/scatter/praetorian/scatter_spit = GLOB.ammo_list[/datum/ammo/xeno/acid/heavy/scatter/praetorian]
+
+	var/obj/projectile/newspit = new /obj/projectile(get_turf(X))
+	newspit.generate_bullet(scatter_spit, scatter_spit.damage * SPIT_UPGRADE_BONUS(X))
+	newspit.def_zone = X.get_limbzone_target()
+
+	newspit.fire_at(target, X, null, newspit.ammo.max_range)
+
+	succeed_activate()
+	add_cooldown()
+
+	GLOB.round_statistics.spitter_scatter_spits++ //Statistics
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "spitter_scatter_spits")
 
 /datum/action/ability/activable/xeno/scatter_spit/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our auxiliary sacks fill to bursting; we can use scatter spit again."))
