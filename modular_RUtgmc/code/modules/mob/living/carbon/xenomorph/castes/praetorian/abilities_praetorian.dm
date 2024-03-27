@@ -7,7 +7,7 @@
 	action_icon_state = "scatter_spit"
 	desc = "Spits a spread of acid projectiles that splatter on the ground."
 	ability_cost = 200
-	cooldown_duration = 1 SECONDS
+	cooldown_duration = 3 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCATTER_SPIT,
 	)
