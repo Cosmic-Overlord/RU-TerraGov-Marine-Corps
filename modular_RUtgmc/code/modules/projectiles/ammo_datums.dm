@@ -273,6 +273,7 @@
 
 /datum/ammo/xeno/acid/heavy/scatter/praetorian
 	max_range = 5
+	damage_falloff = 4
 
 /datum/ammo/xeno/acid/heavy/scatter/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
 	if(T.density)
