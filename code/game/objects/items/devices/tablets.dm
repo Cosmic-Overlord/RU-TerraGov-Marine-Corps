@@ -60,9 +60,9 @@
 				network = list("marinesl", "marine")
 				req_access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_LEADER)
 			if(/datum/job/terragov/command/casofficer)
-				dat += " pilot's"
+				dat += " cas officer's"
 				network = list("dropship1")
-				req_access = list(ACCESS_MARINE_PILOT, ACCESS_MARINE_DROPSHIP)
+				req_access = list(ACCESS_MARINE_PILOT, ACCESS_MARINE_CAS)
 			if(/datum/job/terragov/command/transportofficer)
 				dat += " transport officer's"
 				network = list("dropship2")
@@ -257,7 +257,7 @@
 /obj/item/hud_tablet/pilot
 	name = "cas officers's hud tablet"
 	network = list("dropship1")
-	req_access = list(ACCESS_MARINE_PILOT, ACCESS_MARINE_DROPSHIP)
+	req_access = list(ACCESS_MARINE_PILOT, ACCESS_MARINE_CAS)
 	max_view_dist = WORLD_VIEW_NUM
 
 /obj/item/hud_tablet/transportofficer

@@ -132,6 +132,8 @@
 			return "Requisitions"
 		if(ACCESS_MARINE_DROPSHIP)
 			return "Dropship Piloting"
+		if(ACCESS_MARINE_CAS)
+			return "CAS Piloting"
 		if(ACCESS_MARINE_TADPOLE)
 			return "Tadpole Piloting"
 		if(ACCESS_MARINE_PILOT)

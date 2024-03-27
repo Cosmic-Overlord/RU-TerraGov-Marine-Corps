@@ -2,7 +2,7 @@
 	name = "\improper Condor Jet pilot seat"
 	icon_state = "chair"
 	layer = ABOVE_MOB_LAYER
-	req_access = list(ACCESS_MARINE_PILOT)
+	req_access = list(ACCESS_MARINE_CAS)
 	interaction_flags = INTERACT_MACHINE_TGUI|INTERACT_MACHINE_NOSILICON
 	resistance_flags = RESIST_ALL
 	///The docking port we are handling control for
