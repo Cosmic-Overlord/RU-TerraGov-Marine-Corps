@@ -1187,7 +1187,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		to_chat(next_in_line, span_warning("You failed to qualify to become a larva, you must join the queue again."))
 		return FALSE
 	return TRUE
-
+/* RU TGMC EDIT //moved to modular
 ///updates and sets the t2 and t3 xeno limits
 /datum/hive_status/proc/update_tier_limits()
 	var/zeros = get_total_tier_zeros()
@@ -1198,7 +1198,7 @@ to_chat will check for valid clients itself already so no need to double check f
 
 	tier3_xeno_limit = max(threes, FLOOR((zeros + ones + twos + fours) / 3 + length(psychictowers) + 1, 1))
 	tier2_xeno_limit = max(twos, (zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes)
-
+RU TGMC EDIT */
 // ***************************************
 // *********** Corrupted Xenos
 // ***************************************
