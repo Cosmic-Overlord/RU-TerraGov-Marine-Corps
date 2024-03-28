@@ -1,6 +1,7 @@
 /obj/structure/window/ex_act(severity, explosion_direction)
-	take_damage(severity, BRUTE, BOMB)
-	if(obj_integrity < 0) // i didn't understand it
+	var/damage = severity * EXPLOSION_DAMAGE_MULTIPLIER_WINDOW
+	take_damage(damage, BRUTE, BOMB)
+	if(damage >= 2000)
 		var/location = get_turf(src)
 		playsound(src, "windowshatter", 50, 1)
 		create_shrapnel(location, rand(1, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
@@ -15,7 +16,7 @@
 		if(direction == turn(dir, 90) || direction == turn(dir, -90))
 			return 0
 
-	return obj_integrity
+	return obj_integrity / EXPLOSION_DAMAGE_MULTIPLIER_WINDOW
 /obj/structure/window/framed/mainship
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/ship_window.dmi'
 
