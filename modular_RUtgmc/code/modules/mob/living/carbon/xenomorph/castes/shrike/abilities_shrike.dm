@@ -103,7 +103,7 @@
 				var/mob/living/carbon/human/H = affected
 				if(H.stat == DEAD) //unless they are dead, then the blast mysteriously ignores them.
 					continue
-				H.apply_effects(1 SECONDS, 1 SECONDS) 	// Stun
+				H.apply_effects(2 SECONDS, 2 SECONDS) 	// Stun
 				shake_camera(H, 2, 1)
 			var/throwlocation = affected.loc //first we get the target's location
 			for(var/x in 1 to 6)
