@@ -116,3 +116,8 @@
 	playsound(owner,'sound/effects/bamf.ogg', 75, TRUE)
 	playsound(owner, "alien_roar", 50)
 
+// ***************************************
+// *********** Construct Acid Well
+// ***************************************
+/datum/action/ability/xeno_action/place_acidwell
+	ability_cost = 200
