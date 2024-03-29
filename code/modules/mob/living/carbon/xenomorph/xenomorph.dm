@@ -13,7 +13,6 @@
 	light_pixel_y -= pixel_y
 	. = ..()
 	set_datum()
-	time_of_birth = world.time
 	add_inherent_verbs()
 	var/datum/action/minimap/xeno/mini = new
 	mini.give_action(src)
@@ -416,11 +415,14 @@
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
 	if(is_zoomed)
-		zoom_out()
+		if(!can_walk_zoomed)
+			zoom_out()
 	handle_weeds_on_movement()
 	return ..()
 
 /mob/living/carbon/xenomorph/CanAllowThrough(atom/movable/mover, turf/target)
+	if(mover.pass_flags & PASS_XENO) // RUTGMC ADDITION
+		return TRUE
 	if(mover.throwing && ismob(mover) && isxeno(mover.thrower)) //xenos can throw mobs past other xenos
 		return TRUE
 	return ..()

@@ -20,6 +20,55 @@
 /datum/reagent/medicine/synaptizine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2 * effect_str, 2 * effect_str, 3 * effect_str)
 
+///ADRENALINE, basically old synaptizine with buffs?
+/datum/reagent/medicine/adrenaline
+	name = "Adrenaline"
+	description = "Gotta go fast!"
+	color = "#f14a17"
+	overdose_threshold = REAGENTS_OVERDOSE/5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/5
+	scannable = TRUE
+	custom_metabolism = REAGENTS_METABOLISM * 0.5
+	purge_rate = 5
+
+/datum/reagent/medicine/adrenaline/on_mob_add(mob/living/carbon/human/L, metabolism)
+	if(TIMER_COOLDOWN_CHECK(L, name))
+		return
+	L.adjustStaminaLoss(-30 * effect_str)
+	to_chat(L, span_userdanger("You feel a burst of energy as the adrenaline courses through you! Time to go fast!"))
+
+	if(L.health < L.health_threshold_crit && volume >= 3)
+		to_chat(L, span_userdanger("Heart explosion! Power flows through your veins!"))
+		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
+		L.jitter(5)
+
+/datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
+	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
+	L.adjustDrowsyness(-0.5 SECONDS)
+	L.AdjustUnconscious(-2 SECONDS)
+	L.AdjustStun(-2 SECONDS)
+	L.AdjustParalyzed(-2 SECONDS)
+	L.adjustToxLoss(0.8 * effect_str)
+	L.hallucination = max(0, L.hallucination - 10)
+	switch(current_cycle)
+		if(1 to 10)
+			L.adjustStaminaLoss(-7.5 * effect_str)
+		if(11 to 40)
+			L.adjustStaminaLoss((current_cycle*0.75 - 14)*effect_str)
+		if(41 to INFINITY)
+			L.adjustStaminaLoss(15 * effect_str)
+	return ..()
+
+/datum/reagent/medicine/adrenaline/overdose_process(mob/living/L, metabolism)
+	L.apply_damage(effect_str, TOX)
+
+/datum/reagent/medicine/adrenaline/overdose_crit_process(mob/living/L, metabolism)
+	L.apply_damages(effect_str, effect_str, effect_str)
+
+/datum/reagent/medicine/adrenaline/on_mob_delete(mob/living/L, metabolism)
+	to_chat(L, span_userdanger("The room spins as your adrenaline starts to wear off!"))
+	TIMER_COOLDOWN_START(L, name, 60 SECONDS)
+
 ///PARACETAMOL
 
 /datum/reagent/medicine/paracetamol/on_mob_life(mob/living/L, metabolism)
@@ -58,33 +107,6 @@
 
 /datum/reagent/medicine/dexalinplus/on_mob_delete(mob/living/L, metabolism)
 	TIMER_COOLDOWN_START(L, name, 180 SECONDS)
-
-///FASYGIN
-
-/datum/reagent/medicine/fasygin
-	name = "Fasygin"
-	description = "Fasygin is a component medicine capable of extremely fast but short reagent purging."
-	custom_metabolism = 0.25 //u
-	color = COLOR_REAGENT_FASYGIN
-	overdose_threshold = REAGENTS_OVERDOSE/30 //1u
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL/25 //2u
-	purge_list = list(/datum/reagent/toxin, /datum/reagent/zombium, /datum/reagent/medicine/ryetalyn, /datum/reagent/medicine/synaptizine) //Nu-uh
-	purge_rate = 8
-	scannable = TRUE
-
-/datum/reagent/medicine/fasygin/on_mob_life(mob/living/L)
-	L.adjustOxyLoss(-5*effect_str)
-	L.adjustStaminaLoss(7.5 * effect_str)
-	ADD_TRAIT(L, TRAIT_INTOXICATION_RESISTANT, REAGENT_TRAIT(src))
-	return ..()
-
-/datum/reagent/medicine/fasygin/overdose_process(mob/living/L, metabolism)
-	L.adjustStaminaLoss(15* effect_str)
-	L.apply_damages(1, 1, 2) //Brute Burn Tox
-
-/datum/reagent/medicine/fasygin/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustStaminaLoss(15 * effect_str)
-	L.apply_damages(2, 2, 3) //Brute Burn Tox
 
 ///MEDICAL NANITES
 

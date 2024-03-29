@@ -424,9 +424,10 @@
 
 /obj/item/weapon/gun/rifle/standard_smarttargetrifle
 	fire_delay = 0.4 SECONDS
+	aim_slowdown = 0.55
 
 /datum/ammo/bullet/smarttargetrifle
-	sundering = 1
+	sundering = 3
 
 /obj/item/weapon/gun/rifle/standard_spottingrifle
 	accuracy_mult = 1.5

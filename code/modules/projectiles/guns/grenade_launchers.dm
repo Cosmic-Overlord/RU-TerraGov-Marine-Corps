@@ -45,6 +45,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/impact,
 		/obj/item/explosive/grenade/sticky,
 		/obj/item/explosive/grenade/sticky/trailblazer,
+		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus, // RUTGMC ADDITION
 		/obj/item/explosive/grenade/flare,
 		/obj/item/explosive/grenade/flare/cas,
 		/obj/item/explosive/grenade/chem_grenade,

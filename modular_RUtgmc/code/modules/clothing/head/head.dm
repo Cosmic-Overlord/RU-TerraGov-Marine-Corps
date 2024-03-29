@@ -176,7 +176,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	w_class = WEIGHT_CLASS_SMALL
 
-	actions_types = list(/datum/action/item_action/toggle)
+	actions_types = list(/datum/action/item_action)
 	flags_armor_features = ARMOR_LAMP_OVERLAY|ARMOR_NO_DECAP
 	flags_item = SYNTH_RESTRICTED
 	species_exception = list(/datum/species/robot)
@@ -193,7 +193,7 @@
 		return
 	TIMER_COOLDOWN_START(user, "Banzai", 60 SECONDS)
 	if(user.gender == FEMALE)
-		user.balloon_alert(user, "Women can't use that")
+		user.balloon_alert(user, "Women can't use that!")
 	else
 		activator.say("Tenno Heika Banzai!!")
 		playsound(get_turf(user), 'modular_RUtgmc/sound/voice/banzai1.ogg', 30)

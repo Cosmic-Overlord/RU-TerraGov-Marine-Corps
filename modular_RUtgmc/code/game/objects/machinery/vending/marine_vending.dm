@@ -184,7 +184,8 @@
 			/obj/item/weapon/twohanded/glaive/harvester = -1,
 			/obj/item/storage/belt/utility/full =-1,
 			/obj/item/storage/belt/medical_small = -1,
-			/obj/item/storage/belt/gun/revolver/t500 = -1,
+			/obj/item/storage/holster/belt/revolver/t500 = -1,
+			/obj/item/storage/belt/mortar_belt = 4,
 		),
 		"Pouches" = list(
 			/obj/item/storage/pouch/pistol = -1,
@@ -358,7 +359,6 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/combat = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/isotonic = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = -1,
-			/obj/item/reagent_containers/hypospray/autoinjector/fasygin = 30,
 			/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = 30,
 			/obj/item/reagent_containers/hypospray/autoinjector/spaceacillin = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/hypervene = 20,
@@ -406,7 +406,6 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/combat = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/isotonic = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = -1,
-			/obj/item/reagent_containers/hypospray/autoinjector/fasygin = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/hypervene = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/alkysine = -1,
@@ -571,6 +570,8 @@
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = 3,
 			/obj/item/bodybag/tarp = 10,
+			/obj/item/mortar_kit/knee = 4,
+			/obj/item/mortal_shell/knee = 40,
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
@@ -1004,6 +1005,8 @@
 			/obj/item/ammo_magazine/flamer_tank/backtank = -1,
 			/obj/item/jetpack_marine = -1,
 			/obj/item/bodybag/tarp = -1,
+			/obj/item/mortar_kit/knee = 4,
+			/obj/item/mortal_shell/knee = 40,
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = -1,
