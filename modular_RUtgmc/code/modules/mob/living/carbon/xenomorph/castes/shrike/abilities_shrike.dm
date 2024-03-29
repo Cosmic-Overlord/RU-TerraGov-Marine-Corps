@@ -58,9 +58,6 @@
 
 	victim.throw_at(owner, grab_distance, 1, owner, TRUE)
 
-/datum/action/ability/xeno_action/place_acidwell
-	ability_cost = 300
-
 // ***************************************
 // *********** Unrelenting Force
 // ***************************************
