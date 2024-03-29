@@ -6,7 +6,7 @@
 	action_icon_state = "pounce"
 	desc = "Charge up to 4 tiles and viciously attack your target."
 	cooldown_duration = 20 SECONDS
-	ability_cost = 500 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them.
+	ability_cost = 250 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them. //RU TGMC EDIT
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RAVAGER_CHARGE,
 	)
