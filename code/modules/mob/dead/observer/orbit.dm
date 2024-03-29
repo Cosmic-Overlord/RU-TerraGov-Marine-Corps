@@ -59,7 +59,7 @@
 	var/list/xenos = list()
 	var/list/dead = list()
 	var/list/ghosts = list()
-	var/list/valhalla = list()
+	var/list/valhalla = list() // RUTGMC ADDITION
 	var/list/misc = list()
 	var/list/npcs = list()
 
@@ -106,7 +106,7 @@
 				serialized["icon"] = caste.minimap_icon
 			if(!isnum(xeno.nicknumber))
 				serialized["nickname"] = xeno.nicknumber
-			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO))
+			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO)) // RUTGMC ADDITION
 				valhalla += list(serialized)
 				continue
 
@@ -142,7 +142,7 @@
 				survivors += list(serialized)
 				continue
 
-			if(istype(human.job, /datum/job/fallen))
+			if(istype(human.job, /datum/job/fallen)) // RUTGMC ADDITION
 				valhalla += list(serialized)
 				continue
 
@@ -150,7 +150,7 @@
 
 	data["dead"] = dead
 	data["ghosts"] = ghosts
-	data["valhalla"] = valhalla
+	data["valhalla"] = valhalla // RUTGMC ADDITION
 	data["humans"] = humans
 	data["icons"] = GLOB.minimap_icons
 	data["misc"] = misc
