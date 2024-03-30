@@ -1299,7 +1299,7 @@
 /// Calls update_appearance, this exists to discard the arguments we get from the signals.
 /obj/structure/earth_pillar/proc/call_update_icon_state()
 	SIGNAL_HANDLER
-	call_update_icon_state()
+	update_icon_state()
 
 /// Deletes the pillar and creates a projectile on the same tile, to be fired at the target atom.
 /obj/structure/earth_pillar/proc/throw_pillar(atom/target_atom, landslide)
