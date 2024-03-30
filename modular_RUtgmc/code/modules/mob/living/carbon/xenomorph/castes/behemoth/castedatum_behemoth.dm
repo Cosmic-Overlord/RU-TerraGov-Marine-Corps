@@ -10,7 +10,7 @@
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/landslide,
 		/datum/action/ability/activable/xeno/earth_riser,
-		/datum/action/ability/activable/xeno/seismic_fracture,
+		/datum/action/ability/xeno_action/seismic_fracture,
 	)
 
 /datum/xeno_caste/behemoth/primordial
@@ -22,6 +22,6 @@
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/activable/xeno/landslide,
 		/datum/action/ability/activable/xeno/earth_riser,
-		/datum/action/ability/activable/xeno/seismic_fracture,
+		/datum/action/ability/xeno_action/seismic_fracture,
 		/datum/action/ability/xeno_action/primal_wrath,
 	)

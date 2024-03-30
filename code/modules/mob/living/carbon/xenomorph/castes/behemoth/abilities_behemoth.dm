@@ -321,7 +321,7 @@
 		animate(pixel_y = xeno_owner.pixel_y + (LANDSLIDE_RANGE / 2), time = animation_time / 2, easing = CIRCULAR_EASING|EASE_OUT)
 		animate(pixel_y = initial(xeno_owner.pixel_y), time = animation_time / 2, easing = CIRCULAR_EASING|EASE_IN)
 		return
-	addtimer(CALLBACK(src, PROC_REF(RegisterSignals), owner, list(COMSIG_MOB_CLICK_RIGHT, COMSIG_MOB_CLICK_SHIFT, COMSIG_MOB_MIDDLE_CLICK), PROC_REF(cancel_charge), TRUE), LANDSLIDE_WIND_UP) // RUTGMC ADDITION, override = TRUE
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/atom, balloon_alert), owner, "Use [name] again to cancel"), LANDSLIDE_WIND_UP)
 	add_cooldown(LANDSLIDE_WIND_UP)
 	addtimer(CALLBACK(src, PROC_REF(do_charge), owner_turf, direction, charge_damage, which_step), LANDSLIDE_WIND_UP)
 
