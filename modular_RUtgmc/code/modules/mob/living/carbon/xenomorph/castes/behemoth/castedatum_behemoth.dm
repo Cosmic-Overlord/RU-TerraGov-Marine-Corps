@@ -3,6 +3,9 @@
 	// *** Health *** //
 	max_health = 750
 
+	// *** Melee Attacks *** //
+	melee_damage = 26
+
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG|CASTE_STAGGER_RESISTANT
 
