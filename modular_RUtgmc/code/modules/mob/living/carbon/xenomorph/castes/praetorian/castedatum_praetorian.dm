@@ -19,7 +19,7 @@
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
-		/datum/action/ability/activable/xeno/acid_dash,
+		/datum/action/ability/activable/xeno/charge/dash,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,

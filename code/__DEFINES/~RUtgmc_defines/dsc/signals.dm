@@ -67,5 +67,8 @@
 #define COMSIG_HUMAN_FLAY_ATTEMPT "human_flay_attempt"
 
 #define COMSIG_XENOMORPH_INTERFERENCE "xenomorph_interference"
+
+#define COMSIG_XENOABILITY_CRESTTOSS_BEHIND "xenoability_cresttoss_behind"
+
 ///mob/living signals
 #define COMSIG_HUMAN_DEATH_STAGE_CHANGE "human_death_stage_change"
