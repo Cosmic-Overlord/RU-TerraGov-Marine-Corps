@@ -7,7 +7,7 @@
 
 /obj/item/armor_module/module/style/heavy_armor
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
-	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
 
 /obj/item/armor_module/module/motion_detector
 	name = "Tactical sensor helmet module"
@@ -175,7 +175,7 @@
 	name = "Mimir Environmental Helmet System"
 	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
-	gas_transfer_coefficient_mod = -1
+	gas_transfer_coefficient_mod = -1.8
 
 /**
  * Extra armor module
@@ -186,4 +186,4 @@
 
 /obj/item/armor_module/module/eshield
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
-	damaged_shield_cooldown = 20 SECONDS
+	damaged_shield_cooldown = 15 SECONDS
