@@ -134,7 +134,7 @@
 	RegisterSignal(xenomorph_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(clean_lunge_target))
 
 	if(lunge_target.Adjacent(xenomorph_owner)) //They're already in range, pat their head, we messed up.
-		to_chat(xenomorph_owner, span_xenodanger("We lost part of our adrenaline due to failed jump!."))
+		to_chat(xenomorph_owner, span_xenodanger("We lost some of the adrenaline due to failed jump!."))
 		playsound(xenomorph_owner,'sound/weapons/thudswoosh.ogg', 75, 1)
 		xenomorph_owner.plasma_stored -= 50
 		clean_lunge_target()
