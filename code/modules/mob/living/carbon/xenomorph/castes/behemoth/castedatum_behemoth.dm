@@ -47,7 +47,7 @@
 		/datum/action/ability/xeno_action/ready_charge/behemoth_roll,
 		/datum/action/ability/activable/xeno/landslide,
 		/datum/action/ability/activable/xeno/earth_riser,
-		/datum/action/ability/xeno_action/seismic_fracture,
+//		/datum/action/ability/xeno_action/seismic_fracture,
 	)
 
 /datum/xeno_caste/behemoth/normal
@@ -69,6 +69,6 @@
 		/datum/action/ability/xeno_action/ready_charge/behemoth_roll,
 		/datum/action/ability/activable/xeno/landslide,
 		/datum/action/ability/activable/xeno/earth_riser,
-		/datum/action/ability/xeno_action/seismic_fracture,
+//		/datum/action/ability/xeno_action/seismic_fracture,
 		/datum/action/ability/xeno_action/primal_wrath,
 	)

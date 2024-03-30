@@ -687,7 +687,7 @@
 		qdel(oldest_pillar)
 	update_button_icon()
 
-
+/* RU TGMC EDIT
 // ***************************************
 // *********** Seismic Fracture
 // ***************************************
@@ -695,7 +695,7 @@
 #define SEISMIC_FRACTURE_ATTACK_RADIUS 3
 #define SEISMIC_FRACTURE_ATTACK_RADIUS_ENHANCED 5
 #define SEISMIC_FRACTURE_ENHANCED_DELAY 1 SECONDS
-
+RU TGMC EDIT */
 /obj/effect/temp_visual/behemoth/seismic_fracture
 	icon = 'icons/effects/64x64.dmi'
 	icon_state = "seismic_fracture"
@@ -748,7 +748,7 @@
 		if(EAST)
 			pixel_x += 18
 			pixel_y -= 8
-
+/* RU TGMC EDIT //moved to modular
 /datum/action/ability/xeno_action/seismic_fracture
 	name = "Seismic Fracture"
 	action_icon_state = "seismic_fracture"
@@ -845,7 +845,7 @@
 	excepted_turfs += turfs_to_attack
 	iteration++
 	addtimer(CALLBACK(src, PROC_REF(do_attack_extra), origin_turf, extra_turfs, excepted_turfs, enhanced, range, iteration), SEISMIC_FRACTURE_ENHANCED_DELAY)
-
+RU TGMC EDIT*/
 
 // ***************************************
 // *********** Primal Wrath
@@ -1093,7 +1093,7 @@
 	earth_riser_action?.cooldown_duration = EARTH_RISER_PRIMAL_WRATH_COOLDOWN
 	earth_riser_action?.change_maximum_pillars()
 	earth_riser_action?.clear_cooldown()
-	var/datum/action/ability/xeno_action/seismic_fracture/seismic_fracture_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/seismic_fracture]
+	var/datum/action/ability/activable/xeno/seismic_fracture/seismic_fracture_action = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/seismic_fracture]
 	seismic_fracture_action?.clear_cooldown()
 	RegisterSignal(xeno_owner, COMSIG_ABILITY_SUCCEED_ACTIVATE, PROC_REF(change_cost))
 
