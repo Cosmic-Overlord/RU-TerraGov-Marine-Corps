@@ -54,6 +54,9 @@
 	if(!istype(target)) //Something went horribly wrong. Clicked off edge of map probably
 		return
 
+	if(!do_after(X, 0.5 SECONDS, NONE, target, BUSY_ICON_DANGER))
+		return fail_activate()
+
 	if(!can_use_ability(A, TRUE, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return fail_activate()
 
@@ -68,6 +71,10 @@
 
 	start_acid_spray_cone(target, X.xeno_caste.acid_spray_range)
 	add_cooldown()
+
+	var/datum/action/ability/activable/xeno/spray = X.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/short]
+	if(spray)
+		spray.add_cooldown(10 SECONDS)
 
 // ***************************************
 // *********** Short acid spray
@@ -106,6 +113,10 @@
 
 	GLOB.round_statistics.spitter_acid_sprays++ //Statistics
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "spitter_acid_sprays")
+
+	var/datum/action/ability/activable/xeno/spray = X.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/cone]
+	if(spray)
+		spray.add_cooldown(10 SECONDS)
 
 /datum/action/ability/activable/xeno/spray_acid/line/short/spray_turfs(list/turflist)
 	set waitfor = FALSE
