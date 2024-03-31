@@ -161,10 +161,10 @@
 	for(var/i = 1 to 20) // maybe a bit laggy
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
-		new_proj.fire_at(null, src, range = rand(1, 4), angle = (rand(1, 360)), recursivity = TRUE)
+		new_proj.fire_at(null, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
 
 /obj/structure/xeno/xeno_turret/hugger_turret/on_destruction()
 	for(var/i = 1 to 5)
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
-		new_proj.fire_at(null, src, range = rand(1, 3), angle = (rand(1, 360)), recursivity = TRUE)
+		new_proj.fire_at(null, src, range = rand(1, 3), angle = rand(1, 360), recursivity = TRUE)
