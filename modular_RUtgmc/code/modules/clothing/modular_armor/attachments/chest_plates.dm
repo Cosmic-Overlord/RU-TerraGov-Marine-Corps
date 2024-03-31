@@ -6,5 +6,5 @@
 	soft_armor = list(MELEE = 25, BULLET = 45, LASER = 45, ENERGY = 35, BOMB = 30, BIO = 30, FIRE = 30, ACID = 30)
 
 /obj/item/armor_module/armor/chest/marine/assault
-	soft_armor = list(MELEE = 30, BULLET = 50, LASER = 50, ENERGY = 40, BOMB = 30, BIO = 30, FIRE = 30, ACID = 35)
-	slowdown = SLOWDOWN_ARMOR_HEAVY
+	soft_armor = list(MELEE = 30, BULLET = 50, LASER = 50, ENERGY = 40, BOMB = 30, BIO = 30, FIRE = 30, ACID = 40)
+	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
