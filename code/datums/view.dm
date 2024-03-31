@@ -56,6 +56,11 @@
 /datum/view_data/proc/add(num_to_add)
 	width += num_to_add
 	height += num_to_add
+//RU TGMC EDIT
+	if(chief.prefs.widescreenpref) // if widescreen enabled
+		var/list/wide_size = getviewsize(default) // pickup current resolution
+		width = round(width * (wide_size[1] / wide_size[2])) // trying to save aspect ratio, cant be float/double number
+//RU TGMC EDIT
 	apply()
 
 ///adds the size, which can also be a string, to the default and applies it
@@ -63,6 +68,11 @@
 	var/list/new_size = getviewsize(toAdd)
 	width += new_size[1]
 	height += new_size[2]
+//RU TGMC EDIT
+	if(chief.prefs.widescreenpref) // if widescreen enabled
+		var/list/wide_size = getviewsize(default) // pickup current resolution
+		width = round(width * (wide_size[1] / wide_size[2])) // trying to save aspect ratio, cant be float/double number
+//RU TGMC EDIT
 	apply()
 
 ///INCREASES the view radius by this.
@@ -70,6 +80,11 @@
 	var/list/new_size = getviewsize(toAdd)  //Backward compatability to account
 	width = new_size[1] //for a change in how sizes get calculated. we used to include world.view in
 	height = new_size[2] //this, but it was jank, so I had to move it
+//RU TGMC EDIT
+	if(chief.prefs.widescreenpref) // if widescreen enabled
+		var/list/wide_size = getviewsize(default) // pickup current resolution
+		width = round(width * (wide_size[1] / wide_size[2])) // trying to save aspect ratio, cant be float/double number
+//RU TGMC EDIT
 	apply()
 
 ///sets width and height as numbers
@@ -142,9 +157,16 @@
 		animate(chief, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, 0, FALSE, LINEAR_EASING, ANIMATION_END_NOW)
 
 	set_view_radius_to(radius)
-
+//RU TGMC EDIT
 ///gets the current screen size as defined in config
-/proc/get_screen_size(widescreen)
+/proc/get_screen_size(widescreen, resolution = "17x15")
 	if(widescreen)
-		return CONFIG_GET(string/default_view)
-	return CONFIG_GET(string/default_view_square)
+		if(resolution)
+			switch(resolution)
+				if("19x15")
+					return WIDESCREEN2
+				if("21x15")
+					return WIDESCREEN3
+		return WIDESCREEN1
+	return SQUARESCREEN
+//RU TGMC EDIT
