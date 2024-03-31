@@ -164,3 +164,16 @@
 
 		prev_turf = T
 		sleep(0.2 SECONDS)
+
+/datum/action/ability/activable/xeno/spray_acid/line/short/acid_splat_turf(turf/T)
+	. = locate(/obj/effect/xenomorph/spray) in T
+	if(!.)
+		var/mob/living/carbon/xenomorph/X = owner
+
+		. = new /obj/effect/xenomorph/spray(T, 3 SECONDS, X.xeno_caste.acid_spray_damage, owner)
+
+		for(var/i in T)
+			var/atom/A = i
+			if(!A)
+				continue
+			A.acid_spray_act(owner)
