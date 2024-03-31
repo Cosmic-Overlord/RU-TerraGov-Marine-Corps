@@ -885,7 +885,7 @@ RU TGMC EDIT */
 	view = new_size
 	apply_clickcatcher()
 	mob.reload_fullscreens()
-	if(prefs.auto_fit_viewport)
+	if(prefs.auto_fit_viewport && !view_size.is_zooming())
 		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
 
 ///Change the fullscreen setting of the client

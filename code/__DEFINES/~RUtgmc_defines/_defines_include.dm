@@ -14,3 +14,4 @@
 #include "calibers.dm"
 #include "skills.dm"
 #include "loadout.dm"
+#include "preferences.dm"
