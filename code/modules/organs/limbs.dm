@@ -180,14 +180,14 @@
 	if(limb_status & LIMB_BIOTIC)
 		brute *= 1.3 // 130% damage for biotic limbs
 		burn *= 1.3
-
+/* RU TGMC EDIT
 	//High brute damage or sharp objects may damage internal organs
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
 		I.take_damage(brute / 2)
 		brute -= brute / 2
-
+RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
 		if(!(owner.species && (owner.species.species_flags & NO_PAIN)))
 			owner.emote("scream") //Getting hit on broken hand hurts
