@@ -219,8 +219,8 @@ const JobPreference = (props, context) => {
         <Box align="right">
           <Button.Checkbox
             inline
-            icon="ban"
-            color="bad"
+            icon="times"
+            color="blue"
             content={'<b>{jobData.playtime_req}h</b> as {jobData.exp_type'}
           />
         </Box>
