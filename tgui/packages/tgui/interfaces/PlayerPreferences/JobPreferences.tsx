@@ -213,6 +213,21 @@ const JobPreference = (props, context) => {
     );
   }
 
+  if (jobData.playtime_req && jobData.exp_type) {
+    return (
+      <LabeledList.Item label={job}>
+        <Box align="right">
+          <Button.Checkbox
+            inline
+            icon="ban"
+            color="bad"
+            content={'<b>{jobData.playtime_req}h</b> as {jobData.exp_type'}
+          />
+        </Box>
+      </LabeledList.Item>
+    );
+  }
+
   return (
     <LabeledList.Item label={job}>
       <Box align="right">

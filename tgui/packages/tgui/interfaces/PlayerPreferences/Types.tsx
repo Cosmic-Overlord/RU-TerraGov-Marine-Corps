@@ -164,6 +164,7 @@ type PreferencesJobDatum = {
   description: string;
   banned: number;
   playtime_req: number;
+  exp_type: string;
   account_age_req: number;
   flags: PreferencesFlagsList;
 };
