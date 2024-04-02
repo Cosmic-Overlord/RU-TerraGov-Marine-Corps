@@ -220,7 +220,7 @@ const JobPreference = (props, context) => {
           <Button.Checkbox
             inline
             icon="times"
-            color="grey"
+            color="light-grey"
             content={jobData.exp_string}
           />
         </Box>
