@@ -221,7 +221,7 @@ const JobPreference = (props, context) => {
             inline
             icon="times"
             color="blue"
-            content={'<b>{jobData.playtime_req}h</b> as {jobData.exp_type'}
+            content={'<b>{jobData.playtime_req}h</b> as {jobData.exp_type}'}
           />
         </Box>
       </LabeledList.Item>
