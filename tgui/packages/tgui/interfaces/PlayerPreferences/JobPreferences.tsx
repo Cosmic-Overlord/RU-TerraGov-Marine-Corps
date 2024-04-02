@@ -202,7 +202,6 @@ const JobPreference = (props, context) => {
       <LabeledList.Item label={job}>
         <Box align="right">
           <Button.Checkbox
-            inline
             icon="ban"
             color="bad"
             content={'Banned from Role'}
