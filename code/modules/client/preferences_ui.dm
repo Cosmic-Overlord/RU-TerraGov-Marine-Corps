@@ -192,7 +192,7 @@
 					"description" = job.html_description,
 					"banned" = is_banned_from(user.ckey, rank),
 					"playtime_req" = job.required_playtime_remaining(user.client),
-					"exp_string" = "[get_exp_format(text2num(user.client.calc_exp_type(job.get_exp_req_type())))] / [get_exp_format(job.get_exp_req_amount())] as [job.get_exp_req_type()])", // RUTGMC ADDITION
+					"exp_string" = "[get_exp_format(text2num(user.client.calc_exp_type(job.get_exp_req_type())))] / [get_exp_format(job.get_exp_req_amount())] as [job.get_exp_req_type()]", // RUTGMC ADDITION
 					"account_age_req" = !job.player_old_enough(user.client),
 					"flags" = list(
 						"bold" = (job.job_flags & JOB_FLAG_BOLD_NAME_ON_SELECTION) ? TRUE : FALSE
