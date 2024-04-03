@@ -6,6 +6,9 @@
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_CORRUPT_GENERATOR|CASTE_CAN_HOLD_JELLY
 
+	// *** Pheromones *** //
+	aura_strength = 4.5 //The Shrike's aura is decent.
+
 	// *** Abilities *** //
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
@@ -18,7 +21,7 @@
 		/datum/action/ability/xeno_action/call_of_the_burrowed,
 		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
@@ -48,7 +51,7 @@
 		/datum/action/ability/xeno_action/call_of_the_burrowed,
 		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,

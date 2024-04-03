@@ -2,6 +2,24 @@
 #define SALVE (1<<1)
 #define DISINFECT (1<<2)
 
+/// return TRUE if a given limb can be healed by src, FALSE otherwise
+/obj/item/stack/medical/heal_pack/can_heal_limb(datum/limb/affecting)
+	if(zero_amount())
+		return FALSE
+	if(!affecting)
+		return FALSE
+	if(affecting.limb_status & LIMB_DESTROYED)
+		return FALSE
+	if(!can_affect_limb(affecting))
+		return FALSE
+	if(heal_flags & BANDAGE && !affecting.is_bandaged())
+		return TRUE
+	if(heal_flags & SALVE && !affecting.is_salved())
+		return TRUE
+	if(heal_flags & DISINFECT && !affecting.is_disinfected())
+		return TRUE
+	return FALSE
+
 /obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack
 	name = "combat trauma kit"
 	singular_name = "combat trauma kit"

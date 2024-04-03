@@ -38,25 +38,11 @@
 	return succeed_activate()
 
 /datum/action/ability/activable/xeno/cresttoss
+	name = "Crest Toss Away"
 	action_icon_state = "cresttoss_away"
-	desc = "Fling an adjacent target either over and behind you, or away from you by toggling the ability. Also works over barricades."
+	desc = "Fling an adjacent target away from you. Shares the cooldown with the Crest Toss Behind!"
 	var/tossing_away = TRUE
-
-/datum/action/ability/activable/xeno/cresttoss/action_activate(atom/movable/A)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	if(xeno_owner.selected_ability == src)
-		if(!tossing_away)
-			tossing_away = TRUE
-			xeno_owner.balloon_alert(xeno_owner, "Tossing away!")
-		else
-			tossing_away = FALSE
-			xeno_owner.balloon_alert(xeno_owner, "Tossing behind you!")
-		update_button_icon()
-	return ..()
-
-/datum/action/ability/activable/xeno/cresttoss/update_button_icon()
-	action_icon_state = tossing_away ? "cresttoss_away" : "cresttoss_behind"
-	return ..()
+	var/ability_for_cooldown = /datum/action/ability/activable/xeno/cresttoss/behind
 
 /datum/action/ability/activable/xeno/cresttoss/use_ability(atom/movable/A)
 	var/mob/living/carbon/xenomorph/X = owner
@@ -113,3 +99,17 @@
 
 	add_cooldown()
 	addtimer(CALLBACK(X, TYPE_PROC_REF(/mob, update_icons)), 3)
+
+	var/datum/action/ability/xeno_action/toss = X.actions_by_path[ability_for_cooldown]
+	if(toss)
+		toss.add_cooldown()
+
+/datum/action/ability/activable/xeno/cresttoss/behind
+	name = "Crest Toss Behind"
+	action_icon_state = "cresttoss_behind"
+	desc = "Fling an adjacent target behind you. Also works over barricades. Shares the cooldown with the Crest Toss Away!"
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CRESTTOSS_BEHIND,
+	)
+	tossing_away = FALSE
+	ability_for_cooldown = /datum/action/ability/activable/xeno/cresttoss
