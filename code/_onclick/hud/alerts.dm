@@ -154,6 +154,8 @@ Override makes it so the alert is not replaced until cleared by a clear_alert wi
 				switch(tgui_alert(G, "What would you like to do?", "Burst larva is ready to burst", list("Become it", "Observe it", "Cancel")))
 					if("Become it")
 						larva_target.take_over(G)
+						to_chat(larva_target, span_xenoannounce("We are a xenomorph larva inside a host! Move to burst out of it!"))
+						larva_target << sound('sound/effects/xeno_newlarva.ogg')
 					if("Observe it")
 						G.ManualFollow(target) // RUTGMC ADDITION END
 
