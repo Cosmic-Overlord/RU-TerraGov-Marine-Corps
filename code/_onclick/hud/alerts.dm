@@ -146,6 +146,16 @@ Override makes it so the alert is not replaced until cleared by a clear_alert wi
 					SSticker.mode.spawn_larva(G, target)
 				if("Jump to it")
 					G.forceMove(get_turf(target))
+		if(NOTIFY_BURST_LARVA) // RUTGMC ADDITION START
+			var/mob/living/carbon/xenomorph/larva/larva_target = locate(target) in GLOB.offered_mob_list
+			if(!larva_target)
+				G.ManualFollow(target)
+			else
+				switch(tgui_alert(G, "What would you like to do?", "Burst larva is ready to burst", list("Become it", "Observe it", "Cancel")))
+					if("Become it")
+						larva_target.take_over(G)
+					if("Observe it")
+						G.ManualFollow(target) // RUTGMC ADDITION END
 
 
 //OBJECT-BASED

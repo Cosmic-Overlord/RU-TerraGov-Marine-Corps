@@ -81,7 +81,7 @@
 		notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), source = new_xeno, action = NOTIFY_ORBIT)
 	else //Get a candidate from observers.
 		GLOB.offered_mob_list += new_xeno
-		notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), enter_link = "become_burst_larva=[REF(new_xeno)]", enter_text = "Become a burst larva!", source = new_xeno, action = NOTIFY_ORBIT)
+		notify_ghosts(span_xenoannounce("A xenomorph larva is ready to burst out of [affected_mob.name]!"), enter_link = "become_burst_larva=[REF(new_xeno)]", enter_text = "Become a burst larva!", source = new_xeno, action = NOTIFY_BURST_LARVA)
 
 	stage = 6
 
