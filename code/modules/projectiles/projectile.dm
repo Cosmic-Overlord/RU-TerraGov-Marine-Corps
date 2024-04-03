@@ -454,7 +454,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				if(!PROJECTILE_HIT_CHECK(thing_to_uncross, src, REVERSE_DIR(border_escaped_through), TRUE, hit_atoms))
 					continue
 				thing_to_uncross.do_projectile_hit(src)
-				//if((ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) ) // ORIGINAL
+				/* RUTGMC DELETION START
+				if((ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) )
+				RUTGMC DELETION END */
 				if(ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE && !iscontainmentshutter(thing_to_uncross) || ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) // RUTGMC ADDITION
 					hit_atoms += thing_to_uncross
 					continue
@@ -504,7 +506,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				if(!PROJECTILE_HIT_CHECK(thing_to_uncross, src, REVERSE_DIR(movement_dir), TRUE, hit_atoms))
 					continue
 				thing_to_uncross.do_projectile_hit(src)
-				//if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) ) // ORIGINAL
+				/* RUTGMC DELETION START
+				if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) )
+				RUTGMC DELETION END */
 				if(ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE && !iscontainmentshutter(thing_to_uncross) || ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) // RUTGMC ADDITION
 					hit_atoms += thing_to_uncross
 					continue
@@ -530,7 +534,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				if(!PROJECTILE_HIT_CHECK(thing_to_uncross, src, REVERSE_DIR(movement_dir), TRUE, hit_atoms))
 					continue //We act as if we were entering the tile through the opposite direction, to check for barricade blockage.
 				thing_to_uncross.do_projectile_hit(src)
-				//if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) ) // ORIGINAL
+				/* RUTGMC DELETION START
+				if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) )
+				RUTGMC DELETION END */
 				if(ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE && !iscontainmentshutter(thing_to_uncross) || ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) // RUTGMC ADDITION
 					hit_atoms += thing_to_uncross
 					continue
@@ -609,7 +615,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			continue
 
 		thing_to_hit.do_projectile_hit(src)
-		//if((ismob(thing_to_hit) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) || CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOVABLE)) // ORIGINAL
+		/* RUTGMC DELETION START
+		if((ismob(thing_to_hit) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) || CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOVABLE))
+		RUTGMC DELETION END */
 		if(ismob(thing_to_hit) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB) || CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOVABLE) && !iscontainmentshutter(thing_to_hit)) // RUTGMC ADDITION
 			hit_atoms += thing_to_hit
 			return FALSE
@@ -1057,7 +1065,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				if(!PROJECTILE_HIT_CHECK(thing_to_uncross, src, REVERSE_DIR(border_escaped_through), TRUE, hit_atoms))
 					continue
 				thing_to_uncross.do_projectile_hit(src)
-				//if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) ) // ORIGINAL
+				/* RUTGMC DELETION START
+				if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) )
+				RUTGMC DELETION END */
 				if(ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE && !iscontainmentshutter(thing_to_uncross) || ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) // RUTGMC ADDITION
 					hit_atoms += thing_to_uncross
 					continue
@@ -1086,7 +1096,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				if(!PROJECTILE_HIT_CHECK(thing_to_uncross, src, REVERSE_DIR(movement_dir), TRUE, hit_atoms))
 					continue
 				thing_to_uncross.do_projectile_hit(src)
-				//if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) ) // ORIGINAL
+				/* RUTGMC DELETION START
+				if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) )
+				RUTGMC DELETION END */
 				if(ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE && !iscontainmentshutter(thing_to_uncross) || ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) // RUTGMC ADDITION
 					hit_atoms += thing_to_uncross
 					continue
@@ -1104,7 +1116,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				if(!PROJECTILE_HIT_CHECK(thing_to_uncross, src, REVERSE_DIR(movement_dir), TRUE, hit_atoms))
 					continue //We act as if we were entering the tile through the opposite direction, to check for barricade blockage.
 				thing_to_uncross.do_projectile_hit(src)
-				//if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) ) // ORIGINAL
+				/* RUTGMC DELETION START
+				if( (ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE) || (ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) )
+				RUTGMC DELETION END */
 				if(ammo.flags_ammo_behavior & AMMO_PASS_THROUGH_MOVABLE && !iscontainmentshutter(thing_to_uncross) || ismob(thing_to_uncross) && CHECK_BITFIELD(ammo.flags_ammo_behavior, AMMO_PASS_THROUGH_MOB)) // RUTGMC ADDITION
 					hit_atoms += thing_to_uncross
 					continue
