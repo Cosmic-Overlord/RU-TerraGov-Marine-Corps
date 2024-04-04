@@ -209,7 +209,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 				to_chat(buyer, span_xenowarning("Another silo is too close!"))
 				return FALSE
 */
-
+/* RU TGMC EDIT
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
 	desc = "Constructs a tower that increases the rate of evolution point and maturity point generation by 1.2 times per tower."
@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/psychictower
-
+RU TGMC EDIT */
 /datum/hive_upgrade/building/pherotower
 	name = "Pheromone Tower"
 	desc = "Constructs a tower that emanates a selectable type of pheromone."
