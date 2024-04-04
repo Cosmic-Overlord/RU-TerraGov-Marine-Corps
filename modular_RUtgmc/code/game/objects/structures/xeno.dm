@@ -28,11 +28,7 @@
 
 
 /obj/structure/mineral_door/resin/ex_act(severity)
-	switch(severity)
-		if(0 to EXPLODE_LIGHT)
-			take_damage(severity / 2, BRUTE, BOMB)
-		if(EXPLODE_LIGHT to INFINITY)
-			qdel()
+	take_damage(severity / 2, BRUTE, BOMB)
 
 /obj/structure/mineral_door/resin/get_explosion_resistance()
 	if(density)
