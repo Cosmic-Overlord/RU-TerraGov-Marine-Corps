@@ -282,7 +282,7 @@ as having entered the turf.
 					if(is_mainship_level(epicenter.z))
 						M.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 					if(baseshakeamount > 0)
-						shake_camera(M, 1.5 SECONDS, clamp(baseshakeamount, 0, 5))
+						shake_camera(M, 1.5 SECONDS, clamp(baseshakeamount, 0, 1.5))
 				// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 				else if(dist <= far_dist)
 					var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
@@ -291,7 +291,7 @@ as having entered the turf.
 					if(is_mainship_level(epicenter.z))
 						M.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 					if(baseshakeamount > 0)
-						shake_camera(M, 0.7 SECONDS, clamp(baseshakeamount * 0.15, 0, 1.5)) // Пол царства тому кто разберётся в этих формулах XD
+						shake_camera(M, 0.7 SECONDS, clamp(baseshakeamount * 0.15, 0, 1)) // Пол царства тому кто разберётся в этих формулах XD
 	new /obj/effect/temp_visual/explosion(epicenter, orig_max_distance, color, power)
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
