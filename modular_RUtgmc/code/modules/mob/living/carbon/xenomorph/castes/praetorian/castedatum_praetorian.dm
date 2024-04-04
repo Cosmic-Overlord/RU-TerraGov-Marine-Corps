@@ -9,9 +9,6 @@
 	acid_spray_duration = 6 SECONDS
 	acid_spray_damage = 8
 
-	// *** Pheromones *** //
-	aura_strength = 2.5
-
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 
@@ -26,10 +23,6 @@
 		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
 		/datum/action/ability/activable/xeno/charge/dash,
-		/datum/action/ability/xeno_action/pheromones,
-		/datum/action/ability/xeno_action/pheromones/emit_recovery,
-		/datum/action/ability/xeno_action/pheromones/emit_warding,
-		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)
 
 /datum/xeno_caste/praetorian/primordial
@@ -46,8 +39,4 @@
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
 		/datum/action/ability/activable/xeno/charge/dash,
-		/datum/action/ability/xeno_action/pheromones,
-		/datum/action/ability/xeno_action/pheromones/emit_recovery,
-		/datum/action/ability/xeno_action/pheromones/emit_warding,
-		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)
