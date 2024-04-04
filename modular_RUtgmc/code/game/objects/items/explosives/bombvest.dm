@@ -31,6 +31,6 @@
 		log_game("[activator] has detonated an explosive vest with no warcry at [AREACOORD(target)]")
 
 	activator.record_tactical_unalive()
-
 	explosion(target, 2, 2, 6, 7, 5, 5)
+	activator.ex_act(500)
 	qdel(src)
