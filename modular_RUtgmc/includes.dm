@@ -202,6 +202,7 @@
 #include "code\modules\mob\living\living_verbs.dm"
 #include "code\modules\mob\living\say.dm"
 #include "code\modules\mob\living\status_procs.dm"
+#include "code\modules\mob\living\carbon\carbon_defense.dm"
 #include "code\modules\mob\living\carbon\human\emote.dm"
 #include "code\modules\mob\living\carbon\human\human_defense.dm"
 #include "code\modules\mob\living\carbon\human\human_defines.dm"

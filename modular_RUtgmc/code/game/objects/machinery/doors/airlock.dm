@@ -9,7 +9,7 @@
 	var/location = get_turf(src)
 	if(!density)
 		severity *= EXPLOSION_DAMAGE_MODIFIER_DOOR_OPEN
-	if(take_damage(severity)) // destroyed by explosion, shards go flying
+	if(take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_DOOR)) // destroyed by explosion, shards go flying
 		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 
 /obj/structure/machinery/door/airlock/get_explosion_resistance()
@@ -17,7 +17,7 @@
 		if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 			return 100000
 		else
-			return (max_integrity - (max_integrity - obj_integrity))
+			return (max_integrity - (max_integrity - obj_integrity)) / EXPLOSION_DAMAGE_MULTIPLIER_DOOR
 	else
 		return FALSE
 
