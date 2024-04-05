@@ -180,6 +180,7 @@
 	hud_set_pheromone()
 
 
+/* RUTGMC MOVED TO MODULE
 /mob/living/carbon/human/med_hud_set_status()
 	var/image/status_hud = hud_list[STATUS_HUD] //Status for med-hud.
 	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD] //State of the xeno embryo.
@@ -272,7 +273,6 @@
 		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
 		return TRUE
 
-/* RUTGMC MOVED TO MODULE
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		status_hud.icon_state = "huddead"
 		infection_hud.icon_state = ""

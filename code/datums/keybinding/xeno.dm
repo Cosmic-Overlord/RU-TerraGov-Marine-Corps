@@ -198,33 +198,12 @@
 // Single caste, alphabetical order
 //
 
-/datum/keybinding/xeno/dash_explosion
-	name = "Dash Explosion"
-	full_name = "Baneling: Dash Explode"
-	description = "Aim in a direction, charge up and dash, knocking down any humans hit and detonate yourself. "
-	keybind_signal = COMSIG_XENOABILITY_BANELING_DASH_EXPLOSION
-	hotkey_keys = list("Q")
-
-/datum/keybinding/xeno/spawn_pod
-	name = "Spawn Pod"
-	full_name = "Baneling: Spawn Pod"
-	description = "Spawn a pod on your current position, when you die from any source you will respawn on this pod. Activate again to change its location. "
-	keybind_signal = COMSIG_XENOABILITY_BANELING_SPAWN_POD
-	hotkey_keys = list("F")
-
 /datum/keybinding/xeno/baneling_explode
 	name = "Explode"
 	full_name = "Baneling: Explode"
 	description = "Detonate yourself, spreading your currently selected reagent. Size depends on current stored plasma, more plasma is more reagent."
 	keybind_signal = COMSIG_XENOABILITY_BANELING_EXPLODE
 	hotkey_keys = list("E")
-
-/datum/keybinding/xeno/select_reagent/baneling
-	name = "Select Reagent"
-	full_name = "Baneling: Select Reagent"
-	description = "Choose a reagent that will be spread upon death. Costs plasma to change."
-	keybind_signal = COMSIG_XENOABILITY_BANELING_CHOOSE_REAGENT
-	hotkey_keys = list("C")
 
 /datum/keybinding/xeno/long_range_sight
 	name = "long_range_sight"
@@ -267,17 +246,17 @@
 	keybind_signal = COMSIG_XENOABILITY_BOMBARD
 	hotkey_keys = list("R")
 
-/datum/keybinding/xeno/plow_charge
-	name = "plow_charge"
-	full_name = "Bull: Plow Charge"
-	description = "A charge that plows through the victims."
-	keybind_signal = COMSIG_XENOABILITY_BULLCHARGE
+/datum/keybinding/xeno/acid_charge
+	name = "acid_charge"
+	full_name = "Bull: Acid charge"
+	description = "A charge that leaves acid puddles."
+	keybind_signal = COMSIG_XENOABILITY_ACIDCHARGE
 	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/headbutt_charge
 	name = "headbutt_charge"
 	full_name = "Bull: Headbutt Charge"
-	description = "A charge that tosses the victim forward or backwards, depending on intent."
+	description = "A charge that tosses the victim forward."
 	keybind_signal = COMSIG_XENOABILITY_BULLHEADBUTT
 	hotkey_keys = list("E")
 
@@ -288,6 +267,12 @@
 	keybind_signal = COMSIG_XENOABILITY_BULLGORE
 	hotkey_keys = list("R")
 
+/datum/keybinding/xeno/tolerate
+	name = "tolerate"
+	full_name = "Bull: Tolerate"
+	description = "Become resistant to slowdown, stagger and stuns"
+	keybind_signal = COMSIG_XENOABILITY_TOLERATE
+	hotkey_keys = list("F")
 /datum/keybinding/xeno/throw_hugger
 	name = "throw_hugger"
 	full_name = "Carrier: Throw Hugger"
@@ -682,11 +667,11 @@
 	description = "Summons all xenos in a hive to the caller's location, uses all plasma to activate."
 	keybind_signal = COMSIG_XENOABILITY_HIVE_SUMMON
 
-/datum/keybinding/xeno/acid_dash
-	name = "acid_dash"
-	full_name = "Praetorian: Acid Dash"
-	description = "Quickly dash, leaving acid in your path and knocking down the first marine hit. Has reset potential."
-	keybind_signal = COMSIG_XENOABILITY_ACID_DASH
+/datum/keybinding/xeno/dash
+	name = "dash"
+	full_name = "Praetorian: Dash"
+	description = "Quickly dash forward."
+	keybind_signal = COMSIG_XENOABILITY_DASH
 	hotkey_keys = list("E")
 
 /datum/keybinding/xeno/screech

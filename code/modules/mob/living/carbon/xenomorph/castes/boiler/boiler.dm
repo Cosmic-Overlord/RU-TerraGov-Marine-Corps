@@ -22,7 +22,7 @@
 
 /mob/living/carbon/xenomorph/boiler/get_liquid_slowdown()
 	return BOILER_WATER_SLOWDOWN
-
+/* RU TGMC EDIT //moved to modular
 ///updates the boiler's glow, based on its base glow/color, and its ammo reserves. More green ammo = more green glow; more yellow = more yellow.
 /mob/living/carbon/xenomorph/boiler/proc/update_boiler_glow()
 	var/current_ammo = corrosive_ammo + neuro_ammo
@@ -38,14 +38,14 @@
 		set_light_range_power_color(0, 0)
 		set_light_on(FALSE)
 	set_light_range_power_color(glow, 4, color)
-
+RU TGMC EDIT */
 // ***************************************
 // *********** Init
 // ***************************************
 /mob/living/carbon/xenomorph/boiler/Initialize(mapload)
 	. = ..()
 	smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
-	ammo = GLOB.ammo_list[/datum/ammo/xeno/boiler_gas]
+	ammo = GLOB.ammo_list[/datum/ammo/xeno/boiler_gas/corrosive] // RU TGMC EDIT
 	update_boiler_glow()
 	RegisterSignal(src, COMSIG_XENOMORPH_GIBBING, PROC_REF(gib_explode))
 /* RUTGMC EDIT BEGIN

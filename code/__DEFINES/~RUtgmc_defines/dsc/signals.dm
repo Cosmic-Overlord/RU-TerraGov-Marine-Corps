@@ -1,4 +1,3 @@
-
 /// Xeno signals
 #define COMSIG_XENOABILITY_TEARING_TAIL "xenoability_tearing_tail"
 #define COMSIG_XENOABILITY_PANTHER_POUNCE "xenoability_panther_pounce"
@@ -47,3 +46,9 @@
 #define COMSIG_XENOABILITY_CHIMERA_WARP_BLAST "xenoability_chimera_warp_blast"
 #define COMSIG_XENOABILITY_CHIMERA_BODYSWAP "xenoability_chimera_bodyswap"
 #define COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE "xenoability_chimera_crippling_strike"
+
+
+#define COMSIG_XENOABILITY_CRESTTOSS_BEHIND "xenoability_cresttoss_behind"
+
+///mob/living signals
+#define COMSIG_HUMAN_DEATH_STAGE_CHANGE "human_death_stage_change"

@@ -106,6 +106,16 @@ const JobTabs = (props: LoadoutTabData) => {
               onClick={() => setJob('Squad Leader')}>
               Squad Leader
             </Tabs.Tab>
+            <Tabs.Tab
+              selected={job === 'Field Commander'}
+              onClick={() => setJob('Field Commander')}>
+              Field Commander
+            </Tabs.Tab>
+            <Tabs.Tab
+              selected={job === 'Synthetic'}
+              onClick={() => setJob('Synthetic')}>
+              Synthetic
+            </Tabs.Tab>
           </Tabs>
         </Flex.Item>
         <Flex.Item grow={1}>
@@ -133,7 +143,7 @@ export const LoadoutManager = (props, context) => {
   );
 
   return (
-    <Window title="Loadout Manager" width={700} height={400}>
+    <Window title="Loadout Manager" width={800} height={400}>
       <Window.Content>
         <Stack vertical>
           <JobTabs job={job} setJob={setJob} />

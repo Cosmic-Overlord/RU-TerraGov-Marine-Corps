@@ -54,7 +54,7 @@
 		if(!H.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
 			caster.Paralyze(6 SECONDS)
 			caster.set_throwing(FALSE) //Reset throwing manually.
-			return COMPONENT_KEEP_THROWING
+			return
 
 	caster.forceMove(get_turf(M))
 	if(ishuman(M))
@@ -88,7 +88,7 @@
 
 /datum/action/ability/activable/xeno/pounce_hugger/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/caster = owner
-	caster.usedPounce = FALSE
+	caster.xeno_flags |= XENO_LEAPING
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce_hugger/use_ability(atom/A)
@@ -104,12 +104,12 @@
 	span_xenowarning("We leap at [A]!"))
 
 	RegisterSignal(caster, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(obj_hit))
-	RegisterSignal(caster, COMSIG_XENO_LIVING_THROW_HIT, PROC_REF(mob_hit))
+	RegisterSignal(caster, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 	RegisterSignal(caster, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
 
 	succeed_activate()
 	add_cooldown()
-	caster.usedPounce = TRUE // this is needed for throwing code
+	caster.xeno_flags |= XENO_LEAPING // this is needed for throwing code
 	caster.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE
 	caster.pass_flags ^= PASS_MOB
 

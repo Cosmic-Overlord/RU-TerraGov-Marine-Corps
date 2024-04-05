@@ -1,3 +1,110 @@
+// ***************************************
+// *********** Gas type toggle
+// ***************************************
+
+/datum/action/ability/xeno_action/toggle_bomb
+	name = "Toggle Bombard Type"
+	action_icon_state = "toggle_bomb0"
+	desc = "Switches Boiler Bombard type between available glob types."
+	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_BOMB,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_TOGGLE_BOMB_RADIAL,
+	)
+
+/datum/action/ability/xeno_action/toggle_bomb/action_activate()
+	var/mob/living/carbon/xenomorph/boiler/X = owner
+	var/list/spit_types = X.xeno_caste.spit_types
+	var/found_pos = spit_types.Find(X.ammo?.type)
+	if(!found_pos)
+		X.ammo = GLOB.ammo_list[spit_types[1]]
+	else
+		X.ammo = GLOB.ammo_list[spit_types[(found_pos%length(spit_types))+1]]	//Loop around if we would exceed the length
+	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = X.ammo
+	to_chat(X, span_notice(boiler_glob.select_text))
+	update_button_icon()
+
+/datum/action/ability/xeno_action/toggle_bomb/alternate_action_activate()
+	. = COMSIG_KB_ACTIVATED
+	var/mob/living/carbon/xenomorph/boiler/X = owner
+	if(!can_use_action())
+		return
+	if(length(X.xeno_caste.spit_types) <= 2)	//If we only have two or less glob types, we just use default select anyways.
+		action_activate()
+		return
+	INVOKE_ASYNC(src, PROC_REF(select_glob_radial))
+
+/**
+ * Opens a radial menu to select a glob in and sets current ammo to the selected result.
+ * * On selecting nothing, merely keeps current ammo.
+ * * Dynamically adjusts depending on which globs a boiler has access to, provided the global lists are maintained, though this fact isn't too relevant unless someone adds more.
+**/
+/datum/action/ability/xeno_action/toggle_bomb/proc/select_glob_radial()
+	var/mob/living/carbon/xenomorph/boiler/X = owner
+	var/list/available_globs = list()
+	for(var/datum/ammo/xeno/boiler_gas/corrosive/glob_type AS in X.xeno_caste.spit_types)
+		var/glob_image = GLOB.boiler_glob_image_list[initial(glob_type.icon_key)]
+		if(!glob_image)
+			continue
+		available_globs[initial(glob_type.icon_key)] = glob_image
+
+	var/glob_choice = show_radial_menu(owner, owner, available_globs, radius = 48)
+	if(!glob_choice)
+		return
+	var/referenced_path = GLOB.boiler_glob_list[glob_choice]
+	X.ammo = GLOB.ammo_list[referenced_path]
+	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = X.ammo
+	to_chat(X, span_notice(boiler_glob.select_text))
+	update_button_icon()
+
+/datum/action/ability/xeno_action/toggle_bomb/update_button_icon()
+	var/mob/living/carbon/xenomorph/boiler/X = owner
+	var/datum/ammo/xeno/boiler_gas/corrosive/boiler_glob = X.ammo	//Should be safe as this always selects a ammo.
+	action_icon_state = boiler_glob.icon_key
+	return ..()
+
+// ***************************************
+// *********** Gas cloud bomb maker
+// ***************************************
+
+/datum/action/ability/xeno_action/create_boiler_bomb
+	name = "Create bomb"
+	action_icon_state = "toggle_bomb0" //to be changed
+	action_icon = 'modular_RUtgmc/icons/Xeno/actions_boiler_glob.dmi'
+	desc = "Creates a Boiler Bombard of the type currently selected."
+	ability_cost = 200
+	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_BOMB,
+	)
+
+/datum/action/ability/xeno_action/create_boiler_bomb/New(Target)
+	. = ..()
+	desc = "Creates a Boiler Bombard of the type currently selected. Reduces bombard cooldown by [BOILER_BOMBARD_COOLDOWN_REDUCTION] seconds for each stored. Begins to emit light when surpassing [BOILER_LUMINOSITY_THRESHOLD] globs stored."
+
+/datum/action/ability/xeno_action/create_boiler_bomb/action_activate()
+	var/mob/living/carbon/xenomorph/boiler/X = owner
+
+	if(X.is_zoomed)
+		to_chat(X, span_notice("We can not prepare globules as we are now. We must stop concentrating into the distance!"))
+		return
+
+	var/current_ammo = X.corrosive_ammo
+	if(current_ammo >= X.xeno_caste.max_ammo)
+		to_chat(X, span_notice("We can carry no more globules."))
+		return
+
+	succeed_activate()
+	X.corrosive_ammo++
+	to_chat(X, span_notice("We prepare a corrosive acid globule."))
+	X.update_boiler_glow()
+	update_button_icon()
+
+/datum/action/ability/xeno_action/create_boiler_bomb/update_button_icon()
+	var/mob/living/carbon/xenomorph/boiler/X = owner
+	action_icon_state = "bomb_count_[X.corrosive_ammo]"
+	return ..()
+
 /particles/xeno_smoke/acid_light
 	color = "#9dcf30"
 
@@ -88,7 +195,7 @@
 /datum/action/ability/activable/xeno/bombard
 	name = "Bombard"
 	action_icon_state = "bombard"
-	desc = "Launch a glob of neurotoxin or acid. Must be rooted to use."
+	desc = "Launch a glob of acid."
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BOMBARD,
 	)
@@ -119,14 +226,9 @@
 	var/turf/S = get_turf(owner)
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
 
-	if(istype(boiler_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
-		if(boiler_owner.corrosive_ammo <= 0)
-			boiler_owner.balloon_alert(boiler_owner, "No corrosive globules.")
-			return FALSE
-	else
-		if(boiler_owner.neuro_ammo <= 0)
-			boiler_owner.balloon_alert(boiler_owner, "No neurotoxin globules.")
-			return FALSE
+	if(boiler_owner.corrosive_ammo <= 0)
+		boiler_owner.balloon_alert(boiler_owner, "No corrosive globules.")
+		return FALSE
 
 	if(!isturf(T) || T.z != S.z)
 		if(!silent)
@@ -140,7 +242,7 @@
 
 /datum/action/ability/activable/xeno/bombard/on_selection()
 	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
-	var/current_ammo = boiler_owner.corrosive_ammo + boiler_owner.neuro_ammo
+	var/current_ammo = boiler_owner.corrosive_ammo
 	if(current_ammo <= 0)
 		to_chat(boiler_owner, span_notice("We have nothing prepared to fire."))
 		return FALSE
@@ -190,14 +292,9 @@
 	if(!istype(target))
 		return
 
-	if(istype(boiler_owner.ammo, /datum/ammo/xeno/boiler_gas/corrosive))
-		if(boiler_owner.corrosive_ammo <= 0)
-			to_chat(boiler_owner, span_warning("We have no corrosive globules available."))
-			return
-	else
-		if(boiler_owner.neuro_ammo <= 0)
-			to_chat(boiler_owner, span_warning("We have no neurotoxin globules available."))
-			return
+	if(boiler_owner.corrosive_ammo <= 0)
+		to_chat(boiler_owner, span_warning("We have no corrosive globules available."))
+		return
 
 	to_chat(boiler_owner, span_xenonotice("We begin building up pressure."))
 

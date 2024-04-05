@@ -204,6 +204,15 @@
 /datum/ammo/bullet/pepperball/pepperball_mini
 	damage = 1
 
+/datum/ammo/bullet/shotgun/incendiary
+	damage = 100
+	sundering = 0
+	max_range = 10
+	incendiary_strength = 15
+
+/datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/M, obj/projectile/P)
+	staggerstun(M, P, weaken = 1 SECONDS, knockback = 1, slowdown = 1)
+
 /*
 //================================================
 					Xeno Spits
@@ -261,6 +270,10 @@
 /datum/ammo/xeno/acid/heavy/scatter
 	icon_state = "xeno_acid_normal"
 	bullet_color = COLOR_VERY_PALE_LIME_GREEN
+
+/datum/ammo/xeno/acid/heavy/scatter/praetorian
+	max_range = 5
+	damage_falloff = 4
 
 /datum/ammo/xeno/acid/heavy/scatter/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
 	if(T.density)

@@ -27,8 +27,8 @@
 #define CAT_SHN "HATS" // Synth's non-protective hats
 
 #define VENDOR_FACTION_NEUTRAL "Neutral"
-#define VENDOR_FACTION_CRASH "Valhalla"
-#define VENDOR_FACTION_VALHALLA "Crash"
+#define VENDOR_FACTION_CRASH "Crash"
+#define VENDOR_FACTION_VALHALLA "Valhalla"
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
 		CAT_MOD = 1,
@@ -97,9 +97,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/mortal_shell/flare = list(CAT_ENGSUP, "Flare Mortar shell", 1, "black"),
 		/obj/item/ammo_magazine/flamer_tank/large = list(CAT_ENGSUP, "Flamethrower tank", 4, "black"),
 	))
-*/
 
-/* RUTGMC DELETION
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/effect/vendor_bundle/medic = list(CAT_ESS, "Essential Medic Set", 0, "white"),
 		/obj/item/storage/pill_bottle/meralyne = list(CAT_MEDSUP, "Meralyne pills", 16, "orange"),
@@ -126,9 +124,8 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 5, "black"),
 		/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 45, "black"),
 	))
-*/
 
-/* GLOBAL_LIST_INIT(leader_gear_listed_products, list(
+GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/effect/vendor_bundle/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
 		/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 5, "black"),
 		/obj/item/beacon/supply_beacon = list(CAT_LEDSUP, "Supply beacon", 10, "black"),
@@ -151,9 +148,9 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/storage/firstaid/adv = list(CAT_LEDSUP, "Advanced firstaid kit", 10, "orange"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 10, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 15, "orange"),
-	)) */
+	))
 
-/* GLOBAL_LIST_INIT(commander_gear_listed_products, list(
+GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 		/obj/effect/vendor_bundle/commander = list(CAT_ESS, "Essential FC Set", 0, "white"),
 		/obj/item/whistle = list(CAT_FCSUP, "Whistle", 5, "black"),
 		/obj/item/beacon/supply_beacon = list(CAT_FCSUP, "Supply beacon", 10, "black"),
@@ -175,9 +172,8 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/storage/firstaid/adv = list(CAT_FCSUP, "Advanced firstaid kit", 10, "orange"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 10, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 15, "orange"),
-	)) */
+	))
 
-/* RUTGMC DELETION
 //A way to give them everything at once that still works with loadouts would be nice, but barring that make sure that your point calculation is set up so they don't get more than what they're supposed to
 GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/clothing/glasses/night/m56_goggles = list(CAT_ESS, "KLTD Smart Goggles", 0, "white"),
@@ -250,10 +246,10 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 		/obj/machinery/vending/weapon/valhalla,
 		/obj/machinery/vending/uniform_supply/valhalla,
 		/obj/machinery/vending/armor_supply/valhalla,
-		/obj/machinery/vending/marineFood/valhalla,
+		/obj/machinery/vending/marineFood,
 		/obj/machinery/vending/MarineMed/valhalla,
 		/obj/machinery/vending/cigarette/valhalla,
-		/obj/machinery/vending/tool/nopower/valhalla, // RUTGMC ADDITION
+		/obj/machinery/vending/tool/nopower/valhalla,
 	),
 	SQUAD_CORPSMAN = list(
 		/obj/machinery/vending/medical/shipside,
@@ -708,6 +704,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/mask/gas/tactical/coif = list(CAT_MAS, "Tactical coifed gas mask", 0,"black"),
 	))
 
+/* RUTGMC REDEFINITION IN MODULAR
 ///Assoc list linking the job title with their specific clothes vendor
 GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 	SQUAD_MARINE = GLOB.marine_clothes_listed_products,
@@ -747,9 +744,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	SQUAD_LEADER = list(
 		/obj/item/explosive/plastique = 1,
 		/obj/item/beacon/supply_beacon = 2,
-		//RUTGMC EDIT ADDITION BEGIN - ORBITAL_BEACON
-		/obj/item/beacon/orbital_bombardment_beacon = 1,
-		//RUTGMC EDIT ADDITION END
 		/obj/item/whistle = 1,
 		/obj/item/binoculars/tactical = 1,
 		/obj/item/pinpointer = 1,
@@ -757,6 +751,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/clothing/head/modular/m10x/leader = 1,
 	)
 ))
+*/
 
 ///Storage items that will always have their default content
 GLOBAL_LIST_INIT(bypass_storage_content_save, typecacheof(list(

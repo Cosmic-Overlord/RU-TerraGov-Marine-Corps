@@ -9,7 +9,7 @@
 		camera.c_tag = "Unknown"
 		if(user.assigned_squad)
 			camera.network -= lowertext(user.assigned_squad.name)
-	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE))
+	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_HUMAN_DEATH_STAGE_CHANGE))
 	return ..()
 
 /obj/item/radio/headset/mainship/proc/update_minimap_icon()

@@ -577,7 +577,7 @@
 	log_admin_private("[kn] [msg][roles_to_ban[1] == "Server" ? "" : " Roles: [roles_to_ban.Join(", ")]"] Reason: [reason]")
 	message_admins("[kna] [msg][roles_to_ban[1] == "Server" ? "" : " Roles: [roles_to_ban.Join("\n")]"]\nReason: [reason]")
 	//if(!applies_to_admins)
-	send2chat("BAN ALERT [kn] [msg]", CONFIG_GET(string/discord_ban_channel))
+	send2chat("**BAN ALERT:** ROUND: [GLOB.round_id]. [kn] [msg] **Reason:** [reason] (Roles: [roles_to_ban.Join(", ")])", CONFIG_GET(string/discord_ban_channel))
 	if(player_ckey)
 		create_message("note", player_ckey, admin_ckey, note_reason, null, null, 0, 0, null, 0, severity)
 	var/client/C = GLOB.directory[player_ckey]
@@ -786,6 +786,7 @@
 	qdel(query_unban)
 	log_admin_private("[kn] has unbanned [target] from [role].")
 	message_admins("[kna] has unbanned [target] from [role].")
+	send2chat("[kn] has unbanned [target] from [role].", CONFIG_GET(string/discord_ban_channel))
 	var/client/C = GLOB.directory[player_key]
 	if(C)
 		build_ban_cache(C)

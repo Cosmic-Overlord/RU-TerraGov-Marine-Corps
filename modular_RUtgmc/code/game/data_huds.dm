@@ -1,36 +1,124 @@
 /mob/living/carbon/human/med_hud_set_status()
-	. = ..()
 	var/image/status_hud = hud_list[STATUS_HUD] //Status for med-hud.
 	var/image/infection_hud = hud_list[XENO_EMBRYO_HUD] //State of the xeno embryo.
 	var/image/simple_status_hud = hud_list[STATUS_HUD_SIMPLE] //Status for the naked eye.
 	var/image/xeno_reagent = hud_list[XENO_REAGENT_HUD] // Displays active xeno reagents
+	var/image/xeno_debuff = hud_list[XENO_DEBUFF_HUD] //Displays active xeno specific debuffs
+	var/static/image/neurotox_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin")
+	var/static/image/hemodile_image = image('icons/mob/hud.dmi', icon_state = "hemodile")
+	var/static/image/transvitox_image = image('icons/mob/hud.dmi', icon_state = "transvitox")
+	var/static/image/sanguinal_image = image('icons/mob/hud.dmi', icon_state = "sanguinal")
+	var/static/image/ozelomelyn_image = image('icons/mob/hud.dmi', icon_state = "ozelomelyn")
+	var/static/image/intoxicated_image = image('icons/mob/hud.dmi', icon_state = "intoxicated")
+	var/static/image/intoxicated_amount_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_amount0")
+	var/static/image/neurotox_high_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin_high")
+	var/static/image/hemodile_high_image = image('icons/mob/hud.dmi', icon_state = "hemodile_high")
+	var/static/image/transvitox_high_image = image('icons/mob/hud.dmi', icon_state = "transvitox_high")
+	var/static/image/hunter_silence_image = image('icons/mob/hud.dmi', icon_state = "silence_debuff")
+	var/static/image/sanguinal_high_image = image('icons/mob/hud.dmi', icon_state = "sanguinal_high")
+	var/static/image/intoxicated_high_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_high")
+	var/static/image/hive_target_image = image('icons/mob/hud.dmi', icon_state = "hive_target")
 	var/static/image/medicalnanites_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites")
 	var/static/image/medicalnanites_medium_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_medium")
 	var/static/image/medicalnanites_low_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_low")
 	var/static/image/jellyjuice_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "jellyjuice")
 	var/static/image/russianred_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "russian_red")
 
+	xeno_reagent.overlays.Cut()
+	xeno_reagent.icon_state = ""
 	if(stat != DEAD)
+		var/neurotox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin)
+		var/hemodile_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile)
+		var/transvitox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox)
+		var/sanguinal_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_sanguinal)
+		var/ozelomelyn_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_ozelomelyn)
 		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/medicine/xenojelly)
 		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicine/research/medicalnanites)
 		var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
-		if(medicalnanites_amount > 25) //NANTIES HUD (MEDHUD AVAILABLE)
+
+		if(neurotox_amount > 10) //Blinking image for particularly high concentrations
+			xeno_reagent.overlays += neurotox_high_image
+		else if(neurotox_amount > 0)
+			xeno_reagent.overlays += neurotox_image
+
+		if(ozelomelyn_amount > 0) // Has no effect beyond having it in them, don't need to have a high image.
+			xeno_reagent.overlays += ozelomelyn_image
+
+		if(hemodile_amount > 10)
+			xeno_reagent.overlays += hemodile_high_image
+		else if(hemodile_amount > 0)
+			xeno_reagent.overlays += hemodile_image
+
+		if(transvitox_amount > 10)
+			xeno_reagent.overlays += transvitox_high_image
+		else if(transvitox_amount > 0)
+			xeno_reagent.overlays += transvitox_image
+
+		if(sanguinal_amount > 10)
+			xeno_reagent.overlays += sanguinal_high_image
+		else if(sanguinal_amount > 0)
+			xeno_reagent.overlays += sanguinal_image
+
+		if(medicalnanites_amount > 25)
 			xeno_reagent.overlays += medicalnanites_high_image
 		else if(medicalnanites_amount > 15)
 			xeno_reagent.overlays += medicalnanites_medium_image
 		else if(medicalnanites_amount > 0)
 			xeno_reagent.overlays += medicalnanites_low_image
 
-		if(russianred_amount > 0) //RUSSIAN RED HUD (MEDHUD AVAILABLE)
+		if(russianred_amount > 0)
 			xeno_reagent.overlays += russianred_image
 
-		if(jellyjuice_amount > 0) //JELLY HUD
+		if(jellyjuice_amount > 0)
 			xeno_reagent.overlays += jellyjuice_image
 
 	hud_list[XENO_REAGENT_HUD] = xeno_reagent
 
+	//Xeno debuff section start
+	xeno_debuff.overlays.Cut()
+	xeno_debuff.icon_state = ""
+	if(stat != DEAD)
+		if(IsMute())
+			xeno_debuff.overlays += hunter_silence_image
+
+	if(HAS_TRAIT(src, TRAIT_HIVE_TARGET))
+		xeno_debuff.overlays += hive_target_image
+
+	if(has_status_effect(STATUS_EFFECT_INTOXICATED))
+		var/datum/status_effect/stacking/intoxicated/debuff = has_status_effect(STATUS_EFFECT_INTOXICATED)
+		var/intoxicated_amount = debuff.stacks
+		xeno_debuff.overlays += intoxicated_amount_image
+		intoxicated_amount_image.icon_state = "intoxicated_amount[intoxicated_amount]"
+		if(intoxicated_amount > 15)
+			xeno_debuff.overlays += intoxicated_high_image
+		else if(intoxicated_amount > 0)
+			xeno_debuff.overlays += intoxicated_image
+
+	hud_list[XENO_DEBUFF_HUD] = xeno_debuff
+
 	if(species.species_flags & IS_SYNTHETIC)
-		return
+		simple_status_hud.icon_state = ""
+		if(stat != DEAD)
+			status_hud.icon_state = "hudsynth"
+		else
+			if(!client)
+				var/mob/dead/observer/G = get_ghost(FALSE, TRUE)
+				if(!G)
+					status_hud.icon_state = "hudsynthdnr"
+				else
+					status_hud.icon_state = "hudsynthdead"
+			return
+		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
+		return TRUE
+
+	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
+		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
+			status_hud.icon_state = "huddead_robot"
+		else
+			status_hud.icon_state = "huddead"
+		infection_hud.icon_state = ""
+		simple_status_hud.icon_state = ""
+		return TRUE
 
 	if(status_flags & XENO_HOST)
 		var/obj/item/alien_embryo/E = locate(/obj/item/alien_embryo) in src
@@ -49,19 +137,10 @@
 		simple_status_hud.icon_state = ""
 		infection_hud.icon_state = "hudrobot"
 
-	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
-		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
-			status_hud.icon_state = "huddead_robot"
-		else
-			status_hud.icon_state = "huddead"
-		infection_hud.icon_state = ""
-		simple_status_hud.icon_state = ""
-		return TRUE
-
 	switch(stat)
 		if(DEAD)
 			simple_status_hud.icon_state = ""
-			if(species.species_flags & ROBOTIC_LIMBS) //Robot check
+			if(species.species_flags & ROBOTIC_LIMBS)
 				infection_hud.icon_state = "huddead_robot"
 			else
 				infection_hud.icon_state = "huddead"
@@ -69,7 +148,7 @@
 				infection_hud.icon_state = "psy_drain"
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
 				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
-				if(species.species_flags & ROBOTIC_LIMBS) //Robot check
+				if(species.species_flags & ROBOTIC_LIMBS)
 					status_hud.icon_state = "huddead_robot"
 				else
 					status_hud.icon_state = "huddead"
@@ -77,7 +156,7 @@
 			if(!client)
 				var/mob/dead/observer/ghost = get_ghost()
 				if(!ghost?.can_reenter_corpse)
-					if(species.species_flags & ROBOTIC_LIMBS) //Robot check
+					if(species.species_flags & ROBOTIC_LIMBS)
 						status_hud.icon_state = "huddead_robot"
 					else
 						status_hud.icon_state = "huddead"
@@ -90,10 +169,13 @@
 					stage = 2
 				if(0.8 * TIME_BEFORE_DNR to INFINITY)
 					stage = 3
-			if(species.species_flags & ROBOTIC_LIMBS)
-				status_hud.icon_state = "huddeaddefib_robot"
-			else
-				status_hud.icon_state = "huddeaddefib[stage]"
+			if(initial_stage != stage)
+				initial_stage = stage
+				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // i dunno where else to put it even
+				if(species.species_flags & ROBOTIC_LIMBS)
+					status_hud.icon_state = "huddeaddefib_robot"
+				else
+					status_hud.icon_state = "huddeaddefib[stage]"
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
@@ -137,18 +219,6 @@
 					simple_status_hud.icon_state = ""
 					status_hud.icon_state = "hudhealthy"
 					return TRUE
-
-	if(stat == DEAD)
-		if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
-			return TRUE
-		if(!client)
-			var/mob/dead/observer/ghost = get_ghost()
-			if(!ghost?.can_reenter_corpse)
-				return TRUE
-		if(istype(wear_ear, /obj/item/radio/headset/mainship))
-			var/obj/item/radio/headset/mainship/headset = wear_ear
-			headset.update_minimap_icon() //Pls fix me
-			return TRUE
 
 //medical hud used by ghosts
 /datum/atom_hud/medical/observer

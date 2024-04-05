@@ -548,6 +548,7 @@
 	pixel_x = 0 //Big sprite so lets not shift it around.
 	pixel_y = 0
 
+/* RUTGMC DELETION
 /obj/item/storage/box/visual/attack_hand(mob/living/user)
 	if(loc == user)
 		open(user) //Always show content when holding box
@@ -564,6 +565,7 @@
 			I.attack_hand(user)
 			return
 		open(user)
+*/
 
 /obj/item/storage/box/visual/MouseDrop(atom/over_object)
 	if(!deployed)
@@ -574,6 +576,7 @@
 
 	var/mob/living/carbon/human/H = over_object
 	if(H == usr && !H.incapacitated() && Adjacent(H) && H.put_in_hands(src))
+		pickup(H) // RUTGMC ADDITION
 		deployed = FALSE
 		update_icon()
 

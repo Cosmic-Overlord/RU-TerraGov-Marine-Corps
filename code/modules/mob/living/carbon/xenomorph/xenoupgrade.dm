@@ -384,9 +384,6 @@ RU TGMC EDITION END*/
 //----BANELING START----//
 /mob/living/carbon/xenomorph/baneling
 	upgrade = XENO_UPGRADE_NORMAL
-
-/mob/living/carbon/xenomorph/baneling/primordial
-	upgrade = XENO_UPGRADE_PRIMO
 //----BANELING END----//
 //============//
 /*RU TGMC EDIT

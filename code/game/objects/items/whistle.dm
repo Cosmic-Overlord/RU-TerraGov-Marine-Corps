@@ -6,6 +6,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	flags_atom = CONDUCT
 	flags_equip_slot = ITEM_SLOT_MASK
+	actions_types = list(/datum/action/item_action) // RUTGMC ADDITION
 
 	var/volume = 60
 	var/spamcheck = FALSE

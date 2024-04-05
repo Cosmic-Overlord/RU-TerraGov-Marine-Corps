@@ -21,6 +21,8 @@
 	var/list/obj/structure/xeno/psychictower/psychictowers = list()
 	///list of phero towers
 	var/list/obj/structure/xeno/pherotower/pherotowers = list()
+	///list of baneling pods
+	var/list/obj/structure/xeno/banelingpod/banelingpods = list()
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
 	var/tier3_xeno_limit
@@ -123,6 +125,9 @@
 	// Hivemind cores
 	for(var/obj/structure/xeno/hivemindcore/core AS in GLOB.hive_datums[hivenumber].hivemindcores)
 		.["hive_structures"] += list(get_structure_packet(core))
+	//Baneling pods
+	for(var/obj/structure/xeno/banelingpod/spawner AS in GLOB.hive_datums[hivenumber].banelingpods)
+		.["hive_structures"] += list(get_structure_packet(spawner))
 	// Spawners
 	for(var/obj/structure/xeno/spawner/spawner AS in GLOB.xeno_spawners_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(spawner))

@@ -1,9 +1,12 @@
-/obj/item/storage/belt/gun/revolver/t500
+/obj/item/storage/holster/belt/revolver/t500
 	name = "\improper BM500 pattern BF revolver holster rig"
 	desc = "The BM500 is the special modular belt for R-500 BF revolver."
 	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
-	icon_state = "belt"
-	max_w_class = 3.5
+	icon_state = "t500_holster"
+	max_storage_space = 17
+	bypass_w_limit = list(
+		/obj/item/weapon/gun/revolver/t500,
+	)
 	can_hold = list(
 		/obj/item/weapon/gun/revolver/t500,
 		/obj/item/ammo_magazine/revolver/t500,

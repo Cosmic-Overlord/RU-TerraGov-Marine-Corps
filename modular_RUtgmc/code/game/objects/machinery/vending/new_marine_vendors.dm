@@ -49,3 +49,7 @@
 		/obj/item/clothing/gloves/marine/separatist,
 		/obj/item/clothing/shoes/marine/ru/separatist,
 	)
+
+/obj/machinery/marine_selector/clothes/commander/Initialize(mapload)
+	. = ..()
+	listed_products = GLOB.commander_clothes_listed_products
