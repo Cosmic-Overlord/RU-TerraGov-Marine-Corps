@@ -53,3 +53,4 @@
 /obj/structure/xeno/hivemindcore/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "hivemindcore[warning ? "_warn" : "_passive"]"))
+
