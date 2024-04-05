@@ -793,6 +793,13 @@
 			/obj/item/ammo_magazine/rifle/standard_smarttargetrifle = -1,
 			/obj/item/ammo_magazine/packet/sg62_rifle = -1,
 			/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle/highimpact = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle/heavyrubber = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle/tungsten = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss = -1,
+			/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary = -1,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
