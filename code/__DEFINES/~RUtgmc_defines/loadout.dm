@@ -45,6 +45,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/effect/vendor_bundle/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
 		/obj/item/armor_module/module/valkyrie_autodoc = list(CAT_LEDSUP, "Valkyrie Automedical Armor System", 25,"white"),
+		/obj/effect/vendor_bundle/tyr/two = list(CAT_LEDSUP, "Tyr extra armor set", 25,"white"),
 		/obj/item/storage/backpack/lightpack = list(CAT_LEDSUP, "Combat Backpack", 5, "orange"),
 		/obj/item/storage/backpack/marine/radiopack = list(CAT_LEDSUP, "Radio Pack", 5, "orange"),
 		/obj/item/fulton_extraction_pack = list(CAT_LEDSUP, "Fulton Extraction Pack", 5, "orange"),
@@ -347,7 +348,8 @@ GLOBAL_LIST_INIT(commander_clothes_listed_products, list(
 	/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 	/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 	/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
-	/obj/effect/vendor_bundle/tyr/two = list(CAT_ARMMOD, "Mark 2 Tyr extra armor set", 0,"black"),
+	/obj/effect/vendor_bundle/tyr/two = list(CAT_ARMMOD, "Tyr extra armor set", 0,"black"),
+	/obj/item/armor_module/module/valkyrie_autodoc = list(CAT_ARMMOD, "Valkyrie Automedical Armor System", 0 ,"black"),
 	/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 	/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 	/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
