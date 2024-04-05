@@ -1,5 +1,11 @@
 /datum/xeno_caste/behemoth
 
+	// *** Health *** //
+	max_health = 750
+
+	// *** Melee Attacks *** //
+	melee_damage = 26
+
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG|CASTE_STAGGER_RESISTANT
 
@@ -14,6 +20,9 @@
 	)
 
 /datum/xeno_caste/behemoth/primordial
+
+	// *** Wrath *** //
+	wrath_max = 750
 
 	// *** Abilities *** ///
 	actions = list(

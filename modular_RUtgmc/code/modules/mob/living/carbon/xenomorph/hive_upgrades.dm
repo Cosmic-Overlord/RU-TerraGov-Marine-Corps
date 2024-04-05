@@ -61,7 +61,7 @@
 	return ..()
 
 /datum/hive_upgrade/building/silo
-	psypoint_cost = 600
+	psypoint_cost = 800
 
 /datum/hive_upgrade/building/evotower
 	desc = "Constructs a tower that increases the rate of evolution point."
