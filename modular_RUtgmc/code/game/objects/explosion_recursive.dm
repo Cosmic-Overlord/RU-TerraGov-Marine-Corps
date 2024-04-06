@@ -287,9 +287,9 @@ explosion resistance exactly as much as their health
 
 	if(range >= 2)
 		var/scatter = range / 4 * scatter_multiplier
-		var/scatter_x = rand(-scatter,scatter)
-		var/scatter_y = rand(-scatter,scatter)
-		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
+		var/scatter_x = rand(-scatter, scatter)
+		var/scatter_y = rand(-scatter, scatter)
+		target = locate(target.x + round(scatter_x, 1), target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
