@@ -2,7 +2,7 @@
 	if(hull_floor)
 		return ..()
 	switch(severity)
-		if(0 to EXPLODE_LIGHT)
+		if(EXPLODE_WEAK to EXPLODE_LIGHT)
 			if(prob(50))
 				break_tile()
 		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
