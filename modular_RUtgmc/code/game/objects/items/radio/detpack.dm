@@ -24,6 +24,6 @@
 	if(det_mode == TRUE) //If we're on demolition mode, big boom.
 		explosion(plant_target, 3, 5, 6, 0, 6)
 	else //if we're not, focused boom.
-		cell_explosion(plant_target, 200, 150)
+		explosion(plant_target, 2, 2, 3, 0, 3, throw_range = FALSE)
 	plant_target.plastique_act()
 	qdel(src)
