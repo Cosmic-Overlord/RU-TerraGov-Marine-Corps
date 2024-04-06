@@ -6,15 +6,52 @@
 	action_icon_state = "pounce"
 	desc = "Charge up to 4 tiles and viciously attack your target."
 	cooldown_duration = 20 SECONDS
-	ability_cost = 500 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them.
+	ability_cost = 250 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them. //RU TGMC EDIT
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RAVAGER_CHARGE,
 	)
+	///charge distance
+	var/charge_range = RAV_CHARGEDISTANCE
 
-/datum/action/ability/activable/xeno/charge/proc/charge_complete()
-	SIGNAL_HANDLER
-	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENO_LIVING_THROW_HIT))
+/datum/action/ability/activable/xeno/charge/use_ability(atom/A)
+	if(!A)
+		return
+	var/mob/living/carbon/xenomorph/ravager/X = owner
 
+	RegisterSignal(X, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(obj_hit))
+	RegisterSignal(X, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
+	RegisterSignal(X, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
+
+	X.visible_message(span_danger("[X] charges towards \the [A]!"), \
+	span_danger("We charge towards \the [A]!") )
+	X.emote("roar")
+	X.xeno_flags |= XENO_LEAPING //This has to come before throw_at, which checks impact. So we don't do end-charge specials when thrown
+	succeed_activate()
+
+	X.throw_at(A, charge_range, RAV_CHARGESPEED, X)
+
+	add_cooldown()
+
+/datum/action/ability/activable/xeno/charge/on_cooldown_finish()
+	to_chat(owner, span_xenodanger("Our exoskeleton quivers as we get ready to use [name] again."))
+	playsound(owner, "sound/effects/xeno_newlarva.ogg", 50, 0, 1)
+	return ..()
+
+/datum/action/ability/activable/xeno/charge/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/xeno/charge/ai_should_use(atom/target)
+	if(!iscarbon(target))
+		return FALSE
+	if(!line_of_sight(owner, target, charge_range))
+		return FALSE
+	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+		return FALSE
+	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+		return FALSE
+	return TRUE
+
+///Deals with hitting objects
 /datum/action/ability/activable/xeno/charge/proc/obj_hit(datum/source, obj/target, speed)
 	SIGNAL_HANDLER
 	if(istype(target, /obj/structure/table))
@@ -26,57 +63,28 @@
 	target.hitby(owner, speed) //This resets throwing.
 	charge_complete()
 
-/datum/action/ability/activable/xeno/charge/proc/mob_hit(datum/source, mob/M)
+///Deals with hitting mobs. Triggered by bump instead of throw impact as we want to plow past mobs
+/datum/action/ability/activable/xeno/charge/proc/mob_hit(datum/source, mob/living/living_target)
 	SIGNAL_HANDLER
-	if(M.stat || isxeno(M))
+	. = TRUE
+	if(living_target.stat || isxeno(living_target)) //we leap past xenos
 		return
-	return COMPONENT_KEEP_THROWING //Ravagers plow straight through humans; we only stop on hitting a dense turf
 
-/datum/action/ability/activable/xeno/charge/can_use_ability(atom/A, silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(!A)
-		return FALSE
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	living_target.attack_alien_harm(xeno_owner, xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 0.25, FALSE, TRUE, FALSE, TRUE, INTENT_HARM) //Location is always random, cannot crit, harm only
+	var/target_turf = get_ranged_target_turf(living_target, get_dir(src, living_target), rand(1, 3)) //we blast our victim behind us
+	target_turf = get_step_rand(target_turf) //Scatter
+	if(iscarbon(living_target))
+		var/mob/living/carbon/carbon_victim = living_target
+		carbon_victim.Paralyze(2 SECONDS)
+	living_target.throw_at(get_turf(target_turf), charge_range, RAV_CHARGESPEED, src)
 
-/datum/action/ability/activable/xeno/charge/on_cooldown_finish()
-	to_chat(owner, span_xenodanger("Our exoskeleton quivers as we get ready to use Eviscerating Charge again."))
-	playsound(owner, "sound/effects/xeno_newlarva.ogg", 50, 0, 1)
-	var/mob/living/carbon/xenomorph/ravager/X = owner
-	X.usedPounce = FALSE
-	return ..()
-
-/datum/action/ability/activable/xeno/charge/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/ravager/X = owner
-
-	RegisterSignal(X, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(obj_hit))
-	RegisterSignal(X, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
-	RegisterSignal(X, COMSIG_XENO_LIVING_THROW_HIT, PROC_REF(mob_hit))
-
-	X.visible_message(span_danger("[X] charges towards \the [A]!"), \
-	span_danger("We charge towards \the [A]!") )
-	X.emote("roar") //heheh
-	X.usedPounce = TRUE //This has to come before throw_at, which checks impact. So we don't do end-charge specials when thrown
-	succeed_activate()
-
-	X.throw_at(A, RAV_CHARGEDISTANCE, RAV_CHARGESPEED, X)
-
-	add_cooldown()
-
-/datum/action/ability/activable/xeno/charge/ai_should_start_consider()
-	return TRUE
-
-/datum/action/ability/activable/xeno/charge/ai_should_use(atom/target)
-	if(!iscarbon(target))
-		return FALSE
-	if(!line_of_sight(owner, target, 4))
-		return FALSE
-	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
-		return FALSE
-	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
-		return FALSE
-	return TRUE
-
+///Cleans up after charge is finished
+/datum/action/ability/activable/xeno/charge/proc/charge_complete()
+	SIGNAL_HANDLER
+	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENOMORPH_LEAP_BUMP))
+	var/mob/living/carbon/xenomorph/ravager/xeno_owner = owner
+	xeno_owner.xeno_flags &= ~XENO_LEAPING
 
 // ***************************************
 // *********** Ravage
@@ -312,7 +320,7 @@
 	///Determines the power of Rage's many effects. Power scales inversely with the Ravager's HP; min 0.25 at 50% of Max HP, max 1 while in negative HP. 0.5 and above triggers especial effects.
 	var/rage_power
 	///Determines the Sunder to impose when Rage ends
-	var/rage_sunder
+	//var/rage_sunder RU TGMC EDIT
 	///Determines the Plasma to remove when Rage ends
 	var/rage_plasma
 
@@ -393,10 +401,10 @@
 
 	rage_plasma = min(X.xeno_caste.plasma_max - X.plasma_stored, X.xeno_caste.plasma_max * rage_power) //Calculate the plasma to restore (and take away later)
 	X.plasma_stored += rage_plasma //Regain a % of our maximum plasma scaling with rage
-
+/* RU TGMC EDIT
 	rage_sunder = min(X.sunder, rage_power * 100) //Set our temporary Sunder recovery
 	X.adjust_sunder(-1 * rage_sunder) //Restores up to 50 Sunder temporarily.
-
+RU TGMC EDIT */
 	X.xeno_melee_damage_modifier += rage_power  //Set rage melee damage bonus
 
 	X.add_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE, TRUE, 0, NONE, TRUE, X.xeno_caste.speed * 0.5 * rage_power) //Set rage speed bonus
@@ -430,7 +438,7 @@
 	var/burn_damage = rager.getFireLoss()
 	if(!brute_damage && !burn_damage) //If we have no healable damage, don't bother proceeding
 		return
-	var/health_recovery = rage_power * damage //Amount of health we leech per slash
+	var/health_recovery = clamp(rage_power, 0, 0.5)  * damage //Amount of health we leech per slash //RU TGMC EDIT
 	var/health_modifier
 	if(brute_damage) //First heal Brute damage, then heal Burn damage with remainder
 		health_modifier = min(brute_damage, health_recovery)*-1 //Get the lower of our Brute Loss or the health we're leeching
@@ -463,7 +471,7 @@
 
 	X.xeno_melee_damage_modifier = initial(X.xeno_melee_damage_modifier) //Reset rage melee damage bonus
 	X.remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE) //Reset speed
-	X.adjust_sunder(rage_sunder) //Remove the temporary Sunder restoration
+	//X.adjust_sunder(rage_sunder) //Remove the temporary Sunder restoration //RU TGMC EDIT
 	X.use_plasma(rage_plasma) //Remove the temporary Plasma
 
 	REMOVE_TRAIT(X, TRAIT_STUNIMMUNE, RAGE_TRAIT)
@@ -471,7 +479,7 @@
 	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, RAGE_TRAIT)
 	UnregisterSignal(X, COMSIG_XENOMORPH_ATTACK_LIVING)
 
-	rage_sunder = 0
+	//rage_sunder = 0 //RU TGMC EDIT
 	rage_power = 0
 	rage_plasma = 0
 	X.playsound_local(X, 'sound/voice/hiss5.ogg', 50) //Audio cue

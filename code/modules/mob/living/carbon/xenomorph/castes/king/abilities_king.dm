@@ -333,7 +333,7 @@
 		return
 	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
 		if(!silent)
-			owner.balloon_alert("too early")
+			owner.balloon_alert(owner, "too early")
 		return FALSE
 
 /datum/action/ability/xeno_action/zero_form_beam/action_activate()

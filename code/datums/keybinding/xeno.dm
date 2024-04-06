@@ -667,11 +667,11 @@
 	description = "Summons all xenos in a hive to the caller's location, uses all plasma to activate."
 	keybind_signal = COMSIG_XENOABILITY_HIVE_SUMMON
 
-/datum/keybinding/xeno/acid_dash
-	name = "acid_dash"
-	full_name = "Praetorian: Acid Dash"
-	description = "Quickly dash, leaving acid in your path and knocking down the first marine hit. Has reset potential."
-	keybind_signal = COMSIG_XENOABILITY_ACID_DASH
+/datum/keybinding/xeno/dash
+	name = "dash"
+	full_name = "Praetorian: Dash"
+	description = "Quickly dash forward."
+	keybind_signal = COMSIG_XENOABILITY_DASH
 	hotkey_keys = list("E")
 
 /datum/keybinding/xeno/screech

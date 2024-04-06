@@ -103,7 +103,7 @@
 	span_xenowarning("You are violently flung to the side by an unseen force!"))
 	playsound(owner,'sound/effects/magic.ogg', 75, 1)
 	playsound(victim,'sound/weapons/alien_claw_block.ogg', 75, 1)
-
+/* RU TGMC EDIT
 		//Held facehuggers get killed for balance reasons
 	if(istype(owner.r_hand, /obj/item/clothing/mask/facehugger))
 		var/obj/item/clothing/mask/facehugger/FH = owner.r_hand
@@ -114,7 +114,7 @@
 		var/obj/item/clothing/mask/facehugger/FH = owner.l_hand
 		if(FH.stat != DEAD)
 			FH.kill_hugger()
-
+RU TGMC EDIT */
 	succeed_activate()
 	add_cooldown()
 	if(ishuman(victim))
@@ -154,7 +154,7 @@
 	to_chat(owner, span_notice("Our mind is ready to unleash another blast of force."))
 	return ..()
 
-
+/* RU TGMC EDIT //moved to modular
 /datum/action/ability/activable/xeno/unrelenting_force/use_ability(atom/target)
 	succeed_activate()
 	add_cooldown()
@@ -214,7 +214,7 @@
 		var/obj/item/clothing/mask/facehugger/FH = owner.l_hand
 		if(FH.stat != DEAD)
 			FH.kill_hugger()
-
+RU TGMC EDIT */ //moved to modular
 
 // ***************************************
 // *********** Psychic Cure
