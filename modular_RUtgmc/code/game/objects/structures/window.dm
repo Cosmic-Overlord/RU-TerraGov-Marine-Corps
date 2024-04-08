@@ -2,9 +2,9 @@
 	var/damage = severity * EXPLOSION_DAMAGE_MULTIPLIER_WINDOW
 	take_damage(damage, BRUTE, BOMB)
 	if(damage >= 2000)
-		var/location = get_turf(src)
+		//var/location = get_turf(src)// Until either Lumi's proj changes apply or i can figure out why those runtime
 		playsound(src, "windowshatter", 50, 1)
-		create_shrapnel(location, rand(1, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
+		//create_shrapnel(location, rand(1, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
 
 	handle_debris(severity, explosion_direction)
 

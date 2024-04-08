@@ -184,16 +184,13 @@
 	loc = loc_override
 	if(!isturf(loc))
 		//forceMove(get_turf(src)) // RUTGMC DELETION
-		loc = get_turf(src) // RUTGMC ADDITION START
-		if(!loc)
-			if(is_shrapnel == TRUE)
-				var/move_turf = get_turf(source)
-				if(move_turf)
-					forceMove(move_turf)
-			else
-				var/move_turf = get_turf(shooter)
-				if(move_turf)
-					forceMove(move_turf) //RUTGMC ADDITION END
+		var/move_turf // RUTGMC ADDITION START
+		if(is_shrapnel && source)
+			move_turf = get_turf(source)
+		else
+			move_turf = (get_turf(src))
+		forceMove(move_turf) //RUTGMC ADDITION END
+
 	starting_turf = loc
 
 	if(target)
@@ -305,7 +302,7 @@
 		ammo.fire_bonus_projectiles(src, shooter, source, range, speed, dir_angle, target)
 
 	//if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles // RUTGMC DELETION
-	if((is_shrapnel == TRUE || shooter?.Adjacent(target)) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //RUTGMC ADDITION
+	if((is_shrapnel || shooter?.Adjacent(target)) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //RUTGMC ADDITION
 		target.do_projectile_hit(src)
 		qdel(src)
 		return

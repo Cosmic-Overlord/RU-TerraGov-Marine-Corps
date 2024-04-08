@@ -37,17 +37,14 @@
 		if("Custom Bomb")
 			var/input_severity = input("Explosion Severity:", "Drop Bomb") as null|num
 			var/input_falloff = input("Explosion Falloff:", "Drop Bomb") as null|num
-			var/input_flame_range = input("Flame range (in tiles):", "Drop Bomb") as null|num
-			if(input_severity < 1 && input_falloff < 1 && input_flame_range < 1)
+			if(input_severity < 1 && input_falloff < 1)
 				return
-			var/world_max = max(world.maxy, world.maxy)
-			input_flame_range = clamp(input_flame_range, 0, world_max)
-			switch(tgui_alert(usr, "Deploy payload?", "Severity: [input_severity] | Falloff: [input_falloff] | Flame: [input_flame_range]", list("Launch!", "Cancel")))
+			switch(tgui_alert(usr, "Deploy payload?", "Severity: [input_severity] | Falloff: [input_falloff]", list("Launch!", "Cancel")))
 				if("Launch!")
-					cell_explosion(usr.loc, input_severity, input_falloff, flame_range = input_flame_range)
+					cell_explosion(usr.loc, input_severity, input_falloff)
 				else
 					return
-			choice = "[choice] ([input_severity], [input_falloff], [input_flame_range])" //For better logging.
+			choice = "[choice] ([input_severity], [input_falloff])" //For better logging.
 		else
 			return
 

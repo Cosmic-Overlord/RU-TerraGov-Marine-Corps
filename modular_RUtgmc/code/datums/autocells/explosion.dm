@@ -232,7 +232,7 @@ as having entered the turf.
 	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
 
 // Spawns a cellular automaton of an explosion
-/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, flame_range, flame_color, silent, color, shrapnel = TRUE, adminlog = TRUE, orig_range)
+/proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, orig_range, direction, color, silent, shrapnel = TRUE, adminlog = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
@@ -250,15 +250,11 @@ as having entered the turf.
 
 	// Calculate far explosion sound range. Only allow the sound effect for heavy/devastating explosions.
 	var/far_dist = power / 10
-	var/orig_max_distance = power / falloff - 1 // used for stuff like radius of effects and light
-	if(orig_range)
-		orig_max_distance = orig_range
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
 		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
 		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
 		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
-		var/baseshakeamount
 
 		for(var/MN in GLOB.player_list)
 			var/mob/M = MN
@@ -266,8 +262,6 @@ as having entered the turf.
 			var/turf/M_turf = get_turf(M)
 			if(M_turf && M_turf.z == epicenter.z)
 				var/dist = get_dist(M_turf, epicenter)
-				if(orig_max_distance - dist > 0)
-					baseshakeamount = sqrt((orig_max_distance - dist) * 0.1)
 				switch(power)
 					if(0 to EXPLODE_LIGHT)
 						explosion_sound = sound(get_sfx("explosion_small"))
@@ -281,8 +275,6 @@ as having entered the turf.
 					M.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
 					if(is_mainship_level(epicenter.z))
 						M.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
-					if(baseshakeamount > 0)
-						shake_camera(M, 1.5 SECONDS, clamp(baseshakeamount, 0, 1.5))
 				// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 				else if(dist <= far_dist)
 					var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
@@ -290,9 +282,7 @@ as having entered the turf.
 					M.playsound_local(epicenter, null, far_volume, 1, frequency, falloff = 5, S = far_explosion_sound)
 					if(is_mainship_level(epicenter.z))
 						M.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
-					if(baseshakeamount > 0)
-						shake_camera(M, 0.7 SECONDS, clamp(baseshakeamount * 0.15, 0, 1)) // Пол царства тому кто разберётся в этих формулах XD
-	new /obj/effect/temp_visual/explosion(epicenter, orig_max_distance, color, power)
+	new /obj/effect/temp_visual/explosion(epicenter, orig_range - 1, color, power)
 	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
 		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
@@ -308,12 +298,6 @@ as having entered the turf.
 		epicenter = get_turf(epicenter)
 		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver1)
 		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver2)
-	// Drop flames
-	if(flame_range)
-		flame_radius(flame_range, epicenter, colour = flame_color)
-	if(power >= EXPLODE_MEDIUM)
-		for(var/mob/living/carbon/carbon_viewers in viewers(orig_max_distance, epicenter))
-			carbon_viewers.flash_act()
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
 

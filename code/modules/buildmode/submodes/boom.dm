@@ -33,7 +33,7 @@ RU TGMC REMOVENT END */
 
 	if(left_click)
 		//explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE) // RUTGMC DELETION
-		cell_explosion(object, power, falloff, flame_range = flame, silent = TRUE) // RUTGMC ADDITION
+		cell_explosion(object, power, falloff, silent = TRUE) // RUTGMC ADDITION
 		to_chat(c, span_notice("Success."))
 		//log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]") // RUTGMC DELETION
-		log_admin("Build Mode: [key_name(c)] caused an explosion(p=[power], f=[falloff], flame=[flame]) at [AREACOORD(object)]") // RUTGMC ADDITION
+		log_admin("Build Mode: [key_name(c)] caused an explosion(p=[power], f=[falloff] at [AREACOORD(object)]") // RUTGMC ADDITION
