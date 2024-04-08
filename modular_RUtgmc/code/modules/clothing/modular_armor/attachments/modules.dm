@@ -179,7 +179,7 @@
  * Extra armor module
 */
 /obj/item/armor_module/module/tyr_extra_armor
-	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 5)
+	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 10)
 	slowdown = 0
 
 /obj/item/armor_module/module/eshield
