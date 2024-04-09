@@ -1,14 +1,19 @@
 /obj/item/clothing/suit/modular/xenonauten/light
-	soft_armor = list(MELEE = 40, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+
+/obj/item/clothing/suit/modular/xenonauten //medium
+	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/suit/modular/xenonauten/heavy
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 
 /obj/item/clothing/head/modular/m10x
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = list(MELEE = 40, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
 
 /obj/item/clothing/head/modular/m10x/leader
-	soft_armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 65, BOMB = 55, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
 
 /obj/item/clothing/suit/modular/xenonauten/light/mk1
 	name = "\improper Xenonauten-L-MK1 pattern armored vest"
