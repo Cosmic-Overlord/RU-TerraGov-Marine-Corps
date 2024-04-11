@@ -275,6 +275,7 @@
 	max_range = 5
 	damage = 15
 	puddle_duration = 0.5 SECONDS
+	bonus_projectiles_amount = 3
 
 /datum/ammo/xeno/acid/heavy/scatter/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
 	if(T.density)
