@@ -70,6 +70,7 @@
 
 	hud_set_plasma()
 	med_hud_set_health()
+	hud_update_primo()
 
 	hud_set_queen_overwatch() //update the upgrade level insignia on our xeno hud.
 
