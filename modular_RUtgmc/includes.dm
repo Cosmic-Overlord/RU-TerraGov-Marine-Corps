@@ -137,6 +137,7 @@
 #include "code\game\objects\structures\mineral_doors.dm"
 #include "code\game\objects\structures\misc.dm"
 #include "code\game\objects\structures\morgue.dm"
+#include "code\game\objects\structures\orbital_cannon.dm"
 #include "code\game\objects\structures\prop.dm"
 #include "code\game\objects\structures\razorwire.dm"
 #include "code\game\objects\structures\reagent_dispensers.dm"

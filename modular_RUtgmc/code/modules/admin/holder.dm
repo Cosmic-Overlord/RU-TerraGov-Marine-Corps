@@ -82,6 +82,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/datum/admins/proc/force_distress,
 	/datum/admins/proc/object_sound,
 	/datum/admins/proc/drop_bomb,
+	/datum/admins/proc/drop_OB,
 	/datum/admins/proc/change_security_level,
 	/datum/admins/proc/edit_appearance,
 	/datum/admins/proc/offer,

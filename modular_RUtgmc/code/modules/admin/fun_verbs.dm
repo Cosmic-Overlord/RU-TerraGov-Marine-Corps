@@ -62,7 +62,7 @@
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(delayed_detonate_bomb_fatty_final), impact), 3 SECONDS)
 
 /proc/delayed_detonate_bomb_fatty_final(turf/impact)
-	var/list/impact_coords = list(list(-3,3),list(0,4),list(3,3),list(-4,0),list(4,0),list(-3,-3),list(0,-4), list(3,-3))
+	var/list/impact_coords = list(list(-3, 3), list(0, 4), list(3, 3), list(-4, 0), list(4, 0), list(-3, -3), list(0, -4), list(3, -3))
 	for(var/i in 1 to 8)
 		var/list/coords = impact_coords[i]
 		var/turf/detonation_target = locate(impact.x+coords[1],impact.y+coords[2],impact.z)
@@ -73,3 +73,83 @@
 	impact.ceiling_debris_check(3)
 	explosion(impact, 2, 3, 4, 0, 6)
 	flame_radius(5, impact, 60, 30)
+
+/datum/admins/proc/drop_OB()
+	set category = "Admin.Fun"
+	set name = "Drop OB"
+	set desc = "Cause an OB explosion of varying strength at your location."
+
+	if(!check_rights(R_FUN))
+		return
+
+	var/list/firemodes = list("Standard OB List", "Custom HE", "Custom Cluster", "Custom Incendiary", "Custom Plasmaloss")
+	var/mode = tgui_input_list(usr, "Select fire mode:", "Fire mode", firemodes)
+	// Select the warhead.
+	var/obj/structure/ob_ammo/warhead/warhead
+	switch(mode)
+		if("Standard OB List")
+			var/list/warheads = subtypesof(/obj/structure/ob_ammo/warhead/)
+			var/choice = tgui_input_list(usr, "Select the warhead:", "Warhead to use", warheads)
+			warhead = new choice
+		if("Custom HE")
+			var/obj/structure/ob_ammo/warhead/explosive/OBShell = new
+			OBShell.explosion_power = tgui_input_number(src, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, 3000)
+			if(isnull(OBShell.explosion_power))
+				return
+			OBShell.explosion_falloff = tgui_input_number(src, "How much falloff should the wall clear blast have?", "Set clear falloff", 90)
+			if(isnull(OBShell.explosion_falloff))
+				return
+			warhead = OBShell
+		if("Custom Cluster")
+			var/obj/structure/ob_ammo/warhead/cluster/OBShell = new
+			OBShell.cluster_amount = tgui_input_number(src, "How many salvos should be fired?", "Set cluster number", 25, 80) // 80 because so much explosions can just shut down the server
+			if(isnull(OBShell.cluster_amount))
+				return
+			OBShell.cluster_power = tgui_input_number(src, "How strong should the blasts be?", "Set blast power", 240)
+			if(isnull(OBShell.cluster_power))
+				return
+			OBShell.cluster_falloff = tgui_input_number(src, "How much falloff should the blasts have?", "Set blast falloff", 40)
+			if(isnull(OBShell.cluster_falloff))
+				return
+			warhead = OBShell
+		if("Custom Incendiary")
+			var/obj/structure/ob_ammo/warhead/incendiary/OBShell = new
+			OBShell.flame_intensity = tgui_input_number(src, "How intensive should the fire be?", "Set fire intensivity", 36)
+			if(isnull(OBShell.flame_intensity))
+				return
+			OBShell.flame_duration = tgui_input_number(src, "How long should the fire last?", "Set fire duration", 40)
+			if(isnull(OBShell.flame_duration))
+				return
+			var/list/fire_colors = list("red", "green", "blue", "custom")
+			OBShell.flame_colour = tgui_input_list(usr, "Select the fire color:", "Fire color", fire_colors, "blue")
+			if(isnull(OBShell.flame_colour))
+				return
+			if(OBShell.flame_colour == "custom")
+				OBShell.flame_colour = input(src, "Please select Fire color.", "Fire color") as color|null
+				if(isnull(OBShell.flame_colour))
+					return
+			OBShell.smoke_radius = tgui_input_number(src, "How far should the smoke go?", "Set smoke radius", 17)
+			if(isnull(OBShell.smoke_radius))
+				return
+			OBShell.smoke_duration = tgui_input_number(src, "How long should the smoke last?", "Set smoke duration", 20)
+			if(isnull(OBShell.smoke_duration))
+				return
+			warhead = OBShell
+		if("Custom Plasmaloss")
+			var/obj/structure/ob_ammo/warhead/plasmaloss/OBShell = new
+			OBShell.smoke_radius = tgui_input_number(src, "How many tiles radius should the smoke be?", "Set smoke radius", 25)
+			if(isnull(OBShell.smoke_radius))
+				return
+			OBShell.smoke_duration = tgui_input_number(src, "How long should the fire last? (In deci-seconds)", "Set smoke duration", 30)
+			if(isnull(OBShell.smoke_duration))
+				return
+			warhead = OBShell
+
+	var/turf/target = get_turf(usr.loc)
+
+	switch(tgui_alert(usr, "What do you want exactly?", "Mode", list("Spawn OB effects.", "Spawn Warhead."), timeout = 0))
+		if("Spawn OB effects.")
+			message_admins("[key_name(usr)] has fired \an [warhead.name] at ([target.x],[target.y],[target.z]).")
+			warhead.warhead_impact(target)
+		if("Spawn Warhead.")
+			warhead.loc = target

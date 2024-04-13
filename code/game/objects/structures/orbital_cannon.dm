@@ -344,9 +344,11 @@
 	warhead_kind = "explosive"
 	icon_state = "ob_warhead_1"
 
+/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/explosive/warhead_impact(turf/target, inaccuracy_amt = 0)
 	. = ..()
 	explosion(target, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 15 - inaccuracy_amt, 0, 15 - inaccuracy_amt)
+*/
 
 
 
@@ -356,6 +358,7 @@
 	icon_state = "ob_warhead_2"
 
 
+/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/incendiary/warhead_impact(turf/target, inaccuracy_amt = 0)
 	. = ..()
 	var/range_num = max(15 - inaccuracy_amt, 12)
@@ -363,12 +366,14 @@
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
 	warcrime.set_up(17, target, 20)
 	warcrime.start()
+*/
 
 /obj/structure/ob_ammo/warhead/cluster
 	name = "\improper Cluster orbital warhead"
 	warhead_kind = "cluster"
 	icon_state = "ob_warhead_3"
 
+/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/cluster/warhead_impact(turf/target, inaccuracy_amt = 0)
 	set waitfor = FALSE
 	. = ..()
@@ -381,6 +386,7 @@
 		var/turf/U = pick_n_take(turf_list)
 		explosion(U, 1, 4, 6, 0, 6, throw_range = 0, adminlog = FALSE) //rocket barrage
 		sleep(0.1 SECONDS)
+*/
 
 /obj/structure/ob_ammo/warhead/plasmaloss
 	name = "\improper Plasma draining orbital warhead"
@@ -388,11 +394,13 @@
 	icon_state = "ob_warhead_4"
 
 
+/* RUTGMC DELETION
 /obj/structure/ob_ammo/warhead/plasmaloss/warhead_impact(turf/target, inaccuracy_amt = 0)
 	. = ..()
 	var/datum/effect_system/smoke_spread/plasmaloss/smoke = new
 	smoke.set_up(25, target, 3 SECONDS)//Vape nation
 	smoke.start()
+*/
 
 /obj/structure/ob_ammo/ob_fuel
 	name = "solid fuel"
