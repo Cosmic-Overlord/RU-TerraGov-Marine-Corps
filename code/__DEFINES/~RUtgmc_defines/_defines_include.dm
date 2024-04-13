@@ -13,6 +13,7 @@
 #include "mode.dm"
 #include "modular_armor.dm"
 #include "movespeed_modification.dm"
+#include "objects.dm"
 #include "skills.dm"
 #include "traits.dm"
 #include "xeno.dm"

@@ -41,13 +41,22 @@
 /obj/structure/xeno/pherotower/crash/attack_alien(isrightclick = FALSE)
 	return
 
+/obj/structure/xeno/pherotower/ex_act(severity)
+	take_damage(severity * 2.5, BRUTE, BOMB)
+ 
 /obj/structure/xeno/evotower/Initialize(mapload, _hivenumber)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "tower"))
 
+/obj/structure/xeno/evotower/ex_act(severity)
+	take_damage(severity * 2.5, BRUTE, BOMB)
+
 /obj/structure/xeno/psychictower/Initialize(mapload, _hivenumber)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "tower"))
+
+/obj/structure/xeno/psychictower/ex_act(severity)
+	take_damage(severity * 2.5, BRUTE, BOMB)
 
 /obj/structure/xeno/plant
 	icon = 'modular_RUtgmc/icons/Xeno/plants.dmi'
@@ -155,12 +164,25 @@
 
 /obj/structure/xeno/xeno_turret/ex_act(severity)
 	take_damage(severity * 3, BRUTE, BOMB)
+  
+/obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
+	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
+		on_destruction()
+	return ..()
 
-/obj/structure/xeno/evotower/ex_act(severity)
-	take_damage(severity * 2.5, BRUTE, BOMB)
+/obj/structure/xeno/xeno_turret/proc/on_destruction()
+	var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
+	smoke.set_up(1, get_turf(src))
+	smoke.start()
 
-/obj/structure/xeno/psychictower/ex_act(severity)
-	take_damage(severity * 2.5, BRUTE, BOMB)
+/obj/structure/xeno/xeno_turret/sticky/on_destruction()
+	for(var/i = 1 to 20) // maybe a bit laggy
+		var/obj/projectile/new_proj = new(src)
+		new_proj.generate_bullet(ammo)
+		new_proj.fire_at(null, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
 
-/obj/structure/xeno/pherotower/ex_act(severity)
-	take_damage(severity * 2.5, BRUTE, BOMB)
+/obj/structure/xeno/xeno_turret/hugger_turret/on_destruction()
+	for(var/i = 1 to 5)
+		var/obj/projectile/new_proj = new(src)
+		new_proj.generate_bullet(ammo)
+		new_proj.fire_at(null, src, range = rand(1, 3), angle = rand(1, 360), recursivity = TRUE)
