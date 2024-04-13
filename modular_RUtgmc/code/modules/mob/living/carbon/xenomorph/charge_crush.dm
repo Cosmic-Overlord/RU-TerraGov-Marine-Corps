@@ -11,7 +11,7 @@
 	if((resistance_flags & (INDESTRUCTIBLE|CRUSHER_IMMUNE)) || charger.is_charging < CHARGE_ON)
 		charge_datum.do_stop_momentum()
 		return PRECRUSH_STOPPED
-	. = (CHARGE_SPEED(charge_datum) * 250) //Теперь балансить придётся еще и крашера XD
+	. = (CHARGE_SPEED(charge_datum) * 400)
 	charge_datum.speed_down(1)
 
 // Charge is divided into two acts: before and after the crushed thing taking damage, as that can cause it to be deleted.
