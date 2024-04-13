@@ -9,7 +9,6 @@
 	var/slowdown_amount = 0
 	var/ear_damage_amount = 0
 	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
-
 	if(severity >= EXPLOSION_THRESHOLD_GIB)
 		var/oldloc = loc
 		gib()
@@ -31,4 +30,4 @@
 	#endif
 
 	take_overall_damage(severity * 0.5, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
-	take_overall_damage(severity * 0.5,, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
+	take_overall_damage(severity * 0.5, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
