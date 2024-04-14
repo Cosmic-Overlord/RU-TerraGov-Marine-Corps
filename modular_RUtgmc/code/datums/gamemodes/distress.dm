@@ -27,7 +27,7 @@
 		/datum/job/xenomorph/queen = 1
 	)
 	var/siloless_hive_timer
-	xenorespawn_time = 30 SECONDS
+	xenorespawn_time = 3 MINUTES
 
 /datum/game_mode/infestation/distress/post_setup()
 	. = ..()
