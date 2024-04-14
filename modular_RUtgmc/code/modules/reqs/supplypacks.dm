@@ -201,6 +201,13 @@ ARMOR
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
 
+/datum/supply_packs/armor/modular/attachments/tyr_extra_armor
+	name = "Tyr armor module"
+	cost = 200
+
+/datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
+	cost = 150
+
 /datum/supply_packs/armor/robot/advanced/physical
 	name = "Cingulata physical protection armor set"
 	contains = list(

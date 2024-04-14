@@ -29,23 +29,23 @@
 	return ..()
 
 
-/obj/item/clothing/glasses/hud/activate_glasses(mob/user, silent = FALSE)
+/obj/item/clothing/glasses/hud/activate(mob/user)
+	//Run the activation stuff BEFORE getting to the HUD de/activations
 	. = ..()
+
 	if(!ishuman(user))
 		return
+
 	var/mob/living/carbon/human/hud_user = user
 	if(hud_user.glasses != src)
 		return
-	activate_hud(hud_user)
 
+	if(active)
+		activate_hud(hud_user)
+	else
+		deactivate_hud(hud_user)
 
-/obj/item/clothing/glasses/hud/deactivate_glasses(mob/user, silent = FALSE)
-	. = ..()
-	if(QDELETED(affected_user))
-		return
-	deactivate_hud()
-
-
+///Activates the hud(s) these glasses have
 /obj/item/clothing/glasses/hud/proc/activate_hud(mob/living/carbon/human/user)
 	var/datum/atom_hud/hud_datum = GLOB.huds[hud_type]
 	hud_datum.add_hud_to(user)
@@ -212,3 +212,24 @@
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_PAIN
 	actions_types = list(/datum/action/item_action/toggle)
+
+/obj/item/clothing/glasses/hud/sa
+	name = "spatial agent's sunglasses"
+	desc = "Glasses worn by a spatial agent."
+	icon_state = "sun"
+	item_state = "sunglasses"
+	eye_protection = 2
+	darkness_view = 8
+	hud_type = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_SQUAD_TERRAGOV, DATA_HUD_SQUAD_SOM, DATA_HUD_ORDER)
+	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
+	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+	activation_sound = null
+	deactivation_sound = null
+
+/obj/item/clothing/glasses/hud/sa/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/clothing_tint, TINT_NONE)
+
+/obj/item/clothing/glasses/hud/sa/nodrop
+	desc = "Glasses worn by a spatial agent. They delete themselves if you take them off!"
+	flags_item = DELONDROP
