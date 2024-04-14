@@ -300,6 +300,7 @@
 #include "code\modules\mob\living\silicon\ai\ai.dm"
 #include "code\modules\mob\living\simple_animal\simple_animal.dm"
 #include "code\modules\organs\limb_objects.dm"
+#include "code\modules\organs\limbs.dm"
 #include "code\modules\power\apc.dm"
 #include "code\modules\power\cable.dm"
 #include "code\modules\power\cell.dm"
