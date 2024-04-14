@@ -11,8 +11,8 @@
 			// Override the current limb status
 			//E.droplimb() // RUTGMC DELETION
 			E.droplimb(silent = TRUE) // RUTGMC ADDITION START
-	visible_message(span_warning("[name]'s explodes into a bloody mess!"),
-		span_highdanger("<b>You explode into a bloody mess!</b>"),
+	visible_message(span_warning("[name] explodes violently into a bloody mess!"),
+		span_highdanger("<b>You explode violently into a bloody mess!</b>"),
 		span_warning("You hear a terrible sound of breaking bones and ripping flesh!"), 3) // RUTGMC EDITION END
 
 	if(is_a_synth)
