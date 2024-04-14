@@ -15,9 +15,18 @@
 	var/drone_creation_allowed = TRUE
 	var/obj/docking_port/stationary/marine_dropship/spawn_spot
 	var/datum/action/innate/remote_fob/metal_cade/metal_cade
+	/* ORIGINAL
 	var/metal_remaining = 200
 	var/datum/action/innate/remote_fob/plast_cade/plast_cade
 	var/plasteel_remaining = 100
+	*/
+	//RUTGMC EDIT BEGIN
+	var/datum/action/innate/remote_fob/metal_folding_cade/metal_folding_cade
+	var/metal_remaining = 240
+	var/datum/action/innate/remote_fob/plasteel_cade/plasteel_cade
+	var/datum/action/innate/remote_fob/plast_folding_cade/plast_folding_cade
+	var/plasteel_remaining = 120
+	//RUTGMC EDIT END
 	var/datum/action/innate/remote_fob/toggle_wiring/toggle_wiring //whether or not new barricades will be wired
 	var/do_wiring = TRUE
 	var/datum/action/innate/remote_fob/eject_metal_action/eject_metal_action
@@ -26,7 +35,12 @@
 /obj/machinery/computer/camera_advanced/remote_fob/Initialize(mapload)
 	. = ..()
 	metal_cade = new()
-	plast_cade = new()
+	//plast_cade = new() //ORIGINAL
+	//RUTGMC EDIT BEGIN
+	metal_folding_cade = new()
+	plasteel_cade = new()
+	plast_folding_cade = new()
+	//RUTGMC EDIT END
 	toggle_wiring = new()
 	/*sentry = new()*/
 	eject_metal_action = new()
@@ -45,7 +59,12 @@
 /obj/machinery/computer/camera_advanced/remote_fob/Destroy()
 	spawn_spot = null
 	QDEL_NULL(metal_cade)
-	QDEL_NULL(plast_cade)
+	//QDEL_NULL(plast_cade) //ORIGINAL
+	//RUTGMC EDIT BEGIN
+	QDEL_NULL(metal_folding_cade)
+	QDEL_NULL(plasteel_cade)
+	QDEL_NULL(plast_folding_cade)
+	//RUTGMC EDIT END
 	QDEL_NULL(toggle_wiring)
 	/*QDEL_NULL(sentry)*/
 	QDEL_NULL(eject_metal_action)
@@ -150,10 +169,28 @@
 		metal_cade.give_action(user)
 		actions += metal_cade
 
+	/* ORIGINAL
 	if(plast_cade)
 		plast_cade.target = src
 		plast_cade.give_action(user)
 		actions += plast_cade
+	*/
+	//RUTGMC ADDON BEGIN
+	if(metal_folding_cade)
+		metal_folding_cade.target = src
+		metal_folding_cade.give_action(user)
+		actions += metal_folding_cade
+
+	if(plasteel_cade)
+		plasteel_cade.target = src
+		plasteel_cade.give_action(user)
+		actions += plasteel_cade
+
+	if(plast_folding_cade)
+		plast_folding_cade.target = src
+		plast_folding_cade.give_action(user)
+		actions += plast_folding_cade
+	//RUTGMC ADDON END
 
 	if(toggle_wiring)
 		toggle_wiring.target = src

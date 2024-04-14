@@ -428,8 +428,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/boiler, location, null, delmob)
 			if("crusher")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/crusher, location, null, delmob)
-			if("widow")
-				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/widow, location, null, delmob)
+			//if("widow") //RUTGMC DELETION, WIDOW DELETION
+				//newmob = M.change_mob_type(/mob/living/carbon/xenomorph/widow, location, null, delmob)
 			if("defiler")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/defiler, location, null, delmob)
 			if("gorger")
@@ -444,8 +444,14 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/queen, location, null, delmob)
 			if("king")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/king, location, null, delmob)
+			/* RU TGMC EDIT START
 			if("wraith")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/wraith, location, null, delmob)
+			RU TGMC EDIT END */
+			if("puppeteer")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/puppeteer, location, null, delmob)
+			if("behemoth")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/behemoth, location, null, delmob)
 			if("human")
 				newmob = M.change_mob_type(/mob/living/carbon/human, location, null, delmob)
 			if("synthetic")
@@ -475,6 +481,8 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/facehugger, location, null, delmob)
 			if("panther")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/panther, location, null, delmob)
+			if("chimera")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
 			//RUTGMC EDIT END
 
 		C.holder.show_player_panel(newmob)
@@ -1242,174 +1250,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(usr)] created [number] [english_list(paths)] at [AREACOORD(usr.loc)].")
 		message_admins("[ADMIN_TPMONTY(usr)] created [number] [english_list(paths)] at [ADMIN_VERBOSEJMP(usr.loc)].")
-
-
-	else if(href_list["admin_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.admin_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "admin_log", "<div align='center'>Admin Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["adminprivate_log"])
-		if(!check_rights(R_BAN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.adminprivate_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "adminprivate_log", "<div align='center'>Adminprivate Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["asay_log"])
-		if(!check_rights(R_ASAY))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.asay_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "asay_log", "<div align='center'>Asay Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["msay_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.msay_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "msay_log", "<div align='center'>Msay Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["say_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.say_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "say_log", "<div align='center'>Say Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["telecomms_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.telecomms_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "telecomms_log", "<div align='center'>Telecomms Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["game_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.game_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "game_log", "<div align='center'>Game Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["manifest_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.manifest_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "manifest_log", "<div align='center'>Manifest Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["access_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.access_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "access_log", "<div align='center'>Access Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["attack_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.attack_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "attack_log", "<div align='center'>Attack Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["ffattack_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.ffattack_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "ffattack_log", "<div align='center'>FF Attack Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
-
-
-	else if(href_list["explosion_log"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/dat
-
-		for(var/x in GLOB.explosion_log)
-			dat += "[x]<br>"
-
-		var/datum/browser/browser = new(usr, "explosion_log", "<div align='center'>Explosion Log</div>")
-		browser.set_content(dat)
-		browser.open(FALSE)
 
 
 	else if(href_list["viewruntime"])
@@ -2244,9 +2084,11 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 					return
 
 				X.upgrade_xeno(change)
+				/* RUTGMC DELETION
 				if(change != XENO_UPGRADE_NORMAL)
 					var/datum/xeno_caste/previous_maturity = GLOB.xeno_caste_datums[X.caste_base_type][X.upgrade_prev()]
 					X.upgrade_stored = previous_maturity.upgrade_threshold
+				*/
 
 		DIRECT_OUTPUT(usr, browse(null, "window=xeno_panel_[old_keyname]"))
 		usr.client.holder.xeno_panel(X)

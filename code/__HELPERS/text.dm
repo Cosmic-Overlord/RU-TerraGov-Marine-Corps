@@ -122,13 +122,13 @@
 		char = copytext_char(t_in, i, i+1)
 
 		switch(text2ascii_char(char))
-			// A  .. Z, А .. Я, Ё
-			if(65 to 90, 1040 to 1071, 1025)			//Uppercase Letters
+			// A  .. Z
+			if(65 to 90)			//Uppercase Letters
 				number_of_alphanumeric++
 				last_char_group = LETTERS_DETECTED
 
-			// a  .. z, а .. я, ё
-			if(97 to 122, 1072 to 1103, 1105)			//Lowercase Letters
+			// a  .. z
+			if(97 to 122)			//Lowercase Letters
 				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
 					char = uppertext(char)
 				number_of_alphanumeric++
@@ -159,7 +159,7 @@
 					continue
 				last_char_group = SPACES_DETECTED
 
-			if(127 to 1024, 1026 to 1039, 1104, 1106 to INFINITY)
+			if(127 to INFINITY)
 				if(ascii_only)
 					continue
 				last_char_group = SYMBOLS_DETECTED //for now, we'll treat all non-ascii characters like symbols even though most are letters

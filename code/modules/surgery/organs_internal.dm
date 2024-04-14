@@ -24,6 +24,10 @@
 	min_duration = 60
 	max_duration = 80
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/hemostat1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/acid_sizzle2.ogg'
+
 /datum/surgery_step/internal/remove_embryo/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(affected.body_part != CHEST)
 		return SURGERY_CANNOT_USE
@@ -72,6 +76,11 @@
 
 	min_duration = FIX_ORGAN_MIN_DURATION
 	max_duration = FIX_ORGAN_MAX_DURATION
+
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/clothingrustle1.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+	failure_sound = 'modular_RUtgmc/sound/misc/surgery/organ2.ogg'
+
 
 /datum/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(..())

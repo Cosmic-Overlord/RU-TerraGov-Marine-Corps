@@ -7,7 +7,6 @@
 #define DEFILER_ACID "Sulphuric acid"
 
 //Panther tearing tail reagents
-#define PANTHER_NEUROTOXIN "Neurotoxin"
 #define PANTHER_HEMODILE "Hemodile"
 #define PANTHER_TRANSVITOX "Transvitox"
 #define PANTHER_OZELOMELYN "Ozelomelyn"
@@ -47,10 +46,18 @@ GLOBAL_LIST_INIT(resin_images_list, list(
 		ALIEN_NEST = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = ALIEN_NEST)
 		))
 
+//List of puppeteer pheromone images
+GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
+		AURA_XENO_BLESSFURY = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = "Fury"),
+		AURA_XENO_BLESSWARDING = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = "Warding"),
+		AURA_XENO_BLESSFRENZY = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = "Frenzy"),
+		))
+
 GLOBAL_LIST_INIT(panther_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_sanguinal,
 		))
+
+#define PRIMAL_WRATH_GAIN_MULTIPLIER 0.5

@@ -14,8 +14,8 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.6
-	weeds_speed_mod = 0.2
+	speed = -0.4
+	weeds_speed_mod = -0.2
 
 	// *** Plasma *** //
 	plasma_max = 400
@@ -27,7 +27,7 @@
 	max_health = 600
 
 	// *** Evolution *** //
-	upgrade_threshold = TIER_THREE_THRESHOLD
+	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 	deevolves_to = list(/mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/hivelord)
 
@@ -49,15 +49,15 @@
 	feast_plasma_drain = 20
 
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain/free,
-		/datum/action/xeno_action/activable/psychic_link,
-		/datum/action/xeno_action/activable/drain,
-		/datum/action/xeno_action/activable/transfusion,
-		/datum/action/xeno_action/activable/carnage,
-		/datum/action/xeno_action/activable/feast,
-		/datum/action/xeno_action/activable/devour,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain/free,
+		/datum/action/ability/activable/xeno/psychic_link,
+		/datum/action/ability/activable/xeno/drain,
+		/datum/action/ability/activable/xeno/transfusion,
+		/datum/action/ability/activable/xeno/carnage,
+		/datum/action/ability/activable/xeno/feast,
+		/datum/action/ability/activable/xeno/devour,
 	)
 
 /datum/xeno_caste/gorger/normal
@@ -69,14 +69,14 @@
 	upgrade = XENO_UPGRADE_PRIMO
 
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain/free,
-		/datum/action/xeno_action/activable/psychic_link,
-		/datum/action/xeno_action/activable/drain,
-		/datum/action/xeno_action/activable/transfusion,
-		/datum/action/xeno_action/activable/rejuvenate,
-		/datum/action/xeno_action/activable/carnage,
-		/datum/action/xeno_action/activable/feast,
-		/datum/action/xeno_action/activable/devour,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain/free,
+		/datum/action/ability/activable/xeno/psychic_link,
+		/datum/action/ability/activable/xeno/drain,
+		/datum/action/ability/activable/xeno/transfusion,
+		/datum/action/ability/activable/xeno/rejuvenate,
+		/datum/action/ability/activable/xeno/carnage,
+		/datum/action/ability/activable/xeno/feast,
+		/datum/action/ability/activable/xeno/devour,
 	)

@@ -12,6 +12,10 @@
 	min_duration = 90
 	max_duration = 110
 
+	preop_sound = 'modular_RUtgmc/sound/misc/surgery/saw.ogg'
+	success_sound = 'modular_RUtgmc/sound/misc/surgery/organ1.ogg'
+	failure_sound = 'sound/effects/bone_break6.ogg'
+
 /datum/surgery_step/cut_limb/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(!affected)
 		return SURGERY_CANNOT_USE

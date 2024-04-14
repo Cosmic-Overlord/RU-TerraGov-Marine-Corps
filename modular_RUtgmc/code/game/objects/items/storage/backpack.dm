@@ -22,6 +22,15 @@
 	icon_state = "MOLLEbeltbag"
 	item_state = "MOLLEbeltbag"
 
+/obj/item/storage/backpack/marine/standard/scav
+	name = "Scav Backpack"
+	desc = "Pretty swag backpack."
+	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	item_icons = list(
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi')
+	icon_state = "scavpack"
+	item_state = "scavpack"
+
 /obj/item/storage/backpack/marine/satchel/green
 	name = "\improper Green TGMC satchel"
 

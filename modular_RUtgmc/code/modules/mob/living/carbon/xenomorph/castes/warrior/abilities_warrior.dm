@@ -1,4 +1,4 @@
-/datum/action/xeno_action/toggle_agility/action_activate()
+/datum/action/ability/xeno_action/toggle_agility/action_activate()
 	. = ..()
 	var/mob/living/carbon/xenomorph/X = owner
 	if(X.agility)

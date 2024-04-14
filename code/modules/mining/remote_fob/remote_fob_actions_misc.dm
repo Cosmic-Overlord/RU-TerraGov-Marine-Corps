@@ -40,7 +40,6 @@
 	name = "Place Metal Barricade"
 	action_icon_state = "metal_cade"
 
-
 /datum/action/innate/remote_fob/metal_cade/Activate()
 	. = ..()
 	if(. || !check_spot())
@@ -62,7 +61,7 @@
 			continue
 		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
-	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
+	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
 		return
 	console.metal_remaining -= 4
 	cade = new /obj/structure/barricade/metal(buildplace)
@@ -78,16 +77,60 @@
 		return
 	fobdrone.balloon_alert(owner, "Barricade placed. [console.metal_remaining] metal sheets remaining.")
 
-/datum/action/innate/remote_fob/plast_cade
-	name = "Place Plasteel Barricade"
-	action_icon_state = "plast_cade"
+//RUTGMC ADDON BEGIN
+/datum/action/innate/remote_fob/metal_folding_cade
+	name = "Place Metal Folding Barricade"
+	action_icon_state = "metal_folding_cade"
 
-/datum/action/innate/remote_fob/plast_cade/Activate()
+/datum/action/innate/remote_fob/metal_folding_cade/Activate()
 	. = ..()
 	if(. || !check_spot())
 		return
 
-	if(console.plasteel_remaining < 5)
+	if(console.metal_remaining < 6)
+		fobdrone.balloon_alert(owner, "Out of material")
+		return
+
+	var/turf/buildplace = get_turf(fobdrone)
+	var/obj/structure/barricade/cade = /obj/structure/barricade
+	for(var/obj/thing in buildplace)
+		if(!thing.density) //not dense, move on
+			continue
+		if(!(thing.flags_atom & ON_BORDER)) //dense and non-directional, end
+			fobdrone.balloon_alert(owner, "No space here for a barricade")
+			return
+		if(thing.dir != fobdrone.dir)
+			continue
+		fobdrone.balloon_alert(owner, "No space here for a barricade")
+		return
+	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
+		return
+	console.metal_remaining -= 6
+	cade = new /obj/structure/barricade/plasteel/metal(buildplace)
+	cade.setDir(fobdrone.dir)
+	cade.closed = FALSE
+	cade.density = TRUE
+	cade.update_icon()
+	if(console.do_wiring)
+		if(console.metal_remaining <= 1)
+			fobdrone.balloon_alert(owner, "Not enough material for razor-wiring")
+			return
+		cade.wire()
+		console.metal_remaining -=2
+		fobdrone.balloon_alert(owner, "Barricade placed with wiring. [console.plasteel_remaining] plasteel sheets, [console.metal_remaining] metal sheets remaining.")
+		return
+	fobdrone.balloon_alert(owner, "Barricade placed. [console.metal_remaining] metal sheets remaining.")
+
+/datum/action/innate/remote_fob/plasteel_cade
+	name = "Place Plasteel Barricade"
+	action_icon_state = "plast_cade"
+
+/datum/action/innate/remote_fob/plasteel_cade/Activate()
+	. = ..()
+	if(. || !check_spot())
+		return
+
+	if(console.plasteel_remaining < 4)
 		fobdrone.balloon_alert(owner, "Out of material")
 		return
 
@@ -105,7 +148,53 @@
 		return
 	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
 		return
-	console.plasteel_remaining -= 5
+	console.plasteel_remaining -= 4
+	cade = new /obj/structure/barricade/metal/plasteel(buildplace)
+	cade.setDir(fobdrone.dir)
+	cade.closed = FALSE
+	cade.density = TRUE
+	cade.update_icon()
+	if(console.do_wiring)
+		if(console.metal_remaining <= 1)
+			fobdrone.balloon_alert(owner, "Not enough material for razor-wiring")
+			return
+		cade.wire()
+		console.metal_remaining -=2
+		fobdrone.balloon_alert(owner, "Barricade placed with wiring. [console.plasteel_remaining] plasteel sheets, [console.metal_remaining] metal sheets remaining.")
+		return
+	fobdrone.balloon_alert(owner, "Barricade placed. [console.plasteel_remaining] plasteel sheets remaining.")
+//RUTGMC ADDON END
+
+/datum/action/innate/remote_fob/plast_folding_cade
+	name = "Place Plasteel Barricade"
+	action_icon_state = "plast_folding_cade"
+
+/datum/action/innate/remote_fob/plast_folding_cade/Activate()
+	. = ..()
+	if(. || !check_spot())
+		return
+
+	//if(console.plasteel_remaining < 5) //ORIGINAL
+	if(console.plasteel_remaining < 6) //RUTGMC EDIT
+		fobdrone.balloon_alert(owner, "Out of material")
+		return
+
+	var/turf/buildplace = get_turf(fobdrone)
+	var/obj/structure/barricade/cade = /obj/structure/barricade
+	for(var/obj/thing in buildplace)
+		if(!thing.density) //not dense, move on
+			continue
+		if(!(thing.flags_atom & ON_BORDER)) //dense and non-directional, end
+			fobdrone.balloon_alert(owner, "No space here for a barricade")
+			return
+		if(thing.dir != fobdrone.dir)
+			continue
+		fobdrone.balloon_alert(owner, "No space here for a barricade")
+		return
+	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
+		return
+	//console.plasteel_remaining -= 5 //ORIGINAL
+	console.plasteel_remaining -= 6 //RUTGMC EDIT
 	cade = new /obj/structure/barricade/plasteel(buildplace)
 	cade.setDir(fobdrone.dir)
 	cade.closed = FALSE

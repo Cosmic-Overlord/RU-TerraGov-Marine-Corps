@@ -29,9 +29,9 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-	upgrade_threshold = TIER_TWO_THRESHOLD
+	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
-	evolves_to = list(/mob/living/carbon/xenomorph/ravager)
+	evolves_to = list(/mob/living/carbon/xenomorph/ravager, /mob/living/carbon/xenomorph/chimera)
 	deevolves_to = /mob/living/carbon/xenomorph/runner
 
 	// *** Flags *** //
@@ -42,23 +42,20 @@
 	// *** Defense *** //
 	soft_armor = list(MELEE = 20, BULLET = 19, LASER = 19, ENERGY = 19, BOMB = 0, BIO = 7, FIRE = 19, ACID = 7)
 
-	// *** Ranged Attack *** //
-	pounce_delay = 13 SECONDS
-
 	// *** Minimap Icon *** //
 	minimap_icon = "panther"
 
 	// *** Abilities *** ///
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain/panther,
-		/datum/action/xeno_action/xenohide,
-		/datum/action/xeno_action/activable/pounce/panther,
-		/datum/action/xeno_action/activable/adrenalinejump,
-		/datum/action/xeno_action/evasive_maneuvers,
-		/datum/action/xeno_action/tearingtail,
-		/datum/action/xeno_action/select_reagent/panther,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain/panther,
+		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/activable/xeno/pounce/panther,
+		/datum/action/ability/activable/xeno/adrenalinejump,
+		/datum/action/ability/xeno_action/evasive_maneuvers,
+		/datum/action/ability/xeno_action/tearingtail,
+		/datum/action/ability/xeno_action/select_reagent/panther,
 	)
 
 /datum/xeno_caste/panther/normal
@@ -72,14 +69,14 @@
 
 	// *** Abilities *** ///
 	actions = list(
-		/datum/action/xeno_action/xeno_resting,
-		/datum/action/xeno_action/watch_xeno,
-		/datum/action/xeno_action/activable/psydrain/panther,
-		/datum/action/xeno_action/xenohide,
-		/datum/action/xeno_action/activable/pounce/panther,
-		/datum/action/xeno_action/activable/adrenalinejump,
-		/datum/action/xeno_action/evasive_maneuvers,
-		/datum/action/xeno_action/tearingtail,
-		/datum/action/xeno_action/select_reagent/panther,
-		/datum/action/xeno_action/adrenaline_rush,
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain/panther,
+		/datum/action/ability/xeno_action/xenohide,
+		/datum/action/ability/activable/xeno/pounce/panther,
+		/datum/action/ability/activable/xeno/adrenalinejump,
+		/datum/action/ability/xeno_action/evasive_maneuvers,
+		/datum/action/ability/xeno_action/tearingtail,
+		/datum/action/ability/xeno_action/select_reagent/panther,
+		/datum/action/ability/xeno_action/adrenaline_rush,
 	)

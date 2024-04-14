@@ -1,7 +1,7 @@
 #define UPLOAD_LIMIT 1000000	//Restricts client uploads to the server to 1MB
 #define UPLOAD_LIMIT_ADMIN 10000000	//Restricts admin uploads to the server to 10MB
 
-#define MAX_RECOMMENDED_CLIENT 1604
+
 #define MIN_RECOMMENDED_CLIENT 1575
 #define REQUIRED_CLIENT_MAJOR 514
 #define REQUIRED_CLIENT_MINOR 1493
@@ -226,7 +226,6 @@
 	if(SSinput.initialized)
 		set_macros()
 
-	nuke_chat() //RuTGMC edit - Forced TGUI chat reload
 
 	// Initialize tgui panel
 	tgui_panel.initialize()
@@ -261,10 +260,6 @@
 	if(byond_build < 1555)
 		to_chat(src, span_userdanger("Your version of byond might have rendering lag issues, it is recommended you update your version to above Byond version 1555 if you encounter them."))
 		to_chat(src, span_danger("You can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download other versions."))
-
-	if(byond_build > MAX_RECOMMENDED_CLIENT)
-		to_chat(src, span_userdanger("Your version of byond is likely to be very buggy."))
-		to_chat(src, span_danger("It is recommended you install an older version of byond. You can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download 514.[MAX_RECOMMENDED_CLIENT]."))
 
 	if(num2text(byond_build) in GLOB.blacklisted_builds)
 		log_access("Failed login: [key] - blacklisted byond version")
@@ -358,7 +353,7 @@
 	if(!tooltips && prefs.tooltips)
 		tooltips = new /datum/tooltip(src)
 
-	view_size = new(src, get_screen_size(prefs.widescreenpref))
+	view_size = new(src, get_screen_size(prefs.widescreenpref, prefs.screen_resolution)) //RU TGMC EDIT
 	view_size.update_pixel_format()
 	view_size.update_zoom_mode()
 
@@ -398,7 +393,8 @@
 			message_staff("Mentor logout: [key_name(src)].")
 		holder.owner = null
 		GLOB.admins -= src
-		if (!length(GLOB.admins) && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing.
+		//if (!length(GLOB.admins) && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing. // ORIGINAL
+		if(!length(GLOB.admins) && SSticker.IsRoundInProgress() && CONFIG_GET(flag/tgs_adminless_messaging)) //RUTGMC ADDITION, TGS CONFIG FLAGS
 			var/cheesy_message = pick(
 				"I have no admins online!",\
 				"I'm all alone :(",\
@@ -882,26 +878,26 @@
 		CRASH("change_view called without argument.")
 	if(isnum(new_size))
 		CRASH("change_view called with a number argument. Use the string format instead.")
-
+/* RU TGMC EDIT
 	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
 		new_size = CONFIG_GET(string/default_view_square)
-
+RU TGMC EDIT */
 	view = new_size
 	apply_clickcatcher()
 	mob.reload_fullscreens()
-	if(prefs.auto_fit_viewport)
-		INVOKE_NEXT_TICK(src, .verb/fit_viewport, 1 SECONDS) //Delayed to avoid wingets from Login calls.
+	if(prefs.auto_fit_viewport && (isnull(view_size) || !view_size.is_zooming()))
+		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
 
 ///Change the fullscreen setting of the client
 /client/proc/set_fullscreen(fullscreen_mode)
 	if(fullscreen_mode)
 		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false")
-		winset(src, "mainwindow", "menu=null;statusbar=false")
+		winset(src, "mainwindow", "menu=null")
 		winset(src, "mainwindow.split", "pos=0x0")
 		winset(src, "mainwindow", "is-maximized=true")
 		return
 	winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true")
-	winset(src, "mainwindow", "menu=menu;statusbar=true")
+	winset(src, "mainwindow", "menu=menu")
 	winset(src, "mainwindow.split", "pos=3x0")
 	winset(src, "mainwindow", "is-maximized=true")
 

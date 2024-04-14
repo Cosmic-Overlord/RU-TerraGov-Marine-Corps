@@ -9,6 +9,7 @@
 
 //Season names
 #define SEASONAL_GUNS "seasonal_guns"
+#define SEASONAL_HEAVY "seasonal_heavy"
 
 SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
@@ -18,6 +19,7 @@ SUBSYSTEM_DEF(persistence)
 	///Stores how long each season should last
 	var/list/seasons_durations = list(
 		SEASONAL_GUNS = 24 HOURS,
+		SEASONAL_HEAVY = 24 HOURS,
 	)
 	///Stores the current season for each season group
 	var/list/season_progress = list()
@@ -34,7 +36,13 @@ SUBSYSTEM_DEF(persistence)
 		/datum/season_datum/weapons/guns/copsandrobbers_seasonal,
 		/datum/season_datum/weapons/guns/shotgun_seasonal,
 		/datum/season_datum/weapons/guns/lever_seasonal,
-		)
+		),
+		SEASONAL_HEAVY = list(
+		/datum/season_datum/weapons/guns/heavy_defualt,
+		/datum/season_datum/weapons/guns/heavy_ff,
+		/datum/season_datum/weapons/guns/heavy_autorail,
+		/datum/season_datum/weapons/guns/heavy_shock,
+		),
 	)
 	///The saved list of custom outfits names
 	var/list/custom_loadouts = list()
@@ -202,7 +210,7 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/smg/ppsh/extended = -1,
 		/obj/item/weapon/gun/rifle/garand = -1,
 		/obj/item/ammo_magazine/rifle/garand = -1,
-		/obj/item/weapon/gun/pistol/m1911 = -1,
+		/obj/item/weapon/gun/pistol/m1911 = 5,
 		/obj/item/ammo_magazine/pistol/m1911 = -1,
 		)
 
@@ -237,14 +245,14 @@ SUBSYSTEM_DEF(persistence)
 	name = "High Noon"
 	description = "Revolvers? They are yours my friend. Bouncy, single-action, or with buckshot"
 	item_list = list(
-		/obj/item/weapon/gun/revolver/small = -1,
+		/obj/item/weapon/gun/revolver/small = 5,
 		/obj/item/ammo_magazine/revolver/small = -1,
-		/obj/item/weapon/gun/revolver/single_action/m44 = -1,
+		/obj/item/weapon/gun/revolver/single_action/m44 = 5,
 		/obj/item/ammo_magazine/revolver = -1,
-		/obj/item/weapon/gun/revolver/judge = -1,
+		/obj/item/weapon/gun/revolver/judge = 5,
 		/obj/item/ammo_magazine/revolver/judge = -1,
 		/obj/item/ammo_magazine/revolver/judge/buckshot = -1,
-		/obj/item/weapon/gun/revolver/upp = -1,
+		/obj/item/weapon/gun/revolver/upp = 5,
 		/obj/item/ammo_magazine/revolver/upp = -1,
 		)
 
@@ -252,13 +260,13 @@ SUBSYSTEM_DEF(persistence)
 	name = "G22 and high-power gats"
 	description = "Four pistols for the pistol mains."
 	item_list = list(
-		/obj/item/weapon/gun/pistol/g22 = -1,
+		/obj/item/weapon/gun/pistol/g22 = 5,
 		/obj/item/ammo_magazine/pistol/g22 = -1,
-		/obj/item/weapon/gun/pistol/vp78 = -1,
+		/obj/item/weapon/gun/pistol/vp78 = 5,
 		/obj/item/ammo_magazine/pistol/vp78 = -1,
-		/obj/item/weapon/gun/pistol/heavy = -1,
+		/obj/item/weapon/gun/pistol/heavy = 5,
 		/obj/item/ammo_magazine/pistol/heavy = -1,
-		/obj/item/weapon/gun/pistol/highpower = -1,
+		/obj/item/weapon/gun/pistol/highpower = 5,
 		/obj/item/ammo_magazine/pistol/highpower = -1,
 		)
 
@@ -273,9 +281,9 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/storage/holster/m25 = -1,
 		/obj/item/weapon/gun/smg/mp7 = -1,
 		/obj/item/ammo_magazine/smg/mp7 = -1,
-		/obj/item/weapon/gun/smg/skorpion = -1,
+		/obj/item/weapon/gun/smg/skorpion = 5,
 		/obj/item/ammo_magazine/smg/skorpion = -1,
-		/obj/item/weapon/gun/revolver/cmb = -1,
+		/obj/item/weapon/gun/revolver/cmb = 5,
 		/obj/item/ammo_magazine/revolver/cmb = -1,
 		)
 
@@ -298,3 +306,54 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/shotgun/mbx900/buckshot = -1,
 		/obj/item/ammo_magazine/shotgun/mbx900/tracking = -1,
 		)
+
+// Heavy Weapons Seasonals //
+
+/datum/season_datum/weapons/guns/heavy_defualt
+	name = "Default Heavy Weapons"
+	description = "The generic set of roundstart TGMC heavy weapons, TAT and RR."
+	item_list = list(
+		/obj/structure/largecrate/supply/weapons/standard_atgun = 1,
+		/obj/item/storage/holster/backholster/rpg/full = 2,
+		/obj/item/ammo_magazine/rocket/recoilless = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/light = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 16,
+	)
+
+/datum/season_datum/weapons/guns/heavy_ff
+	name = "Fire and Forget Heavy Weapons"
+	description = "TAT, Thermobarics and Disposables for roundstart vendors."
+	item_list = list(
+		/obj/structure/largecrate/supply/weapons/standard_atgun = 1,
+		/obj/item/weapon/gun/launcher/rocket/m57a4/t57/unloaded = 2,
+		/obj/item/ammo_magazine/rocket/m57a4 = 8,
+		/obj/structure/largecrate/supply/explosives/disposable = 1,
+	)
+
+/datum/season_datum/weapons/guns/heavy_autorail
+	name = "Wall and Armor Shredder Weapons"
+	description = "Flak gun and Railgun for roundstart vendors."
+	item_list = list(
+		/obj/structure/largecrate/supply/weapons/standard_flakgun = 1,
+		/obj/item/weapon/gun/rifle/railgun/unloaded = 2,
+		/obj/item/ammo_magazine/railgun = 12,
+		/obj/item/ammo_magazine/railgun/smart = 6,
+	)
+
+/datum/season_datum/weapons/guns/heavy_shock
+	name = "Shock Weapons"
+	description = "RR and MLRS for roundstart vendors."
+	item_list = list(
+		/obj/item/storage/holster/backholster/rpg/full = 2,
+		/obj/item/ammo_magazine/rocket/recoilless = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/light = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 16,
+		/obj/structure/closet/crate/mortar_ammo/mlrs_kit = 2,
+		/obj/item/storage/box/mlrs_rockets_gas = 4,
+	)

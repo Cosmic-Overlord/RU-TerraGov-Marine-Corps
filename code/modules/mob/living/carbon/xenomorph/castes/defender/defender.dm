@@ -29,9 +29,9 @@
 /mob/living/carbon/xenomorph/defender/handle_special_wound_states(severity)
 	. = ..()
 	if(fortify)
-		return "defender_wounded_fortify"
+		return "wounded_fortify_[severity]" // we don't have the icons, but still
 	if(crest_defense)
-		return "defender_wounded_crest_[severity]"
+		return "wounded_crest_[severity]"
 
 // ***************************************
 // *********** Life overrides
@@ -41,25 +41,13 @@
 	if(isnull(.))
 		return
 	if(. == CONSCIOUS && fortify) //No longer conscious.
-		var/datum/action/xeno_action/fortify/FT = actions_by_path[/datum/action/xeno_action/fortify]
+		var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
 		FT.set_fortify(FALSE) //Fortify prevents dragging due to the anchor component.
 
 
 // ***************************************
 // *********** Mob overrides
 // ***************************************
-/mob/living/carbon/xenomorph/defender/Bump(atom/A)
-	if(!throwing || !throw_source || !thrower)
-		return ..()
-	if(!ishuman(A))
-		return ..()
-	var/mob/living/carbon/human/H = A
-	var/extra_dmg = xeno_caste.melee_damage * xeno_melee_damage_modifier * 0.5 // 50% dmg reduction
-	H.attack_alien_harm(src, extra_dmg, FALSE, TRUE, FALSE, TRUE) //Location is always random, cannot crit, harm only
-	var/target_turf = get_step_away(src, H, rand(1, 2)) //This is where we blast our target
-	target_turf = get_step_rand(target_turf) //Scatter
-	H.throw_at(get_turf(target_turf), 4, 70, H)
-	H.Paralyze(4 SECONDS)
 
 /mob/living/carbon/xenomorph/defender/Initialize(mapload)
 	. = ..()

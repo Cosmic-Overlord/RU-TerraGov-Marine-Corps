@@ -1,3 +1,10 @@
+/mob/living/carbon/xenomorph/Bump(atom/A)
+	if(!(xeno_flags & XENO_LEAPING))
+		return ..()
+	if(!isliving(A))
+		return ..()
+	return SEND_SIGNAL(src, COMSIG_XENOMORPH_LEAP_BUMP, A)
+
 /mob/living/carbon/xenomorph/verb/hive_status()
 	set name = "Hive Status"
 	set desc = "Check the status of your current hive."
@@ -108,12 +115,14 @@
 	else
 		. += "Evolve Progress: [evolution_stored]/[xeno_caste.evolution_threshold]"
 
+	/* RUTGMC DELETION
 	if(upgrade_possible())
 		. += "Upgrade Progress: [upgrade_stored]/[xeno_caste.upgrade_threshold]"
 	else //Upgrade process finished or impossible
 		. += "Upgrade Progress: (FINISHED)"
+	*/
 
-	. += "Health: [overheal ? "[overheal] + ": ""][health]/[maxHealth]" //Changes with balance scalar, can't just use the caste
+	. += "Health: [health]/[maxHealth][overheal ? " + [overheal]": ""]" //Changes with balance scalar, can't just use the caste
 
 	if(xeno_caste.plasma_max > 0)
 		. += "Plasma: [plasma_stored]/[xeno_caste.plasma_max]"
@@ -210,7 +219,7 @@
 
 //Stealth handling
 
-
+/* RUTGMC DELETION
 /mob/living/carbon/xenomorph/proc/update_progression()
 	// Upgrade is increased based on marine to xeno population taking stored_larva as a modifier.
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
@@ -223,7 +232,7 @@
 	if(incapacitated())
 		return
 	upgrade_xeno(upgrade_next())
-
+*/
 
 /mob/living/carbon/xenomorph/proc/update_evolving()
 	if(evolution_stored >= xeno_caste.evolution_threshold || !(xeno_caste.caste_flags & CASTE_EVOLUTION_ALLOWED) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
@@ -250,7 +259,7 @@
 /mob/living/carbon/xenomorph/throw_impact(atom/hit_atom, speed)
 	set waitfor = FALSE
 
-	if(stat || !usedPounce)
+	if(stat || !(xeno_flags & XENO_LEAPING))
 		return ..()
 
 	if(isobj(hit_atom)) //Deal with smacking into dense objects. This overwrites normal throw code.
@@ -295,7 +304,7 @@
 	update_sight()
 
 
-/mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 12)
+/mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 4.5) //RU TGMC EDIT
 	if(stat || resting)
 		if(is_zoomed)
 			is_zoomed = 0
@@ -308,7 +317,7 @@
 		return
 	zoom_turf = get_turf(src)
 	is_zoomed = 1
-	client.view_size.set_view_radius_to(viewsize/2-2) //convert diameter to radius
+	client.view_size.set_view_radius_to(viewsize) //convert diameter to radius
 	var/viewoffset = 32 * tileoffset
 	switch(dir)
 		if(NORTH)
@@ -447,7 +456,7 @@
 /mob/living/carbon/xenomorph/proc/recurring_injection(mob/living/carbon/C, datum/reagent/toxin = /datum/reagent/toxin/xeno_neurotoxin, channel_time = XENO_NEURO_CHANNEL_TIME, transfer_amount = XENO_NEURO_AMOUNT_RECURRING, count = 4)
 	if(!C?.can_sting() || !toxin)
 		return FALSE
-	if(!do_after(src, channel_time, TRUE, C, BUSY_ICON_HOSTILE))
+	if(!do_after(src, channel_time, NONE, C, BUSY_ICON_HOSTILE))
 		return FALSE
 	var/i = 1
 	to_chat(C, span_danger("You feel a tiny prick."))
@@ -460,7 +469,7 @@
 			return FALSE
 		do_attack_animation(C)
 		C.reagents.add_reagent(toxin, transfer_amount)
-	while(i++ < count && do_after(src, channel_time, TRUE, C, BUSY_ICON_HOSTILE))
+	while(i++ < count && do_after(src, channel_time, NONE, C, BUSY_ICON_HOSTILE))
 	return TRUE
 
 /atom/proc/can_sting()
@@ -557,3 +566,6 @@
 		return
 	set_light_range_power_color(range, power, color)
 	set_light_on(TRUE)
+
+/mob/living/carbon/xenomorph/on_eord(turf/destination)
+	revive(TRUE)

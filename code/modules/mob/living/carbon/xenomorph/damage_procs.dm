@@ -8,7 +8,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/xenomorph/modify_by_armor(damage_amount, armor_type, penetration, def_zone)
+/mob/living/carbon/xenomorph/modify_by_armor(damage_amount, armor_type, penetration, def_zone, attack_dir)
 	var/hard_armor_remaining = get_hard_armor(armor_type, def_zone)
 
 	var/effective_penetration = max(0, penetration - hard_armor_remaining)
@@ -57,7 +57,7 @@
 
 	if(stagger_amount > 0)
 		adjust_stagger(stagger_amount)
-	adjust_sunder(sunder_amount)
+	adjust_sunder(sunder_amount * get_sunder()) //RUTGMC EDIT
 	add_slowdown(slowdown_amount)
 
 	apply_damages(ex_damage * 0.5, ex_damage * 0.5, blocked = BOMB, updating_health = TRUE)

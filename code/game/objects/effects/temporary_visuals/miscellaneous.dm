@@ -122,6 +122,7 @@ GLOBAL_LIST_EMPTY(blood_particles)
 	alpha = initial(alpha)
 	layer = initial(layer)
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	animate(src, alpha = 0, time = duration)
 
 /obj/effect/temp_visual/ob_impact
 	name = "ob impact animation"
@@ -167,7 +168,7 @@ GLOBAL_LIST_EMPTY(blood_particles)
 
 	var/marker_flags = GLOB.faction_to_minimap_flag[faction]
 	if(marker_flags)
-		SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips_large.dmi', null, icon_state_on)) //RUTGMC EDIT
+		SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips_large.dmi', null, icon_state_on, VERY_HIGH_FLOAT_LAYER))
 	set_visuals(faction)
 
 /obj/effect/temp_visual/order/attack_order

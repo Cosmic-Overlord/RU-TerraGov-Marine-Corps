@@ -129,7 +129,7 @@
 
 	X.visible_message("[X] begins to slash delicately at the nuke",
 	"You start slashing delicately at the nuke.")
-	if(!do_after(X, 5 SECONDS, TRUE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
+	if(!do_after(X, 5 SECONDS, NONE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
 		return
 	X.visible_message("[X] disabled the nuke",
 	"You disabled the nuke.")
@@ -161,7 +161,7 @@
 	if(!deployable)
 		return
 
-	if(!do_after(user, 3 SECONDS, TRUE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 
 	if(removal_stage < NUKE_STAGE_BOLTS_REMOVED)
@@ -350,7 +350,7 @@
 ///Change minimap icon if its on or off
 /obj/machinery/nuclearbomb/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips_large.dmi', null, "nuke[timer_enabled ? "_on" : "_off"]")) //RUTGMC EDIT
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips_large.dmi', null, "nuke[timer_enabled ? "_on" : "_off"]", VERY_HIGH_FLOAT_LAYER))
 
 #undef NUKE_STAGE_NONE
 #undef NUKE_STAGE_COVER_REMOVED

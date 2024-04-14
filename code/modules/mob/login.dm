@@ -32,6 +32,7 @@
 	if(!client)
 		return
 
+	canon_client = client
 	clear_important_client_contents(client)
 	enable_client_mobs_in_contents(client)
 
@@ -48,7 +49,7 @@
 		if(client.view_size)
 			client.view_size.reset_to_default() // Resets the client.view in case it was changed.
 		else
-			client.change_view(get_screen_size(client.prefs.widescreenpref))
+			client.change_view(get_screen_size(client.prefs.widescreenpref, client.prefs.screen_resolution))
 
 		if(client.player_details)
 			for(var/foo in client.player_details.post_login_callbacks)
@@ -64,5 +65,6 @@
 	update_movespeed()
 	log_mob_tag("\[[tag]\] NEW OWNER: [key_name(src)]")
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
+	SEND_SIGNAL(client, COMSIG_CLIENT_MOB_LOGIN)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGIN, src)
 	client.init_verbs()

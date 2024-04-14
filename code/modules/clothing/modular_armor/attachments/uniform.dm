@@ -79,6 +79,7 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/tweezers,
+		/obj/item/tweezers_advanced,
 		/obj/item/bodybag,
 		/obj/item/roller,
 		/obj/item/whistle,
@@ -100,11 +101,12 @@
 		/obj/item/tool/surgery,
 		/obj/item/stack/nanopaste,
 		/obj/item/tweezers,
+		/obj/item/tweezers_advanced,
 	)
 
 /obj/item/storage/internal/surgery_webbing/Initialize(mapload)
 	. = ..()
-	new /obj/item/tool/surgery/scalpel/manager(src)
+	//new /obj/item/tool/surgery/scalpel/manager(src) RUTGMC REMOVAL
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
 	new /obj/item/tool/surgery/retractor(src)
@@ -124,24 +126,24 @@
 
 /obj/item/armor_module/storage/uniform/holster/freelancer/Initialize(mapload)
 	. = ..()
+	new /obj/item/ammo_magazine/pistol/g22(storage)
+	new /obj/item/ammo_magazine/pistol/g22(storage)
+	new /obj/item/ammo_magazine/pistol/g22(storage)
 	new /obj/item/weapon/gun/pistol/g22(storage)
-	new /obj/item/ammo_magazine/pistol/g22(storage)
-	new /obj/item/ammo_magazine/pistol/g22(storage)
-	new /obj/item/ammo_magazine/pistol/g22(storage)
 
 /obj/item/armor_module/storage/uniform/holster/vp/Initialize(mapload)
 	. = ..()
+	new /obj/item/ammo_magazine/pistol/vp70(storage)
+	new /obj/item/ammo_magazine/pistol/vp70(storage)
+	new /obj/item/ammo_magazine/pistol/vp70(storage)
 	new /obj/item/weapon/gun/pistol/vp70(storage)
-	new /obj/item/ammo_magazine/pistol/vp70(storage)
-	new /obj/item/ammo_magazine/pistol/vp70(storage)
-	new /obj/item/ammo_magazine/pistol/vp70(storage)
 
 /obj/item/armor_module/storage/uniform/holster/highpower/Initialize(mapload)
 	. = ..()
+	new /obj/item/ammo_magazine/pistol/highpower(storage)
+	new /obj/item/ammo_magazine/pistol/highpower(storage)
+	new /obj/item/ammo_magazine/pistol/highpower(storage)
 	new /obj/item/weapon/gun/pistol/highpower(storage)
-	new /obj/item/ammo_magazine/pistol/highpower(storage)
-	new /obj/item/ammo_magazine/pistol/highpower(storage)
-	new /obj/item/ammo_magazine/pistol/highpower(storage)
 
 /obj/item/armor_module/storage/uniform/holster/deathsquad/Initialize(mapload)
 	. = ..()

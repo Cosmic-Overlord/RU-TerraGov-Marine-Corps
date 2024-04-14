@@ -212,7 +212,9 @@ IS_AUTOMATIC_BALANCE_ON
 ##  15x15 would be the standard square view. 21x15 is what goonstation uses for widescreen.
 ##  Setting this to something different from DEFAULT_VIEW_SQUARE will enable widescreen toggles
 ##	Do note that changing this value will affect the title screen. The title screen will have to be updated manually if this is changed.
-DEFAULT_VIEW 19x15
+DEFAULT_VIEW1 17x15
+DEFAULT_VIEW2 19x15
+DEFAULT_VIEW3 21x15
 
 ##Default view size, in tiles. Should *always* be square.
 ## The alternative square viewport size if you're using a widescreen view size
@@ -241,3 +243,7 @@ CACHE_ASSETS 0
 ## Useful for developers to debug potential spritesheet issues to determine where the issue is cropping up (either in DM-side sprite generation or in the TGUI-side display of said spritesheet).
 ## Will only seek to waste disk space if ran on production.
 #SAVE_SPRITESHEETS
+
+## If this is uncommented TGS bot will send specific spam messages to discord or wherever
+#TGS_EVENT_APPROVAL_MESSAGING
+#TGS_ADMINLESS_MESSAGING

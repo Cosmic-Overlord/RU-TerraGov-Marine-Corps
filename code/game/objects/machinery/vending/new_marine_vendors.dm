@@ -11,6 +11,9 @@
 
 	idle_power_usage = 60
 	active_power_usage = 3000
+	light_range = 1.5
+	light_power = 0.5
+	light_color = LIGHT_COLOR_BLUE
 
 	var/gives_webbing = FALSE
 	var/vendor_role //to be compared with job.type to only allow those to use that machine.
@@ -26,13 +29,28 @@
 	///The faction of that vendor, can be null
 	var/faction
 
+/obj/machinery/marine_selector/Initialize(mapload)
+	. = ..()
+	update_icon()
+
 /obj/machinery/marine_selector/update_icon()
+	. = ..()
+	if(is_operational())
+		set_light(initial(light_range))
+	else
+		set_light(0)
+
+/obj/machinery/marine_selector/update_icon_state()
 	if(is_operational())
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]-off"
 
-
+/obj/machinery/marine_selector/update_overlays()
+	. = ..()
+	if(!is_operational())
+		return
+	. += emissive_appearance(icon, "[icon_state]_emissive")
 
 /obj/machinery/marine_selector/can_interact(mob/user)
 	. = ..()
@@ -175,6 +193,7 @@
 					vended_items += new /obj/item/radio/headset/mainship/marine(loc, H.assigned_squad, vendor_role)
 					if(istype(H.job, /datum/job/terragov/squad/leader))
 						vended_items += new /obj/item/hud_tablet(loc, vendor_role, H.assigned_squad)
+						vended_items += new /obj/item/squad_transfer_tablet(loc)
 
 			for (var/obj/item/vended_item in vended_items)
 				vended_item.on_vend(usr, faction, auto_equip = TRUE)
@@ -182,8 +201,6 @@
 			if(use_points && (item_category in I.marine_points))
 				I.marine_points[item_category] -= cost
 			. = TRUE
-
-	updateUsrDialog()
 
 /obj/machinery/marine_selector/clothes
 	name = "GHMME Automated Closet"
@@ -365,6 +382,7 @@
 	lock_flags = JOB_LOCK
 	gives_webbing = FALSE
 
+/* RUTGMC DELETION
 /obj/machinery/marine_selector/clothes/commander/Initialize(mapload)
 	. = ..()
 	listed_products = list(
@@ -415,15 +433,11 @@
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
-		//RUTGMC EDIT CHANGE BEGIN - LEADER_T2_ARMOR
-		//obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
-		/obj/effect/vendor_bundle/mimir/two = list(CAT_ARMMOD, "Mark 2 Mimir Resistance set", 0,"black"),
-		//RUTGMC EDIT CHANGE END
+		/obj/effect/vendor_bundle/tyr/two = list(CAT_ARMMOD, "Tyr extra armor set", 0,"black"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
+		///obj/effect/vendor_bundle/mimir/two = list(CAT_ARMMOD, "Mark 2 Mimir Resistance set", 0,"black"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
-		//RUTGMC EDIT CHANGE BEGIN - LEADER_T2_ARMOR
 		//obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
-		/obj/effect/vendor_bundle/tyr/two = list(CAT_ARMMOD, "Mark 2 Tyr extra armor set", 0,"black"),
-		//RUTGMC EDIT CHANGE END
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
@@ -433,6 +447,7 @@
 		/obj/item/clothing/mask/rebreather/scarf = list(CAT_MAS, "Heat absorbent coif", 0, "black"),
 		/obj/item/clothing/mask/rebreather = list(CAT_MAS, "Rebreather", 0, "black"),
 	)
+*/
 
 /obj/machinery/marine_selector/clothes/synth
 	name = "M57 Synthetic Equipment Vendor"
@@ -450,7 +465,7 @@
 
 /obj/machinery/marine_selector/clothes/synth/Initialize(mapload)
 	. = ..()
-	listed_products = GLOB.synthetic_clothes_listed_products
+	listed_products = GLOB.synthetic_clothes_listed_products + GLOB.synthetic_gear_listed_products //RUTGMC EDIT
 
 ////////////////////// Gear ////////////////////////////////////////////////////////
 
@@ -890,7 +905,7 @@
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/clothing/mask/gas/tactical,
-		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+//		/obj/item/armor_module/module/mimir_environment_protection/mark1, RU TGMC EDIT
 	)
 
 /obj/effect/vendor_bundle/vali
@@ -900,14 +915,14 @@
 		/obj/item/storage/holster/blade/machete/full_harvester,
 		/obj/item/paper/chemsystem,
 	)
-
+/* RU TGMC EDIT
 /obj/effect/vendor_bundle/tyr
 	desc = "A set of specialized gear for improved close-quarters combat longevitiy."
 	gear_to_spawn = list(
 		/obj/item/armor_module/module/tyr_head,
 		/obj/item/armor_module/module/tyr_extra_armor/mark1,
 	)
-
+RU TGMC EDIT */
 /obj/effect/vendor_bundle/robot/essentials
 	gear_to_spawn = list(
 		/obj/item/clothing/under/marine/robotic,

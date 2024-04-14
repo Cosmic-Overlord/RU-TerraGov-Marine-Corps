@@ -4,17 +4,16 @@
 // *********** Hug
 // ***************************************
 
-/datum/action/xeno_action/activable/pounce_hugger
+/datum/action/ability/activable/xeno/pounce_hugger
 	name = "Pounce"
 	action_icon_state = "pounce"
 	desc = "Leap at your target and knock them down, if you jump close you will hug the target."
-	ability_name = "pounce"
-	plasma_cost = 25
-	cooldown_timer = 5 SECONDS
+	ability_cost = 25
+	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_POUNCE,
+		KEYBINDING_NORMAL = COMSING_XENOABILITY_HUGGER_POUNCE,
 	)
-	use_state_flags = XACT_USE_BUCKLED
+	use_state_flags = ABILITY_USE_BUCKLED
 	///How far can we leap.
 	var/range = 6
 	///For how long will we stun the victim
@@ -27,19 +26,19 @@
 	var/start_turf
 
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
-/datum/action/xeno_action/activable/pounce_hugger/proc/pounce_complete()
+/datum/action/ability/activable/xeno/pounce_hugger/proc/pounce_complete()
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/caster = owner
 	caster.pass_flags = initial(caster.pass_flags)
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
 	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENO_LIVING_THROW_HIT))
 
-/datum/action/xeno_action/activable/pounce_hugger/proc/obj_hit(datum/source, obj/target, speed)
+/datum/action/ability/activable/xeno/pounce_hugger/proc/obj_hit(datum/source, obj/target, speed)
 	SIGNAL_HANDLER
 	target.hitby(owner, speed)
 	pounce_complete()
 
-/datum/action/xeno_action/activable/pounce_hugger/proc/mob_hit(datum/source, mob/living/M)
+/datum/action/ability/activable/xeno/pounce_hugger/proc/mob_hit(datum/source, mob/living/M)
 	SIGNAL_HANDLER
 	if(M.stat || isxeno(M))
 		return
@@ -55,7 +54,7 @@
 		if(!H.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
 			caster.Paralyze(6 SECONDS)
 			caster.set_throwing(FALSE) //Reset throwing manually.
-			return COMPONENT_KEEP_THROWING
+			return
 
 	caster.forceMove(get_turf(M))
 	if(ishuman(M))
@@ -71,7 +70,7 @@
 
 	pounce_complete()
 
-/datum/action/xeno_action/activable/pounce_hugger/can_use_ability(atom/A, silent = FALSE, override_flags)
+/datum/action/ability/activable/xeno/pounce_hugger/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -79,24 +78,24 @@
 	if(!A || A.layer >= FLY_LAYER)
 		return FALSE
 
-/datum/action/xeno_action/activable/pounce_hugger/proc/prepare_to_pounce()
+/datum/action/ability/activable/xeno/pounce_hugger/proc/prepare_to_pounce()
 	if(owner.layer == XENO_HIDING_LAYER) //Xeno is currently hiding, unhide him
 		owner.layer = MOB_LAYER
-		var/datum/action/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/xeno_action/xenohide]
+		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
 		hide_action?.button?.cut_overlay(mutable_appearance('modular_RUtgmc/icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
 	if(owner.buckled)
 		owner.buckled.unbuckle_mob(owner)
 
-/datum/action/xeno_action/activable/pounce_hugger/on_cooldown_finish()
+/datum/action/ability/activable/xeno/pounce_hugger/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/caster = owner
-	caster.usedPounce = FALSE
+	caster.xeno_flags |= XENO_LEAPING
 	return ..()
 
-/datum/action/xeno_action/activable/pounce_hugger/use_ability(atom/A)
+/datum/action/ability/activable/xeno/pounce_hugger/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/caster = owner
 
 	prepare_to_pounce()
-	if(!do_after(caster, windup_time, FALSE, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, XACT_USE_BUSY)))
+	if(!do_after(caster, windup_time, IGNORE_HELD_ITEM, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, ABILITY_USE_BUSY)))
 		return fail_activate()
 
 	caster.icon_state = "[caster.xeno_caste.caste_name] Thrown"
@@ -105,12 +104,12 @@
 	span_xenowarning("We leap at [A]!"))
 
 	RegisterSignal(caster, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(obj_hit))
-	RegisterSignal(caster, COMSIG_XENO_LIVING_THROW_HIT, PROC_REF(mob_hit))
+	RegisterSignal(caster, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 	RegisterSignal(caster, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
 
 	succeed_activate()
 	add_cooldown()
-	caster.usedPounce = TRUE // this is needed for throwing code
+	caster.xeno_flags |= XENO_LEAPING // this is needed for throwing code
 	caster.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE
 	caster.pass_flags ^= PASS_MOB
 
@@ -122,15 +121,15 @@
 	return TRUE
 
 	//AI stuff
-/datum/action/xeno_action/activable/pounce_hugger/ai_should_start_consider()
+/datum/action/ability/activable/xeno/pounce_hugger/ai_should_start_consider()
 	return TRUE
 
-/datum/action/xeno_action/activable/pounce_hugger/ai_should_use(atom/target)
+/datum/action/ability/activable/xeno/pounce_hugger/ai_should_use(atom/target)
 	if(!ishuman(target))
 		return FALSE
 	if(!line_of_sight(owner, target, HUG_RANGE))
 		return FALSE
-	if(!can_use_action(override_flags = XACT_IGNORE_SELECTED_ABILITY))
+	if(!can_use_action(override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
@@ -140,7 +139,7 @@
 	return TRUE
 
 ///Decrease the do_actions of the owner
-/datum/action/xeno_action/activable/pounce_hugger/proc/decrease_do_action(atom/target)
+/datum/action/ability/activable/xeno/pounce_hugger/proc/decrease_do_action(atom/target)
 	LAZYDECREMENT(owner.do_actions, target)
 
 #undef HUG_RANGE

@@ -15,7 +15,7 @@
 	var/knockdown_threshold = 150
 
 	///List of targets that can be shot at
-	var/list/mob/living/potential_targets = list()
+	var/list/atom/potential_targets = list()
 
 	///Time of last alert
 	var/last_alert = 0
@@ -135,7 +135,7 @@
 	user.visible_message(span_notice("[user] begins to set [src] upright."),
 		span_notice("You begin to set [src] upright.</span>"))
 
-	if(!do_after(user, 2 SECONDS, TRUE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 
 	user.visible_message(span_notice("[user] sets [src] upright."),
@@ -286,7 +286,7 @@
 	RegisterSignal(gun, COMSIG_MOB_GUN_FIRED, PROC_REF(check_next_shot))
 	update_minimap_icon()
 
-///Bonks the sentry onto its side. This currently is used here, and in /living/carbon/xeno/warrior/xeno_abilities in punch
+///Bonks the sentry onto its side. This currently is used here, and in /living/carbon/xeno/warrior/mob_abilities in punch
 /obj/machinery/deployable/mounted/sentry/proc/knock_down()
 	if(CHECK_BITFIELD(machine_stat, KNOCKED_DOWN))
 		return
@@ -326,6 +326,8 @@
 	if(!internal_item)
 		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
+	if(!gun) // RUTGMC ADDITION
+		return
 	if(!alert_code || !CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS) || !CHECK_BITFIELD(gun.turret_flags, TURRET_ON))
 		return
 
@@ -373,14 +375,21 @@
 	potential_targets.Cut()
 	if(!gun)
 		return length(potential_targets)
-	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
+	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
 		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal))
 			continue
 		potential_targets += nearby_human
-	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))
+	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))
 		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So wraiths wont be shot at when in phase shift
 			continue
 		potential_targets += nearby_xeno
+	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
+		if(!length(nearby_mech.occupants))
+			continue
+		var/mob/living/carbon/human/human_occupant = nearby_mech.occupants[1]
+		if(!istype(human_occupant) || (human_occupant.wear_id?.iff_signal & iff_signal))
+			continue
+		potential_targets += nearby_mech
 	return length(potential_targets)
 
 ///Checks the range and the path of the target currently being shot at to see if it is eligable for being shot at again. If not it will stop the firing.
@@ -427,7 +436,7 @@
 	update_minimap_icon()
 
 ///Checks the path to the target for obstructions. Returns TRUE if the path is clear, FALSE if not.
-/obj/machinery/deployable/mounted/sentry/proc/check_target_path(mob/living/target)
+/obj/machinery/deployable/mounted/sentry/proc/check_target_path(atom/target)
 	var/list/turf/path = getline(src, target)
 	var/turf/starting_turf = get_turf(src)
 	var/turf/target_turf = path[length(path)-1]
@@ -466,7 +475,7 @@
 	var/distance = range + 0.5 //we add 0.5 so if a potential target is at range, it is accepted by the system
 	var/buffer_distance
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	for (var/mob/living/nearby_target AS in potential_targets)
+	for (var/atom/nearby_target AS in potential_targets)
 		if(!(get_dir(src, nearby_target) & dir) && !CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL))
 			continue
 
@@ -551,7 +560,7 @@
 		return
 	set_on(FALSE)
 	user.balloon_alert(user, "You start disassembling [attached_item]")
-	if(!do_after(user, attached_item.undeploy_time, TRUE, src, BUSY_ICON_BUILD))
+	if(!do_after(user, attached_item.undeploy_time, NONE, src, BUSY_ICON_BUILD))
 		set_on(TRUE)
 		return
 

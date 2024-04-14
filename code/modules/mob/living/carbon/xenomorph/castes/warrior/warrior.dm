@@ -17,24 +17,24 @@
 	var/combo = 0
 	///Abilities with empowered interactions
 	var/list/empowerable_actions = list(
-		/datum/action/xeno_action/activable/fling,
-		/datum/action/xeno_action/activable/toss,
-		/datum/action/xeno_action/activable/punch,
-		/datum/action/xeno_action/activable/punch/jab,
+		/datum/action/ability/activable/xeno/fling,
+		/datum/action/ability/activable/xeno/toss,
+		/datum/action/ability/activable/xeno/punch,
+		/datum/action/ability/activable/xeno/punch/jab,
 	)
 // ***************************************
 // *********** Icons
 // ***************************************
 /mob/living/carbon/xenomorph/warrior/handle_special_state()
 	if(agility)
-		icon_state = "Warrior Agility"
+		icon_state = "[xeno_caste.caste_name][is_a_rouny ? " rouny" : ""] Agility"
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/xenomorph/warrior/handle_special_wound_states(severity)
 	. = ..()
 	if(agility)
-		return "warrior_wounded_agility_[severity]"
+		return "wounded_agility_[severity]"
 
 // ***************************************
 // *********** Mob overrides
@@ -48,7 +48,11 @@
 	..()
 
 /mob/living/carbon/xenomorph/warrior/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, lunge = FALSE)
-	if(!check_state() || agility)
+	if(!check_state())
+		return FALSE
+
+	if(agility)
+		balloon_alert(src, "Cannot in agility mode")
 		return FALSE
 
 	var/mob/living/L = AM
@@ -104,7 +108,7 @@
 		return FALSE
 	combo++
 	if(combo >= WARRIOR_COMBO_THRESHOLD)
-		for(var/datum/action/xeno_action/A AS in actions)
+		for(var/datum/action/ability/xeno_action/A AS in actions)
 			if(A.type in empowerable_actions)
 				A.add_empowered_frame()
 				A.update_button_icon()
@@ -113,7 +117,7 @@
 
 ///Removes all combo stacks from the warrior, removes the frame around the ability buttons.
 /mob/living/carbon/xenomorph/warrior/proc/clear_combo()
-	for(var/datum/action/xeno_action/A AS in actions)
+	for(var/datum/action/ability/xeno_action/A AS in actions)
 		if(A.type in empowerable_actions)
 			A.remove_empowered_frame()
 			A.update_button_icon()

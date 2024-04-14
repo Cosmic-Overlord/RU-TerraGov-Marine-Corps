@@ -76,6 +76,8 @@
 	var/list/obj/item/storage/refill_types
 	///What sound gets played when the item is tactical refilled
 	var/refill_sound = null
+	///Flags for specifically storage items
+	var/flags_storage = NONE
 
 /obj/item/storage/MouseDrop(obj/over_object as obj)
 	if(!ishuman(usr))
@@ -376,7 +378,7 @@
 
 ///This proc return 1 if the item can be picked up and 0 if it can't. Set the warning to stop it from printing messages
 /obj/item/storage/proc/can_be_inserted(obj/item/W as obj, warning = TRUE)
-	if(!istype(W) || (W.flags_item & NODROP))
+	if(!istype(W) || HAS_TRAIT(W, TRAIT_NODROP))
 		return //Not an item
 
 	if(loc == W)
@@ -448,10 +450,10 @@
 		return FALSE
 
 	if(!alert_user)
-		return do_after(user, access_delay, TRUE, src, ignore_turf_checks=TRUE)
+		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, src)
 
 	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [src]")
-	if(!do_after(user, access_delay, TRUE, src, ignore_turf_checks=TRUE))
+	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, src))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE
@@ -573,7 +575,7 @@
 
 	user.balloon_alert(user, "Refilling.")
 
-	if(!do_after(user, 15, TRUE, src, BUSY_ICON_GENERIC))
+	if(!do_after(user, 15, NONE, src, BUSY_ICON_GENERIC))
 		return
 
 	playsound(user.loc, refill_sound, 15, 1, 6)
@@ -840,7 +842,7 @@
 	attempt_draw_object(user)
 
 /obj/item/storage/AltRightClick(mob/user)
-	if(Adjacent(user))
+	if(Adjacent(user) && !isxeno(user))
 		open(user)
 
 /obj/item/storage/attack_hand_alternate(mob/living/user)
@@ -855,7 +857,7 @@
 
 /**
  * Attempts to get the first possible object from this container
- * 
+ *
  * Arguments:
  * * mob/living/user - The mob attempting to draw from this container
  * * start_from_left - If true we draw the leftmost object instead of the rightmost. FALSE by default.

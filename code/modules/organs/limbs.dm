@@ -180,14 +180,14 @@
 	if(limb_status & LIMB_BIOTIC)
 		brute *= 1.3 // 130% damage for biotic limbs
 		burn *= 1.3
-
+/* RU TGMC EDIT
 	//High brute damage or sharp objects may damage internal organs
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
 		I.take_damage(brute / 2)
 		brute -= brute / 2
-
+RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
 		if(!(owner.species && (owner.species.species_flags & NO_PAIN)))
 			owner.emote("scream") //Getting hit on broken hand hurts
@@ -952,7 +952,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	target.balloon_alert_to_viewers("Splinting [display_name]...")
 
-	if(!do_mob(user, target, delay, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(extra_splint_checks), applied_health)))
+	if(!do_after(user, delay, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(extra_splint_checks), applied_health)))
 		return FALSE
 
 	target.balloon_alert_to_viewers("Splinted [display_name]")

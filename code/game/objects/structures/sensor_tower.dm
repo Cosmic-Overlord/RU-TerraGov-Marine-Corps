@@ -38,7 +38,7 @@
 /obj/structure/sensor_tower/update_icon_state()
 	icon_state = initial(icon_state)
 	if(current_timer || activated)
-		icon_state += "_loyalist"
+		icon_state += "_tgmc"
 
 /obj/structure/sensor_tower/attack_hand(mob/living/user)
 	if(!ishuman(user))
@@ -61,7 +61,7 @@
 		return
 
 	balloon_alert(user, "You begin to stop the activation process!")
-	if(!do_after(user, deactivate_time, TRUE, src))
+	if(!do_after(user, deactivate_time, NONE, src))
 		return
 	if(activated)
 		balloon_alert(user, "This sensor tower is already fully activated, you cannot deactivate it!")
@@ -77,7 +77,7 @@
 	if(!attacker_state_check(user))
 		return
 	balloon_alert_to_viewers("Activating sensor tower...")
-	if(!do_after(user, activate_time, TRUE, src))
+	if(!do_after(user, activate_time, NONE, src))
 		return
 	if(!attacker_state_check(user))
 		return
@@ -172,6 +172,6 @@
 /obj/structure/sensor_tower/proc/update_control_minimap_icon()
 	SSminimaps.remove_marker(src)
 	if(activated)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid]_on_full"))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid]_on_full", VERY_HIGH_FLOAT_LAYER))
 	else
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid][current_timer ? "_on" : "_off"]"))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid][current_timer ? "_on" : "_off"]", VERY_HIGH_FLOAT_LAYER))

@@ -44,6 +44,10 @@ Basics, the most important.
 
 /datum/config_entry/string/restart_message
 
+/datum/config_entry/string/discord_ban_channel
+	config_entry_value = "game-bans"
+	protection = CONFIG_ENTRY_LOCKED|CONFIG_ENTRY_HIDDEN
+
 /datum/config_entry/flag/guest_ban
 
 /*
@@ -117,7 +121,14 @@ Administrative related.
 
 /datum/config_entry/flag/log_manifest
 
+/// log roundstart divide occupations debug information to a file
+/datum/config_entry/flag/log_job_debug
+
 /datum/config_entry/flag/log_timers_on_bucket_reset // logs all timers in buckets on automatic bucket reset (Useful for timer debugging)
+
+/// Log human readable versions of json log entries
+/datum/config_entry/flag/log_as_human_readable
+	config_entry_value = TRUE
 
 /datum/config_entry/flag/allow_admin_ooccolor // Allows admins to customize their OOC color.
 
@@ -388,13 +399,19 @@ The default value assumes youtube-dl is in your system PATH
 	config_entry_value = "Sorry but the server is currently not accepting connections from never before seen players."
 
 /datum/config_entry/flag/check_randomizer
+//RU TGMC EDIT
+/datum/config_entry/string/default_view1
+	config_entry_value = WIDESCREEN1
 
-/datum/config_entry/string/default_view
-	config_entry_value = "15x15"
+/datum/config_entry/string/default_view2
+	config_entry_value = WIDESCREEN2
+
+/datum/config_entry/string/default_view3
+	config_entry_value = WIDESCREEN3
 
 /datum/config_entry/string/default_view_square
-	config_entry_value = "15x15"
-
+	config_entry_value = SQUARESCREEN
+//RU TGMC EDIT
 /*
 This maintains a list of ip addresses that are able to bypass topic filtering.
 */

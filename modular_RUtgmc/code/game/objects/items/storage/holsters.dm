@@ -78,6 +78,13 @@
 	draw_sound = 'modular_RUtgmc/sound/items/unsheath.ogg'
 	sheathe_sound = 'modular_RUtgmc/sound/items/sheath.ogg'
 	worn_layer = CAPE_LAYER
+	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword)
+	can_hold = list(/obj/item/weapon/claymore/mercsword/officersword)
+
+/obj/item/storage/holster/blade/officer/full/Initialize(mapload)
+	. = ..()
+	var/obj/item/new_item = new /obj/item/weapon/claymore/mercsword/officersword(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
 
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
@@ -111,4 +118,58 @@
 /obj/item/storage/holster/blade/officer/sabre/full/Initialize()
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/mercsword/officersword/sabre(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
+
+/obj/item/storage/holster/belt
+	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
+	item_icons = list(
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
+		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
+	)
+
+/obj/item/storage/holster/backholster/mortar
+	can_hold = list(
+		/obj/item/mortal_shell/he,
+		/obj/item/mortal_shell/incendiary,
+		/obj/item/mortal_shell/smoke,
+		/obj/item/mortal_shell/flare,
+		/obj/item/mortal_shell/plasmaloss,
+		/obj/item/mortar_kit,
+		/obj/item/hud_tablet/artillery,
+	)
+
+/obj/item/storage/holster/blade //new sounds
+	draw_sound = 'modular_RUtgmc/sound/weapons/melee/knife_out.ogg'
+	sheathe_sound = 'modular_RUtgmc/sound/weapons/melee/knife_in.ogg'
+
+/obj/item/storage/holster/blade/machete
+	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+
+/obj/item/storage/holster/blade/machete/full_harvester
+	icon = 'icons/obj/items/storage/storage.dmi'
+
+// Tactical Tomahawk Holster
+
+/obj/item/storage/holster/blade/tomahawk
+	name = "\improper Tactical H23 Tomahawk scabbard"
+	desc = "A large leather scabbard used to carry a H23 tomahawk. It can be strapped to the back, waist or armor."
+	icon = 'modular_RUtgmc/icons/obj/items/storage/storage.dmi'
+	icon_state = "tomahawk_holster"
+	item_state = "tomahawk_holster"
+	item_icons = list(
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
+	)
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	holsterable_allowed = list(
+		/obj/item/weapon/claymore/tomahawk
+	)
+	can_hold = list(
+		/obj/item/weapon/claymore/tomahawk
+	)
+
+/obj/item/storage/holster/blade/tomahawk/full/Initialize(mapload)
+	. = ..()
+	var/obj/item/new_item = new /obj/item/weapon/claymore/tomahawk(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)

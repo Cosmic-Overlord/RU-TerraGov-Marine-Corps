@@ -193,7 +193,7 @@
 			if(user.do_actions)
 				return
 			to_chat(user, span_notice("You start fiddling with \the [src]..."))
-			if(!do_after(user, SKILL_TASK_EASY, TRUE, src, BUSY_ICON_UNSKILLED))
+			if(!do_after(user, SKILL_TASK_EASY, IGNORE_HELD_ITEM, src, BUSY_ICON_UNSKILLED))
 				return
 //RUTGMC edit end
 
@@ -350,7 +350,7 @@
 			beaker = I
 			balloon_alert(user, "Sets [I] on the machine")
 			update_icon()
-			updateUsrDialog()
+			ui_interact(user)
 			return
 
 		if(istype(I, /obj/item/reagent_containers/glass))

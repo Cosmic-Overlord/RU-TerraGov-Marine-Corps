@@ -1,3 +1,16 @@
+//-------------------------------------------------------
+//R-44 COMBAT REVOLVER
+
+/obj/item/weapon/gun/revolver/standard_revolver
+	icon_state = "tp44"
+	item_state = "tp44"
+	greyscale_config = null
+	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
+
 ///////////////////////////////////////////////////////////////////////
 //////// Сoltrifle, based on Colt Model 1855 Revolving Rifle. /////////
 ///////////////////////////////////////////////////////////////////////
@@ -8,6 +21,7 @@
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
+	greyscale_config = null
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
@@ -82,7 +96,7 @@
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lace/t500,
 	)
-	attachable_offset = list("muzzle_x" = 0, "muzzle_y" = 0,"rail_x" = 0, "rail_y" = 0, "under_x" = 19, "under_y" = 13, "stock_x" = -19, "stock_y" = 0)
+	attachable_offset = list("muzzle_x" = 0, "muzzle_y" = 0,"rail_x" = 10, "rail_y" = 20, "under_x" = 19, "under_y" = 13, "stock_x" = -19, "stock_y" = 0)
 	windup_delay = 0.8 SECONDS
 	windup_sound = 'modular_RUtgmc/sound/weapons/guns/fire/t500_start.ogg'
 	fire_sound = 'modular_RUtgmc/sound/weapons/guns/fire/t500.ogg'
@@ -96,3 +110,6 @@
 	scatter = -1
 	recoil = 2
 	recoil_unwielded = 3
+
+/obj/item/ammo_magazine/revolver/standard_magnum
+	name = "\improper R-76 speed loader (12x7mm)"

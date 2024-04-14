@@ -155,7 +155,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		to_chat(user, span_danger("You lose sight of your target!"))
 		playsound(user,'sound/machines/click.ogg', 25, 1)
 
-/obj/item/weapon/gun/rifle/sniper/antimaterial/zoom(mob/living/user, tileoffset = 11, viewsize = 12) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/weapon/gun/rifle/sniper/antimaterial/zoom(mob/living/user, tileoffset = 11, viewsize = 10) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 5 is normal view
 	. = ..()
 	var/obj/item/attachable/scope = LAZYACCESS(attachments_by_slot, ATTACHMENT_SLOT_RAIL)
 	if(!scope.zoom && (targetmarker_on || targetmarker_primed) )
@@ -500,7 +500,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	starting_attachment_types = list(/obj/item/weapon/gun/flamer/hydro_cannon/pepperball)
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	actions_types = list(/datum/action/item_action/aim_mode)
+	//actions_types = list(/datum/action/item_action/aim_mode) // RUTGMC DELETION
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 0.1
 
@@ -751,6 +751,8 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	default_ammo_type = /obj/item/ammo_magazine/rocket/m57a4
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rocket/m57a4)
 
+/obj/item/weapon/gun/launcher/rocket/m57a4/t57/unloaded
+	default_ammo_type = null
 
 //-------------------------------------------------------
 //RL-160 Recoilless Rifle. Its effectively an RPG codewise.
@@ -773,6 +775,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rocket/recoilless/cloak,
 		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss,
 		/obj/item/ammo_magazine/rocket/recoilless/heat,
+		/obj/item/ammo_magazine/rocket/recoilless/heam,
 	)
 	flags_equip_slot = NONE
 	w_class = WEIGHT_CLASS_HUGE
@@ -784,7 +787,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	general_codex_key = "explosive weapons"
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/shoulder_mount,
 	)
@@ -798,6 +800,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 /obj/item/weapon/gun/launcher/rocket/recoillessrifle/low_impact
 	default_ammo_type = /obj/item/ammo_magazine/rocket/recoilless/low_impact
+
+/obj/item/weapon/gun/launcher/rocket/recoillessrifle/heam
+	default_ammo_type = /obj/item/ammo_magazine/rocket/recoilless/heam
 
 //-------------------------------------------------------
 //Disposable RPG
@@ -835,7 +840,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 // Do a short windup, swap the extension status of the rocket if successful, then swap the flags.
 /obj/item/weapon/gun/launcher/rocket/oneuse/unique_action(mob/living/user)
 	playsound(user, 'sound/weapons/guns/misc/oneuse_deploy.ogg', 25, 1)
-	if(!do_after(user, 20, TRUE, src, BUSY_ICON_DANGER))
+	if(!do_after(user, 20, NONE, src, BUSY_ICON_DANGER))
 		return
 	extended = !extended
 	if(!extended)
@@ -906,6 +911,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 /obj/item/weapon/gun/launcher/rocket/som/rad
 	default_ammo_type = /obj/item/ammo_magazine/rocket/som/rad
+
+/obj/item/weapon/gun/launcher/rocket/som/heat
+	default_ammo_type = /obj/item/ammo_magazine/rocket/som/heat
 
 //ICC RPG
 /obj/item/weapon/gun/launcher/rocket/icc
@@ -984,6 +992,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	recoil = 3
 	scatter = 0
 	movement_acc_penalty_mult = 6
+
+/obj/item/weapon/gun/rifle/railgun/unloaded
+	default_ammo_type = null
 
 //-------------------------------------------------------
 //ML-120 Coilgun

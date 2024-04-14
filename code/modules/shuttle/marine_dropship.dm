@@ -359,7 +359,7 @@
 		return
 
 	to_chat(src, span_warning("You begin calling down the shuttle."))
-	if(!do_after(src, 80, FALSE, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
+	if(!do_after(src, 80, IGNORE_HELD_ITEM, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
 		to_chat(src, span_warning("You stop."))
 		return
 
@@ -380,6 +380,7 @@
 
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
 
+/* RUTGMC DELETION
 /datum/game_mode/proc/can_summon_dropship(mob/user)
 	if(user.do_actions)
 		user.balloon_alert(user, span_warning("Busy"))
@@ -422,7 +423,7 @@
 		if(D.hijack_state != HIJACK_STATE_NORMAL)
 			return FALSE
 		to_chat(user, span_warning("We begin overriding the shuttle lockdown. This will take a while..."))
-		if(!do_after(user, 30 SECONDS, FALSE, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
+		if(!do_after(user, 30 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_DANGER, BUSY_ICON_DANGER))
 			to_chat(user, span_warning("We cease overriding the shuttle lockdown."))
 			return FALSE
 		if(!is_ground_level(D.z))
@@ -454,6 +455,7 @@
 		to_chat(user, span_warning("There's too many tallhosts still on the ground. They interfere with our psychic field. We must dispatch them before we are able to do this."))
 		return FALSE
 	return TRUE
+*/
 
 // summon dropship to closest lz to A
 /datum/game_mode/proc/summon_dropship(atom/A)
@@ -489,6 +491,7 @@
 /obj/machinery/computer/shuttle/marine_dropship
 	icon = 'icons/Marine/shuttle-parts.dmi'
 	icon_state = "console"
+	screen_overlay = "console_emissive"
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
 	possible_destinations = "lz1;lz2;alamo"
@@ -645,6 +648,7 @@
 		if("cycle_time_change")
 			M.time_between_cycle = params["cycle_time_change"]
 
+/* RUTGMC DELETION
 /obj/machinery/computer/shuttle/marine_dropship/Topic(href, href_list)
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
 	if(!M)
@@ -718,6 +722,7 @@
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 		return
+*/
 
 /obj/machinery/computer/shuttle/marine_dropship/proc/do_hijack(obj/docking_port/mobile/marine_dropship/crashing_dropship, obj/docking_port/stationary/marine_dropship/crash_target/crash_target, mob/living/carbon/xenomorph/user)
 	crashing_dropship.set_hijack_state(HIJACK_STATE_CRASHING)
@@ -751,12 +756,13 @@
 	possible_destinations = "lz1;lz2;alamo"
 	opacity = FALSE
 
+/* RUTGMC DELETION
 /obj/machinery/computer/shuttle/marine_dropship/one/Initialize(mapload)
 	. = ..()
 	for(var/trait in SSmapping.configs[SHIP_MAP].environment_traits)
 		if(ZTRAIT_DOUBLE_SHIPS in trait)
-			//possible_destinations = "lz2;alamo" // RUTGMC CHANGE, it is now Normandy
-			possible_destinations = "lz2;normandy"
+			possible_destinations = "lz2;alamo"=
+*/
 
 /obj/machinery/computer/shuttle/marine_dropship/two
 	name = "\improper 'Normandy' flight controls"
@@ -1270,7 +1276,8 @@
 /obj/machinery/computer/shuttle/shuttle_control
 	name = "shuttle control console"
 	icon = 'icons/obj/machines/computer.dmi'
-	icon_state = "shuttle"
+	icon_state = "computer_small"
+	screen_overlay = "shuttle"
 	///Able to auto-relink to any shuttle with at least one of the flags in common if shuttleId is invalid.
 	var/compatible_control_flags = NONE
 
@@ -1317,8 +1324,8 @@
 		return TRUE
 
 	if(!(params["destination"] in valid_destinations()))
-		log_admin("[key_name(usr)] may be attempting a href dock exploit on [src] with target location \"[params["destination"]]\"")
-		message_admins("[ADMIN_TPMONTY(usr)] may be attempting a href dock exploit on [src] with target location \"[params["destination"]]\"")
+		log_admin("[key_name(usr)] may be attempting a href dock exploit on [src] with target location \"[html_encode(params["destination"])]\"")
+		message_admins("[ADMIN_TPMONTY(usr)] may be attempting a href dock exploit on [src] with target location \"[html_encode(params["destination"])]\"")
 		return TRUE
 
 	var/previous_status = M.mode
@@ -1428,7 +1435,8 @@
 	name = "\improper 'Alamo' dropship console"
 	desc = "The remote controls for the 'Alamo' Dropship. Named after the Alamo Mission, stage of the Battle of the Alamo in the United States' state of Texas in the Spring of 1836. The defenders held to the last, encouraging other Texans to rally to the flag."
 	icon = 'icons/obj/machines/computer.dmi'
-	icon_state = "shuttle"
+	icon_state = "computer_small"
+	screen_overlay = "shuttle"
 	resistance_flags = RESIST_ALL
 	req_one_access = list(ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LEADER) // TLs can only operate the remote console
 	shuttleId = SHUTTLE_ALAMO
@@ -1446,7 +1454,8 @@
 	name = "\improper 'Canterbury' shuttle console"
 	desc = "The remote controls for the 'Canterbury' shuttle."
 	icon = 'icons/obj/machines/computer.dmi'
-	icon_state = "shuttle"
+	icon_state = "computer_small"
+	screen_overlay = "shuttle"
 	resistance_flags = RESIST_ALL
 	shuttleId = SHUTTLE_CANTERBURY
 	possible_destinations = "canterbury_loadingdock"

@@ -32,7 +32,6 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(activate_corruption))
 	update_icon()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator")) //RU TGMC edit - map blips
 
 	if(is_ground_level(z))
 		GLOB.generators_on_ground += 1
@@ -58,10 +57,18 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 //We don't want to cut/update the power overlays every single proc. Just when it actually changes. This should save on CPU cycles. Efficiency!
 /obj/machinery/power/geothermal/update_icon()
 	. = ..()
+	//RUTGMC ADDITION BEGIN
+	SSminimaps.remove_marker(src)
+	if(!corrupted && !is_on)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator_off"))
+	if(corrupted)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator_corrupt"))
+	//RUTGMC ADDITION END
 	switch(buildstate)
 		if(GEOTHERMAL_NO_DAMAGE)
 			if(is_on)
 				desc = "A thermoelectric generator sitting atop a borehole dug deep in the planet's surface. It generates energy by boiling the plasma steam that rises from the well.\nIt is old technology and has a large failure rate, and must be repaired frequently.\nIt is currently on, and beeping randomly amid faint hisses of steam."
+				SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator_on")) //RU TGMC edit - map blips
 				switch(power_gen_percent)
 					if(25)
 						icon_state = "on25"
@@ -157,7 +164,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		return
 	if(CHECK_BITFIELD(X.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) && is_corruptible)
 		to_chat(X, span_notice("You start to corrupt [src]"))
-		if(!do_after(X, 10 SECONDS, TRUE, src, BUSY_ICON_HOSTILE))
+		if(!do_after(X, 10 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
 			return
 		corrupt(X.hivenumber)
 		to_chat(X, span_notice("You have corrupted [src]"))
@@ -224,7 +231,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 			user.visible_message(span_notice("[user] fumbles around figuring out the resin tendrils on [src]."),
 			span_notice("You fumble around figuring out the resin tendrils on [src]."))
 			var/fumbling_time = 10 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-			if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
+			if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
 				return
 
 		if(!WT.remove_fuel(1, user))
@@ -235,7 +242,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		span_notice("You carefully start burning [src]'s resin off."))
 		add_overlay(GLOB.welding_sparks)
 
-		if(!do_after(user, 20 SECONDS, TRUE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
+		if(!do_after(user, 20 SECONDS, NONE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
 			cut_overlay(GLOB.welding_sparks)
 			return FALSE
 
@@ -252,7 +259,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		user.visible_message(span_notice("[user] fumbles around figuring out [src]'s internals."),
 		span_notice("You fumble around figuring out [src]'s internals."))
 		var/fumbling_time = 10 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-		if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)) || buildstate != GEOTHERMAL_HEAVY_DAMAGE || is_on)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)) || buildstate != GEOTHERMAL_HEAVY_DAMAGE || is_on)
 			return
 
 	if(!WT.remove_fuel(1, user))
@@ -263,7 +270,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	span_notice("You start welding [src]'s internal damage."))
 	add_overlay(GLOB.welding_sparks)
 
-	if(!do_after(user, 20 SECONDS, TRUE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)) || buildstate != GEOTHERMAL_HEAVY_DAMAGE || is_on)
+	if(!do_after(user, 20 SECONDS, NONE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)) || buildstate != GEOTHERMAL_HEAVY_DAMAGE || is_on)
 		cut_overlay(GLOB.welding_sparks)
 		return FALSE
 
@@ -283,13 +290,13 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		user.visible_message(span_notice("[user] fumbles around figuring out [src]'s wiring."),
 		span_notice("You fumble around figuring out [src]'s wiring."))
 		var/fumbling_time = 10 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-		if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED) || buildstate != GEOTHERMAL_MEDIUM_DAMAGE || is_on)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED) || buildstate != GEOTHERMAL_MEDIUM_DAMAGE || is_on)
 			return
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
 	user.visible_message(span_notice("[user] starts securing [src]'s wiring."),
 	span_notice("You start securing [src]'s wiring."))
 
-	if(!do_after(user, 12 SECONDS, TRUE, src, BUSY_ICON_BUILD) || buildstate != GEOTHERMAL_MEDIUM_DAMAGE || is_on)
+	if(!do_after(user, 12 SECONDS, NONE, src, BUSY_ICON_BUILD) || buildstate != GEOTHERMAL_MEDIUM_DAMAGE || is_on)
 		return FALSE
 
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
@@ -307,14 +314,14 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		user.visible_message(span_notice("[user] fumbles around figuring out [src]'s tubing and plating."),
 		span_notice("You fumble around figuring out [src]'s tubing and plating."))
 		var/fumbling_time = 10 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-		if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED) || buildstate != GEOTHERMAL_LIGHT_DAMAGE || is_on)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED) || buildstate != GEOTHERMAL_LIGHT_DAMAGE || is_on)
 			return
 
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 	user.visible_message(span_notice("[user] starts repairing [src]'s tubing and plating."),
 	span_notice("You start repairing [src]'s tubing and plating."))
 
-	if(!do_after(user, 15 SECONDS, TRUE, src, BUSY_ICON_BUILD) || buildstate != GEOTHERMAL_LIGHT_DAMAGE || is_on)
+	if(!do_after(user, 15 SECONDS, NONE, src, BUSY_ICON_BUILD) || buildstate != GEOTHERMAL_LIGHT_DAMAGE || is_on)
 		return FALSE
 
 	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)

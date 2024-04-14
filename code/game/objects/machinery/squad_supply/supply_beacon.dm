@@ -42,7 +42,7 @@
 	var/delay = max(1.5 SECONDS, activation_time - 2 SECONDS * H.skills.getRating(SKILL_LEADERSHIP))
 	H.visible_message(span_notice("[H] starts setting up [src] on the ground."),
 	span_notice("You start setting up [src] on the ground and inputting all the data it needs."))
-	if(!do_after(H, delay, TRUE, src, BUSY_ICON_GENERIC))
+	if(!do_after(H, delay, NONE, src, BUSY_ICON_GENERIC))
 		return FALSE
 	var/obj/machinery/camera/beacon_cam/BC = new(src, "[H.get_paygrade()] [H.name] [src]")
 	H.transferItemToLoc(src, H.loc)
@@ -63,7 +63,7 @@
 		marker_flags = MINIMAP_FLAG_MARINE
 	//RUTGMC EDIT CHANGE BEGIN - ORBITAL_BEACON
 	//SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "supply")) RUTGMC  EDIT - ORIGINAL
-	SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, beacon_mini_icon))
+	SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, beacon_mini_icon, ABOVE_FLOAT_LAYER))
 	//RUTGMC EDIT CHANGE END
 	update_icon()
 	return TRUE
@@ -73,7 +73,7 @@
 	var/delay = max(1 SECONDS, activation_time * 0.5 - 2 SECONDS * H.skills.getRating(SKILL_LEADERSHIP)) //Half as long as setting it up.
 	H.visible_message(span_notice("[H] starts removing [src] from the ground."),
 	span_notice("You start removing [src] from the ground, deactivating it."))
-	if(!do_after(H, delay, TRUE, src, BUSY_ICON_GENERIC))
+	if(!do_after(H, delay, NONE, src, BUSY_ICON_GENERIC))
 		return FALSE
 	QDEL_NULL(beacon_cam)
 	activated = FALSE
@@ -116,6 +116,12 @@
 /obj/item/beacon/supply_beacon/proc/clean_beacon_datum()
 	SIGNAL_HANDLER
 	beacon_datum = null
+
+/obj/item/beacon/supply_beacon/onTransitZ(old_z,new_z)
+	. = ..()
+	//Assumes doMove sets loc before onTransitZ
+	if(beacon_datum) // RUTGMC ADDITION, supply beacon runtime fix
+		beacon_datum.drop_location = loc
 
 /obj/item/beacon/supply_beacon/activate(mob/living/carbon/human/H)
 	var/area/A = get_area(H)

@@ -105,7 +105,8 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define SCOUT_CLOAK_ENERGY 100
 #define SCOUT_CLOAK_STEALTH_DELAY 30
 #define SCOUT_CLOAK_RUN_DRAIN 5
-#define SCOUT_CLOAK_WALK_DRAIN 1
+//#define SCOUT_CLOAK_WALK_DRAIN 1
+#define SCOUT_CLOAK_WALK_DRAIN -1 //RUTGMС EDIT
 #define SCOUT_CLOAK_ACTIVE_RECOVERY -5 //You only get this once every obj tick, so it'll be comparable to the inactive value
 #define SCOUT_CLOAK_INACTIVE_RECOVERY 5
 #define SCOUT_CLOAK_COOLDOWN 100
@@ -124,11 +125,12 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define B18_OXY_CODE 3
 #define B18_TOX_CODE 4
 #define B18_PAIN_CODE 5
+/* RU TGMC EDIT
 #define B18_DAMAGE_MIN 50
 #define B18_DAMAGE_MAX 150
 #define B18_PAIN_MIN 50
 #define B18_PAIN_MAX 150
-
+RU TGMC EDIT*/
 
 //Razor wire
 
@@ -262,3 +264,10 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define TELEPORTER_ARRAY_INACTIVE "teleporter_array_inactive"
 #define TELEPORTER_ARRAY_READY "teleporter_array_ready"
 #define TELEPORTER_ARRAY_IN_USE "teleporter_array_in_use"
+
+#define DROPPOD_READY 1
+#define DROPPOD_ACTIVE 2
+#define DROPPOD_LANDED 3
+
+//cameras
+#define SOM_CAMERA_NETWORK "som_camera_network"

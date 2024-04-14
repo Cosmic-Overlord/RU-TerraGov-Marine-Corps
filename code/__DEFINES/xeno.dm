@@ -31,10 +31,6 @@
 #define DEFILER_TRANSVITOX "Transvitox"
 #define DEFILER_OZELOMELYN "Ozelomelyn"
 
-//Baneling specific reagent define
-#define BANELING_ACID "Sulphuric acid"
-#define BANELING_ACID_ICON "spray_acid"
-
 #define TRAP_HUGGER "hugger"
 #define TRAP_SMOKE_NEURO "neurotoxin gas"
 #define TRAP_SMOKE_ACID "acid gas"
@@ -46,6 +42,11 @@
 #define WEAK_ACID_STRENGTH 0.016
 #define REGULAR_ACID_STRENGTH 0.04
 #define STRONG_ACID_STRENGTH 0.1
+
+#define PUPPET_RECALL "recall puppet"
+#define PUPPET_SEEK_CLOSEST "seeking closest and attack order" //not xeno-usable
+#define PUPPET_ATTACK "seek and attack order"
+#define PUPPET_SCOUT "scouting order"
 
 //List of weed types
 GLOBAL_LIST_INIT(weed_type_list, typecacheof(list(
@@ -83,7 +84,7 @@ GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
 		))
 
@@ -92,20 +93,11 @@ GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/xeno_sanguinal,
 		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
 		/datum/status_effect/stacking/intoxicated,
 		)))
-
-//List of Baneling chemical types available for selection
-GLOBAL_LIST_INIT(baneling_chem_type_list, list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
-		/datum/reagent/toxin/acid,
-		))
 
 //List of plant types
 GLOBAL_LIST_INIT(plant_type_list, list(
@@ -124,12 +116,28 @@ GLOBAL_LIST_INIT(plant_images_list, list(
 		STEALTH_PLANT = image('icons/Xeno/plants.dmi', icon_state = "stealth_plant")
 		))
 
-//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\__DEFINES\xeno.dm
 //List of resin structure images
 GLOBAL_LIST_INIT(resin_images_list, list(
 		RESIN_WALL = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL),
 		STICKY_RESIN = image('icons/Xeno/actions.dmi', icon_state = STICKY_RESIN),
 		RESIN_DOOR = image('icons/Xeno/actions.dmi', icon_state = RESIN_DOOR)
+		))
+*/ //RUTGMC EDIT END
+
+//List of puppeteer order images
+GLOBAL_LIST_INIT(puppeteer_order_images_list, list(
+		PUPPET_ATTACK = image('icons/Xeno/actions.dmi', icon_state = "enrage"),
+		PUPPET_SCOUT = image('icons/mob/actions.dmi', icon_state = "66"),
+		PUPPET_RECALL = image('icons/mob/actions.dmi', icon_state = "rally")
+		))
+
+//RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\__DEFINES\xeno.dm
+/*
+//List of puppeteer pheromone images
+GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
+		AURA_XENO_BLESSFURY = image('icons/mob/actions.dmi', icon_state = "Fury"),
+		AURA_XENO_BLESSWARDING = image('icons/mob/actions.dmi', icon_state = "Warding"),
+		AURA_XENO_BLESSFRENZY = image('icons/mob/actions.dmi', icon_state = "Frenzy"),
 		))
 */ //RUTGMC EDIT END
 
@@ -142,7 +150,11 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/beetle/ai,
 	/mob/living/carbon/xenomorph/mantis/ai,
 	/mob/living/carbon/xenomorph/scorpion/ai,
+	/mob/living/carbon/xenomorph/nymph/ai,
 ))
+
+GLOBAL_LIST_INIT(baneling_spawnable, list(
+	/mob/living/carbon/xenomorph/baneling))
 
 ///Heals a xeno, respecting different types of damage
 #define HEAL_XENO_DAMAGE(xeno, amount, passive) do { \
@@ -187,3 +199,5 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define ERROR_NO_SUPPORT 7
 /// Failed to other blockers such as egg, power plant , coocon , traps
 #define ERROR_CONSTRUCT 8
+
+#define PUPPET_WITHER_RANGE 15

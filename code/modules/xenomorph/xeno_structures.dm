@@ -47,15 +47,17 @@
 /obj/structure/xeno/fire_act()
 	take_damage(10, BURN, FIRE)
 
+/* RUTGMC DELETION, moved to modular
 /// Destroy the xeno structure when the weed it was on is destroyed
 /obj/structure/xeno/proc/weed_removed()
 	SIGNAL_HANDLER
 	obj_destruction(damage_flag = MELEE)
+*/
 
 /obj/structure/xeno/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!(HAS_TRAIT(X, TRAIT_VALHALLA_XENO) && X.a_intent == INTENT_HARM && (tgui_alert(X, "Are you sure you want to tear down [src]?", "Tear down [src]?", list("Yes","No"))) == "Yes"))
 		return ..()
-	if(!do_after(X, 3 SECONDS, TRUE, src))
+	if(!do_after(X, 3 SECONDS, NONE, src))
 		return
 	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	balloon_alert_to_viewers("\The [X] tears down \the [src]!", "We tear down \the [src].")
@@ -242,13 +244,13 @@
 		set_trap_type(null)
 		balloon_alert(X, "Removed facehugger")
 		return
-	var/datum/action/xeno_action/activable/corrosive_acid/acid_action = locate(/datum/action/xeno_action/activable/corrosive_acid) in X.actions
+	var/datum/action/ability/activable/xeno/corrosive_acid/acid_action = locate(/datum/action/ability/activable/xeno/corrosive_acid) in X.actions
 	if(istype(X.ammo, /datum/ammo/xeno/boiler_gas))
 		var/datum/ammo/xeno/boiler_gas/boiler_glob = X.ammo
 		if(!boiler_glob.enhance_trap(src, X))
 			return
 	else if(acid_action)
-		if(!do_after(X, 2 SECONDS, TRUE, src))
+		if(!do_after(X, 2 SECONDS, NONE, src))
 			return
 		switch(acid_action.acid_type)
 			if(/obj/effect/xenomorph/acid/weak)
@@ -313,7 +315,7 @@ TUNNEL
 	for(var/datum/atom_hud/xeno_tactical/xeno_tac_hud in GLOB.huds) //Add to the xeno tachud
 		xeno_tac_hud.add_to_hud(src)
 	hud_set_xeno_tunnel()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "xenotunnel")) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "xenotunnel", HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
 
 /obj/structure/xeno/tunnel/Destroy()
 	var/turf/drop_loc = get_turf(src)
@@ -363,7 +365,7 @@ TUNNEL
 
 	if(X.a_intent == INTENT_HARM && X == creator)
 		balloon_alert(X, "Filling in tunnel...")
-		if(do_after(X, HIVELORD_TUNNEL_DISMANTLE_TIME, FALSE, src, BUSY_ICON_BUILD))
+		if(do_after(X, HIVELORD_TUNNEL_DISMANTLE_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 			deconstruct(FALSE)
 		return
 
@@ -443,7 +445,7 @@ TUNNEL
 	if(isxenolarva(M)) //Larva can zip through near-instantly, they are wormlike after all
 		tunnel_time = 5
 
-	if(!do_after(M, tunnel_time, FALSE, src, BUSY_ICON_GENERIC))
+	if(!do_after(M, tunnel_time, IGNORE_HELD_ITEM, src, BUSY_ICON_GENERIC))
 		balloon_alert(M, "Crawling interrupted")
 		return
 	if(!targettunnel || !isturf(targettunnel.loc)) //Make sure the end tunnel is still there
@@ -473,7 +475,7 @@ TUNNEL
 	name = "acid well"
 	desc = "An acid well. It stores acid to put out fires."
 	icon = 'icons/Xeno/acid_pool.dmi'
-	icon_state = "fullwell"
+	icon_state = "well"
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
@@ -537,8 +539,14 @@ TUNNEL
 
 /obj/structure/xeno/acidwell/update_icon()
 	. = ..()
-	icon_state = "well[charges]"
 	set_light(charges , charges / 2, LIGHT_COLOR_GREEN)
+
+/obj/structure/xeno/acidwell/update_overlays()
+	. = ..()
+	if(!charges)
+		return
+	. += mutable_appearance(icon, "[charges]", alpha = src.alpha)
+	. += emissive_appearance(icon, "[charges]", alpha = src.alpha)
 
 /obj/structure/xeno/acidwell/flamer_fire_act(burnlevel) //Removes a charge of acid, but fire is extinguished
 	acid_well_fire_interaction()
@@ -570,7 +578,7 @@ TUNNEL
 /obj/structure/xeno/acidwell/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.a_intent == INTENT_HARM && (CHECK_BITFIELD(X.xeno_caste.caste_flags, CASTE_IS_BUILDER) || X == creator) ) //If we're a builder caste or the creator and we're on harm intent, deconstruct it.
 		balloon_alert(X, "Removing...")
-		if(!do_after(X, XENO_ACID_WELL_FILL_TIME, FALSE, src, BUSY_ICON_HOSTILE))
+		if(!do_after(X, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
 			balloon_alert(X, "Stopped removing")
 			return
 		playsound(src, "alien_resin_break", 25)
@@ -591,7 +599,7 @@ TUNNEL
 	charging = TRUE
 
 	balloon_alert(X, "Refilling...")
-	if(!do_after(X, XENO_ACID_WELL_FILL_TIME, FALSE, src, BUSY_ICON_BUILD))
+	if(!do_after(X, XENO_ACID_WELL_FILL_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 		charging = FALSE
 		balloon_alert(X, "Aborted refilling")
 		return
@@ -713,7 +721,7 @@ TUNNEL
 
 	if((X.a_intent == INTENT_HARM && isxenohivelord(X)) || X.hivenumber != hivenumber)
 		balloon_alert(X, "Destroying...")
-		if(do_after(X, HIVELORD_TUNNEL_DISMANTLE_TIME, FALSE, src, BUSY_ICON_BUILD))
+		if(do_after(X, HIVELORD_TUNNEL_DISMANTLE_TIME, IGNORE_HELD_ITEM, src, BUSY_ICON_BUILD))
 			deconstruct(FALSE)
 		return
 
@@ -880,7 +888,7 @@ TUNNEL
 ///Change minimap icon if silo is under attack or not
 /obj/structure/xeno/silo/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
 
 /obj/structure/xeno/xeno_turret
 	icon = 'icons/Xeno/acidturret.dmi'
@@ -918,7 +926,7 @@ TUNNEL
 ///Change minimap icon if its firing or not firing
 /obj/structure/xeno/xeno_turret/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]")) // RU TGMC edit - map blips
 
 /obj/structure/xeno/xeno_turret/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -939,12 +947,14 @@ TUNNEL
 	SIGNAL_HANDLER
 	qdel(src)
 
+/* RUTGMC DELETION, remade in modular
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn the gas only if we actually get destroyed by damage
 		var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
 		smoke.set_up(1, get_turf(src))
 		smoke.start()
 	return ..()
+*/
 
 /obj/structure/xeno/xeno_turret/Destroy()
 	GLOB.xeno_resin_turrets_by_hive[hivenumber] -= src
@@ -1229,7 +1239,7 @@ TUNNEL
 
 /obj/structure/xeno/pherotower/Initialize(mapload, _hivenumber)
 	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "phero"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "phero", ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
 	GLOB.hive_datums[hivenumber].pherotowers += src
 
 //Pheromone towers start off with recovery.
@@ -1276,6 +1286,31 @@ TUNNEL
 		if(AURA_XENO_FRENZY)
 			icon_state = "frenzytower"
 			set_light(2, 2, LIGHT_COLOR_RED)
+
+/obj/structure/xeno/banelingpod
+	name = "Baneling pod"
+	desc = "A resin structure filled with an oozing slimy pod that swells constantly. It is filled to the brim with small, crawling figures, merging what seems to be other pods inside."
+	icon = 'icons/Xeno/castes/baneling.dmi'
+	icon_state = "Baneling Pod"
+	bound_width = 32
+	bound_height = 32
+	max_integrity = 100
+	density = FALSE
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
+	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
+	var/linked_minions = list()
+
+/obj/structure/xeno/banelingpod/Initialize(mapload, _hivenumber)
+	. = ..()
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "baneling_pod"))
+	SSspawning.registerspawner(src, INFINITY, GLOB.baneling_spawnable, 0, 0, null)
+	SSspawning.spawnerdata[src].required_increment = max(60 SECONDS)/SSspawning.wait
+	SSspawning.spawnerdata[src].max_allowed_mobs = 1
+	GLOB.hive_datums[hivenumber].banelingpods += src
+
+/obj/structure/xeno/banelingpod/Destroy()
+	GLOB.hive_datums[hivenumber].banelingpods -= src
+	return ..()
 
 /obj/structure/xeno/spawner
 	name = "spawner"
@@ -1372,7 +1407,7 @@ TUNNEL
 ///Change minimap icon if spawner is under attack or not
 /obj/structure/xeno/spawner/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "spawner[warning ? "_warn" : "_passive"]"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "spawner[warning ? "_warn" : "_passive"]", , ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
 
 /obj/structure/xeno/spawner/proc/on_spawn(list/squad)
 	if(!isxeno(squad[length(squad)]))
@@ -1460,7 +1495,7 @@ TUNNEL
 
 /obj/structure/xeno/plant/heal_fruit/on_use(mob/user)
 	balloon_alert(user, "Consuming...")
-	if(!do_after(user, 2 SECONDS, FALSE, src))
+	if(!do_after(user, 2 SECONDS, IGNORE_HELD_ITEM, src))
 		return FALSE
 	if(!isxeno(user))
 		var/datum/effect_system/smoke_spread/xeno/acid/plant_explosion = new(get_turf(src))
@@ -1489,7 +1524,7 @@ TUNNEL
 
 /obj/structure/xeno/plant/armor_fruit/on_use(mob/user)
 	balloon_alert(user, "Consuming...")
-	if(!do_after(user, 2 SECONDS, FALSE, src))
+	if(!do_after(user, 2 SECONDS, IGNORE_HELD_ITEM, src))
 		return FALSE
 	if(!isxeno(user))
 		var/turf/far_away_lands = get_turf(user)
@@ -1538,7 +1573,7 @@ TUNNEL
 
 /obj/structure/xeno/plant/plasma_fruit/on_use(mob/user)
 	balloon_alert(user, "Consuming...")
-	if(!do_after(user, 2 SECONDS, FALSE, src))
+	if(!do_after(user, 2 SECONDS, IGNORE_HELD_ITEM, src))
 		return FALSE
 	if(!isxeno(user))
 		visible_message(span_warning("[src] releases a sticky substance before spontaneously bursting into flames!"))
@@ -1547,8 +1582,8 @@ TUNNEL
 		return TRUE
 
 	var/mob/living/carbon/xenomorph/X = user
-	if(isxenoravager(X)) //Ask if this should be made into a trait for xenos with special ressources
-		to_chat(X, span_xenowarning("But our body rejects the fruit, our fury does not build up with a healthy diet!"))
+	if(!(X.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
+		to_chat(X, span_xenowarning("But our body rejects the fruit, we do not share the same plasma type!"))
 		return FALSE
 	X.apply_status_effect(/datum/status_effect/plasma_surge, X.xeno_caste.plasma_max, bonus_regen, duration)
 	balloon_alert(X, "Plasma restored")
@@ -1612,7 +1647,7 @@ TUNNEL
 
 /obj/structure/xeno/plant/stealth_plant/on_use(mob/user)
 	balloon_alert(user, "Shaking...")
-	if(!do_after(user, 2 SECONDS, FALSE, src))
+	if(!do_after(user, 2 SECONDS, IGNORE_HELD_ITEM, src))
 		return FALSE
 	visible_message(span_danger("[src] releases a burst of glowing pollen!"))
 	veil()

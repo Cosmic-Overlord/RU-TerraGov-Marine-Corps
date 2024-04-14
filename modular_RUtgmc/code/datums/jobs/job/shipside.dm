@@ -66,19 +66,26 @@
 
 /datum/job/terragov/engineering/tech
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_INTERMEDIATE
 
 /datum/job/terragov/medical/medicalofficer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_INTERMEDIATE
 
 /datum/job/terragov/medical/researcher
 	exp_type = EXP_TYPE_MEDICAL
-	exp_requirements = XP_REQ_UNSEASONED
+	exp_requirements = XP_REQ_INTERMEDIATE
 
 /datum/job/terragov/command/pilot
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
+
+/datum/job/terragov/command/pilot/radio_help_message(mob/M)
+	. = ..()
+	to_chat(M, {"Your job is to support marines with either close air support via the Condor, or mobile dropship support with the Tadpole.
+While you are in charge of all aerial crafts the Normandy does not require supervision outside of turning automatic mode on or off at crucial times, and you are expected to choose between the Condor and Tadpole.
+Though you are a warrant officer, your authority is limited to the dropship and your chosen aerial craft, where you have authority over the enlisted personnel.
+"})
 
 /datum/job/terragov/engineering/chief
 	exp_type = EXP_TYPE_ENGINEERING
@@ -86,7 +93,7 @@
 
 /datum/job/terragov/requisitions/officer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
 
 /datum/job/terragov/medical/professor
 	exp_type = EXP_TYPE_MEDICAL
@@ -98,7 +105,7 @@
 
 /datum/job/terragov/silicon/ai
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED
 
 /datum/job/terragov/command/fieldcommander
 	exp_type = EXP_TYPE_MARINES
@@ -110,7 +117,7 @@
 
 /datum/job/terragov/silicon/synthetic
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_EXPERIENCED
+	exp_requirements = XP_REQ_EXPERT
 
 /datum/job/terragov/command/captain
 	exp_type = EXP_TYPE_REGULAR_ALL
@@ -118,4 +125,4 @@
 
 /datum/job/terragov/command/staffofficer
 	exp_type = EXP_TYPE_REGULAR_ALL
-	exp_requirements = XP_REQ_INTERMEDIATE
+	exp_requirements = XP_REQ_EXPERIENCED

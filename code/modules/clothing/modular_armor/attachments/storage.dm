@@ -159,6 +159,7 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/tweezers,
+		/obj/item/tweezers_advanced,
 		/obj/item/whistle,
 	)
 
@@ -326,6 +327,7 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/tweezers,
+		/obj/item/tweezers_advanced,
 		/obj/item/whistle,
 		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
 		/obj/item/tool/surgery/solderingtool,

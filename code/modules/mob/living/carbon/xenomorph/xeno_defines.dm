@@ -25,9 +25,6 @@
 	///number of ticks between attacks for a caste.
 	var/attack_delay = CLICK_CD_MELEE
 
-	///The amount of time between the 'savage' ability activations
-	var/savage_cooldown = 30 SECONDS
-
 	// *** Tackle *** //
 	///The minimum amount of random paralyze applied to a human upon being 'pulled' multiplied by 20 ticks
 	var/tacklemin = 1
@@ -58,14 +55,11 @@
 	///What negative health amount they die at.
 	var/crit_health = -100
 
-	///Set to TRUE in New() when Whiskey Outpost is active. Prevents healing and queen evolution
-	var/hardcore = FALSE
-
 	// *** Evolution *** //
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
 	///Threshold amount of upgrade points to next maturity
-	var/upgrade_threshold = 0
+	//var/upgrade_threshold = 0 // RUTGMC DELETION
 
 	///Type paths to the castes that this xenomorph can evolve to
 	var/list/evolves_to = list()
@@ -104,9 +98,6 @@
 	var/spit_delay = 6 SECONDS
 	///list of datum projectile types the xeno can use.
 	var/list/spit_types
-
-	///amount of time between pounce ability uses
-	var/pounce_delay = 4 SECONDS
 
 	// *** Acid spray *** //
 	///Number of tiles of the acid spray cone extends outward to. Not recommended to go beyond 4.
@@ -153,7 +144,7 @@
 
 	// *** Widow Abilities *** //
 	///maximum amount of spiderlings a widow can carry at one time.
-	var/max_spiderlings = 0
+	//var/max_spiderlings = 0 // RUTGMC DELETION, WIDOW DELETION
 
 	// *** Defender Abilities *** //
 	///modifying amount to the crest defense ability for defenders. Positive integers only.
@@ -162,6 +153,10 @@
 	var/fortify_armor = 0
 	///amount of slowdown to apply when the crest defense is active. trading defense for speed. Positive numbers makes it slower.
 	var/crest_defense_slowdown = 0
+
+	// *** Puppeteer Abilities *** //
+	var/flay_plasma_gain = 0
+	var/max_puppets = 0
 
 	// *** Crusher Abilities *** //
 	///The damage the stomp causes, counts armor
@@ -211,6 +206,10 @@
 	// *** Sentinel Abilities ***
 	/// The additional amount of stacks that the Sentinel will apply on eligible abilities.
 	var/additional_stacks = 0
+
+	// *** Behemoth Abilities ***
+	/// The maximum amount of Wrath that we can have stored at a time.
+	var/wrath_max = 0
 
 	///the 'abilities' available to a caste.
 	var/list/actions
@@ -273,7 +272,7 @@
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	see_infrared = TRUE
 	hud_type = /datum/hud/alien
-	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
@@ -281,10 +280,12 @@
 	gib_chance = 5
 	light_system = MOVABLE_LIGHT
 
+	///Hive name define
 	var/hivenumber = XENO_HIVE_NORMAL
-
+	///Hive datum we belong to
 	var/datum/hive_status/hive
-
+	///Xeno mob specific flags
+	var/xeno_flags = NONE //TODO: There are loads of vars below that should be flags
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
@@ -294,28 +295,21 @@
 	var/datum/xeno_caste/xeno_caste
 	var/caste_base_type
 	var/language = "Xenomorph"
-	var/obj/item/clothing/suit/wear_suit = null
-	var/obj/item/clothing/head/head = null
-	var/obj/item/r_store = null
-	var/obj/item/l_store = null
+	///Plasma currently stored
 	var/plasma_stored = 0
-	var/time_of_birth
 
 	///A mob the xeno ate
 	var/mob/living/carbon/eaten_mob
 	///How much evolution they have stored
 	var/evolution_stored = 0
 	///How much upgrade points they have stored.
-	var/upgrade_stored = 0
+	//var/upgrade_stored = 0 // RUTGMC DELETION
 	///This will track their upgrade level.
 	var/upgrade = XENO_UPGRADE_INVALID
 	///sunder affects armour values and does a % removal before dmg is applied. 50 sunder == 50% effective armour values
 	var/sunder = 0
 	///The ammo datum for our spit projectiles. We're born with this, it changes sometimes.
 	var/datum/ammo/xeno/ammo = null
-
-	var/list/upgrades_bought = list()
-
 	///The aura we're currently emitted. Destroyed whenever we change or stop pheromones.
 	var/datum/aura_bearer/current_aura
 	/// If we're chosen as leader, this is the leader aura we emit.
@@ -336,6 +330,7 @@
 
 	var/is_zoomed = 0
 	var/zoom_turf = null
+	var/can_walk_zoomed = FALSE
 
 	///Type of weeds the xeno is standing on, null when not on weeds
 	var/obj/alien/weeds/loc_weeds_type
@@ -343,11 +338,6 @@
 	var/attack_delay = 0
 	///This will track their "tier" to restrict/limit evolutions
 	var/tier = XENO_TIER_ONE
-
-	var/emotedown = 0
-
-	var/list/datum/action/xeno_abilities = list()
-	var/datum/action/xeno_action/activable/selected_ability
 	///which resin structure to build when we secrete resin
 	var/selected_resin = /turf/closed/wall/resin/regenerating
 	///which reagent to slash with using reagent slash
@@ -394,10 +384,6 @@
 	/// Respawn charges, each charge makes respawn take 30 seconds. Maximum of 2 charges. If there is no charge the respawn takes 120 seconds.
 	var/stored_charge = 0
 
-	//Runner vars
-	var/savage = FALSE
-	var/savage_used = FALSE
-
 	// *** Ravager vars *** //
 	/// when true the rav will not go into crit or take crit damage.
 	var/endure = FALSE
@@ -406,6 +392,15 @@
 
 	// *** Carrier vars *** //
 	var/selected_hugger_type = /obj/item/clothing/mask/facehugger
+
+	// *** Behemoth vars *** //
+	/// Whether we are currently charging or not.
+	var/behemoth_charging = FALSE
+	/// The amount of Wrath currently stored.
+	var/wrath_stored = 0
+
+	// *** Bull vars *** //
+	var/bull_charging = FALSE
 
 	//Notification spam controls
 	var/recent_notice = 0
@@ -418,5 +413,8 @@
 
 	///Are we the roony version of this xeno
 	var/is_a_rouny = FALSE
+
+	/// The type of footstep this xeno has.
+	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)

@@ -62,6 +62,12 @@
 		/obj/item/armor_module/storage/medical,
 	)
 
+/obj/item/clothing/suit/modular/xenonauten/valk
+	starting_attachments = list(
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/storage/medical,
+	)
+
 /obj/item/clothing/suit/modular/xenonauten/light
 	name = "\improper Xenonauten-L pattern armored vest"
 	desc = "A XN-L vest, also known as Xenonauten, a set vest with modular attachments made to work in many enviroments. This one seems to be a light variant. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
@@ -162,6 +168,7 @@
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 		/obj/item/armor_module/module/artemis,
 		/obj/item/armor_module/module/antenna,
+		/obj/item/armor_module/module/night_vision,
 		/obj/item/armor_module/storage/helmet,
 		/obj/item/armor_module/armor/badge,
 		//RUTGMC EDIT ADDITION  BEGIN - MOTION DETECTOR

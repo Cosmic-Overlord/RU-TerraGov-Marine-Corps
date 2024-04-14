@@ -1,4 +1,4 @@
-/datum/action/xeno_action
+/datum/action/ability/xeno_action
 	action_icon = 'modular_RUtgmc/icons/Xeno/actions.dmi'
 	background_icon = 'modular_RUtgmc/icons/Xeno/actions.dmi'
 

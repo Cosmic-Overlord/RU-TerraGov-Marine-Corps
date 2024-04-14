@@ -365,6 +365,13 @@
 	name = "\improper M20P mine box"
 	spawn_type = /obj/item/explosive/mine/pmc
 
+/obj/item/storage/box/explosive_mines/antitank
+	name = "\improper M92 mine box"
+	desc = "A secure box holding anti-tank proximity mines."
+	icon_state = "atminebox"
+	spawn_type = /obj/item/explosive/mine/anti_tank
+	spawn_number = 5
+
 /obj/item/storage/box/m94
 	name = "\improper M40 FLDP flare pack"
 	desc = "A packet of seven M40 FLDP Flares. Carried by TGMC marines to light dark areas that cannot be reached with the usual TNR Shoulder Lamp. Can be launched from an underslung grenade launcher."
@@ -541,6 +548,7 @@
 	pixel_x = 0 //Big sprite so lets not shift it around.
 	pixel_y = 0
 
+/* RUTGMC DELETION
 /obj/item/storage/box/visual/attack_hand(mob/living/user)
 	if(loc == user)
 		open(user) //Always show content when holding box
@@ -557,6 +565,7 @@
 			I.attack_hand(user)
 			return
 		open(user)
+*/
 
 /obj/item/storage/box/visual/MouseDrop(atom/over_object)
 	if(!deployed)
@@ -567,6 +576,7 @@
 
 	var/mob/living/carbon/human/H = over_object
 	if(H == usr && !H.incapacitated() && Adjacent(H) && H.put_in_hands(src))
+		pickup(H) // RUTGMC ADDITION
 		deployed = FALSE
 		update_icon()
 
@@ -592,6 +602,7 @@
 
 	icon_state = "[initial(icon_state)]_open"
 
+/* RUTGMC DELETION
 /obj/item/storage/box/visual/update_overlays()
 	. = ..()
 
@@ -634,6 +645,7 @@
 
 			. += image('icons/obj/items/items_mini.dmi', icon_state = initial(relateditem.icon_state_mini), pixel_x = imagepixel_x, pixel_y = imagepixel_y)
 			current_iteration++
+*/
 
 // --MAG BOXES--
 /obj/item/storage/box/visual/magazine

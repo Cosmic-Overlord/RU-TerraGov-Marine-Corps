@@ -9,9 +9,10 @@
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
+	light_pixel_x -= pixel_x
+	light_pixel_y -= pixel_y
 	. = ..()
 	set_datum()
-	time_of_birth = world.time
 	add_inherent_verbs()
 	var/datum/action/minimap/xeno/mini = new
 	mini.give_action(src)
@@ -45,7 +46,7 @@
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
 
-	fire_overlay = mob_size == MOB_SIZE_BIG ? new(null, src) : new /atom/movable/vis_obj/xeno_wounds/fire_overlay/small(null, src)
+	fire_overlay = new(src, src)
 	vis_contents += fire_overlay
 
 	generate_nicknumber()
@@ -56,6 +57,7 @@
 
 	hud_set_plasma()
 	med_hud_set_health()
+	hud_update_primo()
 
 	toggle_xeno_mobhud() //This is a verb, but fuck it, it just werks
 
@@ -75,15 +77,15 @@
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
 		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon)) //RUTGMC edit - icon change
-	RegisterSignal(src, COMSIG_LIVING_WEEDS_ADJACENT_REMOVED, PROC_REF(handle_weeds_adjacent_removed))
-	RegisterSignal(src, COMSIG_LIVING_WEEDS_AT_LOC_CREATED, PROC_REF(handle_weeds_on_movement))
 	handle_weeds_on_movement()
 
-	//RUTGMC EDIT CHANGE BEGIN - XENO_STOMP
-	//AddElement(/datum/element/footstep, FOOTSTEP_XENO_MEDIUM, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5) - ORIGINAL
-	AddElement(/datum/element/footstep, footsteps, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
-	//RUTGMC EDIT CHANGE END
+	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
 	set_jump_component()
+
+/mob/living/carbon/xenomorph/register_init_signals()
+	. = ..()
+	RegisterSignal(src, COMSIG_LIVING_WEEDS_ADJACENT_REMOVED, PROC_REF(handle_weeds_adjacent_removed))
+	RegisterSignal(src, COMSIG_LIVING_WEEDS_AT_LOC_CREATED, PROC_REF(handle_weeds_on_movement))
 
 ///Change the caste of the xeno. If restore health is true, then health is set to the new max health
 /mob/living/carbon/xenomorph/proc/set_datum(restore_health_and_plasma = TRUE)
@@ -154,17 +156,17 @@
 	var/rank_name
 	switch(playtime_mins)
 		if(0 to 600)
-			rank_name = "Broodling"
-		if(601 to 3000)
+			rank_name = "Hatchling"
+		if(601 to 1500) //10 hours
+			rank_name = "Young"
+		if(1501 to 4200) //25 hours
 			rank_name = "Mature"
-		if(3001 to 9000)
-			rank_name = "Noble"
-		if(9001 to 18000)
-			rank_name = "Royal"
-		if(18001 to INFINITY)
-			rank_name = "Archon"
+		if(4201 to 10500) //70 hours
+			rank_name = "Elder"
+		if(10501 to INFINITY) //175 hours
+			rank_name = "Ancient"
 		else
-			rank_name = "Broodling"
+			rank_name = "Hatchling"
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
 	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name] ([nicknumber])"
 
@@ -182,22 +184,24 @@
 		if(XENO_UPGRADE_PRIMO)
 			return 1
 
+/* MOVED TO MODULE
 ///Returns the playtime as a number, used for rank icons
 /mob/living/carbon/xenomorph/proc/playtime_as_number()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	switch(playtime_mins)
 		if(0 to 600)
 			return 0
-		if(601 to 3000)
+		if(601 to 1500)
 			return 1
-		if(3001 to 9000)
+		if(1501 to 4200)
 			return 2
-		if(9001 to 18000)
+		if(4201 to 10500)
 			return 3
-		if(18001 to INFINITY)
+		if(10501 to INFINITY)
 			return 4
 		else
 			return 0
+*/
 
 /mob/living/carbon/xenomorph/proc/upgrade_next()
 	switch(upgrade)
@@ -225,12 +229,13 @@
 
 /mob/living/carbon/xenomorph/proc/grabbed_self_attack()
 	SIGNAL_HANDLER
-	if(!(xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER) || !isxenocrusher(pulling))
+	if(!(xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER))
 		return NONE
-	var/mob/living/carbon/xenomorph/crusher/grabbed = pulling
-	if(grabbed.stat == CONSCIOUS && stat == CONSCIOUS)
-		INVOKE_ASYNC(grabbed, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, carry_xeno), src, TRUE)
-		return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
+	if(isxenocrusher(pulling) || isxenobehemoth(pulling))
+		var/mob/living/carbon/xenomorph/crusher/grabbed = pulling
+		if(grabbed.stat == CONSCIOUS && stat == CONSCIOUS)
+			INVOKE_ASYNC(grabbed, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, carry_xeno), src, TRUE)
+			return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
 	return NONE
 
 ///Initiate of form changing on the xeno
@@ -287,6 +292,7 @@
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
 	return FALSE
 
+/* RUTGMC DELETION, DRAG SLOWDOWN FIX
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
 		return FALSE //We are already occupied with something.
@@ -296,7 +302,7 @@
 		return FALSE //Incorporeal things can't grab or be grabbed.
 	if(AM.anchored)
 		return FALSE //We cannot grab anchored items.
-	if(!isliving(AM) && AM.drag_windup && !do_after(src, AM.drag_windup, TRUE, AM, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = src.health))))
+	if(!isliving(AM) && AM.drag_windup && !do_after(src, AM.drag_windup, NONE, AM, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = src.health))))
 		return //If the target is not a living mob and has a drag_windup defined, calls a do_after. If all conditions are met, it returns. If the user takes damage during the windup, it breaks the channel.
 	var/mob/living/L = AM
 	if(L.buckled)
@@ -309,6 +315,7 @@
 	do_attack_animation(L, ATTACK_EFFECT_GRAB)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_GRAB)
 	return ..()
+*/
 
 /mob/living/carbon/xenomorph/stop_pulling()
 	if(ishuman(pulling))
@@ -409,11 +416,14 @@
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
 	if(is_zoomed)
-		zoom_out()
+		if(!can_walk_zoomed)
+			zoom_out()
 	handle_weeds_on_movement()
 	return ..()
 
 /mob/living/carbon/xenomorph/CanAllowThrough(atom/movable/mover, turf/target)
+	if(mover.pass_flags & PASS_XENO) // RUTGMC ADDITION
+		return TRUE
 	if(mover.throwing && ismob(mover) && isxeno(mover.thrower)) //xenos can throw mobs past other xenos
 		return TRUE
 	return ..()
@@ -445,14 +455,24 @@
 		return
 	loc_weeds_type = null
 
-/// Handles logic for the xeno moving to a new weeds tile
+/**  Handles logic for the xeno moving to a new weeds tile.
+Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change */
 /mob/living/carbon/xenomorph/proc/handle_weeds_on_movement(datum/source)
 	SIGNAL_HANDLER
 	var/obj/alien/weeds/found_weed = locate(/obj/alien/weeds) in loc
+	if(loc_weeds_type == found_weed?.type)
+		return FALSE
 	loc_weeds_type = found_weed?.type
+	return TRUE
+
+/mob/living/carbon/xenomorph/hivemind/handle_weeds_on_movement(datum/source)
+	. = ..()
+	if(!.)
+		return
+	update_icon()
 
 /mob/living/carbon/xenomorph/lay_down()
-	var/datum/action/xeno_action/xeno_resting/resting_action = actions_by_path[/datum/action/xeno_action/xeno_resting]
+	var/datum/action/ability/xeno_action/xeno_resting/resting_action = actions_by_path[/datum/action/ability/xeno_action/xeno_resting]
 	if(!resting_action || !resting_action.can_use_action())
 		return
 	return ..()

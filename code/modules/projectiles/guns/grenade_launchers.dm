@@ -45,6 +45,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/impact,
 		/obj/item/explosive/grenade/sticky,
 		/obj/item/explosive/grenade/sticky/trailblazer,
+		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus, // RUTGMC ADDITION
 		/obj/item/explosive/grenade/flare,
 		/obj/item/explosive/grenade/flare/cas,
 		/obj/item/explosive/grenade/chem_grenade,
@@ -77,8 +78,7 @@ The Grenade Launchers
 	var/turf/user_turf = get_turf(src)
 	grenade_to_launch.forceMove(user_turf)
 	gun_user?.visible_message(span_danger("[gun_user] fired a grenade!"), span_warning("You fire [src]!"))
-	log_explosion("[key_name(gun_user)] fired a grenade ([grenade_to_launch]) from [src] at [AREACOORD(user_turf)].")
-	log_combat(gun_user, src, "fired a grenade ([grenade_to_launch]) from [src]")
+	log_bomber(gun_user, "fired a grenade ([grenade_to_launch]) from", src, "at [AREACOORD(user_turf)]")
 	play_fire_sound(loc)
 	grenade_to_launch.launched_det_time()
 	grenade_to_launch.launched = TRUE

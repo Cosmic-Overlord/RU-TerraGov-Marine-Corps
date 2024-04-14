@@ -129,6 +129,17 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	for(var/ch_name in channels)
 		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
 
+	/// only headsets autoupdate squads cuz im lazy and dont want to redo this proc
+	if(keyslot?.custom_squad_factions || keyslot2?.custom_squad_factions)
+		for(var/key in GLOB.custom_squad_radio_freqs)
+			var/datum/squad/custom_squad = GLOB.custom_squad_radio_freqs[key]
+			if(!(keyslot.custom_squad_factions & ENCRYPT_CUSTOM_TERRAGOV) && !(keyslot.custom_squad_factions & ENCRYPT_CUSTOM_TERRAGOV) && custom_squad.faction == FACTION_TERRAGOV)
+				continue
+			if(!(keyslot.custom_squad_factions & ENCRYPT_CUSTOM_SOM) && !(keyslot.custom_squad_factions & ENCRYPT_CUSTOM_SOM) && custom_squad.faction == FACTION_SOM)
+				continue
+			channels[custom_squad.name] = TRUE
+			secure_radio_connections[custom_squad.name] = add_radio(src, custom_squad.radio_freq)
+
 /obj/item/radio/headset/AltClick(mob/living/user)
 	if(!istype(user) || !Adjacent(user) || user.incapacitated())
 		return
@@ -186,7 +197,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		wearer = user
 		squadhud = GLOB.huds[GLOB.faction_to_data_hud[faction]]
 		enable_squadhud()
-		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE), PROC_REF(update_minimap_icon))
+		//RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE), PROC_REF(update_minimap_icon)) // ORIGINAL
+		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_HUMAN_DEATH_STAGE_CHANGE), PROC_REF(update_minimap_icon)) // RUTGMC ADDITION
 	if(camera)
 		camera.c_tag = user.name
 		if(user.assigned_squad)
@@ -201,6 +213,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	user.ex_act(EXPLODE_LIGHT)
 	qdel(src)
 
+/* RUTGMC DELETION, SL_locator beheading runtime fix
 /obj/item/radio/headset/mainship/dropped(mob/living/carbon/human/user)
 	if(istype(user) && headset_hud_on)
 		disable_squadhud()
@@ -214,6 +227,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			camera.network -= lowertext(user.assigned_squad.name)
 	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE))
 	return ..()
+*/
 
 
 /obj/item/radio/headset/mainship/Destroy()
@@ -277,7 +291,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			if(!ghost?.can_reenter_corpse)
 				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 				return
-		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable"))
+		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable", ABOVE_FLOAT_LAYER))
 		return
 	if(wearer.assigned_squad)
 		var/image/underlay = image('icons/UI_icons/map_blips.dmi', null, "squad_underlay")
@@ -663,12 +677,17 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = dat + " radio headset"
 	return ..()
 
+/obj/item/radio/headset/mainship/som/command
+	name = "SOM command radio headset"
+	icon_state = "com_headset_alt"
+	keyslot = /obj/item/encryptionkey/mcom/som
+	use_command = TRUE
+	command = TRUE
 
 /obj/item/radio/headset/mainship/som/zulu
 	name = "SOM zulu radio headset"
 	icon_state = "headset_marine_zulu"
 	frequency = FREQ_ZULU
-	minimap_type = /datum/action/minimap/som
 
 /obj/item/radio/headset/mainship/som/zulu/LateInitialize()
 	. = ..()
@@ -692,7 +711,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "SOM yankee radio headset"
 	icon_state = "headset_marine_yankee"
 	frequency = FREQ_YANKEE
-	minimap_type = /datum/action/minimap/som
 
 /obj/item/radio/headset/mainship/som/yankee/LateInitialize()
 	. = ..()
@@ -716,7 +734,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "SOM xray radio headset"
 	icon_state = "headset_marine_xray"
 	frequency = FREQ_XRAY
-	minimap_type = /datum/action/minimap/som
 
 /obj/item/radio/headset/mainship/som/xray/LateInitialize()
 	. = ..()
@@ -740,7 +757,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "SOM whiskey radio headset"
 	icon_state = "headset_marine_whiskey"
 	frequency = FREQ_WHISKEY
-	minimap_type = /datum/action/minimap/som
 
 /obj/item/radio/headset/mainship/som/whiskey/LateInitialize()
 	. = ..()

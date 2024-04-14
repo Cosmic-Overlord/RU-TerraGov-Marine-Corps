@@ -21,7 +21,7 @@
 	//RUTGMC EDIT ADDITION BEGIN - DISTRESS
 	var/siloless_countdown = SSticker.mode.get_siloless_collapse_countdown()
 	if(siloless_countdown)
-		dat += "<b>Orphan hivemind collapse in [siloless_countdown] seconds.</b><br>"
+		dat += "<b>Silo less hive collapse in [siloless_countdown] seconds.</b><br>"
 	//RUTGMC EDIT ADDITION END
 
 	dat += "<b>Evacuation:</b> "
