@@ -144,6 +144,8 @@
 			if(isnull(OBShell.smoke_duration))
 				return
 			warhead = OBShell
+		else
+			return
 
 	var/turf/target = get_turf(usr.loc)
 
