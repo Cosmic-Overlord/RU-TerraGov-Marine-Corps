@@ -1611,8 +1611,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	projectile_greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
 
 /datum/ammo/tx54/he/drop_nade(turf/T)
-	//explosion(T, 0, 0, 1, 3, 1) // RUTGMC DELETION
-	explosion(T, 0, 0, 2, 3, 1) // RUTGMC ADDITION
+	explosion(T, 0, 0, 1, 3, 1)
 
 /datum/ammo/tx54/he/on_hit_mob(mob/M, obj/projectile/P)
 	drop_nade(get_turf(M))
