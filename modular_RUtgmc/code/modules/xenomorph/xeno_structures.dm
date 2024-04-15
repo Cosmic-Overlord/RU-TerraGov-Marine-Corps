@@ -7,8 +7,6 @@
 		obj_destruction()
 
 /obj/structure/xeno/ex_act(severity)
-	if(QDELETED(src)) // runtime prevention as weed deletion deletes structures and i don't know how to fix it
-		return
 	take_damage(severity * 0.8, BRUTE, BOMB)
 
 /obj/structure/xeno/silo

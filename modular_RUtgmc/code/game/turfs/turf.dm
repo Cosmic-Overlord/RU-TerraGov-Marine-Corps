@@ -6,3 +6,6 @@
 		if(istype(C, type))
 			return C
 	return null
+
+/turf/ex_act()
+	return
