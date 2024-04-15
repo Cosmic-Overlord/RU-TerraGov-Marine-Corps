@@ -7,6 +7,8 @@
 		obj_destruction()
 
 /obj/structure/xeno/ex_act(severity)
+	if(QDELETED(src)) // runtime prevention as weed deletion deletes structures and i don't know how to fix it
+		return
 	take_damage(severity * 0.8, BRUTE, BOMB)
 
 /obj/structure/xeno/silo
@@ -43,7 +45,7 @@
 
 /obj/structure/xeno/pherotower/ex_act(severity)
 	take_damage(severity * 2.5, BRUTE, BOMB)
- 
+
 /obj/structure/xeno/evotower/Initialize(mapload, _hivenumber)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "tower"))
@@ -164,7 +166,7 @@
 
 /obj/structure/xeno/xeno_turret/ex_act(severity)
 	take_damage(severity * 3, BRUTE, BOMB)
-  
+
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
 		on_destruction()

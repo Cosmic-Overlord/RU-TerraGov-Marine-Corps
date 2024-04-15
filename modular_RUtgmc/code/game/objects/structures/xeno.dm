@@ -2,6 +2,8 @@
 	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
 
 /obj/alien/ex_act(severity)
+	if(QDELETED(src)) // runtime prevention as weed deletion deletes structures and i don't know how to fix it
+		return
 	take_damage(severity, BRUTE, BOMB)
 
 //Resin Doors
