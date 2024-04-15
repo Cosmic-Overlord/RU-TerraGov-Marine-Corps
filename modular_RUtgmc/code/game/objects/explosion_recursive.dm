@@ -259,11 +259,11 @@ explosion resistance exactly as much as their health
 			if(MOB_SIZE_SMALL)
 				return 0
 			if(MOB_SIZE_HUMAN)
-				return 20
+				return 25
 			if(MOB_SIZE_XENO)
 				return 30
 			if(MOB_SIZE_BIG)
-				return 40
+				return 50
 	return 0
 
 /obj/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
