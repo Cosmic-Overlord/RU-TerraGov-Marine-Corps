@@ -9,7 +9,7 @@
 	var/slowdown_amount = 0
 	var/ear_damage_amount = 0
 	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
-	if(severity >= EXPLOSION_THRESHOLD_GIB)
+	if(severity >= EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB))
 		var/oldloc = loc
 		gib()
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
