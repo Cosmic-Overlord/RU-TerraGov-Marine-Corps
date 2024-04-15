@@ -270,7 +270,7 @@ explosion resistance exactly as much as their health
 	if(anchored)
 		return
 
-	if(!istype(src.loc, /turf))
+	if(!isturf(src.loc))
 		return
 
 	if(!direction)
@@ -299,7 +299,7 @@ explosion resistance exactly as much as their health
 	if(anchored)
 		return
 
-	if(!istype(src.loc, /turf))
+	if(!isturf(src.loc))
 		return
 
 	var/weight = 1
