@@ -514,7 +514,7 @@
 	ammo_type = CAS_MINI_ROCKET
 	devastating_explosion_range = 0
 	heavy_explosion_range = 1
-	light_explosion_range = 2
+	light_explosion_range = 3
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/minirocket
 
