@@ -298,6 +298,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\warrior\abilities_warrior.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\warrior\castedatum_warrior.dm"
 #include "code\modules\mob\living\silicon\ai\ai.dm"
+#include "code\modules\mob\living\silicon\silicon.dm"
 #include "code\modules\mob\living\simple_animal\simple_animal.dm"
 #include "code\modules\organs\limb_objects.dm"
 #include "code\modules\organs\limbs.dm"
