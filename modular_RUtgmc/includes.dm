@@ -133,7 +133,6 @@
 #include "code\game\objects\structures\girders.dm"
 #include "code\game\objects\structures\inflatable.dm"
 #include "code\game\objects\structures\ladders.dm"
-#include "code\game\objects\structures\lamarr_cage.dm"
 #include "code\game\objects\structures\lattice.dm"
 #include "code\game\objects\structures\mineral_doors.dm"
 #include "code\game\objects\structures\misc.dm"
