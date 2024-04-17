@@ -446,8 +446,10 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			if("wraith")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/wraith, location, null, delmob)
 			RU TGMC EDIT END */
+			/*RU TGMC EDIT
 			if("puppeteer")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/puppeteer, location, null, delmob)
+			RU TGMC EDIT*/
 			if("behemoth")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/behemoth, location, null, delmob)
 			if("human")

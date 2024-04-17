@@ -947,12 +947,14 @@ TUNNEL
 	SIGNAL_HANDLER
 	qdel(src)
 
+/* RUTGMC DELETION, remade in modular
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn the gas only if we actually get destroyed by damage
 		var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
 		smoke.set_up(1, get_turf(src))
 		smoke.start()
 	return ..()
+*/
 
 /obj/structure/xeno/xeno_turret/Destroy()
 	GLOB.xeno_resin_turrets_by_hive[hivenumber] -= src
