@@ -4,6 +4,12 @@
 /obj/machinery/miner/Initialize(mapload)
 	. = ..()
 	camera = new /obj/machinery/camera/miner(src)
+	if(mineral_value >= PLATINUM_CRATE_SELL_AMOUNT)
+		GLOB.miners_platinum += src
+		GLOB.miner_platinum_locs += loc
+	else
+		GLOB.miners_phorone += src
+		GLOB.miner_phorone_locs += loc
 
 /obj/machinery/miner/proc/set_miner_status()
 	var/health_percent = round((miner_integrity / max_miner_integrity) * 100)
@@ -31,6 +37,10 @@
 /obj/machinery/miner/Destroy()
 	qdel(camera)
 	camera = null
+	if(mineral_value >= PLATINUM_CRATE_SELL_AMOUNT)
+		GLOB.miners_platinum -= src
+	else
+		GLOB.miners_phorone -= src
 	return ..()
 
 /obj/machinery/miner/attack_ai(mob/user)

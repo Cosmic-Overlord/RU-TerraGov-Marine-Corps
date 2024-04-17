@@ -1,1 +1,7 @@
 GLOBAL_LIST_EMPTY(xeno_egg_hugger)
+
+GLOBAL_LIST_EMPTY(miners_phorone)
+GLOBAL_LIST_EMPTY(miners_platinum)
+
+GLOBAL_LIST_EMPTY(miner_phorone_locs)
+GLOBAL_LIST_EMPTY(miner_platinum_locs)

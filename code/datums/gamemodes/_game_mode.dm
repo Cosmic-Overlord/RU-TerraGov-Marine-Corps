@@ -448,6 +448,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.larva_from_psydrain] larvas came from psydrain."
 	if(GLOB.round_statistics.larva_from_silo)
 		parts += "[GLOB.round_statistics.larva_from_silo] larvas came from silos."
+	//RUTGMC EDIT ADDITION BEGIN - Points defence
+	if(GLOB.round_statistics.larva_from_towers)
+		parts += "[GLOB.round_statistics.larva_from_towers] larvas came from infestation towers."
+	//RUTGMC EDIT ADDITION END
 	if(GLOB.round_statistics.larva_from_cocoon)
 		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
 	if(GLOB.round_statistics.larva_from_marine_spawning)
@@ -466,6 +470,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.psy_shield_blasts] number of times Warlocks detonated a Psychic Shield."
 	if(GLOB.round_statistics.points_from_mining)
 		parts += "[GLOB.round_statistics.points_from_mining] requisitions points gained from mining."
+	//RUTGMC EDIT ADDITION BEGIN - Points defence
+	if(GLOB.round_statistics.points_from_towers)
+		parts += "[GLOB.round_statistics.points_from_towers] requisitions points gained from infestation towers."
+	//RUTGMC EDIT ADDITION END
 	if(GLOB.round_statistics.points_from_research)
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(length(GLOB.round_statistics.req_items_produced))
