@@ -126,7 +126,6 @@
 #include "code\game\objects\machinery\vending\vending.dm"
 #include "code\game\objects\structures\barricade.dm"
 #include "code\game\objects\structures\bookcase.dm"
-#include "code\game\objects\structures\displaycase.dm"
 #include "code\game\objects\structures\droppod.dm"
 #include "code\game\objects\structures\fence.dm"
 #include "code\game\objects\structures\flora.dm"

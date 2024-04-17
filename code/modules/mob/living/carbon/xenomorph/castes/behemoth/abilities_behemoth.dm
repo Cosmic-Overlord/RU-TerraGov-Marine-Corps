@@ -1277,6 +1277,7 @@ RU TGMC EDIT*/
 				return TRUE
 		else return FALSE
 
+/* RUTGMC DELETION
 /obj/structure/earth_pillar/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -1285,6 +1286,7 @@ RU TGMC EDIT*/
 			take_damage(max_integrity / 2)
 		if(EXPLODE_LIGHT)
 			take_damage(max_integrity / 3)
+*/
 
 // When clickdragging an Earth Pillar, it fires it as a projectile to whatever we clickdragged it to.
 /obj/structure/earth_pillar/MouseDrop(atom/over_atom)

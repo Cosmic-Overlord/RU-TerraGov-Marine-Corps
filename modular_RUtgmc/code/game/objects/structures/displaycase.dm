@@ -1,8 +1,0 @@
-/obj/structure/displaycase/ex_act(severity)
-	switch(severity)
-		if(0 to EXPLODE_LIGHT)
-			take_damage(5, BRUTE, BOMB)
-		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-			take_damage(15, BRUTE, BOMB)
-		if(EXPLODE_HEAVY to INFINITY)
-			deconstruct(FALSE)
