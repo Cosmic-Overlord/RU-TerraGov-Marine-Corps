@@ -30,3 +30,7 @@
 		icon_state = "veteran_2"
 	else
 		icon_state = "veteran_1"
+
+/obj/item/clothing/gloves/marine/veteran/pmc/commando
+	icon = 'modular_RUtgmc/icons/obj/clothing/gloves.dmi'
+	icon_state = "ert_armored"
