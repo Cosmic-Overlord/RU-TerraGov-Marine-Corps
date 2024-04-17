@@ -4051,7 +4051,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/T)
 	new /obj/structure/xeno/aoe_leash(get_turf(T), hivenumber)
 */
-
+/* RU TGMC EDIT
 /datum/ammo/xeno/spine //puppeteer
 	name = "spine"
 	damage = 35
@@ -4060,7 +4060,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	bullet_color = COLOR_WHITE
 	sound_hit = 'sound/bullets/spear_armor1.ogg'
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
-
+RU TGMC EDIT*/
 /*
 //================================================
 					Misc Ammo
