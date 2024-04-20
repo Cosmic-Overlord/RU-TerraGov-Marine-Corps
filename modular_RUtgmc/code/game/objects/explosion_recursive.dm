@@ -269,15 +269,14 @@ explosion resistance exactly as much as their health
 /obj/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
 	if(anchored)
 		return
-
-	if(!isturf(src.loc))
+	if(!isturf(loc))
 		return
 
 	if(!direction)
 		direction = pick(GLOB.alldirs)
 	var/range = min(round(severity * 0.2, 1), 14)
 	if(!direction)
-		range = round( range / 2, 1)
+		range = round(range / 2, 1)
 
 	if(range < 1)
 		return
@@ -293,13 +292,11 @@ explosion resistance exactly as much as their health
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
-	return
 
 /mob/proc/explosion_throw(severity, direction)
 	if(anchored)
 		return
-
-	if(!isturf(src.loc))
+	if(!isturf(loc))
 		return
 
 	var/weight = 1
@@ -314,7 +311,7 @@ explosion resistance exactly as much as their health
 			weight = 4
 	var/range = round(severity / weight * 0.02, 1)
 	if(!direction)
-		range = round(2 * range / 3, 1)
+		range = round(range / 1.5, 1)
 		direction = pick(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 
 	if(range <= 0)
@@ -328,10 +325,9 @@ explosion resistance exactly as much as their health
 		spin = 1
 	if(range >= 2)
 		var/scatter = range / 4
-		var/scatter_x = rand(-scatter,scatter)
-		var/scatter_y = rand(-scatter,scatter)
+		var/scatter_x = rand(-scatter, scatter)
+		var/scatter_y = rand(-scatter, scatter)
 		target = locate(target.x + round(scatter_x, 1),target.y + round(scatter_y, 1), target.z) //Locate an adjacent turf.
 
 	//time for the explosion to destroy windows, walls, etc which might be in the way
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, spin)
-	return
