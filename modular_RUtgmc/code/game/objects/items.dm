@@ -1,6 +1,6 @@
 /obj/item/ex_act(severity, explosion_direction)
 	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
-	explosion_throw(severity, explosion_direction)
+	//explosion_throw(severity, explosion_direction)
 	switch(severity)
 		if(0 to EXPLODE_WEAK)
 			if(prob(5))
