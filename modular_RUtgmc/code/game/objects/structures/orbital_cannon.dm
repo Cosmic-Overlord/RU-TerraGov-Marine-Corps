@@ -23,7 +23,7 @@
 	warcrime.start()
 
 /obj/structure/ob_ammo/warhead/cluster
-	var/cluster_amount
+	var/cluster_amount = 25
 	var/cluster_power = 240
 	var/cluster_falloff = 40
 	var/cluster_range
@@ -35,8 +35,8 @@
 	var/list/turf_list = list()
 	for(var/turf/T in range(cluster_range, target))
 		turf_list += T
-	cluster_amount = max(25 - inaccuracy_amt, 20)
-	for(var/i = 1 to cluster_amount)
+	var/clusters_to_shoot = max(cluster_amount - inaccuracy_amt, cluster_amount - 5)
+	for(var/i = 1 to clusters_to_shoot)
 		var/turf/U = pick_n_take(turf_list)
 		cell_explosion(U, cluster_power, cluster_falloff, adminlog = FALSE) //rocket barrage
 		sleep(0.1 SECONDS)
