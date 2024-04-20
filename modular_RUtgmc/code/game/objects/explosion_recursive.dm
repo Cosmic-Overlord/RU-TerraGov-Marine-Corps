@@ -267,9 +267,7 @@ explosion resistance exactly as much as their health
 	return 0
 
 /obj/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
-	if(anchored)
-		return
-	if(!isturf(loc))
+	if(!src || anchored || !isturf(loc))
 		return
 
 	if(!direction)
@@ -294,9 +292,7 @@ explosion resistance exactly as much as their health
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), target, range, speed, null, TRUE)
 
 /mob/proc/explosion_throw(severity, direction)
-	if(anchored)
-		return
-	if(!isturf(loc))
+	if(anchored || !isturf(loc))
 		return
 
 	var/weight = 1
