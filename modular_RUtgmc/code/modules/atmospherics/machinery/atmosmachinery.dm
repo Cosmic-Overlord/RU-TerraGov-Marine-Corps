@@ -14,7 +14,7 @@
 	if(!silent_crawl) //Xenos with silent crawl can silently enter/exit/move through vents.
 		visible_message(span_warning("You hear something squeezing through the ducts."))
 	to_chat(user, span_notice("You begin to climb out of the ventilation system."))
-	if(!do_after(user, vent_crawl_exit_time, IGNORE_HELD_ITEM, src))
+	if(!do_after(user, vent_crawl_exit_time, IGNORE_HELD_ITEM, user.loc))
 		return FALSE
 	user.remove_ventcrawl()
 	user.forceMove(T)
@@ -22,3 +22,37 @@
 	span_notice("You climb out of the ventilation ducts."))
 	if(!silent_crawl)
 		playsound(src, get_sfx("alien_ventpass"), 35, TRUE)
+
+/obj/machinery/atmospherics/relaymove(mob/living/user, direction)
+	direction &= initialize_directions
+	if(!direction || !(direction in GLOB.cardinals)) //cant go this way.
+		return
+
+	var/obj/machinery/atmospherics/target_move = findConnecting(direction, user.ventcrawl_layer)
+	if(!target_move)
+		if(direction & initialize_directions)
+			climb_out(user, loc)
+		return
+
+	if(!target_move.can_crawl_through())
+		return
+
+	if(locate(/obj/effect/forcefield/fog) in get_turf(target_move))
+		return
+
+	user.forceMove(target_move)
+	user.update_pipe_vision()
+	user.client.eye = target_move  //Byond only updates the eye every tick, This smooths out the movement
+
+	if(is_type_in_typecache(target_move, GLOB.ventcrawl_machinery))
+		climb_out(user, target_move.loc)
+		return
+
+	var/silent_crawl = FALSE //Some creatures can move through the vents silently
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/our_xenomorph = user
+		silent_crawl = our_xenomorph.xeno_caste.silent_vent_crawl
+	if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTSOUND) || silent_crawl)
+		return
+	TIMER_COOLDOWN_START(user, COOLDOWN_VENTSOUND, 3 SECONDS)
+	playsound(src, pick('sound/effects/alien_ventcrawl1.ogg','sound/effects/alien_ventcrawl2.ogg'), 50, TRUE, -3)
