@@ -20,3 +20,4 @@
 #include "minimap.dm"
 #include "preferences.dm"
 #include "span.dm"
+#include "objects.dm"

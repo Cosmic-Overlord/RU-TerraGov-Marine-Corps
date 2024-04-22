@@ -4,6 +4,7 @@ export type OrbitData = {
   auto_observe: BooleanLike;
   dead: Observable[];
   ghosts: Observable[];
+  valhalla: Observable[];
   humans: Observable[];
   icons?: string[];
   marines: Observable[];

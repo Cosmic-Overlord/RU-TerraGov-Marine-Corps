@@ -62,6 +62,7 @@
 //RUTGMC EDIT
 	var/list/dead = list()
 	var/list/ghosts = list()
+	var/list/valhalla = list() // RUTGMC ADDITION
 	var/list/misc = list()
 	var/list/npcs = list()
 
@@ -114,6 +115,11 @@
 			else
 				xenos += list(serialized)
 //RUTGMC EDIT
+			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO)) // RUTGMC ADDITION
+				valhalla += list(serialized)
+				continue
+
+			xenos += list(serialized)
 			continue
 
 		if(isAI(mob_poi))
@@ -161,10 +167,15 @@
 				survivors += list(serialized)
 				continue
 
+			if(istype(human.job, /datum/job/fallen)) // RUTGMC ADDITION
+				valhalla += list(serialized)
+				continue
+
 			humans += list(serialized)
 
 	data["dead"] = dead
 	data["ghosts"] = ghosts
+	data["valhalla"] = valhalla // RUTGMC ADDITION
 	data["humans"] = humans
 	data["icons"] = GLOB.minimap_icons
 	data["misc"] = misc

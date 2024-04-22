@@ -6,3 +6,5 @@
 
 #define DATA_HUD_HUNTER 17
 #define DATA_HUD_HUNTER_CLAN 18
+
+#define XENO_PRIMO_HUD "xeno_primo_hud" //indicates primo upgrade hud

@@ -1,3 +1,4 @@
+/*RU TGMC EDIT
 /datum/action/ability/activable/xeno/feed
 	name = "Feed"
 	action_icon_state = "lunge"
@@ -24,3 +25,4 @@
 		return FALSE
 	if(!owner.Adjacent(target))
 		return FALSE
+RU TGMC EDIT*/

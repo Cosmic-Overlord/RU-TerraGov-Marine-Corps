@@ -79,22 +79,18 @@
 	. = ..()
 	if(!.)
 		return FALSE
-
-	//if(get_dist_euclide_square(A, owner) > 20) //ORIGINAL
-	if(get_dist_euclide_square(A, owner) > 36) //RUTGMC EDIT CHANGE
+	if(!isliving(A))
 		if(!silent)
-			to_chat(owner, span_xenonotice("You are too far!"))
+			owner.balloon_alert(owner, "Invalid target")
 		return FALSE
-
-	if(!isliving(A)) //We can only lunge at the living; expanded to xenos in order to allow for supportive applications; lunging > throwing to safety
-		if(!silent)
-			to_chat(owner, span_xenodanger("We can't [initial(name)] at that!"))
-		return FALSE
-
 	var/mob/living/living_target = A
-	if(living_target.stat == DEAD)
+	if(living_target.stat == DEAD && !living_target.issamexenohive(owner))
 		if(!silent)
-			to_chat(owner, span_xenodanger("We can't [initial(name)] at that!"))
+			owner.balloon_alert(owner, "Dead")
+		return FALSE
+	if(get_dist_euclidean_square(living_target, owner) > 36)
+		if(!silent)
+			owner.balloon_alert(owner, "Too far")
 		return FALSE
 
 /datum/action/ability/activable/xeno/lunge/ai_should_start_consider()

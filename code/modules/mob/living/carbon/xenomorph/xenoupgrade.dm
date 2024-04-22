@@ -70,6 +70,7 @@
 
 	hud_set_plasma()
 	med_hud_set_health()
+	hud_update_primo()
 
 	hud_set_queen_overwatch() //update the upgrade level insignia on our xeno hud.
 
@@ -386,6 +387,7 @@ RU TGMC EDITION END*/
 	upgrade = XENO_UPGRADE_NORMAL
 //----BANELING END----//
 //============//
+/*RU TGMC EDIT
 //----PUPPETEER START----//
 /mob/living/carbon/xenomorph/puppeteer
 	upgrade = XENO_UPGRADE_NORMAL
@@ -395,6 +397,7 @@ RU TGMC EDITION END*/
 	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //----PUPPETEER END----//
+RU TGMC EDIT*/
 //============//
 //----BEHEMOTH START----//
 
