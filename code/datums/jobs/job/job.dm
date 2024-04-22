@@ -319,8 +319,6 @@ GLOBAL_PROTECT(exp_specialmap)
 					new_backpack = new /obj/item/storage/backpack/marine/standard/scav(src) // RUTGMC ADDITION END
 			equip_to_slot_or_del(new_backpack, SLOT_BACK)
 
-		equip_role_outfit(job)
-
 		job.outfit.handle_id(src, player)
 
 		var/job_whitelist = job.title
@@ -340,6 +338,7 @@ GLOBAL_PROTECT(exp_specialmap)
 			///if there is only one outfit, just equips it
 			else
 				job.outfit.equip(src)
+			equip_role_outfit(job)
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
 		equip_preference_gear(player)
