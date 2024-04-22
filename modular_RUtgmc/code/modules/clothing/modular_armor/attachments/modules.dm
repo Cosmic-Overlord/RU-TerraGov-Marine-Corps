@@ -99,6 +99,8 @@
 /obj/item/armor_module/module/motion_detector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
 		return
+	if(!target)
+		return
 
 	var/list/actualview = getviewsize(operator.client.view)
 	var/viewX = actualview[1]
