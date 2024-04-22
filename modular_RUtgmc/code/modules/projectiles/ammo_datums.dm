@@ -342,7 +342,7 @@
 
 /datum/ammo/energy/yautja/caster/stun
 	name = "low power stun bolt"
-	var/stun_time = 5
+	var/stun_time = 5 SECONDS
 	hud_state = "plasma_pistol"
 
 	bullet_color = COLOR_VIOLET
@@ -359,7 +359,7 @@
 
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect(stun_time + 10, WEAKEN)
+			H.apply_effect(stun_time + 10 SECONDS, WEAKEN)
 		else
 			C.apply_effect(stun_time, WEAKEN)
 
@@ -377,7 +377,7 @@
 /datum/ammo/energy/yautja/caster/bolt/stun
 	name = "high power stun bolt"
 	icon_state = "pred_stun"
-	var/stun_time = 20
+	var/stun_time = 20 SECONDS
 	bullet_color = COLOR_MAGENTA
 
 	hud_state = "plasma_rifle"
@@ -395,7 +395,7 @@
 
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect(stun_time + 10, WEAKEN)
+			H.apply_effect(stun_time + 10 SECONDS, WEAKEN)
 		else
 			C.apply_effect(stun_time, WEAKEN)
 
@@ -440,7 +440,7 @@
 	max_range = 20
 
 	var/stun_range = 4
-	var/stun_time = 6
+	var/stun_time = 6 SECONDS
 
 /datum/ammo/energy/yautja/caster/sphere/stun/on_hit_mob(mob/M, obj/projectile/P)
 	do_area_stun(P)
