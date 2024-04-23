@@ -48,20 +48,20 @@ explosion resistance exactly as much as their health
 	return
 
 //the start of the explosion
-/obj/effect/explosion/proc/initiate_explosion(turf/epicenter, power0, falloff0 = 20)
-	if(power0 <= 1)
+/obj/effect/explosion/proc/initiate_explosion(turf/epicenter, our_power, our_falloff = 20)
+	if(our_power <= 1)
 		return
-	power = power0
+	power = our_power
 	epicenter = get_turf(epicenter)
 	if(!epicenter)
 		return
 
-	falloff = max(falloff0, power/100) //prevent explosions with a range larger than 100 tiles
+	falloff = max(our_falloff, power / 100) //prevent explosions with a range larger than 100 tiles
 	minimum_spread_power = -power * reflection_amplification_limit
 
 	msg_admin_ff("Explosion with Power: [power], Falloff: [falloff] in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]).", src.loc.x, src.loc.y, src.loc.z [ADMIN_JMP(epicenter)])
 
-	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power ^ 2,1))
+	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power ^ 2, 1))
 	var/sound/explosion_sound = sound(get_sfx("explosion_large"))
 	switch(power)
 		if(0 to EXPLODE_LIGHT)
@@ -99,14 +99,14 @@ explosion resistance exactly as much as their health
 	Controller.active_spread_num++
 
 	var/resistance = 0
-	var/obj/structure/ladder/L
+	var/obj/structure/ladder/our_ladder
 
-	for(var/atom/A in src)  //add resistance
-		resistance += max(0, A.get_explosion_resistance(direction))
+	for(var/atom/our_atom in src)  //add resistance
+		resistance += max(0, our_atom.get_explosion_resistance(direction))
 
 		//check for stair-teleporters. If there is a stair teleporter, switch to the teleported-to tile instead
-		if(istype(A, /obj/effect/step_trigger/teleporter))
-			var/obj/effect/step_trigger/teleporter/our_tp = A
+		if(istype(our_atom, /obj/effect/step_trigger/teleporter))
+			var/obj/effect/step_trigger/teleporter/our_tp = our_atom
 			var/turf/our_turf = locate(our_tp.x + our_tp.teleport_x, our_tp.y + our_tp.teleport_y, our_tp.z)
 			if(our_turf)
 				spawn(0)
@@ -116,8 +116,8 @@ explosion resistance exactly as much as their health
 						Controller.explosion_damage()
 				return
 
-		if(istype(A, /obj/structure/ladder)) //check for ladders
-			L = A
+		if(istype(our_atom, /obj/structure/ladder)) //check for ladders
+			our_ladder = our_atom
 
 	Controller.explosion_turfs[src] = power  //recording the power applied
 	Controller.explosion_turf_directions[src] = direction
@@ -176,7 +176,7 @@ explosion resistance exactly as much as their health
 
 
 		//spreading up/down ladders
-		if(L)
+		if(our_ladder)
 			var/ladder_spread_power
 			if(direction)
 				if(power >= 0)
@@ -189,13 +189,13 @@ explosion resistance exactly as much as their health
 				else
 					ladder_spread_power = power * 1.5 - Controller.falloff
 
-			if (ladder_spread_power > Controller.minimum_spread_power)
-				if(L.up)
-					var/turf/T_up = get_turf(L.up)
+			if(ladder_spread_power > Controller.minimum_spread_power)
+				if(our_ladder.up)
+					var/turf/T_up = get_turf(our_ladder.up)
 					if(T_up)
 						T_up.explosion_spread(Controller, ladder_spread_power, null)
-				if(L.down)
-					var/turf/T_down = get_turf(L.down)
+				if(our_ladder.down)
+					var/turf/T_down = get_turf(our_ladder.down)
 					if(T_down)
 						T_down.explosion_spread(Controller, ladder_spread_power, null)
 
@@ -216,31 +216,31 @@ explosion resistance exactly as much as their health
 	reflected_power *= reflection_multiplier
 	var/damage_addon = min(power * reflection_amplification_limit, reflected_power/num_tiles_affected)
 	var/tiles_processed = 0
-	var/increment = min(50, sqrt(num_tiles_affected)*3 )//how many tiles we damage per tick
+	var/increment = min(50, sqrt(num_tiles_affected) * 3)//how many tiles we damage per tick
 
-	for(var/turf/T in explosion_turfs)
-		if(!T) continue
+	for(var/turf/our_turf in explosion_turfs)
+		if(!our_turf) continue
 
-		var/severity = explosion_turfs[T] + damage_addon
+		var/severity = explosion_turfs[our_turf] + damage_addon
 		if (severity <= 0)
 			continue
 
-		var/direction = explosion_turf_directions[T]
-		var/x = T.x
-		var/y = T.y
-		var/z = T.z
+		var/direction = explosion_turf_directions[our_turf]
+		var/x = our_turf.x
+		var/y = our_turf.y
+		var/z = our_turf.z
 
-		T.ex_act(severity, direction)
-		if(!T)
-			T = locate(x, y, z)
+		our_turf.ex_act(severity, direction)
+		if(!our_turf)
+			our_turf = locate(x, y, z)
 
-		for(var/atom/A in T)
+		for(var/atom/our_atom in our_turf)
 			spawn(0)
-				log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(T)]!")
-				if(is_mainship_level(T.z))
-					message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(T)]!")
+				log_game("Explosion with power of [power] and falloff of [falloff] at [AREACOORD(our_turf)]!")
+				if(is_mainship_level(our_turf.z))
+					message_admins("Explosion with power of [power] and falloff of [falloff] in [ADMIN_VERBOSEJMP(our_turf)]!")
 
-				A.ex_act(severity, direction)
+				our_atom.ex_act(severity, direction)
 
 		tiles_processed++
 		if(tiles_processed >= increment)
