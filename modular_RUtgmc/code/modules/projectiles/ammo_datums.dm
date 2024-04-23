@@ -314,13 +314,13 @@
 	damage = 25
 	damage_falloff = 8
 	penetration = 0
-	shell_speed = 2
+	shell_speed = 2.5
 	shrapnel_chance = 5
 
 /datum/ammo/bullet/shrapnel/metal
 	name = "metal shrapnel"
 	icon_state = "shrapnelshot_bit"
-	shell_speed = 1
+	shell_speed = 1.5
 	damage = 30
 	shrapnel_chance = 15
 	accuracy = 40
@@ -331,7 +331,7 @@
 	icon_state = "shrapnel_light"
 	damage = 10
 	penetration = 0
-	shell_speed = 1
+	shell_speed = 1.5
 	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/human
@@ -357,7 +357,7 @@
 	icon_state = "shrapnel_light"
 	damage = 10
 	penetration = 0
-	shell_speed = 1
+	shell_speed = 1.5
 	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/glass
