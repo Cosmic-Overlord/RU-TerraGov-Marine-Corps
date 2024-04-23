@@ -35,11 +35,11 @@
 		if("Big Bomb")
 			explosion(usr.loc, 3, 5, 7, 0, 5)
 		if("Custom Bomb")
-			var/input_severity = input("Explosion Severity:", "Drop Bomb") as null|num
-			var/input_falloff = input("Explosion Falloff:", "Drop Bomb") as null|num
+			var/input_severity = tgui_input_number(usr, "Explosion Severity:", "Drop Bomb", 500, 3000, 1)
+			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, 3000, 1)
 			if(input_severity < 1 && input_falloff < 1)
 				return
-			switch(tgui_alert(usr, "Deploy payload?", "Severity: [input_severity] | Falloff: [input_falloff]", list("Launch!", "Cancel")))
+			switch(tgui_alert(usr, "Deploy payload?", "Severity: [input_severity] | Falloff: [input_falloff]", list("Launch!", "Cancel"), 0))
 				if("Launch!")
 					cell_explosion(usr.loc, input_severity, input_falloff)
 				else
@@ -93,10 +93,10 @@
 			warhead = new choice
 		if("Custom HE")
 			var/obj/structure/ob_ammo/warhead/explosive/OBShell = new
-			OBShell.explosion_power = tgui_input_number(src, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, 3000)
+			OBShell.explosion_power = tgui_input_number(src, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, 3000, 1)
 			if(isnull(OBShell.explosion_power))
 				return
-			OBShell.explosion_falloff = tgui_input_number(src, "How much falloff should the wall clear blast have?", "Set clear falloff", 90)
+			OBShell.explosion_falloff = tgui_input_number(src, "How much falloff should the wall clear blast have?", "Set clear falloff", 90, 3000, 1)
 			if(isnull(OBShell.explosion_falloff))
 				return
 			warhead = OBShell
