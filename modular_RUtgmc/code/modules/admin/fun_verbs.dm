@@ -105,10 +105,10 @@
 			OBShell.cluster_amount = tgui_input_number(src, "How many salvos should be fired?", "Set cluster number", 25, 80) // 80 because so much explosions can just shut down the server
 			if(isnull(OBShell.cluster_amount))
 				return
-			OBShell.cluster_power = tgui_input_number(src, "How strong should the blasts be?", "Set blast power", 240)
+			OBShell.cluster_power = tgui_input_number(src, "How strong should the blasts be?", "Set blast power", 240, 3000, 1)
 			if(isnull(OBShell.cluster_power))
 				return
-			OBShell.cluster_falloff = tgui_input_number(src, "How much falloff should the blasts have?", "Set blast falloff", 40)
+			OBShell.cluster_falloff = tgui_input_number(src, "How much falloff should the blasts have?", "Set blast falloff", 40, 3000, 1)
 			if(isnull(OBShell.cluster_falloff))
 				return
 			warhead = OBShell
