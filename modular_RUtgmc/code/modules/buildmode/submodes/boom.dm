@@ -10,7 +10,6 @@
 	falloff_choice = tgui_input_number(client, "Explosion Falloff", "Choose explosion falloff", 50, 3000, 1)
 	if(isnull(falloff_choice))
 		return
-	falloff_shape_choice = EXPLOSION_FALLOFF_SHAPE_LINEAR
 	switch(tgui_alert(client, "Falloff Shape", "Choose falloff shape", list("Linear Shape", "Exponential Shape"), 0))
 		if("Linear Shape")
 			falloff_shape_choice = EXPLOSION_FALLOFF_SHAPE_LINEAR
