@@ -41,9 +41,15 @@
 			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, 3000, 1)
 			if(isnull(input_falloff))
 				return
+			var/input_shape
+			switch(tgui_alert(usr, "Falloff Shape", "Choose falloff shape", list("Linear", "Exponential"), 0))
+				if("Linear")
+					input_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR
+				if("Exponential")
+					input_shape = EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL
 			switch(tgui_alert(usr, "Deploy payload?", "Severity: [input_severity] | Falloff: [input_falloff]", list("Launch!", "Cancel"), 0))
 				if("Launch!")
-					cell_explosion(usr.loc, input_severity, input_falloff)
+					cell_explosion(usr.loc, input_severity, input_falloff, input_shape)
 				else
 					return
 			choice = "[choice] ([input_severity], [input_falloff])" //For better logging.
