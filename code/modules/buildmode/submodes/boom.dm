@@ -24,7 +24,6 @@ RU TGMC REMOVENT END */
 	light = input(c, "Range of light impact.", "Input") as num|null
 	flash = input(c, "Range of flash.", "Input") as num|null
 	throw_input = input(c, "Range of throw.", "Input") as num|null
-RU TGMC REMOVENT END */
 
 
 /datum/buildmode_mode/boom/handle_click(client/c, params, obj/object)
@@ -32,8 +31,8 @@ RU TGMC REMOVENT END */
 	var/left_click = pa.Find("left")
 
 	if(left_click)
-		//explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE) // RUTGMC DELETION
-		cell_explosion(object, power, falloff, silent = TRUE) // RUTGMC ADDITION
+		explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE)
 		to_chat(c, span_notice("Success."))
-		//log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]") // RUTGMC DELETION
-		log_admin("Build Mode: [key_name(c)] caused an explosion(p=[power], f=[falloff] at [AREACOORD(object)]") // RUTGMC ADDITION
+		log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]")
+RU TGMC REMOVENT END */
+
