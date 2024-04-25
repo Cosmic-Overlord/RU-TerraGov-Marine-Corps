@@ -36,8 +36,10 @@
 			explosion(usr.loc, 3, 5, 7, 0, 5)
 		if("Custom Bomb")
 			var/input_severity = tgui_input_number(usr, "Explosion Severity:", "Drop Bomb", 500, 3000, 1)
+			if(isnull(input_severity))
+				return
 			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, 3000, 1)
-			if(input_severity < 1 && input_falloff < 1)
+			if(isnull(input_falloff))
 				return
 			switch(tgui_alert(usr, "Deploy payload?", "Severity: [input_severity] | Falloff: [input_falloff]", list("Launch!", "Cancel"), 0))
 				if("Launch!")
