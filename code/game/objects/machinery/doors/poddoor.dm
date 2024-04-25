@@ -284,9 +284,6 @@
 	id = "landing_zone_2"
 	smoothing_groups = null
 
-/obj/machinery/door/poddoor/timed_late/containment/landing_zone/get_explosion_resistance() // RUTGMC ADDITION
-	return 1000000
-
 ///Faction signals for campaign mode doors
 GLOBAL_LIST_INIT(faction_to_campaign_door_signal, list(
 	FACTION_TERRAGOV = COMSIG_GLOB_OPEN_CAMPAIGN_SHUTTERS_TGMC,
