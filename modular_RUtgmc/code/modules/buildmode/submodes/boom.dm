@@ -10,10 +10,10 @@
 	falloff_choice = tgui_input_number(client, "Explosion Falloff", "Choose explosion falloff", 50, 3000, 1)
 	if(isnull(falloff_choice))
 		return
-	switch(tgui_alert(client, "Falloff Shape", "Choose falloff shape", list("Linear Shape", "Exponential Shape"), 0))
-		if("Linear Shape")
+	switch(tgui_alert(client, "Falloff Shape", "Choose falloff shape", list("Linear", "Exponential"), 0))
+		if("Linear")
 			falloff_shape_choice = EXPLOSION_FALLOFF_SHAPE_LINEAR
-		if("Exponential Shape")
+		if("Exponential")
 			falloff_shape_choice = EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL
 
 /datum/buildmode_mode/boom/handle_click(client/c, params, obj/object)
