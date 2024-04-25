@@ -194,4 +194,3 @@
 /obj/structure/earth_pillar/ex_act(severity)
 	. = ..()
 	update_icon_state()
-	
