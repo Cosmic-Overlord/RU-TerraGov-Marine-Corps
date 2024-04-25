@@ -9,7 +9,6 @@
 /atom/proc/ex_act(severity, explosion_direction)
 	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
 		contents_explosion(severity, explosion_direction)
-	SEND_SIGNAL(src, COMSIG_ATOM_EX_ACT, severity, explosion_direction)
 
 /atom/proc/contents_explosion(severity, explosion_direction)
 	for(var/atom/A in contents)
