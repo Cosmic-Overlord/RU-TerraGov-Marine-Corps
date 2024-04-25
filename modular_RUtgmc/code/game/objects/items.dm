@@ -1,17 +1,20 @@
 /obj/item/ex_act(severity, explosion_direction)
-	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
 	//explosion_throw(severity, explosion_direction)
+
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return
+
+	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
+	var/probability
 	switch(severity)
 		if(0 to EXPLODE_WEAK)
-			if(prob(5))
-				if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-					visible_message(span_danger("<u>\The [src] [msg]</u>"))
-					deconstruct(FALSE)
+			probability = 5
 		if(EXPLODE_WEAK to EXPLODE_MEDIUM)
-			if(prob(50))
-				if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-					deconstruct(FALSE)
-		if(EXPLODE_MEDIUM to INFINITY)
-			if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-				visible_message(span_danger("<u>\The [src] [msg]</u>"))
-				deconstruct(FALSE)
+			probability = 25
+		if(EXPLODE_MEDIUM to EXPLODE_HEAVY)
+			probability = 50
+		if(EXPLODE_HEAVY to INFINITY)
+			probability = 100
+	if(probability && prob(probability))
+		visible_message(span_danger("<u>\The [src] [msg]</u>"))
+		deconstruct(FALSE)
