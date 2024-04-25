@@ -27,7 +27,6 @@ explosion resistance exactly as much as their health
 	var/obj/effect/explosion/Controller = new /obj/effect/explosion(epicenter)
 	Controller.initiate_explosion(epicenter, power, falloff)
 
-
 /obj/effect/explosion
 	var/list/explosion_turfs = list()
 	var/list/explosion_turf_directions = list()
@@ -37,15 +36,10 @@ explosion resistance exactly as much as their health
 	var/falloff = 20
 	/// used to amplify explosions in confined areas
 	var/reflected_power = 0
-	var/reflection_multiplier = 1.5
 	/// 1 = 100% increase
+	var/reflection_multiplier = 1.5
 	var/reflection_amplification_limit = 1
 	var/minimum_spread_power = 0
-	//var/overlap_number = 0
-
-
-/obj/effect/explosion/ex_act()
-	return
 
 //the start of the explosion
 /obj/effect/explosion/proc/initiate_explosion(turf/epicenter, our_power, our_falloff = 20)
