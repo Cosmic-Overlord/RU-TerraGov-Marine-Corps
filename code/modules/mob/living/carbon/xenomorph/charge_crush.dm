@@ -337,6 +337,7 @@
 		return COMPONENT_MOVABLE_PREBUMP_STOPPED
 */
 
+
 /datum/action/ability/xeno_action/ready_charge/bull_charge
 	action_icon_state = "bull_ready_charge"
 	charge_type = CHARGE_BULL
