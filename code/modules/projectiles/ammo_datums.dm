@@ -2078,19 +2078,16 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	hud_state = "rocket_he"
 	accurate_range = 20
 	max_range = 14
-	damage = 150
+	damage = 200
 	penetration = 100
 	sundering = 100
-
-/datum/ammo/rocket/he/drop_nade(turf/T)
-	explosion(T, 0, 5, 0, 0, 2)
 
 /datum/ammo/rocket/he/unguided
 	damage = 100
 	flags_ammo_behavior = AMMO_ROCKET|AMMO_SUNDERING // We want this one to specifically go over onscreen range.
 
 /datum/ammo/rocket/he/unguided/drop_nade(turf/T)
-	explosion(T, 0, 3, 5, 0, 2)
+	explosion(T, 0, 7, 0, 0, 2)
 
 /datum/ammo/rocket/ap
 	name = "kinetic penetrator"
@@ -2140,7 +2137,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_amount = 1
 
 /datum/ammo/rocket/heavy_isg/drop_nade(turf/T)
-	explosion(T, 0, 2, 4, 6)
+	explosion(T, 0, 7, 8, 12)
 
 /datum/ammo/rocket/heavy_isg/unguided
 	hud_state = "bigshell_he_unguided"
@@ -2251,7 +2248,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 50
 
 /datum/ammo/rocket/recoilless/drop_nade(turf/T)
-	explosion(T, 0, 3, 3, 0, 2)
+	explosion(T, 0, 3, 4, 0, 2)
 
 /datum/ammo/rocket/recoilless/heat
 	name = "HEAT shell"
@@ -2290,7 +2287,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 25
 
 /datum/ammo/rocket/recoilless/light/drop_nade(turf/T)
-	explosion(T, 0, 1, 3, 0, 1)
+	explosion(T, 0, 1, 8, 0, 1)
 
 /datum/ammo/rocket/recoilless/chemical
 	name = "low velocity chemical shell"
@@ -2346,9 +2343,6 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	penetration = 100
 	sundering = 100
 	max_range = 30
-
-/datum/ammo/rocket/oneuse/drop_nade(turf/T)
-	explosion(T, 0, 3, 2, 0, 1)
 
 /datum/ammo/rocket/som
 	name = "high explosive RPG"
@@ -2452,7 +2446,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	handful_amount = 1
 
 /datum/ammo/rocket/atgun_shell/drop_nade(turf/T)
-	explosion(T, 0, 1, 2, 0, 2)
+	explosion(T, 0, 2, 3, 0, 2)
 
 /datum/ammo/rocket/atgun_shell/on_hit_turf(turf/T, obj/projectile/P) //no explosion every time it hits a turf
 	P.proj_max_range -= 10
@@ -2489,7 +2483,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sundering = 35
 
 /datum/ammo/rocket/atgun_shell/he/drop_nade(turf/T)
-	explosion(T, 0, 2, 4)
+	explosion(T, 0, 3, 5)
 
 /datum/ammo/rocket/atgun_shell/he/on_hit_turf(turf/T, obj/projectile/P)
 	drop_nade(T.density ? P.loc : T)
@@ -2578,13 +2572,13 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	bullet_color = COLOR_VERY_SOFT_YELLOW
 
 /datum/ammo/mortar/drop_nade(turf/T)
-	explosion(T, 0, 1, 4, 0, 3)
+	explosion(T, 1, 2, 5, 0, 3)
 
 /datum/ammo/mortar/do_at_max_range(turf/T, obj/projectile/P)
 	drop_nade(T)
 
 /datum/ammo/mortar/incend/drop_nade(turf/T)
-	explosion(T, 0, 1, 2, 0, 7, throw_range = 0)
+	explosion(T, 0, 2, 3, 0, 7, throw_range = 0)
 	flame_radius(4, T)
 	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
@@ -2611,10 +2605,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "howi"
 
 /datum/ammo/mortar/howi/drop_nade(turf/T)
-	explosion(T, 1, 3, 4, 0, 12)
+	explosion(T, 1, 6, 7, 0, 12)
 
 /datum/ammo/mortar/howi/incend/drop_nade(turf/T)
-	explosion(T, 0, 0, 2, 0, 0, 3, throw_range = 0)
+	explosion(T, 0, 3, 0, 0, 0, 3, throw_range = 0)
 	flame_radius(5, T)
 	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 

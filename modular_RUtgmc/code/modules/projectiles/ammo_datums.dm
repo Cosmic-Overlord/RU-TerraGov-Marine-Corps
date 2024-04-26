@@ -373,3 +373,50 @@
 
 /datum/ammo/bullet/shrapnel/light/effect/ver2
 	icon_state = "shrapnel_bright2"
+
+//////////////////////////////////////////////////
+////////////////////Explosives////////////////////
+//////////////////////////////////////////////////
+
+/datum/ammo/rocket/he
+	damage = 150
+
+/datum/ammo/rocket/he/drop_nade(turf/T)
+	explosion(T, 0, 5, 0, 0, 2)
+
+/datum/ammo/rocket/he/unguided/drop_nade(turf/T)
+	explosion(T, 0, 3, 5, 0, 2)
+
+/datum/ammo/rocket/heavy_isg/drop_nade(turf/T)
+	explosion(T, 0, 2, 4, 6)
+
+/datum/ammo/rocket/recoilless/drop_nade(turf/T)
+	explosion(T, 0, 3, 3, 0, 2)
+
+/datum/ammo/rocket/recoilless/light/drop_nade(turf/T)
+	explosion(T, 0, 1, 3, 0, 1)
+
+/datum/ammo/rocket/oneuse/drop_nade(turf/T)
+	explosion(T, 0, 3, 2, 0, 1)
+
+/datum/ammo/rocket/atgun_shell/drop_nade(turf/T)
+	explosion(T, 0, 1, 2, 0, 2)
+
+/datum/ammo/rocket/atgun_shell/he/drop_nade(turf/T)
+	explosion(T, 0, 2, 4)
+
+/datum/ammo/mortar/drop_nade(turf/T)
+	explosion(T, 0, 1, 4, 0, 3)
+
+/datum/ammo/mortar/incend/drop_nade(turf/T)
+	explosion(T, 0, 1, 2, 0, 7, throw_range = 0)
+	flame_radius(4, T)
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+
+/datum/ammo/mortar/howi/drop_nade(turf/T)
+	explosion(T, 1, 3, 4, 0, 12)
+
+/datum/ammo/mortar/howi/incend/drop_nade(turf/T)
+	explosion(T, 0, 0, 2, 0, 0, 3, throw_range = 0)
+	flame_radius(5, T)
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
