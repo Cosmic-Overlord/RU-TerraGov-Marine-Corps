@@ -69,7 +69,7 @@
 
 // Compare directions. If the other explosion is traveling in the same direction,
 // the explosion is amplified. If not, it's weakened
-/datum/automata_cell/explosion/merge(datum/automata_cell/explosion/E)
+/datum/automata_cell/explosion/merge(datum/automata_cell/explosion/our_explosion)
 	// Non-merging explosions take priority
 	if(!should_merge)
 		return TRUE
@@ -77,9 +77,9 @@
 	// The strongest of the two explosions should survive the merge
 	// This prevents a weaker explosion merging with a strong one,
 	// the strong one removing all the weaker one's power and just killing the explosion
-	var/is_stronger = (power >= E.power)
-	var/datum/automata_cell/explosion/survivor = is_stronger ? src : E
-	var/datum/automata_cell/explosion/dying = is_stronger ? E : src
+	var/is_stronger = (power >= our_explosion.power)
+	var/datum/automata_cell/explosion/survivor = is_stronger ? src : our_explosion
+	var/datum/automata_cell/explosion/dying = is_stronger ? our_explosion : src
 
 	// Two epicenters merging, or a new epicenter merging with a traveling wave
 	//if((!survivor.direction && !dying.direction) || (survivor.direction && !dying.direction))
@@ -122,9 +122,9 @@
 	return propagation_dirs
 
 // If you need to set vars on the new cell other than the basic ones
-/datum/automata_cell/explosion/proc/setup_new_cell(datum/automata_cell/explosion/E)
-	if(E.shockwave)
-		E.shockwave.alpha = E.power
+/datum/automata_cell/explosion/proc/setup_new_cell(datum/automata_cell/explosion/our_explosion)
+	if(our_explosion.shockwave)
+		our_explosion.shockwave.alpha = our_explosion.power
 	return
 
 /datum/automata_cell/explosion/update_state(list/turf/neighbors)
@@ -133,18 +133,18 @@
 		return
 	// The resistance here will affect the damage taken and the falloff in the propagated explosion
 	var/resistance = max(0, in_turf.get_explosion_resistance(direction))
-	for(var/atom/A in in_turf)
-		resistance += max(0, A.get_explosion_resistance())
+	for(var/atom/our_atom in in_turf)
+		resistance += max(0, our_atom.get_explosion_resistance())
 
 	// Blow stuff up
-	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
-	for(var/atom/A in in_turf)
-		if(A in exploded_atoms)
+	in_turf.ex_act(power, direction)
+	for(var/atom/our_atom in in_turf)
+		if(our_atom in exploded_atoms)
 			continue
-		if(A.gc_destroyed)
+		if(our_atom.gc_destroyed)
 			continue
-		INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, direction)
-		exploded_atoms += A
+		our_atom.ex_act(power, direction)
+		exploded_atoms += our_atom
 
 	var/reflected = FALSE
 
@@ -187,21 +187,21 @@
 			if(EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL)
 				new_falloff += new_falloff * dir_falloff
 			if(EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF)
-				new_falloff += (new_falloff*0.5) * dir_falloff
+				new_falloff += (new_falloff * 0.5) * dir_falloff
 
-		var/datum/automata_cell/explosion/E = propagate(dir)
-		if(E)
-			E.power = new_power
-			E.power_falloff = new_falloff
-			E.falloff_shape = falloff_shape
+		var/datum/automata_cell/explosion/our_explosion = propagate(dir)
+		if(our_explosion)
+			our_explosion.power = new_power
+			our_explosion.power_falloff = new_falloff
+			our_explosion.falloff_shape = falloff_shape
 
 			// Set the direction the explosion is traveling in
-			E.direction = dir
+			our_explosion.direction = dir
 			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
 			if(!direction && (dir in GLOB.diagonals))
-				E.delay = 1
+				our_explosion.delay = 1
 
-			setup_new_cell(E)
+			setup_new_cell(our_explosion)
 
 	// We've done our duty, now die pls
 	qdel(src)
@@ -217,19 +217,19 @@ When the cell processes, we simply don't blow up atoms that were tracked
 as having entered the turf.
 */
 
-/datum/automata_cell/explosion/proc/on_turf_entered(atom/movable/A)
+/datum/automata_cell/explosion/proc/on_turf_entered(atom/movable/our_atom)
 	// Once is enough
-	if(A in exploded_atoms)
+	if(our_atom in exploded_atoms)
 		return
 
-	exploded_atoms += A
+	exploded_atoms += our_atom
 
 	// Note that we don't want to make it a directed ex_act because
 	// it could toss them back and make them get hit by the explosion again
-	if(A.gc_destroyed)
+	if(our_atom.gc_destroyed)
 		return
 
-	INVOKE_ASYNC(A, TYPE_PROC_REF(/atom, ex_act), power, null)
+	our_atom.ex_act(power, null)
 
 // Spawns a cellular automaton of an explosion
 /proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, orig_range, direction, color, silent, shrapnel = TRUE, adminlog = TRUE)
@@ -257,11 +257,11 @@ as having entered the turf.
 		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
 
 		for(var/MN in GLOB.player_list)
-			var/mob/M = MN
+			var/mob/our_mob = MN
 			// Double check for client
-			var/turf/M_turf = get_turf(M)
-			if(M_turf && M_turf.z == epicenter.z)
-				var/dist = get_dist(M_turf, epicenter)
+			var/turf/mob_turf = get_turf(our_mob)
+			if(mob_turf?.z == epicenter.z)
+				var/dist = get_dist(mob_turf, epicenter)
 				switch(power)
 					if(0 to EXPLODE_LIGHT)
 						explosion_sound = sound(get_sfx("explosion_small"))
@@ -272,36 +272,34 @@ as having entered the turf.
 						explosion_sound = sound(get_sfx("explosion_large"))
 				// If inside the blast radius + world.view - 2
 				if(dist <= max(round(power, 1)))
-					M.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
+					our_mob.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
 					if(is_mainship_level(epicenter.z))
-						M.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
+						our_mob.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 				// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 				else if(dist <= far_dist)
 					var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
 					far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
-					M.playsound_local(epicenter, null, far_volume, 1, frequency, falloff = 5, S = far_explosion_sound)
+					our_mob.playsound_local(epicenter, null, far_volume, 1, frequency, falloff = 5, S = far_explosion_sound)
 					if(is_mainship_level(epicenter.z))
-						M.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
+						our_mob.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 	if(!orig_range)
 		orig_range = power / falloff
 	new /obj/effect/temp_visual/explosion(epicenter, orig_range - 1, color, power)
-	var/datum/automata_cell/explosion/E = new /datum/automata_cell/explosion(epicenter)
+	var/datum/automata_cell/explosion/our_explosion = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
 		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
 		power = EXPLOSION_MAX_POWER
 
-	E.power = power
-	E.power_falloff = falloff
-	E.falloff_shape = falloff_shape
-	E.direction = direction
+	our_explosion.power = power
+	our_explosion.power_falloff = falloff
+	our_explosion.falloff_shape = falloff_shape
+	our_explosion.direction = direction
 
 	// powerful explosions send out some special effects
 	if(power >= 100 && shrapnel)
 		epicenter = get_turf(epicenter)
 		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver1)
 		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver2)
-
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPLOSION, epicenter, power, falloff, falloff_shape)
 
 /obj/effect/particle_effect/shockwave
 	name = "shockwave"
