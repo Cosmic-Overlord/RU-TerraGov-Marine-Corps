@@ -283,8 +283,8 @@ as having entered the turf.
 					if(is_mainship_level(epicenter.z))
 						our_mob.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
 	if(!orig_range)
-		orig_range = power / falloff
-	new /obj/effect/temp_visual/explosion(epicenter, orig_range - 1, color, power)
+		orig_range = round(power / falloff)
+	new /obj/effect/temp_visual/explosion(epicenter, orig_range, color, power)
 	var/datum/automata_cell/explosion/our_explosion = new /datum/automata_cell/explosion(epicenter)
 	if(power > EXPLOSION_MAX_POWER)
 		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
