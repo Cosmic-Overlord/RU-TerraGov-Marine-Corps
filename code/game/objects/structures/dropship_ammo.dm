@@ -396,9 +396,9 @@
 	travelling_time = 3 SECONDS //not powerful, but reaches target fast
 	ammo_id = ""
 	point_cost = 225
-	devastating_explosion_range = 1
-	heavy_explosion_range = 3
-	light_explosion_range = 5
+	devastating_explosion_range = 2
+	heavy_explosion_range = 4
+	light_explosion_range = 7
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/widowmaker
 
@@ -415,7 +415,7 @@
 	point_cost = 225
 	devastating_explosion_range = 2
 	heavy_explosion_range = 4
-	light_explosion_range = 5
+	light_explosion_range = 7
 	fire_range = 7
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/banshee
@@ -431,8 +431,8 @@
 	icon_state = "keeper"
 	ammo_id = "k"
 	point_cost = 300
-	devastating_explosion_range = 2
-	heavy_explosion_range = 3
+	devastating_explosion_range = 4
+	heavy_explosion_range = 4
 	light_explosion_range = 5
 	prediction_type = CAS_AMMO_EXPLOSIVE
 
@@ -447,7 +447,7 @@
 	icon_state = "fatty"
 	ammo_id = "f"
 	point_cost = 325
-	devastating_explosion_range = 1
+	devastating_explosion_range = 2
 	heavy_explosion_range = 3
 	light_explosion_range = 4
 	prediction_type = CAS_AMMO_EXPLOSIVE
@@ -480,8 +480,8 @@
 	icon_state = "napalm"
 	ammo_id = "n"
 	point_cost = 250
-	devastating_explosion_range = 1
-	heavy_explosion_range = 1
+	devastating_explosion_range = 2
+	heavy_explosion_range = 3
 	light_explosion_range = 4
 	fire_range = 5
 	prediction_type = CAS_AMMO_INCENDIARY
@@ -513,7 +513,7 @@
 	point_cost = 175
 	ammo_type = CAS_MINI_ROCKET
 	devastating_explosion_range = 0
-	heavy_explosion_range = 1
+	heavy_explosion_range = 2
 	light_explosion_range = 3
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/minirocket
@@ -556,7 +556,7 @@
 	cas_effect = /obj/effect/overlay/blinking_laser/smoke
 	devastating_explosion_range = 0
 	heavy_explosion_range = 0
-	light_explosion_range = 1
+	light_explosion_range = 2
 
 /obj/structure/ship_ammo/cas/minirocket/smoke/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
@@ -572,7 +572,7 @@
 	devastating_explosion_range = 0
 	travelling_time = 4 SECONDS
 	heavy_explosion_range = 0
-	light_explosion_range = 1
+	light_explosion_range = 2
 	cas_effect = /obj/effect/overlay/blinking_laser/tfoot
 
 /obj/structure/ship_ammo/cas/minirocket/tangle/detonate_on(turf/impact, attackdir = NORTH)
