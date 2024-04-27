@@ -573,7 +573,8 @@
 				var/atom/step = get_step(src, dy)
 				if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 					break
-				Move(step)
+				if(!Move(step))
+					throwing = FALSE
 				error += dist_x
 				dist_since_sleep++
 				if(dist_since_sleep >= speed)
@@ -583,7 +584,8 @@
 				var/atom/step = get_step(src, dx)
 				if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 					break
-				Move(step)
+				if(!Move(step))
+					throwing = FALSE
 				error -= dist_y
 				dist_since_sleep++
 				if(dist_since_sleep >= speed)
@@ -597,7 +599,8 @@
 				var/atom/step = get_step(src, dx)
 				if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 					break
-				Move(step)
+				if(!Move(step))
+					throwing = FALSE
 				error += dist_y
 				dist_since_sleep++
 				if(dist_since_sleep >= speed)
@@ -607,7 +610,8 @@
 				var/atom/step = get_step(src, dy)
 				if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 					break
-				Move(step)
+				if(!Move(step))
+					throwing = FALSE
 				error -= dist_x
 				dist_since_sleep++
 				if(dist_since_sleep >= speed)
