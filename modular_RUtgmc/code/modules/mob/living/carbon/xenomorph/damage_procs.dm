@@ -21,7 +21,7 @@
 	var/powerfactor_value = round(severity * 0.05, 1)
 	powerfactor_value = min(powerfactor_value, 20)
 	if(mob_size < MOB_SIZE_BIG)
-		powerfactor_value / 3
+		powerfactor_value = powerfactor_value / 3
 	if(powerfactor_value > 0)
 		add_slowdown(powerfactor_value)
 		adjust_stagger(powerfactor_value)
