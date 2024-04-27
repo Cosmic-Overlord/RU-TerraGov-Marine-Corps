@@ -405,6 +405,20 @@
 			. = size ? "MERC" : "MERC Engineer"
 		if("VM")
 			. = size ? "VAT" : "VatGrown Marine"
+		if("Mk.X") // RUTGMC ADDITION START
+			. = size ? "Mk.X" : "Mark X"
+		if("Mk.IX")
+			. = size ? "Mk.IX" : "Mark IX"
+		if("Mk.VIII")
+			. = size ? "Mk.VIII" : "Mark VIII"
+		if("Mk.VII")
+			. = size ? "Mk.VII" : "Mark VII"
+		if("Mk.VI")
+			. = size ? "Mk.VI" : "Mark VI"
+		if("Mk.V")
+			. = size ? "Mk.V" : "Mark V"
+		if("Mk.IV")
+			. = size ? "Mk.IV" : "Mark IV" // RUTGMC ADDITION END
 		if("Mk.III")
 			. = size ? "Mk.III" : "Mark III"
 		if("Mk.II")
@@ -413,9 +427,9 @@
 			. = size ? "Mk.I" : "Mark I"
 		//RUTGMC EDIT ADDITION BEGIN - SHITSPAWN_ROLES
 		if("MP")
-			. = size ? "MP " : "Military Police"
+			. = size ? "MP" : "Military Police"
 		if("CLW")
-			. = size ? "HONK " : "Ship Clown"
+			. = size ? "HONK" : "Ship Clown"
 		//RUTGMC EDIT ADDITION END - SHITSPAWN_ROLES
 		else
 			. = paygrade //custom paygrade

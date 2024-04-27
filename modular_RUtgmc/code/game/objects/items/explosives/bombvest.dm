@@ -1,3 +1,6 @@
+/obj/item/clothing/suit/storage/marine/boomvest
+	species_exception = list(/datum/species/robot)
+
 ///Overwrites the parent function for activating a light. Instead it now detonates the bomb.
 /obj/item/clothing/suit/storage/marine/boomvest/attack_self(mob/user)
 	var/mob/living/carbon/human/activator = user

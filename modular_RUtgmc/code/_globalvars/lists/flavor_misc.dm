@@ -31,7 +31,6 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"transport_officer",
 	"praetorian",
 	"private",
-	"puppeteer",
 	"ravager",
 	"requisition",
 	"researcher",
