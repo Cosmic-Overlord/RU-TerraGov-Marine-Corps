@@ -533,10 +533,6 @@
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	if(!xeno_owner.check_state())
 		return FALSE
-	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active && particle_type == /particles/warlock_charge/psy_blast/psy_lance) // RUTGMC ADDITION START, NO PSYLANCE BEFORE OPEN SHUTTERS
-		if(!silent)
-			owner.balloon_alert(owner, "too early")
-		return FALSE // RUTGMC ADDITION END, NO PSYLANCE BEFORE OPEN SHUTTERS
 	var/datum/ammo/energy/xeno/selected_ammo = xeno_owner.ammo
 	if(selected_ammo.ability_cost > xeno_owner.plasma_stored)
 		if(!silent)
@@ -623,5 +619,5 @@
 	else
 		if(!do_after(X, 0 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || X.is_zoomed)
 			return
-		X.zoom_in(0,9)
+		X.zoom_in(0, 4.5)
 		..()

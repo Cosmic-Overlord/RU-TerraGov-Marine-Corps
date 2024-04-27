@@ -100,7 +100,7 @@
 	if(!.)
 		return FALSE
 
-	if(get_dist_euclide_square(A, owner) > 64) //8 tiles range
+	if(get_dist_euclidean_square(A, owner) > 64) //8 tiles range
 		if(!silent)
 			to_chat(owner, span_xenonotice("You are too far!"))
 		return FALSE
