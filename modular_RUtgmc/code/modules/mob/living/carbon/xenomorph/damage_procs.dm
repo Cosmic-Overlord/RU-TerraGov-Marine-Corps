@@ -1,8 +1,6 @@
 /mob/living/carbon/xenomorph/ex_act(severity, direction)
 	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
-	var/stagger_amount = severity / 50 * bomb_armor_ratio
-	var/slowdown_amount = severity / 33 * bomb_armor_ratio
-	var/sunder_amount = severity / 10 * bomb_armor_ratio
+	var/sunder_amount = severity * bomb_armor_ratio / 8
 
 	if(status_flags & (INCORPOREAL|GODMODE))
 		return
@@ -18,7 +16,17 @@
 
 	if(severity >= 0)
 		apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
+		adjust_sunder(sunder_amount, 0, 50)
+
+	var/powerfactor_value = round(severity * 0.05, 1)
+	powerfactor_value = min(powerfactor_value, 20)
+	if(mob_size < MOB_SIZE_BIG)
+		powerfactor_value / 3
+	if(powerfactor_value > 0)
+		add_slowdown(powerfactor_value)
+		adjust_stagger(powerfactor_value)
 		explosion_throw(severity, direction)
-		adjust_stagger(clamp(stagger_amount, 0, 10))
-		add_slowdown(clamp(slowdown_amount, 0, 10))
-		adjust_sunder(clamp(sunder_amount, 0, 100))
+	else if(powerfactor_value > 10)
+		powerfactor_value /= 5
+		add_slowdown(powerfactor_value)
+		adjust_stagger(powerfactor_value)
