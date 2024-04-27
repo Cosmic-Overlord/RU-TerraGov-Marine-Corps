@@ -1,5 +1,5 @@
 /obj/item/ex_act(severity, explosion_direction)
-	//explosion_throw(severity, explosion_direction)
+	explosion_throw(severity, explosion_direction)
 
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
