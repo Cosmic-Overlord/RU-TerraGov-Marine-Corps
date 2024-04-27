@@ -51,6 +51,7 @@
 #include "code\datums\status_effects\xeno_buffs.dm"
 #include "code\datums\looping_sounds\miscellaneous.dm"
 #include "code\game\atoms.dm"
+#include "code\game\atoms_movable.dm"
 #include "code\game\buckling.dm"
 #include "code\game\data_huds.dm"
 #include "code\game\objects\explosion_recursive.dm"
