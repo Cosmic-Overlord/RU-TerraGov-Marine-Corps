@@ -123,6 +123,13 @@
 	keybind_signal = COMSING_XENOABILITY_HUGGER_POUNCE
 	hotkey_keys = list("E")
 
+/datum/keybinding/xeno/short_spray_acid
+	name = "short_spray_acid"
+	full_name = "Praetorian: Short Acid Spray"
+	description = "Sprays some acid"
+	keybind_signal = COMSIG_XENOABILITY_SHORT_SPRAY_ACID
+	hotkey_keys = list("E")
+
 /datum/keybinding/xeno/cresttoss
 	name = "cresttoss_away"
 	full_name = "Crusher: Crest Toss Away"

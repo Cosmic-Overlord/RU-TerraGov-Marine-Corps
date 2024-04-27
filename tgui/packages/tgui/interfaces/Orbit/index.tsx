@@ -36,6 +36,7 @@ const ObservableSearch = (props, context) => {
     som = [],
     survivors = [],
     xenos = [],
+    valhalla = [],
   } = data;
   const [searchQuery, setSearchQuery] = useLocalState<string>(
     context,
@@ -53,7 +54,7 @@ const ObservableSearch = (props, context) => {
       // Sorts descending by orbiters
       sortBy<Observable>((observable) => -(observable.orbiters || 0)),
       // Makes a single Observables list for an easy search
-    ])([humans, marines, som, survivors, xenos].flat())[0];
+    ])([humans, marines, som, survivors, xenos, valhalla].flat())[0];
     if (mostRelevant !== undefined) {
       act('orbit', {
         ref: mostRelevant.ref,
@@ -112,6 +113,7 @@ const ObservableContent = (props, context) => {
   const {
     dead = [],
     ghosts = [],
+    valhalla = [],
     humans = [],
     marines = [],
     misc = [],
@@ -130,6 +132,7 @@ const ObservableContent = (props, context) => {
       <ObservableSection color="average" section={som} title="SOM" />
       <ObservableSection section={dead} title="Dead" />
       <ObservableSection section={ghosts} title="Ghosts" />
+      <ObservableSection section={valhalla} title="Valhalla" />
       <ObservableSection section={misc} title="Misc" />
       <ObservableSection section={npcs} title="NPCs" />
     </Stack>

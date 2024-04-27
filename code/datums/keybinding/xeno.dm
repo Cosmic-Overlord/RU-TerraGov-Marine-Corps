@@ -1055,7 +1055,7 @@
 	keybind_signal = COMSIG_XENOABILITY_TIMESTOP
 	hotkey_keys = list("V")
 RU TGMC EDIT END*/
-
+/*RU TGMC EDIT PUPPETEER REMOVAL
 /datum/keybinding/xeno/flay
 	name = "Flay"
 	full_name = "Puppeteer: Flay"
@@ -1121,7 +1121,7 @@ RU TGMC EDIT END*/
 	full_name = "Puppeteer: Bestow Blessings"
 	description = "Give blessings to your puppets."
 	keybind_signal = COMSIG_XENOABILITY_BESTOWBLESSINGS
-
+RU TGMC EDIT PUPPETEER REMOVAL*/
 /* RUTGMC DELETION
 /datum/keybinding/xeno/behemoth_roll
 	name = "Roll"
