@@ -1257,11 +1257,11 @@ TUNNEL
 			take_damage(300, BRUTE, BOMB)
 		if(EXPLODE_WEAK)
 			take_damage(100, BRUTE, BOMB)
-
+/* RU TGMC EDIT //moved to modular
 /obj/structure/xeno/pherotower/Destroy()
 	GLOB.hive_datums[hivenumber].pherotowers -= src
 	return ..()
-
+RU TGMC EDIT */
 // Clicking on the tower brings up a radial menu that allows you to select the type of pheromone that this tower will emit.
 /obj/structure/xeno/pherotower/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	var/phero_choice = show_radial_menu(X, src, GLOB.pheromone_images_list, radius = 35, require_near = TRUE)
