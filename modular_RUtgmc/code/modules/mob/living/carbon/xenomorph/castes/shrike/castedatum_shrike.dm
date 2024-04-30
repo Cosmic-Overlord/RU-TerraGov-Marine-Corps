@@ -1,7 +1,8 @@
 /datum/xeno_caste/shrike
 
 // *** Sunder *** //
-	sunder_max = 30
+	sunder_recover = 2
+	sunder_max = 20
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_CORRUPT_GENERATOR|CASTE_CAN_HOLD_JELLY
