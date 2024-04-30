@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/psychictower
-RU TGMC EDIT */
+
 /datum/hive_upgrade/building/pherotower
 	name = "Pheromone Tower"
 	desc = "Constructs a tower that emanates a selectable type of pheromone."
@@ -235,7 +235,7 @@ RU TGMC EDIT */
 	building_type = /obj/structure/xeno/pherotower
 	building_loc = 0 //This results in spawning the structure under the user.
 	building_time = 5 SECONDS
-
+RU TGMC EDIT */
 /datum/hive_upgrade/building/banelingpod
 	name = "Baneling Pod"
 	desc = "Constructs a pod that generates banelings over time"
