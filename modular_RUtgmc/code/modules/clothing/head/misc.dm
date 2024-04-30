@@ -31,6 +31,9 @@
 /obj/item/clothing/head/greenbandanna
 	species_exception = list(/datum/species/robot)
 
+/obj/item/clothing/head/cat
+	species_exception = list(/datum/species/robot)
+
 /obj/item/clothing/head/cardborg
 	species_exception = list(/datum/species/robot)
 

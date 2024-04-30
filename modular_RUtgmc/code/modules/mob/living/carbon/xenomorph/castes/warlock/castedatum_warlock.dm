@@ -3,4 +3,4 @@
 // *** Sunder *** //
 	sunder_max = 30
 
-	deevolves_to = list(/mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/puppeteer)
+	deevolves_to = list(/mob/living/carbon/xenomorph/warrior)

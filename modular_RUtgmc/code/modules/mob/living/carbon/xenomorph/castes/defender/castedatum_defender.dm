@@ -1,5 +1,10 @@
 /datum/xeno_caste/defender
 
+	evolves_to = list(
+		/mob/living/carbon/xenomorph/warrior,
+		/mob/living/carbon/xenomorph/bull,
+	)
+
 	deevolves_to = /mob/living/carbon/xenomorph/larva
 
 	// *** Flags *** //
