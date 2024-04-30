@@ -189,8 +189,8 @@
 		new /obj/item/clothing/mask/cigarette/kelo(src)
 	for(var/i in 1 to 5)
 		new /obj/item/clothing/mask/cigarette/tram(src)
-	for(var/i in 1 to 5)
-		new /obj/item/clothing/mask/cigarette/antitox(src)
+//	for(var/i in 1 to 5)
+//		new /obj/item/clothing/mask/cigarette/antitox(src)
 
 	new /obj/item/clothing/mask/cigarette/emergency(src)
 	new /obj/item/tool/lighter(src)

@@ -160,6 +160,8 @@
 /obj/item/attachable/motiondetector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
 		return
+	if(!target) // RUTGMC ADDITION
+		return
 	if(status == MOTION_DETECTOR_HOSTILE)
 		hostile_detected = TRUE
 

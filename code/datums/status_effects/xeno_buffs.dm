@@ -826,7 +826,7 @@
 	scale = 0.6
 	rotation = 0
 	spin = 0
-
+/* RU TGMC EDIT
 // ***************************************
 // *********** Blessings
 // ***************************************
@@ -902,3 +902,4 @@
 	buff_owner.soft_armor = buff_owner.soft_armor.detachArmor(armor_modifier)
 	armor_modifier = null
 	return ..()
+RU TGMC EDIT */

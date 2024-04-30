@@ -123,7 +123,6 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_LEDSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
-	/obj/item/storage/backpack/marine/satchel/scout_cloak/scout = list(CAT_LEDSUP, "Scout Cloak", 25, "yellow"),
 	/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
 	/obj/structure/closet/bodybag/tarp = list(CAT_LEDSUP, "V1 thermal-dampening tarp", 2, "yellow"),
 	/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_LEDSUP, "FL-84 flamethrower", 6, "red"),

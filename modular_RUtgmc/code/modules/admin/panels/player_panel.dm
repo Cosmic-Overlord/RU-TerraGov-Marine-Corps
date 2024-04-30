@@ -109,7 +109,7 @@
 		<a href='?src=[ref];transform=combat_robot;mob=[REF(M)]'>Combat_Robot</a> |
 		<a href='?src=[ref];transform=monkey;mob=[REF(M)]'>Monkey</a> |
 		<a href='?src=[ref];transform=moth;mob=[REF(M)]'>Moth</a> |
-		<a href='?src=[ref];transform=zombie;mob=[REF(M)]'>Zombie</a> |
+		<a href='?src=[ref];transform=zombie;mob=[REF(M)]'>Zombie</a>
 		<br> Alien Tier 0:
 		<a href='?src=[ref];transform=larva;mob=[REF(M)]'>Larva</a> |
 		<a href='?src=[ref];transform=facehugger;mob=[REF(M)]'>Facehugger</a>
@@ -117,7 +117,7 @@
 		<a href='?src=[ref];transform=runner;mob=[REF(M)]'>Runner</a> |
 		<a href='?src=[ref];transform=drone;mob=[REF(M)]'>Drone</a> |
 		<a href='?src=[ref];transform=sentinel;mob=[REF(M)]'>Sentinel</a> |
-		<a href='?src=[ref];transform=defender;mob=[REF(M)]'>Defender</a> |
+		<a href='?src=[ref];transform=defender;mob=[REF(M)]'>Defender</a>
 		<br> Alien Tier 2:
 		<a href='?src=[ref];transform=hunter;mob=[REF(M)]'>Hunter</a> |
 		<a href='?src=[ref];transform=panther;mob=[REF(M)]'>Panther</a> |
@@ -125,8 +125,7 @@
 		<a href='?src=[ref];transform=warrior;mob=[REF(M)]'>Warrior</a> |
 		<a href='?src=[ref];transform=spitter;mob=[REF(M)]'>Spitter</a> |
 		<a href='?src=[ref];transform=hivelord;mob=[REF(M)]'>Hivelord</a> |
-		<a href='?src=[ref];transform=carrier;mob=[REF(M)]'>Carrier</a> |
-		<a href='?src=[ref];transform=puppeteer;mob=[REF(M)]'>Puppeteer</a> |
+		<a href='?src=[ref];transform=carrier;mob=[REF(M)]'>Carrier</a>
 		<br> Alien Tier 3:
 		<a href='?src=[ref];transform=ravager;mob=[REF(M)]'>Ravager</a> |
 		<a href='?src=[ref];transform=praetorian;mob=[REF(M)]'>Praetorian</a> |
@@ -136,12 +135,12 @@
 		<a href='?src=[ref];transform=gorger;mob=[REF(M)]'>Gorger</a> |
 		<a href='?src=[ref];transform=warlock;mob=[REF(M)]'>Warlock</a> |
 		<a href='?src=[ref];transform=behemoth;mob=[REF(M)]'>Behemoth</a> |
-		<a href='?src=[ref];transform=chimera;mob=[REF(M)]'>Chimera</a> |
+		<a href='?src=[ref];transform=chimera;mob=[REF(M)]'>Chimera</a>
 		<br> Alien Tier 4:
 		<a href='?src=[ref];transform=queen;mob=[REF(M)]'>Queen</a> |
 		<a href='?src=[ref];transform=shrike;mob=[REF(M)]'>Shrike</a> |
 		<a href='?src=[ref];transform=hivemind;mob=[REF(M)]'>Hivemind</a> |
-		<a href='?src=[ref];transform=king;mob=[REF(M)]'>King</a> |
+		<a href='?src=[ref];transform=king;mob=[REF(M)]'>King</a>
 		<br>
 	"}
 
