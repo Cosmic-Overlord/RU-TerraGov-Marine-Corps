@@ -13,7 +13,7 @@
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, weak_impact_range, flash_range, flame_range)
 
 	var/falloff = power / max_range
-	cell_explosion(epicenter, power, falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, max_range, direction, silent, null, adminlog)
+	cell_explosion(epicenter, power, falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, max_range, direction, color, silent, TRUE, adminlog)
 
 	if(flame_range)
 		flame_radius(flame_range, epicenter, colour = flame_color)
