@@ -13,3 +13,14 @@
 			"ckey" = ckey,
 			"minutes" = stat)))
 	prefs.exp[EXP_TYPE_FACEHUGGER_STAT] += stat
+
+/get_exp_format(expnum)
+	if(expnum > 60)
+		if(round(expnum % 60) > 0) // if we have 0m we simply don't add it
+			return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
+		else
+			return num2text(round(expnum / 60))
+	else if(expnum > 0)
+		return num2text(expnum) + "m"
+	else
+		return "0h"
