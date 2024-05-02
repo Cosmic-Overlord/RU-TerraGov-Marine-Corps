@@ -18,6 +18,7 @@
 	if(expnum > 60)
 		if(round(expnum % 60) > 0) // if we have 0m we simply don't add it
 			return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
+			testing("[expnum], [expnum % 60], [round(expnum % 60)]")
 		else
 			return num2text(round(expnum / 60))
 	else if(expnum > 0)
