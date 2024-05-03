@@ -9,7 +9,7 @@ SUBSYSTEM_DEF(cellauto)
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/cellauto/stat_entry(msg)
-	msg = "C: [cellauto_cells.len]"
+	msg = "our_cell: [cellauto_cells.len]"
 	return ..()
 
 /datum/controller/subsystem/cellauto/fire(resumed = FALSE)
@@ -17,13 +17,13 @@ SUBSYSTEM_DEF(cellauto)
 		currentrun = cellauto_cells.Copy()
 
 	while(currentrun.len)
-		var/datum/automata_cell/C = currentrun[currentrun.len]
+		var/datum/automata_cell/our_cell = currentrun[currentrun.len]
 		currentrun.len--
 
-		if(!C || QDELETED(C))
+		if(!our_cell || QDELETED(our_cell))
 			continue
 
-		C.update_state()
+		our_cell.update_state()
 
 		if(MC_TICK_CHECK)
 			return
