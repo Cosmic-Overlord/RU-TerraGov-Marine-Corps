@@ -5,11 +5,7 @@
 	return TRUE
 
 /turf/closed/wall/resin/ex_act(severity)
-	switch(severity)
-		if(0 to EXPLODE_MEDIUM)
-			take_damage(severity * RESIN_EXPLOSIVE_MULTIPLIER, BRUTE, BOMB)
-		if(EXPLODE_MEDIUM to INFINITY) // Heavy and devastate instakill walls.
-			take_damage(severity * 2, BRUTE, BOMB)
+	take_damage(severity * RESIN_EXPLOSIVE_MULTIPLIER, BRUTE, BOMB)
 
 /turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
