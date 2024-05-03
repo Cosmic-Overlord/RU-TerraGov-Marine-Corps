@@ -164,7 +164,6 @@
 #include "code\game\turfs\walls\wall_types.dm"
 #include "code\game\turfs\walls\walls.dm"
 #include "code\modules\admin\admin_verbs.dm"
-#include "code\modules\admin\debug_verbs.dm"
 #include "code\modules\admin\fun_verbs.dm"
 #include "code\modules\admin\holder.dm"
 #include "code\modules\admin\panels\player_panel.dm"
