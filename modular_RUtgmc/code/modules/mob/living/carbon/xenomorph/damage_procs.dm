@@ -27,5 +27,5 @@
 		Knockdown(powerfactor_value / 5)
 	else
 		explosion_throw(severity, direction)
-	add_slowdown(powerfactor_value / 5)
-	adjust_stagger(powerfactor_value / 5)
+	set_slowdown(powerfactor_value) // change it to adjust versions, because currently explosions hit twice
+	Stagger(powerfactor_value)
