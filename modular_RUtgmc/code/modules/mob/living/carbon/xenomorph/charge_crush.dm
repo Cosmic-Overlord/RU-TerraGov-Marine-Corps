@@ -78,8 +78,8 @@
 		if(iswallturf(crushed_turf))
 			var/turf/closed/wall/crushed_wall = crushed_turf
 			crushed_wall.take_damage(precrush, BRUTE, MELEE)
-		else // Я не помню как это сделать по-красивому, но это лучше цикла switch для одной функции
-			crushed_turf.ex_act(precrush * rand(50, 100)) // a lot of rng
+		else
+			crushed_turf.ex_act(precrush * rand(50, 100))
 		if(QDELETED(crushed_turf))
 			charger.visible_message(span_danger("[charger] plows straight through [preserved_name]!"),
 			span_xenowarning("We plow straight through [preserved_name]!"))
