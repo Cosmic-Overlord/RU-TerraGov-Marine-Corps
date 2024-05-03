@@ -3,7 +3,6 @@
 	Cell death is just the cell being deleted.
 	So if you want a cell to die, just qdel it.
 */
-
 /datum/automata_cell
 	// Which turf is the cell contained in
 	var/turf/in_turf = null
@@ -11,27 +10,26 @@
 	// This affects what neighbors you'll get passed in update_state()
 	var/neighbor_type = NEIGHBORS_CARDINAL
 
-/datum/automata_cell/New(turf/T)
+/datum/automata_cell/New(turf/our_turf)
 	..()
 
-	if(!istype(T))
+	if(!istype(our_turf))
 		qdel(src)
 		return
 
 	// Attempt to merge the two cells if they end up in the same turf
-	var/datum/automata_cell/C = T.get_cell(type)
-	if(C && merge(C))
+	var/datum/automata_cell/our_cell = our_turf.get_cell(type)
+	if(our_cell && merge(our_cell))
 		qdel(src)
 		return
 
-	in_turf = T
+	in_turf = our_turf
 	LAZYADD(in_turf.autocells, src)
 	cellauto_cells += src
 	birth()
 
 /datum/automata_cell/Destroy()
 	. = ..()
-
 	if(!QDELETED(in_turf))
 		LAZYREMOVE(in_turf.autocells, src)
 		in_turf = null
@@ -74,22 +72,22 @@
 	// Get cardinal neighbors
 	if(neighbor_type & NEIGHBORS_CARDINAL)
 		for(var/dir in GLOB.cardinals)
-			var/turf/T = get_step(in_turf, dir)
-			if(QDELETED(T))
+			var/turf/our_turf = get_step(in_turf, dir)
+			if(QDELETED(our_turf))
 				continue
 			// Only add neighboring cells of the same type
-			for(var/datum/automata_cell/C in T.autocells)
-				if(istype(C, type))
-					neighbors += C
+			for(var/datum/automata_cell/our_cell in our_turf.autocells)
+				if(istype(our_cell, type))
+					neighbors += our_cell
 	// Get ordinal/diagonal neighbors
 	if(neighbor_type & NEIGHBORS_ORDINAL)
 		for(var/dir in GLOB.diagonals)
-			var/turf/T = get_step(in_turf, dir)
-			if(QDELETED(T))
+			var/turf/our_turf = get_step(in_turf, dir)
+			if(QDELETED(our_turf))
 				continue
-			for(var/datum/automata_cell/C in T.autocells)
-				if(istype(C, type))
-					neighbors += C
+			for(var/datum/automata_cell/our_cell in our_turf.autocells)
+				if(istype(our_cell, type))
+					neighbors += our_cell
 	return neighbors
 
 // Create a new cell in the given direction
@@ -99,13 +97,13 @@
 	if(!dir)
 		return
 
-	var/turf/T = get_step(in_turf, dir)
-	if(QDELETED(T))
+	var/turf/our_turf = get_step(in_turf, dir)
+	if(QDELETED(our_turf))
 		return
 
 	// Create the new cell
-	var/datum/automata_cell/C = new type(T)
-	return C
+	var/datum/automata_cell/our_cell = new type(our_turf)
+	return our_cell
 
 // Update the state of this cell
 /datum/automata_cell/proc/update_state(list/turf/neighbors)
