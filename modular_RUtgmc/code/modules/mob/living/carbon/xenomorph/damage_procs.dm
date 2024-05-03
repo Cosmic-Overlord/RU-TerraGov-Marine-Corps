@@ -23,8 +23,8 @@
 	if(mob_size > MOB_SIZE_XENO) // No idea what am i doing
 		powerfactor_value /= 3
 
-	if(powerfactor_value > 3)
-		Knockdown(powerfactor_value / 3)
+	if(powerfactor_value >= 2)
+		Knockdown(powerfactor_value / 2)
 	else
 		explosion_throw(severity, direction)
 	adjust_slowdown(powerfactor_value / 2)
