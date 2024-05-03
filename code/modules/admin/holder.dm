@@ -400,7 +400,7 @@ GLOBAL_PROTECT(admin_verbs_varedit)
 	/datum/admins/proc/force_distress,
 	/datum/admins/proc/object_sound,
 	/datum/admins/proc/drop_bomb,
-	///datum/admins/proc/drop_dynex_bomb, // RUTGMC REMOVAL, explosions
+	///datum/admins/proc/drop_dynex_bomb, // RUTGMC REMOVAL
 	/datum/admins/proc/change_security_level,
 	/datum/admins/proc/edit_appearance,
 	/datum/admins/proc/offer,
@@ -422,7 +422,7 @@ GLOBAL_PROTECT(admin_verbs_varedit)
 	/datum/admins/proc/map_template_upload,
 	/datum/admins/proc/spatial_agent,
 	/datum/admins/proc/set_xeno_stat_buffs,
-	/datum/admins/proc/check_bomb_impacts,
+	///datum/admins/proc/check_bomb_impacts, // RUTGMC REMOVAL
 	/datum/admins/proc/adjust_gravity,
 	)
 //GLOBAL_LIST_INIT(admin_verbs_fun, world.AVfun()) //moved to modular
