@@ -1,25 +1,17 @@
 /obj/machinery/bodyscanner/ex_act(severity)
+	var/probability
 	switch(severity)
 		if(0 to EXPLODE_LIGHT)
-			if(!prob(75))
-				return
-			for(var/atom/movable/our_atom as mob|obj in src)
-				our_atom.loc = src.loc
-				ex_act(severity)
-			qdel(src)
+			probability = 25
 		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-			if (prob(50))
-				for(var/atom/movable/our_atom as mob|obj in src)
-					our_atom.loc = src.loc
-					ex_act(severity)
-				qdel(src)
-				return
+			probability = 50
 		if(EXPLODE_HEAVY to INFINITY)
-			for(var/atom/movable/our_atom as mob|obj in src)
-				our_atom.loc = src.loc
-				ex_act(severity)
-			qdel(src)
-			return
+			probability = 100
+	if(prob(probability))
+		for(var/atom/movable/our_atom as mob|obj in src)
+			our_atom.loc = src.loc
+			ex_act(severity)
+		qdel(src)
 
 /obj/machinery/computer/body_scanconsole/ex_act(severity)
 	switch(severity)
