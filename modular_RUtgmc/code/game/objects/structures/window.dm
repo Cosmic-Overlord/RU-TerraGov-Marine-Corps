@@ -1,12 +1,11 @@
-/obj/structure/window/ex_act(severity, explosion_direction)
-	var/damage = severity * EXPLOSION_DAMAGE_MULTIPLIER_WINDOW
-	take_damage(damage, BRUTE, BOMB)
-	if(damage >= 2000)
-		//var/location = get_turf(src)// Until either Lumi's proj changes apply or i can figure out why those runtime
-		playsound(src, "windowshatter", 50, 1)
-		//create_shrapnel(location, rand(1, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
+/obj/structure/window/ex_act(severity, direction)
+	take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WINDOW, BRUTE, BOMB, attack_dir = direction)
+	handle_debris(severity, direction)
 
-	handle_debris(severity, explosion_direction)
+/obj/structure/window/on_explosion_destruction(severity, direction)
+	if(severity >= 2000)
+		playsound(src, "windowshatter", 50, 1)
+		create_shrapnel(loc, rand(1, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
 
 /obj/structure/window/get_explosion_resistance(direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
