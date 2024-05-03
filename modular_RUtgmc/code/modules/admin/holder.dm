@@ -62,7 +62,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 GLOBAL_LIST_INIT(admin_verbs_debug, world.AVdebug())
 GLOBAL_PROTECT(admin_verbs_debug)
 
-/world/AVfun()
+/world/proc/AVfun()
 	return list(
 	/datum/admins/proc/rank_and_equipment,
 	/datum/admins/proc/set_view_range,
