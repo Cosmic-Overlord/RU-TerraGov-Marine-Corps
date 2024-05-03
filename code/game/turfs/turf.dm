@@ -200,8 +200,8 @@
 			M.inertia_dir = 0
 //RUTGMC ADDITION - Explosions
 	// Let explosions know that the atom entered
-	for(var/datum/automata_cell/explosion/E in autocells)
-		E.on_turf_entered(arrived)
+	for(var/datum/automata_cell/explosion/our_explosion in autocells)
+		our_explosion.on_turf_entered(arrived)
 //RUTGMC ADDITION END
 	..()
 
