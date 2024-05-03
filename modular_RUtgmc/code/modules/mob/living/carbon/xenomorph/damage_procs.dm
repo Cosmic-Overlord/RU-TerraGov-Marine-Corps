@@ -11,22 +11,23 @@
 	if(severity >= (health) && severity >= EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB))
 		var/oldloc = loc
 		gib()
-		create_shrapnel(oldloc, rand(16, 24), shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
+		create_shrapnel(oldloc, rand(16, 24), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
 
 	if(severity >= 0)
 		apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 		adjust_sunder(sunder_amount, 0, 50)
 
-	var/powerfactor_value = round(severity * 0.05, 1)
-	powerfactor_value = min(powerfactor_value, 20)
+	var/powerfactor_value = min(round(severity * 0.05, 1), 20) // 200 will be 10, 300 = 15 and 100 = 5
 	if(mob_size < MOB_SIZE_BIG)
 		powerfactor_value = powerfactor_value / 3
-	if(powerfactor_value > 0)
-		add_slowdown(powerfactor_value)
-		adjust_stagger(powerfactor_value)
+
+	if(powerfactor_value <= 0)
+		return
+
+	if(powerfactor_value > 12)
+		Knockdown(powerfactor_value / 5)
+	else
 		explosion_throw(severity, direction)
-	else if(powerfactor_value > 10)
-		powerfactor_value /= 5
-		add_slowdown(powerfactor_value)
-		adjust_stagger(powerfactor_value)
+	add_slowdown(powerfactor_value / 5)
+	adjust_stagger(powerfactor_value / 5)
