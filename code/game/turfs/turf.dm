@@ -198,11 +198,10 @@
 
 		if(!isspaceturf(src))
 			M.inertia_dir = 0
-//RUTGMC ADDITION - Explosions
-	// Let explosions know that the atom entered
-	for(var/datum/automata_cell/explosion/our_explosion in autocells)
-		our_explosion.on_turf_entered(arrived)
-//RUTGMC ADDITION END
+	for(var/datum/automata_cell/explosion/our_explosion in autocells) //RUTGMC ADDITION START - Let explosions know that the atom entered
+		if(!istype(arrived))
+			break
+		our_explosion.on_turf_entered(arrived) //RUTGMC ADDITION END
 	..()
 
 /turf/effect_smoke(obj/effect/particle_effect/smoke/S)
