@@ -146,7 +146,6 @@
 #include "code\game\objects\structures\reagent_dispensers.dm"
 #include "code\game\objects\structures\rocks.dm"
 #include "code\game\objects\structures\signs.dm"
-#include "code\game\objects\structures\structures.dm"
 #include "code\game\objects\structures\tables_racks.dm"
 #include "code\game\objects\structures\window_frame.dm"
 #include "code\game\objects\structures\window.dm"
