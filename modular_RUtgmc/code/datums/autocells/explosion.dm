@@ -295,12 +295,6 @@ as having entered the turf.
 	our_explosion.falloff_shape = falloff_shape
 	our_explosion.direction = direction
 
-	// powerful explosions send out some special effects
-	if(power >= 100 && shrapnel)
-		epicenter = get_turf(epicenter)
-		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver1)
-		create_shrapnel(epicenter, rand(5, 9), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver2)
-
 /obj/effect/particle_effect/shockwave
 	name = "shockwave"
 	icon = 'icons/effects/effects.dmi'

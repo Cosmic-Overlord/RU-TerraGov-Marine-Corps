@@ -73,12 +73,6 @@ explosion resistance exactly as much as their health
 
 	epicenter.explosion_spread(src, power, null)
 
-	if(power >= 100) // powerful explosions send out some special effects
-		epicenter = get_turf(epicenter) // the ex_acts might have changed the epicenter
-		create_shrapnel(epicenter, rand(5, 9), shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver1)
-		sleep(0.1 SECONDS)
-		create_shrapnel(epicenter, rand(5, 9), shrapnel_type = /datum/ammo/bullet/shrapnel/light/effect/ver2)
-
 	spawn(2) //just in case something goes wrong
 		if(explosion_in_progress)
 			explosion_damage()

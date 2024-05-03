@@ -314,7 +314,7 @@
 	damage = 25
 	damage_falloff = 8
 	penetration = 0
-	shell_speed = 2.5
+	shell_speed = 3
 	shrapnel_chance = 5
 
 /datum/ammo/bullet/shrapnel/metal
@@ -331,7 +331,7 @@
 	icon_state = "shrapnel_light"
 	damage = 10
 	penetration = 0
-	shell_speed = 1.5
+	shell_speed = 2
 	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/human
@@ -357,22 +357,12 @@
 	icon_state = "shrapnel_light"
 	damage = 10
 	penetration = 0
-	shell_speed = 1.5
+	shell_speed = 2
 	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/glass
 	name = "glass shrapnel"
 	icon_state = "shrapnel_glass"
-
-/datum/ammo/bullet/shrapnel/light/effect // no damage, but looks bright and neat
-	name = "sparks"
-	damage = 0 // Tickle tickle
-
-/datum/ammo/bullet/shrapnel/light/effect/ver1
-	icon_state = "shrapnel_bright1"
-
-/datum/ammo/bullet/shrapnel/light/effect/ver2
-	icon_state = "shrapnel_bright2"
 
 //////////////////////////////////////////////////
 ////////////////////Explosives////////////////////
