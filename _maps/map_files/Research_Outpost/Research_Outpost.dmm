@@ -4160,11 +4160,6 @@
 	dir = 8
 	},
 /area/outpost/caves/south)
-"tn" = (
-/obj/structure/window/framed/colony,
-/obj/structure/window/framed/colony,
-/turf/open/floor/tile/dark,
-/area/outpost/medbay/chemistry)
 "to" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -19060,7 +19055,7 @@ fe
 OR
 bR
 TX
-tn
+tr
 gr
 tr
 tr
