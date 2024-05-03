@@ -184,12 +184,10 @@
 	loc = loc_override
 	if(!isturf(loc))
 		//forceMove(get_turf(src)) // RUTGMC DELETION
-		var/move_turf // RUTGMC ADDITION START
-		if(is_shrapnel && source)
-			move_turf = get_turf(source)
-		else
-			move_turf = (get_turf(src))
-		forceMove(move_turf) //RUTGMC ADDITION END
+		if(!is_shrapnel) // RUTGMC ADDITION START
+			forceMove(get_turf(src))
+		else if(get_turf(source))
+			forceMove(get_turf(source)) //RUTGMC ADDITION END
 
 	starting_turf = loc
 
