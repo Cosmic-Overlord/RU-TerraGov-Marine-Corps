@@ -20,11 +20,11 @@
 	adjust_sunder(clamp(sunder_amount, 0, xeno_caste.sunder_max))
 
 	var/powerfactor_value = min(round(severity * 0.01, 1), 10) // 200 severity will be 5
-	if(mob_size > MOB_SIZE_BIG) // No idea what am i doing
+	if(mob_size > MOB_SIZE_XENO) // No idea what am i doing
 		powerfactor_value /= 3
 
-	if(powerfactor_value > 5)
-		Knockdown(powerfactor_value / 5)
+	if(powerfactor_value > 3)
+		Knockdown(powerfactor_value / 3)
 	else
 		explosion_throw(severity, direction)
 	adjust_slowdown(powerfactor_value / 2)
