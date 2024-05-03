@@ -19,13 +19,13 @@
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 	adjust_sunder(clamp(sunder_amount, 0, xeno_caste.sunder_max))
 
-	var/powerfactor_value = min(round(severity * 0.05, 1), 20) // 200 will be 10, 300 = 15 and 100 = 5
-	if(mob_size < MOB_SIZE_BIG)
+	var/powerfactor_value = min(round(severity * 0.01, 1), 10) // 200 severity will be 5
+	if(mob_size > MOB_SIZE_BIG) // No idea what am i doing
 		powerfactor_value /= 3
 
-	if(powerfactor_value > 12)
+	if(powerfactor_value > 5)
 		Knockdown(powerfactor_value / 5)
 	else
 		explosion_throw(severity, direction)
-	set_slowdown(powerfactor_value) // change it to adjust versions, because currently explosions hit twice
-	Stagger(powerfactor_value)
+	adjust_slowdown(powerfactor_value / 2)
+	adjust_stagger(powerfactor_value / 2)
