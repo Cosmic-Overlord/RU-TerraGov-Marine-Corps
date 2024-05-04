@@ -22,8 +22,8 @@
 	playsound(src.loc, 'sound/weapons/ring.ogg', 200, FALSE)
 	boom = TRUE
 	if(det_mode == TRUE) //If we're on demolition mode, big boom.
-		cell_explosion(plant_target, 315, 55, shrapnel = FALSE)
+		cell_explosion(plant_target, 315, 55)
 	else //if we're not, focused boom.
-		cell_explosion(plant_target, 315, 55, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL, shrapnel = FALSE)
+		cell_explosion(plant_target, 450, 200, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL)
 	plant_target.plastique_act()
 	qdel(src)
