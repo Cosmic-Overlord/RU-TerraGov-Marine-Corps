@@ -17,7 +17,7 @@
 /obj/structure/machinery/door/airlock/get_explosion_resistance()
 	if(density)
 		if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-			return 100000
+			return 10000
 		else
 			return (max_integrity - (max_integrity - obj_integrity)) / EXPLOSION_DAMAGE_MULTIPLIER_DOOR
 	else

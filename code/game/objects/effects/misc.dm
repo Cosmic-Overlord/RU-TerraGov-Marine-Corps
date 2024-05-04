@@ -72,7 +72,7 @@
 		icon_state = ""
 
 /obj/effect/forcefield/get_explosion_resistance() // RUTGMC ADDITION
-	return 1000000
+	return 10000
 
 /obj/effect/forcefield/fog
 	name = "dense fog"

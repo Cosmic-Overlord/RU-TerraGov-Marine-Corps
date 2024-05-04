@@ -15,7 +15,7 @@
 
 /turf/closed/wall/get_explosion_resistance()
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-		return 1000000
+		return 10000
 	return (max_integrity - (max_integrity - wall_integrity)) / EXPLOSION_DAMAGE_MULTIPLIER_WALL
 
 /turf/closed/wall/plastique_act()
