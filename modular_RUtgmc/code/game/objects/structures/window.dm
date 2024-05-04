@@ -3,9 +3,11 @@
 	handle_debris(severity, direction)
 
 /obj/structure/window/on_explosion_destruction(severity, direction)
-	if(severity >= 2000)
-		playsound(src, "windowshatter", 50, 1)
-		create_shrapnel(loc, rand(1, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
+	if(severity < 2000)
+		return
+
+	playsound(src, "windowshatter", 50, 1)
+	create_shrapnel(loc, rand(1, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/glass)
 
 /obj/structure/window/get_explosion_resistance(direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
