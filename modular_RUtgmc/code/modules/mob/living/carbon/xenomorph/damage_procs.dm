@@ -4,9 +4,6 @@
 	if(status_flags & (INCORPOREAL|GODMODE))
 		return
 
-	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
-	var/sunder_amount = severity * bomb_armor_ratio / 8
-
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
@@ -15,6 +12,8 @@
 		gib()
 		create_shrapnel(oldloc, rand(16, 24), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
+
+	var/sunder_amount = severity * modify_by_armor(1, BOMB) / 8
 
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 	adjust_sunder(clamp(sunder_amount, 0, xeno_caste.sunder_max))
