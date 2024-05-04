@@ -378,7 +378,7 @@
 	explosion(T, 0, 3, 5, 0, 2)
 
 /datum/ammo/rocket/heavy_isg/drop_nade(turf/T)
-	explosion(T, 0, 2, 4, 6)
+	cell_explosion(T, 700, 200) // dodge this
 
 /datum/ammo/rocket/recoilless/drop_nade(turf/T)
 	explosion(T, 0, 3, 3, 0, 2)
