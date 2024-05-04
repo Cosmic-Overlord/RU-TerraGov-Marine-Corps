@@ -8,6 +8,7 @@
 
 /obj/item/weapon/gun/grenade_launcher/underslung
 	max_shells = 1 //codex
+	max_chamber_items = 0
 
 /obj/item/weapon/gun/grenade_launcher/underslung/elite
 	default_ammo_type = /obj/item/explosive/grenade/impact
