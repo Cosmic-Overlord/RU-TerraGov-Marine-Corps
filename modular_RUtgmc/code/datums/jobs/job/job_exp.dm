@@ -14,7 +14,7 @@
 			"minutes" = stat)))
 	prefs.exp[EXP_TYPE_FACEHUGGER_STAT] += stat
 
-proc/get_exp_format(expnum)
+/proc/get_exp_format(expnum)
 	if(expnum > 60)
 		if(round(expnum % 60) > 0)
 			return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
