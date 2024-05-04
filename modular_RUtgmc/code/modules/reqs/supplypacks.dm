@@ -145,6 +145,10 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
 	cost = 500
 
+/datum/supply_packs/weapons/multinade_launcher
+	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
+	cost = 500
+
 /*******************************************************************************
 EXPLOSIVES
 *******************************************************************************/

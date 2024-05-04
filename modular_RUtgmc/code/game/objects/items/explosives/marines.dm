@@ -6,6 +6,12 @@
 	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
 	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
 
+/obj/item/explosive/grenade/sticky/prime()
+	if(stuck_to)
+		clean_refs()
+	cell_explosion(loc, 90, 40)
+	qdel(src)
+
 /obj/item/explosive/grenade/sticky
 	icon_state_mini = "grenade_sticky"
 	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
@@ -62,3 +68,12 @@
 	upper_fuel_limit = 750 // 750 * 2 (ticks) / 60 (seconds) = 25 minutes
 	G_hit_sound = null
 	G_throw_sound = null
+
+/obj/item/explosive/grenade/m15/prime()
+	cell_explosion(loc, 125, 40)
+	//create_shrapnel(loc, 15, shrapnel_spread = 30)
+	qdel(src)
+
+/obj/item/explosive/grenade/impact/prime()
+	cell_explosion(loc, 80, 30)
+	qdel(src)
