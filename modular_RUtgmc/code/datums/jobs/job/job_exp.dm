@@ -16,7 +16,7 @@
 
 /get_exp_format(expnum)
 	if(expnum > 60)
-		if(expnum % 60 <= 0) // if we have 0m we simply don't add it
+		if((expnum % 60 - expnum / 60) <= 0) // if we have 0m we simply don't add it
 			return num2text(round(expnum / 60))
 		else
 			return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
