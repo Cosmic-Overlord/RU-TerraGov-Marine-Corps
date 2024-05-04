@@ -2,15 +2,12 @@
 	if(status_flags & GODMODE)
 		return
 
+	if(severity <= 0)
+		return
+
 	if(lying_angle)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
-	var/stagger_amount = 0
-	var/slowdown_amount = 0
-	var/ear_damage_amount = 0
-	var/obj/item/active_item = get_active_held_item()
-	var/obj/item/inactive_item = get_inactive_held_item()
-	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
 	if(severity >= EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB))
 		var/oldloc = loc
 		gib()
@@ -19,8 +16,12 @@
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
 		return
 
-	if(severity <= 0)
-		return
+	var/stagger_amount = 0
+	var/slowdown_amount = 0
+	var/ear_damage_amount = 0
+	var/obj/item/active_item = get_active_held_item()
+	var/obj/item/inactive_item = get_inactive_held_item()
+	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
 
 	if(active_item && isturf(active_item.loc))
 		active_item.explosion_throw(severity, direction)
