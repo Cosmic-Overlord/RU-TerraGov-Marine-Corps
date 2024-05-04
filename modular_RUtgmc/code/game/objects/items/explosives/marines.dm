@@ -71,7 +71,7 @@
 
 /obj/item/explosive/grenade/m15/prime()
 	cell_explosion(loc, 125, 40)
-	//create_shrapnel(loc, 15, shrapnel_spread = 30)
+	create_shrapnel(loc, 15, shrapnel_spread = 30)
 	qdel(src)
 
 /obj/item/explosive/grenade/impact/prime()
