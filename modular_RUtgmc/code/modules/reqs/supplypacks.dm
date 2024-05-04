@@ -145,7 +145,13 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
 	cost = 500
 
+/datum/supply_packs/weapons/singleshot_launcher
+	name = "GL-81 grenade launcher"
+	contains = list(/obj/item/weapon/gun/grenade_launcher/single_shot)
+	cost = 200
+
 /datum/supply_packs/weapons/multinade_launcher
+	name = "GL-70 grenade launcher"
 	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
 	cost = 500
 
