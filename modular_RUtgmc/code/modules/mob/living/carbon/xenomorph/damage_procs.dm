@@ -19,7 +19,7 @@
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 	adjust_sunder(clamp(sunder_amount, 0, xeno_caste.sunder_max))
 
-	var/powerfactor_value = round( damage * 0.05, 1)
+	var/powerfactor_value = round(severity * 0.05, 1)
 	powerfactor_value = min(powerfactor_value, 20)
 	if(powerfactor_value > 10)
 		powerfactor_value /= 5
