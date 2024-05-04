@@ -148,12 +148,12 @@ WEAPONS
 /datum/supply_packs/weapons/singleshot_launcher
 	name = "GL-81 grenade launcher"
 	contains = list(/obj/item/weapon/gun/grenade_launcher/single_shot)
-	cost = 200
+	cost = 150
 
 /datum/supply_packs/weapons/multinade_launcher
 	name = "GL-70 grenade launcher"
 	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
-	cost = 500
+	cost = 450
 
 /*******************************************************************************
 EXPLOSIVES
