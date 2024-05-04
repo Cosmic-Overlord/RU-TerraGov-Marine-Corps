@@ -1,6 +1,7 @@
 /mob/living/carbon/xenomorph/ex_act(severity, direction)
 	if(severity <= 0)
 		return
+
 	if(status_flags & (INCORPOREAL|GODMODE))
 		return
 
@@ -18,13 +19,21 @@
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 	adjust_sunder(clamp(sunder_amount, 0, xeno_caste.sunder_max))
 
-	var/powerfactor_value = min(round(severity * 0.01, 1), 10) // 200 severity will be 5
-	if(mob_size > MOB_SIZE_XENO) // No idea what am i doing
-		powerfactor_value /= 3
-
-	if(powerfactor_value >= 2)
-		Knockdown(powerfactor_value / 2)
-	else
+	var/powerfactor_value = round( damage * 0.05, 1)
+	powerfactor_value = min(powerfactor_value, 20)
+	if(powerfactor_value > 10)
+		powerfactor_value /= 5
+		Knockdown(powerfactor_value / 5)
+		if(mob_size < MOB_SIZE_BIG)
+			adjust_slowdown(powerfactor_value)
+			adjust_stagger(powerfactor_value / 2)
+		else
+			adjust_slowdown(powerfactor_value / 3)
+	else if(powerfactor_value > 0)
+		Knockdown(powerfactor_value / 5)
+		if(mob_size < MOB_SIZE_BIG)
+			adjust_slowdown(powerfactor_value)
+			adjust_stagger(powerfactor_value / 2)
+		else
+			adjust_slowdown(powerfactor_value / 3)
 		explosion_throw(severity, direction)
-	adjust_slowdown(powerfactor_value / 2)
-	adjust_stagger(powerfactor_value / 2)
