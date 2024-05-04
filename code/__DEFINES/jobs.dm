@@ -144,7 +144,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 
 
 #define XP_REQ_UNSEASONED 600 //RuTGMC Edit 60
-#define XP_REQ_INTERMEDIATE 1250 //RuTGMC Edit 180
+#define XP_REQ_INTERMEDIATE 1200 //RuTGMC Edit 180
 #define XP_REQ_EXPERIENCED 2400 //RuTGMC Edit 600
 #define XP_REQ_EXPERT 3600 //RuTGMC Edit 900
 
