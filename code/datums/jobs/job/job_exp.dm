@@ -146,6 +146,7 @@ GLOBAL_PROTECT(exp_to_update)
 	return pure_numeric ? exp_living : get_exp_format(exp_living)
 
 
+/* RUTGMC DELETION
 /proc/get_exp_format(expnum)
 	if(expnum > 60)
 		return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
@@ -153,6 +154,7 @@ GLOBAL_PROTECT(exp_to_update)
 		return num2text(expnum) + "m"
 	else
 		return "0h"
+*/
 
 
 /proc/update_exp(mins, ann = FALSE)
