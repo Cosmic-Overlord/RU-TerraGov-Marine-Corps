@@ -25,7 +25,7 @@
 		powerfactor_value /= 5
 		Knockdown(powerfactor_value / 5)
 		if(mob_size < MOB_SIZE_BIG)
-			adjust_slowdown(powerfactor_value)
+			adjust_slowdown(powerfactor_value / 2)
 			adjust_stagger(powerfactor_value / 2)
 		else
 			adjust_slowdown(powerfactor_value / 3)
