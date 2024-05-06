@@ -133,14 +133,10 @@
 			OBShell.flame_duration = tgui_input_number(src, "How long should the fire last?", "Set fire duration", 40)
 			if(isnull(OBShell.flame_duration))
 				return
-			var/list/fire_colors = list("red", "green", "blue", "custom")
+			var/list/fire_colors = list("red", "green", "blue")
 			OBShell.flame_colour = tgui_input_list(usr, "Select the fire color:", "Fire color", fire_colors, "blue")
 			if(isnull(OBShell.flame_colour))
 				return
-			if(OBShell.flame_colour == "custom")
-				OBShell.flame_colour = input(src, "Please select Fire color.", "Fire color") as color|null
-				if(isnull(OBShell.flame_colour))
-					return
 			OBShell.smoke_radius = tgui_input_number(src, "How far should the smoke go?", "Set smoke radius", 17)
 			if(isnull(OBShell.smoke_radius))
 				return
