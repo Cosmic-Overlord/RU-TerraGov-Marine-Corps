@@ -52,6 +52,6 @@
 
 /obj/structure/ship_ammo/railgun/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
-	cell_explosion(impact, 225, 75, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL, color = COLOR_CYAN, adminlog = FALSE)//no messaging admin, that'd spam them.
+	cell_explosion(impact, 200, 75, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL, color = COLOR_CYAN, adminlog = FALSE)//no messaging admin, that'd spam them.
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last railgun has fired and impacted the ground.
