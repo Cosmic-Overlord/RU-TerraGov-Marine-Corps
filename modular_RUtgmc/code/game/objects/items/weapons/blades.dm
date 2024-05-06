@@ -5,6 +5,10 @@
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
 	)
 
+/obj/item/weapon/combat_knife/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, additional_damage = 10)
+
 /obj/item/weapon/combat_knife/nkvd
 	name = "\improper Finka NKVD"
 	icon_state = "upp_knife"

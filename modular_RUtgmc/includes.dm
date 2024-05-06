@@ -79,6 +79,7 @@
 #include "code\game\objects\items\portable_vendor.dm"
 #include "code\game\objects\items\scanners.dm"
 #include "code\game\objects\items\shards.dm"
+#include "code\game\objects\items\devices\tweezers.dm"
 #include "code\game\objects\items\explosives\bombvest.dm"
 #include "code\game\objects\items\explosives\marines.dm"
 #include "code\game\objects\items\explosives\mine.dm"

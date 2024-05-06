@@ -5,13 +5,16 @@
 	var/do_after_time
 	///Fumble time for unskilled users
 	var/fumble_duration
+	///Additional damage for removing something with improvised tools
+	var/additional_damage
 
-/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time)
+/datum/element/shrapnel_removal/Attach(datum/target, duration, fumble_time, damage)
 	. = ..()
 	if(!isitem(target) || (duration < 1))
 		return ELEMENT_INCOMPATIBLE
 	do_after_time = duration
 	fumble_duration = fumble_time ? fumble_time : do_after_time
+	additional_damage = damage ? damage : 5
 	RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
 
 /datum/element/shrapnel_removal/Detach(datum/source, force)
@@ -70,8 +73,8 @@
 		I.unembed_ourself(FALSE)
 		if(skill < SKILL_MEDICAL_PRACTICED)
 			user.visible_message(span_notice("[user] violently rips out [I] from [target]!"), span_notice("You violently rip out [I] from [target]!"))
-			targetlimb.take_damage_limb(15 * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
+			targetlimb.take_damage_limb(5 + additional_damage * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
 		else
 			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
-			targetlimb.take_damage_limb(5, 0, FALSE, FALSE)
+			targetlimb.take_damage_limb(rand(5, 10), 0, FALSE, FALSE)
 		break
