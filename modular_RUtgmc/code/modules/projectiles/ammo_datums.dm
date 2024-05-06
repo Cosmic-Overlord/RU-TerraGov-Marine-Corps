@@ -315,14 +315,14 @@
 	damage_falloff = 8
 	penetration = 0
 	shell_speed = 3
-	shrapnel_chance = 5
+	shrapnel_chance = 15
 
 /datum/ammo/bullet/shrapnel/metal
 	name = "metal shrapnel"
 	icon_state = "shrapnelshot_bit"
 	shell_speed = 1.5
 	damage = 30
-	shrapnel_chance = 15
+	shrapnel_chance = 25
 	accuracy = 40
 	penetration = 0
 
