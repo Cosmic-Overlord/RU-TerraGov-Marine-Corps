@@ -7,7 +7,7 @@
 
 /obj/item/weapon/combat_knife/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, additional_damage = 10)
+	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 12 SECONDS, 10)
 
 /obj/item/weapon/combat_knife/nkvd
 	name = "\improper Finka NKVD"
