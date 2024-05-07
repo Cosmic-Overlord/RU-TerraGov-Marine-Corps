@@ -4,4 +4,4 @@
 
 ///Adjusts det time, used for grenade launchers
 /obj/item/explosive/grenade/launched_det_time()
-	det_time = min(15, det_time)
+	det_time = min(12, det_time)
