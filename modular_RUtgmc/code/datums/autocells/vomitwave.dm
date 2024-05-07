@@ -46,7 +46,7 @@
 
 /client/proc/spawn_wave()
 	set name = "Spawn Cellauto Wave"
-	set desc = "suck some ass ok"
+	set desc = "Example of how cellauto system can be used."
 	set category = "Debug"
 	var/turf/T = get_turf(mob)
 	new /datum/automata_cell/vomit_wave(T)
