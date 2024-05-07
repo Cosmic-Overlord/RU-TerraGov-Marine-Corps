@@ -71,9 +71,6 @@
 	if(icon_state == "blocker")
 		icon_state = ""
 
-/obj/effect/forcefield/get_explosion_resistance() // RUTGMC ADDITION
-	return 10000
-
 /obj/effect/forcefield/fog
 	name = "dense fog"
 	desc = "It looks way too dangerous to traverse. Best wait until it has cleared up."

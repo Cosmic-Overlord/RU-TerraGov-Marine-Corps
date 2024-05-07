@@ -64,6 +64,7 @@
 #include "code\game\objects\area\gelide_iv.dm"
 #include "code\game\objects\area\sulaco.dm"
 #include "code\game\objects\effects\aliens.dm"
+#include "code\game\objects\effects\misc.dm"
 #include "code\game\objects\effects\overlays.dm"
 #include "code\game\objects\effects\weeds.dm"
 #include "code\game\objects\effects\decals\turfdecals\markings.dm"
