@@ -575,7 +575,7 @@
 	if(R.category == CAT_HIDDEN && !extended_inventory)
 		return
 
-	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all in once with explosion
+	if(locate(/obj/structure/closet/crate) in loc) // RUTMGC ADDITION, hardcoded check to prevent stacking closed crates in vallhalla and opening them all at once with explosion
 		to_chat(user, span_warning("The floor is too cluttered, make some space."))
 		return
 
