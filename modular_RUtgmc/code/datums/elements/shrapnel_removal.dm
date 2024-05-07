@@ -76,5 +76,5 @@
 			targetlimb.take_damage_limb(5 + additional_damage * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)
 		else
 			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
-			targetlimb.take_damage_limb(5, 0, FALSE, FALSE)
+			targetlimb.take_damage_limb(rand(3, 7), 0, FALSE, FALSE)
 		break
