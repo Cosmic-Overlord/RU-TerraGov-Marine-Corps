@@ -60,9 +60,6 @@
 
 /atom/movable/screen/text/lobby/clickable/setup_character/Click()
 	. = ..()
-	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP) // RUTGMC ADDITION START
-		to_chat(src, span_warning("The game is still setting up, please try again later."))
-		return // RUTGMC ADDITION END
 	hud.mymob.client?.prefs.ShowChoices(hud.mymob)
 
 /atom/movable/screen/text/lobby/clickable/setup_character/update_text()
