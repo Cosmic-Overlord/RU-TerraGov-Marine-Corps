@@ -17,7 +17,3 @@
 
 	if(flame_range)
 		flame_radius(flame_range, epicenter, colour = flame_color)
-
-	if(flash_range)
-		for(var/mob/living/carbon/carbon_viewers in viewers(flash_range, epicenter))
-			carbon_viewers.flash_act()
