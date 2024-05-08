@@ -52,3 +52,6 @@
 
 ///mob/living signals
 #define COMSIG_HUMAN_DEATH_STAGE_CHANGE "human_death_stage_change"
+
+#define COMSIG_LIVING_PAIN_SLOWDOWN "living_health_stealth"
+	#define COMPONENT_NO_PAIN_SLOWDOWN (1<<0)

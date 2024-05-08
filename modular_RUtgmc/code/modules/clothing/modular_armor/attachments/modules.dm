@@ -201,3 +201,24 @@
 	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
 	blur_p?.RemoveComponent()
 	return ..()
+
+/**
+ * Servo Drive Systemodule
+ */
+/obj/item/armor_module/module/servo_drive_system
+	name = "\improper Servo Drive System"
+	desc = "A system of servos that increase the user's stability or speed"
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon_state = "mod_servo"
+	item_state = "mod_servo_a"
+	slowdown = 0
+	slot = ATTACHMENT_SLOT_MODULE
+
+/obj/item/armor_module/module/servo_drive_system/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.AddComponent(/datum/component/servo_drive)
+
+/obj/item/armor_module/module/servo_drive_system/on_detach(obj/item/detaching_from, mob/user)
+	var/datum/component/servo_drive/servo_drive = parent?.GetComponent(/datum/component/servo_drive)
+	servo_drive?.RemoveComponent()
+	return ..()

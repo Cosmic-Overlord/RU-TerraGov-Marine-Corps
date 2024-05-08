@@ -1,0 +1,13 @@
+/mob/living/carbon/adjust_pain_speed_mod(old_shock_stage)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_PAIN_SLOWDOWN) & COMPONENT_NO_PAIN_SLOWDOWN)
+		switch(shock_stage)
+			if(0 to 100)
+				remove_movespeed_modifier(MOVESPEED_ID_PAIN)
+			if(100 to 125)
+				add_movespeed_modifier(MOVESPEED_ID_PAIN, TRUE, 0, NONE, TRUE, 0.05)
+			if(125 to 150)
+				add_movespeed_modifier(MOVESPEED_ID_PAIN, TRUE, 0, NONE, TRUE, 0.10)
+			if(150 to INFINITY)
+				add_movespeed_modifier(MOVESPEED_ID_PAIN, TRUE, 0, NONE, TRUE, 0.15)
+		return
+	return ..()

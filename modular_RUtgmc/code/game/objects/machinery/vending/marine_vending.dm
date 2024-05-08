@@ -68,6 +68,7 @@
 			/obj/item/armor_module/module/ballistic_armor = -1,
 			/obj/item/armor_module/module/hod_head = -1,
 			/obj/item/armor_module/module/better_shoulder_lamp = -1,
+			/obj/item/armor_module/module/servo_drive_system = -1,
 			/obj/item/armor_module/module/chemsystem = -1,
 			/obj/item/armor_module/module/eshield = -1,
 		),

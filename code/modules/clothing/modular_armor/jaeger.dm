@@ -11,6 +11,7 @@
 
 	attachments_allowed = list(
 		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/servo_drive_system, //RUTGMC
 		/obj/item/armor_module/module/valkyrie_autodoc,
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/tyr_extra_armor,
