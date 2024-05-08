@@ -82,8 +82,6 @@
 		return
 	if(launched && active && !istype(hit_atom, /turf/open)) //Only contact det if active, we actually hit something, and we're fired from a grenade launcher.
 		cell_explosion(loc, 50, 25)
-		for(var/mob/living/carbon/carbon_viewers in viewers(2, loc))
-			carbon_viewers.flash_act()
 		qdel(src)
 
 /obj/item/explosive/grenade/smokebomb
