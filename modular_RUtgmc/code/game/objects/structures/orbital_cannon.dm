@@ -3,7 +3,6 @@
 	var/explosion_falloff = 90
 
 /obj/structure/ob_ammo/warhead/explosive/warhead_impact(turf/target, inaccuracy_amt = 0)
-	. = ..()
 	cell_explosion(target, explosion_power, explosion_falloff + (inaccuracy_amt * 10)) // inaccuracy adds up fallof in result range decreases
 
 /obj/structure/ob_ammo/warhead/incendiary
@@ -15,7 +14,6 @@
 	var/smoke_duration = 20
 
 /obj/structure/ob_ammo/warhead/incendiary/warhead_impact(turf/target, inaccuracy_amt = 0)
-	. = ..()
 	flame_range_num = max(15 - inaccuracy_amt, 12)
 	flame_radius(flame_range_num, target, flame_intensity, flame_duration, colour = flame_colour)
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
@@ -30,7 +28,6 @@
 
 /obj/structure/ob_ammo/warhead/cluster/warhead_impact(turf/target, inaccuracy_amt = 0)
 	set waitfor = FALSE
-	. = ..()
 	cluster_range = max(9 - inaccuracy_amt, 6)
 	var/list/turf_list = list()
 	for(var/turf/T in range(cluster_range, target))
@@ -46,7 +43,6 @@
 	var/smoke_duration = 3 SECONDS
 
 /obj/structure/ob_ammo/warhead/plasmaloss/warhead_impact(turf/target, inaccuracy_amt = 0)
-	. = ..()
 	var/datum/effect_system/smoke_spread/plasmaloss/smoke = new
 	smoke.set_up(smoke_radius, target, smoke_duration)//Vape nation
 	smoke.start()
