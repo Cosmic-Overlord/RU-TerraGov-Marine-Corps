@@ -36,7 +36,6 @@
 
 	adjust_stagger(stagger_amount * bomb_armor_ratio)
 	add_slowdown(slowdown_amount * bomb_armor_ratio)
-	explosion_throw(severity, direction)
 
 	#ifdef DEBUG_HUMAN_ARMOR
 	to_chat(world, "DEBUG EX_ACT: bomb_armor_ratio: [bomb_armor_ratio], severity: [severity]")
@@ -44,3 +43,4 @@
 
 	take_overall_damage(severity * 0.5, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
 	take_overall_damage(severity * 0.5, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
+	explosion_throw(severity, direction)
