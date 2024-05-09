@@ -17,7 +17,7 @@
 	var/sunder_amount = severity * modify_by_armor(1, BOMB) / 8
 
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
-	adjust_sunder(clamp(sunder_amount, 0, xeno_caste.sunder_max))
+	adjust_sunder(sunder_amount)
 
 	var/powerfactor_value = round(severity * 0.05, 1)
 	powerfactor_value = min(powerfactor_value, 20)
