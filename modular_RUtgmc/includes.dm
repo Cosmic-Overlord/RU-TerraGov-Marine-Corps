@@ -174,7 +174,6 @@
 #include "code\modules\mob\living\carbon\xenomorph\xenomorph.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoprocs.dm"
 #include "code\modules\mob\living\carbon\xenomorph\xenoupgrade.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\baneling\baneling.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\behemoth\abilities_behemoth.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\behemoth\castedatum_behemoth.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\behemoth\behemoth.dm"

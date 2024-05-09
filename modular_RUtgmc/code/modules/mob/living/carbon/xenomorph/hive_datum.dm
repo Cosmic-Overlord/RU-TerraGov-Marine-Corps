@@ -308,3 +308,21 @@
 /datum/hive_status/normal/on_shuttle_hijack(obj/docking_port/mobile/marine_dropship/hijacked_ship)
 	SSticker.mode.update_silo_death_timer(src)
 	return ..()
+
+/datum/hive_status/proc/update_tier_limits()
+	var/zeros = get_total_tier_zeros()
+	var/ones = length(xenos_by_tier[XENO_TIER_ONE])
+	var/twos = length(xenos_by_tier[XENO_TIER_TWO])
+	var/threes = length(xenos_by_tier[XENO_TIER_THREE])
+	var/fours = length(xenos_by_tier[XENO_TIER_FOUR])
+
+	var/active_humans = length(GLOB.humans_by_zlevel[SSmonitor.gamestate == SHIPSIDE ? "3" : "2"])
+
+	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+
+	//Estimated number of xenos calculated for a certain number of marines
+	var/rated_xeno = active_humans * (LARVA_POINTS_REGULAR / xeno_job.job_points_needed)
+
+	//length(psychictowers) are still in the formula for admin spawn or something
+	tier3_xeno_limit = max(threes, FLOOR(max(rated_xeno - threes,zeros + ones + twos + fours) / 3 + length(psychictowers) + 1, 1))
+	tier2_xeno_limit = max(twos, FLOOR(max(rated_xeno - twos - threes,zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes, 1))
