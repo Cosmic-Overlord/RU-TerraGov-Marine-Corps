@@ -76,7 +76,7 @@
 	shell_speed = 0.75
 
 /datum/ammo/mortar/knee/drop_nade(turf/T)
-	explosion(T, 0, 1, 3, 2)
+	cell_explosion(T, 80, 30)
 
 /datum/ammo/bullet/rifle/standard_br/ap
 	name = "light marksman armor piercing bullet"
