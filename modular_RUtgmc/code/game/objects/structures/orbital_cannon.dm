@@ -5,8 +5,8 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.visible_message(span_highdanger("The sky erupts into flames <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"),
-			blind_message = span_highdanger("You hear a very loud sound coming from above to the <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"))
+		our_mob.show_message(span_highdanger("The sky erupts into flames <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_VISIBLE,
+			span_highdanger("You hear a very loud sound coming from above to the <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(25, target))
@@ -14,13 +14,13 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.visible_message(span_highdanger("The sky roars louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"),
-			blind_message = span_highdanger("The sound becomes louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"))
+		our_mob.show_message(span_highdanger("The sky roars louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_VISIBLE,
+			span_highdanger("The sound becomes louder <u>[relative_dir ? ("to the " + dir2text(relative_dir)) : "right above you"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(15, target))
-		our_mob.visible_message(span_highdanger("OH GOD THE SKY WILL EXPLODE!!!"),
-			blind_message = span_highdanger("YOU SHOULDN'T BE HERE!"))
+		our_mob.show_message(span_highdanger("OH GOD THE SKY WILL EXPLODE!!!"), EMOTE_VISIBLE,
+			span_highdanger("YOU SHOULDN'T BE HERE!"), EMOTE_AUDIBLE)
 
 /obj/structure/ob_ammo/warhead/explosive
 	var/explosion_power = 1425
