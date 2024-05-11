@@ -445,7 +445,7 @@
 	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
 /datum/ammo/mortar/rocket/mlrs/drop_nade(turf/T)
-	explosion(T, 70, 25)
+	cell_explosion(T, 70, 25)
 
 /datum/ammo/tx54/he/drop_nade(turf/T)
 	cell_explosion(T, 45, 25)
