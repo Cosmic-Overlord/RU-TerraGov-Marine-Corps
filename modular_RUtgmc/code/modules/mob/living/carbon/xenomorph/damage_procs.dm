@@ -27,7 +27,7 @@
 		explosion_throw(severity, direction)
 
 	if(mob_size < MOB_SIZE_BIG)
-		adjust_slowdown(powerfactor_value / 2)
+		adjust_slowdown(powerfactor_value / 4)
 		adjust_stagger(powerfactor_value / 2)
 	else
 		adjust_slowdown(powerfactor_value / 3)
