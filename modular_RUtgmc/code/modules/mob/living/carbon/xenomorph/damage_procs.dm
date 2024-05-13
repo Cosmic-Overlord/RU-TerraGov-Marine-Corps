@@ -23,17 +23,11 @@
 	powerfactor_value = min(powerfactor_value, 20)
 	if(powerfactor_value > 10)
 		powerfactor_value /= 5
-		Knockdown(powerfactor_value / 5)
-		if(mob_size < MOB_SIZE_BIG)
-			adjust_slowdown(powerfactor_value / 2)
-			adjust_stagger(powerfactor_value / 2)
-		else
-			adjust_slowdown(powerfactor_value / 3)
 	else if(powerfactor_value > 0)
-		Knockdown(powerfactor_value / 5)
-		if(mob_size < MOB_SIZE_BIG)
-			adjust_slowdown(powerfactor_value / 2)
-			adjust_stagger(powerfactor_value / 2)
-		else
-			adjust_slowdown(powerfactor_value / 3)
 		explosion_throw(severity, direction)
+
+	if(mob_size < MOB_SIZE_BIG)
+		adjust_slowdown(powerfactor_value / 2)
+		adjust_stagger(powerfactor_value / 2)
+	else
+		adjust_slowdown(powerfactor_value / 3)
