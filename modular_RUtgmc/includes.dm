@@ -39,6 +39,7 @@
 #include "code\datums\jobs\job\sons_of_mars_shipside.dm"
 #include "code\datums\jobs\job\xenomorph.dm"
 #include "code\datums\keybinding\communication.dm"
+#include "code\datums\keybinding\mob.dm"
 #include "code\datums\keybinding\xeno.dm"
 #include "code\datums\loadout\loadout_manager.dm"
 #include "code\datums\loadout\item_representation\_item_representation.dm"
