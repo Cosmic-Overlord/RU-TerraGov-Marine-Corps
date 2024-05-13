@@ -139,6 +139,8 @@
 	// Blow stuff up
 	in_turf.ex_act(power, direction)
 	for(var/atom/our_atom in in_turf)
+		if(iseffect(our_atom))
+			continue
 		if(our_atom in exploded_atoms)
 			continue
 		if(our_atom.gc_destroyed)
@@ -218,8 +220,7 @@ as having entered the turf.
 */
 
 /datum/automata_cell/explosion/proc/on_turf_entered(atom/movable/our_atom)
-	// Once is enough
-	if(our_atom in exploded_atoms)
+	if(our_atom in exploded_atoms)// Once is enough
 		return
 
 	exploded_atoms += our_atom
