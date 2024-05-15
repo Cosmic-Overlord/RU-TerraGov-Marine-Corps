@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher
 	wield_delay = 1.2 SECONDS
-	fire_delay = 1 SECONDS
+	fire_delay = 1.3 SECONDS
 
 /obj/item/weapon/gun/grenade_launcher/single_shot
 	wield_delay = 0.8 SECONDS
