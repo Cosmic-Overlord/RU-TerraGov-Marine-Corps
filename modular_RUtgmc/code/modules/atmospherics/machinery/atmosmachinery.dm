@@ -25,7 +25,9 @@
 
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
 	direction &= initialize_directions
-	if(!direction || !(direction in GLOB.cardinals)) //cant go this way.
+	if(!direction || !(direction in GLOB.cardinals))
+		if(is_type_in_typecache(src, GLOB.ventcrawl_machinery) && can_crawl_through()) // If we try to move somewhere besides existing pipes while in the vent, we try to leave
+			climb_out(user, loc)
 		return
 
 	var/obj/machinery/atmospherics/target_move = findConnecting(direction, user.ventcrawl_layer)
@@ -34,19 +36,9 @@
 			climb_out(user, loc)
 		return
 
-	if(!target_move.can_crawl_through())
-		return
-
-	if(locate(/obj/effect/forcefield/fog) in get_turf(target_move))
-		return
-
 	user.forceMove(target_move)
 	user.update_pipe_vision()
 	user.client.eye = target_move  //Byond only updates the eye every tick, This smooths out the movement
-
-	if(is_type_in_typecache(target_move, GLOB.ventcrawl_machinery))
-		climb_out(user, target_move.loc)
-		return
 
 	var/silent_crawl = FALSE //Some creatures can move through the vents silently
 	if(isxeno(user))
