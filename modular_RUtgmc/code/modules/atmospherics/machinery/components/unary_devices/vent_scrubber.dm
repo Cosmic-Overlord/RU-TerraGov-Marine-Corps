@@ -9,3 +9,8 @@
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
+
+/obj/machinery/atmospherics/components/unary/vent_scrubber/examine(mob/user)
+	. = ..()
+	if(welded)
+		. += span_notice("It seems welded shut.")
