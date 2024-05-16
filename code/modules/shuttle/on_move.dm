@@ -204,7 +204,6 @@ All ShuttleMove procs go here
 	. = ..()
 	if(pipe_vision_img)
 		pipe_vision_img.loc = loc
-/* RUTGMC DELETION, i have no idea at all what the hell this part does except for breaking pipenets
 	var/missing_nodes = FALSE
 	for(var/i in 1 to device_type)
 		if(nodes[i])
@@ -231,7 +230,6 @@ All ShuttleMove procs go here
 	else
 		// atmosinit() calls update_icon(), so we don't need to call it
 		update_icon()
-*/
 
 /obj/machinery/atmospherics/pipe/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
