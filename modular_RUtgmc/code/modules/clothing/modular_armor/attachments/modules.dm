@@ -99,6 +99,8 @@
 /obj/item/armor_module/module/motion_detector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
 		return
+	if(!target)
+		return
 
 	var/list/actualview = getviewsize(operator.client.view)
 	var/viewX = actualview[1]
@@ -185,3 +187,17 @@
 /obj/item/armor_module/module/eshield
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	damaged_shield_cooldown = 15 SECONDS
+
+/obj/item/armor_module/module/binoculars/artemis_mark_two
+	var/eye_protection_mod = 1
+
+/obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.eye_protection += eye_protection_mod
+	parent.AddComponent(/datum/component/blur_protection)
+
+/obj/item/armor_module/module/binoculars/artemis_mark_two/on_detach(obj/item/detaching_from, mob/user)
+	parent.eye_protection -= eye_protection_mod
+	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
+	blur_p?.RemoveComponent()
+	return ..()

@@ -86,7 +86,7 @@ GLOBAL_VAR(restart_counter)
 /world/New()
 	log_world("World loaded at [time_stamp()]!")
 
-	GLOB.timezoneOffset = text2num(world.timezone) * 36000
+	GLOB.timezoneOffset = world.timezone * 36000
 
 	//First possible sleep()
 	InitTgs()
