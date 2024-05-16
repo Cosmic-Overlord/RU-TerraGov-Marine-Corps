@@ -1,5 +1,15 @@
+/obj/machinery/atmospherics
+	var/covered_by_shuttle = FALSE
+
+/obj/machinery/atmospherics/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
+
+/obj/machinery/atmospherics/proc/shuttle_crush()
+	covered_by_shuttle = TRUE
+
 /obj/machinery/atmospherics/climb_out(mob/living/user, turf/T)
-	if(T.density)
+	if(T.density || covered_by_shuttle)
 		to_chat(user, span_notice("You cannot climb out, the exit is blocked!"))
 		return
 	if(TIMER_COOLDOWN_CHECK(user, COOLDOWN_VENTCRAWL))
