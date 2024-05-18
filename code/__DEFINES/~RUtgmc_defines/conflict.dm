@@ -13,12 +13,9 @@
 
 //Explosion damage multipliers for different objects
 #define EXPLOSION_DAMAGE_MULTIPLIER_DOOR 5
+#define EXPLOSION_DAMAGE_MULTIPLIER_DOOR_OPEN 0.5
 #define EXPLOSION_DAMAGE_MULTIPLIER_WALL 7.5
 #define EXPLOSION_DAMAGE_MULTIPLIER_WINDOW 5
 
 //Explosion damage multipliers for different objects
 #define RESIN_EXPLOSIVE_MULTIPLIER 0.85
-
-//Additional explosion damage modifier for open doors
-#define EXPLOSION_DAMAGE_MODIFIER_DOOR_OPEN 0.5
-
