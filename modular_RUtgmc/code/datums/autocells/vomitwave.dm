@@ -32,13 +32,13 @@
 	var/list/to_spread = GLOB.cardinals.Copy() // Propagate to cardinal directions
 	for(var/datum/automata_cell/vomit_wave/C in neighbors)
 		to_spread -= get_dir(in_turf, C.in_turf)
-	for(var/dir in to_spread)
-		var/turf/T = get_step(in_turf, dir)
+	for(var/our_dir in to_spread)
+		var/turf/T = get_step(in_turf, our_dir)
 		if(!T)
 			continue
 		if(is_blocked_turf(T))
 			continue
-		var/datum/automata_cell/vomit_wave/C = propagate(dir)
+		var/datum/automata_cell/vomit_wave/C = propagate(our_dir)
 		C.strength = strength - strength_dropoff // Make it weaker
 		if(C.vomit)
 			C.vomit.alpha = 255 * C.strength

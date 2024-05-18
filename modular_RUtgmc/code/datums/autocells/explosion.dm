@@ -168,10 +168,10 @@
 
 	// Propagate the explosion
 	var/list/to_spread = get_propagation_dirs(reflected)
-	for(var/dir in to_spread)
+	for(var/our_dir in to_spread)
 		// Diagonals are longer, that should be reflected in the power falloff
 		var/dir_falloff = 1
-		if(dir in GLOB.diagonals)
+		if(our_dir in GLOB.diagonals)
 			dir_falloff = 1.414
 
 		if(isnull(direction))
@@ -191,16 +191,16 @@
 			if(EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF)
 				new_falloff += (new_falloff * 0.5) * dir_falloff
 
-		var/datum/automata_cell/explosion/our_explosion = propagate(dir)
+		var/datum/automata_cell/explosion/our_explosion = propagate(our_dir)
 		if(our_explosion)
 			our_explosion.power = new_power
 			our_explosion.power_falloff = new_falloff
 			our_explosion.falloff_shape = falloff_shape
 
 			// Set the direction the explosion is traveling in
-			our_explosion.direction = dir
+			our_explosion.direction = our_dir
 			//Diagonal cells have a small delay when branching off the center. This helps the explosion look circular
-			if(!direction && (dir in GLOB.diagonals))
+			if(!direction && (our_dir in GLOB.diagonals))
 				our_explosion.delay = 1
 
 			setup_new_cell(our_explosion)
@@ -271,7 +271,6 @@ as having entered the turf.
 						explosion_sound = sound(get_sfx("explosion_med"))
 					if(EXPLODE_HEAVY to INFINITY)
 						explosion_sound = sound(get_sfx("explosion_large"))
-				// If inside the blast radius + world.view - 2
 				if(dist <= max(round(power, 1)))
 					our_mob.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
 					if(is_mainship_level(epicenter.z))
