@@ -1,17 +1,9 @@
 
 /obj/machinery/prop/computer/ex_act(severity)
-	switch(severity)
-		if(0 to EXPLODE_WEAK)
-			if(prob(15))
-				set_broken()
-		if(EXPLODE_WEAK to EXPLODE_LIGHT)
-			if(prob(25))
-				set_broken()
-		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-			if(prob(25))
-				qdel(src)
-				return
-			if(prob(50))
-				set_broken()
-		if(EXPLODE_HEAVY to INFINITY)
+	if(severity >= EXPLODE_LIGHT && prob(severity /= 2))
+		if(prob(severity))
+			set_broken()
+		else
 			qdel(src)
+	else if(prob(severity / 3))
+		set_broken()

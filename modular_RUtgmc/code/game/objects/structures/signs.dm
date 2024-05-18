@@ -3,6 +3,5 @@
 	icon = 'modular_RUtgmc/icons/obj/decals.dmi'
 
 /obj/structure/sign/ex_act(severity)
-	if(severity <= EXPLODE_WEAK)
-		return
-	qdel(src)
+	if(severity >= EXPLODE_WEAK)
+		qdel(src)

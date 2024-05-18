@@ -5,9 +5,4 @@
 		ui.open()
 
 /obj/machinery/chem_dispenser/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_MEDIUM to EXPLODE_HEAVY)
-			if(prob(50))
-				take_damage(INFINITY)
-		if(EXPLODE_HEAVY to INFINITY)
-			take_damage(INFINITY)
+	take_damage(severity, BRUTE, BOMB)
