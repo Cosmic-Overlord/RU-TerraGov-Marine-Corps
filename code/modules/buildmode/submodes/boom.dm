@@ -1,13 +1,13 @@
 /datum/buildmode_mode/boom
 	key = "boom"
 
-/* RUTGMC REMOVED - Explosions update
+/* RUTGMC REMOVAL
 	var/devastation = 0
 	var/heavy = 0
 	var/light = 0
 	var/flash = 0
 	var/throw_input = 0
-RU TGMC REMOVENT END */
+*/
 
 
 /datum/buildmode_mode/boom/show_help(client/c)
@@ -17,7 +17,7 @@ RU TGMC REMOVENT END */
 	to_chat(c, span_notice("***********************************************************"))
 
 
-/* RUTGMC REMOVED - Explosions update
+/* RUTGMC REMOVAL
 /datum/buildmode_mode/boom/change_settings(client/c)
 	devastation = input(c, "Range of total devastation.", "Input") as num|null
 	heavy = input(c, "Range of heavy impact.", "Input") as num|null
@@ -34,5 +34,5 @@ RU TGMC REMOVENT END */
 		explosion(object, devastation, heavy, light, 0, flash, throw_range = throw_input, adminlog = FALSE, silent = TRUE)
 		to_chat(c, span_notice("Success."))
 		log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]")
-RU TGMC REMOVENT END */
+*/
 

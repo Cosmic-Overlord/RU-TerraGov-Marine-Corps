@@ -112,12 +112,12 @@
 	if(isnull(direction))
 		return GLOB.alldirs
 
-	var/dir = reflected ? REVERSE_DIR(direction) : direction
+	var/our_dir = reflected ? REVERSE_DIR(direction) : direction
 
-	if(dir in GLOB.cardinals)
-		propagation_dirs += list(dir, turn(dir, 45), turn(dir, -45))
+	if(our_dir in GLOB.cardinals)
+		propagation_dirs += list(our_dir, turn(our_dir, 45), turn(our_dir, -45))
 	else
-		propagation_dirs += dir
+		propagation_dirs += our_dir
 
 	return propagation_dirs
 

@@ -667,7 +667,7 @@
 		dyn_explosion(epicenter, ex_power)
 		message_admins("[ADMIN_LOOKUPFLW(usr)] creating an admin explosion of power [ex_power] at [epicenter.loc].")
 		log_admin("[key_name(usr)] created a admin explosion of power [ex_power] at [epicenter.loc].")
-RU TGMC REMOVENT END */
+*/
 
 
 /datum/admins/proc/change_security_level()

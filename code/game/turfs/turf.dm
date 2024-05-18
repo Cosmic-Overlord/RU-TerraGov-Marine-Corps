@@ -888,7 +888,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	return TRUE
 
 
-/* RUTGMC REMOVED - Explosions update
+/* RUTGMC REMOVAL
 /turf/contents_explosion(severity)
 	for(var/thing in contents)
 		var/atom/movable/thing_in_turf = thing
@@ -919,7 +919,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 					continue
 				for(var/a in thing_in_turf.contents)
 					SSexplosions.weakMovAtom[a] += list(src)
-RU TGMC REMOVENT END */
+*/
 
 
 /turf/vv_edit_var(var_name, new_value)
