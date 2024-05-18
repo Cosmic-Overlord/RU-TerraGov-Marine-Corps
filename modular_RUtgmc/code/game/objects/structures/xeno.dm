@@ -31,10 +31,7 @@
 	take_damage(severity / 2, BRUTE, BOMB)
 
 /obj/structure/mineral_door/resin/get_explosion_resistance()
-	if(density)
-		return obj_integrity
-	else
-		return 0
+	return density ? obj_integrity : 0
 
 /obj/alien/resin/resin_growth
 	name = GROWTH_WALL

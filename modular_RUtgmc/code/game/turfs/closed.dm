@@ -1,5 +1,5 @@
 /turf/closed/get_explosion_resistance()
-	return 10000
+	return 5000
 /turf/closed/shuttle/dropship1
 	resistance_flags = NONE
 
