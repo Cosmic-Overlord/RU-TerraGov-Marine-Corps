@@ -4,10 +4,10 @@
 	var/falloff_shape_choice
 
 /datum/buildmode_mode/boom/change_settings(client/client)
-	power_choice = tgui_input_number(client, "Explosion Power", "Choose explosion power", 250, 3000, 1)
+	power_choice = tgui_input_number(client, "Explosion Power", "Choose explosion power", 250, 5000, 1)
 	if(isnull(power_choice))
 		return
-	falloff_choice = tgui_input_number(client, "Explosion Falloff", "Choose explosion falloff", 50, 3000, 1)
+	falloff_choice = tgui_input_number(client, "Explosion Falloff", "Choose explosion falloff", 50, 5000, 1)
 	if(isnull(falloff_choice))
 		return
 	switch(tgui_alert(client, "Falloff Shape", "Choose falloff shape", list("Linear", "Exponential"), 0))
