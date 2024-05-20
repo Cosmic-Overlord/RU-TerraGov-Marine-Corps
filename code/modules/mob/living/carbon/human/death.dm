@@ -10,6 +10,7 @@
 		if(prob(100 - E.get_damage()))
 			// Override the current limb status
 			//E.droplimb() // RUTGMC DELETION
+
 			E.droplimb(silent = TRUE) // RUTGMC ADDITION START
 	visible_message(span_warning("[name] explodes violently into a bloody mess!"),
 		span_highdanger("<b>You explode violently into a bloody mess!</b>"),
