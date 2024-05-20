@@ -35,4 +35,3 @@
 		to_chat(c, span_notice("Success."))
 		log_admin("Build Mode: [key_name(c)] caused an explosion(dev=[devastation], hvy=[heavy], lgt=[light], flash=[flash]) at [AREACOORD(object)]")
 */
-
