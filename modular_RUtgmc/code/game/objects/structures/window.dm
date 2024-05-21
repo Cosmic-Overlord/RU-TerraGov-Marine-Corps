@@ -1,6 +1,5 @@
 /obj/structure/window/ex_act(severity, direction)
 	take_damage(severity *= EXPLOSION_DAMAGE_MULTIPLIER_WINDOW, BRUTE, BOMB, attack_dir = direction)
-	handle_debris(severity, direction)
 
 /obj/structure/window/on_explosion_destruction(severity, direction)
 	if(severity < 2000)

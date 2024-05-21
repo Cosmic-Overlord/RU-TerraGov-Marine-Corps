@@ -11,7 +11,6 @@
 	update_icon()
 
 /obj/structure/barricade/on_explosion_destruction(severity, direction)
-	handle_debris(severity, direction)
 	create_shrapnel(get_turf(src), rand(2,5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 	if(prob(50)) // no message spam pls
 		visible_message(span_warning("[src] blows apart in the explosion, sending shards flying!"))
