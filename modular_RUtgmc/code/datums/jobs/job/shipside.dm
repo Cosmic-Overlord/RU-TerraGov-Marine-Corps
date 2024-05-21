@@ -126,3 +126,24 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 /datum/job/terragov/command/staffofficer
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_requirements = XP_REQ_EXPERIENCED
+
+/datum/job/terragov/command/fieldcommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	SSdirection.set_leader(TRACKING_ID_MARINE_COMMANDER, new_mob)
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) //starting
+			new_human.wear_id.paygrade = "O3"
+		if(600 to 1500) // 10 hrs
+			new_human.wear_id.paygrade = "04"
+		if(1500 to 3000) // 25 hrs
+			new_human.wear_id.paygrade = "06"
+		if(3000 to 7500) // 50 hrs
+			new_human.wear_id.paygrade = "MO4"
+		if(7501 to INFINITY) // 125 hrs
+			new_human.wear_id.paygrade = "MO5"
