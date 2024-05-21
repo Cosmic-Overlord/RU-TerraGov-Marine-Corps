@@ -35,10 +35,10 @@
 		if("Big Bomb")
 			cell_explosion(usr.loc, 420, 70)
 		if("Custom Bomb")
-			var/input_severity = tgui_input_number(usr, "Explosion Severity:", "Drop Bomb", 500, 5000, 1)
+			var/input_severity = tgui_input_number(usr, "Explosion Severity:", "Drop Bomb", 500, EXPLOSION_MAX_POWER, 1)
 			if(isnull(input_severity))
 				return
-			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, 5000, 1)
+			var/input_falloff = tgui_input_number(usr, "Explosion Falloff:", "Drop Bomb", 50, EXPLOSION_MAX_POWER, 1)
 			if(isnull(input_falloff))
 				return
 			var/input_shape
@@ -106,10 +106,10 @@
 			warhead = new choice
 		if("Custom HE")
 			var/obj/structure/ob_ammo/warhead/explosive/OBShell = new
-			OBShell.explosion_power = tgui_input_number(src, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, 5000, 1)
+			OBShell.explosion_power = tgui_input_number(src, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, EXPLOSION_MAX_POWER, 1)
 			if(isnull(OBShell.explosion_power))
 				return
-			OBShell.explosion_falloff = tgui_input_number(src, "How much falloff should the wall clear blast have?", "Set clear falloff", 90, 5000, 1)
+			OBShell.explosion_falloff = tgui_input_number(src, "How much falloff should the wall clear blast have?", "Set clear falloff", 90, EXPLOSION_MAX_POWER, 1)
 			if(isnull(OBShell.explosion_falloff))
 				return
 			warhead = OBShell
@@ -118,10 +118,10 @@
 			OBShell.cluster_amount = tgui_input_number(src, "How many salvos should be fired?", "Set cluster number", 25, 100)
 			if(isnull(OBShell.cluster_amount))
 				return
-			OBShell.cluster_power = tgui_input_number(src, "How strong should the blasts be?", "Set blast power", 240, 5000, 1)
+			OBShell.cluster_power = tgui_input_number(src, "How strong should the blasts be?", "Set blast power", 240, EXPLOSION_MAX_POWER, 1)
 			if(isnull(OBShell.cluster_power))
 				return
-			OBShell.cluster_falloff = tgui_input_number(src, "How much falloff should the blasts have?", "Set blast falloff", 40, 5000, 1)
+			OBShell.cluster_falloff = tgui_input_number(src, "How much falloff should the blasts have?", "Set blast falloff", 40, EXPLOSION_MAX_POWER, 1)
 			if(isnull(OBShell.cluster_falloff))
 				return
 			warhead = OBShell
