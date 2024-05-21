@@ -18,11 +18,19 @@
 			new_human.wear_id.paygrade = "O7"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain/black, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red, SLOT_BACK)
-		if(3001 to 4500) //50 hrs
+		if(3001 to 7500) //50 hrs
 			new_human.wear_id.paygrade = "O8"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/beret/marine/captain, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
-		if(4501 to INFINITY) //75 hrs
+		if(7501 to 9000) //125 hrs
+			new_human.wear_id.paygrade = "O9"
+			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain, SLOT_HEAD)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
+		if(9001 to 12000) //150 hrs
+			new_human.wear_id.paygrade = "O9"
+			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain, SLOT_HEAD)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
+		if(12001 to INFINITY) //200 hrs
 			new_human.wear_id.paygrade = "O9"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/captain, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
@@ -45,16 +53,24 @@
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 1500) // starting
+		if(0 to 600) // starting
 			new_human.wear_id.paygrade = "O3"
-			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/beret/marine/staff, SLOT_HEAD)
-			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red, SLOT_BACK)
-		if(1501 to 3000) // 25 hrs
+			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
+		if(601 to 3000) // 10 hrs
 			new_human.wear_id.paygrade = "O4"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
-			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red, SLOT_BACK)
-		if(3001 to INFINITY) // 50 hrs
+			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
+		if(3001 to 6000) // 50 hrs
 			new_human.wear_id.paygrade = "O5"
+			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
+		if(6001 to 9000) // 100 hrs
+			new_human.wear_id.paygrade = "O6"
+			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
+		if(9001 to INFINITY) // 150 hrs
+			new_human.wear_id.paygrade = "O7"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/highcap/staff, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
 
@@ -147,3 +163,107 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 			new_human.wear_id.paygrade = "MO4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "MO5"
+
+/datum/job/terragov/command/mech_pilot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) //starting
+			new_human.wear_id.paygrade = "E4"
+		if(6001 to 1500) // 10 hrs
+			new_human.wear_id.paygrade = "E5"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "E6"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "E7"
+		if(18001 to 60000) // 300 hrs
+			new_human.wear_id.paygrade = "E8"
+		if(60001 to INFINITY) // 1000 hrs
+			new_human.wear_id.paygrade = "E8E"
+
+/datum/job/terragov/engineering/tech/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "PO3"
+		if(601 to 3000) // 10 hrs
+			new_human.wear_id.paygrade = "PO2"
+		if(3001 to 6000) // 50 hrs
+			new_human.wear_id.paygrade = "PO1"
+		if(6001 to 12000) // 100 hrs
+			new_human.wear_id.paygrade = "CPO"
+		if(12001 to INFINITY) // 200 hrs
+			new_human.wear_id.paygrade = "WO"
+
+/datum/job/terragov/engineering/chief/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "O1"
+		if(601 to 3000) // 10 hrs
+			new_human.wear_id.paygrade = "O2"
+		if(3001 to 6000) // 50 hrs
+			new_human.wear_id.paygrade = "O3"
+		if(6001 to 9000) // 100 hrs
+			new_human.wear_id.paygrade = "O4"
+		if(9001 to INFINITY) // 150 hrs
+			new_human.wear_id.paygrade = "O5"
+
+/datum/job/terragov/requisitions/officer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "CPO"
+		if(601 to 1500) // 10 hrs
+			new_human.wear_id.paygrade = "WO"
+		if(1501 to 6000) // 50 hrs
+			new_human.wear_id.paygrade = "CWO"
+		if(6001 to 12000) // 100 hrs
+			new_human.wear_id.paygrade = "O1"
+		if(12001 to INFINITY) // 200 hrs
+			new_human.wear_id.paygrade = "O2"
+
+/datum/job/terragov/command/pilot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "WO"
+		if(601 to 3000) // 10 hrs
+			new_human.wear_id.paygrade = "CWO"
+		if(3001 to 6000) // 50 hrs
+			new_human.wear_id.paygrade = "O1"
+		if(6001 to 9000) // 100 hrs
+			new_human.wear_id.paygrade = "O2"
+		if(9001 to 12000) // 150 hrs
+			new_human.wear_id.paygrade = "O3"
+		if(12001 to INFINITY) // 200 hrs
+			new_human.wear_id.paygrade = "O4"
