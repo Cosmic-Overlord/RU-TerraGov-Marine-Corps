@@ -10,7 +10,7 @@
 
 /obj/structure/window/get_explosion_resistance(direction)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-		return 1000000
+		return EXPLOSION_MAX_POWER
 
 	if(flags_atom & ON_BORDER && (direction == turn(dir, 90) || direction == turn(dir, -90)))
 		return 0
