@@ -19,7 +19,7 @@
 		if("CAS: Keeper")
 			playsound(usr.loc, 'sound/machines/hydraulics_2.ogg', 70, TRUE)
 			new /obj/effect/overlay/temp/blinking_laser (usr.loc)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(delayed_detonate_bomb), get_turf(usr.loc), 450, 150, 3), 1 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(delayed_detonate_bomb), get_turf(usr.loc), 450, 120, 3), 1 SECONDS)
 		if("CAS: Fatty")
 			playsound(usr.loc, 'sound/machines/hydraulics_2.ogg', 70, TRUE)
 			new /obj/effect/overlay/temp/blinking_laser (usr.loc)

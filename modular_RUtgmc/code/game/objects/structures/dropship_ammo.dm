@@ -11,7 +11,7 @@
 
 /obj/structure/ship_ammo/cas/rocket/keeper/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
-	cell_explosion(impact, 450, 150) //tighter blast radius, but more devastating near center
+	cell_explosion(impact, 450, 120) //tighter blast radius, but more devastating near center
 	qdel(src)
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
