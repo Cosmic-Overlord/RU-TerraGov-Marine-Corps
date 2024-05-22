@@ -3,6 +3,5 @@
 #define EXPLODE_MEDIUM 150
 #define EXPLODE_LIGHT 100
 #define EXPLODE_WEAK 50
-#define EXPLODE_NONE 0
 
 #define EMBED_LIMB_DAMAGE 5 //Damage to deal to victim's limbs.
