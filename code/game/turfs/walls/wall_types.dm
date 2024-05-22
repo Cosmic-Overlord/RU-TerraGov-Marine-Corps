@@ -194,6 +194,7 @@
 	walltype = "sulaco" //Changes all the sprites and icons.
 
 
+/* RUTGMC DELETION
 /turf/closed/wall/sulaco/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -205,6 +206,7 @@
 				dismantle_wall(1, 1)
 		if(EXPLODE_LIGHT)
 			take_damage(rand(0, 250), BRUTE, BOMB)
+*/
 
 
 /turf/closed/wall/sulaco/hull
