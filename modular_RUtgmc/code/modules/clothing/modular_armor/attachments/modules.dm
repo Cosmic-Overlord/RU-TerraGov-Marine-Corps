@@ -54,11 +54,10 @@
 		deltimer(motion_timer)
 		motion_timer = null
 
-
 //вкл-выкл модуль
 /obj/item/armor_module/module/motion_detector/activate(mob/living/user)
 	active = !active
-	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
+	to_chat(user, span_notice("You toggle \the [src] [active ? "enabling" : "disabling"] it."))
 	if(active)
 		operator = user
 		if(!motion_timer)
@@ -66,26 +65,24 @@
 	else
 		stop_and_clean()
 
-
 /obj/item/armor_module/module/motion_detector/proc/do_scan()
 	if(!operator?.client || operator?.stat != CONSCIOUS)
 		stop_and_clean()
 		return
 	var/hostile_detected = FALSE
-	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
+	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
 		if(!hostile_detected && (!operator.wear_id || !nearby_human.wear_id || nearby_human.wear_id.iff_signal != operator.wear_id.iff_signal))
 			hostile_detected = TRUE
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
-	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
+	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
 		if(!hostile_detected)
 			hostile_detected = TRUE
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 1)
 	addtimer(CALLBACK(src, PROC_REF(clean_blips)), scan_time / 2)
-
 
 ///Clean all blips from operator screen
 /obj/item/armor_module/module/motion_detector/proc/clean_blips()
@@ -97,7 +94,7 @@
 
 ///Prepare the blip to be print on the operator screen
 /obj/item/armor_module/module/motion_detector/proc/prepare_blip(mob/target, status)
-	if(!operator.client)
+	if(!operator?.client)
 		return
 	if(!target)
 		return
