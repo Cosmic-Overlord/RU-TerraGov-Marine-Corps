@@ -24,4 +24,8 @@
 	playsound(target, 'sound/weapons/tap.ogg', 20, TRUE)
 	qdel(src)
 
-
+/turf/open/floor/plating/ground/snow/ex_act(severity)
+	if(slayer && prob(severity / 5))
+		slayer = rand(0, 3)
+	update_icon(TRUE, FALSE)
+	return ..()

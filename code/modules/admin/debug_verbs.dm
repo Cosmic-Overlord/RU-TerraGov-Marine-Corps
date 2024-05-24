@@ -354,6 +354,7 @@
 		message_admins("[ADMIN_TPMONTY(H)] became a spatial agent.")
 
 
+/* RUTGMC REMOVAL
 /datum/admins/proc/check_bomb_impacts()
 	set name = "Check Bomb Impact"
 	set category = "Debug"
@@ -515,6 +516,7 @@
 			affected_turf.maptext = "N (null)"
 
 	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(wipe_color_and_text), wipe_colours), 10 SECONDS)
+*/
 
 /datum/admins/proc/wipe_color_and_text(list/atom/wiping)
 	for(var/i in wiping)

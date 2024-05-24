@@ -21,6 +21,8 @@ SUBSYSTEM_DEF(excavation)
 /datum/controller/subsystem/excavation/fire()
 	if(length(excavation_site_spawners) <= 0)
 		return
+	if(!locate(/datum/job/terragov/medical/researcher) in SSticker.mode?.valid_job_types) // RUTGMC ADDITION
+		return
 	var/spawn_count = min(MAX_ACTIVE_EXCAVATIONS - excavations_count, length(excavation_site_spawners))
 	for(var/i in 0 to spawn_count - 1)
 		spawnExcavation()
