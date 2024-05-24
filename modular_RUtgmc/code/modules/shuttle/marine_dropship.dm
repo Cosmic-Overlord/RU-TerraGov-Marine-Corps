@@ -191,3 +191,57 @@
 		var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 		infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 		return
+
+/obj/machinery/computer/shuttle/shuttle_control/canterbury/Topic(href, href_list)
+	// Since we want to avoid the standard move topic, we are just gonna override everything.
+	add_fingerprint(usr, "topic")
+	if(!can_interact(usr))
+		return TRUE
+	if(isxeno(usr))
+		return TRUE
+	if(!allowed(usr))
+		to_chat(usr, span_danger("Access denied."))
+		return TRUE
+	if(!href_list["move"] || !iscrashgamemode(SSticker.mode))
+		to_chat(usr, span_warning("[src] is unresponsive."))
+		return FALSE
+
+	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
+	#ifndef TESTING
+	if(!(M.shuttle_flags & GAMEMODE_IMMUNE) && world.time < SSticker.round_start_time + SSticker.mode.deploy_time_lock)
+		to_chat(usr, span_warning("The engines are still refueling."))
+		return TRUE
+	#endif
+	if(!M.can_move_topic(usr))
+		return TRUE
+
+	if(!length(GLOB.active_nuke_list))
+		if(tgui_alert(usr, "Are you sure you want to launch the shuttle? Without sufficiently dealing with the threat, you will be in direct violation of your orders!", "Are you sure?", list("Yes", "Cancel")) != "Yes")
+			return TRUE
+
+		if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_EVACUATION))
+			return TRUE
+		TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 2 SECONDS)
+
+		var/admin_response = admin_approval("<span color='prefix'>EVACUATION:</span> [ADMIN_TPMONTY(usr)] has started evacuation early. Living Marines: [SSticker.mode.count_humans_and_xenos()[1]].",
+			list("approve" = "approve", "deny" = "deny", "deny without annoncing" = "deny without annoncing"), "approve", 10 SECONDS,
+			usr, span_boldnotice("Shuttle will launch in 10 seconds unless High Command responds otherwise."),
+			admin_sound = sound('sound/effects/sos-morse-code.ogg', channel = CHANNEL_ADMIN))
+
+		if(admin_response == "deny")
+			TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)
+			priority_announce("An evacuation attempt has been blocked, the engines are now restarting.", "Evacuation Attempt", ANNOUNCEMENT_COMMAND)
+			return TRUE
+		if(admin_response =="deny without annoncing")
+			TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)
+			return TRUE
+
+	visible_message(span_notice("Shuttle departing. Please stand away from the doors."))
+	M.destination = null
+	M.mode = SHUTTLE_IGNITING
+	M.setTimer(M.ignitionTime)
+
+	var/datum/game_mode/infestation/crash/C = SSticker.mode
+	addtimer(VARSET_CALLBACK(C, marines_evac, CRASH_EVAC_INPROGRESS), M.ignitionTime + 10 SECONDS)
+	addtimer(VARSET_CALLBACK(C, marines_evac, CRASH_EVAC_COMPLETED), 2 MINUTES)
+	return TRUE
