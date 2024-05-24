@@ -221,7 +221,7 @@
 
 		if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_EVACUATION))
 			return TRUE
-		TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 2 SECONDS)
+		TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 1.5 SECONDS)
 
 		var/admin_response = admin_approval("<span color='prefix'>EVACUATION:</span> [ADMIN_TPMONTY(usr)] has started evacuation early. Living Marines: [SSticker.mode.count_humans_and_xenos()[1]].",
 			list("approve" = "approve", "deny" = "deny", "deny without annoncing" = "deny without annoncing"), "approve", 10 SECONDS,
