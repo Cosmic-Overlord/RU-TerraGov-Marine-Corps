@@ -153,9 +153,6 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/nymph/ai,
 ))
 
-GLOBAL_LIST_INIT(baneling_spawnable, list(
-	/mob/living/carbon/xenomorph/baneling))
-
 ///Heals a xeno, respecting different types of damage
 #define HEAL_XENO_DAMAGE(xeno, amount, passive) do { \
 	var/fire_loss = xeno.getFireLoss(); \
