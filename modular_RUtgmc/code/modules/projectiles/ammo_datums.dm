@@ -1,3 +1,7 @@
+/datum/ammo
+	///Embeding shrapnel type
+	var/shrapnel_type = /obj/item/shard/shrapnel
+
 /datum/ammo/bullet/revolver/rifle
 	name = ".44 Long Special bullet"
 	hud_state = "revolver_impact"
@@ -72,7 +76,7 @@
 	shell_speed = 0.75
 
 /datum/ammo/mortar/knee/drop_nade(turf/T)
-	explosion(T, 0, 1, 4, 2)
+	cell_explosion(T, 80, 30)
 
 /datum/ammo/bullet/rifle/standard_br/ap
 	name = "light marksman armor piercing bullet"
@@ -85,11 +89,6 @@
 	damage = 25
 	penetration = 25
 	sundering = 3.5
-
-/datum/ammo/energy/lasgun/marine/sniper
-	damage = 70
-	penetration = 45
-	sundering = 5
 
 /datum/ammo/energy/lasgun/marine/sniper_heat
 	penetration = 30
@@ -482,3 +481,155 @@
 
 	damage = 70
 	penetration = 55
+
+//////////////////////////////////////////////////
+////////////////////Shrapnel//////////////////////
+//////////////////////////////////////////////////
+
+/datum/ammo/bullet/shrapnel
+	name = "shrapnel"
+	icon_state = "buckshot_shrapnel"
+	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
+	accurate_range_min = 5
+	flags_ammo_behavior = AMMO_BALLISTIC
+	accuracy = 15
+	accurate_range = 32
+	max_range = 8
+	damage = 25
+	damage_falloff = 8
+	penetration = 0
+	shell_speed = 3
+	shrapnel_chance = 15
+
+/datum/ammo/bullet/shrapnel/metal
+	name = "metal shrapnel"
+	icon_state = "shrapnelshot_bit"
+	shell_speed = 1.5
+	damage = 30
+	shrapnel_chance = 25
+	accuracy = 40
+	penetration = 0
+
+/datum/ammo/bullet/shrapnel/light // weak shrapnel
+	name = "light shrapnel"
+	icon_state = "shrapnel_light"
+	damage = 10
+	penetration = 0
+	shell_speed = 2
+	shrapnel_chance = 0
+
+/datum/ammo/bullet/shrapnel/light/human
+	name = "human bone fragments"
+	icon_state = "shrapnel_human"
+	shrapnel_chance = 50
+	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/human
+
+/datum/ammo/bullet/shrapnel/light/human/var1 // sprite variants
+	icon_state = "shrapnel_human1"
+
+/datum/ammo/bullet/shrapnel/light/human/var2 // sprite variants
+	icon_state = "shrapnel_human2"
+
+/datum/ammo/bullet/shrapnel/light/xeno
+	name = "alien bone fragments"
+	icon_state = "shrapnel_xeno"
+	shrapnel_chance = 50
+	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/xeno
+
+/datum/ammo/bullet/shrapnel/spall // weak shrapnel
+	name = "spall"
+	icon_state = "shrapnel_light"
+	damage = 10
+	penetration = 0
+	shell_speed = 2
+	shrapnel_chance = 0
+
+/datum/ammo/bullet/shrapnel/light/glass
+	name = "glass shrapnel"
+	icon_state = "shrapnel_glass"
+
+//////////////////////////////////////////////////
+////////////////////Explosives////////////////////
+//////////////////////////////////////////////////
+
+/datum/ammo/rocket/he
+	damage = 150
+
+/datum/ammo/rocket/ltb/drop_nade(turf/T)
+	cell_explosion(T, 200, 45)
+
+/datum/ammo/rocket/mech/drop_nade(turf/T)
+	cell_explosion(T, 75, 15)
+
+/datum/ammo/rocket/he/drop_nade(turf/T)
+	cell_explosion(T, 150, 40)
+
+/datum/ammo/rocket/he/unguided/drop_nade(turf/T)
+	cell_explosion(T, 200, 50)
+
+/datum/ammo/rocket/heavy_isg/drop_nade(turf/T)
+	cell_explosion(T, 700, 200) // dodge this
+
+/datum/ammo/rocket/recoilless/drop_nade(turf/T)
+	cell_explosion(T, 150, 75)
+
+/datum/ammo/rocket/recoilless/heat/mech/drop_nade(turf/T)
+	cell_explosion(T, 50, 45)
+
+/datum/ammo/rocket/recoilless/light/drop_nade(turf/T)
+	cell_explosion(T, 75, 25)
+
+/datum/ammo/rocket/recoilless/low_impact/drop_nade(turf/T)
+	cell_explosion(T, 100, 15)
+
+/datum/ammo/rocket/som/drop_nade(turf/T)
+	cell_explosion(T, 175, 35)
+
+/datum/ammo/rocket/som/light/drop_nade(turf/T)
+	cell_explosion(T, 125, 15)
+
+/datum/ammo/rocket/som/thermobaric/drop_nade(turf/T)
+	cell_explosion(T, 175, 45)
+	flame_radius(4, T)
+
+/datum/ammo/rocket/som/heat/drop_nade(turf/T)
+	cell_explosion(T, 50, 45)
+
+/datum/ammo/rocket/oneuse/drop_nade(turf/T)
+	cell_explosion(T, 115, 45)
+
+/datum/ammo/rocket/atgun_shell/drop_nade(turf/T)
+	cell_explosion(T, 55 , 30)
+
+/datum/ammo/rocket/atgun_shell/he/drop_nade(turf/T)
+	cell_explosion(T, 90, 30)
+
+/datum/ammo/mortar/drop_nade(turf/T)
+	cell_explosion(T, 90, 30)
+
+/datum/ammo/mortar/incend/drop_nade(turf/T)
+	cell_explosion(T, 45, 20)
+	flame_radius(4, T)
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+
+/datum/ammo/mortar/howi/drop_nade(turf/T)
+	cell_explosion(T, 175, 50)
+
+/datum/ammo/mortar/howi/incend/drop_nade(turf/T)
+	cell_explosion(T, 45, 30)
+	flame_radius(5, T)
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+
+/datum/ammo/mortar/rocket/drop_nade(turf/T)
+	cell_explosion(T, 175, 75)
+
+/datum/ammo/mortar/rocket/incend/drop_nade(turf/T)
+	cell_explosion(T, 50, 20)
+	flame_radius(5, T)
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+
+/datum/ammo/mortar/rocket/mlrs/drop_nade(turf/T)
+	cell_explosion(T, 70, 25)
+
+/datum/ammo/tx54/he/drop_nade(turf/T)
+	cell_explosion(T, 45, 25)

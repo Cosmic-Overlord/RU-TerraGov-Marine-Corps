@@ -1,4 +1,3 @@
-
 /obj/machinery/chem_dispenser/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -16,3 +15,6 @@
 /obj/machinery/chem_dispenser/soda/pred
 	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
 	icon_state = "soda_dispenser"
+
+/obj/machinery/chem_dispenser/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB)

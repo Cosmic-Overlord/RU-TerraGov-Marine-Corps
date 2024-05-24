@@ -1,15 +1,29 @@
-/obj/item/explosive/grenade/smokebomb
-	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+/obj/item/explosive/grenade/pmc
+	power = 125
+	falloff = 40
 
-/obj/item/explosive/grenade/phosphorus
-	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
-	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+/obj/item/explosive/grenade/pmc/prime()
+	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	return ..()
+
+/obj/item/explosive/grenade/m15
+	power = 125
+	falloff = 40
+
+/obj/item/explosive/grenade/m15/prime()
+	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	return ..()
+
+/obj/item/explosive/grenade/sectoid
+	power = 150
+	falloff = 25
 
 /obj/item/explosive/grenade/sticky
 	icon_state_mini = "grenade_sticky"
 	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
 	G_hit_sound = null
+	power = 90
+	falloff = 40
 
 /obj/item/explosive/grenade/sticky/trailblazer
 	icon_state_mini = "grenade_trailblazer"
@@ -53,6 +67,30 @@
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
+
+/obj/item/explosive/grenade/ags
+	power = 80
+	falloff = 20
+
+/obj/item/explosive/grenade/impact
+	power = 80
+	falloff = 30
+
+/obj/item/explosive/grenade/impact/throw_impact(atom/hit_atom, speed)
+	. = ..()
+	if(!.)
+		return
+	if(launched && active && !istype(hit_atom, /turf/open)) //Only contact det if active, we actually hit something, and we're fired from a grenade launcher.
+		cell_explosion(loc, 50, 25)
+		qdel(src)
+
+/obj/item/explosive/grenade/smokebomb
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+
+/obj/item/explosive/grenade/phosphorus
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
 
 /obj/item/explosive/grenade/smokebomb/drain
 	icon_state_mini = "grenade_purple"

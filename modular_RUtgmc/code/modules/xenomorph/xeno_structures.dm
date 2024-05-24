@@ -6,6 +6,9 @@
 	else
 		obj_destruction()
 
+/obj/structure/xeno/ex_act(severity)
+	take_damage(severity * 0.8, BRUTE, BOMB)
+
 /obj/structure/xeno/silo
 	plane = FLOOR_PLANE
 	icon = 'modular_RUtgmc/icons/Xeno/resin_silo.dmi'
@@ -38,13 +41,22 @@
 /obj/structure/xeno/pherotower/crash/attack_alien(isrightclick = FALSE)
 	return
 
+/obj/structure/xeno/pherotower/ex_act(severity)
+	take_damage(severity * 2.5, BRUTE, BOMB)
+
 /obj/structure/xeno/evotower/Initialize(mapload, _hivenumber)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "tower"))
 
+/obj/structure/xeno/evotower/ex_act(severity)
+	take_damage(severity * 2.5, BRUTE, BOMB)
+
 /obj/structure/xeno/psychictower/Initialize(mapload, _hivenumber)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "tower"))
+
+/obj/structure/xeno/psychictower/ex_act(severity)
+	take_damage(severity * 2.5, BRUTE, BOMB)
 
 /obj/structure/xeno/plant
 	icon = 'modular_RUtgmc/icons/Xeno/plants.dmi'
@@ -52,6 +64,9 @@
 /obj/structure/xeno/plant/Initialize(mapload, _hivenumber)
 	. = ..()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "[mature_icon_state]"))
+
+/obj/structure/xeno/trap/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB)
 
 //Sentient facehugger can get in the trap
 /obj/structure/xeno/trap/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
@@ -213,6 +228,9 @@
 
 	charges -= charges_used
 	update_icon()
+
+/obj/structure/xeno/xeno_turret/ex_act(severity)
+	take_damage(severity * 3, BRUTE, BOMB)
 
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn effects only if we actually get destroyed by damage

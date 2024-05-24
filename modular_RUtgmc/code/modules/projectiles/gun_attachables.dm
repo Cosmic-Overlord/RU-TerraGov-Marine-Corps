@@ -110,6 +110,10 @@
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
 	)
 
+/obj/item/attachable/bayonetknife/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/shrapnel_removal, 12 SECONDS, 12 SECONDS, 10)
+
 /obj/item/attachable/melee_attack_chain(mob/user, atom/target, params, rightclick)
 	if(target == user && !user.do_self_harm)
 		return

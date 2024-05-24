@@ -19,3 +19,6 @@
 			. += span_green("[src] was thralled by [hunter_data.thralled_set.real_name] for '[hunter_data.thralled_reason]'.")
 		else if(hunter_data.gear)
 			. += span_red("[src] was marked as carrying gear by [hunter_data.gear_set].")
+
+/mob/living/carbon/plastique_act()
+	ex_act(500)

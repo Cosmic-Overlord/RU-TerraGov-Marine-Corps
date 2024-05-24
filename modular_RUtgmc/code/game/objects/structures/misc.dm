@@ -1,3 +1,10 @@
+/obj/structure/showcase/ex_act(severity)
+	if(prob(severity / 4))
+		qdel(src)
+
+/obj/structure/xenoautopsy/tank/ex_act(severity)
+	take_damage(severity / 2, BRUTE, BOMB)
+
 /obj/structure/xenoautopsy/tank/hugger
 	var/mob/living/carbon/xenomorph/facehugger/mob_occupant =  /mob/living/carbon/xenomorph/facehugger/ai
 
@@ -21,3 +28,6 @@
 	desc = "An ancient, dusty tomb with strange alien writing. It's best not to touch it."
 	icon_state = "yaut"
 
+/obj/structure/plasticflaps/ex_act(severity)
+	if(prob(severity / 4))
+		qdel(src)

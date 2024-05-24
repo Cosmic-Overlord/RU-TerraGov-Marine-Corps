@@ -5,7 +5,6 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"behemoth",
 	"boiler",
 	"bull",
-	"baneling",
 	"captain",
 	"clown",
 	"military_police",

@@ -1,6 +1,26 @@
 /obj/structure/barricade
 	var/can_upgrade = FALSE
 
+/obj/structure/barricade/ex_act(severity, direction)
+	for(var/obj/structure/barricade/barricade in get_step(src, dir)) //discourage double-stacking barricades by removing health from opposing barricade
+		if(barricade.dir == REVERSE_DIR(dir))
+			spawn(1)
+			if(barricade)
+				barricade.ex_act(severity, direction)
+	take_damage(severity, BRUTE, BOMB, attack_dir = direction)
+	update_icon()
+
+/obj/structure/barricade/on_explosion_destruction(severity, direction)
+	create_shrapnel(get_turf(src), rand(2,5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
+	if(prob(50)) // no message spam pls
+		visible_message(span_warning("[src] blows apart in the explosion, sending shards flying!"))
+
+/obj/structure/barricade/get_explosion_resistance(direction)
+	if(!density || direction == turn(dir, 90) || direction == turn(dir, -90))
+		return 0
+	else
+		return min(obj_integrity, 40)
+
 /obj/structure/barricade/metal
 	max_integrity = 225 //4 sheets
 	can_upgrade = TRUE

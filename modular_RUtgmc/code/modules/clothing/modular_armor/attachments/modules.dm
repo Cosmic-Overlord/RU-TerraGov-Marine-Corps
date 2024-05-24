@@ -1,9 +1,9 @@
 /obj/item/armor_module/module/style/light_armor
-	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 45, BIO = 45, FIRE = 45, ACID = 45)
+	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 
 /obj/item/armor_module/module/style/medium_armor
-	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
 
 /obj/item/armor_module/module/style/heavy_armor
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
@@ -101,6 +101,8 @@
 /obj/item/armor_module/module/motion_detector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
 		return
+	if(!target)
+		return
 
 	var/list/actualview = getviewsize(operator.client.view)
 	var/viewX = actualview[1]
@@ -187,3 +189,17 @@
 /obj/item/armor_module/module/eshield
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	damaged_shield_cooldown = 15 SECONDS
+
+/obj/item/armor_module/module/binoculars/artemis_mark_two
+	var/eye_protection_mod = 1
+
+/obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.eye_protection += eye_protection_mod
+	parent.AddComponent(/datum/component/blur_protection)
+
+/obj/item/armor_module/module/binoculars/artemis_mark_two/on_detach(obj/item/detaching_from, mob/user)
+	parent.eye_protection -= eye_protection_mod
+	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
+	blur_p?.RemoveComponent()
+	return ..()

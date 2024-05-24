@@ -33,18 +33,16 @@
 //Observers can become playable facehuggers by clicking on the egg
 /obj/alien/egg/hugger/attack_ghost(mob/dead/observer/user)
 	. = ..()
-
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
-	if(!hive.can_spawn_as_hugger(user))
-		return FALSE
 
 	if(maturity_stage != stage_ready_to_burst)
-		balloon_alert(user, "Not fully grown")
 		return FALSE
 	if(!can_spawn_player)
 		return FALSE
 	if(!hugger_type)
-		balloon_alert(user, "Empty")
+		return FALSE
+
+	if(!hive.can_spawn_as_hugger(user))
 		return FALSE
 
 	advance_maturity(stage_ready_to_burst + 1)

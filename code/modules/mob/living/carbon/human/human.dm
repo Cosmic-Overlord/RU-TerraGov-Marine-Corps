@@ -124,6 +124,7 @@
 	. = ..()
 	update_stam_skill_mod(skills)
 
+/* RUTGMC DELETION, moved to modular
 /mob/living/carbon/human/ex_act(severity)
 	if(status_flags & GODMODE)
 		return
@@ -181,6 +182,7 @@
 
 	take_overall_damage(b_loss, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
 	take_overall_damage(f_loss, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
+*/
 
 
 /mob/living/carbon/human/attack_animal(mob/living/M as mob)

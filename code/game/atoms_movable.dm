@@ -474,6 +474,8 @@ RU TGMC EDIT */
 
 ///called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, speed, bounce = TRUE)
+	if(!hit_atom) // RUTGMC ADDITION
+		return
 	var/hit_successful
 	var/old_throw_source = throw_source
 	hit_successful = hit_atom.hitby(src, speed)

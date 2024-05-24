@@ -36,7 +36,6 @@
 /// From /datum/admins/proc/force_predator_round()
 #define COMSIG_GLOB_PREDATOR_ROUND_TOGGLED "!predator_round_toglged"
 
-#define COMSIG_XENOABILITY_HEAL_SCREECH "xenoability_heal_screech"
 #define COMSIG_XENOABILITY_PLASMA_SCREECH "xenoability_plasma_screech"
 #define COMSIG_XENOABILITY_FRENZY_SCREECH "xenoability_frenzy_screech"
 

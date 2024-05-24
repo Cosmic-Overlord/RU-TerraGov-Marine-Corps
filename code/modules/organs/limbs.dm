@@ -784,11 +784,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.death()
 	return TRUE
 
+/* RUTGMC DELETION
 /datum/limb/hand/l_hand/droplimb(amputation, delete_limb = FALSE)
 	. = ..()
 	if(!.)
 		return
 	owner.update_inv_gloves()
+*/
 
 
 /****************************************************
@@ -1166,9 +1168,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 	face_surgery_stage = 0
 
 
+/* RUTGMC DELETION
 /datum/limb/head/droplimb(amputation, delete_limb = FALSE)
 	. = ..()
 	if(!.)
 		return
 	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
 		owner.set_undefibbable()
+*/
