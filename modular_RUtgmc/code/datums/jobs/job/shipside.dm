@@ -175,7 +175,7 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	switch(playtime_mins)
 		if(0 to 600) //starting
 			new_human.wear_id.paygrade = "E4"
-		if(6001 to 1500) // 10 hrs
+		if(601 to 1500) // 10 hrs
 			new_human.wear_id.paygrade = "E5"
 		if(1501 to 6000) // 25 hrs
 			new_human.wear_id.paygrade = "E6"
