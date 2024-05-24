@@ -469,7 +469,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	"}
 	minimap_icon = "st"
 
-/datum/job/som/engineering/tech/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+/*datum/job/som/engineering/tech/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
@@ -488,7 +488,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 			new_human.wear_id.paygrade = "SOM_E5"
 		if(30001 to INFINITY) // 500 hrs
 			new_human.wear_id.paygrade = "SOM_S1"
-
+*/
 /datum/job/som/engineering/tech/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"Your job is to make sure the base is operational, you should firstly focus on manning the
