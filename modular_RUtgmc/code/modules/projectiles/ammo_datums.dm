@@ -90,11 +90,6 @@
 	penetration = 25
 	sundering = 3.5
 
-/datum/ammo/energy/lasgun/marine/sniper
-	damage = 70
-	penetration = 45
-	sundering = 5
-
 /datum/ammo/energy/lasgun/marine/sniper_heat
 	penetration = 30
 	hitscan_effect_icon = "beam_incen"
