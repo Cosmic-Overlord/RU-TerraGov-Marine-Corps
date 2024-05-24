@@ -26,6 +26,7 @@
 	. = ..()
 	update_icon()
 
+/* RUTGMC DELETION
 /turf/open/floor/ex_act(severity)
 	if(hull_floor)
 		return ..()
@@ -41,6 +42,7 @@
 			if(prob(50))
 				break_tile()
 	return ..()
+*/
 
 /turf/open/floor/fire_act(exposed_temperature, exposed_volume)
 	if(hull_floor)
