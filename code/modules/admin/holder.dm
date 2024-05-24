@@ -304,8 +304,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/msay,
 	/client/proc/dsay
 	)
-GLOBAL_LIST_INIT(admin_verbs_admin, world.AVadmin())
-GLOBAL_PROTECT(admin_verbs_admin)
+//GLOBAL_LIST_INIT(admin_verbs_admin, world.AVadmin()) // moved to modular
+//GLOBAL_PROTECT(admin_verbs_admin)
 
 /world/proc/AVmentor()
 	return list(
@@ -363,8 +363,8 @@ GLOBAL_PROTECT(admin_verbs_asay)
 	/client/proc/SDQL2_query,
 	/client/proc/toggle_cdn
 	)
-GLOBAL_LIST_INIT(admin_verbs_debug, world.AVdebug())
-GLOBAL_PROTECT(admin_verbs_debug)
+//GLOBAL_LIST_INIT(admin_verbs_debug, world.AVdebug()) //moved to modular
+//GLOBAL_PROTECT(admin_verbs_debug)
 
 /world/proc/AVruntimes()
 	return list(
@@ -380,6 +380,7 @@ GLOBAL_PROTECT(admin_verbs_runtimes)
 GLOBAL_LIST_INIT(admin_verbs_varedit, world.AVvaredit())
 GLOBAL_PROTECT(admin_verbs_varedit)
 
+/* RUTGMC DELETION
 /world/proc/AVfun()
 	return list(
 	/datum/admins/proc/rank_and_equipment,
@@ -421,15 +422,13 @@ GLOBAL_PROTECT(admin_verbs_varedit)
 	/datum/admins/proc/map_template_load,
 	/datum/admins/proc/map_template_upload,
 	/datum/admins/proc/spatial_agent,
-	//RUTGMC EDIT ADDITION BEGIN
-	/datum/admins/proc/military_policeman,
-	//RUTGMC EDIT ADDITION BEGIN - DISTRESS
 	/datum/admins/proc/set_xeno_stat_buffs,
 	/datum/admins/proc/check_bomb_impacts,
 	/datum/admins/proc/adjust_gravity,
 	)
-GLOBAL_LIST_INIT(admin_verbs_fun, world.AVfun())
-GLOBAL_PROTECT(admin_verbs_fun)
+*/
+//GLOBAL_LIST_INIT(admin_verbs_fun, world.AVfun()) //moved to modular
+//GLOBAL_PROTECT(admin_verbs_fun)
 
 /world/proc/AVserver()
 	return list(
