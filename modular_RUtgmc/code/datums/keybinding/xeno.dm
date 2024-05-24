@@ -57,12 +57,6 @@
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_GRAB
 	hotkey_keys = list("X")
 
-/datum/keybinding/xeno/heal_screech
-	name = "heal_screech"
-	full_name = "Queen: Heal Screech"
-	description = "Screech that heals nearby xenos."
-	keybind_signal = COMSIG_XENOABILITY_HEAL_SCREECH
-
 /datum/keybinding/xeno/plasma_screech
 	name = "plasma_screech"
 	full_name = "Queen: Plasma Screech"

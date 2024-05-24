@@ -10,7 +10,8 @@
 /datum/smite/bsa/effect(client/user, mob/living/target)
 	. = ..()
 
-	explosion(target.loc)
+	//explosion(target.loc) // ORIGINAL
+	cell_explosion(target.loc, 1, 1) // RUTGMC ADDITION
 
 	var/turf/open/floor/target_turf = get_turf(target)
 	if (istype(target_turf))
