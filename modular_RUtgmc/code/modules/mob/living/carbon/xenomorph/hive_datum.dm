@@ -46,8 +46,8 @@
 	if(GLOB.key_to_time_of_death[user.key] + TIME_BEFORE_TAKING_BODY > world.time && !user.started_as_observer)
 		to_chat(user, span_warning("You died too recently to be able to take a new facehugger."))
 		return FALSE
-
-	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become a part of the Horde", list("Yes", "No")) != "Yes")
+	
+	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become part of the Horde!", list("Yes", "No")) != "Yes")
 		return FALSE
 
 	if(length(facehuggers) >= MAX_FACEHUGGERS)
