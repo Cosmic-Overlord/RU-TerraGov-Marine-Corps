@@ -429,6 +429,7 @@
 	icon_state_mini = "grenade_blue_white"
 	light_impact_range = 3
 
+/* RUTGMC REMOVAL
 /obj/item/explosive/grenade/impact/throw_impact(atom/hit_atom, speed)
 	. = ..()
 	if(!.)
@@ -436,6 +437,7 @@
 	if(launched && active && !istype(hit_atom, /turf/open)) //Only contact det if active, we actually hit something, and we're fired from a grenade launcher.
 		explosion(loc, light_impact_range = 1, flash_range = 2)
 		qdel(src)
+*/
 
 
 /obj/item/explosive/grenade/flare
