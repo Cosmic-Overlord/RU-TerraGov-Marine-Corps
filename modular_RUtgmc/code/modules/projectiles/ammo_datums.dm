@@ -417,16 +417,16 @@
 	max_range = 8
 
 /datum/ammo/energy/yautja/caster/sphere/on_hit_mob(mob/M, obj/projectile/P)
-	explosion(get_turf(M), 2, 3, 5, 3)
+	cell_explosion(get_turf(M), 50, 25)
 
 /datum/ammo/energy/yautja/caster/sphere/on_hit_turf(turf/T, obj/projectile/P)
-	explosion(get_turf(T), 2, 3, 5, 3)
+	cell_explosion(get_turf(T), 50, 25)
 
 /datum/ammo/energy/yautja/caster/sphere/on_hit_obj(obj/O, obj/projectile/P)
-	explosion(get_turf(O), 2, 3, 5, 3)
+	cell_explosion(get_turf(O), 50, 25)
 
 /datum/ammo/energy/yautja/caster/sphere/do_at_max_range(obj/projectile/P)
-	explosion(get_turf(P), 2, 3, 5, 3)
+	cell_explosion(get_turf(P), 50, 25)
 
 
 /datum/ammo/energy/yautja/caster/sphere/stun
@@ -459,7 +459,7 @@
 		var/f_stun_time = stun_time
 		log_attack("[key_name(M)] was stunned by a plasma immobilizer from [key_name(P.firer)] at [get_area(P)]")
 		if(isyautja(M))
-			f_stun_time -= 2
+			f_stun_time -= 2 SECONDS
 		if(ispredalien(M))
 			continue
 		to_chat(M, span_danger("A powerful electric shock ripples through your body, freezing you in place!"))
