@@ -94,7 +94,7 @@
 
 ///Prepare the blip to be print on the operator screen
 /obj/item/armor_module/module/motion_detector/proc/prepare_blip(mob/target, status)
-	if(!operator?.client)
+	if(!operator || !operator.client)
 		return
 	if(!target)
 		return
