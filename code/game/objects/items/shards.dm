@@ -28,6 +28,7 @@
 	return ..()
 
 
+/* RUTGMC DELETION
 /obj/item/shard/Initialize(mapload)
 	. = ..()
 	shardsize = pick("large", "medium", "small")
@@ -46,6 +47,7 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, connections)
+*/
 
 
 /obj/item/shard/attackby(obj/item/I, mob/user, params)

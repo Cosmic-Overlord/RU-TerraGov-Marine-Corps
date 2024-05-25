@@ -171,3 +171,26 @@
 	excepted_turfs += turfs_to_attack
 	iteration++
 	addtimer(CALLBACK(src, PROC_REF(do_attack_extra), origin_turf, extra_turfs, excepted_turfs, enhanced, range, iteration), SEISMIC_FRACTURE_ENHANCED_DELAY)
+
+/obj/structure/earth_pillar/Initialize(mapload, mob/living/carbon/xenomorph/new_owner, enhanced)
+	. = ..()
+	xeno_owner = new_owner
+	RegisterSignal(xeno_owner, COMSIG_QDELETING, PROC_REF(owner_deleted))
+	if(enhanced)
+		icon_state = "[icon_state]e"
+		var/random_x = generator("num", -100, 100, NORMAL_RAND)
+		animate(src, pixel_x = random_x, pixel_y = 500, time = 0)
+		animate(pixel_x = 0, pixel_y = 0, time = 0.5 SECONDS)
+		return
+	playsound(src, 'sound/effects/behemoth/earth_pillar_rising.ogg', 40, TRUE)
+	particle_holder = new(src, /particles/earth_pillar)
+	particle_holder.pixel_y = -4
+	animate(particle_holder, pixel_y = 4, time = 1.0 SECONDS)
+	animate(alpha = 0, time = 0.6 SECONDS)
+	QDEL_NULL_IN(src, particle_holder, 1.6 SECONDS)
+	do_jitter_animation(jitter_loops = 5)
+	RegisterSignals(src, list(COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_HAND_ALTERNATE, COMSIG_ATOM_ATTACKBY), PROC_REF(call_update_icon_state))
+
+/obj/structure/earth_pillar/ex_act(severity)
+	. = ..()
+	update_icon_state()
