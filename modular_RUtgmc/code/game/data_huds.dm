@@ -32,7 +32,7 @@
 		var/transvitox_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox)
 		var/sanguinal_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_sanguinal)
 		var/ozelomelyn_amount = reagents.get_reagent_amount(/datum/reagent/toxin/xeno_ozelomelyn)
-		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/xenojelly)
+		var/jellyjuice_amount = reagents.get_reagent_amount(/datum/reagent/medicine/xenojelly)
 		var/medicalnanites_amount = reagents.get_reagent_amount(/datum/reagent/medicine/research/medicalnanites)
 		var/russianred_amount = reagents.get_reagent_amount(/datum/reagent/medicine/russian_red)
 
@@ -281,7 +281,7 @@
 	hud_list[XENO_PRIMO_HUD] = holder
 
 /mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
-	var/image/holder = hud_list[hud_holder]
+	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"
 		return
@@ -320,10 +320,30 @@
 			holder.icon_state = "hudhealth5"
 		if(0 to 4)
 			holder.icon_state = "hudhealth0"
-		if(-49 to -1)
-			holder.icon_state = "hudhealth-0"
-		if(-99 to -50)
+		if(-4 to -1)
+			holder.icon_state = "hudhealth-5"
+		if(-9 to -5)
+			holder.icon_state = "hudhealth-10"
+		if(-19 to -10)
+			holder.icon_state = "hudhealth-20"
+		if(-29 to -20)
+			holder.icon_state = "hudhealth-30"
+		if(-39 to -30)
+			holder.icon_state = "hudhealth-40"
+		if(-49 to -40)
 			holder.icon_state = "hudhealth-50"
+		if(-59 to -50)
+			holder.icon_state = "hudhealth-60"
+		if(-69 to -60)
+			holder.icon_state = "hudhealth-70"
+		if(-79 to -70)
+			holder.icon_state = "hudhealth-80"
+		if(-89 to -80)
+			holder.icon_state = "hudhealth-90"
+		if(-94 to -90)
+			holder.icon_state = "hudhealth-95"
+		if(-99 to -95)
+			holder.icon_state = "hudhealth-99"
 		else
 			holder.icon_state = "hudhealth-100"
 

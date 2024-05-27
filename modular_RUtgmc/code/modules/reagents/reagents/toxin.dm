@@ -1,4 +1,4 @@
-/datum/reagent/xenojelly
+/datum/reagent/medicine/xenojelly
 	name = "Resin jelly juice"
 	description = "Jelly used by xenos to stabilize the hosts."
 	color = "#500f4d"
@@ -7,11 +7,11 @@
 	custom_metabolism = REAGENTS_METABOLISM * 0.5
 	effect_str = 2
 
-/datum/reagent/xenojelly/on_mob_add(mob/living/L, metabolism)
+/datum/reagent/medicine/xenojelly/on_mob_add(mob/living/L, metabolism)
 	ADD_TRAIT(L, TRAIT_IGNORE_SUFFOCATION, REAGENT_TRAIT(src))
 	L.reagents.remove_all_type(/datum/reagent/medicine/spaceacillin, 30, 1, 1)
 
-/datum/reagent/xenojelly/on_mob_life(mob/living/L, metabolism)
+/datum/reagent/medicine/xenojelly/on_mob_life(mob/living/L, metabolism)
 	var/mob/living/carbon/human/H = L
 	L.adjustDrowsyness(6)
 	L.reagent_shock_modifier -= PAIN_REDUCTION_MEDIUM
@@ -46,6 +46,6 @@
 			L.adjustToxLoss(-1)
 	return ..()
 
-/datum/reagent/xenojelly/on_mob_delete(mob/living/L, metabolism)
+/datum/reagent/medicine/xenojelly/on_mob_delete(mob/living/L, metabolism)
 	REMOVE_TRAIT(L, TRAIT_IGNORE_SUFFOCATION, REAGENT_TRAIT(src))
 	return ..()
