@@ -11,7 +11,7 @@ SERVER_NAME Something
 HOSTEDBY yournamehere
 
 ## The title of the main window.
-TITLE spaghetti
+TITLE Change Me
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 #HUB
