@@ -910,12 +910,6 @@
 
 	var/list/datum/yautja_energy_weapon_modes/mode_list = list()
 
-/obj/item/weapon/gun/energy/yautja/Initialize(mapload, spawn_empty)
-	. = ..()
-	verbs -= /obj/item/weapon/gun/verb/toggle_burstfire
-	verbs -= /obj/item/weapon/gun/verb/empty_mag
-	verbs -= /obj/item/weapon/gun/verb/use_unique_action
-
 /obj/item/weapon/gun/energy/yautja/unique_action(mob/user)
 	if(!user)
 		CRASH("switch_modes called with no user.")
@@ -1116,9 +1110,6 @@
 /obj/item/weapon/gun/energy/yautja/plasmapistol/Initialize(mapload, spawn_empty)
 	. = ..()
 	START_PROCESSING(SSobj, src)
-	verbs -= /obj/item/weapon/gun/verb/toggle_burstfire
-	verbs -= /obj/item/weapon/gun/verb/empty_mag
-
 
 
 /obj/item/weapon/gun/energy/yautja/plasmapistol/Destroy()
@@ -1218,8 +1209,6 @@
 	source = loc
 	if(!istype(source))
 		qdel(src)
-	verbs -= /obj/item/weapon/gun/verb/toggle_burstfire
-	verbs -= /obj/item/weapon/gun/verb/empty_mag
 	RegisterSignal(src, COMSIG_ITEM_MIDDLECLICKON, PROC_REF(target_action))
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/Destroy()
