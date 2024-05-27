@@ -6,9 +6,10 @@
 	hud_list = new
 	for(var/hud in hud_possible) //Providing huds.
 		var/image/new_hud = image('modular_RUtgmc/icons/mob/hud.dmi', src, "")
-		switch(hud)
-			if(HUNTER_CLAN, HUNTER_HUD)
-				new_hud = image('modular_RUtgmc/icons/mob/hud_yautja.dmi', src, "")
+		if(hud == HUNTER_CLAN)
+			new_hud = image('modular_RUtgmc/icons/mob/hud_yautja.dmi', src, "")
+		else if(hud == HUNTER_HUD)
+			new_hud = image('modular_RUtgmc/icons/mob/hud_yautja.dmi', src, "")
 		new_hud.appearance_flags = KEEP_APART
 		hud_list[hud] = new_hud
 
