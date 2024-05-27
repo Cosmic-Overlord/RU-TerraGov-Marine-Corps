@@ -110,8 +110,8 @@ REAGENT SCANNER
 		balloon_alert(user, "Unknown entity")
 		return
 //RU TGMC EDIT
-	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO) && !alien)
-		to_chat(user, "Unknown biology")
+	if(HAS_TRAIT(M, TRAIT_FOREIGN_BIO) && !alien)
+		balloon_alert(user, "Unknown biology")
 		return
 //RU TGMC EDIT
 	if(M.species.species_flags & NO_SCAN)

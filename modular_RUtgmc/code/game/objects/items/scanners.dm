@@ -3,7 +3,8 @@
 	item_icons = list(
 		slot_gloves_str = 'modular_RUtgmc/icons/mob/clothing/hands.dmi')
 
-/obj/item/healthanalyzer/var/alien = FALSE
+/obj/item/healthanalyzer
+	var/alien = FALSE
 
 /obj/item/healthanalyzer/alien
 	name = "\improper YMX scanner"
