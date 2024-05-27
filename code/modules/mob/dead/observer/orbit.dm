@@ -112,7 +112,7 @@
 //RUTGMC EDIT
 			if(istype(xeno, /mob/living/carbon/xenomorph/hellhound))
 				yautja += list(serialized)
-			continue
+				continue
 //RUTGMC EDIT
 			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO)) // RUTGMC ADDITION
 				valhalla += list(serialized)
