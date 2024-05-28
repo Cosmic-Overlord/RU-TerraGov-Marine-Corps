@@ -243,6 +243,7 @@
 	///large dirt kickup particle holder
 	var/obj/effect/abstract/particle_holder/large_kickup
 
+/* RUTGMC DELETION
 /obj/effect/temp_visual/explosion/Initialize(mapload, radius, color, small = FALSE, large = FALSE)
 	. = ..()
 	set_light(radius, radius, color)
@@ -302,6 +303,7 @@
 	sparks.particles.velocity = generator(GEN_CIRCLE, 8 * radius, 8 * radius)
 	addtimer(CALLBACK(src, PROC_REF(set_count_short)), 5)
 	addtimer(CALLBACK(src, PROC_REF(set_count_long)), 10)
+*/
 
 /obj/effect/temp_visual/explosion/proc/set_count_short()
 	smoke_wave.particles.count = 0

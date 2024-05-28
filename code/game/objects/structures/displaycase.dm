@@ -10,6 +10,7 @@
 	var/occupied = 1
 	var/destroyed = 0
 
+/* RUTGMC DELETION
 /obj/structure/displaycase/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -20,6 +21,7 @@
 			take_damage(5, BRUTE, BOMB)
 		if(EXPLODE_WEAK)
 			take_damage(5, BRUTE, BOMB)
+*/
 
 
 /obj/structure/displaycase/update_icon()

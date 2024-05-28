@@ -1,3 +1,5 @@
+/turf/closed/get_explosion_resistance()
+	return EXPLOSION_MAX_POWER
 /turf/closed/shuttle/dropship1
 	resistance_flags = NONE
 
@@ -23,3 +25,7 @@
 
 /turf/closed/shuttle/dropship2/glasssix
 	opacity = FALSE
+
+/turf/closed/gm/ex_act(severity)
+	if(severity >= EXPLODE_DEVASTATE)
+		ChangeTurf(/turf/open/ground/grass)

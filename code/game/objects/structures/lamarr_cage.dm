@@ -25,6 +25,7 @@
 	density = FALSE
 	occupied = FALSE
 
+/* RUTGMC DELETION
 /obj/structure/lamarr/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -35,6 +36,7 @@
 		if(EXPLODE_LIGHT)
 			if(prob(50))
 				take_damage(5, BRUTE, BOMB)
+*/
 
 
 /obj/structure/lamarr/attack_hand(mob/living/user)

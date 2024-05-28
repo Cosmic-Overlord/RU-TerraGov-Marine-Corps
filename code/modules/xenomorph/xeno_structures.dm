@@ -1287,31 +1287,6 @@ RU TGMC EDIT */
 			icon_state = "frenzytower"
 			set_light(2, 2, LIGHT_COLOR_RED)
 
-/obj/structure/xeno/banelingpod
-	name = "Baneling pod"
-	desc = "A resin structure filled with an oozing slimy pod that swells constantly. It is filled to the brim with small, crawling figures, merging what seems to be other pods inside."
-	icon = 'icons/Xeno/castes/baneling.dmi'
-	icon_state = "Baneling Pod"
-	bound_width = 32
-	bound_height = 32
-	max_integrity = 100
-	density = FALSE
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
-	xeno_structure_flags = IGNORE_WEED_REMOVAL | CRITICAL_STRUCTURE
-	var/linked_minions = list()
-
-/obj/structure/xeno/banelingpod/Initialize(mapload, _hivenumber)
-	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "baneling_pod"))
-	SSspawning.registerspawner(src, INFINITY, GLOB.baneling_spawnable, 0, 0, null)
-	SSspawning.spawnerdata[src].required_increment = max(60 SECONDS)/SSspawning.wait
-	SSspawning.spawnerdata[src].max_allowed_mobs = 1
-	GLOB.hive_datums[hivenumber].banelingpods += src
-
-/obj/structure/xeno/banelingpod/Destroy()
-	GLOB.hive_datums[hivenumber].banelingpods -= src
-	return ..()
-
 /obj/structure/xeno/spawner
 	name = "spawner"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."

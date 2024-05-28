@@ -34,10 +34,6 @@
 		log_game("[activator] has detonated an explosive vest with no warcry at [AREACOORD(target)]")
 
 	activator.record_tactical_unalive()
-
-	for(var/datum/limb/appendage AS in activator.limbs) //Oops we blew all our limbs off
-		if(istype(appendage, /datum/limb/chest) || istype(appendage, /datum/limb/groin) || istype(appendage, /datum/limb/head))
-			continue
-		appendage.droplimb()
 	explosion(target, 2, 2, 6, 7, 5, 5)
+	activator.ex_act(500)
 	qdel(src)
