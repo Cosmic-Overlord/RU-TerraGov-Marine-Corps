@@ -15,6 +15,13 @@
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	xenomorph_owner.plasma_stored += pantherplasmaheal
 
+/datum/action/ability/activable/xeno/pounce/use_ability(atom/our_atom)
+	. = ..()
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	var/datum/action/ability/xeno_action/jump = xenomorph_owner.actions_by_path[/datum/action/ability/activable/xeno/adrenalinejump]
+	if(jump)
+		jump.add_cooldown()
+
 ///////////////////////////////////
 // ***************************************
 // *********** Tearing tail
