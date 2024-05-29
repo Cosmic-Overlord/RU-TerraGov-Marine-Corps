@@ -126,30 +126,6 @@
 		return
 	blips_list += new /obj/effect/blip/close_blip(get_turf(target), status, operator)
 
-/obj/item/armor_module/module/fire_proof/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/tyr_extra_armor/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/mimir_environment_protection/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/valkyrie_autodoc/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/welding/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/storage/engineering/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/storage/general/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/storage/medical/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
 /obj/item/armor_module/module/fire_proof
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
@@ -201,3 +177,27 @@
 	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
 	blur_p?.RemoveComponent()
 	return ..()
+
+/obj/item/armor_module/module/fire_proof/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/tyr_extra_armor/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/mimir_environment_protection/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/valkyrie_autodoc/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/welding/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/storage/engineering/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/storage/general/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/storage/medical/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
