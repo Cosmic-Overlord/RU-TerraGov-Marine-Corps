@@ -131,6 +131,8 @@
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 
 /obj/item/armor_module/module/fire_proof_helmet
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mod_fire_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 
@@ -145,6 +147,8 @@
 */
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet //gas protection
 	desc = "Designed for mounting on a modular helmet. Provides great resistance to xeno gas clouds"
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
 	slowdown = 0
 
@@ -160,12 +164,22 @@
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 10)
 	slowdown = 0
 
+/obj/item/armor_module/module/tyr_head
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
+
 /obj/item/armor_module/module/eshield
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	damaged_shield_cooldown = 15 SECONDS
 
+/obj/item/armor_module/module/artemis
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_xn")
+
 /obj/item/armor_module/module/binoculars/artemis_mark_two
 	var/eye_protection_mod = 1
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
