@@ -495,11 +495,15 @@
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/clothing_tint, TINT_5, active)
+	if(active) // RUTGMC ADDITION START
+		parent.eye_protection += eye_protection_mod // reset to the users base eye // RUTGMC ADDITION END
 
 /obj/item/armor_module/module/welding/on_detach(obj/item/detaching_from, mob/user)
 	parent.GetComponent(/datum/component/clothing_tint)
 	var/datum/component/clothing_tint/tints = parent?.GetComponent(/datum/component/clothing_tint)
 	tints.RemoveComponent()
+	if(active) // RUTGMC ADDITION START
+		parent.eye_protection -= eye_protection_mod // reset to the users base eye // RUTGMC ADDITION END
 	return ..()
 
 /obj/item/armor_module/module/welding/activate(mob/living/user)
