@@ -62,7 +62,6 @@
 			qdel(our_item)
 			qdel(src)
 			user.put_in_hands(our_glasses)
-
 		update_icon(user)
 
 /obj/item/clothing/glasses/sunglasses/fake/attackby(obj/item/our_item, mob/user, params)
