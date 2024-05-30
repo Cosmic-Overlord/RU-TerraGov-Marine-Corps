@@ -252,6 +252,7 @@
 #include "code\modules\mob\living\carbon\xenomorph\castes\defender\castedatum_defender.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\abilities_defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\defiler\castedatum_defiler.dm"
+#include "code\modules\mob\living\carbon\xenomorph\castes\defiler\defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\drone\drone.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\drone\castedatum_drone.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\facehugger\castedatum_facehugger.dm"
