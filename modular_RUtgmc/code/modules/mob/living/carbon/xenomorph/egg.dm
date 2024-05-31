@@ -1,6 +1,3 @@
-/obj/alien/egg
-	var/can_spawn_player = TRUE
-
 /obj/alien/egg/hugger
 	plane = FLOOR_PLANE
 
@@ -37,8 +34,6 @@
 
 	if(maturity_stage != stage_ready_to_burst)
 		return FALSE
-	if(!can_spawn_player)
-		return FALSE
 	if(!hugger_type)
 		return FALSE
 
@@ -74,8 +69,10 @@
 	qdel(F)
 
 /obj/alien/egg/hugger/forsaken
-	can_spawn_player = FALSE
 	hivenumber = XENO_HIVE_FORSAKEN
+
+/obj/alien/egg/hugger/forsaken/attack_ghost(mob/dead/observer/user)
+	return
 
 /obj/alien/egg/gas
 	desc = "It looks like a suspiciously weird egg"

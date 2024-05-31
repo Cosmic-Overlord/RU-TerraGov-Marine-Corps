@@ -34,7 +34,7 @@
 			continue
 		if(!potential_egg.hugger_type)
 			continue
-		if(!potential_egg.can_spawn_player)
+		if(istype(potential_egg, /obj/alien/egg/hugger/forsaken))
 			continue
 
 		var/area_egg = get_area(potential_egg)
