@@ -1,1 +1,2 @@
-/datum/db_query/var/no_auto_delete = FALSE
+/datum/db_query
+	var/no_auto_delete = FALSE
