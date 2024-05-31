@@ -900,7 +900,7 @@
 /obj/item/card/id/bracer_chip
 	name = "bracer ID chip"
 	desc = "A complex cypher chip embedded within a set of clan bracers."
-	icon = 'icons/obj/items/radio.dmi'
+	icon = 'modular_RUtgmc/icons/obj/items/radio.dmi'
 	icon_state = "upp_key"
 	access = list(ACCESS_YAUTJA_SECURE)
 	w_class = WEIGHT_CLASS_TINY
