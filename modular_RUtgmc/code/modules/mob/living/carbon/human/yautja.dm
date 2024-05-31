@@ -305,7 +305,4 @@ var/global/image/hud_icon_hunter_thralled
 	return species?.reagent_tag
 
 /mob/living/carbon/human/species/yautja/can_be_operated_on(mob/user)
-	if(user == src)
-		return TRUE
-	else
-		..()
+	return TRUE
