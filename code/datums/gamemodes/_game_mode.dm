@@ -491,7 +491,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/z in z_levels)
 		for(var/i in GLOB.humans_by_zlevel["[z]"])
 			var/mob/living/carbon/human/H = i
-			if(!istype(H) || isyautja(H)) // Small fix? and // RU TGMC EDIT
+			if(!istype(H)) // Small fix?
+				continue
+			if(isyautja(H)) //RU TGMC EDIT
 				continue
 			if(count_flags & COUNT_IGNORE_HUMAN_SSD && !H.client && H.afk_status == MOB_DISCONNECTED)
 				continue
