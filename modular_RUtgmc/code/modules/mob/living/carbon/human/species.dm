@@ -32,9 +32,6 @@
 	namepool = /datum/namepool/necoarc
 	special_death_message = "You have perished."
 
-/datum/species/proc/larva_impregnated(obj/item/alien_embryo/embryo)
-	return
-
 /datum/species/proc/handle_cryo(mob/living/carbon/human/H)
 
 /datum/species/proc/get_hairstyle(style)

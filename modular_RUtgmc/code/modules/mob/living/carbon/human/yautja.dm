@@ -58,16 +58,6 @@
 	var/list/datum/action/predator_action/mark_for_hunt/mark_for_hunt = list()
 	var/list/datum/action/predator_action/mark_panel/mark_panel = list()
 
-/datum/species/yautja/larva_impregnated(obj/item/alien_embryo/embryo)
-	var/datum/hive_status/hive = GLOB.hive_datums[embryo.hivenumber]
-
-	if(!istype(hive))
-		return
-
-	hive.max_thick_nests++
-
-	xeno_message("The hive senses that a headhunter has been infected! The thick resin nest is now available in the mother's blessing!", hivenumber = hive.hivenumber)
-
 /datum/species/yautja/handle_death(mob/living/carbon/human/H, gibbed)
 	if(gibbed)
 		GLOB.yautja_mob_list -= H

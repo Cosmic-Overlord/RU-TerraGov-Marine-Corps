@@ -585,8 +585,12 @@
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 				personal_statistics.impregnations++
 //RUTGMC EDIT ADDITION BEGIN - Preds
-			if(target.species)
-				target.species.larva_impregnated(embryo)
+			if(target.species == /datum/species/yautja)
+				var/datum/hive_status/hive = GLOB.hive_datums[embryo.hivenumber]
+				if(!istype(hive))
+					return
+				hive.max_thick_nests++
+				xeno_message("The hive senses that a headhunter has been infected! The thick resin nest is now available in the mother's blessing!", hivenumber = hive.hivenumber)
 //RUTGMC EDIT ADDITION END
 			sterile = TRUE
 		kill_hugger()
