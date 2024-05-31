@@ -5,7 +5,6 @@ GLOBAL_LIST_INIT(ethnicities_list, init_ethnicities())
 /// Ethnicity - Initialise all /datum/ethnicity into a list indexed by ethnicity name
 /proc/init_ethnicities()
 	. = list()
-
 	for(var/path in subtypesof(/datum/ethnicity))
 		var/datum/ethnicity/E = new path()
 		.[E.name] = E
