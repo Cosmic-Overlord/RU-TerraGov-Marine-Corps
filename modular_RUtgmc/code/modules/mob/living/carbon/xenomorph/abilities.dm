@@ -123,16 +123,6 @@
 	if(new_resin)
 		SSresinshaping.increment_build_counter(owner)
 
-// ***************************************
-// *********** Pouncey
-// ***************************************
-/datum/action/ability/activable/xeno/pounce
-	var/mob_hit_sound = 'sound/voice/alien_pounce.ogg'
-	///For how long will we stun the victim
-	var/victim_paralyze_time = 2 SECONDS
-	///For how long will we freeze upon hitting our target
-	var/freeze_on_hit_time = 0.5 SECONDS
-
 /datum/action/ability/activable/xeno/pounce/hellhound
 	cooldown_duration = 5 SECONDS
 

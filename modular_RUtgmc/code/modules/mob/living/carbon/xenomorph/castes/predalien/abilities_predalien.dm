@@ -7,7 +7,6 @@
 	action_icon_state = "powerful_pounce"
 
 	pounce_range = 5
-	mob_hit_sound = 'sound/voice/predalien_pounce.ogg'
 
 	var/base_damage = 25
 	var/damage_scale = 10 // How much it scales by every kill
