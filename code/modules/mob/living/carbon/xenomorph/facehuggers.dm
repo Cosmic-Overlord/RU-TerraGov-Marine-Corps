@@ -585,7 +585,7 @@
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 				personal_statistics.impregnations++
 //RUTGMC EDIT ADDITION BEGIN - Preds
-			if(target.species == /datum/species/yautja)
+			if(isyautja(target))
 				var/datum/hive_status/hive = GLOB.hive_datums[embryo.hivenumber]
 				if(!istype(hive))
 					return
