@@ -232,7 +232,8 @@ var/global/image/hud_icon_hunter_thralled
 		return
 	holder.icon_state = "hudblank"
 	holder.overlays.Cut()
-	holder.pixel_x = -18
+	holder.pixel_x = -17
+	holder.pixel_y = 20
 	if(hunter_data.hunted)
 		if(!hud_icon_hunter_hunted)
 			hud_icon_hunter_hunted = image('modular_RUtgmc/icons/mob/screen/yautja.dmi', src, "hunter_hunted")
