@@ -375,7 +375,7 @@
 	if(isyautja(user))
 		return pick('modular_RUtgmc/sound/voice/pred_laugh1.ogg', 'modular_RUtgmc/sound/voice/pred_laugh2.ogg', 'modular_RUtgmc/sound/voice/pred_laugh3.ogg', 'modular_RUtgmc/sound/voice/pred_laugh4.ogg')
 //RUTGMC EDIT
-	if(user.gender == FEMALE && ishuman(user))
+	else if(user.gender == FEMALE)
 		return 'sound/voice/human_female_laugh_1.ogg'
 	else
 		return pick('sound/voice/human_male_laugh_1.ogg', 'sound/voice/human_male_laugh_2.ogg')
