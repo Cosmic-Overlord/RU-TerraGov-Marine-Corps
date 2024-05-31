@@ -3,6 +3,7 @@
 	ability_cost = 10
 
 /datum/action/ability/activable/xeno/pounce/panther
+	desc = "Leap at your target, tackling and disarming them. Sets Adrenaline Jump on cooldown!"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_POUNCE,
 	)
@@ -87,7 +88,7 @@
 /datum/action/ability/activable/xeno/adrenalinejump
 	name = "Adrenaline Jump"
 	action_icon_state = "adrenaline_jump"
-	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target, this ability sends Pounce on cooldown."
+	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target. Sets Pounce on cooldown!"
 	ability_cost = 15
 	cooldown_duration = 12 SECONDS
 	keybinding_signals = list(
