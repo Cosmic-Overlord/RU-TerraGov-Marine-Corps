@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 		CRASH("staggerstun called without a mob target")
 	if(!isliving(victim))
 		return
-	if(get_dist_euclide(proj.starting_turf, victim) > max_range)
+	if(get_dist_euclidean(proj.starting_turf, victim) > max_range)
 		return
 	var/impact_message = ""
 	if(isxeno(victim))
@@ -3200,7 +3200,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/energy/xeno/psy_blast
 	name = "psychic blast"
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_ENERGY|AMMO_SUNDERING|AMMO_HITSCAN
+	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_ENERGY|AMMO_SUNDERING|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
 	damage = 35
 	penetration = 10
 	sundering = 1
@@ -3270,7 +3270,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	penetration = 50
 	accuracy = 100
 	sundering = 5
-	max_range = 12
+	max_range = 16
 	hitscan_effect_icon = "beam_hcult"
 	icon_state = "psy_lance"
 	ability_cost = 300
@@ -3769,7 +3769,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///On a direct hit, how much drowsyness gets added to the target?
 	var/hit_drowsyness = 12
 	///Base spread range
-	var/fixed_spread_range = 3
+	var/fixed_spread_range = 4
 	///Which type is the smoke we leave on passed tiles, provided the projectile has AMMO_LEAVE_TURF enabled?
 	var/passed_turf_smoke_type = /datum/effect_system/smoke_spread/xeno/neuro/light
 	///We're going to reuse one smoke spread system repeatedly to cut down on processing.
@@ -3971,6 +3971,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/hugger/acid
 	hugger_type = /obj/item/clothing/mask/facehugger/combat/acid
 
+/* RUTGMC DELETION, WIDOW DELETION
 /// For Widows Web Spit Ability
 /datum/ammo/xeno/web
 	icon_state = "web_spit"
@@ -4043,7 +4044,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /// This spawns a leash ball and checks if the turf is dense before doing so
 /datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/T)
 	new /obj/structure/xeno/aoe_leash(get_turf(T), hivenumber)
-
+*/
+/* RU TGMC EDIT
 /datum/ammo/xeno/spine //puppeteer
 	name = "spine"
 	damage = 35
@@ -4052,7 +4054,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	bullet_color = COLOR_WHITE
 	sound_hit = 'sound/bullets/spear_armor1.ogg'
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
-
+RU TGMC EDIT*/
 /*
 //================================================
 					Misc Ammo

@@ -435,6 +435,7 @@
 		if(CADE_TYPE_ACID)
 			. += image('icons/Marine/barricades.dmi', icon_state = "+burn_upgrade_[damage_state]")
 
+/* RUTGMC DELETION, moved to modular
 /obj/structure/barricade/metal/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
@@ -442,16 +443,9 @@
 		return
 
 	var/obj/item/stack/sheet/metal/metal_sheets = I
-	/* ORIGINAL
+
 	if(obj_integrity >= max_integrity * 0.3)
 		return attempt_barricade_upgrade(I, user, params)
-	*/
-	//RUTGMC EDIT BEGIN
-	if(obj_integrity >= max_integrity * 0.3)
-		if(barricade_type == "metal")
-			return attempt_barricade_upgrade(I, user, params)
-		return
-	//RUTGMC EDIT END
 
 	if(metal_sheets.get_amount() < 2)
 		balloon_alert(user, "You need at least 2 metal")
@@ -471,6 +465,7 @@
 	repair_damage(max_integrity * 0.3, user)
 	balloon_alert_to_viewers("Base repaired")
 	update_icon()
+*/
 
 
 /obj/structure/barricade/metal/proc/attempt_barricade_upgrade(obj/item/stack/sheet/metal/metal_sheets, mob/user, params)
@@ -690,6 +685,7 @@
 			return TRUE
 
 
+/*RUTGMC DELETION
 /obj/structure/barricade/metal/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -702,6 +698,7 @@
 			take_damage(rand(25, 50), BRUTE, BOMB)
 
 	update_icon()
+*/
 
 
 #undef BARRICADE_METAL_LOOSE
@@ -894,6 +891,7 @@
 			build_state = BARRICADE_PLASTEEL_ANCHORED
 			update_icon() //unanchored changes layer
 
+/* RUTGMC DELETION, moved to modular
 /obj/structure/barricade/plasteel/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
@@ -920,6 +918,7 @@
 		repair_damage(max_integrity * 0.3, user)
 		balloon_alert_to_viewers("Base repaired")
 		update_icon()
+*/
 
 /obj/structure/barricade/plasteel/attack_hand(mob/living/user)
 	. = ..()
@@ -957,6 +956,7 @@
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == closed)
 				. += image('icons/Marine/barricades.dmi', icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
 
+/*RUTGMC DELETION
 /obj/structure/barricade/plasteel/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -969,6 +969,7 @@
 			take_damage(rand(25, 75), BRUTE, BOMB)
 
 	update_icon()
+*/
 
 #undef BARRICADE_PLASTEEL_LOOSE
 #undef BARRICADE_PLASTEEL_ANCHORED

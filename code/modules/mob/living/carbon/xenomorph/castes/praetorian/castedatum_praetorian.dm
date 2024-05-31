@@ -22,7 +22,7 @@
 	max_health = 360
 
 	// *** Evolution *** //
-	upgrade_threshold = TIER_THREE_THRESHOLD
+	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 	deevolves_to = /mob/living/carbon/xenomorph/spitter
 
@@ -32,11 +32,11 @@
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 50, ACID = 40)
-
+/* RU TGMC EDIT
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
 	spit_types = list(/datum/ammo/xeno/toxin/heavy, /datum/ammo/xeno/acid/heavy)
-
+RU TGMC EDIT */
 	acid_spray_duration = 10 SECONDS
 	acid_spray_range = 5
 	acid_spray_damage = 16
@@ -58,6 +58,7 @@
 		/datum/action/ability/activable/xeno/corrosive_acid,
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
+		/datum/action/ability/activable/xeno/charge/dash,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
@@ -81,7 +82,7 @@
 		/datum/action/ability/activable/xeno/corrosive_acid,
 		/datum/action/ability/activable/xeno/xeno_spit,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
-		/datum/action/ability/activable/xeno/acid_dash,
+		/datum/action/ability/activable/xeno/charge/dash,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,

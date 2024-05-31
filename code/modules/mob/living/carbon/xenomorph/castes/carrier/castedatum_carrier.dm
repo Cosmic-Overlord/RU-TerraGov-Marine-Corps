@@ -25,11 +25,11 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-	upgrade_threshold = TIER_TWO_THRESHOLD
+	// upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 	deevolves_to = /mob/living/carbon/xenomorph/drone
 
-	evolves_to = list(/mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/widow)
+	//evolves_to = list(/mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/widow) // RUTGMC DELETION, WIDOW DELETION, moved to modular
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED

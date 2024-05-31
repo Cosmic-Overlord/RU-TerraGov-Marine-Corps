@@ -41,11 +41,9 @@ SUBSYSTEM_DEF(minimaps)
 	var/list/hashed_minimaps = list()
 
 /datum/controller/subsystem/minimaps/Initialize()
+	initialized = TRUE
 	for(var/datum/space_level/z_level AS in SSmapping.z_list)
 		load_new_z(null, z_level)
-	//RegisterSignal(SSdcs, COMSIG_GLOB_NEW_Z, PROC_REF(load_new_z))
-
-	initialized = TRUE
 
 	return SS_INIT_SUCCESS
 
@@ -324,7 +322,7 @@ SUBSYSTEM_DEF(minimaps)
 	if(mover != src)
 		return
 	var/image/blip = SSminimaps.images_by_source[src]
-	blip.UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
+	blip?.UnregisterSignal(source, COMSIG_MOVABLE_MOVED) // RUTGMC ADDITION, added "?"
 	UnregisterSignal(source, COMSIG_ATOM_EXITED)
 
 
@@ -494,6 +492,7 @@ SUBSYSTEM_DEF(minimaps)
 /datum/action/minimap/action_activate()
 	. = ..()
 	if(!map)
+		to_chat(owner, span_warning("This region doesn't seem to have a minimap!"))// RUTGMC ADDITION
 		return
 	if(!locator_override && ismovableatom(owner.loc))
 		override_locator(owner.loc)
@@ -503,7 +502,7 @@ SUBSYSTEM_DEF(minimaps)
 		owner.client.screen -= locator
 		locator.UnregisterSignal(tracking, COMSIG_MOVABLE_MOVED)
 	else
-		if(locate(/atom/movable/screen/minimap) in owner.client.screen) //This seems like the most effective way to do this without some wacky code
+		if(locate(/atom/movable/screen/minimap) in owner?.client.screen) //This seems like the most effective way to do this without some wacky code // RUTGMC ADDITION, added "?"
 			to_chat(owner, span_warning("You already have a minimap open!"))
 			return
 		owner.client.screen += map
@@ -524,7 +523,7 @@ SUBSYSTEM_DEF(minimaps)
 		locator_override = to_track
 		if(to_track)
 			RegisterSignal(to_track, COMSIG_QDELETING, TYPE_PROC_REF(/datum/action/minimap, clear_locator_override))
-			if(owner.loc == to_track)
+			if(owner?.loc == to_track) // RUTGMC ADDITION, added "?"
 				RegisterSignal(to_track, COMSIG_ATOM_EXITED, TYPE_PROC_REF(/datum/action/minimap, on_exit_check))
 		if(owner)
 			RegisterSignal(new_track, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_owner_z_change))
@@ -597,7 +596,10 @@ SUBSYSTEM_DEF(minimaps)
 /datum/action/minimap/proc/on_owner_z_change(atom/movable/source, oldz, newz)
 	SIGNAL_HANDLER
 	var/atom/movable/tracking = locator_override ? locator_override : owner
+	/* RUTGMC DELETION
 	if(minimap_displayed)
+	*/
+	if(locate(/atom/movable/screen/minimap) in owner?.client?.screen) // RUTGMC ADDITION
 		owner.client?.screen -= map
 	map = null
 	if(default_overwatch_level)

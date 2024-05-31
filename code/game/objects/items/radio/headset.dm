@@ -197,7 +197,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		wearer = user
 		squadhud = GLOB.huds[GLOB.faction_to_data_hud[faction]]
 		enable_squadhud()
-		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE), PROC_REF(update_minimap_icon))
+		//RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE), PROC_REF(update_minimap_icon)) // ORIGINAL
+		RegisterSignals(user, list(COMSIG_MOB_REVIVE, COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_HUMAN_DEATH_STAGE_CHANGE), PROC_REF(update_minimap_icon)) // RUTGMC ADDITION
 	if(camera)
 		camera.c_tag = user.name
 		if(user.assigned_squad)
@@ -212,6 +213,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	user.ex_act(EXPLODE_LIGHT)
 	qdel(src)
 
+/* RUTGMC DELETION, SL_locator beheading runtime fix
 /obj/item/radio/headset/mainship/dropped(mob/living/carbon/human/user)
 	if(istype(user) && headset_hud_on)
 		disable_squadhud()
@@ -225,6 +227,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			camera.network -= lowertext(user.assigned_squad.name)
 	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE))
 	return ..()
+*/
 
 
 /obj/item/radio/headset/mainship/Destroy()
@@ -288,7 +291,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 			if(!ghost?.can_reenter_corpse)
 				SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 				return
-		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable"))
+		SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "defibbable", ABOVE_FLOAT_LAYER))
 		return
 	if(wearer.assigned_squad)
 		var/image/underlay = image('icons/UI_icons/map_blips.dmi', null, "squad_underlay")

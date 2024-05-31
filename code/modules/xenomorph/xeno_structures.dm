@@ -47,10 +47,12 @@
 /obj/structure/xeno/fire_act()
 	take_damage(10, BURN, FIRE)
 
+/* RUTGMC DELETION, moved to modular
 /// Destroy the xeno structure when the weed it was on is destroyed
 /obj/structure/xeno/proc/weed_removed()
 	SIGNAL_HANDLER
 	obj_destruction(damage_flag = MELEE)
+*/
 
 /obj/structure/xeno/attack_alien(mob/living/carbon/xenomorph/X, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!(HAS_TRAIT(X, TRAIT_VALHALLA_XENO) && X.a_intent == INTENT_HARM && (tgui_alert(X, "Are you sure you want to tear down [src]?", "Tear down [src]?", list("Yes","No"))) == "Yes"))
@@ -313,7 +315,7 @@ TUNNEL
 	for(var/datum/atom_hud/xeno_tactical/xeno_tac_hud in GLOB.huds) //Add to the xeno tachud
 		xeno_tac_hud.add_to_hud(src)
 	hud_set_xeno_tunnel()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "xenotunnel")) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "xenotunnel", HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
 
 /obj/structure/xeno/tunnel/Destroy()
 	var/turf/drop_loc = get_turf(src)
@@ -886,7 +888,7 @@ TUNNEL
 ///Change minimap icon if silo is under attack or not
 /obj/structure/xeno/silo/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]")) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
 
 /obj/structure/xeno/xeno_turret
 	icon = 'icons/Xeno/acidturret.dmi'
@@ -945,12 +947,14 @@ TUNNEL
 	SIGNAL_HANDLER
 	qdel(src)
 
+/* RUTGMC DELETION, remade in modular
 /obj/structure/xeno/xeno_turret/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(damage_amount) //Spawn the gas only if we actually get destroyed by damage
 		var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
 		smoke.set_up(1, get_turf(src))
 		smoke.start()
 	return ..()
+*/
 
 /obj/structure/xeno/xeno_turret/Destroy()
 	GLOB.xeno_resin_turrets_by_hive[hivenumber] -= src
@@ -1235,7 +1239,7 @@ TUNNEL
 
 /obj/structure/xeno/pherotower/Initialize(mapload, _hivenumber)
 	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "phero")) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "phero", ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
 	GLOB.hive_datums[hivenumber].pherotowers += src
 
 //Pheromone towers start off with recovery.
@@ -1378,7 +1382,7 @@ TUNNEL
 ///Change minimap icon if spawner is under attack or not
 /obj/structure/xeno/spawner/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "spawner[warning ? "_warn" : "_passive"]")) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "spawner[warning ? "_warn" : "_passive"]", , ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
 
 /obj/structure/xeno/spawner/proc/on_spawn(list/squad)
 	if(!isxeno(squad[length(squad)]))

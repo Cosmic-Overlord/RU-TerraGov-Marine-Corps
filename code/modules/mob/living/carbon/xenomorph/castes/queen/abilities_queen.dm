@@ -244,7 +244,7 @@
 	if(message)
 		xeno.visible_message(span_notice("[xeno] emits a broad and weak psychic aura."),
 		span_notice("We start focusing our psychic energy to expand the reach of our senses."), null, 5)
-	xeno.zoom_in(0, 12)
+	xeno.zoom_in(0, 4.5) //RU TGMC EDIT
 
 
 /datum/action/ability/xeno_action/toggle_queen_zoom/proc/zoom_xeno_out(message = TRUE)
@@ -313,6 +313,7 @@
 
 	selected_xeno.update_leader_icon(FALSE)
 
+/* RUTGMC DELETION
 /// Promote the passed xeno to a hive leader, should not be called direct
 /datum/action/ability/xeno_action/set_xeno_lead/proc/set_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
 	var/mob/living/carbon/xenomorph/xeno_ruler = owner
@@ -329,6 +330,7 @@
 	notify_ghosts("\ [xeno_ruler] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
 
 	selected_xeno.update_leader_icon(TRUE)
+*/
 
 // ***************************************
 // *********** Queen Acidic Salve

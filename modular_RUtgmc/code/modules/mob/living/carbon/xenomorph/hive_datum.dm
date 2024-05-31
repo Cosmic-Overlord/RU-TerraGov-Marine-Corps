@@ -28,6 +28,12 @@
 /datum/hive_status/ui_data(mob/user)
 	. = ..()
 	.["hive_forbiden_castes"] = hive_forbiden_castes
+	var/siloless_countdown = SSticker.mode?.get_siloless_collapse_countdown()
+	.["hive_silo_collapse"] = !isnull(siloless_countdown) ? siloless_countdown : 0
+
+/datum/hive_status/ui_static_data(mob/user)
+	. = ..()
+	.["hive_silo_max"] = DISTRESS_SILO_COLLAPSE MILLISECONDS //Timers are defined in miliseconds.
 
 // ***************************************
 // *********** Facehuggers proc
@@ -40,8 +46,8 @@
 	if(GLOB.key_to_time_of_death[user.key] + TIME_BEFORE_TAKING_BODY > world.time && !user.started_as_observer)
 		to_chat(user, span_warning("You died too recently to be able to take a new facehugger."))
 		return FALSE
-
-	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become a part of the Horde", list("Yes", "No")) != "Yes")
+	
+	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become part of the Horde!", list("Yes", "No")) != "Yes")
 		return FALSE
 
 	if(length(facehuggers) >= MAX_FACEHUGGERS)
@@ -144,6 +150,10 @@
 	if(target.is_ventcrawling)
 		to_chat(devolver, span_xenonotice("Cannot deevolve, [target] is ventcrawling."))
 		return
+
+	if(target.agility || target.fortify || target.crest_defense || target.status_flags & INCORPOREAL) // RUTGMC ADDITION, deevolve deletion prevention
+		to_chat(devolver, span_xenonotice("Cannot deevolve, while [target] is in this stance."))
+		return FALSE
 
 	if(!isturf(target.loc))
 		to_chat(devolver, span_xenonotice("Cannot deevolve [target] here."))
@@ -298,3 +308,21 @@
 /datum/hive_status/normal/on_shuttle_hijack(obj/docking_port/mobile/marine_dropship/hijacked_ship)
 	SSticker.mode.update_silo_death_timer(src)
 	return ..()
+
+/datum/hive_status/proc/update_tier_limits()
+	var/zeros = get_total_tier_zeros()
+	var/ones = length(xenos_by_tier[XENO_TIER_ONE])
+	var/twos = length(xenos_by_tier[XENO_TIER_TWO])
+	var/threes = length(xenos_by_tier[XENO_TIER_THREE])
+	var/fours = length(xenos_by_tier[XENO_TIER_FOUR])
+
+	var/active_humans = length(GLOB.humans_by_zlevel[SSmonitor.gamestate == SHIPSIDE ? "3" : "2"])
+
+	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+
+	//Estimated number of xenos calculated for a certain number of marines
+	var/rated_xeno = active_humans * (LARVA_POINTS_REGULAR / xeno_job.job_points_needed)
+
+	//length(psychictowers) are still in the formula for admin spawn or something
+	tier3_xeno_limit = max(threes, FLOOR(max(rated_xeno - threes,zeros + ones + twos + fours) / 3 + length(psychictowers) + 1, 1))
+	tier2_xeno_limit = max(twos, FLOOR(max(rated_xeno - twos - threes,zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes, 1))

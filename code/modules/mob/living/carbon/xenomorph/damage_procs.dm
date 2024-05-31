@@ -18,6 +18,7 @@
 
 	return clamp(damage_amount * (1 - ((get_soft_armor(armor_type, def_zone) * sunder_ratio - effective_penetration) * 0.01)), 0, damage_amount)
 
+/* RUTGMC DELETION
 /mob/living/carbon/xenomorph/ex_act(severity)
 	if(status_flags & (INCORPOREAL|GODMODE))
 		return
@@ -61,6 +62,7 @@
 	add_slowdown(slowdown_amount)
 
 	apply_damages(ex_damage * 0.5, ex_damage * 0.5, blocked = BOMB, updating_health = TRUE)
+*/
 
 /mob/living/carbon/xenomorph/apply_damage(damage = 0, damagetype = BRUTE, def_zone, blocked = 0, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration)
 	if(status_flags & GODMODE)

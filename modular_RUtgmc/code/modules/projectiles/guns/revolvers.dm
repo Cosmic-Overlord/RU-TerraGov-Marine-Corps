@@ -2,7 +2,14 @@
 //R-44 COMBAT REVOLVER
 
 /obj/item/weapon/gun/revolver/standard_revolver
+	icon_state = "tp44"
+	item_state = "tp44"
+	greyscale_config = null
 	colorable_allowed = NONE
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
 
 ///////////////////////////////////////////////////////////////////////
 //////// Сoltrifle, based on Colt Model 1855 Revolving Rifle. /////////
@@ -103,3 +110,6 @@
 	scatter = -1
 	recoil = 2
 	recoil_unwielded = 3
+
+/obj/item/ammo_magazine/revolver/standard_magnum
+	name = "\improper R-76 speed loader (12x7mm)"

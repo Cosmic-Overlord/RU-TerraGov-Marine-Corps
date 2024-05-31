@@ -229,8 +229,10 @@
 
 	if(!emitted_gas)
 		switch(defiler_owner.selected_reagent)
+/*
 			if(/datum/reagent/toxin/xeno_neurotoxin)
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/neuro/medium(defiler_owner)
+*/
 			if(/datum/reagent/toxin/xeno_hemodile)
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/hemodile(defiler_owner)
 			if(/datum/reagent/toxin/xeno_transvitox)
@@ -268,8 +270,10 @@
 		return
 
 	switch(X.selected_reagent)
+/*
 		if(/datum/reagent/toxin/xeno_neurotoxin)
 			particle_holder = new(owner, /particles/xeno_smoke/neurotoxin)
+*/
 		if(/datum/reagent/toxin/xeno_hemodile)
 			particle_holder = new(owner, /particles/xeno_smoke/hemodile)
 		if(/datum/reagent/toxin/xeno_transvitox)
@@ -333,8 +337,10 @@
 
 	var/obj/alien/egg/gas/newegg = new(A.loc, X.hivenumber)
 	switch(X.selected_reagent)
+/*
 		if(/datum/reagent/toxin/xeno_neurotoxin)
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/neuro/medium
+*/
 		if(/datum/reagent/toxin/xeno_ozelomelyn)
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/ozelomelyn
 		if(/datum/reagent/toxin/xeno_hemodile)
@@ -397,7 +403,7 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.defiler_toxin_type_list
 	var/static/list/defiler_toxin_images_list = list(
-			DEFILER_NEUROTOXIN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN), //RUTGMC edit - icon change
+//			DEFILER_NEUROTOXIN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN), //RUTGMC edit - icon change //NEURO REMOVAL
 			DEFILER_HEMODILE = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE), //RUTGMC edit - icon change
 			DEFILER_TRANSVITOX = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX), //RUTGMC edit - icon change
 			DEFILER_OZELOMELYN = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN), //RUTGMC edit - icon change
@@ -506,8 +512,10 @@
 		return
 
 	switch(X.selected_reagent)
+/*
 		if(/datum/reagent/toxin/xeno_neurotoxin)
 			particle_holder = new(owner, /particles/xeno_slash/neurotoxin)
+*/
 		if(/datum/reagent/toxin/xeno_hemodile)
 			particle_holder = new(owner, /particles/xeno_slash/hemodile)
 		if(/datum/reagent/toxin/xeno_transvitox)

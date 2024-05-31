@@ -1,5 +1,68 @@
+/obj/structure/barricade
+	var/can_upgrade = FALSE
+
+/obj/structure/barricade/ex_act(severity, direction)
+	for(var/obj/structure/barricade/barricade in get_step(src, dir)) //discourage double-stacking barricades by removing health from opposing barricade
+		if(barricade.dir == REVERSE_DIR(dir))
+			spawn(1)
+			if(barricade)
+				barricade.ex_act(severity, direction)
+	take_damage(severity, BRUTE, BOMB, attack_dir = direction)
+	update_icon()
+
+/obj/structure/barricade/on_explosion_destruction(severity, direction)
+	create_shrapnel(get_turf(src), rand(2,5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
+	if(prob(50)) // no message spam pls
+		visible_message(span_warning("[src] blows apart in the explosion, sending shards flying!"))
+
+/obj/structure/barricade/get_explosion_resistance(direction)
+	if(!density || direction == turn(dir, 90) || direction == turn(dir, -90))
+		return 0
+	else
+		return min(obj_integrity, 40)
+
 /obj/structure/barricade/metal
 	max_integrity = 225 //4 sheets
+	can_upgrade = TRUE
+
+/obj/structure/barricade/metal/attackby(obj/item/I, mob/user, params)
+	. = ..()
+
+	if(istype(I, /obj/item/stack/sheet/metal) && obj_integrity >= max_integrity * 0.3)
+		return attempt_barricade_upgrade(I, user, params)
+
+	if(!istype(I, stack_type))
+		return
+
+	var/obj/item/stack/sheet/material_sheets = stack_type
+	material_sheets = I
+
+	if(obj_integrity >= max_integrity * 0.3)
+		return
+
+	if(material_sheets.get_amount() < 2)
+		balloon_alert(user, "You need at least 2 [material_sheets.name] sheets")
+		return FALSE
+
+	if(LAZYACCESS(user.do_actions, src))
+		return
+
+	balloon_alert_to_viewers("Repairing base...")
+
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
+		return FALSE
+
+	if(!material_sheets.use(2))
+		return FALSE
+
+	repair_damage(max_integrity * 0.3, user)
+	balloon_alert_to_viewers("Base repaired")
+	update_icon()
+
+/obj/structure/barricade/metal/attempt_barricade_upgrade(obj/item/stack/sheet/metal/metal_sheets, mob/user, params)
+	if(!can_upgrade)
+		return FALSE
+	. = ..()
 
 /obj/structure/barricade/metal/plasteel
 	name = "plasteel barricade"
@@ -13,40 +76,15 @@
 	hit_sound = "sound/effects/metalhit.ogg"
 	barricade_type = "new_plasteel"
 	can_wire = TRUE
+	can_upgrade = FALSE
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
-
-/obj/structure/barricade/metal/plasteel/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(!istype(I, /obj/item/stack/sheet/plasteel))
-		return
-
-	if(obj_integrity >= max_integrity * 0.3)
-		return
-
-	var/obj/item/stack/sheet/plasteel/plasteel_sheets
-	if(plasteel_sheets.get_amount() < 2)
-		balloon_alert(user, "You need at least 2 plasteel")
-		return FALSE
-
-	if(LAZYACCESS(user.do_actions, src))
-		return
-
-	balloon_alert_to_viewers("Repairing base...")
-
-	if(!do_after(user, 2 SECONDS, TRUE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity * 0.3)
-		return FALSE
-
-	if(!plasteel_sheets.use(2))
-		return FALSE
-
-	repair_damage(max_integrity * 0.3, user)
-	balloon_alert_to_viewers("Base repaired")
-	update_icon()
 
 #define BARRICADE_PLASTEEL_LOOSE 0
 #define BARRICADE_PLASTEEL_ANCHORED 1
 #define BARRICADE_PLASTEEL_FIRM 2
+
+/obj/structure/barricade/plasteel
+	var/base_repairing_timer = 2 SECONDS
 
 /obj/structure/barricade/plasteel/metal
 	name = "folding metal barricade"
@@ -58,22 +96,23 @@
 	stack_amount = 6
 	destroyed_stack_amount = 3
 	barricade_type = "folding_metal"
+	base_repairing_timer = 1.5 SECONDS
 
 /obj/structure/barricade/plasteel/metal/welder_act(mob/living/user, obj/item/I)
 	. = welder_repair_act(user, I, 85, 2.5 SECONDS, 0.3, SKILL_ENGINEER_PLASTEEL, 1)
 	if(. == BELOW_INTEGRITY_THRESHOLD)
 		balloon_alert(user, "Too damaged. Use metal sheets.")
 
-/obj/structure/barricade/plasteel/metal/attackby(obj/item/I, mob/user, params)
+/obj/structure/barricade/plasteel/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if(istype(I, /obj/item/stack/sheet/metal))
-		var/obj/item/stack/sheet/metal/metal_sheets = I
+	if(istype(I, stack_type))
+		var/obj/item/stack/sheet/material_sheets = I
 		if(obj_integrity >= max_integrity * 0.3)
 			return
 
-		if(metal_sheets.get_amount() < 2)
-			balloon_alert(user, "You need at least 2 metal")
+		if(material_sheets.get_amount() < 2)
+			balloon_alert(user, "You need at least 2 [material_sheets.name] sheets")
 			return
 
 		if(LAZYACCESS(user.do_actions, src))
@@ -81,10 +120,10 @@
 
 		balloon_alert_to_viewers("Repairing base...")
 
-		if(!do_after(user, 1.5 SECONDS, TRUE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity * 0.3)
+		if(!do_after(user, base_repairing_timer, NONE, src, BUSY_ICON_FRIENDLY) || obj_integrity >= max_integrity * 0.3)
 			return
 
-		if(!metal_sheets.use(2))
+		if(!material_sheets.use(2))
 			return
 
 		repair_damage(max_integrity * 0.3, user)
@@ -114,13 +153,13 @@
 		if(BARRICADE_PLASTEEL_LOOSE) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing.
 			if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_PLASTEEL)
 				var/fumbling_time = 5 SECONDS * ( SKILL_ENGINEER_PLASTEEL - user.skills.getRating(SKILL_ENGINEER) )
-				if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED))
+				if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 					return
 			balloon_alert_to_viewers("disassembling")
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			busy = TRUE
 
-			if(!do_after(user, 50, TRUE, src, BUSY_ICON_BUILD))
+			if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_BUILD))
 				busy = FALSE
 				return
 
@@ -144,3 +183,14 @@
 #undef BARRICADE_PLASTEEL_LOOSE
 #undef BARRICADE_PLASTEEL_ANCHORED
 #undef BARRICADE_PLASTEEL_FIRM
+
+/obj/structure/barricade/hitby(atom/movable/atom_movable)
+	if(atom_movable.throwing && is_wired)
+		if(iscarbon(atom_movable))
+			var/mob/living/carbon/living_carbon = atom_movable
+			if(living_carbon.mob_size <= MOB_SIZE_XENO) // so most of t3 xeno's are immune to that
+				balloon_alert(living_carbon, "Wire slices into us")
+				living_carbon.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
+				living_carbon.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
+				playsound(living_carbon, 'modular_RUtgmc/sound/machines/bonk.ogg', 75, FALSE)
+	..()

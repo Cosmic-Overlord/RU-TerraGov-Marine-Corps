@@ -22,7 +22,7 @@
 
 /mob/living/carbon/xenomorph/boiler/get_liquid_slowdown()
 	return BOILER_WATER_SLOWDOWN
-
+/* RU TGMC EDIT //moved to modular
 ///updates the boiler's glow, based on its base glow/color, and its ammo reserves. More green ammo = more green glow; more yellow = more yellow.
 /mob/living/carbon/xenomorph/boiler/proc/update_boiler_glow()
 	var/current_ammo = corrosive_ammo + neuro_ammo
@@ -38,16 +38,17 @@
 		set_light_range_power_color(0, 0)
 		set_light_on(FALSE)
 	set_light_range_power_color(glow, 4, color)
-
+RU TGMC EDIT */
 // ***************************************
 // *********** Init
 // ***************************************
 /mob/living/carbon/xenomorph/boiler/Initialize(mapload)
 	. = ..()
 	smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
-	ammo = GLOB.ammo_list[/datum/ammo/xeno/boiler_gas]
+	ammo = GLOB.ammo_list[/datum/ammo/xeno/boiler_gas/corrosive] // RU TGMC EDIT
 	update_boiler_glow()
 	RegisterSignal(src, COMSIG_XENOMORPH_GIBBING, PROC_REF(gib_explode))
+/* RUTGMC EDIT BEGIN
 	RegisterSignal(src, COMSIG_MOB_STAT_CHANGED, PROC_REF(on_stat_change))
 	RegisterSignals(src, list(COMSIG_LIVING_STATUS_STUN,
 		COMSIG_LIVING_STATUS_KNOCKDOWN,
@@ -56,6 +57,7 @@
 		COMSIG_LIVING_STATUS_UNCONSCIOUS,
 		COMSIG_LIVING_STATUS_SLEEP,
 		COMSIG_LIVING_STATUS_STAGGER), PROC_REF(on_stun))
+RUTGMC EDIT END*/
 
 // ***************************************
 // *********** Gibbing behaviour
@@ -66,6 +68,7 @@
 	smoke.set_up(2, get_turf(src))
 	smoke.start()
 
+/* RUTGMC EDIT BEGIN
 /// Handles boilers changing stat, you unroot yourself if you change stat, like going from conscious to unconscious
 /mob/living/carbon/xenomorph/boiler/proc/on_stat_change(datum/source, old_state, new_state)
 	SIGNAL_HANDLER
@@ -81,3 +84,4 @@
 	var/datum/action/ability/activable/xeno/bombard/bombard_action = actions_by_path[/datum/action/ability/activable/xeno/bombard]
 	balloon_alert_to_viewers("[src] scrambles out of the ground from the impact!")
 	bombard_action.set_rooted(FALSE)
+RUTGMC EDIT END */

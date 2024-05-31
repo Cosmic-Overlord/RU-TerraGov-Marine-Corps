@@ -1,3 +1,4 @@
+/*RU TGMC EDIT
 /datum/xeno_caste/puppeteer
 	caste_name = "Puppeteer"
 	display_name = "Puppeteer"
@@ -16,10 +17,10 @@
 	plasma_regen_limit = 0
 	plasma_icon_state = "fury"
 	max_health = 365
-	upgrade_threshold = TIER_TWO_THRESHOLD
+	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 	evolution_threshold = 225
 
-	evolves_to = list(/mob/living/carbon/xenomorph/widow, /mob/living/carbon/xenomorph/warlock)
+	//evolves_to = list(/mob/living/carbon/xenomorph/widow, /mob/living/carbon/xenomorph/warlock) // RUTGMC DELETION, WIDOW DELETION, moved to the other file
 	deevolves_to = list(/mob/living/carbon/xenomorph/defender)
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER
@@ -40,7 +41,9 @@
 		/datum/action/ability/activable/xeno/refurbish_husk,
 		/datum/action/ability/activable/xeno/puppet,
 		/datum/action/ability/activable/xeno/organic_bomb,
-		/datum/action/ability/xeno_action/puppeteer_orders,
+		/datum/action/ability/xeno_action/puppeteer_attack_order,
+		/datum/action/ability/xeno_action/puppeteer_recall_order,
+		/datum/action/ability/xeno_action/puppeteer_orders_radial,
 		/datum/action/ability/activable/xeno/articulate,
 		/datum/action/ability/activable/xeno/puppet_blessings,
 	)
@@ -70,9 +73,12 @@
 		/datum/action/ability/activable/xeno/puppet,
 		/datum/action/ability/activable/xeno/organic_bomb,
 		/datum/action/ability/activable/xeno/tendril_patch,
-		/datum/action/ability/xeno_action/puppeteer_orders,
+		/datum/action/ability/xeno_action/puppeteer_attack_order,
+		/datum/action/ability/xeno_action/puppeteer_recall_order,
+		/datum/action/ability/xeno_action/puppeteer_orders_radial,
 		/datum/action/ability/activable/xeno/articulate,
 		/datum/action/ability/activable/xeno/puppet_blessings,
 	)
 
 	aura_strength = 3
+RU TGMC EDIT*/

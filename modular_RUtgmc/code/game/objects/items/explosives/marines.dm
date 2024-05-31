@@ -1,5 +1,29 @@
+/obj/item/explosive/grenade/pmc
+	power = 125
+	falloff = 40
+
+/obj/item/explosive/grenade/pmc/prime()
+	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	return ..()
+
+/obj/item/explosive/grenade/m15
+	power = 125
+	falloff = 40
+
+/obj/item/explosive/grenade/m15/prime()
+	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
+	return ..()
+
+/obj/item/explosive/grenade/sectoid
+	power = 150
+	falloff = 25
+
 /obj/item/explosive/grenade/sticky
 	icon_state_mini = "grenade_sticky"
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = null
+	power = 90
+	falloff = 40
 
 /obj/item/explosive/grenade/sticky/trailblazer
 	icon_state_mini = "grenade_trailblazer"
@@ -27,8 +51,8 @@
 	icon_state = "grenade_sticky_phosphorus"
 	item_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"
-	fire_level = 50
-	burn_level = 50
+	fire_level = 45
+	burn_level = 45
 	fire_color = "blue"
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
@@ -43,3 +67,36 @@
 	if(stuck_to)
 		clean_refs()
 	qdel(src)
+
+/obj/item/explosive/grenade/ags
+	power = 80
+	falloff = 20
+
+/obj/item/explosive/grenade/impact
+	power = 80
+	falloff = 30
+
+/obj/item/explosive/grenade/impact/throw_impact(atom/hit_atom, speed)
+	. = ..()
+	if(!.)
+		return
+	if(launched && active && !istype(hit_atom, /turf/open)) //Only contact det if active, we actually hit something, and we're fired from a grenade launcher.
+		cell_explosion(loc, 50, 25)
+		qdel(src)
+
+/obj/item/explosive/grenade/smokebomb
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+
+/obj/item/explosive/grenade/phosphorus
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+
+/obj/item/explosive/grenade/smokebomb/drain
+	icon_state_mini = "grenade_purple"
+
+/obj/item/explosive/grenade/flare
+	lower_fuel_limit = 450 // 450 * 2 (ticks) / 60 (seconds) = 15 minutes
+	upper_fuel_limit = 750 // 750 * 2 (ticks) / 60 (seconds) = 25 minutes
+	G_hit_sound = null
+	G_throw_sound = null

@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, WIDOW REMOVAL
 /datum/xeno_caste/widow
 	caste_name = "Widow"
 	display_name = "Widow"
@@ -92,3 +93,4 @@
 		/datum/action/ability/activable/xeno/spiderling_mark,
 		/datum/action/ability/activable/xeno/web_hook,
 	)
+*/

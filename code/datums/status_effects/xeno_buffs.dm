@@ -553,7 +553,7 @@
 ///Calls slash proc
 /datum/status_effect/xeno_carnage/proc/carnage_slash(datum/source, mob/living/target, damage)
 	SIGNAL_HANDLER
-	if(!ishuman(target) || issynth(target))
+	if(!ishuman(target) || issynth(target) || target.stat == DEAD) // RUTGMC ADDITION - || target.stat == DEAD
 		return
 	UnregisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	INVOKE_ASYNC(src, PROC_REF(do_carnage_slash), source, target, damage)
@@ -826,7 +826,7 @@
 	scale = 0.6
 	rotation = 0
 	spin = 0
-
+/* RU TGMC EDIT
 // ***************************************
 // *********** Blessings
 // ***************************************
@@ -902,3 +902,4 @@
 	buff_owner.soft_armor = buff_owner.soft_armor.detachArmor(armor_modifier)
 	armor_modifier = null
 	return ..()
+RU TGMC EDIT */

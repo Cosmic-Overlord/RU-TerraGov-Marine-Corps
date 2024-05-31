@@ -162,6 +162,7 @@
 	description = ""
 	keybind_signal = COMSIG_KB_MOB_DROPITEM_DOWN
 
+/* RUTGMC DELETION
 /datum/keybinding/mob/drop_item/down(client/user)
 	. = ..()
 	if(.)
@@ -173,6 +174,7 @@
 	else
 		user.mob.dropItemToGround(I)
 	return TRUE
+*/
 
 
 /datum/keybinding/mob/examine

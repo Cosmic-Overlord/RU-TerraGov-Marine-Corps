@@ -101,7 +101,6 @@
 #define isxenopraetorian(A) (istype(A, /mob/living/carbon/xenomorph/praetorian))
 #define isxenoravager(A) (istype(A, /mob/living/carbon/xenomorph/ravager))
 #define isxenorunner(A) (istype(A, /mob/living/carbon/xenomorph/runner))
-#define isxenobaneling(A) (istype(A, /mob/living/carbon/xenomorph/baneling))
 #define isxenospitter(A) (istype(A, /mob/living/carbon/xenomorph/spitter))
 #define isxenosentinel(A) (istype(A, /mob/living/carbon/xenomorph/sentinel))
 #define isxenowarrior(A) (istype(A, /mob/living/carbon/xenomorph/warrior))
@@ -112,7 +111,7 @@
 #define isxenobull(A) (istype(A, /mob/living/carbon/xenomorph/bull))
 #define isxenohivemind(A) (istype(A, /mob/living/carbon/xenomorph/hivemind))
 #define isxenowraith(A) (istype(A, /mob/living/carbon/xenomorph/wraith))
-#define isxenowidow(A) (istype(A, /mob/living/carbon/xenomorph/widow))
+//#define isxenowidow(A) (istype(A, /mob/living/carbon/xenomorph/widow)) //RUTGMC DELETION, WIDOW DELETION
 #define isxenowarlock(A) (istype(A, /mob/living/carbon/xenomorph/warlock))
 #define isxenoking(A) (istype(A, /mob/living/carbon/xenomorph/king))
 #define isxenobehemoth(A) (istype(A, /mob/living/carbon/xenomorph/behemoth))

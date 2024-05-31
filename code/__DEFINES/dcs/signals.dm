@@ -587,8 +587,6 @@
 #define COMSIG_HIVE_XENO_MOTHER_PRE_CHECK "hive_xeno_mother_pre_check"		//from datum/hive_status/normal/proc/attempt_to_spawn_larva()
 #define COMSIG_HIVE_XENO_MOTHER_CHECK "hive_xeno_mother_check"				//from /datum/hive_status/normal/proc/spawn_larva()
 
-#define COMSIG_XENO_ACTION_SUCCEED_ACTIVATE "xeno_action_succeed_activate"
-	#define SUCCEED_ACTIVATE_CANCEL (1<<0)
 #define COMSIG_XENOACTION_TOGGLECHARGETYPE "xenoaction_togglechargetype"
 
 #define COMSIG_WARRIOR_USED_GRAB "warrior_used_grab"
@@ -664,6 +662,8 @@
 	#define COMPONENT_BANISH_TARGETS_EXIST (1<<0)
 
 #define COMSIG_XENO_PSYCHIC_LINK_REMOVED "xeno_psychic_link_removed"
+
+#define COMSIG_XENOMORPH_LEAP_BUMP "xenomorph_leap_bump" //from /mob/living/carbon/xenomorph/bump
 
 //human signals
 #define COMSIG_CLICK_QUICKEQUIP "click_quickequip"
@@ -757,7 +757,8 @@
 #define COMSIG_XENOABILITY_TRANSFER_PLASMA "xenoability_transfer_plasma"
 #define COMSIG_XENOABILITY_CORROSIVE_ACID "xenoability_corrosive_acid"
 #define COMSIG_XENOABILITY_SPRAY_ACID "xenoability_spray_acid"
-#define COMSIG_XENOABILITY_ACID_DASH "xenoability_acid_dash"
+#define COMSIG_XENOABILITY_DASH "xenoability_dash"
+#define COMSIG_XENOABILITY_SHORT_SPRAY_ACID "xenoability_short_spray_acid"
 #define COMSIG_XENOABILITY_XENO_SPIT "xenoability_xeno_spit"
 #define COMSIG_XENOABILITY_HIDE "xenoability_hide"
 #define COMSIG_XENOABILITY_NEUROTOX_STING "xenoability_neurotox_sting"
@@ -807,9 +808,10 @@
 #define COMSIG_XENOABILITY_CARNAGE "xenoability_carnage"
 #define COMSIG_XENOABILITY_FEAST "xenoability_feast"
 
-#define COMSIG_XENOABILITY_BULLCHARGE "xenoability_bullcharge"
+#define COMSIG_XENOABILITY_ACIDCHARGE "xenoability_acidcharge"
 #define COMSIG_XENOABILITY_BULLHEADBUTT "xenoability_bullheadbutt"
 #define COMSIG_XENOABILITY_BULLGORE "xenoability_bullgore"
+#define COMSIG_XENOABILITY_TOLERATE "xenoability_bulltolerate"
 
 #define COMSIG_XENOABILITY_TAIL_SWEEP "xenoability_tail_sweep"
 #define COMSIG_XENOABILITY_FORWARD_CHARGE "xenoability_forward_charge"
@@ -896,6 +898,7 @@
 
 #define COMSIG_XENOABILITY_SCATTER_SPIT "xenoability_scatter_spit"
 
+/* RUTGMC DELETION, WIDOW DELETION
 #define COMSIG_XENOABILITY_WEB_SPIT "xenoability_web_spit"
 #define COMSIG_XENOABILITY_BURROW "xenoability_burrow"
 #define COMSIG_XENOABILITY_LEASH_BALL "xenoability_leash_ball"
@@ -905,12 +908,14 @@
 #define COMSIG_XENOABILITY_CANNIBALISE_SPIDERLING "xenoability_cannibalise_spiderling"
 #define COMSIG_XENOABILITY_WEB_HOOK "xenoability_web_hook"
 #define COMSIG_XENOABILITY_SPIDERLING_MARK "xenoability_spiderling_mark"
+*/
 
 #define COMSIG_XENOABILITY_PSYCHIC_SHIELD "xenoability_psychic_shield"
 #define COMSIG_XENOABILITY_TRIGGER_PSYCHIC_SHIELD "xenoability_trigger_psychic_shield"
 #define COMSIG_XENOABILITY_PSYCHIC_BLAST "xenoability_psychic_blast"
+#define COMSIG_XENOABILITY_TOGGLE_WARLOCK_ZOOM "xenoability_toggle_warlock_zoom"
 #define COMSIG_XENOABILITY_PSYCHIC_CRUSH "xenoability_psychic_crush"
-
+/* RU TGMC EDIT
 #define COMSIG_XENOABILITY_TENDRILS "xenoability_tendrils"
 #define COMSIG_XENOABILITY_ORGANICBOMB "xenoability_puppeteerorganicbomb"
 #define COMSIG_XENOABILITY_PUPPET "xenoability_puppet"
@@ -918,13 +923,12 @@
 #define COMSIG_XENOABILITY_DREADFULPRESENCE "xenoability_dreadfulpresence"
 #define COMSIG_XENOABILITY_PINCUSHION "xenoability_pincushion"
 #define COMSIG_XENOABILITY_FLAY "xenoability_flay"
-#define COMSIG_XENOABILITY_SENDORDERS "xenoability_sendorders"
+#define COMSIG_XENOABILITY_SENDORDERS_RADIAL "xenoability_sendorders_radial"
+#define COMSIG_XENOABILITY_ATTACKORDER "xenoability_attackorder"
+#define COMSIG_XENOABILITY_RECALLORDER "xenoability_recallorder"
 #define COMSIG_XENOABILITY_BESTOWBLESSINGS "xenoability_giveblessings"
-
+RU TGMC EDIT */
 #define COMSIG_XENOABILITY_BANELING_EXPLODE "xenoability_baneling_explode"
-#define COMSIG_XENOABILITY_BANELING_SPAWN_POD "xenoability_baneling_spawn_pod"
-#define COMSIG_XENOABILITY_BANELING_CHOOSE_REAGENT "xenoability_baneling_choose_reagent"
-#define COMSIG_XENOABILITY_BANELING_DASH_EXPLOSION "xenoability_baneling_dash_explosion"
 
 #define COMSIG_XENOABILITY_BEHEMOTH_ROLL "xenoability_behemoth_roll"
 #define COMSIG_XENOABILITY_LANDSLIDE "xenoability_landslide"
@@ -1015,6 +1019,9 @@
 #define COMSIG_ACTION_TRIGGER "action_trigger"                        //from base of datum/action/proc/Trigger(): (datum/action)
 	#define COMPONENT_ACTION_BLOCK_TRIGGER (1<<0)
 
+#define COMSIG_ABILITY_SUCCEED_ACTIVATE "xeno_action_succeed_activate"
+	#define SUCCEED_ACTIVATE_CANCEL (1<<0)
+
 //Signals for CIC orders
 #define COMSIG_ORDER_SELECTED "order_selected"
 #define COMSIG_ORDER_SENT "order_updated"
@@ -1046,13 +1053,15 @@
 ///Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
+/* RUTGMC DELETION, WIDOW DELETION
 // widow spiderling signals
 #define COMSIG_SPIDERLING_MARK "spiderling_mark"
 #define COMSIG_SPIDERLING_RETURN "spiderling_return"
 #define COMSIG_SPIDERLING_GUARD "spiderling_guard"
 #define COMSIG_SPIDERLING_UNGUARD "spiderling_unguard"
-
+*/
+/* RU TGMC EDIT
 //puppet
 #define COMSIG_PUPPET_CHANGE_ORDER "puppetchangeorder"
 #define COMSIG_PUPPET_CHANGE_ALL_ORDER "puppetglobalorder"
-
+RU TGMC EDIT */

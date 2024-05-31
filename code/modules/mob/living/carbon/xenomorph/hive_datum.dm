@@ -140,6 +140,7 @@
 			"location" = get_xeno_location(xeno),
 			"health" = round(health * 100, 1),
 			"plasma" = round((xeno.plasma_stored / (caste.plasma_max * plasma_multi)) * 100, 1),
+			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER), //RUTGMC ADDITION
 			"is_leader" = xeno.queen_chosen_lead,
 			"is_ssd" = !xeno.client,
 			"index" = GLOB.hive_ui_caste_index[caste.caste_type_path],
@@ -158,8 +159,10 @@
 
 	.["user_evolution"] = isxeno(user) ? xeno_user.evolution_stored : 0
 
+	/* RUTGMC DELETION
 	.["user_maturity"] = isxeno(user) ? xeno_user.upgrade_stored : 0
 	.["user_next_mat_level"] = isxeno(user) && xeno_user.upgrade_possible() ? xeno_user.xeno_caste.upgrade_threshold : 0
+	*/
 	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
 
 	.["user_show_empty"] = isxeno(user) ? xeno_user.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY : 0
@@ -1180,6 +1183,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 	return TRUE
 
+/* RU TGMC EDIT //moved to modular
 ///updates and sets the t2 and t3 xeno limits
 /datum/hive_status/proc/update_tier_limits()
 	var/zeros = get_total_tier_zeros()
@@ -1190,6 +1194,7 @@ to_chat will check for valid clients itself already so no need to double check f
 
 	tier3_xeno_limit = max(threes, FLOOR((zeros + ones + twos + fours) / 3 + length(psychictowers) + 1, 1))
 	tier2_xeno_limit = max(twos, (zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes)
+RU TGMC EDIT */
 
 // ***************************************
 // *********** Corrupted Xenos
@@ -1271,10 +1276,10 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /mob/living/carbon/xenomorph/warrior/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
-
+/* RU TGMC EDIT
 /mob/living/carbon/xenomorph/wraith/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
-
+RU TGMC EDIT */
 /mob/living/carbon/xenomorph/king/Corrupted
 	hivenumber = XENO_HIVE_CORRUPTED
 
@@ -1349,10 +1354,10 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /mob/living/carbon/xenomorph/warrior/Alpha
 	hivenumber = XENO_HIVE_ALPHA
-
+/* RU TGMC EDIT
 /mob/living/carbon/xenomorph/wraith/Alpha
 	hivenumber = XENO_HIVE_ALPHA
-
+RU TGMC EDIT */
 /mob/living/carbon/xenomorph/king/Alpha
 	hivenumber = XENO_HIVE_ALPHA
 
@@ -1424,10 +1429,10 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /mob/living/carbon/xenomorph/warrior/Beta
 	hivenumber = XENO_HIVE_BETA
-
+/* RU TGMC EDIT
 /mob/living/carbon/xenomorph/wraith/Beta
 	hivenumber = XENO_HIVE_BETA
-
+RU TGMC EDIT */
 /mob/living/carbon/xenomorph/king/Beta
 	hivenumber = XENO_HIVE_BETA
 
@@ -1499,10 +1504,10 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /mob/living/carbon/xenomorph/warrior/Zeta
 	hivenumber = XENO_HIVE_ZETA
-
+/* RU TGMC EDIT
 /mob/living/carbon/xenomorph/wraith/Zeta
 	hivenumber = XENO_HIVE_ZETA
-
+RU TGMC EDIT */
 /mob/living/carbon/xenomorph/king/Zeta
 	hivenumber = XENO_HIVE_ZETA
 

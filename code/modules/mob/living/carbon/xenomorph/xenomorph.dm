@@ -13,7 +13,6 @@
 	light_pixel_y -= pixel_y
 	. = ..()
 	set_datum()
-	time_of_birth = world.time
 	add_inherent_verbs()
 	var/datum/action/minimap/xeno/mini = new
 	mini.give_action(src)
@@ -58,6 +57,7 @@
 
 	hud_set_plasma()
 	med_hud_set_health()
+	hud_update_primo()
 
 	toggle_xeno_mobhud() //This is a verb, but fuck it, it just werks
 
@@ -184,6 +184,7 @@
 		if(XENO_UPGRADE_PRIMO)
 			return 1
 
+/* MOVED TO MODULE
 ///Returns the playtime as a number, used for rank icons
 /mob/living/carbon/xenomorph/proc/playtime_as_number()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
@@ -200,6 +201,7 @@
 			return 4
 		else
 			return 0
+*/
 
 /mob/living/carbon/xenomorph/proc/upgrade_next()
 	switch(upgrade)
@@ -290,6 +292,7 @@
 /mob/living/carbon/xenomorph/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps)
 	return FALSE
 
+/* RUTGMC DELETION, DRAG SLOWDOWN FIX
 /mob/living/carbon/xenomorph/start_pulling(atom/movable/AM, force = move_force, suppress_message = TRUE, bypass_crit_delay = FALSE)
 	if(do_actions)
 		return FALSE //We are already occupied with something.
@@ -312,6 +315,7 @@
 	do_attack_animation(L, ATTACK_EFFECT_GRAB)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_GRAB)
 	return ..()
+*/
 
 /mob/living/carbon/xenomorph/stop_pulling()
 	if(ishuman(pulling))
@@ -412,11 +416,14 @@
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
 	if(is_zoomed)
-		zoom_out()
+		if(!can_walk_zoomed)
+			zoom_out()
 	handle_weeds_on_movement()
 	return ..()
 
 /mob/living/carbon/xenomorph/CanAllowThrough(atom/movable/mover, turf/target)
+	if(mover.pass_flags & PASS_XENO) // RUTGMC ADDITION
+		return TRUE
 	if(mover.throwing && ismob(mover) && isxeno(mover.thrower)) //xenos can throw mobs past other xenos
 		return TRUE
 	return ..()

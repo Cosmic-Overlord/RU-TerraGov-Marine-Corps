@@ -19,6 +19,8 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	pass_flags = PASS_LOW_STRUCTURE
 
+	can_walk_zoomed = TRUE
+
 /mob/living/carbon/xenomorph/warlock/Initialize(mapload)
 	. = ..()
 	ammo = GLOB.ammo_list[/datum/ammo/energy/xeno/psy_blast]

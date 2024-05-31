@@ -20,12 +20,14 @@
 
 	var/tiers_to_pick_from
 	switch(tier)
-		if(XENO_TIER_ZERO, XENO_TIER_FOUR)
+		if(XENO_TIER_ZERO, XENO_TIER_FOUR, XENO_TIER_MINION)
+/* RU TGMC EDIT
 			if(isxenoshrike(src))
 				tiers_to_pick_from = GLOB.xeno_types_tier_one
 			else
-				to_chat(src, span_warning("Your tier does not allow you to regress."))
-				return
+RU TGMC EDIT */
+			to_chat(src, span_warning("Your tier does not allow you to regress."))
+			return
 		if(XENO_TIER_ONE)
 			tiers_to_pick_from = list(/mob/living/carbon/xenomorph/larva)
 		if(XENO_TIER_TWO)
@@ -102,6 +104,7 @@
 	SStgui.close_user_uis(src) //Force close all UIs upon evolution.
 	finish_evolve(new_mob_type)
 
+/* RUTGMC DELETION
 ///Actually changes the xenomorph to another caste
 /mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type)
 	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src))
@@ -184,6 +187,7 @@
 	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/atom, do_jitter_animation), 1000)
 
 	new_xeno.overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
+*/
 
 ///Check if the xeno is currently able to evolve
 /mob/living/carbon/xenomorph/proc/generic_evolution_checks()

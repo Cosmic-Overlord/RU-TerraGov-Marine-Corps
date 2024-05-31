@@ -1,3 +1,17 @@
+/obj/item/radio/headset/mainship/dropped(mob/living/carbon/human/user)
+	if(istype(user) && headset_hud_on)
+		disable_squadhud()
+		squadhud.remove_hud_from(user)
+		user.hud_used?.SL_locator.alpha = 0
+		wearer = null
+		squadhud = null
+	if(camera)
+		camera.c_tag = "Unknown"
+		if(user.assigned_squad)
+			camera.network -= lowertext(user.assigned_squad.name)
+	UnregisterSignal(user, list(COMSIG_MOB_DEATH, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_HUMAN_DEATH_STAGE_CHANGE))
+	return ..()
+
 /obj/item/radio/headset/mainship/proc/update_minimap_icon()
 	SIGNAL_HANDLER
 	SSminimaps.remove_marker(wearer)

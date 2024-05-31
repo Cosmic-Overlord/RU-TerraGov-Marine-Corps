@@ -23,7 +23,7 @@
 	max_health = 650
 
 	// *** Evolution *** //
-	upgrade_threshold = TIER_THREE_THRESHOLD
+	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 	maximum_active_caste = 1
 	evolve_min_xenos = 12
 	death_evolution_delay = 7 MINUTES

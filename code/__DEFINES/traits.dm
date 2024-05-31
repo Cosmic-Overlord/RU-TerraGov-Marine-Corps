@@ -77,7 +77,6 @@
 #define ROUNDSTART_TRAIT "roundstart" //cannot be removed without admin intervention
 #define SLEEPER_TRAIT "sleeper"
 #define STASIS_BAG_TRAIT "stasis_bag"
-#define BANELING_STASIS_TRAIT "baneling_stasis_trait"
 #define SPECIES_TRAIT "species" // /datum/species innate trait
 #define CRYOPOD_TRAIT "cryopod"
 #define XENO_TRAIT "xeno"
@@ -102,7 +101,7 @@
 #define OPTABLE_TRAIT "optable"
 #define TIMESHIFT_TRAIT "timeshift"
 #define BRAIN_TRAIT "brain"
-#define WIDOW_ABILITY_TRAIT "widow_ability_trait"
+//#define WIDOW_ABILITY_TRAIT "widow_ability_trait" //RUTGMC DELETION, WIDOW DELETION
 #define PSYCHIC_BLAST_ABILITY_TRAIT "psychic_blast_ability_trait"
 #define PSYCHIC_CRUSH_ABILITY_TRAIT "psychic_crush_ability_trait"
 #define VORTEX_ABILITY_TRAIT "vortex_ability_trait"
@@ -118,6 +117,7 @@
 #define SECTOID_TRAIT "sectoid"
 #define HUGGER_TRAIT "hugger"
 #define PISTOL_LACE_TRAIT "pistol_lace"
+#define NIGHT_VISION_GOGGLES_TRAIT "night_vision_goggles"
 
 #define ABSTRACT_ITEM_TRAIT "abstract_item"
 /// A trait given by any status effect
@@ -169,7 +169,7 @@
 #define TRAIT_LEGLESS "legless" //Has lost all the appendages needed to stay standing up.
 #define TRAIT_NOPLASMAREGEN "noplasmaregen"//xeno plasma wont recharge
 #define TRAIT_UNDEFIBBABLE "undefibbable"//human can't be revived
-#define TRAIT_HOLLOW "hollowedout" //examine trait for puppeteer
+// #define TRAIT_HOLLOW "hollowedout" //examine trait for puppeteer
 #define TRAIT_IMMEDIATE_DEFIB "immediate_defib"//immediately revives when defibbed, rather than just healing
 #define TRAIT_HEALING_INFUSION "healing_infusion"//greatly improves natural healing for xenos
 #define TRAIT_PSY_DRAINED "psy_drained"//mob was drained of life force by a xenos

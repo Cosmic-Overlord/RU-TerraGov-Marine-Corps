@@ -63,7 +63,7 @@
 		marker_flags = MINIMAP_FLAG_MARINE
 	//RUTGMC EDIT CHANGE BEGIN - ORBITAL_BEACON
 	//SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "supply")) RUTGMC  EDIT - ORIGINAL
-	SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, beacon_mini_icon))
+	SSminimaps.add_marker(src, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, beacon_mini_icon, ABOVE_FLOAT_LAYER))
 	//RUTGMC EDIT CHANGE END
 	update_icon()
 	return TRUE
@@ -120,7 +120,8 @@
 /obj/item/beacon/supply_beacon/onTransitZ(old_z,new_z)
 	. = ..()
 	//Assumes doMove sets loc before onTransitZ
-	beacon_datum.drop_location = loc
+	if(beacon_datum) // RUTGMC ADDITION, supply beacon runtime fix
+		beacon_datum.drop_location = loc
 
 /obj/item/beacon/supply_beacon/activate(mob/living/carbon/human/H)
 	var/area/A = get_area(H)

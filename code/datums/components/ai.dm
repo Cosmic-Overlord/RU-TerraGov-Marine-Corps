@@ -46,6 +46,9 @@ The main purpose of this is to handle cleanup and setting up the initial ai beha
 		if(register_for_logout)
 			RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(start_ai))
 			return
+		ai_behavior.current_node = null // RUTGMC ADDITION START
+		ai_behavior.escorted_atom = null
+		ai_behavior.mob_parent = null // RUTGMC ADDITION END
 		ai_behavior = null
 
 ///Start the ai behaviour

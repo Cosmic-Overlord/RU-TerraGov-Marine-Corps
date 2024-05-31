@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 /mob/living/carbon/xenomorph/wraith
 	caste_base_type = /mob/living/carbon/xenomorph/wraith
 	name = "Wraith"
@@ -15,3 +16,4 @@
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+RU TGMC EDIT */

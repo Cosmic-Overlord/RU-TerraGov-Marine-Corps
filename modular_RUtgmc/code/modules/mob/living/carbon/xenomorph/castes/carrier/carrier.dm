@@ -11,11 +11,13 @@
 	. = ..()
 
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
-	if(!hive.can_spawn_as_hugger(user))
+	if(stat == DEAD)
 		return FALSE
 
 	if(huggers_reserved >= huggers)
-		balloon_alert(user, "No facehuggers available.")
+		return FALSE
+
+	if(!hive.can_spawn_as_hugger(user))
 		return FALSE
 
 	var/mob/living/carbon/xenomorph/facehugger/new_hugger = new(get_turf(src))

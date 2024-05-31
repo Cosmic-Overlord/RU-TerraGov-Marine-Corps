@@ -6,17 +6,17 @@
 
 ///List of globs, keyed by icon state. Used for radial selection.
 GLOBAL_LIST_INIT(boiler_glob_list, list(
-		BOILER_GLOB_NEURO = /datum/ammo/xeno/boiler_gas,
+//		BOILER_GLOB_NEURO = /datum/ammo/xeno/boiler_gas, RU TGMC EDIT
 		BOILER_GLOB_ACID = /datum/ammo/xeno/boiler_gas/corrosive,
-		BOILER_GLOB_NEURO_LANCE = /datum/ammo/xeno/boiler_gas/lance,
+//		BOILER_GLOB_NEURO_LANCE = /datum/ammo/xeno/boiler_gas/lance, RU TGMC EDIT
 		BOILER_GLOB_ACID_LANCE = /datum/ammo/xeno/boiler_gas/corrosive/lance,
 		))
 
 ///List of glob action button images, used for radial selection.
 GLOBAL_LIST_INIT(boiler_glob_image_list, list(
-		BOILER_GLOB_NEURO = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO),
+//		BOILER_GLOB_NEURO = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO), RU TGMC EDIT
 		BOILER_GLOB_ACID = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_ACID),
-		BOILER_GLOB_NEURO_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO_LANCE),
+//		BOILER_GLOB_NEURO_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO_LANCE), RU TGMC EDIT
 		BOILER_GLOB_ACID_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_ACID_LANCE),
 		))
 
@@ -46,9 +46,10 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 			span_notice("We start focusing your sight to look off into the distance."), null, 5)
 		if(!do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || X.is_zoomed)
 			return
-		X.zoom_in(11)
+		X.zoom_in(4.5) //RU TGMC EDIT
 		..()
 
+/* RU TGMC EDIT // moved to modular
 // ***************************************
 // *********** Gas type toggle
 // ***************************************
@@ -250,11 +251,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 	to_chat(boiler_owner, span_xenonotice("We begin building up pressure."))
 
-	/* //RUTGMC EDIT REMOVAL BEGIN
 	if(!do_after(boiler_owner, 2 SECONDS, IGNORE_HELD_ITEM, target, BUSY_ICON_DANGER))
 		to_chat(boiler_owner, span_warning("We decide not to launch."))
 		return fail_activate()
-	*/ //RUTGMC EDIT REMOVAL END
 
 	if(!can_use_ability(target, FALSE, ABILITY_IGNORE_PLASMA))
 		return fail_activate()
@@ -323,7 +322,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 			boiler_owner.client.mouse_pointer_icon = initial(boiler_owner.client.mouse_pointer_icon)
 
 	boiler_owner.anchored = on
-
+RU TGMC EDIT END*/
 
 // ***************************************
 // *********** Acid spray

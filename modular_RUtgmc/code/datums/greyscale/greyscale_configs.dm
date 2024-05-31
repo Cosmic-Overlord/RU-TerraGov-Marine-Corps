@@ -14,3 +14,14 @@
 
 /datum/greyscale_config/xenonaut/helm/mk1
 	icon_file = 'modular_RUtgmc/icons/mob/modular/xenonauten.dmi'
+
+//Capes
+/datum/greyscale_config/cape
+	icon_file = 'modular_RUtgmc/icons/mob/modular/capes.dmi'
+	json_config = 'modular_RUtgmc/code/datums/greyscale/json_configs/cape.json'
+
+
+//Cape highlights
+/datum/greyscale_config/cape_highlight
+	icon_file = 'modular_RUtgmc/icons/mob/modular/capes_highlight.dmi'
+	json_config = 'modular_RUtgmc/code/datums/greyscale/json_configs/cape_highlight.json'

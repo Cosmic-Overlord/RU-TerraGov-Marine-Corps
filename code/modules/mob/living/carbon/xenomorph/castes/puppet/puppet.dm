@@ -1,3 +1,4 @@
+/*RU TGMC EDIT
 /mob/living/carbon/xenomorph/puppet
 	caste_base_type = /mob/living/carbon/xenomorph/puppet
 	name = "Puppet"
@@ -34,7 +35,7 @@
 	if(!QDELETED(src))
 		gib()
 
-/mob/living/carbon/xenomorph/puppet/Life()
+/*	/mob/living/carbon/xenomorph/puppet/Life()
 	. = ..()
 	var/atom/movable/master = weak_master?.resolve()
 	if(!master)
@@ -43,7 +44,8 @@
 		adjustBruteLoss(15)
 	else
 		adjustBruteLoss(-5)
-
+				Moved to Modularity
+*/
 /mob/living/carbon/xenomorph/puppet/can_receive_aura(aura_type, atom/source, datum/aura_bearer/bearer)
 	. = ..()
 	var/atom/movable/master = weak_master?.resolve()
@@ -63,3 +65,4 @@
 	for(var/datum/status_effect/effect AS in status_effects)
 		if(istype(effect, /datum/status_effect/blessing))
 			holder.overlays += image('icons/mob/hud.dmi', icon_state = initial(effect.id))
+RU TGMC EDIT*/

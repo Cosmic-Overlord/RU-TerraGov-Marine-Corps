@@ -59,7 +59,7 @@
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
 	///Threshold amount of upgrade points to next maturity
-	var/upgrade_threshold = 0
+	//var/upgrade_threshold = 0 // RUTGMC DELETION
 
 	///Type paths to the castes that this xenomorph can evolve to
 	var/list/evolves_to = list()
@@ -144,7 +144,7 @@
 
 	// *** Widow Abilities *** //
 	///maximum amount of spiderlings a widow can carry at one time.
-	var/max_spiderlings = 0
+	//var/max_spiderlings = 0 // RUTGMC DELETION, WIDOW DELETION
 
 	// *** Defender Abilities *** //
 	///modifying amount to the crest defense ability for defenders. Positive integers only.
@@ -153,11 +153,11 @@
 	var/fortify_armor = 0
 	///amount of slowdown to apply when the crest defense is active. trading defense for speed. Positive numbers makes it slower.
 	var/crest_defense_slowdown = 0
-
+/* RU TGMC EDIT
 	// *** Puppeteer Abilities *** //
 	var/flay_plasma_gain = 0
 	var/max_puppets = 0
-
+RU TGMC EDIT */
 	// *** Crusher Abilities *** //
 	///The damage the stomp causes, counts armor
 	var/stomp_damage = 0
@@ -280,10 +280,12 @@
 	gib_chance = 5
 	light_system = MOVABLE_LIGHT
 
+	///Hive name define
 	var/hivenumber = XENO_HIVE_NORMAL
-
+	///Hive datum we belong to
 	var/datum/hive_status/hive
-
+	///Xeno mob specific flags
+	var/xeno_flags = NONE //TODO: There are loads of vars below that should be flags
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
@@ -293,28 +295,21 @@
 	var/datum/xeno_caste/xeno_caste
 	var/caste_base_type
 	var/language = "Xenomorph"
-	var/obj/item/clothing/suit/wear_suit = null
-	var/obj/item/clothing/head/head = null
-	var/obj/item/r_store = null
-	var/obj/item/l_store = null
+	///Plasma currently stored
 	var/plasma_stored = 0
-	var/time_of_birth
 
 	///A mob the xeno ate
 	var/mob/living/carbon/eaten_mob
 	///How much evolution they have stored
 	var/evolution_stored = 0
 	///How much upgrade points they have stored.
-	var/upgrade_stored = 0
+	//var/upgrade_stored = 0 // RUTGMC DELETION
 	///This will track their upgrade level.
 	var/upgrade = XENO_UPGRADE_INVALID
 	///sunder affects armour values and does a % removal before dmg is applied. 50 sunder == 50% effective armour values
 	var/sunder = 0
 	///The ammo datum for our spit projectiles. We're born with this, it changes sometimes.
 	var/datum/ammo/xeno/ammo = null
-
-	var/list/upgrades_bought = list()
-
 	///The aura we're currently emitted. Destroyed whenever we change or stop pheromones.
 	var/datum/aura_bearer/current_aura
 	/// If we're chosen as leader, this is the leader aura we emit.
@@ -335,6 +330,7 @@
 
 	var/is_zoomed = 0
 	var/zoom_turf = null
+	var/can_walk_zoomed = FALSE
 
 	///Type of weeds the xeno is standing on, null when not on weeds
 	var/obj/alien/weeds/loc_weeds_type
@@ -342,8 +338,6 @@
 	var/attack_delay = 0
 	///This will track their "tier" to restrict/limit evolutions
 	var/tier = XENO_TIER_ONE
-
-	var/emotedown = 0
 	///which resin structure to build when we secrete resin
 	var/selected_resin = /turf/closed/wall/resin/regenerating
 	///which reagent to slash with using reagent slash
@@ -386,10 +380,6 @@
 	var/fortify = 0
 	var/crest_defense = 0
 
-	// Baneling vars
-	/// Respawn charges, each charge makes respawn take 30 seconds. Maximum of 2 charges. If there is no charge the respawn takes 120 seconds.
-	var/stored_charge = 0
-
 	// *** Ravager vars *** //
 	/// when true the rav will not go into crit or take crit damage.
 	var/endure = FALSE
@@ -404,6 +394,9 @@
 	var/behemoth_charging = FALSE
 	/// The amount of Wrath currently stored.
 	var/wrath_stored = 0
+
+	// *** Bull vars *** //
+	var/bull_charging = FALSE
 
 	//Notification spam controls
 	var/recent_notice = 0

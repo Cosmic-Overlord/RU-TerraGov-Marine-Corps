@@ -9,20 +9,35 @@
 	GLOB.xeno_egg_hugger -= src
 	return ..()
 
+/obj/alien/egg/hugger/burst(via_damage)
+	. = ..()
+	if(!.)
+		return
+	if(via_damage)
+		hugger_type = null
+		playsound(loc, "sound/effects/alien_egg_burst.ogg", 30)
+		flick("egg exploding", src)
+		return
+	playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
+	flick("egg opening", src)
+	addtimer(CALLBACK(src, PROC_REF(spawn_hugger), loc), 1 SECONDS)
+
+/obj/alien/egg/hugger/proc/spawn_hugger()
+	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(src), hivenumber)
+	hugger_type = null
+	hugger.go_active()
 
 //Observers can become playable facehuggers by clicking on the egg
 /obj/alien/egg/hugger/attack_ghost(mob/dead/observer/user)
 	. = ..()
-
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
-	if(!hive.can_spawn_as_hugger(user))
-		return FALSE
 
 	if(maturity_stage != stage_ready_to_burst)
-		balloon_alert(user, "Not fully grown")
 		return FALSE
 	if(!hugger_type)
-		balloon_alert(user, "Empty")
+		return FALSE
+
+	if(!hive.can_spawn_as_hugger(user))
 		return FALSE
 
 	advance_maturity(stage_ready_to_burst + 1)

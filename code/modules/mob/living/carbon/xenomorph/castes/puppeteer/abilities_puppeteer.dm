@@ -1,3 +1,4 @@
+/* RUTGMC EDIT
 // ***************************************
 // *********** Flay
 // ***************************************
@@ -457,18 +458,18 @@
 	add_cooldown()
 
 // ***************************************
-// *********** Orders
+// *********** Radial Orders
 // ***************************************
 
-/datum/action/ability/xeno_action/puppeteer_orders
+/datum/action/ability/xeno_action/puppeteer_orders_radial
 	name = "Give Orders to Puppets"
 	action_icon_state = "orders"
 	desc = "Give orders to your puppets, altering their behaviour."
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SENDORDERS,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SENDORDERS_RADIAL,
 	)
 
-/datum/action/ability/xeno_action/puppeteer_orders/action_activate(mob/living/victim)
+/datum/action/ability/xeno_action/puppeteer_orders_radial/action_activate(mob/living/victim)
 	var/choice = show_radial_menu(owner, owner, GLOB.puppeteer_order_images_list, radius = 35)
 	if(!choice)
 		return
@@ -481,3 +482,46 @@
 				owner.visible_message(span_warning("[owner] quickly manipulates the psychic strings of the puppets, drawing them near!"))
 	else
 		owner.balloon_alert(owner, "fail")
+
+// ***************************************
+// *********** Attack Order
+// ***************************************
+
+/datum/action/ability/xeno_action/puppeteer_attack_order
+	name = "Give Order to Attack"
+	desc = "Give your puppets order to attack"
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ATTACKORDER,
+	)
+
+/datum/action/ability/xeno_action/puppeteer_attack_order/action_activate(mob/living/victim)
+	var/puppet_attack = PUPPET_ATTACK
+	if(SEND_SIGNAL(owner, COMSIG_PUPPET_CHANGE_ALL_ORDER, puppet_attack))
+		owner.balloon_alert(owner, "success: attack")
+	else
+		owner.balloon_alert(owner, "fail")
+
+/datum/action/ability/xeno_action/puppeteer_attack_order/should_show()
+	return FALSE
+
+// ***************************************
+// *********** Recall Order
+// ***************************************
+
+/datum/action/ability/xeno_action/puppeteer_recall_order
+	name = "Give Order to Recall"
+	desc = "Give your puppets order to recall"
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECALLORDER,
+	)
+
+/datum/action/ability/xeno_action/puppeteer_recall_order/action_activate(mob/living/victim)
+	var/puppet_recall = PUPPET_RECALL
+	if(SEND_SIGNAL(owner, COMSIG_PUPPET_CHANGE_ALL_ORDER, puppet_recall))
+		owner.balloon_alert(owner, "success: recall")
+
+/datum/action/ability/xeno_action/puppeteer_recall_order/should_show()
+	return FALSE
+
+
+RU TGMC EDIT*/

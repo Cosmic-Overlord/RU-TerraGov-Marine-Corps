@@ -31,10 +31,6 @@
 #define DEFILER_TRANSVITOX "Transvitox"
 #define DEFILER_OZELOMELYN "Ozelomelyn"
 
-//Baneling specific reagent define
-#define BANELING_ACID "Sulphuric acid"
-#define BANELING_ACID_ICON "spray_acid"
-
 #define TRAP_HUGGER "hugger"
 #define TRAP_SMOKE_NEURO "neurotoxin gas"
 #define TRAP_SMOKE_ACID "acid gas"
@@ -46,12 +42,12 @@
 #define WEAK_ACID_STRENGTH 0.016
 #define REGULAR_ACID_STRENGTH 0.04
 #define STRONG_ACID_STRENGTH 0.1
-
+/* RU TGMC EDIT
 #define PUPPET_RECALL "recall puppet"
 #define PUPPET_SEEK_CLOSEST "seeking closest and attack order" //not xeno-usable
 #define PUPPET_ATTACK "seek and attack order"
 #define PUPPET_SCOUT "scouting order"
-
+RU TGMC EDIT*/
 //List of weed types
 GLOBAL_LIST_INIT(weed_type_list, typecacheof(list(
 		/obj/alien/weeds/node,
@@ -88,7 +84,7 @@ GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
 		))
 
@@ -97,20 +93,11 @@ GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
+//		/datum/reagent/toxin/xeno_neurotoxin, RU TGMC EDIT DELETION
 		/datum/reagent/toxin/xeno_sanguinal,
 		/datum/reagent/toxin/acid, //RUTGMC EDIT ADDITION
 		/datum/status_effect/stacking/intoxicated,
 		)))
-
-//List of Baneling chemical types available for selection
-GLOBAL_LIST_INIT(baneling_chem_type_list, list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin,
-		/datum/reagent/toxin/acid,
-		))
 
 //List of plant types
 GLOBAL_LIST_INIT(plant_type_list, list(
@@ -136,14 +123,14 @@ GLOBAL_LIST_INIT(resin_images_list, list(
 		RESIN_DOOR = image('icons/Xeno/actions.dmi', icon_state = RESIN_DOOR)
 		))
 */ //RUTGMC EDIT END
-
+/* RU TGMC EDIT PUPPETEER REMOVAL
 //List of puppeteer order images
 GLOBAL_LIST_INIT(puppeteer_order_images_list, list(
 		PUPPET_ATTACK = image('icons/Xeno/actions.dmi', icon_state = "enrage"),
 		PUPPET_SCOUT = image('icons/mob/actions.dmi', icon_state = "66"),
 		PUPPET_RECALL = image('icons/mob/actions.dmi', icon_state = "rally")
 		))
-
+RU TGMC EDIT PUPPETEER REMOVAL*/
 //RUTGMC EDIT BEGIN - Moved to modular_RUtgmc\code\__DEFINES\xeno.dm
 /*
 //List of puppeteer pheromone images

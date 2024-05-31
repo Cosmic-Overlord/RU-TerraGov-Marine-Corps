@@ -77,10 +77,11 @@
 
 	take_contents()
 
+/* RUTGMC DELETION, CLOSET FIXES
 /obj/structure/closet/deconstruct(disassembled = TRUE)
 	dump_contents()
 	return ..()
-
+*/
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()

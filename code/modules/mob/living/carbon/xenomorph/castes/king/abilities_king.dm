@@ -47,6 +47,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PETRIFY,
 	)
 
+/* TGMC Delete Begin
 /datum/action/ability/xeno_action/petrify/action_activate()
 	var/obj/effect/overlay/eye/eye = new
 	owner.vis_contents += eye
@@ -98,6 +99,7 @@
 	addtimer(CALLBACK(src, PROC_REF(end_effects), humans), PETRIFY_DURATION)
 	add_cooldown()
 	succeed_activate()
+	TGMC DELETE END*/
 
 ///cleans up when the charge up is finished or interrupted
 /datum/action/ability/xeno_action/petrify/proc/finish_charging()
@@ -329,9 +331,9 @@
 	. = ..()
 	if(!.)
 		return
-	if(SSmonitor.gamestate == SHUTTERS_CLOSED && is_ground_level(owner.z))
+	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
 		if(!silent)
-			owner.balloon_alert("too early")
+			owner.balloon_alert(owner, "too early")
 		return FALSE
 
 /datum/action/ability/xeno_action/zero_form_beam/action_activate()

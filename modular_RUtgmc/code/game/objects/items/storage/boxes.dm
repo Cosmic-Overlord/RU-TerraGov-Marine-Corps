@@ -33,6 +33,22 @@
 /obj/item/storage/box/visual
 	icon = 'modular_RUtgmc/icons/obj/items/storage/storage_boxes.dmi'
 
+/obj/item/storage/box/visual/attack_hand(mob/living/user)
+	if(loc == user)
+		open(user) //Always show content when holding box
+		return
+
+	if(!deployed)
+		return ..()
+
+	else if(deployed)
+		draw_mode = variety == 1? TRUE: FALSE //If only one type of item in box, then quickdraw it.
+		if(draw_mode && ishuman(user) && length(contents))
+			var/obj/item/I = contents[length(contents)]
+			I.attack_hand(user)
+			return
+		open(user)
+
 /obj/item/storage/box/visual/update_overlays()
 	. = ..()
 
@@ -73,7 +89,7 @@
 			current_iteration++
 
 /obj/item/storage/box/visual/grenade/trailblazer/phosphorus
-	name = "\improper M45 Phosphorus railblazer grenade box"
+	name = "\improper M45 Phosphorus trailblazer grenade box"
 	desc = "A secure box holding 25 M45 Phosphorus trailblazer grenades. Warning: VERY flammable!!!"
 	spawn_type = /obj/item/explosive/grenade/sticky/trailblazer/phosphorus
 	closed_overlay = "grenade_box_overlay_M45_phosphorus"

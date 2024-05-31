@@ -930,6 +930,7 @@ EXPLOSIVES
 	contains = list(/obj/item/storage/box/mlrs_rockets_gas)
 	cost = 60
 
+/* RU TGMC EDIT BEGIN
 /datum/supply_packs/explosives/howitzer
 	name = "MG-100Y howitzer"
 	contains = list(/obj/item/mortar_kit/howitzer)
@@ -956,6 +957,7 @@ EXPLOSIVES
 	cost = 60
 	available_against_xeno_only = TRUE
 
+	RU TGMC EDIT END	*/
 /datum/supply_packs/explosives/ai_target_module
 	name = "AI artillery targeting module"
 	contains = list(/obj/item/ai_target_beacon)
@@ -1025,7 +1027,7 @@ ARMOR
 	contains = list(/obj/item/storage/belt/grenade/b17)
 	cost = 200
 	available_against_xeno_only = TRUE
-
+/* RU TGMC EDIT
 /datum/supply_packs/armor/modular/attachments/mixed
 	name = "Experimental mark 2 modules"
 	contains = list(
@@ -1033,14 +1035,14 @@ ARMOR
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/mimir_environment_protection,
+//		/obj/item/armor_module/module/mimir_environment_protection, RU TGMC EDIT
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/better_shoulder_lamp,
 		/obj/item/armor_module/module/hlin_explosive_armor,
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 	)
 	cost = 400
-
+RU TGMC EDIT */
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
 	name = "Valkyrie autodoc armor module"
 	contains = list(
@@ -1062,7 +1064,7 @@ ARMOR
 		/obj/item/armor_module/module/tyr_extra_armor,
 	)
 	cost = 120
-
+/* RU TGMC EDIT
 /datum/supply_packs/armor/modular/attachments/mimir_environment_protection
 	name = "Mimir Mark 2 module set"
 	contains = list(
@@ -1070,7 +1072,7 @@ ARMOR
 		/obj/item/armor_module/module/mimir_environment_protection,
 	)
 	cost = 150
-
+RU TGMC EDIT */
 /datum/supply_packs/armor/modular/attachments/hlin_bombimmune
 	name = "Hlin armor module"
 	contains = list(/obj/item/armor_module/module/hlin_explosive_armor)
@@ -1150,6 +1152,21 @@ CLOTHING
 	name = "Jetpack"
 	contains = list(/obj/item/jetpack_marine)
 	cost = 120
+
+/datum/supply_packs/clothing/night_vision
+	name = "BE-47 Night Vision Goggles"
+	contains = list(/obj/item/clothing/glasses/night_vision)
+	cost = 500
+
+/datum/supply_packs/clothing/night_vision_mounted
+	name = "BE-35 Night Vision Module"
+	contains = list(/obj/item/armor_module/module/night_vision)
+	cost = 300
+
+/datum/supply_packs/clothing/night_vision_batteries
+	name = "Double pack of night vision batteries"
+	contains = list(/obj/item/cell/night_vision_battery, /obj/item/cell/night_vision_battery)
+	cost = 100
 
 /*******************************************************************************
 MEDICAL
@@ -2191,7 +2208,7 @@ FACTORY
 	name = "Advanced medical pack assembly refill"
 	contains = list(/obj/item/factory_refill/med_advpack_refill)
 	cost = 500
-
+/* RU TGMC EDIT
 /datum/supply_packs/factory/module_valk_refill
 	name = "Valkyrie Automedical Armor System assembly refill"
 	contains = list(/obj/item/factory_refill/module_valk_refill)
@@ -2216,7 +2233,7 @@ FACTORY
 	name = "Surt Pyrotechnical Insulation System assembly refill"
 	contains = list(/obj/item/factory_refill/module_surt_refill)
 	cost = 600
-
+RU TGMC EDIT*/
 /datum/supply_packs/factory/mortar_shell_he_refill
 	name = "Mortar High Explosive shell assembly refill"
 	contains = list(/obj/item/factory_refill/mortar_shell_he_refill)

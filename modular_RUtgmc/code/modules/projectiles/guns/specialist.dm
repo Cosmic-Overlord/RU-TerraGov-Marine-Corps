@@ -10,3 +10,8 @@
 
 /obj/item/weapon/gun/minigun/smart_minigun
 		max_shells = 2000
+
+
+/obj/item/weapon/gun/minigun
+	fire_delay = 0.10 SECONDS
+	max_shells = 600

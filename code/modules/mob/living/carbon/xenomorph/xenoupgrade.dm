@@ -70,6 +70,7 @@
 
 	hud_set_plasma()
 	med_hud_set_health()
+	hud_update_primo()
 
 	hud_set_queen_overwatch() //update the upgrade level insignia on our xeno hud.
 
@@ -81,7 +82,7 @@
 
 /mob/living/carbon/xenomorph/runner/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_ONE_THRESHOLD
+	//upgrade_stored = TIER_ONE_THRESHOLD // RUTGMC DELETION
 
 //-----RUNNER END-----//
 //================//
@@ -89,7 +90,7 @@
 
 /mob/living/carbon/xenomorph/bull/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //-----BULL END-----//
 //================//
@@ -97,7 +98,7 @@
 
 /mob/living/carbon/xenomorph/drone/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_ONE_THRESHOLD
+	//upgrade_stored = TIER_ONE_THRESHOLD // RUTGMC DELETION
 
 //-----DRONE END-----//
 //================//
@@ -126,7 +127,7 @@
 
 /mob/living/carbon/xenomorph/carrier/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //-----CARRIER END-----//
 //================//
@@ -137,7 +138,7 @@
 
 /mob/living/carbon/xenomorph/hivelord/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //----HIVELORD END----//
 //================//
@@ -150,7 +151,7 @@
 
 /mob/living/carbon/xenomorph/praetorian/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //----PRAETORIAN END----//
 //================//
@@ -161,7 +162,7 @@
 
 /mob/living/carbon/xenomorph/ravager/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //----RAVAGER END----//
 //================//
@@ -188,7 +189,7 @@
 
 /mob/living/carbon/xenomorph/sentinel/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_ONE_THRESHOLD
+	//upgrade_stored = TIER_ONE_THRESHOLD // RUTGMC DELETION
 
 //----SENTINEL END----//
 //================//
@@ -199,7 +200,7 @@
 
 /mob/living/carbon/xenomorph/spitter/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //-----SPITTER END-----//
 //================//
@@ -226,7 +227,7 @@
 
 /mob/living/carbon/xenomorph/hunter/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //----HUNTER END----//
 //================//
@@ -253,7 +254,7 @@
 
 /mob/living/carbon/xenomorph/queen/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //----QUEEN END----//
 //============//
@@ -264,7 +265,7 @@
 
 /mob/living/carbon/xenomorph/king/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //----KING END----//
 //============//
@@ -275,7 +276,7 @@
 
 /mob/living/carbon/xenomorph/crusher/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //---CRUSHER END---//
 //============//
@@ -286,7 +287,7 @@
 
 /mob/living/carbon/xenomorph/gorger/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //---GORGER END---//
 //============//
@@ -297,7 +298,7 @@
 
 /mob/living/carbon/xenomorph/boiler/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //---BOILER END---//
 //============//
@@ -308,7 +309,7 @@
 
 /mob/living/carbon/xenomorph/defender/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_ONE_THRESHOLD
+	//upgrade_stored = TIER_ONE_THRESHOLD // RUTGMC DELETION
 
 //---DEFENDER END---//
 //============//
@@ -319,7 +320,7 @@
 
 /mob/living/carbon/xenomorph/warrior/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //----WARRIOR END----//
 //============//
@@ -330,7 +331,7 @@
 
 /mob/living/carbon/xenomorph/defiler/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //----DEFILER END----//
 //============//
@@ -341,10 +342,11 @@
 
 /mob/living/carbon/xenomorph/shrike/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_THREE_THRESHOLD
+	//upgrade_stored = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 //----SHRIKE END----//
 //============//
+/* RU TGMC EDITION START
 //----WRAITH START----//
 
 /mob/living/carbon/xenomorph/wraith
@@ -352,11 +354,13 @@
 
 /mob/living/carbon/xenomorph/wraith/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD
 
 //----WRAITH END----//
 //============//
+RU TGMC EDITION END*/
 //----WIDOW START----//
+/* RUTGMC DELETION, WIDOW DELETION
 
 /mob/living/carbon/xenomorph/widow
 	upgrade = XENO_UPGRADE_NORMAL
@@ -364,6 +368,7 @@
 /mob/living/carbon/xenomorph/widow/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 	upgrade_stored = TIER_THREE_THRESHOLD
+*/
 
 //----WIDOW END----//
 //============//
@@ -377,24 +382,18 @@
 
 //----WARLOCK END----//
 //============//
-//----BANELING START----//
-/mob/living/carbon/xenomorph/baneling
-	upgrade = XENO_UPGRADE_NORMAL
-
-/mob/living/carbon/xenomorph/baneling/primordial
-	upgrade = XENO_UPGRADE_PRIMO
-
-//----BANELING END----//
 //============//
+/*RU TGMC EDIT
 //----PUPPETEER START----//
 /mob/living/carbon/xenomorph/puppeteer
 	upgrade = XENO_UPGRADE_NORMAL
 
 /mob/living/carbon/xenomorph/puppeteer/primordial
 	upgrade = XENO_UPGRADE_PRIMO
-	upgrade_stored = TIER_TWO_THRESHOLD
+	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //----PUPPETEER END----//
+RU TGMC EDIT*/
 //============//
 //----BEHEMOTH START----//
 

@@ -1,6 +1,9 @@
 /obj/alien
 	icon = 'modular_RUtgmc/icons/Xeno/Effects.dmi'
 
+/obj/alien/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB)
+
 //Resin Doors
 /obj/structure/mineral_door/resin
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
@@ -9,7 +12,7 @@
 	var/turf/cur_loc = X.loc
 	if(!istype(cur_loc))
 		return FALSE
-	if(X.a_intent != INTENT_HARM)
+	if(X.a_intent != INTENT_DISARM)
 		try_toggle_state(X)
 		return TRUE
 	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
@@ -19,9 +22,16 @@
 
 	src.balloon_alert(X, "Destroying...")
 	playsound(src, "alien_resin_break", 25)
-	if(do_after(X, 1 SECONDS, FALSE, src, BUSY_ICON_HOSTILE))
+	if(do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
 		src.balloon_alert(X, "Destroyed")
 		qdel(src)
+
+
+/obj/structure/mineral_door/resin/ex_act(severity)
+	take_damage(severity / 2, BRUTE, BOMB)
+
+/obj/structure/mineral_door/resin/get_explosion_resistance()
+	return density ? obj_integrity : 0
 
 /obj/alien/resin/resin_growth
 	name = GROWTH_WALL
@@ -71,7 +81,10 @@
 	if(X.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM)
+	if(X.a_intent != INTENT_DISARM)
+		return FALSE
+
+	if(X.a_intent == INTENT_DISARM)
 		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X) && refundable)
 			SSresinshaping.decrement_build_counter(X)
 		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)

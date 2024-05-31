@@ -803,7 +803,6 @@
 	icon_state = "lascharger"
 	icon_vend = "lascharger-vend"
 	icon_deny = "lascharger-deny"
-	vending_flags = VENDING_RECHARGER
 	wrenchable = TRUE
 	drag_delay = FALSE
 	anchored = FALSE
@@ -815,7 +814,6 @@
 	products = list(
 		/obj/item/cell/lasgun/lasrifle = 10, /obj/item/cell/lasgun/volkite/powerpack/marine = 2,
 	)
-
 
 	prices = list()
 
@@ -836,6 +834,10 @@
 				icon_state = "lascharger_25"
 			if(0)
 				icon_state = "lascharger_0"
+
+/obj/machinery/vending/lasgun/examine(mob/user)
+	. = ..()
+	. += "Internal battery charge: <b>[machine_current_charge]</b>/<b>[machine_max_charge]</b>"
 
 /obj/machinery/vending/marineFood
 	name = "\improper Marine Food and Drinks Vendor"
@@ -1081,7 +1083,6 @@
 			/obj/item/armor_module/module/artemis = -1,
 			/obj/item/armor_module/module/tyr_head = -1,
 			/obj/item/armor_module/module/antenna = -1,
-			/obj/item/armor_module/module/mimir_environment_protection/mark1 = -1,
 			/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1 = -1,
 			/obj/item/armor_module/module/tyr_extra_armor/mark1 = -1,
 			/obj/item/armor_module/module/ballistic_armor = -1,
@@ -1498,8 +1499,10 @@
 			/obj/item/armor_module/module/tyr_extra_armor = -1,
 			/obj/item/armor_module/module/tyr_head = -1,
 			/obj/item/attachable/shoulder_mount = -1,
+/* RU TGMC EDIT
 			/obj/item/armor_module/module/mimir_environment_protection = -1,
 			/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet = -1,
+RU TGMC EDIT*/
 			/obj/item/armor_module/module/better_shoulder_lamp = -1,
 			/obj/item/armor_module/module/hlin_explosive_armor = -1,
 			/obj/item/attachable/heatlens = -1,

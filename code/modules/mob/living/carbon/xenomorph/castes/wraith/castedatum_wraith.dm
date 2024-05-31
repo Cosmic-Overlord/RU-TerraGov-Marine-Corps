@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 /datum/xeno_caste/wraith
 	caste_name = "Wraith"
 	display_name = "Wraith"
@@ -23,7 +24,7 @@
 
 	// *** Evolution *** //
 	evolution_threshold = 225
-	upgrade_threshold = TIER_TWO_THRESHOLD
+	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 	evolves_to = list(
 		/mob/living/carbon/xenomorph/defiler,
@@ -75,4 +76,4 @@
 		/datum/action/ability/activable/xeno/rewind,
 		/datum/action/ability/xeno_action/timestop,
 	)
-
+RU TGMC EDIT */

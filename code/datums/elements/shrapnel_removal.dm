@@ -1,3 +1,4 @@
+/* RUTGMC DELETION, SHRAPNEL REMOVAL FOR KNIVES
 /datum/element/shrapnel_removal
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
@@ -73,3 +74,4 @@
 			user.visible_message(span_notice("[user] pulls out [I] from [target]!"), span_notice("You pull out [I] from [target]!"))
 			targetlimb.take_damage_limb(15, 0, FALSE, FALSE)
 		break
+*/

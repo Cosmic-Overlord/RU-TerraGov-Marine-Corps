@@ -221,7 +221,10 @@
 	sparks.start()
 	dcell.use(charge_cost)
 	update_icon()
+	/* ORIGINAL
 	playsound(get_turf(src), 'sound/items/defib_release.ogg', 25, 1)
+	*/
+	playsound(get_turf(src), 'sound/items/defib_release.ogg', 30, 0) //RUTGMC EDIT
 	user.visible_message(span_notice("[user] shocks [H] with the paddles."),
 	span_notice("You shock [H] with the paddles."))
 	H.visible_message(span_danger("[H]'s body convulses a bit."))
@@ -306,6 +309,7 @@
 	H.handle_regular_hud_updates()
 	H.updatehealth() //One more time, so it doesn't show the target as dead on HUDs
 	H.dead_ticks = 0 //We reset the DNR time
+	H.initial_stage = 0 // RUTGMC ADDITION
 	REMOVE_TRAIT(H, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	if(user.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]

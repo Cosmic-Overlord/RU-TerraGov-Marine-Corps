@@ -45,7 +45,7 @@
 	desc = "A general purpose pouch used to carry small items."
 	icon_state = "small_drop"
 	draw_mode = 1
-	bypass_w_limit = list(/obj/item/ammo_magazine/packet)
+	bypass_w_limit = list(/obj/item/ammo_magazine/packet, /obj/item/ammo_magazine/shotgun) // RU TGMC EDIT
 
 /obj/item/storage/pouch/general/medium
 	name = "medium general pouch"
@@ -636,7 +636,7 @@
 
 /obj/item/storage/pouch/surgery/Initialize(mapload)
 	. = ..()
-	new /obj/item/tool/surgery/scalpel/manager(src)
+	//new /obj/item/tool/surgery/scalpel/manager(src) RUTGMC REMOVAL
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
 	new /obj/item/tool/surgery/retractor(src)
@@ -820,7 +820,7 @@
 	desc = "A pouch specialized for holding shotgun ammo."
 	icon_state = "shotshells"
 	sprite_slots = 4
-	storage_slots = 4
+	storage_slots = 7 //RUTGMC EDIT
 	draw_mode = 0
 	can_hold = list(/obj/item/ammo_magazine/handful)
 

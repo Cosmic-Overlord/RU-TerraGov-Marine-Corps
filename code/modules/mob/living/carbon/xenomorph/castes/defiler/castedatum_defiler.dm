@@ -24,7 +24,7 @@
 	max_health = 375
 
 	// *** Evolution *** //
-	upgrade_threshold = TIER_THREE_THRESHOLD
+	//upgrade_threshold = TIER_THREE_THRESHOLD // RUTGMC DELETION
 
 	deevolves_to = /mob/living/carbon/xenomorph/carrier
 

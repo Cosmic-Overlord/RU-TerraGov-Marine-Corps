@@ -5,7 +5,7 @@
 		to_chat(user, span_warning("You cannot resolve yourself to destroy [src]'s heart, as [p_they()] can still be saved!"))
 		return
 	to_chat(user, span_notice("You start to remove [src]'s heart, preventing [p_them()] from rising again!"))
-	if(!do_after(user, 2 SECONDS, TRUE, src))
+	if(!do_after(user, 2 SECONDS, NONE, src))
 		return
 	if(!internal_organs_by_name["heart"])
 		to_chat(user, span_notice("The heart is no longer here!"))

@@ -95,6 +95,7 @@
 		if(L.stat == DEAD || isnestedhost(L)) //no bully
 			return FALSE
 
+/* RUTGMC DELETION, moved to modular
 /datum/action/ability/activable/xeno/cresttoss/use_ability(atom/movable/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	X.face_atom(A) //Face towards the target so we don't look silly
@@ -149,6 +150,7 @@
 
 	add_cooldown()
 	addtimer(CALLBACK(X, TYPE_PROC_REF(/mob, update_icons)), 3)
+*/
 
 /datum/action/ability/activable/xeno/cresttoss/ai_should_start_consider()
 	return TRUE
@@ -176,6 +178,8 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADVANCE,
 	)
+	///Max charge range
+	var/advance_range = 7
 
 /datum/action/ability/activable/xeno/advance/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We can now rapidly charge forward again.</b>"))
@@ -187,7 +191,7 @@
 	if(!.)
 		return FALSE
 
-	if(get_dist(owner, A) > 7)
+	if(get_dist(owner, A) > advance_range)
 		return FALSE
 
 
@@ -195,26 +199,26 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	X.face_atom(A)
 	X.set_canmove(FALSE)
-	if(!do_after(X, 10, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER) || (QDELETED(A)) || X.z != A.z)
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
 	X.set_canmove(TRUE)
 
 	var/datum/action/ability/xeno_action/ready_charge/charge = X.actions_by_path[/datum/action/ability/xeno_action/ready_charge]
-	var/aimdir = get_dir(X,A)
+	var/aimdir = get_dir(X, A)
 	if(charge)
 		charge.charge_on(FALSE)
 		charge.do_stop_momentum(FALSE) //Reset charge so next_move_limit check_momentum() does not cuck us and 0 out steps_taken
 		charge.do_start_crushing()
 		charge.valid_steps_taken = charge.max_steps_buildup - 1
 		charge.charge_dir = aimdir //Set dir so check_momentum() does not cuck us
-	for(var/i=0 to get_dist(X, A))
+	for(var/i=0 to max(get_dist(X, A), advance_range))
 		if(i % 2)
 			playsound(X, "alien_charge", 50)
 			new /obj/effect/temp_visual/xenomorph/afterimage(get_turf(X), X)
 		X.Move(get_step(X, aimdir), aimdir)
-		aimdir = get_dir(X,A)
+		aimdir = get_dir(X, A)
 	succeed_activate()
 	add_cooldown()
 

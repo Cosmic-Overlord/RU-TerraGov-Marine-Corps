@@ -1,61 +1,100 @@
-/obj/item/clothing/head/squadhb
-	name = "\improper Alpha squad headband"
+/obj/item/clothing/head/examine(mob/user)
+	. = ..()
+	if(colorable_allowed & HAIR_CONCEALING_CHANGE_ALLOWED)
+		. += span_notice("You can change the way it conceals the hair by using <b>facepaint</b> on it.")
+
+/obj/item/clothing/head/squad_headband
+	name = "\improper Squad headband"
 	desc = "Headband made from ultra-thin special cloth. Cloth thickness provides more than just a stylish fluttering of headband. You can tie around headband onto a helmet. This squad version of a headband has secret unique features created by the cloth coloring component. "
 	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
 		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
-	icon_state = "asquadhb"
+	icon_state = ""
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = -0.1
 	w_class = WEIGHT_CLASS_TINY
 	species_exception = list(/datum/species/robot, /datum/species/synthetic, /datum/species/human, /datum/species/early_synthetic, /datum/species/zombie)
 
-/obj/item/clothing/head/squadhb/b
-	name = "\improper Bravo squad headband"
-	icon_state = "bsquadhb"
+/obj/item/clothing/head/squad_headband/alpha
+	name = "\improper Alpha Squad headband"
+	icon_state = "as_headband"
 
-/obj/item/clothing/head/squadhb/c
-	name = "\improper Charlie squad headband"
-	icon_state = "csquadhb"
+/obj/item/clothing/head/squad_headband/bravo
+	name = "\improper Bravo Squad headband"
+	icon_state = "bs_headband"
 
-/obj/item/clothing/head/squadhb/d
-	name = "\improper Delta squad headband"
-	icon_state = "dsquadhb"
+/obj/item/clothing/head/squad_headband/charlie
+	name = "\improper Charlie Squad headband"
+	icon_state = "cs_headband"
 
-/obj/item/clothing/head/squadhb/fl
+/obj/item/clothing/head/squad_headband/delta
+	name = "\improper Delta Squad headband"
+	icon_state = "ds_headband"
+
+/obj/item/clothing/head/squad_headband/foreign
 	name = "\improper Foreign Legion headband"
-	icon_state = "flsquadhb"
+	icon_state = "fl_headband"
 
 /obj/item/clothing/head/tgmcberet
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/tgmcberet/squad
-	name = "\improper Charlie squad beret"
-	icon_state = "csberet"
-	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Charlie Squad."
+	name = "\improper squad beret"
+	icon_state = ""
+	desc = "Military beret with TGMC marine squad insignia."
 	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/hats.dmi'
 	item_icons = list(
 		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
 
-/obj/item/clothing/head/tgmcberet/squad/delta
-	name = "\improper Delta Squad beret"
-	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Delta Squad."
-	icon_state = "dsberet"
-
 /obj/item/clothing/head/tgmcberet/squad/alpha
 	name = "\improper Alpha Squad beret"
 	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Alpha Squad."
-	icon_state = "asberet"
+	icon_state = "as_beret"
+
+/obj/item/clothing/head/tgmcberet/squad/alpha/black
+	name = "\improper Alpha Squad black beret"
+	icon_state = "as_black_beret"
+	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Alpha Squad."
 
 /obj/item/clothing/head/tgmcberet/squad/bravo
 	name = "\improper Bravo Squad beret"
 	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Bravo Squad."
-	icon_state = "bsberet"
+	icon_state = "bs_beret"
+
+/obj/item/clothing/head/tgmcberet/squad/bravo/black
+	name = "\improper Bravo Squad black beret"
+	icon_state = "bs_black_beret"
+	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Bravo Squad."
+
+/obj/item/clothing/head/tgmcberet/squad/charlie
+	name = "\improper Charlie Squad beret"
+	icon_state = "cs_beret"
+	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Charlie Squad."
+
+/obj/item/clothing/head/tgmcberet/squad/charlie/black
+	name = "\improper Charlie Squad black beret"
+	icon_state = "cs_black_beret"
+	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Charlie Squad."
+
+/obj/item/clothing/head/tgmcberet/squad/delta
+	name = "\improper Delta Squad beret"
+	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Delta Squad."
+	icon_state = "ds_beret"
+
+/obj/item/clothing/head/tgmcberet/squad/delta/black
+	name = "\improper Delta Squad black beret"
+	icon_state = "ds_black_beret"
+	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Delta Squad."
 
 /obj/item/clothing/head/tgmcberet/squad/foreign
 	name = "\improper Foreign Legion beret"
 	desc = "Military beret with TGMC marine squad insignia. This one belongs to the Foreign Legion."
-	icon_state = "flsberet"
+	icon_state = "fl_beret"
+
+/obj/item/clothing/head/tgmcberet/squad/foreign/black
+	name = "\improper Foreign Legion black beret"
+	icon_state = "fl_black_beret"
+	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Foreign Legion."
 
 /obj/item/clothing/head/tgmcberet/commando
 	name = "\improper Marines Commando beret"
@@ -137,9 +176,15 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	w_class = WEIGHT_CLASS_SMALL
 
-	actions_types = list(/datum/action/item_action/toggle)
+	actions_types = list(/datum/action/item_action)
 	flags_armor_features = ARMOR_LAMP_OVERLAY|ARMOR_NO_DECAP
 	flags_item = SYNTH_RESTRICTED
+	species_exception = list(/datum/species/robot)
+
+/obj/item/clothing/head/hachimaki/item_action_slot_check(mob/user, slot)
+	if(slot != SLOT_HEAD)
+		return FALSE
+	return TRUE
 
 /obj/item/clothing/head/hachimaki/attack_self(mob/user)
 	var/mob/living/carbon/human/activator = user
@@ -148,7 +193,7 @@
 		return
 	TIMER_COOLDOWN_START(user, "Banzai", 60 SECONDS)
 	if(user.gender == FEMALE)
-		user.balloon_alert(user, "Women can't use that")
+		user.balloon_alert(user, "Women can't use that!")
 	else
 		activator.say("Tenno Heika Banzai!!")
 		playsound(get_turf(user), 'modular_RUtgmc/sound/voice/banzai1.ogg', 30)

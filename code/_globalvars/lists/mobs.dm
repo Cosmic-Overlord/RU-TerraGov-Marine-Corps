@@ -101,8 +101,6 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/shrike/primordial,
 	/mob/living/carbon/xenomorph/warlock,
 	/mob/living/carbon/xenomorph/warlock/primordial,
-	/mob/living/carbon/xenomorph/baneling,
-	/mob/living/carbon/xenomorph/baneling/primordial,
 	/mob/living/carbon/xenomorph/puppeteer,
 	/mob/living/carbon/xenomorph/puppeteer/primordial,
 	/mob/living/carbon/xenomorph/behemoth,
@@ -114,7 +112,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	))
 */
 //RUTGMC EDIT END
-GLOBAL_LIST_INIT(xeno_types_tier_one, list(/mob/living/carbon/xenomorph/runner, /mob/living/carbon/xenomorph/drone, /mob/living/carbon/xenomorph/sentinel, /mob/living/carbon/xenomorph/defender, /mob/living/carbon/xenomorph/baneling))
+GLOBAL_LIST_INIT(xeno_types_tier_one, list(/mob/living/carbon/xenomorph/runner, /mob/living/carbon/xenomorph/drone, /mob/living/carbon/xenomorph/sentinel, /mob/living/carbon/xenomorph/defender))
 //RUTGMC EDIT - Moved to modular_RUtgmc\code\_globalvars\lists\mobs.dm
 /*
 GLOBAL_LIST_INIT(xeno_types_tier_two, list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/spitter, /mob/living/carbon/xenomorph/hivelord, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/bull, /mob/living/carbon/xenomorph/wraith, /mob/living/carbon/xenomorph/puppeteer))

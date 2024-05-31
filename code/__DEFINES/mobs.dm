@@ -454,6 +454,9 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 
 //Xeno Defines
+//Xeno flags
+///Xeno is currently performing a leap/dash attack
+#define XENO_LEAPING (1<<0)
 
 #define XENO_DEFAULT_VENT_ENTER_TIME 4.5 SECONDS //Standard time for a xeno to enter a vent.
 #define XENO_DEFAULT_VENT_EXIT_TIME 2 SECONDS //Standard time for a xeno to exit a vent.
@@ -461,6 +464,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define XENO_ACID_WELL_FILL_TIME 2 SECONDS //How long it takes to add a charge to an acid pool
 #define XENO_ACID_WELL_FILL_COST 150 //Cost in plasma to apply a charge to an acid pool
 #define XENO_ACID_WELL_MAX_CHARGES 5 //Maximum number of charges for the acid well
+#define XENO_ACID_CHARGE_DAMAGE 30
 
 #define HIVE_CAN_HIJACK (1<<0)
 
@@ -468,7 +472,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define XENO_SLOWDOWN_REGEN 0.4
 
 #define XENO_DEADHUMAN_DRAG_SLOWDOWN 2
-#define XENO_EXPLOSION_GIB_THRESHOLD 0.95 //if your effective bomb armour is less than 5, devestating explosions will gib xenos
+//#define XENO_EXPLOSION_GIB_THRESHOLD 0.95 //if your effective bomb armour is less than 5, devestating explosions will gib xenos //RUTGMC REMOVAL - Explosions
 
 #define KING_SUMMON_TIMER_DURATION 5 MINUTES
 
@@ -674,13 +678,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //Defender defines
 #define DEFENDER_CHARGE_RANGE 4
 
-//Baneling defines
-#define BANELING_CHARGE_MAX 2
-#define BANELING_CHARGE_GAIN_TIME 240 SECONDS
-#define BANELING_CHARGE_RESPAWN_TIME 30 SECONDS
-/// Not specified in seconds because it causes smoke to last almost four times as long if done so
-#define BANELING_SMOKE_DURATION 4
-
 //Sentinel defines
 #define SENTINEL_TOXIC_SPIT_STACKS_PER 2 //Amount of debuff stacks to be applied per spit.
 #define SENTINEL_TOXIC_SLASH_COUNT 3 //Amount of slashes before the buff runs out
@@ -716,6 +713,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //Larva defines
 #define LARVA_VENT_CRAWL_TIME 1 SECONDS //Larva can crawl into vents fast
 
+/* RUTGMC DELETION, WIDOW DELETION
 //Widow Defines
 #define WIDOW_SPEED_BONUS 1 // How much faster widow moves while she has wall_speedup element
 #define WIDOW_WEB_HOOK_RANGE 10 // how far the web hook can reach
@@ -725,6 +723,9 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //Spiderling defines
 #define TIME_TO_DISSOLVE 5 SECONDS
 #define SPIDERLING_RAGE_RANGE 10 // how close a nearby human has to be in order to be targeted
+*/
+//Praetorian defines
+#define PRAE_CHARGEDISTANCE 6
 
 //misc
 
@@ -795,7 +796,7 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define GRAB_PIXEL_SHIFT_NECK 16
 
 #define HUMAN_CARRY_SLOWDOWN 0.35
-#define HUMAN_EXPLOSION_GIB_THRESHOLD 0.1
+//#define HUMAN_EXPLOSION_GIB_THRESHOLD 0.1 //RUTGMC DELETION, explosions
 
 
 // =============================
@@ -819,12 +820,13 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 
 #define IGNORE_LOC_CHANGE (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE)
 
+/* RUTGMC DELETION
 #define TIER_ONE_THRESHOLD 420
 
 #define TIER_TWO_THRESHOLD 840
 
 #define TIER_THREE_THRESHOLD 1750
-
+*/
 
 // Pheromones and buff orders
 

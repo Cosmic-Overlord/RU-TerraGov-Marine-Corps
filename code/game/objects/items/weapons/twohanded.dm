@@ -19,6 +19,7 @@
 
 
 /obj/item/weapon/twohanded/pickup(mob/user)
+	..() //RUTGMC EDIT PICKUP FIX
 	unwield(user)
 
 

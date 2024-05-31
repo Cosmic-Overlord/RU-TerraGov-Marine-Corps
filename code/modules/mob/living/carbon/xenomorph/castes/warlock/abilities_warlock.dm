@@ -284,7 +284,7 @@
 	/// A list of all things that had a fliter applied
 	var/list/filters_applied
 	///max range at which we can cast out ability
-	var/ability_range = 7
+	var/ability_range = 9
 	///Holder for the orb visual effect
 	var/obj/effect/xeno/crush_orb/orb
 	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
@@ -337,7 +337,7 @@
 	if(get_dist(owner, target) > ability_range)
 		owner.balloon_alert(owner, "Too far!")
 		return FALSE
-	if(sight_needed && !line_of_sight(owner, target, 9))
+	if(sight_needed && !line_of_sight(owner, target, 11))
 		owner.balloon_alert(owner, "Out of sight!")
 		return FALSE
 	return TRUE
@@ -547,14 +547,14 @@
 	owner.balloon_alert(owner, "We channel our psychic power")
 
 	generate_particles(A, 7)
-	ADD_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT)
+	//ADD_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT) // RUTGMC DELETION, PSYBLAST IMMOBILIZING REMOVAL
 	var/datum/ammo/energy/xeno/ammo_type = xeno_owner.ammo
 	xeno_owner.update_glow(3, 3, ammo_type.glow_color)
 
 	if(!do_after(xeno_owner, 1 SECONDS, NONE, target_turf, BUSY_ICON_DANGER) || !can_use_ability(A, FALSE))
 		owner.balloon_alert(owner, "Our focus is disrupted")
 		end_channel()
-		REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT)
+		//REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT) // RUTGMC DELETION, PSYBLAST IMMOBILIZING REMOVAL
 		return fail_activate()
 
 	succeed_activate()
@@ -574,7 +574,7 @@
 
 	add_cooldown()
 	update_button_icon()
-	REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT)
+	//REMOVE_TRAIT(xeno_owner, TRAIT_IMMOBILE, PSYCHIC_BLAST_ABILITY_TRAIT) // RUTGMC DELETION, PSYBLAST IMMOBILIZING REMOVAL
 	addtimer(CALLBACK(src, PROC_REF(end_channel)), 5)
 
 /datum/action/ability/activable/xeno/psy_blast/update_button_icon()
@@ -602,3 +602,22 @@
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	QDEL_NULL(particle_holder)
 	xeno_owner.update_glow()
+
+/datum/action/ability/xeno_action/toggle_warlock_zoom
+	name = "Toggle Warlock Zoom"
+	action_icon_state = "toggle_queen_zoom"
+	desc = "Zoom out for a larger view around wherever you are looking."
+	ability_cost = 0
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_WARLOCK_ZOOM,
+	)
+
+/datum/action/ability/xeno_action/toggle_warlock_zoom/action_activate()
+	var/mob/living/carbon/xenomorph/warlock/X = owner
+	if(X.is_zoomed)
+		X.zoom_out()
+	else
+		if(!do_after(X, 0 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || X.is_zoomed)
+			return
+		X.zoom_in(0, 4.5)
+		..()

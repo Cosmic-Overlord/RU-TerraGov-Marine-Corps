@@ -553,7 +553,6 @@
 /datum/reagent/medicine/hyronalin/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(0, effect_str, effect_str)
 
-/* RUTGMC - MOVED TO MODULE
 /datum/reagent/medicine/arithrazine
 	name = "Arithrazine"
 	description = "Arithrazine is a component medicine capable of healing minor amounts of toxin poisoning."
@@ -574,7 +573,6 @@
 
 /datum/reagent/medicine/arithrazine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, effect_str, 2*effect_str)
-*/
 
 /datum/reagent/medicine/russian_red
 	name = "Russian Red"

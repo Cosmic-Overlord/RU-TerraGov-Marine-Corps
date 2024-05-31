@@ -1,3 +1,4 @@
+/* RU TGMC EDIT
 /datum/ai_behavior/puppet
 	target_distance = 7
 	base_action = IDLE
@@ -110,7 +111,7 @@
 /datum/ai_behavior/puppet/proc/seek_and_attack()
 	var/list/mob/living/carbon/human/possible_victims = list()
 	for(var/mob/living/carbon/human/victim in cheap_get_humans_near(mob_parent, 9))
-		if(victim.stat == DEAD)
+		if(victim.stat == DEAD || isnestedhost(victim)) // RUTGMC ADDITION, no nest killing puppets
 			continue
 		possible_victims += victim
 	if(!length(possible_victims))
@@ -159,6 +160,8 @@
 			return COMSIG_OBSTACLE_DEALT_WITH
 		if(istype(thing, /obj/alien)) //dont attack resin and such
 			return
+		if(istype(thing, /obj/structure/bed/nest)) //RUTGMC ADDITION, no nest breaking minions
+			return
 		if(isobj(thing)) //otherwise smash it if its damageable
 			var/obj/obstacle = thing
 			if(obstacle.resistance_flags & XENO_DAMAGEABLE)
@@ -181,3 +184,4 @@
 		return
 	if(feed.ai_should_use(target))
 		feed.use_ability(target)
+RU TGMC EDIT*/

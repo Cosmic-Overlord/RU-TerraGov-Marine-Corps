@@ -7,3 +7,6 @@
 
 //Gamemode
 #define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))
+
+//Objects
+#define iscontainmentshutter(A) (istype(A, /obj/machinery/door/poddoor/timed_late/containment/landing_zone))

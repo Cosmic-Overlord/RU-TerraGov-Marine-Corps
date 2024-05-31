@@ -1,8 +1,31 @@
+/obj/item/weapon/gun/smg
+	wield_sound =    'modular_RUtgmc/sound/weapons/guns/smgs/Deploy_Wave_SMGS.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
+
 //-------------------------------------------------------
 // War is hell. Not glorious.
 
 /obj/item/weapon/gun/smg/standard_smg
+	icon_state = "t90"
+	item_state = "t90"
+	greyscale_config = null
 	colorable_allowed = NONE
+	fire_sound =     'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_boltpull.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		)
+
+/obj/item/weapon/gun/smg/standard_machinepistol
+	fire_sound =     'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19.ogg'
+	unload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_clipout.ogg'
+	reload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_clipin.ogg'
+	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_boltpull.ogg'
+	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19_SIL.ogg'
 
 ///////////////////////////////////////////////////////////////////////
 ////////////// Vector, based on KRISS Vector 45ACP. ///////////////////
@@ -47,6 +70,7 @@
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER

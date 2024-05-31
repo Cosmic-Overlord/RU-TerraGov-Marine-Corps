@@ -1,3 +1,4 @@
+/* RUTGMC DELETION
 /datum/hud/larva/New(mob/living/carbon/xenomorph/larva/owner, ui_style, ui_color, ui_alpha = 230)
 	..()
 	var/atom/movable/screen/using
@@ -19,3 +20,4 @@
 	locate_leader = new /atom/movable/screen/alien/queen_locator()
 	locate_leader.alpha = ui_alpha
 	infodisplay += locate_leader
+*/

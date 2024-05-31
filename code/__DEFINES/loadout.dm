@@ -27,8 +27,8 @@
 #define CAT_SHN "HATS" // Synth's non-protective hats
 
 #define VENDOR_FACTION_NEUTRAL "Neutral"
-#define VENDOR_FACTION_CRASH "Valhalla"
-#define VENDOR_FACTION_VALHALLA "Crash"
+#define VENDOR_FACTION_CRASH "Crash"
+#define VENDOR_FACTION_VALHALLA "Valhalla"
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
 		CAT_MOD = 1,
@@ -52,10 +52,12 @@ GLOBAL_LIST_INIT(marine_selector_cats, list(
 
 #define METAL_PRICE_IN_GEAR_VENDOR 2
 #define PLASTEEL_PRICE_IN_GEAR_VENDOR 4
-#define SANDBAG_PRICE_IN_GEAR_VENDOR 5
+//#define SANDBAG_PRICE_IN_GEAR_VENDOR 5 //ORIGINAL
+#define SANDBAG_PRICE_IN_GEAR_VENDOR 3 //RUTGMC EDIT
 
 GLOBAL_LIST_INIT(marine_gear_listed_products, list())
 
+/* RUTGMC DELETION
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/effect/vendor_bundle/engi = list(CAT_ESS, "Essential Engineer Set", 0, "white"),
 		/obj/item/stack/sheet/metal/small_stack = list(CAT_ENGSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "orange"),
@@ -79,12 +81,8 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/cell/high = list(CAT_ENGSUP, "High capacity powercell", 1, "black"),
 		/obj/item/cell/rtg/small = list(CAT_ENGSUP, "Recharger powercell", 5, "black"),
 		/obj/item/cell/rtg/large = list(CAT_ENGSUP, "Large recharger powercell", 15, "black"),
-		///obj/item/storage/box/explosive_mines = list(CAT_ENGSUP, "M20 mine box", 18, "black"),
-		///obj/item/storage/box/explosive_mines/large = list(CAT_ENGSUP, "Large M20 mine box", 35, "black"),
-		// RUTGMC EDIT
-		/obj/item/storage/box/explosive_mines = list(CAT_ENGSUP, "M20 mine box", 10, "black"),
-		/obj/item/storage/box/explosive_mines/large = list(CAT_ENGSUP, "Large M20 mine box", 20, "black"),
-		// RUTGMC EDIT END
+		/obj/item/storage/box/explosive_mines = list(CAT_ENGSUP, "M20 mine box", 18, "black"),
+		/obj/item/storage/box/explosive_mines/large = list(CAT_ENGSUP, "Large M20 mine box", 35, "black"),
 		/obj/item/minelayer = list(CAT_ENGSUP, "M21 APRDS \"Minelayer\"", 5, "black"),
 		/obj/item/minerupgrade/overclock = list(CAT_ENGSUP, "Mining well overclock upgrade", 4, "black"),
 		/obj/item/minerupgrade/reinforcement = list(CAT_ENGSUP, "Mining well reinforcement upgrade", 4, "black"),
@@ -98,9 +96,6 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 		/obj/item/mortal_shell/smoke = list(CAT_ENGSUP, "Smoke Mortar shell", 1, "black"),
 		/obj/item/mortal_shell/flare = list(CAT_ENGSUP, "Flare Mortar shell", 1, "black"),
 		/obj/item/ammo_magazine/flamer_tank/large = list(CAT_ENGSUP, "Flamethrower tank", 4, "black"),
-		//RUTGMC EDIT ADDITION BEGIN - Teleporters
-		/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "black"),
-		//RUTGMC EDIT ADDITION END
 	))
 
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
@@ -128,14 +123,9 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/healthanalyzer/gloves = list(CAT_MEDSUP, "Health scanner gloves", 2, "black"),
 		/obj/item/defibrillator/gloves = list(CAT_MEDSUP, "Advanced medical gloves", 5, "black"),
 		/obj/effect/vendor_bundle/stretcher = list(CAT_MEDSUP, "Medivac Stretcher", 45, "black"),
-		//RUTGMC EDIT ADDITION  BEGIN - MEDICAL ITEMS
-		/obj/item/tool/surgery/solderingtool = list(CAT_MEDSUP, "Soldering tool", 2, "black"),
-		/obj/item/stack/medical/heal_pack/advanced/bruise_pack/combat = list(CAT_MEDSUP, "Combat Trauma Kit", 3, "black"),
-		/obj/item/stack/medical/heal_pack/advanced/burn_pack/combat = list(CAT_MEDSUP, "Combat Burn Kit", 3, "black"),
-		//RUTGMC EDIT ADDITION  END
 	))
 
-/* GLOBAL_LIST_INIT(leader_gear_listed_products, list(
+GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 		/obj/effect/vendor_bundle/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
 		/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 5, "black"),
 		/obj/item/beacon/supply_beacon = list(CAT_LEDSUP, "Supply beacon", 10, "black"),
@@ -158,9 +148,9 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/storage/firstaid/adv = list(CAT_LEDSUP, "Advanced firstaid kit", 10, "orange"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 10, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 15, "orange"),
-	)) */
+	))
 
-/* GLOBAL_LIST_INIT(commander_gear_listed_products, list(
+GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 		/obj/effect/vendor_bundle/commander = list(CAT_ESS, "Essential FC Set", 0, "white"),
 		/obj/item/whistle = list(CAT_FCSUP, "Whistle", 5, "black"),
 		/obj/item/beacon/supply_beacon = list(CAT_FCSUP, "Supply beacon", 10, "black"),
@@ -182,7 +172,7 @@ GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 		/obj/item/storage/firstaid/adv = list(CAT_FCSUP, "Advanced firstaid kit", 10, "orange"),
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_FCSUP, "Injector (Synaptizine)", 10, "black"),
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_FCSUP, "Injector (Advanced)", 15, "orange"),
-	)) */
+	))
 
 //A way to give them everything at once that still works with loadouts would be nice, but barring that make sure that your point calculation is set up so they don't get more than what they're supposed to
 GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
@@ -203,13 +193,7 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/flak = list(CAT_SGSUP, "SG-153 Spotting Rifle Flak Magazine", 2, "black"),
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/plasmaloss = list(CAT_SGSUP, "SG-153 Spotting Rifle Tanglefoot Magazine", 3, "black"),
 	/obj/item/ammo_magazine/rifle/standard_spottingrifle/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "black"),
-	//RUTGMC EDIT ADDITION BEGIN
-	/obj/item/weapon/gun/rifle/T25 = list(CAT_SGSUP, "T-25 Smartrifle", 26, "orange"), //If smartganner buys a t25 , then they will have 2 mag and 3 ammo box
-	/obj/item/ammo_magazine/rifle/T25 =  list(CAT_SGSUP, "T-25 Smartrifle magazine", 2, "black"),
-	/obj/item/ammo_magazine/packet/T25_rifle = list(CAT_SGSUP, "T-25 Smartrifle ammo box", 5, "black"),
-	//RUTGMC EDIT ADDITION END
 	))
-
 
 ///Assoc list linking the job title with their specific points vendor
 GLOBAL_LIST_INIT(job_specific_points_vendor, list(
@@ -220,6 +204,7 @@ GLOBAL_LIST_INIT(job_specific_points_vendor, list(
 	FIELD_COMMANDER = GLOB.commander_gear_listed_products,
 	SQUAD_SMARTGUNNER = GLOB.smartgunner_gear_listed_products,
 ))
+*/
 
 
 //List of all visible and accessible slot on the loadout maker
@@ -261,9 +246,10 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 		/obj/machinery/vending/weapon/valhalla,
 		/obj/machinery/vending/uniform_supply/valhalla,
 		/obj/machinery/vending/armor_supply/valhalla,
-		/obj/machinery/vending/marineFood/valhalla,
+		/obj/machinery/vending/marineFood,
 		/obj/machinery/vending/MarineMed/valhalla,
 		/obj/machinery/vending/cigarette/valhalla,
+		/obj/machinery/vending/tool/nopower/valhalla,
 	),
 	SQUAD_CORPSMAN = list(
 		/obj/machinery/vending/medical/shipside,
@@ -330,8 +316,10 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 		/obj/item/storage/pouch/construction/full = list(CAT_POU, "Construction pouch (materials included)", 0,"black"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0,"black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0,"black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
+RU TGMC EDIT */
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
@@ -350,6 +338,7 @@ GLOBAL_LIST_INIT(marine_clothes_listed_products, list(
 
 GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 		/obj/effect/vendor_bundle/basic_engineer = list(CAT_STD, "Standard kit", 0, "white"),
+		/obj/effect/vendor_bundle/gorka_engineer = list(CAT_STD, "Standard Gorka kit", 0, "white"), // RUTGMC ADDITION, SIEGLUCK'S STUFF
 		/obj/effect/vendor_bundle/basic_jaeger_engineer = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
 		/obj/effect/vendor_bundle/robot/essentials = list(CAT_STD, "Essential Combat Robot Kit", 0, "white"),
 		/obj/item/clothing/glasses/welding = list(CAT_GLA, "Welding Goggles", 0, "white"),
@@ -404,9 +393,11 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 		/obj/item/storage/pouch/medical_injectors/firstaid = list(CAT_POU, "Combat injector pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
+/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
+RU TGMC EDIT */
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
@@ -419,6 +410,7 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 
 GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/effect/vendor_bundle/basic_medic = list(CAT_STD, "Standard kit", 0, "white"),
+		/obj/effect/vendor_bundle/gorka_medic = list(CAT_STD, "Standard Gorka kit", 0, "white"), // RUTGMC ADDITION, SIEGLUCK'S STUFF
 		/obj/effect/vendor_bundle/basic_jaeger_medic = list(CAT_STD, "Essential Jaeger Kit", 0, "white"),
 		/obj/effect/vendor_bundle/robot/essentials = list(CAT_STD, "Essential Combat Robot Kit", 0, "white"),
 		/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
@@ -457,9 +449,11 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 		/obj/item/armor_module/storage/grenade = list(CAT_MOD, "Grenade Storage Module", 0, "black"),
 		/obj/item/storage/pouch/medical_injectors/medic = list(CAT_POU, "Advanced Autoinjector pouch", 0, "orange"),
 		/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
+/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
+RU TGMC EDIT */
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
@@ -497,6 +491,7 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/belt/knifepouch = list(CAT_BEL, "Knives belt", 0, "black"),
 		/obj/item/storage/holster/belt/pistol/standard_pistol = list(CAT_BEL, "Pistol belt", 0, "orange"),
 		/obj/item/storage/holster/belt/revolver/standard_revolver = list(CAT_BEL, "Revolver belt", 0, "orange"),
+		/obj/item/storage/holster/belt/pistol/smart_pistol/full = list(CAT_BEL, "Smart pistol belt", 0, "orange"), // RUTGMC ADDITION
 		/obj/item/storage/belt/sparepouch = list(CAT_BEL, "G8 general utility pouch", 0, "orange"),
 		/obj/item/armor_module/module/welding = list(CAT_HEL, "Jaeger welding module", 0, "orange"),
 		/obj/item/armor_module/module/binoculars = list(CAT_HEL, "Jaeger binoculars module", 0, "orange"),
@@ -516,8 +511,10 @@ GLOBAL_LIST_INIT(smartgunner_clothes_listed_products, list(
 		/obj/item/storage/pouch/medkit/firstaid = list(CAT_POU, "First aid pouch", 0, "orange"),
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
-		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+/* RU TGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
+RU TGMC EDIT */
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
 		/obj/item/clothing/mask/gas = list(CAT_MAS, "Transparent gas mask", 0,"black"),
@@ -580,16 +577,12 @@ GLOBAL_LIST_INIT(leader_clothes_listed_products, list(
 		/obj/item/storage/pouch/magazine/pistol/large = list(CAT_POU, "Pistol magazine pouch", 0, "black"),
 		/obj/item/storage/pouch/pistol = list(CAT_POU, "Sidearm pouch", 0, "black"),
 		/obj/item/storage/pouch/explosive = list(CAT_POU, "Explosive pouch", 0, "black"),
-		//RUTGMC EDIT REMOVAL BEGIN - LEADER_T2_ARMOR
-		/*
-		/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mark 1 Mimir Resistance set", 0,"black"),
+		/obj/effect/vendor_bundle/mimir = list(CAT_HEL, "Mimir Resistance set", 0,"orange"),
+/* RUTGMC EDIT
 		/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),
-		*/
-		//RUTGMC EDIT REMOVAL END
-		//RUTGMC EDIT ADDITION BEGIN - LEADER_T2_ARMOR
 		/obj/effect/vendor_bundle/tyr/two = list(CAT_ARMMOD, "Mark 2 Tyr extra armor set", 0,"black"),
 		/obj/effect/vendor_bundle/mimir/two = list(CAT_ARMMOD, "Mark 2 Mimir Resistance set", 0,"black"),
-		//RUTGMC EDIT ADDITION END
+RU TGMC EDIT */
 		/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 		/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 		/obj/effect/vendor_bundle/vali = list(CAT_ARMMOD, "Vali chemical enhancement set", 0,"black"),
@@ -715,6 +708,7 @@ GLOBAL_LIST_INIT(synthetic_clothes_listed_products, list(
 		/obj/item/clothing/mask/gas/tactical/coif = list(CAT_MAS, "Tactical coifed gas mask", 0,"black"),
 	))
 
+/* RUTGMC REDEFINITION IN MODULAR
 ///Assoc list linking the job title with their specific clothes vendor
 GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
 	SQUAD_MARINE = GLOB.marine_clothes_listed_products,
@@ -754,9 +748,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	SQUAD_LEADER = list(
 		/obj/item/explosive/plastique = 1,
 		/obj/item/beacon/supply_beacon = 2,
-		//RUTGMC EDIT ADDITION BEGIN - ORBITAL_BEACON
-		/obj/item/beacon/orbital_bombardment_beacon = 1,
-		//RUTGMC EDIT ADDITION END
 		/obj/item/whistle = 1,
 		/obj/item/binoculars/tactical = 1,
 		/obj/item/pinpointer = 1,
@@ -764,6 +755,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/clothing/head/modular/m10x/leader = 1,
 	)
 ))
+*/
 
 ///Storage items that will always have their default content
 GLOBAL_LIST_INIT(bypass_storage_content_save, typecacheof(list(

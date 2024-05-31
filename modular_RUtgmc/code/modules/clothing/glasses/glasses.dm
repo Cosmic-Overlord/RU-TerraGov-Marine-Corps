@@ -6,109 +6,105 @@
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/clothing/eyes.dmi')
 
 /obj/item/clothing/glasses/ru/orange
-	name = "Orange glasses"
-	desc = "Just orange glasses."
-	icon_state = "og"
-	item_state = "og"
+	name = "orange glasses"
+	desc = "A pair of orange glasses."
+	icon_state = "orange"
+	item_state = "orange"
+	deactive_state = "orange"
+	species_exception = list(/datum/species/robot)
 
-/obj/item/clothing/glasses/ru/orange/attackby(obj/item/I, mob/user, params)
+/obj/item/clothing/glasses/ru/orange/attackby(obj/item/our_item, mob/user, params)
 	. = ..()
-
-	if(istype(I, /obj/item/clothing/glasses/hud/health))
-		var/obj/item/clothing/glasses/hud/og/P = new
+	if(istype(our_item, /obj/item/clothing/glasses/hud/health))
+		var/obj/item/clothing/glasses/hud/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the medical hud projector to the inside of the glasses."))
-		qdel(I)
+		qdel(our_item)
 		qdel(src)
-		user.put_in_hands(P)
-	else if(istype(I, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/imager_goggles/og/P = new
+		user.put_in_hands(our_glasses)
+		update_icon(user)
+	else if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
+		var/obj/item/clothing/glasses/night/imager_goggles/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical imager scaner to the inside of the glasses."))
-		qdel(I)
+		qdel(our_item)
 		qdel(src)
-		user.put_in_hands(P)
-	else if(istype(I, /obj/item/clothing/glasses/meson))
-		var/obj/item/clothing/glasses/meson/og/P = new
+		user.put_in_hands(our_glasses)
+		update_icon(user)
+	else if(istype(our_item, /obj/item/clothing/glasses/meson))
+		var/obj/item/clothing/glasses/meson/orange_glasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical meson scaner to the inside of the glasses."))
-		qdel(I)
+		qdel(our_item)
 		qdel(src)
-		user.put_in_hands(P)
-
+		user.put_in_hands(our_glasses)
 		update_icon(user)
 
-/obj/item/clothing/glasses/eyepatch/attackby(obj/item/I, mob/user, params)
+/obj/item/clothing/glasses/eyepatch/attackby(obj/item/our_item, mob/user, params)
 	. = ..()
-
-	if(istype(I, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/imager_goggles/eyepatch/P = new
+	if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
+		var/obj/item/clothing/glasses/night/imager_goggles/eyepatch/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical scanner to the inside of the eyepatch."))
-		qdel(I)
+		qdel(our_item)
 		qdel(src)
-		user.put_in_hands(P)
-
+		user.put_in_hands(our_glasses)
 		update_icon(user)
 
-/obj/item/clothing/glasses/mgoggles/attackby(obj/item/I, mob/user, params)
+/obj/item/clothing/glasses/mgoggles/attackby(obj/item/our_item, mob/user, params)
 	. = ..()
-
-	if(istype(I, /obj/item/clothing/glasses/night/imager_goggles))
+	if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
 		if(prescription)
-			var/obj/item/clothing/glasses/night/optgoggles/prescription/P = new
+			var/obj/item/clothing/glasses/night/optgoggles/prescription/our_glasses = new
 			to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
-			qdel(I)
+			qdel(our_item)
 			qdel(src)
-			user.put_in_hands(P)
+			user.put_in_hands(our_glasses)
 		else
-			var/obj/item/clothing/glasses/night/optgoggles/S = new
+			var/obj/item/clothing/glasses/night/optgoggles/our_glasses = new
 			to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
-			qdel(I)
+			qdel(our_item)
 			qdel(src)
-			user.put_in_hands(S)
-
+			user.put_in_hands(our_glasses)
 		update_icon(user)
 
-/obj/item/clothing/glasses/sunglasses/fake/attackby(obj/item/I, mob/user, params)
+/obj/item/clothing/glasses/sunglasses/fake/attackby(obj/item/our_item, mob/user, params)
 	. = ..()
-
-	if(istype(I, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/imager_goggles/sunglasses/P = new
+	if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
+		var/obj/item/clothing/glasses/night/imager_goggles/sunglasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the optical imager scaner to the inside of the glasses."))
-		qdel(I)
+		qdel(our_item)
 		qdel(src)
-		user.put_in_hands(P)
-
+		user.put_in_hands(our_glasses)
 		update_icon(user)
 
-/obj/item/clothing/glasses/meson/og
+/obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"
-	desc = "Just orange glasses. This pair has been fitted with an optical meson scanner."
+	desc = "A pair of orange glasses. This pair has been fitted with an optical meson scanner."
 	icon = 'modular_RUtgmc/icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/clothing/eyes.dmi')
-	icon_state = "mesonog"
-	item_state = "mesonog"
-	deactive_state = "d_og"
+	icon_state = "meson_orange"
+	item_state = "meson_orange"
+	deactive_state = "d_orange"
 	prescription = TRUE
 
-/obj/item/clothing/glasses/night/imager_goggles/og
+/obj/item/clothing/glasses/night/imager_goggles/orange_glasses
 	name = "Orange glasses"
-	desc = "Just orange glasses. This pair has been fitted with an internal optical imager scanner."
+	desc = "A pair of orange glasses. This pair has been fitted with an internal optical imager scanner."
 	icon = 'modular_RUtgmc/icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/clothing/eyes.dmi')
-	icon_state = "optog"
-	item_state = "optog"
-	deactive_state = "d_og"
+	icon_state = "optical_orange"
+	item_state = "optical_orange"
+	deactive_state = "d_orange"
 	prescription = TRUE
 
-/obj/item/clothing/glasses/hud/og
+/obj/item/clothing/glasses/hud/orange_glasses
 	name = "Orange glasses"
-	desc = "Just orange glasses. This pair has been fitted with an internal HealthMate HUD projector."
+	desc = "A pair of orange glasses. This pair has been fitted with an internal HealthMate HUD projector."
 	icon = 'modular_RUtgmc/icons/obj/clothing/glasses.dmi'
 	item_icons = list(
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/clothing/eyes.dmi')
-	icon_state = "medog"
-	item_state = "medog"
-	deactive_state = "d_og"
+	icon_state = "med_orange"
+	item_state = "med_orange"
+	deactive_state = "d_orange"
 	prescription = TRUE
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED

@@ -198,6 +198,10 @@
 
 		if(!isspaceturf(src))
 			M.inertia_dir = 0
+	for(var/datum/automata_cell/explosion/our_explosion in autocells) //RUTGMC ADDITION START - Let explosions know that the atom entered
+		if(!istype(arrived))
+			break
+		our_explosion.on_turf_entered(arrived) //RUTGMC ADDITION END
 	..()
 
 /turf/effect_smoke(obj/effect/particle_effect/smoke/S)
@@ -441,7 +445,10 @@
 					new /obj/item/shard(pick(turfs))
 					new /obj/item/shard(pick(turfs))
 		if(CEILING_METAL, CEILING_OBSTRUCTED)
+			/* ORIGINAL
 			playsound(src, "sound/effects/metal_crash.ogg", 60, 1)
+			*/
+			playsound(src, "sound/effects/metal_crash.ogg", 30, 1) //RUTGMC EDIT
 			spawn(8)
 				if(amount >1)
 					visible_message(span_boldnotice("Pieces of metal crash down from above!"))
@@ -881,6 +888,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	return TRUE
 
 
+/* RUTGMC REMOVAL
 /turf/contents_explosion(severity)
 	for(var/thing in contents)
 		var/atom/movable/thing_in_turf = thing
@@ -911,6 +919,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 					continue
 				for(var/a in thing_in_turf.contents)
 					SSexplosions.weakMovAtom[a] += list(src)
+*/
 
 
 /turf/vv_edit_var(var_name, new_value)

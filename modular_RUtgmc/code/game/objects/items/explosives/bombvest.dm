@@ -1,3 +1,6 @@
+/obj/item/clothing/suit/storage/marine/boomvest
+	species_exception = list(/datum/species/robot)
+
 ///Overwrites the parent function for activating a light. Instead it now detonates the bomb.
 /obj/item/clothing/suit/storage/marine/boomvest/attack_self(mob/user)
 	var/mob/living/carbon/human/activator = user
@@ -31,10 +34,6 @@
 		log_game("[activator] has detonated an explosive vest with no warcry at [AREACOORD(target)]")
 
 	activator.record_tactical_unalive()
-
-	for(var/datum/limb/appendage AS in activator.limbs) //Oops we blew all our limbs off
-		if(istype(appendage, /datum/limb/chest) || istype(appendage, /datum/limb/groin) || istype(appendage, /datum/limb/head))
-			continue
-		appendage.droplimb()
 	explosion(target, 2, 2, 6, 7, 5, 5)
+	activator.ex_act(500)
 	qdel(src)

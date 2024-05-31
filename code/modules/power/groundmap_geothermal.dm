@@ -32,7 +32,6 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(activate_corruption))
 	update_icon()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator")) //RU TGMC edit - map blips
 
 	if(is_ground_level(z))
 		GLOB.generators_on_ground += 1
@@ -58,10 +57,18 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 //We don't want to cut/update the power overlays every single proc. Just when it actually changes. This should save on CPU cycles. Efficiency!
 /obj/machinery/power/geothermal/update_icon()
 	. = ..()
+	//RUTGMC ADDITION BEGIN
+	SSminimaps.remove_marker(src)
+	if(!corrupted && !is_on)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator_off"))
+	if(corrupted)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator_corrupt"))
+	//RUTGMC ADDITION END
 	switch(buildstate)
 		if(GEOTHERMAL_NO_DAMAGE)
 			if(is_on)
 				desc = "A thermoelectric generator sitting atop a borehole dug deep in the planet's surface. It generates energy by boiling the plasma steam that rises from the well.\nIt is old technology and has a large failure rate, and must be repaired frequently.\nIt is currently on, and beeping randomly amid faint hisses of steam."
+				SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "generator_on")) //RU TGMC edit - map blips
 				switch(power_gen_percent)
 					if(25)
 						icon_state = "on25"
