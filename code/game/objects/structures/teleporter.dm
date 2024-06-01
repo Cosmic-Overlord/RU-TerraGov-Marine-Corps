@@ -15,6 +15,7 @@
 		/obj/machinery/nuclearbomb
 	)
 
+/* RUTGMC DELETION
 /obj/machinery/deployable/teleporter/examine(mob/user)
 	. = ..()
 	var/obj/item/teleporter_kit/kit = get_internal_item()
@@ -24,6 +25,7 @@
 		. += "It is currently linked to Teleporter #[kit.linked_teleporter.self_tele_tag] at [get_area(kit.linked_teleporter)]"
 	else
 		. += "It is not linked to any other teleporter."
+*/
 
 
 /obj/machinery/deployable/teleporter/Initialize(mapload)
@@ -93,11 +95,13 @@
 	for(var/atom/movable/thing_to_teleport AS in teleporting)
 		thing_to_teleport.forceMove(get_turf(deployed_linked_teleporter))
 
+/* RUTGMC DELETION
 /obj/machinery/deployable/teleporter/attack_ghost(mob/dead/observer/user)
 	var/obj/item/teleporter_kit/kit = internal_item
 	if(!istype(kit) || !kit.linked_teleporter)
 		return
 	user.forceMove(get_turf(kit.linked_teleporter))
+*/
 
 /obj/machinery/deployable/teleporter/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
