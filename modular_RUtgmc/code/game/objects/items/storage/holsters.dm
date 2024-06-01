@@ -126,6 +126,8 @@
 		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi',
 		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
 	)
+	storage_slots = 9
+	max_storage_space = 19
 
 /obj/item/storage/holster/backholster/mortar
 	can_hold = list(
