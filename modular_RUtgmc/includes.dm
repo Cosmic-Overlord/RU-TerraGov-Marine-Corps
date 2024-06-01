@@ -311,6 +311,7 @@
 #include "code\modules\projectiles\sentries.dm"
 #include "code\modules\projectiles\tracer.dm"
 #include "code\modules\projectiles\guns\energy.dm"
+#include "code\modules\projectiles\guns\flamer.dm"
 #include "code\modules\projectiles\guns\grenade_launchers.dm"
 #include "code\modules\projectiles\guns\mounted.dm"
 #include "code\modules\projectiles\guns\pistols.dm"
