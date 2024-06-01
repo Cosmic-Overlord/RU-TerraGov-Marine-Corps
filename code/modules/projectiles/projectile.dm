@@ -899,7 +899,13 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(shooter_carbon.IsStaggered())
 			damage *= STAGGER_DAMAGE_MULTIPLIER //Since we hate RNG, stagger reduces damage by a % instead of reducing accuracy; consider it a 'glancing' hit due to being disoriented.
 	var/original_damage = damage
-	damage = modify_by_armor(damage, proj.armor_type, proj.penetration, proj.def_zone)
+
+	//// RUTGMC EDIT
+	var/sunder_to_penetration = 0
+	if(isxeno(src))
+		sunder_to_penetration = log(proj.sundering + 1) * 10
+
+	damage = modify_by_armor(damage, proj.armor_type, proj.sundering >= 20 ? proj.penetration : (proj.penetration + sunder_to_penetration), proj.def_zone)// RUTGMC EDIT
 	if(damage == original_damage)
 		feedback_flags |= BULLET_FEEDBACK_PEN
 	else if(!damage)
@@ -911,8 +917,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(IgniteMob())
 			feedback_flags |= (BULLET_FEEDBACK_FIRE)
 
-	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING)
-		adjust_sunder(proj.sundering * get_sunder()) // RUTGMC EDIT
+
+	if((proj.ammo.flags_ammo_behavior & AMMO_SUNDERING) && proj.sundering >= 20) // RUTGMC EDIT
+		adjust_sunder(proj.sundering) // RUTGMC EDIT
 
 	if(stat != DEAD && ismob(proj.firer))
 		record_projectile_damage(proj.firer, damage)	//Tally up whoever the shooter was

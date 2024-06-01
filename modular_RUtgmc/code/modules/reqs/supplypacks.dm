@@ -276,12 +276,6 @@ SUPPLIES
 /*******************************************************************************
 FACTORY
 *******************************************************************************/
-
-/datum/supply_packs/factory/pizzarefill
-	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
-	contains = list(/obj/item/factory_refill/pizza_refill)
-	cost = 890 //fuck you
-
 /datum/supply_packs/factory/smartgun_targetrifle_refill
 	name = "SG-62 ammo magazine parts refill"
 	contains = list(/obj/item/factory_refill/smartgunner_targetrifle_magazine_refill)
