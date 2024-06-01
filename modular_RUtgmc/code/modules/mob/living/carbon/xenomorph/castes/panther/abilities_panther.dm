@@ -3,11 +3,11 @@
 	ability_cost = 10
 
 /datum/action/ability/activable/xeno/pounce/panther
-	desc = "Leap at your target, tackling and disarming them. Sets Adrenaline Jump on cooldown!"
+	desc = "Leap at your target, tackling and disarming them. Sets Adrenaline Jump on a short cooldown!"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_POUNCE,
 	)
-	cooldown_duration = 12 SECONDS
+	cooldown_duration = 13 SECONDS
 	ability_cost = 20
 	var/pantherplasmaheal = 45
 
@@ -21,7 +21,7 @@
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	var/datum/action/ability/xeno_action/jump = xenomorph_owner.actions_by_path[/datum/action/ability/activable/xeno/adrenalinejump]
 	if(jump)
-		jump.add_cooldown()
+		jump.add_cooldown(5 SECONDS)
 
 ///////////////////////////////////
 // ***************************************
@@ -88,7 +88,7 @@
 /datum/action/ability/activable/xeno/adrenalinejump
 	name = "Adrenaline Jump"
 	action_icon_state = "adrenaline_jump"
-	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target. Sets Pounce on cooldown!"
+	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target. Sets Pounce on a short cooldown!"
 	ability_cost = 15
 	cooldown_duration = 12 SECONDS
 	keybinding_signals = list(
@@ -153,7 +153,7 @@
 	add_cooldown()
 	var/datum/action/ability/xeno_action/pounce = xenomorph_owner.actions_by_path[/datum/action/ability/activable/xeno/pounce/panther]
 	if(pounce)
-		pounce.add_cooldown()
+		pounce.add_cooldown(5 SECONDS)
 
 	return TRUE
 
