@@ -1,6 +1,6 @@
 /datum/xeno_caste/queen
 
-	max_health = 600
+	max_health = 800
 
 	sunder_recover = 1.5
 
