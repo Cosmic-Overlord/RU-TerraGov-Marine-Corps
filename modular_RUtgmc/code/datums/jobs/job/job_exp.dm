@@ -1,4 +1,3 @@
-
 /client/proc/facehugger_exp_update(stat = 0)
 	if(!CONFIG_GET(flag/use_exp_tracking))
 		return -1
@@ -45,7 +44,7 @@
 		else
 			exp_data[category] = 0
 	for(var/category in GLOB.exp_specialmap)
-		if(category == EXP_TYPE_SPECIAL)
+		if(category == EXP_TYPE_XENO)
 			if(GLOB.exp_specialmap[category])
 				for(var/innercat in GLOB.exp_specialmap[category])
 					if(play_records[innercat])
