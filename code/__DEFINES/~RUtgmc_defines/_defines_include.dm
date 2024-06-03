@@ -3,6 +3,7 @@
 #include "colors.dm"
 #include "combat.dm"
 #include "conflict.dm"
+#include "cooldowns.dm"
 #include "footsteps.dm"
 #include "is_helpers.dm"
 #include "jobs.dm"

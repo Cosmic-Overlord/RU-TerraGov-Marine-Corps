@@ -122,8 +122,10 @@
 		/obj/item/storage/syringe_case,
 		/obj/item/reagent_containers/hypospray/autoinjector,
 		/obj/item/stack/medical,
-		//RUTGMC EDIT ADDITION  BEGIN - SOLDERING_TOOL
+		//RUTGMC EDIT ADDITION  BEGIN
 		/obj/item/tool/surgery/solderingtool,
+		/obj/item/tweezers,
+		/obj/item/tweezers_advanced
 		//RUTGMC EDIT ADDITION  END
 	)
 
@@ -289,6 +291,11 @@
 		/obj/item/defibrillator,
 		/obj/item/roller,
 		/obj/item/tool/research,
+		//RUTGMC EDIT ADDITION  BEGIN
+		/obj/item/tool/surgery/solderingtool,
+		/obj/item/tweezers,
+		/obj/item/tweezers_advanced
+		//RUTGMC EDIT ADDITION  END
 	)
 
 /obj/item/storage/belt/rig/medical/Initialize(mapload)  //The belt, with all it's magic inside!
