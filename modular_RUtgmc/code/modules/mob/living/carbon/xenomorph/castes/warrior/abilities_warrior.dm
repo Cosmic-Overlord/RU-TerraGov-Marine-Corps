@@ -19,7 +19,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_JAB,
 	)
 
-/datum/action/ability/activable/xeno/punch/jab/use_ability(atom/A)
+/datum/action/ability/activable/xeno/warrior/punch/jab/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/mob/living/carbon/human/target = A
 	var/jab_damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier
@@ -36,7 +36,7 @@
 	succeed_activate()
 	add_cooldown()
 
-/datum/action/ability/activable/xeno/punch/jab/on_cooldown_finish()
+/datum/action/ability/activable/xeno/warrior/punch/jab/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.balloon_alert(xeno_owner, "Jab ready")
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
