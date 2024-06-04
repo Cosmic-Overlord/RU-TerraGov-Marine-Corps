@@ -880,6 +880,7 @@
 #define COMSIG_XENOABILITY_PUNCH "xenoability_punch"
 #define COMSIG_XENOABILITY_GRAPPLE_TOSS "xenoability_grapple_toss"
 #define COMSIG_XENOABILITY_JAB "xenoability_jab"
+#define COMSIG_XENOABILITY_FLURRY "xenoability_flurry"
 
 #define COMSIG_XENOABILITY_PORTAL "xenoablity_portal"
 #define COMSIG_XENOABILITY_PORTAL_ALTERNATE "xenoability_portal_alternate"

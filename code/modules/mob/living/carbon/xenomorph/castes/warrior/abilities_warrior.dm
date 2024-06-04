@@ -194,13 +194,13 @@
 // ***************************************
 // *********** Lunge
 // ***************************************
-#define WARRIOR_LUNGE_RANGE 4 // in tiles
+#define WARRIOR_LUNGE_RANGE 5 // in tiles
 
 /datum/action/ability/activable/xeno/warrior/lunge
 	name = "Lunge"
 	action_icon_state = "lunge"
 	ability_cost = 30
-	cooldown_duration = 20 SECONDS
+	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LUNGE,
 	)
@@ -230,7 +230,7 @@
 		if(!silent)
 			owner.balloon_alert(owner, "Dead")
 		return FALSE
-	if(get_dist_euclide_square(living_target, owner) > WARRIOR_LUNGE_RANGE * 5)
+	if(get_dist_euclidean_square(living_target, owner) > WARRIOR_LUNGE_RANGE * 5)
 		if(!silent)
 			owner.balloon_alert(owner, "Too far")
 		return FALSE
@@ -356,7 +356,7 @@
 	if(!(living_target.pass_flags & PASS_XENO))
 		living_target.pass_flags |= PASS_XENO
 	var/fling_direction = get_dir(xeno_owner, living_target)
-	living_target.throw_at(get_ranged_target_turf(xeno_owner, fling_direction ? fling_direction : xeno_owner.dir, fling_distance), fling_distance, 1, xeno_owner, TRUE)
+	living_target.throw_at(get_ranged_target_turf(xeno_owner, fling_direction ? fling_direction : xeno_owner.dir, fling_distance), fling_distance, 2, xeno_owner, TRUE)
 	succeed_activate()
 	add_cooldown()
 	var/datum/action/ability/activable/xeno/warrior/grapple_toss/toss_action = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/warrior/grapple_toss]
@@ -445,7 +445,7 @@
 	atom_target.forceMove(get_turf(xeno_owner))
 	xeno_owner.do_attack_animation(atom_target, ATTACK_EFFECT_DISARM2)
 	playsound(atom_target, 'sound/weapons/alien_claw_block.ogg', 75, 1)
-	atom_target.throw_at(get_turf(A), fling_distance, 1, xeno_owner, TRUE)
+	atom_target.throw_at(get_turf(A), fling_distance, 2, xeno_owner, TRUE)
 	succeed_activate()
 	add_cooldown()
 	var/datum/action/ability/activable/xeno/warrior/fling/fling_action = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/warrior/fling]
@@ -457,7 +457,7 @@
 // ***************************************
 #define WARRIOR_PUNCH_SLOWDOWN 3
 #define WARRIOR_PUNCH_STAGGER 3
-#define WARRIOR_PUNCH_EMPOWER_MULTIPLIER 1.5
+#define WARRIOR_PUNCH_EMPOWER_MULTIPLIER 1.7 // RU TGMC EDIT
 #define WARRIOR_PUNCH_GRAPPLED_DAMAGE_MULTIPLIER 1.5
 #define WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER 1.5
 #define WARRIOR_PUNCH_GRAPPLED_PARALYZE 0.5 SECONDS
@@ -474,7 +474,9 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PUNCH,
 	)
 	target_flags = ABILITY_MOB_TARGET
-
+// RU TGMC EDIT
+	var/range = 1
+// RU TGMC EDIT
 /datum/action/ability/activable/xeno/warrior/punch/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.balloon_alert(xeno_owner, "[initial(name)] ready")
@@ -502,9 +504,14 @@
 			if(!silent)
 				owner.balloon_alert(owner, "Dead")
 			return FALSE
+/* RU TGMC EDIT
 	if(!A.Adjacent(owner))
 		if(!silent)
 			owner.balloon_alert(owner, "Not adjacent")
+RU TGMC EDIT*/
+	if(!line_of_sight(owner, A, range))
+		if(!silent)
+			owner.balloon_alert(owner, "Too far")
 		return FALSE
 
 /datum/action/ability/activable/xeno/warrior/punch/use_ability(atom/A)
@@ -556,7 +563,7 @@
 		var/allcut = wires.is_all_cut()
 		if(!allcut)
 			wires.cut_all()
-	update_appearance()
+	//update_appearance()
 	return TRUE
 
 /obj/machinery/computer/punch_act(...)
@@ -578,7 +585,7 @@
 /obj/machinery/power/apc/punch_act(...)
 	. = ..()
 	beenhit += 4 // Break it open instantly.
-	update_appearance()
+	//update_appearance()
 
 /obj/machinery/vending/punch_act(...)
 	. = ..()
@@ -662,19 +669,19 @@
 // ***************************************
 // *********** Flurry
 // ***************************************
-#define WARRIOR_JAB_DAMAGE_MULTIPLIER 0.25
+#define WARRIOR_JAB_DAMAGE_MULTIPLIER 1.3 // RU TGMC EDIT
 #define WARRIOR_JAB_BLIND 3
 #define WARRIOR_JAB_BLUR 6
 #define WARRIOR_JAB_CONFUSION_DURATION 3 SECONDS
 
 /datum/action/ability/activable/xeno/warrior/punch/flurry
 	name = "Flurry"
-	action_icon_state = "flurry"
+	action_icon_state = "jab" //RU TGMC EDIT
 	desc = "Strike at your target with blinding speed."
 	ability_cost = 10
 	cooldown_duration = 7 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_JAB,
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FLURRY, //RU TGMC EDIT
 	)
 	/// The amount of charges we currently have. Initial value is assumed to be the maximum.
 	var/current_charges = 3
