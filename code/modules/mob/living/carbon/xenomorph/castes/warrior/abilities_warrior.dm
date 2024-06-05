@@ -670,8 +670,8 @@ RU TGMC EDIT*/
 // *********** Flurry
 // ***************************************
 #define WARRIOR_JAB_DAMAGE_MULTIPLIER 1.3 // RU TGMC EDIT
-#define WARRIOR_JAB_BLIND 3
-#define WARRIOR_JAB_BLUR 6
+#define WARRIOR_JAB_BLIND 1 // RU TGMC EDIT
+#define WARRIOR_JAB_BLUR 1 // RU TGMC EDIT
 #define WARRIOR_JAB_CONFUSION_DURATION 3 SECONDS
 
 /datum/action/ability/activable/xeno/warrior/punch/flurry
