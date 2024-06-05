@@ -91,9 +91,9 @@
 /mob/living/carbon/xenomorph/proc/set_datum(restore_health_and_plasma = TRUE)
 	if(!caste_base_type)
 		CRASH("xeno spawned without a caste_base_type set")
-	if(!GLOB.xeno_caste_datums[caste_base_type])
+	if(!(is_strain ? GLOB.xeno_strains_caste_datums[caste_base_type] : GLOB.xeno_caste_datums[caste_base_type]))//RU TGMC EDIT
 		CRASH("error finding base type")
-	if(!GLOB.xeno_caste_datums[caste_base_type][upgrade])
+	if(!(is_strain ? GLOB.xeno_strains_caste_datums[caste_base_type][upgrade] : GLOB.xeno_caste_datums[caste_base_type][upgrade]))//RU TGMC EDIT
 		CRASH("error finding datum")
 	if(xeno_caste)
 		xeno_caste.on_caste_removed(src)
@@ -101,7 +101,7 @@
 		soft_armor = soft_armor.detachArmor(getArmor(arglist(xeno_caste.soft_armor)))
 		hard_armor = hard_armor.detachArmor(getArmor(arglist(xeno_caste.hard_armor)))
 
-	var/datum/xeno_caste/X = GLOB.xeno_caste_datums[caste_base_type][upgrade]
+	var/datum/xeno_caste/X = is_strain ? GLOB.xeno_strains_caste_datums[caste_base_type][upgrade] : GLOB.xeno_caste_datums[caste_base_type][upgrade]//RU TGMC EDIT
 	if(!istype(X))
 		CRASH("error with caste datum")
 	xeno_caste = X

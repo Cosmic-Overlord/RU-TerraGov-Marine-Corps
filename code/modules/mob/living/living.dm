@@ -347,6 +347,9 @@
 		return FALSE
 	if(buckled || now_pushing)
 		return
+	//RU TGMC
+	if(anchored)
+		return
 	if(isliving(A))
 		var/mob/living/L = A
 

@@ -135,3 +135,15 @@
 	description = "Fling an adjacent target behind you."
 	keybind_signal = COMSIG_XENOABILITY_CRESTTOSS_BEHIND
 	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/headbutt
+	name = "headbutt"
+	full_name = "Steel Crest: Headbutt"
+	description = "Headbutts into the designated target."
+	keybind_signal = COMSIG_XENOABILITY_STEELCREST_HEADBUTT
+
+/datum/keybinding/xeno/soak
+	name = "soak"
+	full_name = "Steel Crest: Soak"
+	description = "Healing after taking damage"
+	keybind_signal = COMSIG_XENOABILITY_STEELCREST_SOAK

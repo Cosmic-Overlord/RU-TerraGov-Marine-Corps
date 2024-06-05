@@ -245,13 +245,13 @@ RU TGMC EDIT */
 
 ///Check if the xeno can currently evolve into a specific caste
 /mob/living/carbon/xenomorph/proc/caste_evolution_checks(new_mob_type, castepick, regression = FALSE)
-	if(!regression && !(new_mob_type in xeno_caste.evolves_to))
+	if(!regression && !(new_mob_type in xeno_caste.evolves_to) && !(new_mob_type in xeno_caste.strains_to)) //RU TGMC EDIT
 		balloon_alert(src, "We can't evolve to that caste from our current one")
 		return FALSE
 
 	var/no_room_tier_two = length(hive.xenos_by_tier[XENO_TIER_TWO]) >= hive.tier2_xeno_limit
 	var/no_room_tier_three = length(hive.xenos_by_tier[XENO_TIER_THREE]) >= hive.tier3_xeno_limit
-	var/datum/xeno_caste/new_caste_type = GLOB.xeno_caste_datums[new_mob_type][XENO_UPGRADE_BASETYPE]
+	var/datum/xeno_caste/new_caste_type = (new_mob_type in xeno_caste.strains_to) ? GLOB.xeno_strains_caste_datums[new_mob_type][XENO_UPGRADE_BASETYPE] : GLOB.xeno_caste_datums[new_mob_type][XENO_UPGRADE_BASETYPE]//RU TGMC EDIT
 	// Initial can access uninitialized vars, which is why it's used here.
 	var/new_caste_flags = new_caste_type.caste_flags
 	if(CHECK_BITFIELD(new_caste_flags, CASTE_LEADER_TYPE))

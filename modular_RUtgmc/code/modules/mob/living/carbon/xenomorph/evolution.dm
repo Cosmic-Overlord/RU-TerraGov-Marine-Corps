@@ -1,3 +1,10 @@
+/mob/living/carbon/xenomorph/verb/Strains()
+	set name = "Strains"
+	set desc = "Evolve into a higher form."
+	set category = "Alien"
+
+	GLOB.strains_panel.ui_interact(src)
+
 /mob/living/carbon/xenomorph/generic_evolution_checks()
 	if(HAS_TRAIT(src, TRAIT_BANISHED))
 		balloon_alert(src, span_warning("You are banished and cannot reach the hivemind."))

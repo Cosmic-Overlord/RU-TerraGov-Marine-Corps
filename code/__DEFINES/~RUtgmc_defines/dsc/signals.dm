@@ -46,6 +46,9 @@
 #define COMSIG_XENOABILITY_CHIMERA_BODYSWAP "xenoability_chimera_bodyswap"
 #define COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE "xenoability_chimera_crippling_strike"
 
+#define COMSIG_XENOABILITY_STEELCREST_HEADBUTT "xenoability_steelcrest_bodyswap_headbutt"
+#define COMSIG_XENOABILITY_STEELCREST_SOAK "xenoability_steelcrest_soak"
+
 
 #define COMSIG_XENOABILITY_CRESTTOSS_BEHIND "xenoability_cresttoss_behind"
 

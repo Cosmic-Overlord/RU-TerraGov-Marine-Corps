@@ -61,3 +61,15 @@ GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/larva,
 	/mob/living/carbon/xenomorph/drone,
 	))
+
+GLOBAL_LIST_INIT_TYPED(xeno_strains_caste_datums, /list/datum/xeno_caste, init_xeno_strains_caste_list())
+
+/proc/init_xeno_strains_caste_list()
+	. = list()
+	for(var/X in subtypesof(/datum/xeno_caste))
+		var/datum/xeno_caste/C = new X
+		if(!C.is_strain)
+			continue
+		if(!(C.caste_type_path in .))
+			.[C.caste_type_path] = list()
+		.[C.caste_type_path][C.upgrade] = C
