@@ -51,6 +51,7 @@
 /datum/greyscale_config/visors/greyscale
 	json_config = 'code/datums/greyscale/json_configs/greyscale_visor.json'
 
+/* RUTGMC DELETION
 //Capes
 /datum/greyscale_config/cape
 	icon_file = 'icons/mob/modular/capes.dmi'
@@ -62,6 +63,7 @@
 	icon_file = 'icons/mob/modular/capes_highlight.dmi'
 	json_config = 'code/datums/greyscale/json_configs/cape_highlight.json'
 	greyscale_flags = HYPERSCALE_ALLOW_GREYSCALE
+*/
 
 /*
 	JAEGER - MK1
