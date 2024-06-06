@@ -96,6 +96,7 @@
 #include "code\game\objects\items\robot\robot_parts.dm"
 #include "code\game\objects\items\stacks\sheets\mineral.dm"
 #include "code\game\objects\items\stacks\sheets\sheet_types.dm"
+#include "code\game\objects\items\stacks\tiles\tile_types.dm"
 #include "code\game\objects\items\stacks\medical.dm"
 
 #include "code\game\objects\items\storage\pouch.dm"

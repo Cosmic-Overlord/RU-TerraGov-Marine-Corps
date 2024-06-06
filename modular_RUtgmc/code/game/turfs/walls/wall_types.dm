@@ -32,6 +32,7 @@
 	desc = "A heavy wall of sandstone."
 	icon = 'icons/turf/walls/cult.dmi'
 	icon_state = "cult-0"
+	base_icon_state = "cult"
 	walltype = "cult"
 	mineral = "runed sandstone"
 	color = "#DDB5A4"
