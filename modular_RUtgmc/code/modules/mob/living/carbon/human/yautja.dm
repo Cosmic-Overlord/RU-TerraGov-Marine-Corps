@@ -17,6 +17,10 @@
 		TRAIT_SUPER_STRONG,
 		TRAIT_FOREIGN_BIO,
 	)
+	inherent_actions = list(
+	/datum/action/predator_action/mark_for_hunt,
+	/datum/action/predator_action/mark_panel,
+	)
 
 	screams = list(MALE = "pred_scream", FEMALE = "pred_scream")
 	paincries = list(MALE = "pred_pain", FEMALE = "pred_pain")
@@ -54,9 +58,6 @@
 	stun_reduction = 4
 
 	icobase = 'modular_RUtgmc/icons/mob/hunter/r_predator.dmi'
-
-	var/list/datum/action/predator_action/mark_for_hunt/mark_for_hunt = list()
-	var/list/datum/action/predator_action/mark_panel/mark_panel = list()
 
 /datum/species/yautja/handle_death(mob/living/carbon/human/H, gibbed)
 	if(gibbed)
@@ -108,10 +109,7 @@
 	. = ..()
 	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.remove_hud_from(H)
-	mark_for_hunt[H] += new /datum/action/predator_action/mark_for_hunt
-	mark_panel[H] += new /datum/action/predator_action/mark_panel
-	mark_for_hunt[H].give_action(H)
-	mark_panel[H].give_action(H)
+	add_inherent_abilities(H)
 
 	for(var/datum/limb/limb in H.limbs)
 		switch(limb.name)
@@ -134,12 +132,7 @@
 	..()
 	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.add_to_hud(H)
-	mark_for_hunt[H].remove_action(H)
-	mark_panel[H].remove_action(H)
-	qdel(mark_for_hunt[H])
-	qdel(mark_panel[H])
-	mark_for_hunt -= H
-	mark_panel -= H
+	remove_inherent_abilities(H)
 	H.blood_type = pick("A+","A-","B+","B-","O-","O+","AB+","AB-")
 	H.h_style = "Bald"
 	GLOB.yautja_mob_list -= H
