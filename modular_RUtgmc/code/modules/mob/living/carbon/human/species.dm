@@ -31,5 +31,3 @@
 
 	namepool = /datum/namepool/necoarc
 	special_death_message = "You have perished."
-
-/datum/species/proc/handle_cryo(mob/living/carbon/human/H)

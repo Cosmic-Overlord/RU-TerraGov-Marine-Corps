@@ -90,10 +90,6 @@
 		H.message_thrall("Your master has fallen!")
 		H.hunter_data.thrall = null
 
-/datum/species/yautja/handle_cryo(mob/living/carbon/human/H)
-	set_predator_status(H, "Cryo")
-	qdel(H)
-
 /datum/species/yautja/proc/set_predator_status(mob/living/carbon/human/H, status = "Alive")
 	if(!H.key)
 		return
