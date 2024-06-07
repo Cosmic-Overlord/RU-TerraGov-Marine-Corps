@@ -6,6 +6,12 @@
 	// *** Pheromones *** //
 	aura_strength = 4.5 //The Shrike's aura is decent.
 
+	// *** Plasma *** //
+	plasma_gain = 60
+
+	// *** Health *** //
+	max_health = 500
+
 	// *** Abilities *** //
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
