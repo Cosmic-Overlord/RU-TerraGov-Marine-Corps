@@ -176,9 +176,6 @@
 
 	return ..()
 
-/datum/species/yautja/get_hairstyle(style)
-	return GLOB.yautja_hair_styles_list[style]
-
 /mob/proc/hud_set_hunter()
 	return
 
