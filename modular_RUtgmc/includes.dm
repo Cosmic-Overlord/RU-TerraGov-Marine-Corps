@@ -403,7 +403,6 @@
 #include "code\modules\client\preferences.dm"
 #include "code\modules\projectiles\mounted.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\beetle\beetle.dm"
-#include "code\modules\mob\living\carbon\xenomorph\castes\defiler\defiler.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\mantis\mantis.dm"
 #include "code\modules\mob\living\carbon\xenomorph\castes\scorpion\scorpion.dm"
 #include "code\game\objects\items\reagent_containers\autoinjectors.dm"
