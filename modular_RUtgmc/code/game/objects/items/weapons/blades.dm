@@ -19,9 +19,6 @@
 	throw_speed = 2
 	throw_range = 8
 
-/obj/item/weapon/claymore
-	w_class = WEIGHT_CLASS_BULKY
-
 /obj/item/weapon/claymore/mercsword/machete
 	force = 90
 	penetration = 15
@@ -43,6 +40,7 @@
 	resistance_flags = UNACIDABLE
 	hitsound = 'modular_RUtgmc/sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/weapon/claymore/mercsword/officersword/attack(mob/living/carbon/M, mob/living/user)
 	. = ..()
@@ -114,6 +112,7 @@
 	throw_speed = 5
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/weapon/claymore/tomahawk/Initialize(mapload)
 	. = ..()
