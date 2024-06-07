@@ -114,7 +114,6 @@
 	throw_speed = 5
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
-	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/weapon/claymore/tomahawk/Initialize(mapload)
 	. = ..()
