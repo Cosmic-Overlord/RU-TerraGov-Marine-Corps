@@ -19,6 +19,9 @@
 	throw_speed = 2
 	throw_range = 8
 
+/obj/item/weapon/claymore
+	w_class = WEIGHT_CLASS_BULKY
+
 /obj/item/weapon/claymore/mercsword/machete
 	force = 90
 	penetration = 15
