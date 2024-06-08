@@ -75,6 +75,7 @@
 /obj/item/armor_module/proc/can_attach(obj/item/attaching_to, mob/user)
 	return TRUE
 
+/* RUTGMC DELETION
 /// Called when the module is added to the armor.
 /obj/item/armor_module/proc/on_attach(obj/item/attaching_to, mob/user)
 	SEND_SIGNAL(attaching_to, COMSIG_ARMOR_MODULE_ATTACHING, user, src)
@@ -93,6 +94,7 @@
 				base_icon = variants_by_parent_type[selection]
 
 	update_icon()
+*/
 
 /// Called when the module is removed from the armor.
 /obj/item/armor_module/proc/on_detach(obj/item/detaching_from, mob/user)
