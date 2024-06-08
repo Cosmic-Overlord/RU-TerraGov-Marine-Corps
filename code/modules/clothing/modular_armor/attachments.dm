@@ -63,19 +63,16 @@
 	///The signal for this module if it can toggled
 	var/toggle_signal
 
-/* RUTGMC DELETION
 /obj/item/armor_module/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/attachment, slot, attach_icon, on_attach, on_detach, null, can_attach, pixel_shift_x, pixel_shift_y, flags_attach_features, attach_delay, detach_delay, mob_overlay_icon = mob_overlay_icon, mob_pixel_shift_x = mob_pixel_shift_x, mob_pixel_shift_y = mob_pixel_shift_y, attachment_layer = attachment_layer)
 	AddComponent(/datum/component/attachment_handler, attachments_by_slot, attachments_allowed, starting_attachments = starting_attachments)
 	update_icon()
-*/
 
 /// Called before a module is attached.
 /obj/item/armor_module/proc/can_attach(obj/item/attaching_to, mob/user)
 	return TRUE
 
-/* RUTGMC DELETION
 /// Called when the module is added to the armor.
 /obj/item/armor_module/proc/on_attach(obj/item/attaching_to, mob/user)
 	SEND_SIGNAL(attaching_to, COMSIG_ARMOR_MODULE_ATTACHING, user, src)
@@ -94,7 +91,6 @@
 				base_icon = variants_by_parent_type[selection]
 
 	update_icon()
-*/
 
 /// Called when the module is removed from the armor.
 /obj/item/armor_module/proc/on_detach(obj/item/detaching_from, mob/user)
