@@ -11,10 +11,6 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/weapon/gun/energy/yautja/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
-
 /*#########################################
 ############## Misc Weapons ###############
 #########################################*/
