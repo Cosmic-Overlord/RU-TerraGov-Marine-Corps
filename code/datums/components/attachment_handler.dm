@@ -338,7 +338,6 @@
 		attachable_overlays[slot] = overlay
 		parent_item.overlays += overlay
 
-/* RUTGMC DELETION
 ///Updates the mob sprite of the attachment.
 /datum/component/attachment_handler/proc/apply_custom(datum/source, mutable_appearance/standing)
 	SIGNAL_HANDLER
@@ -381,7 +380,6 @@
 			continue
 		wearer.overlays_standing[attachment_data[ATTACHMENT_LAYER]] = new_overlay
 		wearer.apply_overlay(attachment_data[ATTACHMENT_LAYER])
-*/
 
 ///Handles the removal of attachment overlays when the item is unequipped
 /datum/component/attachment_handler/proc/remove_overlay()
