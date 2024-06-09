@@ -32,10 +32,6 @@
 	edge = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharp = IS_SHARP_ITEM_BIG
-
-/obj/item/weapon/harpoon/yautja/New()
-	. = ..()
-
 	force = 10
 	throwforce = 30
 
