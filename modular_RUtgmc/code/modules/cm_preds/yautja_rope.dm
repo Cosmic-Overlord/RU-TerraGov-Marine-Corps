@@ -1,5 +1,3 @@
-/mob/living/carbon/human/var/initial_transform // fuck that shit, niggas
-
 /obj/item/stack/yautja_rope
 	name = "strange rope"
 	singular_name = "rope meter"
