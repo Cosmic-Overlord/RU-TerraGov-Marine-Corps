@@ -427,7 +427,7 @@
 			if(!is_offhand_full)
 				caller.put_in_inactive_hand(left_wristblades)
 		wristblades_deployed = TRUE
-		to_chat(caller, span_notice("You activate your [left_wristblades.plural_name]."))
+		to_chat(caller, span_notice("You activate your [left_wristblades]."))
 		playsound(caller, 'sound/weapons/wristblades_on.ogg', 15, TRUE)
 
 /obj/item/clothing/gloves/yautja/proc/caster_internal(mob/living/carbon/human/caller, forced = FALSE, power_to_drain = 50)

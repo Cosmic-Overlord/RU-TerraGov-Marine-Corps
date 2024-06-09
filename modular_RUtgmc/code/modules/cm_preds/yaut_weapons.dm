@@ -36,8 +36,7 @@
 	throwforce = 30
 
 /obj/item/weapon/wristblades
-	name = "wrist blades"
-	var/plural_name = "wrist blades"
+	name = "\proper wrist blades"
 	desc = "A pair of huge, serrated blades extending out from metal gauntlets."
 
 	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
@@ -131,8 +130,7 @@
 		gloves.wristblades_internal(user, TRUE) // unlikely that the yaut would have gloves without blades, so if they do, runtime logs here would be handy
 
 /obj/item/weapon/wristblades/scimitar
-	name = "wrist scimitar"
-	plural_name = "wrist scimitars"
+	name = "\proper wrist scimitar"
 	desc = "A huge, serrated blade extending from metal gauntlets."
 	icon_state = "scim"
 	item_state = "scim"
