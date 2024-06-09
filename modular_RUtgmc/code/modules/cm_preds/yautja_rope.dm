@@ -72,7 +72,7 @@
 
 	anchored = TRUE
 	RegisterSignal(src, COMSIG_ATTEMPT_MOB_PULL, PROC_REF(deny_pull))
-	RegisterSignal(src, list(
+	RegisterSignals(src, list(
 		COMSIG_ITEM_ATTEMPT_ATTACK,
 		COMSIG_LIVING_POST_FULLY_HEAL
 		), PROC_REF(cut_down))
