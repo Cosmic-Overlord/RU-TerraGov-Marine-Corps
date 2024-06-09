@@ -25,8 +25,6 @@
 	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
 	eye_protection = 2
 	flags_item = ITEM_PREDATOR
-	filtered_gases = list("phoron", "sleeping_agent", "carbon_dioxide")
-	gas_filter_strength = 3
 	var/current_goggles = VISION_MODE_OFF
 	resistance_flags = UNACIDABLE
 	unequip_delay_self = 20
