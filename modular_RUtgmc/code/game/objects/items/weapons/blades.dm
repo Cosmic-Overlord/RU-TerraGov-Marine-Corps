@@ -40,6 +40,7 @@
 	resistance_flags = UNACIDABLE
 	hitsound = 'modular_RUtgmc/sound/weapons/rapierhit.ogg'
 	attack_verb = list("slash", "cut")
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/weapon/claymore/mercsword/officersword/attack(mob/living/carbon/M, mob/living/user)
 	. = ..()

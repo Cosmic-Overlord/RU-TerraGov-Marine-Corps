@@ -17,9 +17,11 @@ SUBSYSTEM_DEF(resinshaping)
 
 /datum/controller/subsystem/resinshaping/stat_entry()
 	if(SSticker.mode?.quickbuild_points_flags & MODE_PERSONAL_QUICKBUILD_POINTS)
-		return ..("BUILT=[total_structures_built] REFUNDED=[total_structures_refunded]")
+		return "BUILT=[total_structures_built] REFUNDED=[total_structures_refunded]"
 	else if(SSticker.mode?.quickbuild_points_flags & MODE_GENERAL_QUICKBUILD_POINTS)
-		return ..("QUICKBUILD POINTS (NORMAL HIVE)=[quickbuild_points_by_hive[XENO_HIVE_NORMAL]]")
+		return "QUICKBUILD POINTS (NORMAL HIVE)=[quickbuild_points_by_hive[XENO_HIVE_NORMAL]]"
+	else
+		return "OFFLINE"
 
 /datum/controller/subsystem/resinshaping/proc/toggle_off()
 	SIGNAL_HANDLER
