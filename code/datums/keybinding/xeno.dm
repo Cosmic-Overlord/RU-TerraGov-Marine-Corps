@@ -929,9 +929,16 @@
 /datum/keybinding/xeno/jab
 	name = "jab"
 	full_name = "Warrior: Jab"
-	description = "Precisely strike your target from further away, slowing and confusing them. Resets punch cooldown."
+	description = "Precisely strike your target from further away. Resets punch cooldown."
 	keybind_signal = COMSIG_XENOABILITY_JAB
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/flurry
+	name = "flurry"
+	full_name = "Warrior: Flurry"
+	description = "Strike at your target with blinding speed."
+	keybind_signal = COMSIG_XENOABILITY_FLURRY
+	hotkey_keys = list("Q")
 
 /* RUTGMC DELETION, WIDOW DELETION
 /datum/keybinding/xeno/burrow
