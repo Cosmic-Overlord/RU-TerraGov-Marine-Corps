@@ -173,9 +173,6 @@
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_xn")
 
-/obj/item/armor_module/module/binoculars
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
 /obj/item/armor_module/module/binoculars/artemis_mark_two
 	var/eye_protection_mod = 1
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
