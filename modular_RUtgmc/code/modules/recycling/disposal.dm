@@ -1,3 +1,7 @@
+/obj/machinery/disposal
+	resistance_flags = XENO_DAMAGEABLE
+	max_integrity = 150
+
 /obj/machinery/disposal/ex_act(severity)
 	if(prob(severity / 4))
 		qdel(src)
