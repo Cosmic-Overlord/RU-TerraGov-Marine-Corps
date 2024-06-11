@@ -194,7 +194,7 @@
 
 /obj/item/armor_module/module/hod_head
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-	
+
 /obj/item/armor_module/module/welding
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
@@ -214,9 +214,6 @@
 	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/module/valkyrie_autodoc/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
-
-/obj/item/armor_module/module/welding/som
 	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/storage/engineering/som
