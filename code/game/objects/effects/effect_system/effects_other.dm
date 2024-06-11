@@ -21,4 +21,5 @@
 		_location.visible_message(span_danger("The solution violently explodes!"), \
 								span_hear("You hear an explosion!"))
 
-	dyn_explosion(_location, amount, flashing_factor)
+	//dyn_explosion(_location, amount, flashing_factor) // RUTGMC DELETION
+	cell_explosion(_location, amount, amount / round((2 * amount)**GLOB.DYN_EX_SCALE)) //RUTGMC ADDITION

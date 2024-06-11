@@ -236,14 +236,6 @@ RU TGMC EDIT */
 	building_loc = 0 //This results in spawning the structure under the user.
 	building_time = 5 SECONDS
 
-/datum/hive_upgrade/building/banelingpod
-	name = "Baneling Pod"
-	desc = "Constructs a pod that generates banelings over time"
-	psypoint_cost = 200
-	icon = "banelingpod"
-	flags_upgrade = ABILITY_NUCLEARWAR
-	building_type = /obj/structure/xeno/banelingpod
-
 /datum/hive_upgrade/building/spawner
 	name = "Spawner"
 	desc = "Constructs a spawner that generates ai xenos over time"

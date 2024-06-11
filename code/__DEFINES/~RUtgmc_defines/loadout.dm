@@ -123,7 +123,6 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_LEDSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
-	/obj/item/storage/backpack/marine/satchel/scout_cloak/scout = list(CAT_LEDSUP, "Scout Cloak", 25, "yellow"),
 	/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
 	/obj/structure/closet/bodybag/tarp = list(CAT_LEDSUP, "V1 thermal-dampening tarp", 2, "yellow"),
 	/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_LEDSUP, "FL-84 flamethrower", 6, "red"),
@@ -174,8 +173,8 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/explosive/grenade/smokebomb = list(CAT_FCSUP, "M40 HSDP smokebomb grenade", 1, "orange3"),
 	/obj/item/storage/box/visual/grenade/incendiary = list(CAT_FCSUP, "M40 HIDP incendiary grenade box", 10, "blue"),
 	/obj/item/explosive/grenade/incendiary = list(CAT_FCSUP, "M40 HIDP incendiary grenade", 1, "orange3"),
-	/obj/item/storage/box/visual/grenade/M15 = list(CAT_FCSUP, "M15 fragmentation grenade box", 10, "blue"),
-	/obj/item/explosive/grenade/m15 = list(CAT_FCSUP, "M15 fragmentation grenade", 1, "orange3"),
+	/obj/item/storage/box/visual/grenade/M15 = list(CAT_FCSUP, "M15 fragmentation grenade box", 15, "blue"),
+	/obj/item/explosive/grenade/m15 = list(CAT_FCSUP, "M15 fragmentation grenade", 2, "orange3"),
 	/obj/item/storage/box/visual/grenade/trailblazer = list(CAT_FCSUP, "M45 Trailblazer grenade box", 15, "blue"),
 	/obj/item/explosive/grenade/sticky/trailblazer = list(CAT_FCSUP, "M45 Trailblazer grenade", 2, "orange3"),
 	/obj/item/storage/box/visual/grenade/cloaker = list(CAT_FCSUP, "M45 Cloaker grenade box", 15, "blue"),
@@ -387,6 +386,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/lightreplacer = 1,
 		/obj/item/circuitboard/apc = 1,
 		/obj/item/clothing/under/marine/engineer = 1,
+		/obj/item/clothing/under/marine/ru/gorka_eng = 1, // TODO: delete clothe bundles and just put in more categories
 	),
 	SQUAD_CORPSMAN = list(
 		/obj/item/bodybag/cryobag = 1,
@@ -400,6 +400,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/clothing/glasses/hud/health = 1,
 		/obj/item/clothing/under/marine/corpsman = 1,
+		/obj/item/clothing/under/marine/ru/gorka_med = 1, // TODO: delete clothe bundles and just put in more categories
 	),
 	SQUAD_SMARTGUNNER = list(
 		/obj/item/clothing/glasses/night/m56_goggles = 1,

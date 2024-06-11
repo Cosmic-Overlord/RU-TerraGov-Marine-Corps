@@ -54,8 +54,7 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
 		)
-	autoburst_delay = 1.3 SECONDS
-	akimbo_additional_delay = 2
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_WIELDED_FIRING_ONLY
 
 /datum/lasrifle/energy_carbine_mode/auto_burst
 	icon_state = "tec"
@@ -187,3 +186,64 @@
 
 /datum/lasrifle/heavy_laser/ricochet
 	icon_state = "heavylaser"
+
+/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam
+	name = "\improper pocket beam"
+	desc = "A Terra Experimental underbarrel laser system. Has multiple firemodes for tactical flexibility. Uses standard Terra Experimental (abbreviated as TE) power cells."
+	reload_sound = 'sound/weapons/guns/interact/standard_laser_rifle_reload.ogg'
+	fire_sound = 'sound/weapons/guns/fire/Laser Rifle Standard.ogg'
+	icon = 'modular_RUtgmc/icons/Marine/marine-weapons.dmi'
+	icon_state = "p_beam"
+	max_shots = 4
+	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
+	rounds_per_shot = 150
+	gun_firemode = GUN_FIREMODE_AUTOMATIC
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	attach_delay = 1 SECONDS
+	detach_delay = 1 SECONDS
+	ammo_level_icon = "te"
+	attachable_allowed = list()
+	starting_attachment_types = list()
+	slot = ATTACHMENT_SLOT_UNDER
+	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_IS_ATTACHMENT|GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
+	wield_delay = 0.5 SECONDS
+	scatter = 0
+	fire_delay = 2 SECONDS
+	accuracy_mult_unwielded = 0.55
+	damage_falloff_mult = 0.2
+	mode_list = list(
+		"Heat" = /datum/lasrifle/energy_pistol_mode/heat/pocket,
+		"Impact" = /datum/lasrifle/energy_carbine_mode/base/impact/pocket,
+		"Weakening" = /datum/lasrifle/energy_rifle_mode/weakening/pocket,
+	)
+
+	wield_delay_mod = 0.2 SECONDS
+
+	pixel_shift_x = 14
+	pixel_shift_y = 18
+
+/datum/lasrifle/energy_pistol_mode/heat/pocket
+	rounds_per_shot = 150
+	icon_state = "p_beam"
+	fire_delay = 2 SECONDS
+	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
+
+/datum/ammo/energy/lasgun/marine/pistol/heat/pocket
+	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_SUNDERING|AMMO_HITSCAN
+	incendiary_strength = 15
+	hitscan_effect_icon = "beam_incen"
+	bullet_color = COLOR_LASER_RED
+
+/datum/lasrifle/energy_carbine_mode/base/impact/pocket
+	rounds_per_shot = 60
+	icon_state = "p_beam"
+	fire_delay = 1.8 SECONDS
+
+/datum/lasrifle/energy_rifle_mode/weakening/pocket
+	rounds_per_shot = 100
+	icon_state = "p_beam"
+	fire_delay = 1.8 SECONDS
+	ammo_datum_type = /datum/ammo/energy/lasgun/marine/weakening/pocket
+
+/datum/ammo/energy/lasgun/marine/weakening/pocket
+	plasma_drain = 80

@@ -21,8 +21,6 @@
 	var/list/obj/structure/xeno/psychictower/psychictowers = list()
 	///list of phero towers
 	var/list/obj/structure/xeno/pherotower/pherotowers = list()
-	///list of baneling pods
-	var/list/obj/structure/xeno/banelingpod/banelingpods = list()
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
 	var/tier3_xeno_limit
@@ -125,9 +123,6 @@
 	// Hivemind cores
 	for(var/obj/structure/xeno/hivemindcore/core AS in GLOB.hive_datums[hivenumber].hivemindcores)
 		.["hive_structures"] += list(get_structure_packet(core))
-	//Baneling pods
-	for(var/obj/structure/xeno/banelingpod/spawner AS in GLOB.hive_datums[hivenumber].banelingpods)
-		.["hive_structures"] += list(get_structure_packet(spawner))
 	// Spawners
 	for(var/obj/structure/xeno/spawner/spawner AS in GLOB.xeno_spawners_by_hive[hivenumber])
 		.["hive_structures"] += list(get_structure_packet(spawner))
@@ -1188,6 +1183,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 	return TRUE
 
+/* RU TGMC EDIT //moved to modular
 ///updates and sets the t2 and t3 xeno limits
 /datum/hive_status/proc/update_tier_limits()
 	var/zeros = get_total_tier_zeros()
@@ -1198,6 +1194,7 @@ to_chat will check for valid clients itself already so no need to double check f
 
 	tier3_xeno_limit = max(threes, FLOOR((zeros + ones + twos + fours) / 3 + length(psychictowers) + 1, 1))
 	tier2_xeno_limit = max(twos, (zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes)
+RU TGMC EDIT */
 
 // ***************************************
 // *********** Corrupted Xenos

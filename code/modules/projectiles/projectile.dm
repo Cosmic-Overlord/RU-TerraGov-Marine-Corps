@@ -183,7 +183,12 @@
 		shot_from = source
 	loc = loc_override
 	if(!isturf(loc))
-		forceMove(get_turf(src))
+		//forceMove(get_turf(src)) // RUTGMC DELETION
+		if(!is_shrapnel) // RUTGMC ADDITION START
+			forceMove(get_turf(src))
+		else if(get_turf(source))
+			forceMove(get_turf(source)) //RUTGMC ADDITION END
+
 	starting_turf = loc
 
 	if(target)
@@ -294,7 +299,8 @@
 	if(ammo.bonus_projectiles_amount && !recursivity) //Recursivity check in case the bonus projectiles have bonus projectiles of their own. Let's not loop infinitely.
 		ammo.fire_bonus_projectiles(src, shooter, source, range, speed, dir_angle, target)
 
-	if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles
+	//if(shooter.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //todo: doesn't take into account piercing projectiles // RUTGMC DELETION
+	if(shooter?.Adjacent(target) && PROJECTILE_HIT_CHECK(target, src, null, FALSE, null)) //RUTGMC ADDITION
 		target.do_projectile_hit(src)
 		qdel(src)
 		return
@@ -893,7 +899,13 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(shooter_carbon.IsStaggered())
 			damage *= STAGGER_DAMAGE_MULTIPLIER //Since we hate RNG, stagger reduces damage by a % instead of reducing accuracy; consider it a 'glancing' hit due to being disoriented.
 	var/original_damage = damage
-	damage = modify_by_armor(damage, proj.armor_type, proj.penetration, proj.def_zone)
+
+	//// RUTGMC EDIT
+	var/sunder_to_penetration = 0
+	if(isxeno(src))
+		sunder_to_penetration = log(proj.sundering + 1) * 10
+
+	damage = modify_by_armor(damage, proj.armor_type, proj.sundering >= 20 ? proj.penetration : (proj.penetration + sunder_to_penetration), proj.def_zone)// RUTGMC EDIT
 	if(damage == original_damage)
 		feedback_flags |= BULLET_FEEDBACK_PEN
 	else if(!damage)
@@ -905,8 +917,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(IgniteMob())
 			feedback_flags |= (BULLET_FEEDBACK_FIRE)
 
-	if(proj.ammo.flags_ammo_behavior & AMMO_SUNDERING)
-		adjust_sunder(proj.sundering * get_sunder()) // RUTGMC EDIT
+
+	if((proj.ammo.flags_ammo_behavior & AMMO_SUNDERING) && proj.sundering >= 20) // RUTGMC EDIT
+		adjust_sunder(proj.sundering) // RUTGMC EDIT
 
 	if(stat != DEAD && ismob(proj.firer))
 		record_projectile_damage(proj.firer, damage)	//Tally up whoever the shooter was
@@ -1172,7 +1185,8 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	qdel(src)
 
 /mob/living/proc/embed_projectile_shrapnel(obj/projectile/proj)
-	var/obj/item/shard/shrapnel/shrap = new(get_turf(src), "[proj] shrapnel", " It looks like it was fired from [proj.shot_from ? proj.shot_from : "something unknown"].")
+	//var/obj/item/shard/shrapnel/shrap = new(get_turf(src), "[proj] shrapnel", " It looks like it was fired from [proj.shot_from ? proj.shot_from : "something unknown"].") //RUTGMC DELETION
+	var/obj/item/shard/shrapnel/shrap = new proj.ammo.shrapnel_type(get_turf(src), "[proj] shrapnel", " It looks like it was fired from [proj.shot_from ? proj.shot_from : "something unknown"].") //RUTGMC ADDITION
 	if(!shrap.embed_into(src, proj.def_zone, TRUE))
 		qdel(shrap)
 

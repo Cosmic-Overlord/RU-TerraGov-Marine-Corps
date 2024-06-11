@@ -45,14 +45,14 @@ GLOBAL_LIST_INIT(resin_images_list, list(
 		RESIN_DOOR = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = RESIN_DOOR),
 		ALIEN_NEST = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = ALIEN_NEST)
 		))
-
+/* RU TGMC EDIT
 //List of puppeteer pheromone images
 GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
 		AURA_XENO_BLESSFURY = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = "Fury"),
 		AURA_XENO_BLESSWARDING = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = "Warding"),
 		AURA_XENO_BLESSFRENZY = image('modular_RUtgmc/icons/Xeno/actions.dmi', icon_state = "Frenzy"),
 		))
-
+RU TGMC EDIT*/
 GLOBAL_LIST_INIT(panther_toxin_type_list, list(
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,

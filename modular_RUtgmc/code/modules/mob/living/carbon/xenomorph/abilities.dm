@@ -3,7 +3,7 @@
 // ***************************************
 // Resting
 /datum/action/ability/xeno_action/xeno_resting
-	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_AGILITY|ABILITY_USE_CLOSEDTURF|ABILITY_USE_STAGGERED|ABILITY_USE_INCAP
+	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_CLOSEDTURF|ABILITY_USE_STAGGERED|ABILITY_USE_INCAP
 
 // Secrete Resin
 /datum/action/ability/activable/xeno/secrete_resin

@@ -135,6 +135,36 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_requirements = XP_REQ_EXPERT
 
+/datum/job/terragov/silicon/synthetic/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+	. = ..()
+	if(!ishuman(new_mob))
+		return
+	var/mob/living/carbon/human/new_human = new_mob
+	var/playtime_mins = user?.client?.get_exp(title)
+	if(!playtime_mins || playtime_mins < 1 )
+		return
+	switch(playtime_mins)
+		if(0 to 600) //up to 10 hours
+			new_human.wear_id.paygrade = "Mk.I"
+		if(601 to 3000) // 10 to 50 hrs
+			new_human.wear_id.paygrade = "Mk.II"
+		if(3001 to 6000) // 50 to 100 hrs
+			new_human.wear_id.paygrade = "Mk.III"
+		if(6001 to 9000) // 100 to 150 hrs
+			new_human.wear_id.paygrade = "Mk.IV"
+		if(9001 to 12000) // 150 to 200 hrs
+			new_human.wear_id.paygrade = "Mk.V"
+		if(12001 to 15000) // 200 to 250 hrs
+			new_human.wear_id.paygrade = "Mk.VI"
+		if(15001 to 18000) // 250 to 300 hrs
+			new_human.wear_id.paygrade = "Mk.VII"
+		if(18001 to 21000) // 300 to 350 hrs
+			new_human.wear_id.paygrade = "Mk.VIII"
+		if(21001 to 60000) // 350 to 1000 hrs
+			new_human.wear_id.paygrade = "Mk.IX"
+		if(60001 to INFINITY) // 1000 hrs and more
+			new_human.wear_id.paygrade = "Mk.X"
+
 /datum/job/terragov/command/captain
 	exp_type = EXP_TYPE_REGULAR_ALL
 	exp_requirements = XP_REQ_EXPERT

@@ -52,8 +52,10 @@
 	pixel_y = rand(-10, 10)
 
 
+/* RUTGMC DELETION
 /obj/item/gift/ex_act()
 	qdel(src)
+*/
 
 
 /obj/item/gift/attack_self(mob/user)

@@ -198,13 +198,6 @@
 // Single caste, alphabetical order
 //
 
-/datum/keybinding/xeno/baneling_explode
-	name = "Explode"
-	full_name = "Baneling: Explode"
-	description = "Detonate yourself, spreading your currently selected reagent. Size depends on current stored plasma, more plasma is more reagent."
-	keybind_signal = COMSIG_XENOABILITY_BANELING_EXPLODE
-	hotkey_keys = list("E")
-
 /datum/keybinding/xeno/long_range_sight
 	name = "long_range_sight"
 	full_name = "Boiler: Long Range Sight"
@@ -936,9 +929,16 @@
 /datum/keybinding/xeno/jab
 	name = "jab"
 	full_name = "Warrior: Jab"
-	description = "Precisely strike your target from further away, slowing and confusing them. Resets punch cooldown."
+	description = "Precisely strike your target from further away. Resets punch cooldown."
 	keybind_signal = COMSIG_XENOABILITY_JAB
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/flurry
+	name = "flurry"
+	full_name = "Warrior: Flurry"
+	description = "Strike at your target with blinding speed."
+	keybind_signal = COMSIG_XENOABILITY_FLURRY
+	hotkey_keys = list("Q")
 
 /* RUTGMC DELETION, WIDOW DELETION
 /datum/keybinding/xeno/burrow
@@ -1055,7 +1055,7 @@
 	keybind_signal = COMSIG_XENOABILITY_TIMESTOP
 	hotkey_keys = list("V")
 RU TGMC EDIT END*/
-
+/*RU TGMC EDIT PUPPETEER REMOVAL
 /datum/keybinding/xeno/flay
 	name = "Flay"
 	full_name = "Puppeteer: Flay"
@@ -1121,7 +1121,7 @@ RU TGMC EDIT END*/
 	full_name = "Puppeteer: Bestow Blessings"
 	description = "Give blessings to your puppets."
 	keybind_signal = COMSIG_XENOABILITY_BESTOWBLESSINGS
-
+RU TGMC EDIT PUPPETEER REMOVAL*/
 /* RUTGMC DELETION
 /datum/keybinding/xeno/behemoth_roll
 	name = "Roll"

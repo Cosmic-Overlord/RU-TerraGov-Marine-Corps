@@ -1,3 +1,4 @@
+/*RUTGMC REMOVED - Explosions update
 #define EXPLOSION_THROW_SPEED 1
 GLOBAL_LIST_EMPTY(explosions)
 
@@ -465,10 +466,7 @@ This way we'll be able to draw the explosion's expansion path without having to 
 				continue
 			for(var/am in affected_turf)
 				var/atom/movable/thing_to_throw = am
-				/* //ORIGINAL
 				if(thing_to_throw.anchored || thing_to_throw.move_resist == INFINITY)
-				*/
-				if(thing_to_throw.anchored || thing_to_throw.move_resist >= MOVE_FORCE_EXTREMELY_STRONG) //RUTGMC EDIT CHANGE
 					continue
 
 				for(var/throw_source in throw_turf[affected_turf])
@@ -486,3 +484,4 @@ This way we'll be able to draw the explosion's expansion path without having to 
 		cost_throwTurf = MC_AVERAGE(cost_throwTurf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
 	currentpart = SSEXPLOSIONS_TURFS
+*/

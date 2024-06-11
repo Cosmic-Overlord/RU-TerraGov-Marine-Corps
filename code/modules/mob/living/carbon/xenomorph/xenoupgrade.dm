@@ -382,11 +382,8 @@ RU TGMC EDITION END*/
 
 //----WARLOCK END----//
 //============//
-//----BANELING START----//
-/mob/living/carbon/xenomorph/baneling
-	upgrade = XENO_UPGRADE_NORMAL
-//----BANELING END----//
 //============//
+/*RU TGMC EDIT
 //----PUPPETEER START----//
 /mob/living/carbon/xenomorph/puppeteer
 	upgrade = XENO_UPGRADE_NORMAL
@@ -396,6 +393,7 @@ RU TGMC EDITION END*/
 	//upgrade_stored = TIER_TWO_THRESHOLD // RUTGMC DELETION
 
 //----PUPPETEER END----//
+RU TGMC EDIT*/
 //============//
 //----BEHEMOTH START----//
 

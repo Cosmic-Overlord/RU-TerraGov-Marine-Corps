@@ -1192,6 +1192,7 @@ RU TGMC EDIT*/
 	/// The amount of times an Earth Pillar flashes before executing its interaction with Seismic Fracture.
 	var/warning_flashes = 2
 
+/* RUTGMC DELETION
 /obj/structure/earth_pillar/Initialize(mapload, mob/living/carbon/xenomorph/new_owner, enhanced)
 	. = ..()
 	xeno_owner = new_owner
@@ -1210,6 +1211,7 @@ RU TGMC EDIT*/
 	QDEL_NULL_IN(src, particle_holder, 1.6 SECONDS)
 	do_jitter_animation(jitter_loops = 5)
 	RegisterSignals(src, list(COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_EX_ACT, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_HAND_ALTERNATE, COMSIG_ATOM_ATTACKBY), PROC_REF(call_update_icon_state))
+*/
 
 /obj/structure/earth_pillar/Destroy()
 	playsound(loc, 'sound/effects/behemoth/earth_pillar_destroyed.ogg', 40, TRUE)
@@ -1277,6 +1279,7 @@ RU TGMC EDIT*/
 				return TRUE
 		else return FALSE
 
+/* RUTGMC DELETION
 /obj/structure/earth_pillar/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
@@ -1285,6 +1288,7 @@ RU TGMC EDIT*/
 			take_damage(max_integrity / 2)
 		if(EXPLODE_LIGHT)
 			take_damage(max_integrity / 3)
+*/
 
 // When clickdragging an Earth Pillar, it fires it as a projectile to whatever we clickdragged it to.
 /obj/structure/earth_pillar/MouseDrop(atom/over_atom)

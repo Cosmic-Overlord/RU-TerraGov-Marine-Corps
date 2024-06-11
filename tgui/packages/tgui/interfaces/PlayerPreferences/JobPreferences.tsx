@@ -213,6 +213,21 @@ const JobPreference = (props, context) => {
     );
   }
 
+  if (jobData.playtime_req) {
+    return (
+      <LabeledList.Item label={job}>
+        <Box align="right">
+          <Button.Checkbox
+            inline
+            icon="times"
+            color="light-grey"
+            content={jobData.exp_string}
+          />
+        </Box>
+      </LabeledList.Item>
+    );
+  }
+
   return (
     <LabeledList.Item label={job}>
       <Box align="right">

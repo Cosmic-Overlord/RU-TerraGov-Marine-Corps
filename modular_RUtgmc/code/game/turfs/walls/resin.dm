@@ -1,9 +1,11 @@
 /turf/closed/wall/resin
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-wall.dmi'
 
-
 /turf/closed/wall/resin/is_weedable()
 	return TRUE
+
+/turf/closed/wall/resin/ex_act(severity)
+	take_damage(severity * RESIN_EXPLOSIVE_MULTIPLIER, BRUTE, BOMB)
 
 /turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)

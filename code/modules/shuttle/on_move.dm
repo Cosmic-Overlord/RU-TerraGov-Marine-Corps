@@ -64,7 +64,7 @@ All ShuttleMove procs go here
 /turf/proc/afterShuttleMove(turf/oldT, rotation)
 	//Dealing with the turf we left behind
 	oldT.TransferComponents(src)
-	SSexplosions.wipe_turf(src)
+	//SSexplosions.wipe_turf(src) // RUTGMC DELETION
 
 	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
 	if(shuttle_boundary)
@@ -220,7 +220,8 @@ All ShuttleMove procs go here
 		if(!nodes[i])
 			missing_nodes = TRUE
 
-	if(missing_nodes)
+	//if(missing_nodes) // ORIGINAL
+	if(!missing_nodes) // RUTGMC EDIT
 		atmosinit()
 		for(var/obj/machinery/atmospherics/A in pipeline_expansion())
 			A.atmosinit()

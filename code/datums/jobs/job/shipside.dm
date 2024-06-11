@@ -1080,6 +1080,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 		return /datum/skills/early_synthetic
 	return ..()
 
+/* RUTGMC DELETION
 /datum/job/terragov/silicon/synthetic/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -1095,6 +1096,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 			new_human.wear_id.paygrade = "Mk.II"
 		if(3001 to INFINITY) // more than 50 hrs
 			new_human.wear_id.paygrade = "Mk.III"
+*/
 
 /datum/job/terragov/silicon/synthetic/radio_help_message(mob/M)
 	. = ..()

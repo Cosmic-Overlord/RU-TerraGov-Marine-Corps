@@ -432,10 +432,12 @@ directive is properly returned.
  *
  * Default behaviour is to call [contents_explosion][/atom/proc/contents_explosion] and send the [COMSIG_ATOM_EX_ACT] signal
  */
+/* RUTGMC DELETION
 /atom/proc/ex_act(severity, epicenter_dist, impact_range)
 	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
 		contents_explosion(severity, epicenter_dist, impact_range)
 	SEND_SIGNAL(src, COMSIG_ATOM_EX_ACT, severity, epicenter_dist, impact_range)
+*/
 
 /atom/proc/fire_act()
 	return
@@ -455,8 +457,10 @@ directive is properly returned.
 	return FALSE
 
 
+/* RUTGMC DELETION
 /atom/proc/contents_explosion(severity)
 	return //For handling the effects of explosions on contents that would not normally be effected
+*/
 
 
 ///Fire effects from a burning turf. Burn level is the base fire damage being received.
