@@ -151,10 +151,14 @@ Contains most of the procs that are called when a mob is attacked by something
 	if((weapon_sharp || weapon_edge) && !prob(modify_by_armor(100, MELEE, def_zone = target_zone)))
 		weapon_sharp = FALSE
 		weapon_edge = FALSE
-
+// RU TGMC EDIT
+	var/final_damage = applied_damage
+	if(isyautja(user) && (ishumanbasic(src) || isrobot(src)))
+		final_damage *= PRED_MELEE_DAMAGE_MOD
+// RU TGMC EDIT
 	user.do_attack_animation(src, used_item = I)
 
-	apply_damage(applied_damage, I.damtype, target_zone, 0, weapon_sharp, weapon_edge, updating_health = TRUE)
+	apply_damage(final_damage, I.damtype, target_zone, 0, weapon_sharp, weapon_edge, updating_health = TRUE) //RU TGMC EDIT
 
 	var/list/hit_report = list("(RAW DMG: [damage])")
 
