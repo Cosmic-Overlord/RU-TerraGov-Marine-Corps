@@ -191,17 +191,18 @@
 
 //RUTGMC EDIT ADDITION BEGIN - Preds
 	if(wear_mask && X.zone_selected == "head")
-		if(istype(wear_mask, /obj/item/clothing/mask/gas/yautja))
-			if(prob(5))
-				playsound(loc, "alien_claw_metal", 25, 1)
-				X.visible_message(span_danger("The [X] smashes off [src]'s [wear_mask.name]!"), \
-				span_danger("You smash off [src]'s [wear_mask.name]!"), null, 5)
-				dropItemToGround(wear_mask)
-				if(isyautja(src))
-					emote("roar")
-				else
-					emote("scream")
-				return TRUE
+		if(!istype(wear_mask, /obj/item/clothing/mask/gas/yautja))
+			return FALSE
+		if(prob(5))
+			playsound(loc, "alien_claw_metal", 25, 1)
+			X.visible_message(span_danger("The [X] smashes off [src]'s [wear_mask.name]!"), \
+			span_danger("You smash off [src]'s [wear_mask.name]!"), null, 5)
+			dropItemToGround(wear_mask)
+			if(isyautja(src))
+				emote("roar")
+			else
+				emote("scream")
+			return TRUE
 //RUTGMC EDIT ADDITION END
 
 	. = ..()
