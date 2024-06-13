@@ -205,17 +205,16 @@
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/fire_proof/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/tyr_extra_armor/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/mimir_environment_protection/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/valkyrie_autodoc/som
-	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
-
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 /obj/item/armor_module/storage/engineering/som
 	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
 
