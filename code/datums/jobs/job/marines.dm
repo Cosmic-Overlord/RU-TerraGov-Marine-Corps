@@ -258,7 +258,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
- RU TGMC EDIT END */
+RU TGMC EDIT END */
 /datum/outfit/job/marine/smartgunner
 	name = SQUAD_SMARTGUNNER
 	jobtype = /datum/job/terragov/squad/smartgunner
