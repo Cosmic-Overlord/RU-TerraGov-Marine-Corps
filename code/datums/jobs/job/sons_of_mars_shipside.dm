@@ -469,7 +469,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	"}
 	minimap_icon = "st"
 
-datum/job/som/engineering/tech/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+/datum/job/som/engineering/tech/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
