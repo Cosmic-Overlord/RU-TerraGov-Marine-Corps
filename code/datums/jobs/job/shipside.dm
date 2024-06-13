@@ -52,7 +52,8 @@ You should not be voluntarily leaving your vessel under any circumstances. A cap
 If you require any help, use <b>mentorhelp</b> to ask mentors about what you're supposed to do.
 Godspeed, captain! And remember, you are not above the law."})
 
-/*/datum/job/terragov/command/captain/after_spawn(mob/living/new_mob, mob/user, latejoin)
+/* RUTGMC EDIT
+/datum/job/terragov/command/captain/after_spawn(mob/living/new_mob, mob/user, latejoin)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
@@ -67,7 +68,7 @@ Godspeed, captain! And remember, you are not above the law."})
 			new_human.wear_id.paygrade = "O7"
 		if(7501 to INFINITY) //125 hrs
 			new_human.wear_id.paygrade = "O8"
-*/
+RUTGMC EDIT END */
 /datum/job/terragov/command/captain/campaign
 	outfit = /datum/outfit/job/command/captain/campaign
 	multiple_outfits = FALSE
@@ -142,7 +143,8 @@ Your duties are to ensure marines hold when ordered, and push when they are cowe
 Do not ask your men to do anything you would not do side by side with them.
 Make the TGMC proud!"})
 
-/*/datum/job/terragov/command/fieldcommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
+/* RUTGMC EDIT
+/datum/job/terragov/command/fieldcommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
 		return
@@ -158,7 +160,7 @@ Make the TGMC proud!"})
 			new_human.wear_id.paygrade = "MO4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "MO5"
-*/
+RUTGMC EDIT END */
 
 /datum/outfit/job/command/fieldcommander
 	name = FIELD_COMMANDER

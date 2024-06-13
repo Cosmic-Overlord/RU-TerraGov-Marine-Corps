@@ -125,7 +125,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 
 	id = /obj/item/card/id/dogtag/engineer
 
-/*
+/* RUTGMC EDIT
 /datum/job/terragov/squad/engineer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -345,7 +345,7 @@ You are also in charge of communicating with command and letting them know about
 
 	id = /obj/item/card/id/dogtag/leader
 
-/*		RUTGMC EDIT
+/* RUTGMC EDIT
 //datum/job/terragov/squad/leader/after_spawn(mob/living/carbon/C, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(C))
