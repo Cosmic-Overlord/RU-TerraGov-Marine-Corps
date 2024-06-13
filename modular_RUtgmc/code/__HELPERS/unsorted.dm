@@ -37,13 +37,21 @@ GLOBAL_VAR_INIT(roles_whitelist, load_role_whitelist())
 	var/ckey
 	var/role
 	for(i in L)
-		if(!i) continue
-		i = trim(i)
-		if(!length(i)) continue
-		else if(copytext(i, 1, 2) == "#") continue
+		if(!i)
+			continue
+			i = trim(i)
+
+		if(!length(i))
+			continue
+
+		else if(copytext(i, 1, 2) == "#")
+			continue
 
 		P = splittext(i, "+")
-		if(!P.len) continue
+
+		if(!P.len)
+			continue
+
 		ckey = ckey(P[1]) //Converting their key to canonical form. ckey() does this by stripping all spaces, underscores and converting to lower case.
 
 		role = NONE
