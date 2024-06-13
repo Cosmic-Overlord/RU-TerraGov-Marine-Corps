@@ -11,7 +11,7 @@
 		a = hex2num(copytext(string, 8, 10))/255
 	if(!isnum(r) || !isnum(g) || !isnum(b) || !isnum(a))
 		return color_matrix_identity()
-	return list(r,0,0,0, 0,g,0,0, 0,0,b,0, 0,0,0,a, 0,0,0,0)
+	return list(r, 0, 0, 0, 0, g, 0, 0, 0, 0, b, 0, 0, 0, 0, a, 0, 0, 0, 0)
 
 
 ///Converts a hex color string to a color matrix.
@@ -23,7 +23,7 @@
 	var/string_g = hex2num(copytext(string, 4, 6)) / 255
 	var/string_b = hex2num(copytext(string, 6, 8)) / 255
 
-	return list(string_r,0,0,0, 0,string_g,0,0, 0,0,string_b,0, 0,0,0,1, 0,0,0,0)
+	return list(string_r, 0, 0, 0, 0, string_g, 0, 0, 0, 0, string_b, 0, 0, 0, 0, 1, 0, 0, 0, 0)
 
 
 
