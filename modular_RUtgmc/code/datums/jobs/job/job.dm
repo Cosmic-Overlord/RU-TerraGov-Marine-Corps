@@ -6,3 +6,7 @@
 		return FALSE
 
 	return WHITELIST_NORMAL
+
+//Used for a special check of whether to allow a client to latejoin as this job.
+/datum/job/proc/special_check(mob/new_predator)
+	return TRUE
