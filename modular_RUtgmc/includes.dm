@@ -121,6 +121,7 @@
 #include "code\game\objects\machinery\mortar.dm"
 #include "code\game\objects\machinery\OpTable.dm"
 #include "code\game\objects\machinery\sleeper.dm"
+#include "code\game\objects\machinery\spaceheater.dm"
 #include "code\game\objects\machinery\squad_manager.dm"
 #include "code\game\objects\machinery\suit_storage_unit.dm"
 #include "code\game\objects\machinery\iv_drip.dm"
