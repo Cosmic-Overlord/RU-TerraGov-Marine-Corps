@@ -74,9 +74,6 @@
 	to_chat(new_predator, span_notice("Hunt at your discretion, yet be observant rather than violent."))
 	log_admin("([new_predator.key]) joined as Yautja, [new_predator.real_name].")
 
-/datum/job/predator/special_check(mob/new_predator)
-	return GLOB.roles_whitelist[new_predator.ckey] & WHITELIST_PREDATOR
-
 /datum/outfit/job/yautja
 	name = "Yautja"
 

@@ -376,7 +376,7 @@
 	if(job.required_playtime_remaining(client))
 		return FALSE
 //RUTGMC EDIT ADDITION BEGIN - Preds
-	if(!job.special_check(src))
+	if(!GLOB.roles_whitelist[new_predator.ckey] & WHITELIST_PREDATOR)
 		return FALSE
 //RUTGMC EDIT ADDITION END
 	if(latejoin && !job.special_check_latejoin(client))
