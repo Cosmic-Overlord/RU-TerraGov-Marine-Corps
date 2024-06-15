@@ -59,6 +59,10 @@
 	if(tgui_alert(F, "Do you want to get into the egg?", "Get inside the egg", list("Yes", "No")) != "Yes")
 		return
 
+	if(F.health < F.maxHealth)
+		balloon_alert(F, "You're too damaged!")
+		return
+
 	if(!insert_new_hugger(new /obj/item/clothing/mask/facehugger/larval()))
 		F.balloon_alert(F, span_xenowarning("We can't use this egg"))
 		return
