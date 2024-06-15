@@ -45,11 +45,12 @@
 				span_xenodanger("We leap on [M]!"), null, 5)
 	playsound(caster.loc, 'sound/voice/alien_roar_larva3.ogg', 25, TRUE) //TODO: I NEED ACTUAL HUGGERS SOUND DAMMED
 
-	if(ishuman(M) && (M.dir in reverse_nearby_direction(caster.dir)))
+	if(ishuman(M) && (angle_to_dir(Get_Angle(caster.throw_source, M)) in reverse_nearby_direction(M.dir)))
 		var/mob/living/carbon/human/H = M
 		if(!H.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
-			caster.Paralyze(6 SECONDS)
+			caster.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			caster.set_throwing(FALSE) //Reset throwing manually.
+			playsound(caster, 'modular_RUtgmc/sound/machines/bonk.ogg', 50, FALSE)
 			return
 
 	caster.forceMove(get_turf(M))
