@@ -205,7 +205,7 @@
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
 
 /obj/item/armor_module/module/fire_proof/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
 
 /obj/item/armor_module/module/tyr_extra_armor/som
 	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
