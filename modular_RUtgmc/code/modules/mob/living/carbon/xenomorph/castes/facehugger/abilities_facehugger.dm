@@ -1,4 +1,8 @@
 #define HUG_RANGE 1
+#define HUGGER_POUNCE_RANGE 6
+#define HUGGER_POUNCE_PARALYZE_DURATION 1 SECONDS
+#define HUGGER_POUNCE_STANDBY_DURATION 1 SECONDS
+#define HUGGER_POUNCE_WINDUP_DURATION 1 SECONDS
 
 // ***************************************
 // *********** Hug
@@ -14,14 +18,6 @@
 		KEYBINDING_NORMAL = COMSING_XENOABILITY_HUGGER_POUNCE,
 	)
 	use_state_flags = ABILITY_USE_BUCKLED
-	///How far can we leap.
-	var/range = 6
-	///For how long will we stun the victim
-	var/victim_paralyze_time = 1 SECONDS
-	///For how long will we freeze upon hitting our target
-	var/freeze_on_hit_time = 1 SECONDS
-	///How long is the windup before leap
-	var/windup_time = 1 SECONDS
 	///Where do we start the leap from
 	var/start_turf
 
@@ -62,11 +58,8 @@
 		if(get_dist(start_turf, H) <= HUG_RANGE) //Check whether we hugged the target or just knocked it down
 			caster.try_attach(H)
 		else
-			if(victim_paralyze_time)
-				H.Paralyze(victim_paralyze_time)
-
-			if(freeze_on_hit_time)
-				caster.Immobilize(freeze_on_hit_time)
+			H.Paralyze(HUGGER_POUNCE_PARALYZE_DURATION)
+			caster.Immobilize(HUGGER_POUNCE_STANDBY_DURATION)
 
 	pounce_complete()
 
@@ -95,7 +88,7 @@
 	var/mob/living/carbon/xenomorph/caster = owner
 
 	prepare_to_pounce()
-	if(!do_after(caster, windup_time, IGNORE_HELD_ITEM, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, ABILITY_USE_BUSY)))
+	if(!do_after(caster, HUGGER_POUNCE_WINDUP_DURATION, IGNORE_HELD_ITEM, caster, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), A, FALSE, ABILITY_USE_BUSY)))
 		return fail_activate()
 
 	caster.icon_state = "[caster.xeno_caste.caste_name] Thrown"
@@ -116,7 +109,7 @@
 	start_turf = get_turf(caster)
 	if(ishuman(A) && get_turf(A) == start_turf)
 		mob_hit(caster, A)
-	caster.throw_at(A, range, 2, caster)
+	caster.throw_at(A, HUGGER_POUNCE_RANGE, XENO_POUNCE_SPEED, caster)
 
 	return TRUE
 
@@ -135,7 +128,7 @@
 		return FALSE
 	action_activate()
 	LAZYINCREMENT(owner.do_actions, target)
-	addtimer(CALLBACK(src, PROC_REF(decrease_do_action), target), windup_time)
+	addtimer(CALLBACK(src, PROC_REF(decrease_do_action), target), HUGGER_POUNCE_WINDUP_DURATION)
 	return TRUE
 
 ///Decrease the do_actions of the owner
@@ -143,3 +136,7 @@
 	LAZYDECREMENT(owner.do_actions, target)
 
 #undef HUG_RANGE
+#undef HUGGER_POUNCE_RANGE
+#undef HUGGER_POUNCE_PARALYZE_DURATION
+#undef HUGGER_POUNCE_STANDBY_DURATION
+#undef HUGGER_POUNCE_WINDUP_DURATION
