@@ -27,6 +27,7 @@
 	var/mob/living/carbon/xenomorph/caster = owner
 	caster.pass_flags = initial(caster.pass_flags)
 	caster.icon_state = "[caster.xeno_caste.caste_name] Walking"
+	caster.set_throwing(FALSE)
 	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENO_LIVING_THROW_HIT))
 
 /datum/action/ability/activable/xeno/pounce_hugger/proc/obj_hit(datum/source, obj/target, speed)
