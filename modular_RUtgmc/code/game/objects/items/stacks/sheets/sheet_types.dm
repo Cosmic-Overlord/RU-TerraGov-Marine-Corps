@@ -92,10 +92,3 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	new/datum/stack_recipe("sandstone floor tile", /obj/item/stack/tile/plasteel/sandstone/runed, 1, 4, 20), \
 	new/datum/stack_recipe("sandstone wall", /turf/closed/wall/mineral/sandstone/runed, req_amount = 15, time = 10 SECONDS, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE, skill_req = SKILL_CONSTRUCTION_MASTER),
 ))
-
-GLOBAL_LIST_INIT(runedsandstone_radial_images, list(
-	"brazier frame" = image('modular_RUtgmc/icons/obj/structures/torch.dmi', icon_state = "brazier_frame"),
-	"torch frame" = image('modular_RUtgmc/icons/obj/structures/torch.dmi', icon_state = "torch_frame"),
-	"runed sandstone floor tile" = image('icons/obj/stack_objects.dmi', icon_state = "tile"),
-	"runed sandstone wall" = image('icons/turf/walls/cult.dmi', icon_state = "cult-0"),
-	))
