@@ -84,7 +84,7 @@
 	icon_state = "autolathe"
 	icon_vend = "autholate_n"
 	products = list(
-		/obj/item/multitool/yautja = -1,
+		/obj/item/tool/multitool/yautja = -1,
 		/obj/item/tool/analyzer = -1,
 		/obj/item/t_scanner = -1,
 		/obj/item/taperecorder = -1,

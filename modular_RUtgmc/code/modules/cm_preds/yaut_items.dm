@@ -1094,7 +1094,7 @@
 	new /obj/item/tool/crowbar/yautja(src)
 	new /obj/item/tool/wirecutters/yautja(src)
 	new /obj/item/stack/cable_coil(src,30,pick("red","orange"))
-	new /obj/item/multitool/yautja(src)
+	new /obj/item/tool/multitool/yautja(src)
 
 /// SKULLS
 /obj/item/skull
@@ -1185,7 +1185,7 @@
 	force = 7
 	random_color = FALSE
 
-/obj/item/multitool/yautja
+/obj/item/tool/multitool/yautja
 	name = "yautja multitool"
 	desc = "Top notch alien tech for B&E through hacking."
 	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
