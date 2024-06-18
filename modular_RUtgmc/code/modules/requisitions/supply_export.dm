@@ -10,6 +10,9 @@
 			. = 100
 	return
 
+/mob/living/carbon/human/species/yautja/get_export_value()
+	return 3000
+
 /proc/can_sell_human_body(mob/living/carbon/human/human_to_sell, seller_faction)
 	var/to_sell_alignement = GLOB.faction_to_alignement[human_to_sell.faction]
 	switch(to_sell_alignement)

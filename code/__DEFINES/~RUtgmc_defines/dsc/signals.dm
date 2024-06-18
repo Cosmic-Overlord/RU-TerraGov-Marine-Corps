@@ -46,6 +46,26 @@
 #define COMSIG_XENOABILITY_CHIMERA_BODYSWAP "xenoability_chimera_bodyswap"
 #define COMSIG_XENOABILITY_CHIMERA_CRIPPLING_STRIKE "xenoability_chimera_crippling_strike"
 
+//Preds
+#define COMSIG_GLOB_YAUTJA_ARMORY_OPENED "yautja_armory_opened"
+
+#define COMSIG_ATOM_TELEPORT "atom_teleport"
+
+#define COMSIG_ATTEMPT_MOB_PULL "attempt_mob_pull"
+	#define COMPONENT_CANCEL_MOB_PULL (1<<0)
+
+#define COMSIG_ITEM_ATTEMPT_ATTACK "item_attempt_attack"		//Triggered on the target mob.
+
+/// From /mob/living/verb/resist()
+#define COMSIG_MOB_RECALCULATE_CLIENT_COLOR "mob_recalc_client_color"
+
+/// From /mob/living/carbon/human/ExtinguishMob()
+#define COMSIG_HUMAN_EXTINGUISH "human_extinguish"
+
+/// From /datum/flaying_datum
+#define COMSIG_HUMAN_FLAY_ATTEMPT "human_flay_attempt"
+
+#define COMSIG_XENOMORPH_INTERFERENCE "xenomorph_interference"
 
 #define COMSIG_XENOABILITY_CRESTTOSS_BEHIND "xenoability_cresttoss_behind"
 

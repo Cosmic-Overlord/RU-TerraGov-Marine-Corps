@@ -648,6 +648,53 @@
 	if(.)
 		return
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/grabber = user
+	if(grabber.a_intent != INTENT_GRAB)
+		return FALSE
+	// Yautja Bracer Recharge
+	var/obj/item/clothing/gloves/yautja/bracer = grabber.gloves
+	if(istype(bracer))
+		if(!COOLDOWN_CHECK(bracer, bracer_recharge))
+			to_chat(user, span_warning("It is too soon for [bracer.name] to siphon power again. Wait [COOLDOWN_TIMELEFT(bracer, bracer_recharge)] seconds."))
+			return FALSE
+		to_chat(user, span_notice("You rest your bracer against the APC interface and begin to siphon off some of the stored energy."))
+		if(!do_after(grabber, 20, TRUE, src, BUSY_ICON_HOSTILE))
+			return FALSE
+
+		if(machine_stat & (BROKEN|MAINT))
+			var/datum/effect_system/spark_spread/spark = new()
+			spark.set_up(3, 1, src)
+			spark.start()
+			to_chat(grabber, span_danger("The APC's power currents surge eratically, super-heating your bracer!"))
+			playsound(src.loc, 'sound/effects/sparks2.ogg', 25, 1)
+			grabber.apply_damage(10,0, BURN)
+			return FALSE
+		if(!cell || cell.charge <= 0)
+			to_chat(user, span_warning("There is no charge to draw from that APC."))
+			return FALSE
+
+		if(bracer.charge_max <= bracer.charge)
+			to_chat(user, span_warning("[bracer.name] is already fully charged."))
+			return FALSE
+
+		var/charge_to_use = min(cell.charge, bracer.charge_max - bracer.charge)
+		if(!(cell.use(charge_to_use)))
+			return FALSE
+		playsound(src.loc, 'sound/effects/sparks2.ogg', 25, 1)
+		bracer.charge += charge_to_use
+		COOLDOWN_START(bracer, bracer_recharge, bracer.charge_cooldown)
+		to_chat(grabber, span_yautjabold("[icon2html(bracer)] \The <b>[bracer]</b> beep: Power siphon complete. Charge at [bracer.charge]/[bracer.charge_max]."))
+		if(bracer.notification_sound)
+			playsound(bracer.loc, 'modular_RUtgmc/sound/items/pred_bracer.ogg', 75, 1)
+		charging = APC_CHARGING
+		set_broken() // Breaks the APC
+
+		return TRUE
+//RUTGMC EDIT ADDITION END
+
 	if(opened && cell && !issilicon(user))
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_ENGI)
 			balloon_alert_to_viewers("fumbles")

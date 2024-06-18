@@ -68,6 +68,12 @@
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
 
+/obj/alien/egg/hugger/forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/obj/alien/egg/hugger/forsaken/attack_ghost(mob/dead/observer/user)
+	return
+
 /obj/alien/egg/gas
 	desc = "It looks like a suspiciously weird egg"
 	name = "gas egg"
