@@ -6,7 +6,7 @@
 	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
 
 /obj/item/armor_module/module/style/heavy_armor
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 
 /obj/item/armor_module/module/motion_detector
@@ -73,6 +73,8 @@
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
+		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
+			continue
 		if(!hostile_detected && (!operator.wear_id || !nearby_human.wear_id || nearby_human.wear_id.iff_signal != operator.wear_id.iff_signal))
 			hostile_detected = TRUE
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
@@ -123,35 +125,13 @@
 		return
 	blips_list += new /obj/effect/blip/close_blip(get_turf(target), status, operator)
 
-/obj/item/armor_module/module/fire_proof/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/tyr_extra_armor/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/mimir_environment_protection/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/valkyrie_autodoc/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/module/welding/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/storage/engineering/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/storage/general/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
-/obj/item/armor_module/storage/medical/som
-	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
-
 /obj/item/armor_module/module/fire_proof
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 
 /obj/item/armor_module/module/fire_proof_helmet
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mod_fire_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	hard_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 
@@ -166,6 +146,8 @@
 */
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet //gas protection
 	desc = "Designed for mounting on a modular helmet. Provides great resistance to xeno gas clouds"
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 0)
 	slowdown = 0
 
@@ -181,12 +163,22 @@
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 5, BIO = 10, FIRE = 15, ACID = 10)
 	slowdown = 0
 
+/obj/item/armor_module/module/tyr_head
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
+
 /obj/item/armor_module/module/eshield
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	damaged_shield_cooldown = 15 SECONDS
 
+/obj/item/armor_module/module/artemis
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_xn")
+
 /obj/item/armor_module/module/binoculars/artemis_mark_two
 	var/eye_protection_mod = 1
+	icon = 'modular_RUtgmc/icons/mob/modular/modular_armor_modules.dmi'
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -199,6 +191,30 @@
 	blur_p?.RemoveComponent()
 	return ..()
 
+/obj/item/armor_module/module/fire_proof/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/tyr_extra_armor/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/mimir_environment_protection/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/valkyrie_autodoc/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/module/welding/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/storage/engineering/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/storage/general/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+
+/obj/item/armor_module/storage/medical/som
+	icon = 'modular_RUtgmc/icons/mob/modular/som_armor_modules.dmi'
+  
 /obj/item/armor_module/module/antenna/activate(mob/living/user)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)

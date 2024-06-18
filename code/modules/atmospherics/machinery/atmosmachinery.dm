@@ -274,6 +274,7 @@
 		playsound(src, get_sfx("alien_ventpass"), 35, TRUE)
 
 
+/* RUTGMC DELETION
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
 	direction &= initialize_directions
 	if(!direction || !(direction in GLOB.cardinals)) //cant go this way.
@@ -306,6 +307,7 @@
 		climb_out(user, src.loc)
 
 	//PLACEHOLDER COMMENT FOR ME TO READD THE 1 (?) DS DELAY THAT WAS IMPLEMENTED WITH A... TIMER?
+*/
 
 
 /obj/machinery/atmospherics/proc/can_crawl_through()

@@ -550,7 +550,7 @@
 				message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
 
 
-/mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
+/mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE, client/override_client)
 	var/datum/outfit/O = null
 
 	if(ispath(outfit))
@@ -562,7 +562,7 @@
 	if(!O)
 		return FALSE
 
-	return O.equip(src, visualsOnly)
+	return O.equip(src, visualsOnly, override_client)
 
 
 /mob/living/carbon/human/proc/delete_equipment(save_id = FALSE)

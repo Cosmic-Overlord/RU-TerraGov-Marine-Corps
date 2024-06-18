@@ -10,6 +10,12 @@
 	set desc = "Check the status of your current hive."
 	set category = "Alien"
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(interference)
+		to_chat(src, span_warning("A headhunter temporarily cut off your psychic connection!"))
+		return
+//RUTGMC EDIT ADDITION END
+
 	check_hive_status(src)
 
 /mob/living/carbon/xenomorph/verb/tunnel_list()
@@ -542,10 +548,6 @@
 /mob/living/carbon/xenomorph/proc/clean_tracked(atom/to_track)
 	SIGNAL_HANDLER
 	tracked = null
-
-///Handles empowered abilities, should return TRUE if the ability should be empowered. Empowerable should be FALSE if the ability cannot itself be empowered but has interactions with empowerable abilities
-/mob/living/carbon/xenomorph/proc/empower(empowerable = TRUE)
-	return FALSE
 
 ///Handles icon updates when leadered/unleadered. Evolution.dm also uses this
 /mob/living/carbon/xenomorph/proc/update_leader_icon(makeleader = TRUE)

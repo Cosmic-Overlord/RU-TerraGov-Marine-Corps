@@ -47,3 +47,7 @@
 		/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack,
 		/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack,
 	)
+
+/obj/item/storage/belt/grenade/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/tac_reload_storage)

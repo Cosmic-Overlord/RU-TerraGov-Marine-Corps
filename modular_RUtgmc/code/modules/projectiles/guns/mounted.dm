@@ -33,3 +33,4 @@
 ///HSG-102, now with full auto. It is not a superclass of deployed guns, however there are a few varients.
 /obj/item/weapon/gun/tl102
 	reload_sound = 'modular_RUtgmc/sound/weapons/guns/machineguns/HMG-08/HMG-08_jam.ogg'
+	deploy_time = 3 SECONDS

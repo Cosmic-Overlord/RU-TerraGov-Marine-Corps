@@ -13,6 +13,8 @@
 	tier = XENO_TIER_THREE
 	upgrade = XENO_UPGRADE_NORMAL
 	var/emitting_gas = FALSE
+/* RU TGMC EDIT
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
+RU TGMC EDIT */

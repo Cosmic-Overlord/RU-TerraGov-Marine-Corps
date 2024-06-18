@@ -97,9 +97,10 @@
 		<b>Transformation:</b>
 		<br> Special:
 		<a href='?src=[ref];transform=observer;mob=[REF(M)]'>Observer</a> |
-		<a href='?src=[ref];transform=ai;mob=[REF(M)]'>AI</a>
+		<a href='?src=[ref];transform=ai;mob=[REF(M)]'>AI</a> |
 		<a href='?src=[ref];transform=sectoid;mob=[REF(M)]'>Sectoid</a> |
-		<a href='?src=[ref];transform=SKELETON;mob=[REF(M)]'>SKELETON</a>
+		<a href='?src=[ref];transform=SKELETON;mob=[REF(M)]'>SKELETON</a> |
+		<a href='?src=[ref];transform=yautja;mob=[REF(M)]'>Yautja</a>
 		<br> Humanoid:
 		<a href='?src=[ref];transform=human;mob=[REF(M)]'>Human</a> |
 		<a href='?src=[ref];transform=synthetic;mob=[REF(M)]'>Synthetic</a> |
@@ -109,9 +110,11 @@
 		<a href='?src=[ref];transform=combat_robot;mob=[REF(M)]'>Combat_Robot</a> |
 		<a href='?src=[ref];transform=monkey;mob=[REF(M)]'>Monkey</a> |
 		<a href='?src=[ref];transform=moth;mob=[REF(M)]'>Moth</a> |
-		<a href='?src=[ref];transform=zombie;mob=[REF(M)]'>Zombie</a>
+		<a href='?src=[ref];transform=zombie;mob=[REF(M)]'>Zombie</a> |
+		<a href='?src=[ref];transform=hellhound;mob=[REF(M)]'>Hellhound</a>
 		<br> Alien Tier 0:
 		<a href='?src=[ref];transform=larva;mob=[REF(M)]'>Larva</a> |
+		<a href='?src=[ref];transform=predalien_larva;mob=[REF(M)]'>Predalien Larva</a> |
 		<a href='?src=[ref];transform=facehugger;mob=[REF(M)]'>Facehugger</a>
 		<br> Alien Tier 1:
 		<a href='?src=[ref];transform=runner;mob=[REF(M)]'>Runner</a> |
@@ -140,7 +143,8 @@
 		<a href='?src=[ref];transform=queen;mob=[REF(M)]'>Queen</a> |
 		<a href='?src=[ref];transform=shrike;mob=[REF(M)]'>Shrike</a> |
 		<a href='?src=[ref];transform=hivemind;mob=[REF(M)]'>Hivemind</a> |
-		<a href='?src=[ref];transform=king;mob=[REF(M)]'>King</a>
+		<a href='?src=[ref];transform=king;mob=[REF(M)]'>King</a> |
+		<a href='?src=[ref];transform=predalien;mob=[REF(M)]'>Predalien</a>
 		<br>
 	"}
 

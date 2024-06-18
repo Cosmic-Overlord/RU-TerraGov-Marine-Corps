@@ -218,12 +218,16 @@
 					return TRUE
 
 //medical hud used by ghosts
+
+/datum/atom_hud/medical/add_to_single_hud(mob/user, mob/target)
+	return ..()
+
 /datum/atom_hud/medical/observer
-	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, XENO_BANISHED_HUD)
+	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, XENO_BANISHED_HUD, HUNTER_CLAN, HUNTER_HUD, HUNTER_HEALTH_HUD)
 
 //Xeno status hud, for xenos
 /datum/atom_hud/xeno
-	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_PRIMO_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
+	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_PRIMO_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, HUNTER_HUD)
 
 /mob/living/carbon/xenomorph/proc/hud_set_banished()
 	var/image/holder = hud_list[XENO_BANISHED_HUD]
@@ -244,6 +248,13 @@
 
 	hud_list[XENO_RANK_HUD] = holder
 
+/datum/atom_hud/hunter_clan
+	hud_icons = list(HUNTER_CLAN)
+
+
+/datum/atom_hud/hunter_hud
+	hud_icons = list(HUNTER_HUD, HUNTER_HEALTH_HUD)
+
 /mob/living/carbon/xenomorph/proc/hud_update_primo()
 	var/image/holder = hud_list[XENO_PRIMO_HUD]
 	if(!holder)
@@ -256,8 +267,7 @@
 
 	hud_list[XENO_PRIMO_HUD] = holder
 
-
-/mob/living/carbon/human/med_hud_set_health()
+/mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"
@@ -324,10 +334,14 @@
 		else
 			holder.icon_state = "hudhealth-100"
 
+/mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
+	. = ..()
+
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
 		return FALSE
-
+	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO))
+		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"
