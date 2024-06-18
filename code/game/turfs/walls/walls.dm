@@ -320,6 +320,12 @@
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return
 
+//RUTGMC EDIT
+	else if(istype(I, /obj/item/frame/torch_frame))
+		var/obj/item/frame/torch_frame/AH = I
+		AH.try_build(src)
+//RUTGMC EDIT
+
 	else if(istype(I, /obj/item/frame/apc))
 		var/obj/item/frame/apc/AH = I
 		AH.try_build(src, user)

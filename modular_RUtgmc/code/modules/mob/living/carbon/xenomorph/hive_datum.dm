@@ -6,6 +6,10 @@
 	var/list/hive_forbiden_castes = list()
 	var/forbid_count = 0
 
+///list of thick resin nests
+	var/max_thick_nests = 0
+	var/list/obj/structure/xeno/thick_nest/thick_nests = list()
+
 // ***************************************
 // *********** Init
 // ***************************************
@@ -39,6 +43,8 @@
 // *********** Facehuggers proc
 // ***************************************
 /datum/hive_status/proc/can_spawn_as_hugger(mob/dead/observer/user)
+	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_SENTIENT_HUGGER))
+		return FALSE
 
 	if(!user.client?.prefs || is_banned_from(user.ckey, ROLE_XENOMORPH))
 		return FALSE
@@ -46,8 +52,10 @@
 	if(GLOB.key_to_time_of_death[user.key] + TIME_BEFORE_TAKING_BODY > world.time && !user.started_as_observer)
 		to_chat(user, span_warning("You died too recently to be able to take a new facehugger."))
 		return FALSE
-	
-	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become part of the Horde!", list("Yes", "No")) != "Yes")
+
+	TIMER_COOLDOWN_START(src, COOLDOWN_SENTIENT_HUGGER, 5 SECONDS)
+	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become part of the Horde!", list("Yes", "No"), 5 SECONDS) != "Yes")
+		TIMER_COOLDOWN_END(src, COOLDOWN_SENTIENT_HUGGER)
 		return FALSE
 
 	if(length(facehuggers) >= MAX_FACEHUGGERS)
@@ -308,6 +316,23 @@
 /datum/hive_status/normal/on_shuttle_hijack(obj/docking_port/mobile/marine_dropship/hijacked_ship)
 	SSticker.mode.update_silo_death_timer(src)
 	return ..()
+
+/datum/hive_status/forsaken
+	name = "Forsaken Hive"
+	hivenumber = XENO_HIVE_FORSAKEN
+	prefix = "Forsaken "
+	color = "#cc8ec4"
+
+/datum/hive_status/forsaken/can_xeno_message()
+	return TRUE // can always talk in hivemind
+
+/datum/hive_status/yautja
+	name = "Yautja"
+	hivenumber = XENO_HIVE_YAUTJA
+	prefix = "Yautja "
+
+/datum/hive_status/yautja/can_xeno_message()
+	return FALSE
 
 /datum/hive_status/proc/update_tier_limits()
 	var/zeros = get_total_tier_zeros()

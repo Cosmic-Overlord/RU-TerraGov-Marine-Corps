@@ -483,6 +483,15 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/panther, location, null, delmob)
 			if("chimera")
 				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/chimera, location, null, delmob)
+			//PREDS
+			if("hellhound")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/hellhound, location, null, delmob)
+			if("predalien_larva")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/larva/predalien, location, null, delmob)
+			if("predalien")
+				newmob = M.change_mob_type(/mob/living/carbon/xenomorph/predalien, location, null, delmob)
+			if("yautja")
+				newmob = M.change_mob_type(/mob/living/carbon/human/species/yautja, location, null, delmob)
 			//RUTGMC EDIT END
 
 		C.holder.show_player_panel(newmob)
@@ -1142,6 +1151,19 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				log_admin("[key_name(src)] has [SSevacuation.flags_scuttle & FLAGS_SELF_DESTRUCT_DENY ? "forbidden" : "allowed"] the self-destruct system.")
 				message_admins("[ADMIN_TPMONTY(usr)] has [SSevacuation.flags_scuttle & FLAGS_SELF_DESTRUCT_DENY ? "forbidden" : "allowed"] the self-destruct system.")
 
+//RU TGMC EDIT
+	else if(href_list["admincancelpredsd"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/obj/item/clothing/gloves/yautja/hunter/bracer = locate(href_list["bracer"])
+		var/mob/living/carbon/victim = locate(href_list["victim"])
+		if (!istype(bracer))
+			return
+		if (alert("Are you sure you want to cancel this pred SD?",,"Yes","No") != "Yes")
+			return
+		bracer.exploding = FALSE
+		message_admins("[src.owner] has cancelled the predator self-destruct sequence [victim ? "of [victim] ([victim.key])":""].")
+//RU TGMC EDIT
 
 	else if(href_list["object_list"])
 		if(!check_rights(R_SPAWN))
@@ -1863,7 +1885,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				previous = H.gender
 				H.gender = change
 			if("ethnicity")
-				change = input("Select the ethnicity.", "Edit Appearance") as null|anything in sortList(GLOB.ethnicities_list)
+				change = input("Select the ethnicity.", "Edit Appearance") as null|anything in sortList(GLOB.human_ethnicities_list)
 				if(!change || !istype(H))
 					return
 				previous = H.ethnicity

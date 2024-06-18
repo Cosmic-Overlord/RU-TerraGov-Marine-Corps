@@ -34,6 +34,9 @@
 	if(huggers >= xeno_caste.huggers_max)
 		balloon_alert(F, "The carrier has no space")
 		return
+	if(F.health < F.maxHealth)
+		balloon_alert(F, "You're too damaged!")
+		return
 
 	huggers++
 	F.visible_message(span_xenowarning("[F] climb on the [src]."),span_xenonotice("You climb on the [src]."))

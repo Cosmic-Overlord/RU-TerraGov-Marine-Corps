@@ -343,6 +343,13 @@ RU TGMC EDIT */
 /datum/action/ability/activable/xeno/pounce/proc/trigger_pounce_effect(mob/living/living_target)
 	playsound(get_turf(living_target), 'sound/voice/alien_pounce.ogg', 25, TRUE)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
+// RU TGMC EDIT START 
+	if(istype(owner, /mob/living/carbon/xenomorph/predalien))
+		owner.playsound_local(owner, 'sound/voice/predalien_pounce.ogg', 25, 0, 1)
+	else
+		playsound(living_target.loc, 'sound/voice/alien_pounce.ogg', 25, TRUE)
+// RU TGMC EDIT END
+	xeno_owner.set_throwing(FALSE)
 	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
 	xeno_owner.forceMove(get_turf(living_target))
 	living_target.Knockdown(XENO_POUNCE_STUN_DURATION)

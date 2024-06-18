@@ -217,5 +217,5 @@
 #define X_R_HAND_LAYER 4
 #define X_TARGETED_LAYER 3
 #define X_FIRE_LAYER 1
-#define X_TOTAL_LAYERS 9
+// #define X_TOTAL_LAYERS 9 RU TGMC EDIT
 /////////////////////////////////
