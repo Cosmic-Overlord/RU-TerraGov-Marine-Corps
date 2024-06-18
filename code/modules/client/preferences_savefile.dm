@@ -409,6 +409,30 @@
 	READ_FILE(S["xeno_name"], xeno_name)
 	READ_FILE(S["ai_name"], ai_name)
 
+//RUTGMC EDIT
+	READ_FILE(S["pred_name"], predator_name)
+	READ_FILE(S["pred_gender"], predator_gender)
+	READ_FILE(S["pred_age"], predator_age)
+	READ_FILE(S["pred_use_legacy"], predator_use_legacy)
+	READ_FILE(S["pred_trans_type"], predator_translator_type)
+	READ_FILE(S["pred_mask_type"], predator_mask_type)
+	READ_FILE(S["pred_armor_type"], predator_armor_type)
+	READ_FILE(S["pred_boot_type"], predator_boot_type)
+	READ_FILE(S["pred_mask_mat"], predator_mask_material)
+	READ_FILE(S["pred_armor_mat"], predator_armor_material)
+	READ_FILE(S["pred_greave_mat"], predator_greave_material)
+	READ_FILE(S["pred_caster_mat"], predator_caster_material)
+	READ_FILE(S["pred_cape_type"], predator_cape_type)
+	READ_FILE(S["pred_cape_color"], predator_cape_color)
+	READ_FILE(S["pred_h_style"], predator_h_style)
+	READ_FILE(S["pred_skin_color"], predator_skin_color)
+	READ_FILE(S["pred_flavor_text"], predator_flavor_text)
+	READ_FILE(S["pred_r_eyes"], pred_r_eyes)
+	READ_FILE(S["pred_g_eyes"], pred_g_eyes)
+	READ_FILE(S["pred_b_eyes"], pred_b_eyes)
+	READ_FILE(S["yautja_status"], yautja_status)
+//RUTGMC EDIT
+
 	READ_FILE(S["real_name"], real_name)
 	READ_FILE(S["random_name"], random_name)
 	READ_FILE(S["gender"], gender)
@@ -507,6 +531,12 @@
 	g_facial = sanitize_integer(g_facial, 0, 255, initial(g_facial))
 	b_facial = sanitize_integer(b_facial, 0, 255, initial(b_facial))
 
+//RUTGMC EDIT
+	pred_r_eyes = sanitize_integer(pred_r_eyes, 0, 255, initial(pred_r_eyes))
+	pred_g_eyes = sanitize_integer(pred_g_eyes, 0, 255, initial(pred_g_eyes))
+	pred_b_eyes = sanitize_integer(pred_b_eyes, 0, 255, initial(pred_b_eyes))
+//RUTGMC EDIT
+
 	r_eyes = sanitize_integer(r_eyes, 0, 255, initial(r_eyes))
 	g_eyes = sanitize_integer(g_eyes, 0, 255, initial(g_eyes))
 	b_eyes = sanitize_integer(b_eyes, 0, 255, initial(b_eyes))
@@ -559,6 +589,27 @@
 	xeno_name = reject_bad_name(xeno_name)
 	ai_name = reject_bad_name(ai_name, TRUE)
 
+//RUTGMC EDIT
+	predator_name = predator_name ? sanitize_text(predator_name, initial(predator_name)) : initial(predator_name)
+	predator_gender = sanitize_text(predator_gender, initial(predator_gender))
+	predator_age = sanitize_integer(predator_age, 100, 10000, initial(predator_age))
+	predator_use_legacy = sanitize_inlist(predator_use_legacy, PRED_LEGACIES, initial(predator_use_legacy))
+	predator_translator_type = sanitize_inlist(predator_translator_type, PRED_TRANSLATORS, initial(predator_translator_type))
+	predator_mask_type = sanitize_integer(predator_mask_type,1,1000000,initial(predator_mask_type))
+	predator_armor_type = sanitize_integer(predator_armor_type,1,1000000,initial(predator_armor_type))
+	predator_boot_type = sanitize_integer(predator_boot_type,1,1000000,initial(predator_boot_type))
+	predator_mask_material = sanitize_inlist(predator_mask_material, PRED_MATERIALS, initial(predator_mask_material))
+	predator_armor_material = sanitize_inlist(predator_armor_material, PRED_MATERIALS, initial(predator_armor_material))
+	predator_greave_material = sanitize_inlist(predator_greave_material, PRED_MATERIALS, initial(predator_greave_material))
+	predator_caster_material = sanitize_inlist(predator_caster_material, PRED_MATERIALS + "retro", initial(predator_caster_material))
+	predator_cape_type = sanitize_inlist(predator_cape_type, GLOB.all_yautja_capes + "None", initial(predator_cape_type))
+	predator_cape_color = sanitize_hexcolor(predator_cape_color, 6, TRUE, initial(predator_cape_color))
+	predator_h_style = sanitize_inlist(predator_h_style, GLOB.yautja_hair_styles_list, initial(predator_h_style))
+	predator_skin_color = sanitize_inlist(predator_skin_color, PRED_SKIN_COLOR, initial(predator_skin_color))
+	predator_flavor_text = predator_flavor_text ? sanitize_text(predator_flavor_text, initial(predator_flavor_text)) : initial(predator_flavor_text)
+	yautja_status = sanitize_inlist(yautja_status, WHITELIST_HIERARCHY + list("Elder"), initial(yautja_status))
+//RUTGMC EDIT
+
 	real_name = reject_bad_name(real_name, TRUE)
 	random_name = sanitize_integer(random_name, FALSE, TRUE, initial(random_name))
 	gender = sanitize_gender(gender, TRUE, TRUE)
@@ -597,6 +648,12 @@
 	g_facial = sanitize_integer(g_facial, 0, 255, initial(g_facial))
 	b_facial = sanitize_integer(b_facial, 0, 255, initial(b_facial))
 
+//RUTGMC EDIT
+	pred_r_eyes = sanitize_integer(pred_r_eyes, 0, 255, initial(pred_r_eyes))
+	pred_g_eyes = sanitize_integer(pred_g_eyes, 0, 255, initial(pred_g_eyes))
+	pred_b_eyes = sanitize_integer(pred_b_eyes, 0, 255, initial(pred_b_eyes))
+//RUTGMC EDIT
+
 	r_eyes = sanitize_integer(r_eyes, 0, 255, initial(r_eyes))
 	g_eyes = sanitize_integer(g_eyes, 0, 255, initial(g_eyes))
 	b_eyes = sanitize_integer(b_eyes, 0, 255, initial(b_eyes))
@@ -622,6 +679,30 @@
 	WRITE_FILE(S["robot_type"], robot_type)
 	WRITE_FILE(S["xeno_name"], xeno_name)
 	WRITE_FILE(S["ai_name"], ai_name)
+
+//RUTGMC EDIT
+	WRITE_FILE(S["pred_name"], predator_name)
+	WRITE_FILE(S["pred_gender"], predator_gender)
+	WRITE_FILE(S["pred_age"], predator_age)
+	WRITE_FILE(S["pred_use_legacy"], predator_use_legacy)
+	WRITE_FILE(S["pred_trans_type"], predator_translator_type)
+	WRITE_FILE(S["pred_mask_type"], predator_mask_type)
+	WRITE_FILE(S["pred_armor_type"], predator_armor_type)
+	WRITE_FILE(S["pred_boot_type"], predator_boot_type)
+	WRITE_FILE(S["pred_mask_mat"], predator_mask_material)
+	WRITE_FILE(S["pred_armor_mat"], predator_armor_material)
+	WRITE_FILE(S["pred_greave_mat"], predator_greave_material)
+	WRITE_FILE(S["pred_caster_mat"], predator_caster_material)
+	WRITE_FILE(S["pred_cape_type"], predator_cape_type)
+	WRITE_FILE(S["pred_cape_color"], predator_cape_color)
+	WRITE_FILE(S["pred_h_style"], predator_h_style)
+	WRITE_FILE(S["pred_skin_color"], predator_skin_color)
+	WRITE_FILE(S["pred_flavor_text"], predator_flavor_text)
+	WRITE_FILE(S["pred_r_eyes"], pred_r_eyes)
+	WRITE_FILE(S["pred_g_eyes"], pred_g_eyes)
+	WRITE_FILE(S["pred_b_eyes"], pred_b_eyes)
+	WRITE_FILE(S["yautja_status"], yautja_status)
+//RUTGMC EDIT
 
 	WRITE_FILE(S["real_name"], real_name)
 	WRITE_FILE(S["random_name"], random_name)

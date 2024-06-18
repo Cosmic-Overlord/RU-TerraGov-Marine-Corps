@@ -21,6 +21,31 @@ type CharacterCustomizationData = {
   b_eyes: number;
 };
 
+type YautjaCustomizationData = {
+  has_wl: number;
+  legacy: number;
+  predator_name: string;
+  predator_gender: string;
+  predator_age: number;
+  predator_h_style: string;
+  predator_skin_color: string;
+  predator_translator_type: string;
+  predator_mask_type: number;
+  predator_armor_type: number;
+  predator_boot_type: number;
+  predator_armor_material: string;
+  predator_mask_material: string;
+  predator_greave_material: string;
+  predator_caster_material: string;
+  predator_cape_type: string;
+  predator_cape_color: string;
+  predator_flavor_text: string;
+  pred_r_eyes: number;
+  pred_g_eyes: number;
+  pred_b_eyes: number;
+  yautja_status: string;
+};
+
 type BackgroundInformationData = {
   slot: number;
   flavor_text: string;
@@ -164,6 +189,7 @@ type PreferencesJobDatum = {
   description: string;
   banned: number;
   playtime_req: number;
+  exp_string: string;
   account_age_req: number;
   flags: PreferencesFlagsList;
 };

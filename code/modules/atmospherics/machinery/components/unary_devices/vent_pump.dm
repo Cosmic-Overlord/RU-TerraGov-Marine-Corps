@@ -123,10 +123,12 @@
 		to_chat(user, span_warning("You cannot unwrench [src], turn it off first!"))
 		return FALSE
 
+/* RUTGMC DELETION
 /obj/machinery/atmospherics/components/unary/vent_pump/examine(mob/user)
 	. = ..()
 	if(welded)
 		. += "It seems welded shut."
+*/
 
 /obj/machinery/atmospherics/components/unary/vent_pump/power_change()
 	..()

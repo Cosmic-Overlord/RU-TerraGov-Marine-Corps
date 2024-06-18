@@ -1,5 +1,5 @@
 /datum/action/ability/xeno_action/watch_xeno
-	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_AGILITY
+	use_state_flags = ABILITY_USE_LYING
 
 /datum/action/ability/activable/xeno/screech
 	cooldown_duration = 90 SECONDS

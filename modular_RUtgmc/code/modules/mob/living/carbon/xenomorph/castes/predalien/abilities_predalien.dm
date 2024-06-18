@@ -6,8 +6,7 @@
 	desc = "Leap at your targer stunning and slashing them. Stun duration and damage increases with each stack of hunted prey."
 	action_icon_state = "powerful_pounce"
 
-	range = 5
-	mob_hit_sound = 'sound/voice/predalien_pounce.ogg'
+	pounce_range = 5
 
 	var/base_damage = 25
 	var/damage_scale = 10 // How much it scales by every kill
@@ -174,10 +173,10 @@
 	xeno.anchored = TRUE
 	xeno.Immobilize(30 SECONDS)
 
-	if(do_after(xeno, activation_delay, TRUE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+	if(do_after(xeno, activation_delay, NONE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
 		xeno.visible_message(span_xenohighdanger("[xeno] rips open the guts of [carbon]!"), span_xenohighdanger("You rip open the guts of [carbon]!"))
 		carbon.spawn_gibs()
-		playsound(get_turf(carbon), 'sound/effects/gibbed.ogg', 75, 1)
+		playsound(get_turf(carbon), 'modular_RUtgmc/sound/effects/gibbed.ogg', 75, 1)
 		carbon.apply_effect(0.5, WEAKEN)
 		carbon.apply_damage(base_damage + damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
@@ -188,7 +187,7 @@
 				xeno.setDir(turn(xeno.dir, 90))
 		xeno.do_attack_animation(carbon, ATTACK_EFFECT_BITE)
 
-	playsound(xeno, 'sound/voice/predalien_growl.ogg', 75, 0)
+	playsound(xeno, 'modular_RUtgmc/sound/voice/predalien_growl.ogg', 75, 0)
 
 	xeno.anchored = FALSE
 	xeno.SetImmobilized(0)

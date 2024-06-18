@@ -79,7 +79,7 @@
 
 /obj/item/tool/wirecutters/Initialize(mapload)
 	. = ..()
-	if(prob(50))
+	if(prob(50) && !istype(src, /obj/item/tool/wirecutters/yautja)) //RU TGMC EDIT
 		icon_state = "cutters-y"
 		item_state = "cutters_yellow"
 

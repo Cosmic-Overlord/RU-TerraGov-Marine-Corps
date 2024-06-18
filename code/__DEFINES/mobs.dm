@@ -401,10 +401,12 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 
 // Human Overlay Indexes
+/* RU TGMC EDIT
 #define LASER_LAYER 29 //For sniper targeting laser
 #define MOTH_WINGS_LAYER 28
 #define MUTATIONS_LAYER 27
 #define DAMAGE_LAYER 26
+RU TGMC EDIT */
 #define UNIFORM_LAYER 25
 #define TAIL_LAYER 24 //bs12 specific. this hack is probably gonna come back to haunt me
 #define ID_LAYER 23
@@ -430,9 +432,9 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define OVERHEALTH_SHIELD_LAYER 3
 #define TARGETED_LAYER 2 //for target sprites when held at gun point, and holo cards.
 #define FIRE_LAYER 1 //If you're on fire
-
+/* RU TGMC EDIT
 #define TOTAL_LAYERS 29
-
+RU TGMC EDIT */
 #define MOTH_WINGS_BEHIND_LAYER 1
 
 #define TOTAL_UNDERLAYS 1
@@ -704,11 +706,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 
 #define WRAITH_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS //Stagger and slow stacks applied to adjacent living hostiles before/after a teleport
 #define WRAITH_TELEPORT_DEBUFF_SLOWDOWN_STACKS 3 //Stagger and slow stacks applied to adjacent living hostiles before/after a teleport
-
-//Warrior defines
-
-#define WARRIOR_COMBO_THRESHOLD 2 //After how many abilities should warrior get an empowered cast (2 meaning the 3rd one is empowered)
-#define WARRIOR_COMBO_FADEOUT_TIME 10 SECONDS //How much time does it take for a combo to completely disappear
 
 //Larva defines
 #define LARVA_VENT_CRAWL_TIME 1 SECONDS //Larva can crawl into vents fast
