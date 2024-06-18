@@ -105,7 +105,6 @@
 	. = ..()
 	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.add_to_hud(H)
-	add_inherent_abilities(H)
 
 	for(var/datum/limb/limb in H.limbs)
 		switch(limb.name)
