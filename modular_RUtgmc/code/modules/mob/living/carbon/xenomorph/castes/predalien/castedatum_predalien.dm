@@ -21,9 +21,6 @@
 	// *** Health *** //
 	max_health = 650
 
-	// *** Evolution *** //
-	upgrade_threshold = TIER_THREE_THRESHOLD
-
 	// *** Minimap Icon *** //
 	minimap_icon = "predalien"
 

@@ -116,7 +116,9 @@
 		return
 
 	if(teleport_x && teleport_y && teleport_z)
-
+// RU TGMC EDIT
+		SEND_SIGNAL(A, COMSIG_ATOM_TELEPORT, src)
+// RU TGMC EDIT
 		switch(teleportation_type)
 			if(1)
 				sleep(animation_teleport_quick_out(A)) //Sleep for the duration of the animation.
@@ -126,10 +128,14 @@
 				sleep(animation_teleport_spooky_out(A))
 
 		if(A?.loc)
+/*
 			A.x = teleport_x
 			A.y = teleport_y
 			A.z = teleport_z
-
+*/
+// RUTGMC EDIT
+			A.forceMove(get_turf(locate(teleport_x, teleport_y, teleport_z)))
+//RUTGMC EDIT
 			switch(teleportation_type)
 				if(1)
 					animation_teleport_quick_in(A)

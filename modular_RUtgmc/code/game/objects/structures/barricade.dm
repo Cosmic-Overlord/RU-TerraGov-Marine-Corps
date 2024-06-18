@@ -194,3 +194,10 @@
 				living_carbon.Knockdown(2 SECONDS) //Leaping into barbed wire is VERY bad
 				playsound(living_carbon, 'modular_RUtgmc/sound/machines/bonk.ogg', 75, FALSE)
 	..()
+
+/obj/structure/barricade/metal/handrail
+	resistance_flags = INDESTRUCTIBLE
+	icon_state = "handrail_strata"
+	name = "handrail"
+	barricade_type = "handrail"
+	icon = 'modular_RUtgmc/icons/Marine/barricades.dmi'

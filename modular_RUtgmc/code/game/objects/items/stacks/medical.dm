@@ -1,6 +1,27 @@
+/obj/item/stack/medical
+	var/alien = FALSE
+
 #define BANDAGE (1<<0)
 #define SALVE (1<<1)
 #define DISINFECT (1<<2)
+
+/obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator
+	name = "mending herbs"
+	singular_name = "mending herb"
+	desc = "A poultice made of soft leaves that is rubbed on bruises."
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon_state = "brute_herbs"
+	heal_brute = 15
+	alien = TRUE
+
+/obj/item/stack/medical/heal_pack/ointment/predator
+	name = "soothing herbs"
+	singular_name = "soothing herb"
+	desc = "A poultice made of cold, blue petals that is rubbed on burns."
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon_state = "burn_herbs"
+	heal_burn = 15
+	alien = TRUE
 
 /// return TRUE if a given limb can be healed by src, FALSE otherwise
 /obj/item/stack/medical/heal_pack/can_heal_limb(datum/limb/affecting)
@@ -69,6 +90,24 @@
 		return
 	user.visible_message(span_notice("[user] covers the wounds on [patient]'s [target_limb.display_name] with regenerative membrane."),
 	span_notice("You cover the wounds on [patient]'s [target_limb.display_name] with regenerative membrane."))
+
+/obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator
+	name = "mending herbs"
+	singular_name = "mending herb"
+	desc = "A poultice made of soft leaves that is rubbed on bruises."
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon_state = "brute_herbs"
+	heal_brute = 15
+	alien = TRUE
+
+/obj/item/stack/medical/heal_pack/ointment/predator
+	name = "soothing herbs"
+	singular_name = "soothing herb"
+	desc = "A poultice made of cold, blue petals that is rubbed on burns."
+	icon = 'modular_RUtgmc/icons/obj/hunter/pred_gear.dmi'
+	icon_state = "burn_herbs"
+	heal_burn = 15
+	alien = TRUE
 
 #undef BANDAGE
 #undef SALVE

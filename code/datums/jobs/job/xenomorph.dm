@@ -26,7 +26,7 @@
 /datum/job/xenomorph/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/carbon/xenomorph/larva
 
-/datum/job/xenomorph/return_spawn_turf()
+/datum/job/xenomorph/return_spawn_turf(mob/living/new_character, client/player)
 	if(length(GLOB.xeno_resin_silos_by_hive[XENO_HIVE_NORMAL]))
 		return pick(GLOB.xeno_resin_silos_by_hive[XENO_HIVE_NORMAL])
 	return pick(GLOB.spawns_by_job[/datum/job/xenomorph])
@@ -75,7 +75,7 @@
 /datum/job/xenomorph/queen/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/carbon/xenomorph/shrike
 
-/datum/job/xenomorph/queen/return_spawn_turf()
+/datum/job/xenomorph/queen/return_spawn_turf(mob/living/new_character, client/player)
 	return pick(GLOB.spawns_by_job[/datum/job/xenomorph])
 
 /datum/job/xenomorph/queen/radio_help_message(mob/M)

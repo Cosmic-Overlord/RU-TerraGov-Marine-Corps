@@ -116,11 +116,12 @@
 
 			visible_message(span_danger("[H] [pick(attack.attack_verb)]ed [src]!"), null, null, 5)
 			var/list/hit_report = list()
+/* RU TGMC EDIT //FUCK MELEE STUNS
 			if(damage >= 5 && prob(50))
 				visible_message(span_danger("[H] has weakened [src]!"), null, null, 5)
 				apply_effect(modify_by_armor(6 SECONDS, MELEE, def_zone = target_zone), WEAKEN)
 				hit_report += "(KO)"
-
+RU TGMC EDIT */
 			damage += attack.damage
 			apply_damage(damage, BRUTE, target_zone, MELEE, attack.sharp, attack.edge, updating_health = TRUE)
 

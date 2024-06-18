@@ -122,3 +122,7 @@
 		new_resin = new X.selected_resin(T)
 	if(new_resin)
 		SSresinshaping.increment_build_counter(owner)
+
+/datum/action/ability/activable/xeno/pounce/hellhound
+	cooldown_duration = 5 SECONDS
+
