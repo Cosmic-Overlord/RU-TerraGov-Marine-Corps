@@ -2,7 +2,6 @@
 	. = ..()
 	if(pipe_vision_img)
 		pipe_vision_img.loc = loc
-	var/missing_nodes = FALSE
 	for(var/i in 1 to device_type)
 		if(nodes[i])
 			var/obj/machinery/atmospherics/node = nodes[i]
@@ -11,12 +10,8 @@
 				if(node in get_step(src, D))
 					connected = TRUE
 					break
-
 			if(!connected)
 				nullifyNode(i)
-
-		if(!nodes[i])
-			missing_nodes = TRUE
 
 	atmosinit()
 	for(var/obj/machinery/atmospherics/A in pipeline_expansion())
