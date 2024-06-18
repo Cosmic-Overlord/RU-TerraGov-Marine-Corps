@@ -95,7 +95,11 @@
 		//TIMER_COOLDOWN_START(user, COOLDOWN_NEST, NEST_UNBUCKLED_COOLDOWN) //RUTGMC EDIT REMOVAL
 		silent = TRUE
 		return ..()
-
+// RU TGMC EDIT
+	if(force_nest)
+		to_chat(buckled_mob, span_warning("Nest to thick, you can't resist."))
+		return FALSE
+// RU TGMC EDIT
 	if(buckled_mob.incapacitated(TRUE))
 		to_chat(buckled_mob, span_warning("You're currently unable to try that."))
 		return FALSE

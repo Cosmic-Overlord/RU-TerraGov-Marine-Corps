@@ -323,6 +323,11 @@
 	if(CHECK_BITFIELD(species_flags, NO_POISON) && istype(chem, /datum/reagent/toxin))
 		H.reagents.remove_reagent(chem.type, chem.custom_metabolism * H.metabolism_efficiency)
 		return TRUE
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(isyautja(H) && istype(chem, /datum/reagent/medicine))
+		H.reagents.remove_reagent(chem.type, chem.custom_metabolism * H.metabolism_efficiency)
+		return TRUE
+//RUTGMC EDIT ADDITION END
 	if(CHECK_BITFIELD(species_flags, NO_OVERDOSE)) //no stacking
 		if(chem.overdose_threshold && chem.volume > chem.overdose_threshold)
 			H.reagents.remove_reagent(chem.type, chem.volume - chem.overdose_threshold)

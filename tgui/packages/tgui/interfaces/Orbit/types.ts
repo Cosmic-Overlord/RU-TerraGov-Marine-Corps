@@ -11,6 +11,7 @@ export type OrbitData = {
   misc: Observable[];
   npcs: Observable[];
   som: Observable[];
+  yautja: Observable[];
   survivors: Observable[];
   xenos: Observable[];
 };

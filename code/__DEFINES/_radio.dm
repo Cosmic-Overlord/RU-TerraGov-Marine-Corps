@@ -60,10 +60,13 @@
 #define RADIO_CHANNEL_ECHO "Echo"
 #define RADIO_CHANNEL_DS1 "Alamo"
 #define RADIO_CHANNEL_DS2 "Normandy"
-
+#define RADIO_CHANNEL_YAUTJA "Yautja" //RU TGMC ADDITION
 
 #define MIN_FREE_FREQ 1201 // -------------------------------------------------
 // Frequencies are always odd numbers and range from 1201 to 1599.
+
+//Preds
+#define YAUT_FREQ 1233 //RU TGMC ADDITION
 
 //SOM squads
 #define FREQ_COMMAND_SOM 1235
@@ -74,7 +77,6 @@
 #define FREQ_YANKEE 1243
 #define FREQ_XRAY 1245
 #define FREQ_WHISKEY 1247
-
 #define MIN_ERT_FREQ 1331
 #define FREQ_PMC 1331
 #define FREQ_COLONIST 1335
@@ -86,7 +88,6 @@
 #define FREQ_SECTOID 1347
 #define FREQ_ECHO 1349
 #define MAX_ERT_FREQ 1349
-
 #define FREQ_AI 1351
 #define FREQ_COMMAND 1353
 #define FREQ_REQUISITIONS 1354

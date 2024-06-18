@@ -91,6 +91,10 @@
 		if(BURN)
 			adjustFireLoss(damage)
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	last_damage_source = usr
+//RUTGMC EDIT ADDITION END
+
 	if(updating_health)
 		updatehealth()
 
