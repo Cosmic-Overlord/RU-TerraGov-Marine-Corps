@@ -17,6 +17,15 @@
 	if(ishuman(target) || isdroid(target))
 		M.apply_damage(base_damage + damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
+///Triggers the effect of a successful pounce on the target.
+/datum/action/ability/activable/xeno/pounce/predalien/trigger_pounce_effect(mob/living/living_target)
+	playsound(get_turf(living_target), 'sound/voice/predalien_pounce.ogg', 25, TRUE)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	xeno_owner.set_throwing(FALSE)
+	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
+	xeno_owner.forceMove(get_turf(living_target))
+	living_target.Knockdown(XENO_POUNCE_STUN_DURATION)
+
 // ***************************************
 // *********** Roar
 // ***************************************
