@@ -7,8 +7,8 @@
 	var/jobtype = "Squad Marine"
 
 
-/datum/outfit/quick/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	pre_equip(H, visualsOnly)
+/datum/outfit/quick/equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/override_client)
+	pre_equip(H, visualsOnly, override_client)
 
 	//Start with uniform,suit,backpack for additional slots. Deletes any existing equipped item to avoid accidentally losing half your loadout. Not suitable for standard gamemodes!
 	if(w_uniform)

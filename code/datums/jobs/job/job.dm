@@ -118,7 +118,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!mannequin)
 		CRASH("equip_dummy called without a mannequin")
 
-	mannequin.equipOutfit(outfit_override || outfit, TRUE)
+	mannequin.equipOutfit(outfit_override || outfit, TRUE, preference_source)
 
 
 /datum/job/proc/get_access()
@@ -185,7 +185,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	return
 
 
-/datum/outfit/job/proc/handle_id(mob/living/carbon/human/H)
+/datum/outfit/job/proc/handle_id(mob/living/carbon/human/H, client/override_client)
 	var/datum/job/job = H.job ? H.job : SSjob.GetJobType(jobtype)
 	var/obj/item/card/id/id = H.wear_id
 	if(istype(id))
@@ -280,6 +280,8 @@ GLOBAL_PROTECT(exp_specialmap)
 
 // Spawning mobs.
 /mob/living/proc/apply_assigned_role_to_spawn(datum/job/assigned_role, client/player, datum/squad/assigned_squad, admin_action = FALSE)
+	if(!player && client)
+		player = client
 	job = assigned_role
 	set_skills(getSkillsType(job.return_skills_type(player?.prefs)))
 	faction = job.faction
@@ -321,7 +323,16 @@ GLOBAL_PROTECT(exp_specialmap)
 
 		job.outfit.handle_id(src, player)
 
-		equip_role_outfit(job)
+		var/job_whitelist = job.title
+		var/whitelist_status = job.get_whitelist_status(GLOB.roles_whitelist, player)
+
+		if(whitelist_status)
+			job_whitelist = "[job_whitelist][whitelist_status]"
+
+		if(job.gear_preset_whitelist[job_whitelist])
+			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
+		else
+			equip_role_outfit(job)
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
 		equip_preference_gear(player)
@@ -371,7 +382,7 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/job/proc/return_skills_type(datum/preferences/prefs)
 	return skills_type
 
-/datum/job/proc/return_spawn_turf()
+/datum/job/proc/return_spawn_turf(mob/living/new_character, client/player)
 	return pick(GLOB.spawns_by_job[type])
 
 /datum/job/proc/handle_special_preview(client/parent)

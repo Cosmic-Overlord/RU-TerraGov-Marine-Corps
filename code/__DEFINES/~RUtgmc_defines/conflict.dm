@@ -1,3 +1,6 @@
+#define X_PRED_LASER_LAYER 10
+#define X_TOTAL_LAYERS 10
+
 // No neighbors
 #define NEIGHBORS_NONE  0
 // Cardinal neighborhood
@@ -19,3 +22,6 @@
 
 //Explosion damage multipliers for different objects
 #define RESIN_EXPLOSIVE_MULTIPLIER 0.85
+
+//Damage modificator
+#define PRED_MELEE_DAMAGE_MOD 0.5

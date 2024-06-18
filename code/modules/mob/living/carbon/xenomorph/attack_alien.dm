@@ -182,7 +182,28 @@
 			to_chat(X, span_warning("[src] is dead, why would we want to touch it?"))
 		return FALSE
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(isyautja(src) && check_pred_shields(X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier + dam_bonus, backside_attack = dir == get_dir(get_turf(X), get_turf(src)), xenomorph = TRUE))
+		return FALSE
+//RUTGMC EDIT ADDITION END
+
 	SEND_SIGNAL(X, COMSIG_XENOMORPH_ATTACK_HUMAN, src)
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(wear_mask && X.zone_selected == "head")
+		if(!istype(wear_mask, /obj/item/clothing/mask/gas/yautja))
+			return FALSE
+		if(prob(5))
+			playsound(loc, "alien_claw_metal", 25, 1)
+			X.visible_message(span_danger("The [X] smashes off [src]'s [wear_mask.name]!"), \
+			span_danger("You smash off [src]'s [wear_mask.name]!"), null, 5)
+			dropItemToGround(wear_mask)
+			if(isyautja(src))
+				emote("roar")
+			else
+				emote("scream")
+			return TRUE
+//RUTGMC EDIT ADDITION END
 
 	. = ..()
 	if(!.)
