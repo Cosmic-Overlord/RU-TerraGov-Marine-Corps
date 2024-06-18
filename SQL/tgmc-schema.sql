@@ -88,6 +88,25 @@ CREATE TABLE IF NOT EXISTS `connection_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `clan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) DEFAULT NULL,
+  `description` varchar(2048) NOT NULL,
+  `honor` int(11) DEFAULT 0,
+  `color` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `clan_player` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `byond_ckey` varchar(32) DEFAULT NULL,
+  `clan_rank` int(11) DEFAULT 1,
+  `permissions` int(11) DEFAULT 1,
+  `clan_id` int(11) DEFAULT 0,
+  `honor` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Data exporting was unselected.
 -- Dumping structure for table feedback.death
 CREATE TABLE IF NOT EXISTS `death` (

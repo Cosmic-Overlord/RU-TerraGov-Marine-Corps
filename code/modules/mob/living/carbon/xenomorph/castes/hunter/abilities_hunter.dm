@@ -334,7 +334,12 @@ RU TGMC EDIT */
 			xeno_owner.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			xeno_owner.set_throwing(FALSE)
 			return
-	playsound(living_target.loc, 'sound/voice/alien_pounce.ogg', 25, TRUE)
+// RU TGMC EDIT
+	if(istype(owner, /mob/living/carbon/xenomorph/predalien))
+		owner.playsound_local(owner, 'sound/voice/predalien_pounce.ogg', 25, 0, 1)
+	else
+		playsound(living_target.loc, 'sound/voice/alien_pounce.ogg', 25, TRUE)
+// RU TGMC EDIT
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
 	xeno_owner.forceMove(get_turf(living_target))

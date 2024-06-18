@@ -109,6 +109,11 @@ REAGENT SCANNER
 	if(isxeno(M))
 		balloon_alert(user, "Unknown entity")
 		return
+//RU TGMC EDIT
+	if(HAS_TRAIT(M, TRAIT_FOREIGN_BIO) && !alien)
+		balloon_alert(user, "Unknown biology")
+		return
+//RU TGMC EDIT
 	if(M.species.species_flags & NO_SCAN)
 		balloon_alert(user, "Not Organic")
 		return

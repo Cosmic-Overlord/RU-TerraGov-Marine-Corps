@@ -501,6 +501,10 @@
 	var/sisters_teleported = 0
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		sister.remove_filter("summonoutline")
+//RUTGMC EDIT ADDITION BEGIN - Preds
+		if(HAS_TRAIT(sister, TRAIT_LEASHED))
+			continue
+//RUTGMC EDIT ADDITION END
 		if(sister.z == owner.z)
 			sister.forceMove(get_turf(X))
 			sisters_teleported ++

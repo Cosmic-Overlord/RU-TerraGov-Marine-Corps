@@ -357,4 +357,24 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			S = pick('sound/voice/robot/robot_pain1.ogg', 'sound/voice/robot/robot_pain2.ogg', 'sound/voice/robot/robot_pain3.ogg')
 		if("robot_warcry")
 			S = pick('sound/voice/robot/robot_warcry1.ogg', 'sound/voice/robot/robot_warcry2.ogg', 'sound/voice/robot/robot_warcry3.ogg')
+
+//RUTGMC EDIT
+		//yautja race
+		if("pred_scream")
+			S = pick('modular_RUtgmc/sound/voice/pred_roar1.ogg','modular_RUtgmc/sound/voice/pred_roar2.ogg','modular_RUtgmc/sound/voice/pred_roar3.ogg','modular_RUtgmc/sound/voice/pred_roar4.ogg','modular_RUtgmc/sound/voice/pred_roar5.ogg')
+		if("pred_pain")
+			S = pick('modular_RUtgmc/sound/voice/pred_pain1.ogg','modular_RUtgmc/sound/voice/pred_pain2.ogg','modular_RUtgmc/sound/voice/pred_pain3.ogg','modular_RUtgmc/sound/voice/pred_pain4.ogg','modular_RUtgmc/sound/voice/pred_pain5.ogg')
+		if("pred_hugged")
+			S = pick('modular_RUtgmc/sound/voice/pred_facehugged.ogg')
+		if("pred_preburst")
+			S = pick('modular_RUtgmc/sound/voice/pred_pain_rare1.ogg')
+		if("pred_warcry")
+			S = pick('modular_RUtgmc/sound/voice/pred_warcry.ogg')
+
+		//pred items
+		if("clan_sword_hit")
+			S = pick('modular_RUtgmc/sound/weapons/clan_sword_hit_1.ogg', 'modular_RUtgmc/sound/weapons/clan_sword_hit_2.ogg')
+		if("chain_swing")
+			S = pick('modular_RUtgmc/sound/items/chain_swing1.ogg', 'modular_RUtgmc/sound/items/chain_swing2.ogg', 'modular_RUtgmc/sound/items/chain_swing3.ogg')
+//RUTGMC EDIT
 	return S
