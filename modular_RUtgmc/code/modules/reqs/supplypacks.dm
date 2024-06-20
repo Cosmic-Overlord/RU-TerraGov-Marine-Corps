@@ -280,6 +280,12 @@ FACTORY
 	name = "SG-62 ammo magazine parts refill"
 	contains = list(/obj/item/factory_refill/smartgunner_targetrifle_magazine_refill)
 
+/datum/supply_packs/factory/amr_magazine_incend_refill
+	name = "T-26 AMR incendiary magazine assembly refill"
+
+/datum/supply_packs/factory/amr_magazine_flak_refill
+	name = "T-26 AMR flak magazine assembly refill"
+
 /*******************************************************************************
 MEDICAL
 *******************************************************************************/

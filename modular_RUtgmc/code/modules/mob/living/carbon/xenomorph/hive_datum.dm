@@ -43,6 +43,8 @@
 // *********** Facehuggers proc
 // ***************************************
 /datum/hive_status/proc/can_spawn_as_hugger(mob/dead/observer/user)
+	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_SENTIENT_HUGGER))
+		return FALSE
 
 	if(!user.client?.prefs || is_banned_from(user.ckey, ROLE_XENOMORPH))
 		return FALSE
@@ -51,7 +53,9 @@
 		to_chat(user, span_warning("You died too recently to be able to take a new facehugger."))
 		return FALSE
 
-	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become part of the Horde!", list("Yes", "No")) != "Yes")
+	TIMER_COOLDOWN_START(src, COOLDOWN_SENTIENT_HUGGER, 5 SECONDS)
+	if(tgui_alert(user, "Are you sure you want to be a Facehugger?", "Become part of the Horde!", list("Yes", "No"), 5 SECONDS) != "Yes")
+		TIMER_COOLDOWN_END(src, COOLDOWN_SENTIENT_HUGGER)
 		return FALSE
 
 	if(length(facehuggers) >= MAX_FACEHUGGERS)

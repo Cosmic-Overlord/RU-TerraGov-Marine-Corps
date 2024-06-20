@@ -9,3 +9,4 @@
 	// *** Defense *** //
 	soft_armor = list(MELEE = 55, BULLET = 55, LASER = 55, ENERGY = 55, BOMB = 30, BIO = 40, FIRE = 50, ACID = 40)
 
+	additional_stacks = 2

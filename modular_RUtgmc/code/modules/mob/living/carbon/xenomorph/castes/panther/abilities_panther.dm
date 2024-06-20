@@ -50,12 +50,13 @@
 			var/affecting = human_target.get_limb(ran_zone(null, 0))
 			if(!affecting) //Still nothing??
 				affecting = human_target.get_limb("chest") //Gotta have a torso?!
-			human_target.apply_damage(damage * 2, BRUTE, affecting, MELEE)
+			human_target.apply_damage(damage, BRUTE, affecting, MELEE)
 			xenomorph_owner.plasma_stored += 25
 			xenomorph_owner.heal_overall_damage(25, 25, updating_health = TRUE)
 			if(human_target.can_sting())
 				tearing_tail_reagent = xenomorph_owner.selected_reagent
-				human_target.reagents.add_reagent(tearing_tail_reagent, PANTHER_TEARING_TAIL_REAGENT_AMOUNT)
+				var/reagent_amount = (xenomorph_owner.selected_reagent == /datum/reagent/toxin/xeno_ozelomelyn) ? PANTHER_TEARING_TAIL_REAGENT_AMOUNT * 0.5 : PANTHER_TEARING_TAIL_REAGENT_AMOUNT
+				human_target.reagents.add_reagent(tearing_tail_reagent, reagent_amount)
 				playsound(human_target, 'sound/effects/spray3.ogg', 15, TRUE)
 			shake_camera(human_target, 2, 1)
 			to_chat(human_target, span_xenowarning("We are hit by \the [xenomorph_owner]'s tail sweep!"))
