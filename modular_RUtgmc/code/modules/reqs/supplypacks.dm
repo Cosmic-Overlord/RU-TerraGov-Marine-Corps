@@ -145,6 +145,16 @@ WEAPONS
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
 	cost = 500
 
+/datum/supply_packs/weapons/singleshot_launcher
+	name = "GL-81 grenade launcher"
+	contains = list(/obj/item/weapon/gun/grenade_launcher/single_shot)
+	cost = 150
+
+/datum/supply_packs/weapons/multinade_launcher
+	name = "GL-70 grenade launcher"
+	contains = list(/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded)
+	cost = 450
+
 /*******************************************************************************
 EXPLOSIVES
 *******************************************************************************/
@@ -200,6 +210,13 @@ ARMOR
 	name = "Optical Imager Goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
+
+/datum/supply_packs/armor/modular/attachments/tyr_extra_armor
+	name = "Tyr armor module"
+	cost = 200
+
+/datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
+	cost = 150
 
 /datum/supply_packs/armor/robot/advanced/physical
 	name = "Cingulata physical protection armor set"
@@ -259,15 +276,15 @@ SUPPLIES
 /*******************************************************************************
 FACTORY
 *******************************************************************************/
-
-/datum/supply_packs/factory/pizzarefill
-	name = "Nanotrasen \"Eat healthy!\" margerita pizza kit refill"
-	contains = list(/obj/item/factory_refill/pizza_refill)
-	cost = 890 //fuck you
-
 /datum/supply_packs/factory/smartgun_targetrifle_refill
 	name = "SG-62 ammo magazine parts refill"
 	contains = list(/obj/item/factory_refill/smartgunner_targetrifle_magazine_refill)
+
+/datum/supply_packs/factory/amr_magazine_incend_refill
+	name = "T-26 AMR incendiary magazine assembly refill"
+
+/datum/supply_packs/factory/amr_magazine_flak_refill
+	name = "T-26 AMR flak magazine assembly refill"
 
 /*******************************************************************************
 MEDICAL

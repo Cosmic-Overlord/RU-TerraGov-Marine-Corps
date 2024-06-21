@@ -257,16 +257,23 @@
 			go_idle()
 		return
 
-	var/i = 10//So if we have a pile of dead bodies around, it doesn't scan everything, just ten iterations.
-	for(var/mob/living/carbon/M in view(4,src))
-		if(!i)
-			break
-		if(M.can_be_facehugged(src))
-			visible_message(span_warning("\The scuttling [src] leaps at [M]!"), null, null, 4)
-			leaping = TRUE
-			throw_at(M, 4, 1)
-			return //We found a target and will jump towards it; cancel out. If we didn't find anything, continue and try again later
-		--i
+	var/mob/living/carbon/chosen_target
+
+	for(var/mob/living/carbon/M in view(4, src))
+		// Using euclidean distance means it will prioritize cardinal directions, which are less likely to miss due to wall jank.
+		if(chosen_target && (get_dist_manhattan(src, M) > get_dist_manhattan(src, chosen_target)))
+			continue
+
+		if(!M.can_be_facehugged(src))
+			continue
+
+		chosen_target = M
+
+	if(chosen_target)
+		visible_message(span_warning("\The scuttling [src] leaps at [chosen_target]!"), null, null, 4)
+		leaping = TRUE
+		throw_at(chosen_target, 4, 1)
+		return
 
 	remove_danger_overlay() //Remove the danger overlay
 	pre_leap() //Go into the universal leap set up proc
@@ -549,7 +556,13 @@
 		reset_attach_status(FALSE)
 		return
 	if(ishuman(user))
-		var/hugsound = user.gender == FEMALE ? get_sfx("female_hugged") : get_sfx("male_hugged")
+//RUTGMC EDIT ADDITION BEGIN - Preds
+		var/hugsound
+		if(isyautja(user))
+			hugsound = get_sfx("pred_hugged")
+		else
+			hugsound = user.gender == FEMALE ? get_sfx("female_hugged") : get_sfx("male_hugged")
+//RUTGMC EDIT ADDITION END
 		playsound(loc, hugsound, 25, 0)
 	if(!sterile && !issynth(user))
 		var/stamina_dmg = user.maxHealth + user.max_stamina
@@ -571,6 +584,14 @@
 			if(source?.client)
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[source.ckey]
 				personal_statistics.impregnations++
+//RUTGMC EDIT ADDITION BEGIN - Preds
+			if(isyautja(target))
+				var/datum/hive_status/hive = GLOB.hive_datums[embryo.hivenumber]
+				if(!istype(hive))
+					return
+				hive.max_thick_nests++
+				xeno_message("The hive senses that a headhunter has been infected! The thick resin nest is now available in the mother's blessing!", hivenumber = hive.hivenumber)
+//RUTGMC EDIT ADDITION END
 			sterile = TRUE
 		kill_hugger()
 	else

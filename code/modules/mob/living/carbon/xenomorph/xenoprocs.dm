@@ -10,6 +10,12 @@
 	set desc = "Check the status of your current hive."
 	set category = "Alien"
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(interference)
+		to_chat(src, span_warning("A headhunter temporarily cut off your psychic connection!"))
+		return
+//RUTGMC EDIT ADDITION END
+
 	check_hive_status(src)
 
 /mob/living/carbon/xenomorph/verb/tunnel_list()
@@ -122,7 +128,7 @@
 		. += "Upgrade Progress: (FINISHED)"
 	*/
 
-	. += "Health: [overheal ? "[overheal] + ": ""][health]/[maxHealth]" //Changes with balance scalar, can't just use the caste
+	. += "Health: [health]/[maxHealth][overheal ? " + [overheal]": ""]" //Changes with balance scalar, can't just use the caste
 
 	if(xeno_caste.plasma_max > 0)
 		. += "Plasma: [plasma_stored]/[xeno_caste.plasma_max]"
@@ -304,7 +310,7 @@
 	update_sight()
 
 
-/mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 12)
+/mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 4.5) //RU TGMC EDIT
 	if(stat || resting)
 		if(is_zoomed)
 			is_zoomed = 0
@@ -317,7 +323,7 @@
 		return
 	zoom_turf = get_turf(src)
 	is_zoomed = 1
-	client.view_size.set_view_radius_to(viewsize/2-2) //convert diameter to radius
+	client.view_size.set_view_radius_to(viewsize) //convert diameter to radius
 	var/viewoffset = 32 * tileoffset
 	switch(dir)
 		if(NORTH)
@@ -542,10 +548,6 @@
 /mob/living/carbon/xenomorph/proc/clean_tracked(atom/to_track)
 	SIGNAL_HANDLER
 	tracked = null
-
-///Handles empowered abilities, should return TRUE if the ability should be empowered. Empowerable should be FALSE if the ability cannot itself be empowered but has interactions with empowerable abilities
-/mob/living/carbon/xenomorph/proc/empower(empowerable = TRUE)
-	return FALSE
 
 ///Handles icon updates when leadered/unleadered. Evolution.dm also uses this
 /mob/living/carbon/xenomorph/proc/update_leader_icon(makeleader = TRUE)

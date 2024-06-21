@@ -64,7 +64,7 @@ All ShuttleMove procs go here
 /turf/proc/afterShuttleMove(turf/oldT, rotation)
 	//Dealing with the turf we left behind
 	oldT.TransferComponents(src)
-	SSexplosions.wipe_turf(src)
+	//SSexplosions.wipe_turf(src) // RUTGMC DELETION
 
 	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
 	if(shuttle_boundary)
@@ -200,6 +200,7 @@ All ShuttleMove procs go here
 	. = ..()
 	parent_cameranet.addCamera(src)
 
+/* RUTGMC DELETION
 /obj/machinery/atmospherics/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	if(pipe_vision_img)
@@ -230,6 +231,7 @@ All ShuttleMove procs go here
 	else
 		// atmosinit() calls update_icon(), so we don't need to call it
 		update_icon()
+*/
 
 /obj/machinery/atmospherics/pipe/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()

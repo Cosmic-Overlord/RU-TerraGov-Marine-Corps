@@ -57,6 +57,7 @@
 
 	hud_set_plasma()
 	med_hud_set_health()
+	hud_update_primo()
 
 	toggle_xeno_mobhud() //This is a verb, but fuck it, it just werks
 
@@ -324,7 +325,7 @@
 /mob/living/carbon/xenomorph/pull_response(mob/puller)
 	if(stat != CONSCIOUS) // If the Xeno is unconscious, don't fight back against a grab/pull
 		return TRUE
-	if(!ishuman(puller))
+	if(!ishuman(puller) || isyautja(puller))
 		return TRUE
 	var/mob/living/carbon/human/H = puller
 	H.Paralyze(rand(xeno_caste.tacklemin,xeno_caste.tacklemax) * 20)

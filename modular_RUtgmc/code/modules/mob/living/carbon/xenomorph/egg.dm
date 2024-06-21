@@ -30,16 +30,14 @@
 //Observers can become playable facehuggers by clicking on the egg
 /obj/alien/egg/hugger/attack_ghost(mob/dead/observer/user)
 	. = ..()
-
 	var/datum/hive_status/hive = GLOB.hive_datums[hivenumber]
-	if(!hive.can_spawn_as_hugger(user))
-		return FALSE
 
 	if(maturity_stage != stage_ready_to_burst)
-		balloon_alert(user, "Not fully grown")
 		return FALSE
 	if(!hugger_type)
-		balloon_alert(user, "Empty")
+		return FALSE
+
+	if(!hive.can_spawn_as_hugger(user))
 		return FALSE
 
 	advance_maturity(stage_ready_to_burst + 1)
@@ -61,6 +59,10 @@
 	if(tgui_alert(F, "Do you want to get into the egg?", "Get inside the egg", list("Yes", "No")) != "Yes")
 		return
 
+	if(F.health < F.maxHealth)
+		balloon_alert(F, "You're too damaged!")
+		return
+
 	if(!insert_new_hugger(new /obj/item/clothing/mask/facehugger/larval()))
 		F.balloon_alert(F, span_xenowarning("We can't use this egg"))
 		return
@@ -69,6 +71,12 @@
 	F.ghostize()
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
+
+/obj/alien/egg/hugger/forsaken
+	hivenumber = XENO_HIVE_FORSAKEN
+
+/obj/alien/egg/hugger/forsaken/attack_ghost(mob/dead/observer/user)
+	return
 
 /obj/alien/egg/gas
 	desc = "It looks like a suspiciously weird egg"

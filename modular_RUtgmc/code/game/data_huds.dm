@@ -9,15 +9,15 @@
 	var/static/image/transvitox_image = image('icons/mob/hud.dmi', icon_state = "transvitox")
 	var/static/image/sanguinal_image = image('icons/mob/hud.dmi', icon_state = "sanguinal")
 	var/static/image/ozelomelyn_image = image('icons/mob/hud.dmi', icon_state = "ozelomelyn")
-	var/static/image/intoxicated_image = image('icons/mob/hud.dmi', icon_state = "intoxicated")
-	var/static/image/intoxicated_amount_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_amount0")
-	var/static/image/neurotox_high_image = image('icons/mob/hud.dmi', icon_state = "neurotoxin_high")
+	var/static/image/intoxicated_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "intoxicated")
+	var/static/image/intoxicated_amount_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "intoxicated_amount0")
+	var/static/image/neurotox_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "neurotoxin_high")
 	var/static/image/hemodile_high_image = image('icons/mob/hud.dmi', icon_state = "hemodile_high")
 	var/static/image/transvitox_high_image = image('icons/mob/hud.dmi', icon_state = "transvitox_high")
 	var/static/image/hunter_silence_image = image('icons/mob/hud.dmi', icon_state = "silence_debuff")
 	var/static/image/sanguinal_high_image = image('icons/mob/hud.dmi', icon_state = "sanguinal_high")
-	var/static/image/intoxicated_high_image = image('icons/mob/hud.dmi', icon_state = "intoxicated_high")
-	var/static/image/hive_target_image = image('icons/mob/hud.dmi', icon_state = "hive_target")
+	var/static/image/intoxicated_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "intoxicated_high")
+	var/static/image/hive_target_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "hive_target")
 	var/static/image/medicalnanites_high_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites")
 	var/static/image/medicalnanites_medium_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_medium")
 	var/static/image/medicalnanites_low_image = image('modular_RUtgmc/icons/mob/hud.dmi', icon_state = "nanites_low")
@@ -140,10 +140,7 @@
 	switch(stat)
 		if(DEAD)
 			simple_status_hud.icon_state = ""
-			if(species.species_flags & ROBOTIC_LIMBS)
-				infection_hud.icon_state = "huddead_robot"
-			else
-				infection_hud.icon_state = "huddead"
+			infection_hud.icon_state = "huddead_xeno_animated"
 			if(!HAS_TRAIT(src, TRAIT_PSY_DRAINED))
 				infection_hud.icon_state = "psy_drain"
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE ))
@@ -221,12 +218,16 @@
 					return TRUE
 
 //medical hud used by ghosts
+
+/datum/atom_hud/medical/add_to_single_hud(mob/user, mob/target)
+	return ..()
+
 /datum/atom_hud/medical/observer
-	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, XENO_BANISHED_HUD)
+	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, XENO_BANISHED_HUD, HUNTER_CLAN, HUNTER_HUD, HUNTER_HEALTH_HUD)
 
 //Xeno status hud, for xenos
 /datum/atom_hud/xeno
-	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
+	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_PRIMO_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, HUNTER_HUD)
 
 /mob/living/carbon/xenomorph/proc/hud_set_banished()
 	var/image/holder = hud_list[XENO_BANISHED_HUD]
@@ -247,7 +248,26 @@
 
 	hud_list[XENO_RANK_HUD] = holder
 
-/mob/living/carbon/human/med_hud_set_health()
+/datum/atom_hud/hunter_clan
+	hud_icons = list(HUNTER_CLAN)
+
+
+/datum/atom_hud/hunter_hud
+	hud_icons = list(HUNTER_HUD, HUNTER_HEALTH_HUD)
+
+/mob/living/carbon/xenomorph/proc/hud_update_primo()
+	var/image/holder = hud_list[XENO_PRIMO_HUD]
+	if(!holder)
+		return
+	holder.icon_state = "hudblank"
+	if(stat == DEAD)
+		return
+	if(upgrade == XENO_UPGRADE_PRIMO)
+		holder.icon_state = "hudxenoprimo[playtime_as_number()]"
+
+	hud_list[XENO_PRIMO_HUD] = holder
+
+/mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"
@@ -314,10 +334,14 @@
 		else
 			holder.icon_state = "hudhealth-100"
 
+/mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
+	. = ..()
+
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
 		return FALSE
-
+	if(HAS_TRAIT(src, TRAIT_FOREIGN_BIO))
+		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"

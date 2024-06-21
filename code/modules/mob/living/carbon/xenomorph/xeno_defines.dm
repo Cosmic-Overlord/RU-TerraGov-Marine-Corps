@@ -122,12 +122,6 @@
 	// *** Defiler Abilities *** //
 	var/list/available_reagents_define = list() //reagents available for select reagent
 
-	// *** Warrior Abilities *** //
-	///speed increase afforded to the warrior caste when in 'agiility' mode. negative number means faster movement.
-	var/agility_speed_increase = 0 // this opens up possibilities for balancing
-	///amount of soft armor adjusted when in agility mode for the warrior caste. Flat integer amounts only.
-	var/agility_speed_armor = 0 //Same as above
-
 	// *** Boiler Abilities *** //
 	///maximum number of 'globs' of boiler ammunition that can be stored by the boiler caste.
 	var/max_ammo = 0
@@ -153,11 +147,11 @@
 	var/fortify_armor = 0
 	///amount of slowdown to apply when the crest defense is active. trading defense for speed. Positive numbers makes it slower.
 	var/crest_defense_slowdown = 0
-
+/* RU TGMC EDIT
 	// *** Puppeteer Abilities *** //
 	var/flay_plasma_gain = 0
 	var/max_puppets = 0
-
+RU TGMC EDIT */
 	// *** Crusher Abilities *** //
 	///The damage the stomp causes, counts armor
 	var/stomp_damage = 0
@@ -379,10 +373,6 @@
 	// Defender vars
 	var/fortify = 0
 	var/crest_defense = 0
-
-	// Baneling vars
-	/// Respawn charges, each charge makes respawn take 30 seconds. Maximum of 2 charges. If there is no charge the respawn takes 120 seconds.
-	var/stored_charge = 0
 
 	// *** Ravager vars *** //
 	/// when true the rav will not go into crit or take crit damage.

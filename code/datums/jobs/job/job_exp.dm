@@ -78,7 +78,8 @@ GLOBAL_PROTECT(exp_to_update)
 		else
 			exp_data[category] = 0
 	for(var/category in GLOB.exp_specialmap)
-		if(category == EXP_TYPE_SPECIAL)
+		//if(category == EXP_TYPE_SPECIAL) // ORIGINAL
+		if(category == EXP_TYPE_XENO) // RUTGMC ADDITION
 			if(GLOB.exp_specialmap[category])
 				for(var/innercat in GLOB.exp_specialmap[category])
 					if(play_records[innercat])
@@ -146,6 +147,7 @@ GLOBAL_PROTECT(exp_to_update)
 	return pure_numeric ? exp_living : get_exp_format(exp_living)
 
 
+/* RUTGMC DELETION
 /proc/get_exp_format(expnum)
 	if(expnum > 60)
 		return num2text(round(expnum / 60)) + "h" + num2text(round(expnum % 60)) + "m"
@@ -153,6 +155,7 @@ GLOBAL_PROTECT(exp_to_update)
 		return num2text(expnum) + "m"
 	else
 		return "0h"
+*/
 
 
 /proc/update_exp(mins, ann = FALSE)

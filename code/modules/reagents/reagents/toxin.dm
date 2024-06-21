@@ -124,7 +124,10 @@
 	taste_description = "death"
 
 /datum/reagent/toxin/huskpowder/on_mob_add(mob/living/L, metabolism)
-	ADD_TRAIT(L, TRAIT_FAKEDEATH, type)
+	if(isyautja(L)||isxeno(L))
+		return
+	else
+		ADD_TRAIT(L, TRAIT_FAKEDEATH, type)
 	return ..()
 
 /datum/reagent/toxin/huskpowder/on_mob_life(mob/living/L, metabolism)
@@ -503,6 +506,12 @@
 		if(is_type_in_typecache(current_reagent, GLOB.defiler_toxins_typecache_list)) //For each xeno toxin reagent, double the strength multiplier
 			slowdown_multiplier *= 2 //Each other Defiler toxin increases the multiplier by 2x; 2x if we have 1 combo chem, 4x if we have 2
 
+	//RUTGMC EDIT
+	if(L.has_status_effect(STATUS_EFFECT_INTOXICATED))
+		var/datum/status_effect/stacking/intoxicated/debuff = L.has_status_effect(STATUS_EFFECT_INTOXICATED)
+		if(debuff.stacks > 10)
+			slowdown_multiplier *= 2
+
 	switch(slowdown_multiplier) //Description varies in severity and probability with the multiplier
 		if(0 to 1)
 			if(prob(10))
@@ -549,6 +558,12 @@
 		if(is_type_in_typecache(current_reagent, GLOB.defiler_toxins_typecache_list)) //For each xeno toxin reagent, double the strength multiplier
 			tox_cap_multiplier *= 2 //Each other Defiler toxin doubles the multiplier
 
+	//RUTGMC EDIT
+	if(L.has_status_effect(STATUS_EFFECT_INTOXICATED))
+		var/datum/status_effect/stacking/intoxicated/debuff = L.has_status_effect(STATUS_EFFECT_INTOXICATED)
+		if(debuff.stacks > 10)
+			tox_cap_multiplier *= 2
+
 	var/tox_loss = L.getToxLoss()
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out
 		return ..()
@@ -571,6 +586,12 @@
 	for(var/datum/reagent/current_reagent AS in L.reagents.reagent_list) //Cycle through all chems
 		if(is_type_in_typecache(current_reagent, GLOB.defiler_toxins_typecache_list)) //For each xeno toxin reagent, double the strength multiplier
 			tox_cap_multiplier *= 2 //Each other Defiler toxin doubles the multiplier
+
+	//RUTGMC EDIT
+	if(L.has_status_effect(STATUS_EFFECT_INTOXICATED))
+		var/datum/status_effect/stacking/intoxicated/debuff = L.has_status_effect(STATUS_EFFECT_INTOXICATED)
+		if(debuff.stacks > 10)
+			tox_cap_multiplier *= 2
 
 	var/tox_loss = L.getToxLoss()
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out

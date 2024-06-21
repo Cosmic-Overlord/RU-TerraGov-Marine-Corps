@@ -31,3 +31,13 @@
 		new drop_material(loc, drop_material_amount)
 	dump_contents()
 	return ..()
+
+/obj/structure/closet/pred
+	icon = 'modular_RUtgmc/icons/obj/machines/yautja_machines.dmi'
+	icon_state = "closed"
+
+/obj/structure/closet/ex_act(severity)
+	take_damage(severity, BRUTE, BOMB)
+	if(!locked || prob(severity / 3))
+		break_open()
+		contents_explosion(severity)

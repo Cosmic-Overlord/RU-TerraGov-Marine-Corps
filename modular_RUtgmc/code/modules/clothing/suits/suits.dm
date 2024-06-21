@@ -1,9 +1,9 @@
 /obj/item/clothing/suit/ru
 	name = "ru suit"
 	desc = "ru suit."
-	icon = 'modular_RUtgmc/icons/obj/clothing/uniform.dmi'
+	icon = 'modular_RUtgmc/icons/obj/clothing/suits/suit_0.dmi'
 	item_icons = list(
-		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/clothing/uniforms/marine_uniforms.dmi')
+		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/clothing/suits/suit_0.dmi')
 
 /obj/item/clothing/suit/ru/fartumasti
 	name = "Military cook apron"

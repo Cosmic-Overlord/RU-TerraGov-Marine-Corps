@@ -171,6 +171,8 @@
 
 
 /obj/item/proc/attack(mob/living/M, mob/living/user)
+	if(SEND_SIGNAL(M, COMSIG_ITEM_ATTEMPT_ATTACK, user, src) & COMPONENT_ITEM_NO_ATTACK) //Sent by target mob.
+		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, M, user) & COMPONENT_ITEM_NO_ATTACK)
 		return FALSE
 	if(SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, M, src) & COMPONENT_ITEM_NO_ATTACK)

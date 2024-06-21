@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 		CRASH("staggerstun called without a mob target")
 	if(!isliving(victim))
 		return
-	if(get_dist_euclide(proj.starting_turf, victim) > max_range)
+	if(get_dist_euclidean(proj.starting_turf, victim) > max_range)
 		return
 	var/impact_message = ""
 	if(isxeno(victim))
@@ -3769,7 +3769,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///On a direct hit, how much drowsyness gets added to the target?
 	var/hit_drowsyness = 12
 	///Base spread range
-	var/fixed_spread_range = 3
+	var/fixed_spread_range = 4
 	///Which type is the smoke we leave on passed tiles, provided the projectile has AMMO_LEAVE_TURF enabled?
 	var/passed_turf_smoke_type = /datum/effect_system/smoke_spread/xeno/neuro/light
 	///We're going to reuse one smoke spread system repeatedly to cut down on processing.
@@ -4045,7 +4045,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/leash_ball/proc/drop_leashball(turf/T)
 	new /obj/structure/xeno/aoe_leash(get_turf(T), hivenumber)
 */
-
+/* RU TGMC EDIT
 /datum/ammo/xeno/spine //puppeteer
 	name = "spine"
 	damage = 35
@@ -4054,7 +4054,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	bullet_color = COLOR_WHITE
 	sound_hit = 'sound/bullets/spear_armor1.ogg'
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
-
+RU TGMC EDIT*/
 /*
 //================================================
 					Misc Ammo

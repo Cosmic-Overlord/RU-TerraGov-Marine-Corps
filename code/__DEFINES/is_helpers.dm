@@ -101,7 +101,6 @@
 #define isxenopraetorian(A) (istype(A, /mob/living/carbon/xenomorph/praetorian))
 #define isxenoravager(A) (istype(A, /mob/living/carbon/xenomorph/ravager))
 #define isxenorunner(A) (istype(A, /mob/living/carbon/xenomorph/runner))
-#define isxenobaneling(A) (istype(A, /mob/living/carbon/xenomorph/baneling))
 #define isxenospitter(A) (istype(A, /mob/living/carbon/xenomorph/spitter))
 #define isxenosentinel(A) (istype(A, /mob/living/carbon/xenomorph/sentinel))
 #define isxenowarrior(A) (istype(A, /mob/living/carbon/xenomorph/warrior))
@@ -295,8 +294,9 @@
 
 // Xeno hives
 #define isnormalhive(hive) (istype(hive, /datum/hive_status/normal))
+/* RU TGMC EDIT
 #define isxenohive(A) ((A == XENO_HIVE_NONE) || (A == XENO_HIVE_NORMAL) || (A == XENO_HIVE_CORRUPTED) || (A == XENO_HIVE_ALPHA) || (A == XENO_HIVE_BETA) || (A == XENO_HIVE_ZETA) || (A == XENO_HIVE_ADMEME)) || (A == XENO_HIVE_FALLEN)
-
+RU TGMC EDIT*/
 // Slot helpers
 #define ishandslot(A) ((A == SLOT_L_HAND) || (A == SLOT_R_HAND))
 

@@ -180,14 +180,14 @@
 	if(limb_status & LIMB_BIOTIC)
 		brute *= 1.3 // 130% damage for biotic limbs
 		burn *= 1.3
-
+/* RU TGMC EDIT
 	//High brute damage or sharp objects may damage internal organs
 	if(internal_organs && ((sharp && brute >= 10) || brute >= 20) && prob(5))
 		//Damage an internal organ
 		var/datum/internal_organ/I = pick(internal_organs)
 		I.take_damage(brute / 2)
 		brute -= brute / 2
-
+RU TGMC EDIT */
 	if(limb_status & LIMB_BROKEN && prob(40) && brute)
 		if(!(owner.species && (owner.species.species_flags & NO_PAIN)))
 			owner.emote("scream") //Getting hit on broken hand hurts
@@ -420,6 +420,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(limb_status & (LIMB_ROBOT|LIMB_DESTROYED)) //Robotic limbs shouldn't be infected, nor should nonexistant limbs.
 		germ_level = 0
 		return
+
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(isyautja(owner))
+		germ_level = 0
+		return
+//RUTGMC EDIT ADDITION END
 
 	if(owner.bodytemperature >= 170 && !HAS_TRAIT(owner, TRAIT_STASIS))	//cryo stops germs from moving and doing their bad stuffs
 		//** Syncing germ levels with external wounds
@@ -778,11 +784,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.death()
 	return TRUE
 
+/* RUTGMC DELETION
 /datum/limb/hand/l_hand/droplimb(amputation, delete_limb = FALSE)
 	. = ..()
 	if(!.)
 		return
 	owner.update_inv_gloves()
+*/
 
 
 /****************************************************
@@ -1160,9 +1168,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 	face_surgery_stage = 0
 
 
+/* RUTGMC DELETION
 /datum/limb/head/droplimb(amputation, delete_limb = FALSE)
 	. = ..()
 	if(!.)
 		return
 	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
 		owner.set_undefibbable()
+*/

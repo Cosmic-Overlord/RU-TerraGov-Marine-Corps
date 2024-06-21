@@ -32,6 +32,13 @@
 	if(!client)
 		return
 
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	if(length(client_color_matrices))
+		update_client_color_matrices(time = 0) //This mob has client color matrices set, apply them instantly on login.
+	else
+		update_client_color_matrices(time = 1.5 SECONDS) //Otherwise, fade any matrices from a previous mob.
+//RUTGMC EDIT ADDITION END
+
 	canon_client = client
 	clear_important_client_contents(client)
 	enable_client_mobs_in_contents(client)
@@ -49,7 +56,7 @@
 		if(client.view_size)
 			client.view_size.reset_to_default() // Resets the client.view in case it was changed.
 		else
-			client.change_view(get_screen_size(client.prefs.widescreenpref))
+			client.change_view(get_screen_size(client.prefs.widescreenpref, client.prefs.screen_resolution))
 
 		if(client.player_details)
 			for(var/foo in client.player_details.post_login_callbacks)

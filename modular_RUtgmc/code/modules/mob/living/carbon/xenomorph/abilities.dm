@@ -3,7 +3,7 @@
 // ***************************************
 // Resting
 /datum/action/ability/xeno_action/xeno_resting
-	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_AGILITY|ABILITY_USE_CLOSEDTURF|ABILITY_USE_STAGGERED|ABILITY_USE_INCAP
+	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_CRESTED|ABILITY_USE_CLOSEDTURF|ABILITY_USE_STAGGERED|ABILITY_USE_INCAP
 
 // Secrete Resin
 /datum/action/ability/activable/xeno/secrete_resin
@@ -122,3 +122,7 @@
 		new_resin = new X.selected_resin(T)
 	if(new_resin)
 		SSresinshaping.increment_build_counter(owner)
+
+/datum/action/ability/activable/xeno/pounce/hellhound
+	cooldown_duration = 5 SECONDS
+

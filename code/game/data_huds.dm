@@ -378,7 +378,6 @@
 /mob/living/carbon/human/med_pain_set_perceived_health()
 	if(species?.species_flags & IS_SYNTHETIC)
 		return FALSE
-
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD)
 		holder.icon_state = "hudhealth-100"
@@ -509,7 +508,7 @@
 		return
 	for(var/aura_type in GLOB.pheromone_images_list)
 		if(emitted_auras.Find(aura_type))
-			holder.overlays += image('icons/mob/hud.dmi', src, "hudaura[aura_type]")
+			holder.overlays += image('modular_RUtgmc/icons/mob/hud.dmi', src, "hudaura[aura_type]") //RUTGMC EDIT .dmi
 
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]
@@ -520,7 +519,7 @@
 			if(hive.living_xeno_queen.observed_xeno == src)
 				holder.icon_state = "queen_overwatch"
 			if(queen_chosen_lead)
-				var/image/I = image('icons/mob/hud.dmi',src, "hudxenoleader")
+				var/image/I = image('modular_RUtgmc/icons/mob/hud.dmi',src, "hudxenoleader") //RUTGMC EDIT .dmi
 				holder.overlays += I
 	hud_list[QUEEN_OVERWATCH_HUD] = holder
 

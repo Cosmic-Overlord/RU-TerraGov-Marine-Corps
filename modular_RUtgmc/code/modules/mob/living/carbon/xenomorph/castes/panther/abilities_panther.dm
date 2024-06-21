@@ -12,8 +12,8 @@
 
 /datum/action/ability/activable/xeno/pounce/panther/mob_hit(datum/source, mob/living/M)
 	. = ..()
-	var/mob/living/carbon/xenomorph/X = owner
-	X.plasma_stored += pantherplasmaheal
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	xenomorph_owner.plasma_stored += pantherplasmaheal
 
 ///////////////////////////////////
 // ***************************************
@@ -23,7 +23,7 @@
 /datum/action/ability/xeno_action/tearingtail
 	name = "Tearing tail"
 	action_icon_state = "tearing_tail"
-	desc = "Hit all adjacent units around you, poisoning them with selected toxin and healing you for each creature hit."
+	desc = "Hit all nearby enemies around you, poisoning them with selected toxin and healing you for each target hit."
 	ability_cost = 50
 	cooldown_duration = 15 SECONDS
 	var/tearing_tail_reagent
@@ -33,42 +33,42 @@
 	)
 
 /datum/action/ability/xeno_action/tearingtail/action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 
-	X.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX
-	X.spin(4, 1)
-	X.enable_throw_parry(0.6 SECONDS)
-	playsound(X,pick('sound/effects/alien_tail_swipe1.ogg','sound/effects/alien_tail_swipe2.ogg','sound/effects/alien_tail_swipe3.ogg'), 25, 1) //Sound effects
+	xenomorph_owner.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX
+	xenomorph_owner.spin(4, 1)
+	xenomorph_owner.enable_throw_parry(0.6 SECONDS)
+	playsound(xenomorph_owner,pick('sound/effects/alien_tail_swipe1.ogg','sound/effects/alien_tail_swipe2.ogg','sound/effects/alien_tail_swipe3.ogg'), 25, 1) //Sound effects
 
 	var/sweep_range = 1
-	var/list/L = orange(sweep_range, X)		// Not actually the fruit
+	var/list/L = orange(sweep_range, xenomorph_owner) // Not actually the fruit
 
-	for (var/mob/living/carbon/human/H in L)
-		step_away(H, src, sweep_range, 2)
-		if(H.stat != DEAD && !isnestedhost(H) ) //No bully
-			var/damage = X.xeno_caste.melee_damage
-			var/affecting = H.get_limb(ran_zone(null, 0))
+	for(var/mob/living/carbon/human/human_target in L)
+		step_away(human_target, src, sweep_range, 2)
+		if(human_target.stat != DEAD && !isnestedhost(human_target) ) //No bullying
+			var/damage = xenomorph_owner.xeno_caste.melee_damage
+			var/affecting = human_target.get_limb(ran_zone(null, 0))
 			if(!affecting) //Still nothing??
-				affecting = H.get_limb("chest") //Gotta have a torso?!
-			H.apply_damage(damage*2, BRUTE, affecting, MELEE)
-			X.plasma_stored += 25
-			X.heal_overall_damage(25, 25, updating_health = TRUE)
-			if(H.can_sting())
-				tearing_tail_reagent = X.selected_reagent
-				H.reagents.add_reagent(tearing_tail_reagent, PANTHER_TEARING_TAIL_REAGENT_AMOUNT)
-				playsound(H, 'sound/effects/spray3.ogg', 15, TRUE)
-		shake_camera(H, 2, 1)
-		to_chat(H, span_xenowarning("We are hit by \the [X]'s tail sweep!"))
-		playsound(H,'sound/weapons/alien_tail_attack.ogg', 50, 1)
+				affecting = human_target.get_limb("chest") //Gotta have a torso?!
+			human_target.apply_damage(damage, BRUTE, affecting, MELEE)
+			xenomorph_owner.plasma_stored += 25
+			xenomorph_owner.heal_overall_damage(25, 25, updating_health = TRUE)
+			if(human_target.can_sting())
+				tearing_tail_reagent = xenomorph_owner.selected_reagent
+				var/reagent_amount = (xenomorph_owner.selected_reagent == /datum/reagent/toxin/xeno_ozelomelyn) ? PANTHER_TEARING_TAIL_REAGENT_AMOUNT * 0.5 : PANTHER_TEARING_TAIL_REAGENT_AMOUNT
+				human_target.reagents.add_reagent(tearing_tail_reagent, reagent_amount)
+				playsound(human_target, 'sound/effects/spray3.ogg', 15, TRUE)
+			shake_camera(human_target, 2, 1)
+			to_chat(human_target, span_xenowarning("We are hit by \the [xenomorph_owner]'s tail sweep!"))
+			playsound(human_target,'sound/weapons/alien_tail_attack.ogg', 50, 1)
 
-	addtimer(CALLBACK(X, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
+	addtimer(CALLBACK(xenomorph_owner, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 	succeed_activate()
 	add_cooldown()
 
-
 /datum/action/ability/xeno_action/tearingtail/on_cooldown_finish()
-	var/mob/living/carbon/xenomorph/X = owner
-	to_chat(X, span_notice("We gather enough strength to tear the skin again."))
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	to_chat(xenomorph_owner, span_notice("We gather enough strength to tear the skin again."))
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
 	return ..()
 
@@ -101,7 +101,7 @@
 	if(!.)
 		return FALSE
 
-	if(get_dist_euclide_square(A, owner) > 64) //8 tiles range
+	if(get_dist_euclidean_square(A, owner) > 64) //8 tiles range
 		if(!silent)
 			to_chat(owner, span_xenonotice("You are too far!"))
 		return FALSE
@@ -122,28 +122,29 @@
 			to_chat(owner, span_xenodanger("We can't jump at that!"))
 		return FALSE
 
-/datum/action/ability/activable/xeno/adrenalinejump/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/X = owner
+/datum/action/ability/activable/xeno/adrenalinejump/use_ability(atom/targeted_atom)
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 
-	X.visible_message(span_xenowarning("\The [X] jump towards [A]!"), \
-	span_xenowarning("We jump at [A]!"))
+	xenomorph_owner.visible_message(span_xenowarning("\The [xenomorph_owner] jump towards [targeted_atom]!"), \
+	span_xenowarning("We jump at [targeted_atom]!"))
 
-	lunge_target = A
+	lunge_target = targeted_atom
 
 	RegisterSignal(lunge_target, COMSIG_QDELETING, PROC_REF(clean_lunge_target))
-	RegisterSignal(X, COMSIG_MOVABLE_MOVED, PROC_REF(check_if_lunge_possible))
-	RegisterSignal(X, COMSIG_MOVABLE_POST_THROW, PROC_REF(clean_lunge_target))
+	RegisterSignal(xenomorph_owner, COMSIG_MOVABLE_MOVED, PROC_REF(check_if_lunge_possible))
+	RegisterSignal(xenomorph_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(clean_lunge_target))
 
-	if(lunge_target.Adjacent(X)) //They're already in range, pat their head, we messed up.
-		playsound(X,'sound/weapons/thudswoosh.ogg', 75, 1)
-		X.plasma_stored += -50
+	if(lunge_target.Adjacent(xenomorph_owner)) //They're already in range, pat their head, we messed up.
+		to_chat(xenomorph_owner, span_xenodanger("We lost some of the adrenaline due to failed jump!."))
+		playsound(xenomorph_owner,'sound/weapons/thudswoosh.ogg', 75, 1)
+		xenomorph_owner.plasma_stored -= 50
 		clean_lunge_target()
 	else
-		X.throw_at(get_step_towards(A, X), 6, 2, X)
+		xenomorph_owner.throw_at(get_step_towards(targeted_atom, xenomorph_owner), 6, 2, xenomorph_owner)
 
 	succeed_activate()
 	add_cooldown()
-	var/datum/action/ability/xeno_action/pounce = X.actions_by_path[/datum/action/ability/activable/xeno/pounce/panther]
+	var/datum/action/ability/xeno_action/pounce = xenomorph_owner.actions_by_path[/datum/action/ability/activable/xeno/pounce/panther]
 	if(pounce)
 		pounce.add_cooldown()
 
@@ -165,28 +166,27 @@
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	owner.stop_throw()
 
-
-/datum/action/ability/activable/xeno/adrenalinejump/proc/pantherfling(atom/A)
-	var/mob/living/carbon/xenomorph/X = owner
-	var/mob/living/lunge_target = A
+/datum/action/ability/activable/xeno/adrenalinejump/proc/pantherfling(atom/targeted_atom)
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	var/mob/living/lunge_target = targeted_atom
 	var/fling_distance = 1
 
-	X.face_atom(lunge_target) //Face towards the victim
+	xenomorph_owner.face_atom(lunge_target) //Face towards the victim
 
-	X.visible_message(span_xenowarning("\The [X] effortlessly trips [lunge_target] !"), \
-	span_xenowarning("We effortlessly trip [lunge_target] !"))
+	xenomorph_owner.visible_message(span_xenowarning("\The [xenomorph_owner] effortlessly trips [lunge_target]!"), \
+	span_xenowarning("We effortlessly trip [lunge_target]!"))
 	playsound(lunge_target,'sound/weapons/alien_claw_block.ogg', 75, 1)
 
-	X.do_attack_animation(lunge_target, ATTACK_EFFECT_DISARM2)
-	X.plasma_stored += 50 //reward for our smart little panther
+	xenomorph_owner.do_attack_animation(lunge_target, ATTACK_EFFECT_DISARM2)
+	xenomorph_owner.plasma_stored += 50 //reward for our smart little panther
 
 	if(isxeno(lunge_target))
-		var/mob/living/carbon/xenomorph/x_lunge_target = lunge_target
-		if(X.issamexenohive(x_lunge_target)) //We don't fuck up friendlies
+		var/mob/living/carbon/xenomorph/xeno_lunge_target = lunge_target
+		if(xenomorph_owner.issamexenohive(xeno_lunge_target)) //We don't fuck up friendlies
 			return
 
 	lunge_target.ParalyzeNoChain(1 SECONDS)
-	lunge_target.throw_at(X, fling_distance, 1, X) //go under us
+	lunge_target.throw_at(xenomorph_owner, fling_distance, 1, xenomorph_owner) //go under us
 
 
 ///////////////////////////////////
@@ -359,19 +359,18 @@
 /datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_debuff_check(datum/source, amount)
 	SIGNAL_HANDLER
 
-	var/mob/living/carbon/xenomorph/X = owner
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 
 	if(!(amount > 0) || !evade_active) //If evasion isn't active we don't care
 		return
 	to_chat(owner, span_highdanger("Our movements have been interrupted!"))
-	X.plasma_stored += -65
-
+	xenomorph_owner.plasma_stored -= 65
 
 ///Where we deactivate evasion and unregister the signals/zero out vars, etc.
 /datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_deactivate()
 	SIGNAL_HANDLER
 	add_cooldown()
-	to_chat(owner, "<span class='xenodanger'>We stop evading.</span>")
+	to_chat(owner, span_xenodanger("We stop evading."))
 
 	UnregisterSignal(owner, list(
 		COMSIG_MOVABLE_MOVED,
@@ -410,11 +409,11 @@
 /datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_throw_dodge(datum/source, atom/movable/proj)
 	SIGNAL_HANDLER
 
-	var/mob/living/carbon/xenomorph/X = owner
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	if(!evade_active) //If evasion is not active we don't dodge
 		return NONE
 
-	if((X.last_move_time < (world.time - RUNNER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
+	if((xenomorph_owner.last_move_time < (world.time - RUNNER_EVASION_RUN_DELAY))) //Gotta keep moving to benefit from evasion!
 		return NONE
 
 	evasion_dodge_sfx(proj)
@@ -445,21 +444,21 @@
 ///Handles dodge effects and visuals for the Evasion ability.
 /datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_dodge_sfx(atom/movable/proj)
 
-	var/mob/living/carbon/xenomorph/X = owner
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 
-	X.visible_message(span_warning("[X] effortlessly dodges the [proj.name]!"), \
-	span_xenodanger("We effortlessly dodge the !"))
+	xenomorph_owner.visible_message(span_warning("[xenomorph_owner] effortlessly dodges the [proj.name]!"), \
+	span_xenodanger("We effortlessly dodge the [proj.name]!"))
 
-	X.add_filter("runner_evasion", 2, gauss_blur_filter(5))
-	addtimer(CALLBACK(X, TYPE_PROC_REF(/atom, remove_filter), "runner_evasion"), 0.5 SECONDS)
-	X.do_jitter_animation(4000)
+	xenomorph_owner.add_filter("runner_evasion", 2, gauss_blur_filter(5))
+	addtimer(CALLBACK(xenomorph_owner, TYPE_PROC_REF(/atom, remove_filter), "runner_evasion"), 0.5 SECONDS)
+	xenomorph_owner.do_jitter_animation(4000)
 
-	var/turf/T = get_turf(X) //location of after image SFX
-	playsound(T, pick('sound/effects/throw.ogg','sound/effects/alien_tail_swipe1.ogg', 'sound/effects/alien_tail_swipe2.ogg'), 25, 1) //sound effects
-	var/obj/effect/temp_visual/xenomorph/afterimage/A
-	for(var/i=0 to 2) //number of after images
-		A = new /obj/effect/temp_visual/xenomorph/afterimage(T, owner) //Create the after image.
-		A.pixel_x = pick(rand(X.pixel_x * 3, X.pixel_x * 1.5), rand(0, X.pixel_x * -1)) //Variation on the X position
+	var/turf/our_turf = get_turf(xenomorph_owner) //location of after image SFX
+	playsound(our_turf, pick('sound/effects/throw.ogg','sound/effects/alien_tail_swipe1.ogg', 'sound/effects/alien_tail_swipe2.ogg'), 25, 1) //sound effects
+	var/obj/effect/temp_visual/xenomorph/afterimage/our_afterimage
+	for(var/i = 0 to 2) //number of after images
+		our_afterimage = new /obj/effect/temp_visual/xenomorph/afterimage(our_turf, owner) //Create the after image.
+		our_afterimage.pixel_x = pick(rand(xenomorph_owner.pixel_x * 3, xenomorph_owner.pixel_x * 1.5), rand(0, xenomorph_owner.pixel_x * -1)) //Variation on the xenomorph_owner position
 
 // ***************************************
 // *********** Select reagent (panther)
@@ -476,20 +475,20 @@
 
 /datum/action/ability/xeno_action/select_reagent/panther/give_action(mob/living/L)
 	. = ..()
-	var/mob/living/carbon/xenomorph/X = owner
-	X.selected_reagent = GLOB.panther_toxin_type_list[1] //Set our default
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	xenomorph_owner.selected_reagent = GLOB.panther_toxin_type_list[1] //Set our default
 	update_button_icon() //Update immediately to get our default
 
 /datum/action/ability/xeno_action/select_reagent/panther/action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
-	var/i = GLOB.panther_toxin_type_list.Find(X.selected_reagent)
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
+	var/i = GLOB.panther_toxin_type_list.Find(xenomorph_owner.selected_reagent)
 	if(length_char(GLOB.panther_toxin_type_list) == i)
-		X.selected_reagent = GLOB.panther_toxin_type_list[1]
+		xenomorph_owner.selected_reagent = GLOB.panther_toxin_type_list[1]
 	else
-		X.selected_reagent = GLOB.panther_toxin_type_list[i+1]
+		xenomorph_owner.selected_reagent = GLOB.panther_toxin_type_list[i+1]
 
-	var/atom/A = X.selected_reagent
-	X.balloon_alert(X, "[initial(A.name)]")
+	var/atom/A = xenomorph_owner.selected_reagent
+	xenomorph_owner.balloon_alert(xenomorph_owner, "[initial(A.name)]")
 	update_button_icon()
 	return succeed_activate()
 
@@ -506,13 +505,13 @@
 	var/toxin_choice = show_radial_menu(owner, owner, panther_toxin_images_list, radius = 48)
 	if(!toxin_choice)
 		return
-	var/mob/living/carbon/xenomorph/X = owner
+	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	for(var/toxin in GLOB.panther_toxin_type_list)
-		var/datum/reagent/R = GLOB.chemical_reagents_list[toxin]
-		if(R.name == toxin_choice)
-			X.selected_reagent = R.type
+		var/datum/reagent/our_reagent = GLOB.chemical_reagents_list[toxin]
+		if(our_reagent.name == toxin_choice)
+			xenomorph_owner.selected_reagent = our_reagent.type
 			break
-	X.balloon_alert(X, "[toxin_choice]")
+	xenomorph_owner.balloon_alert(xenomorph_owner, "[toxin_choice]")
 	update_button_icon()
 	return succeed_activate()
 
@@ -520,4 +519,3 @@
 #undef PANTHER_TRANSVITOX
 #undef PANTHER_OZELOMELYN
 #undef PANTHER_SANGUINAL
-

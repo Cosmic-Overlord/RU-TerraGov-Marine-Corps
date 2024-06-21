@@ -24,8 +24,9 @@
 	var/atom/movable/pulling
 	var/atom/movable/moving_from_pull		//attempt to resume grab after moving instead of before.
 	var/glide_modifier_flags = NONE
-
+/* RU TGMC EDIT
 	var/status_flags = CANSTUN|CANKNOCKDOWN|CANKNOCKOUT|CANPUSH|CANUNCONSCIOUS|CANCONFUSE	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)
+RU TGMC EDIT */
 	var/generic_canpass = TRUE
 	///What things this atom can move past, if it has the corrosponding flag
 	var/pass_flags = NONE
@@ -473,11 +474,13 @@
 
 ///called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, speed, bounce = TRUE)
+	if(!hit_atom) // RUTGMC ADDITION
+		return
 	var/hit_successful
 	var/old_throw_source = throw_source
 	hit_successful = hit_atom.hitby(src, speed)
 	if(hit_successful)
-		SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom)
+		SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, speed)
 		if(bounce && hit_atom.density && !isliving(hit_atom))
 			INVOKE_NEXT_TICK(src, PROC_REF(throw_bounce), hit_atom, old_throw_source)
 	return hit_successful //if the throw missed, it continues
@@ -565,7 +568,7 @@
 
 	if(dist_x > dist_y)
 		var/error = dist_x/2 - dist_y
-		while(!gc_destroyed && target &&((((x < target.x && dx == EAST) || (x > target.x && dx == WEST)) && get_dist_euclide(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
+		while(!gc_destroyed && target &&((((x < target.x && dx == EAST) || (x > target.x && dx == WEST)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
 				var/atom/step = get_step(src, dy)
@@ -589,7 +592,7 @@
 					sleep(0.1 SECONDS)
 	else
 		var/error = dist_y/2 - dist_x
-		while(!gc_destroyed && target &&((((y < target.y && dy == NORTH) || (y > target.y && dy == SOUTH)) && get_dist_euclide(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
+		while(!gc_destroyed && target &&((((y < target.y && dy == NORTH) || (y > target.y && dy == SOUTH)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && throwing && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
 				var/atom/step = get_step(src, dx)

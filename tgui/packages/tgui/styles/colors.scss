@@ -11,6 +11,7 @@
 $black: #000000 !default;
 $white: #ffffff !default;
 $red: #db2828 !default;
+$darkred: #7e3131 !default;
 $orange: #f2711c !default;
 $yellow: #fbd608 !default;
 $olive: #b5cc18 !default;
@@ -48,6 +49,7 @@ $_gen_map: (
   'black': $black,
   'white': $white,
   'red': $red,
+  'darkred': $darkred,
   'orange': $orange,
   'yellow': $yellow,
   'olive': $olive,

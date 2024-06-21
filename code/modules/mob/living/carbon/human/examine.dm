@@ -488,13 +488,13 @@
 				msg += "<a href='?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
 
 	msg += "[flavor_text]<br>"
-
+/* RU TGMC EDIT PUPPETEER REMOVAL
 	if(HAS_TRAIT(src, TRAIT_HOLLOW))
 		if(isxeno(user))
 			msg += "<span style='font-weight: bold; color: purple;'>[t_He] [t_is] hollow. Useless.</span>\n"
 		else
 			msg += "[span_warning("<b>[t_He] [t_is] hollowed out!</b>")]\n"
-
+RU TGMC EDIT PUPPETEER REMOVAL */
 	if(isxeno(user))
 		if(species.species_flags & IS_SYNTHETIC)
 			msg += "[span_xenowarning("You sense [t_he] [t_is] not organic.")]\n"
@@ -513,6 +513,26 @@
 
 	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))
 		msg += span_highdanger("<b>This player has been slept by staff. Best to leave them be.</b>\n")
+
+//RUTGMC EDIT
+	if(isyautja(user))
+		var/obj/item/clothing/gloves/yautja/hunter/bracers = gloves
+		if(istype(bracers) && bracers.name_active)
+			msg += span_blue("Their bracers identifies them as <b>[real_name]</b>.")
+		msg += span_blue("[src] has the scent of [life_kills_total] defeated prey.")
+		if(src.hunter_data.hunted)
+			msg += span_orange("[src] is being hunted by [src.hunter_data.hunter.real_name].")
+
+		if(src.hunter_data.dishonored)
+			msg += span_red("[src] was marked as dishonorable for '[src.hunter_data.dishonored_reason]'.")
+		else if(src.hunter_data.honored)
+			msg += span_green("[src] was honored for '[src.hunter_data.honored_reason]'.")
+
+		if(src.hunter_data.thralled)
+			msg += span_green("[src] was thralled by [src.hunter_data.thralled_set.real_name] for '[src.hunter_data.thralled_reason]'.")
+		else if(src.hunter_data.gear)
+			msg += span_red("[src] was marked as carrying gear by [src.hunter_data.gear_set].")
+//RUTGMC EDIT
 
 	msg += "</span>"
 	return list(msg)

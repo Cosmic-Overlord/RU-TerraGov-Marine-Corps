@@ -333,7 +333,7 @@
 		return
 	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
 		if(!silent)
-			owner.balloon_alert("too early")
+			owner.balloon_alert(owner, "too early")
 		return FALSE
 
 /datum/action/ability/xeno_action/zero_form_beam/action_activate()
@@ -501,6 +501,10 @@
 	var/sisters_teleported = 0
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		sister.remove_filter("summonoutline")
+//RUTGMC EDIT ADDITION BEGIN - Preds
+		if(HAS_TRAIT(sister, TRAIT_LEASHED))
+			continue
+//RUTGMC EDIT ADDITION END
 		if(sister.z == owner.z)
 			sister.forceMove(get_turf(X))
 			sisters_teleported ++

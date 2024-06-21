@@ -57,8 +57,12 @@
 	var/list/som = list()
 	var/list/survivors = list()
 	var/list/xenos = list()
+//RUTGMC EDIT
+	var/list/yautja = list()
+//RUTGMC EDIT
 	var/list/dead = list()
 	var/list/ghosts = list()
+	var/list/valhalla = list() // RUTGMC ADDITION
 	var/list/misc = list()
 	var/list/npcs = list()
 
@@ -105,6 +109,15 @@
 				serialized["icon"] = caste.minimap_icon
 			if(!isnum(xeno.nicknumber))
 				serialized["nickname"] = xeno.nicknumber
+//RUTGMC EDIT
+			if(istype(xeno, /mob/living/carbon/xenomorph/hellhound))
+				yautja += list(serialized)
+				continue
+//RUTGMC EDIT
+			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO)) // RUTGMC ADDITION
+				valhalla += list(serialized)
+				continue
+
 			xenos += list(serialized)
 			continue
 
@@ -118,6 +131,14 @@
 			var/datum/job/job = human.job
 			serialized["nickname"] = human.real_name
 
+//RUTGMC EDIT
+			if(mob_poi.hunter_data.thralled)
+				serialized["icon"] = "thrall"
+				serialized["job"] = job.title
+				yautja += list(serialized)
+				continue
+//RUTGMC EDIT
+
 			if(ismarinejob(human.job))
 				if(human.assigned_squad)
 					serialized["icon"] = lowertext(human.assigned_squad.name) + "_" + job.minimap_icon
@@ -129,6 +150,14 @@
 				serialized["icon"] = job.minimap_icon
 				serialized["job"] = job.title
 
+//RUTGMC EDIT
+			if(isyautja(mob_poi))
+				serialized["icon"] = job.minimap_icon
+				serialized["job"] = job.title
+				yautja += list(serialized)
+				continue
+//RUTGMC EDIT
+
 			if(issommarinejob(human.job))
 				som += list(serialized)
 				continue
@@ -137,15 +166,23 @@
 				survivors += list(serialized)
 				continue
 
+			if(istype(human.job, /datum/job/fallen)) // RUTGMC ADDITION
+				valhalla += list(serialized)
+				continue
+
 			humans += list(serialized)
 
 	data["dead"] = dead
 	data["ghosts"] = ghosts
+	data["valhalla"] = valhalla // RUTGMC ADDITION
 	data["humans"] = humans
 	data["icons"] = GLOB.minimap_icons
 	data["misc"] = misc
 	data["npcs"] = npcs
 	data["marines"] = marines
+//RUTGMC EDIT
+	data["yautja"] = yautja
+//RUTGMC EDIT
 	data["som"] = som
 	data["survivors"] = survivors
 	data["xenos"] = xenos

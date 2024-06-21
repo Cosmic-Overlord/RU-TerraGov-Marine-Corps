@@ -58,7 +58,7 @@
 	///If a hostile was detected
 	var/hostile_detected = FALSE
 	///The time needed after the last move to not be detected by this motion detector
-	var/move_sensitivity = 1 SECONDS
+	//var/move_sensitivity = 1 SECONDS RU TGMC EDIT
 	///The range of this motion detector
 	var/range = 16
 	///The list of all the blips
@@ -133,12 +133,20 @@
 	for (var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(operator, range))
 		if(nearby_human == operator)
 			continue
+		/* RU TGMC EDIT
 		if(nearby_human.last_move_time + move_sensitivity < world.time)
 			continue
+		RU TGMC EDIT */
+//RU TGMC EDIT
+		if(HAS_TRAIT(nearby_human, TRAIT_LIGHT_STEP))
+			continue
+//RUTGMC EDIT ADDITION END
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for (var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
+		/* RU TGMC EDIT
 		if(nearby_xeno.last_move_time + move_sensitivity < world.time )
 			continue
+		RU TGMC EDIT */
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 7, 2)
@@ -155,6 +163,8 @@
 ///Prepare the blip to be print on the operator screen
 /obj/item/attachable/motiondetector/proc/prepare_blip(mob/target, status)
 	if(!operator.client)
+		return
+	if(!target) // RUTGMC ADDITION
 		return
 	if(status == MOTION_DETECTOR_HOSTILE)
 		hostile_detected = TRUE

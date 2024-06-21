@@ -67,9 +67,14 @@
 	hud_set_order()
 	//and display them
 	add_to_all_mob_huds()
-
+/*
 	GLOB.huds[DATA_HUD_BASIC].add_hud_to(src)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(src)
+*/
+//RUTGMC EDIT ADDITION BEGIN - Preds
+	var/datum/atom_hud/hud_to_add = GLOB.huds[DATA_HUD_BASIC]
+	hud_to_add.add_hud_to(src)
+//RUTGMC EDIT ADDITION END
 
 /mob/living/carbon/human/register_init_signals()
 	. = ..()
@@ -119,6 +124,7 @@
 	. = ..()
 	update_stam_skill_mod(skills)
 
+/* RUTGMC DELETION, moved to modular
 /mob/living/carbon/human/ex_act(severity)
 	if(status_flags & GODMODE)
 		return
@@ -176,6 +182,7 @@
 
 	take_overall_damage(b_loss, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
 	take_overall_damage(f_loss, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
+*/
 
 
 /mob/living/carbon/human/attack_animal(mob/living/M as mob)

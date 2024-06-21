@@ -162,6 +162,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/datum/loadout_manager/loadout_manager
 	///Should we be in the widescreen mode set by the config?
 	var/widescreenpref = TRUE
+	///widescreen resolution
+	var/screen_resolution = "17x15"
 	///What size should pixels be displayed as? 0 is strech to fit
 	var/pixel_size = 0
 	///What scaling method should we use? Distort means nearest neighbor
@@ -234,6 +236,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user?.client)
 		return
+	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP) // RUTGMC ADDITION START
+		to_chat(src, span_warning("The game is still setting up, please try again later."))
+		return // RUTGMC ADDITION END
 
 	update_preview_icon()
 	ui_interact(user)
