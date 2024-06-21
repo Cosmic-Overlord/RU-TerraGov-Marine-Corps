@@ -28,6 +28,7 @@
 #include "code\datums\autocells\auto_cell.dm"
 #include "code\datums\autocells\explosion.dm"
 #include "code\datums\autocells\vomitwave.dm"
+#include "code\datums\components\attachment_handler.dm"
 #include "code\datums\components\overlay_lighting.dm"
 #include "code\datums\elements\shrapnel_removal.dm"
 #include "code\datums\emergency_calls\necoarc.dm"
