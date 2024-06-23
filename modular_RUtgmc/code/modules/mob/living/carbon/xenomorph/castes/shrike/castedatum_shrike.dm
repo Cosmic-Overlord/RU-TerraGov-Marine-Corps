@@ -9,9 +9,6 @@
 	// *** Plasma *** //
 	plasma_gain = 60
 
-	// *** Health *** //
-	max_health = 500
-
 	// *** Abilities *** //
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,
