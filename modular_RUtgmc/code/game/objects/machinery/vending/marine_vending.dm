@@ -339,9 +339,12 @@
 	products = list(
 		"Pill Bottles" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
+			/obj/item/storage/pill_bottle/ibuprofen = -1,
 			/obj/item/storage/pill_bottle/kelotane = -1,
+			/obj/item/storage/pill_bottle/ketoprofen = -1,
 			/obj/item/storage/pill_bottle/tramadol = -1,
 			/obj/item/storage/pill_bottle/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/ifex = -1,
 			/obj/item/storage/pill_bottle/dylovene = -1,
 			/obj/item/storage/pill_bottle/dexalin = -1,
 			/obj/item/storage/pill_bottle/paracetamol = -1,
@@ -364,6 +367,7 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/imidazoline = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 10,
 			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = 20,
+			/obj/item/reagent_containers/hypospray/autoinjector/bacteriophages = 20,
 			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 10,
 		),
 		"Heal Pack" = list(
@@ -386,9 +390,12 @@
 	products = list(
 		"Pill Bottles" = list(
 			/obj/item/storage/pill_bottle/bicaridine = -1,
+			/obj/item/storage/pill_bottle/ibuprofen = -1,
 			/obj/item/storage/pill_bottle/kelotane = -1,
+			/obj/item/storage/pill_bottle/ketoprofen = -1,
 			/obj/item/storage/pill_bottle/tramadol = -1,
 			/obj/item/storage/pill_bottle/tricordrazine = -1,
+			/obj/item/storage/pill_bottle/ifex = -1,
 			/obj/item/storage/pill_bottle/dylovene = -1,
 			/obj/item/storage/pill_bottle/dexalin = -1,
 			/obj/item/storage/pill_bottle/paracetamol = -1,
@@ -410,6 +417,7 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/imidazoline = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/bacteriophages = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/russian_red = -1,
 		),
 		"Heal Pack" = list(
