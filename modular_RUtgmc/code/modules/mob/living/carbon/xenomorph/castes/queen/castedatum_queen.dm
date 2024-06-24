@@ -2,8 +2,6 @@
 
 	max_health = 600
 
-	sunder_recover = 1.5
-
 	// *** Defense *** //
 	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 65, BOMB = 80, BIO = 60, FIRE = 60, ACID = 60)
 

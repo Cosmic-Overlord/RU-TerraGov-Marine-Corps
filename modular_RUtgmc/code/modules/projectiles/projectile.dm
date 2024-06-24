@@ -1,6 +1,12 @@
 /obj/projectile
 	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
 	var/is_shrapnel = FALSE
+	var/additional_xeno_penetration = 0
+
+/obj/projectile/generate_bullet(ammo_datum, bonus_damage = 0, reagent_multiplier = 0)
+	..()
+	ammo = ispath(ammo_datum) ? GLOB.ammo_list[ammo_datum] : ammo_datum
+	additional_xeno_penetration = ammo.additional_xeno_penetration
 
 /mob/living/carbon/xenomorph/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
 	if(SEND_SIGNAL(src, COMSIG_XENO_PROJECTILE_HIT, proj, cardinal_move, uncrossing) & COMPONENT_PROJECTILE_DODGE)

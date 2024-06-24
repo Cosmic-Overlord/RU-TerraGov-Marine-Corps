@@ -1,6 +1,310 @@
 /datum/ammo
 	///Embeding shrapnel type
 	var/shrapnel_type = /obj/item/shard/shrapnel
+	var/additional_xeno_penetration = 0
+
+
+/*
+//================================================
+					Pistol Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/pistol
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/bullet/pistol/tiny
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/pistol/tiny/ap
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/pistol/hollow
+	sundering = 0
+	additional_xeno_penetration = 10
+
+/datum/ammo/bullet/pistol/ap
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/pistol/heavy
+	sundering = 0
+	additional_xeno_penetration = 12
+
+/datum/ammo/bullet/pistol/superheavy
+	sundering = 0
+	additional_xeno_penetration = 14
+
+/datum/ammo/bullet/pistol/mech
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/bullet/pistol/mech/burst
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/pistol/squash
+	sundering = 0
+	additional_xeno_penetration = 10
+
+/*
+//================================================
+					Revolver Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/revolver
+	sundering = 0
+	additional_xeno_penetration = 13
+
+/datum/ammo/bullet/revolver/tp44
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/bullet/revolver/t76
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/revolver/highimpact
+	sundering = 0
+	additional_xeno_penetration = 14
+
+/*
+//================================================
+					SMG Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/smg
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/smg/ap
+	sundering = 0
+	additional_xeno_penetration = 14
+
+/datum/ammo/bullet/smg/rad
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/bullet/smg/mech
+	sundering = 0
+	additional_xeno_penetration = 2
+
+/*
+//================================================
+					Rifle Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/rifle
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/bullet/rifle/ap
+	sundering = 0
+	additional_xeno_penetration = 14
+
+/datum/ammo/bullet/rifle/hv
+	sundering = 0
+	additional_xeno_penetration = 8
+
+/datum/ammo/bullet/rifle/heavy
+	sundering = 0
+	additional_xeno_penetration = 8
+
+/datum/ammo/bullet/rifle/repeater
+	sundering = 0
+	additional_xeno_penetration = 8
+
+/datum/ammo/bullet/rifle/machinegun
+	sundering = 0
+	additional_xeno_penetration = 5
+
+/datum/ammo/bullet/rifle/som_machinegun
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/bullet/rifle/tx8
+	sundering = 0
+	additional_xeno_penetration = 24
+
+/datum/ammo/bullet/rifle/tx8/incendiary
+	sundering = 0
+	additional_xeno_penetration = 13
+
+/datum/ammo/bullet/rifle/tx8/impact
+	sundering = 0
+	additional_xeno_penetration = 26
+
+/datum/ammo/bullet/rifle/mpi_km
+	sundering = 0
+	additional_xeno_penetration = 10
+
+/datum/ammo/bullet/rifle/standard_dmr
+	sundering = 0
+	additional_xeno_penetration = 12
+
+/datum/ammo/bullet/rifle/garand
+	sundering = 0
+	additional_xeno_penetration = 8
+
+/datum/ammo/bullet/rifle/standard_br
+	sundering = 0
+	additional_xeno_penetration = 8
+
+/datum/ammo/bullet/rifle/icc_confrontationrifle
+	sundering = 0
+	additional_xeno_penetration = 15
+
+/datum/ammo/bullet/rifle/mech
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/*
+//================================================
+					Shotgun Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/shotgun/slug
+	sundering = 0
+	additional_xeno_penetration = 20
+
+/datum/ammo/bullet/shotgun/incendiary
+	sundering = 0
+	additional_xeno_penetration = 10
+
+/datum/ammo/bullet/shotgun/flechette
+	sundering = 0
+	additional_xeno_penetration = 28
+
+/datum/ammo/bullet/shotgun/flechette/flechette_spread
+	sundering = 0
+	additional_xeno_penetration = 25
+
+/datum/ammo/bullet/shotgun/tx15_flechette
+	sundering = 0
+	additional_xeno_penetration = 18
+
+/datum/ammo/bullet/shotgun/tx15_slug
+	sundering = 0
+	additional_xeno_penetration = 15
+
+/datum/ammo/bullet/shotgun/mbx900_sabot
+	sundering = 0
+	additional_xeno_penetration = 14
+
+/*
+//================================================
+					Sniper Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/sniper/svd
+	sundering = 0
+	additional_xeno_penetration = 30
+
+/datum/ammo/bullet/sniper/pfc
+	sundering = 0
+	additional_xeno_penetration = 20
+
+/*
+//================================================
+					Special Ammo
+//================================================
+*/
+
+/datum/ammo/bullet/smartmachinegun
+	sundering = 0
+	additional_xeno_penetration = 12
+
+/datum/ammo/bullet/smart_minigun
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/bullet/smarttargetrifle
+	sundering = 0
+	additional_xeno_penetration = 20
+
+/datum/ammo/bullet/minigun/mech
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/*
+//================================================
+					Energy Ammo
+//================================================
+*/
+
+// TE Lasers //
+
+/datum/ammo/energy/lasgun/marine
+	sundering = 0
+	additional_xeno_penetration = 9
+
+/datum/ammo/energy/lasgun/marine/carbine
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/overcharge
+	sundering = 0
+	additional_xeno_penetration = 11
+
+/datum/ammo/energy/lasgun/marine/microwave
+	sundering = 0
+	additional_xeno_penetration = 11
+
+/datum/ammo/energy/lasgun/marine/blast
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/autolaser
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/autolaser/charge
+	sundering = 0
+	additional_xeno_penetration = 14
+
+/datum/ammo/energy/lasgun/marine/sniper
+	sundering = 0
+	additional_xeno_penetration = 18
+
+/datum/ammo/energy/lasgun/marine/sniper_heat
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/shatter
+	sundering = 0
+	additional_xeno_penetration = 24
+
+/datum/ammo/energy/lasgun/marine/shatter/heavy_laser
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/ricochet
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/pistol
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/pistol/heat
+	sundering = 0
+	additional_xeno_penetration = 4
+
+/datum/ammo/energy/lasgun/marine/xray
+	sundering = 0
+	additional_xeno_penetration = 7
+
+/datum/ammo/energy/lasgun/marine/heavy_laser
+	sundering = 0
+	additional_xeno_penetration = 7
 
 /datum/ammo/bullet/revolver/rifle
 	name = ".44 Long Special bullet"
@@ -8,7 +312,8 @@
 	handful_amount = 8
 	damage = 60
 	penetration = 30
-	sundering = 3
+	sundering = 0
+	additional_xeno_penetration = 6
 	damage_falloff = 0
 	shell_speed = 3.5
 
@@ -24,7 +329,8 @@
 	accurate_range = 20
 	damage = 20
 	penetration = 10
-	sundering = 1.5
+	sundering = 0
+	additional_xeno_penetration = 10
 
 /datum/ammo/bullet/smg/acp
 	name = "submachinegun ACP bullet"
@@ -36,7 +342,8 @@
 	damage = 20
 	accurate_range = 4
 	damage_falloff = 1
-	sundering = 0.4
+	sundering = 0
+	additional_xeno_penetration = 3
 	penetration = 0
 	shrapnel_chance = 25
 
@@ -47,7 +354,8 @@
 	handful_amount = 5
 	damage = 100
 	penetration = 40
-	sundering = 0.5
+	sundering = 0
+	additional_xeno_penetration = 4
 
 /datum/ammo/bullet/revolver/t500/on_hit_mob(mob/M,obj/projectile/P)
 	staggerstun(M, P, stagger = 0, slowdown = 0, knockback = 1)
@@ -82,13 +390,15 @@
 	name = "light marksman armor piercing bullet"
 	penetration = 25
 	damage = 27.5
-	sundering = 3.25
+	sundering = 0
+	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/rifle/heavy/ap
 	name = "heavy rifle bullet"
 	damage = 25
 	penetration = 25
-	sundering = 3.5
+	sundering = 0
+	additional_xeno_penetration = 15
 
 /datum/ammo/energy/lasgun/marine/sniper_heat
 	penetration = 30
@@ -104,7 +414,8 @@
 	penetration = 80
 	accurate_range_min = 6
 	flags_ammo_behavior = AMMO_ENERGY|AMMO_SUNDERING|AMMO_HITSCAN|AMMO_SNIPER
-	sundering = 10
+	sundering = 0
+	additional_xeno_penetration = 20
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -132,7 +443,8 @@
 	accurate_range = 4
 	max_range = 10
 	damage = 40
-	sundering = 2
+	sundering = 0
+	additional_xeno_penetration = 10
 	damage_falloff = 4
 
 /datum/ammo/bullet/shotgun/buckshot/shq6/on_hit_mob(mob/M,obj/projectile/P)
@@ -147,7 +459,8 @@
 	max_range = 15
 	damage = 100
 	penetration = 30
-	sundering = 3
+	sundering = 0
+	additional_xeno_penetration = 15
 	damage_falloff = 3
 
 /datum/ammo/bullet/shotgun/slug/shq6/on_hit_mob(mob/M,obj/projectile/P)
@@ -162,7 +475,8 @@
 	max_range = 15
 	damage = 70
 	penetration = 15
-	sundering = 1
+	sundering = 0
+	additional_xeno_penetration = 7
 	bullet_color = COLOR_TAN_ORANGE
 
 /datum/ammo/bullet/shotgun/incendiary/shq6/on_hit_mob(mob/M, obj/projectile/P)
@@ -183,13 +497,15 @@
 	damage = 50
 	damage_falloff = 3
 	penetration = 40
-	sundering = 4
+	sundering = 0
+	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread/shq6
 	name = "additional flechette"
 	damage = 40
 	penetration = 40
-	sundering = 2
+	sundering = 0
+	additional_xeno_penetration = 20
 	damage_falloff = 3
 
 /datum/ammo/bullet/minigun
