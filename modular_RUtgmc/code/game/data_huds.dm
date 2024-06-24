@@ -347,6 +347,10 @@
 		holder.icon_state = "hudhealth-100"
 		return TRUE
 
+	if(SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_STEALTH) & COMPONENT_HIDE_HEALTH)
+		holder.icon_state = "hudhealth-100"
+		return TRUE
+
 	var/perceived_health = round(health * 100 / maxHealth)
 	if(!(species.species_flags & NO_PAIN))
 		perceived_health -= PAIN_RATIO_PAIN_HUD * traumatic_shock

@@ -30,6 +30,7 @@
 #include "code\datums\autocells\vomitwave.dm"
 #include "code\datums\components\attachment_handler.dm"
 #include "code\datums\components\overlay_lighting.dm"
+#include "code\datums\components\health_stealth.dm"
 #include "code\datums\elements\shrapnel_removal.dm"
 #include "code\datums\emergency_calls\necoarc.dm"
 #include "code\datums\gamemodes\_game_mode.dm"
