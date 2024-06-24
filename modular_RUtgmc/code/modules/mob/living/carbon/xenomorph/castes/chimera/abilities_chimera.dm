@@ -43,6 +43,11 @@
 			to_chat(owner, span_xenowarning("We cannot blink here!"))
 		return FALSE
 
+	for(var/obj/effect/forcefield/fog in range(1, owner))
+		if(!silent)
+			owner.balloon_alert(owner, span_xenowarning("We cannot blink while on fog!"))
+			return FALSE
+
 
 	return TRUE
 

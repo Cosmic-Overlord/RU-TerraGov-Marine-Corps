@@ -418,6 +418,12 @@
 		if(!silent)
 			owner.balloon_alert(owner, "Target not adjacent")
 		return FALSE
+	//RUTGMC
+	for(var/obj/effect/forcefield/fog in range(1, owner))
+		if(!silent)
+			owner.balloon_alert(owner, span_xenowarning("Cannot toss near fog!"))
+			return FALSE
+	//RUTGMC
 
 /datum/action/ability/activable/xeno/warrior/grapple_toss/use_ability(atom/A)
 	. = ..()
