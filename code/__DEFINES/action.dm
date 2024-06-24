@@ -24,6 +24,8 @@
 #define VREF_IMAGE_XENO_CLOCK "VREF_ACTION_CLOCK"
 /// A reference for the build counter of a xeno
 #define VREF_MUTABLE_BUILDING_COUNTER "VREF_BUILD_COUNTER"
+//A reference for the special resin build counter of a xeno
+#define VREF_MUTABLE_SPECIAL_RESIN_COUNTER "VREF_SPECIAL_RESIN_COUNTER"
 // extra reference for the amount of landslide charges we have
 #define VREF_MUTABLE_LANDSLIDE "VREF_LANDSLIDE"
 // extra reference for the amount of earth pillars we have

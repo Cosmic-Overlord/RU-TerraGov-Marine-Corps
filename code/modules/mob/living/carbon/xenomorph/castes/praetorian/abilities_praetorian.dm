@@ -57,7 +57,7 @@ RU TGMC EDIT */
 		return FALSE
 	return TRUE
 
-GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj/vehicle/multitile/root/cm_armored, /obj/structure/razorwire)))
+GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj/hitbox, /obj/structure/razorwire)))
 
 #define CONE_PART_MIDDLE (1<<0)
 #define CONE_PART_LEFT (1<<1)
@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	var/turf/next_normal_turf = get_step(T, facing)
 	for (var/atom/movable/A AS in T)
 		A.acid_spray_act(owner)
-		if(((A.density && !(A.allow_pass_flags & PASS_PROJECTILE) && !(A.flags_atom & ON_BORDER)) || !A.Exit(source_spray, facing)) && !isxeno(A))
+		if(((A.density && !(A.allow_pass_flags & PASS_PROJECTILE) && !(A.atom_flags & ON_BORDER)) || !A.Exit(source_spray, facing)) && !isxeno(A))
 			is_blocked = TRUE
 	if(!is_blocked)
 		if(!skip_timer)
@@ -123,11 +123,12 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 		do_acid_cone_spray(next_normal_turf, distance_left - 1, facing, CONE_PART_DIAG_LEFT|CONE_PART_DIAG_RIGHT, spray)
 		do_acid_cone_spray(next_normal_turf, distance_left - 2, facing, (distance_left < 5) ? CONE_PART_MIDDLE : CONE_PART_MIDDLE_DIAG, spray)
 
+
 // ***************************************
 // *********** Dash
 // ***************************************
-/datum/action/ability/activable/xeno/charge/dash
-	name = "Dash"
+/datum/action/ability/activable/xeno/charge/acid_dash
+	name = "Acid Dash"
 	action_icon_state = "pounce"
 	desc = "Instantly dash to the selected tile."
 	ability_cost = 100
@@ -143,33 +144,56 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	///The last tile we dashed through, used when swapping with a human
 	var/turf/last_turf
 
-/datum/action/ability/activable/xeno/charge/dash/use_ability(atom/A)
+/datum/action/ability/activable/xeno/charge/acid_dash/use_ability(atom/A)
 	if(!A)
 		return
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
+
+	RegisterSignal(xeno_owner, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(obj_hit))
 	RegisterSignal(xeno_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
 	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(acid_steps)) //We drop acid on every tile we pass through
 
+	xeno_owner.visible_message(span_danger("[xeno_owner] slides towards \the [A]!"), \
+	span_danger("We dash towards \the [A], spraying acid down our path!") )
+	xeno_owner.emote("roar")
 	xeno_owner.xeno_flags |= XENO_LEAPING //This has to come before throw_at, which checks impact. So we don't do end-charge specials when thrown
-
-	add_cooldown()
 	succeed_activate()
 
 	last_turf = get_turf(owner)
 	owner.pass_flags = PASS_LOW_STRUCTURE|PASS_DEFENSIVE_STRUCTURE|PASS_FIRE
 	owner.throw_at(A, charge_range, 2, owner)
 
-	add_cooldown()
-	succeed_activate()
-
-/datum/action/ability/activable/xeno/charge/dash/mob_hit(datum/source, mob/living/living_target)
+/datum/action/ability/activable/xeno/charge/acid_dash/mob_hit(datum/source, mob/living/living_target)
 	. = TRUE
 	if(living_target.stat || isxeno(living_target) || !(iscarbon(living_target))) //we leap past xenos
 		return
+	recast_available = TRUE
 	var/mob/living/carbon/carbon_victim = living_target
-	carbon_victim.ParalyzeNoChain(0.1 SECONDS)
+	carbon_victim.ParalyzeNoChain(0.5 SECONDS)
 
-/datum/action/ability/activable/xeno/charge/dash/charge_complete()
+	to_chat(carbon_victim, span_highdanger("The [owner] tackles us, sending us behind them!"))
+	owner.visible_message(span_xenodanger("\The [owner] tackles [carbon_victim], swapping location with them!"), \
+		span_xenodanger("We push [carbon_victim] in our acid trail!"), visible_message_flags = COMBAT_MESSAGE)
+
+/datum/action/ability/activable/xeno/charge/acid_dash/charge_complete()
 	. = ..()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(recast_available)
+		addtimer(CALLBACK(src, PROC_REF(charge_complete)), 2 SECONDS) //Delayed recursive call, this time you won't gain a recast so it will go on cooldown in 2 SECONDS.
+		recast = TRUE
+	else
+		recast = FALSE
+		add_cooldown()
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	xeno_owner.pass_flags = initial(xeno_owner.pass_flags)
+	recast_available = FALSE
+
+///Drops an acid puddle on the current owner's tile, will do 0 damage if the owner has no acid_spray_damage
+/datum/action/ability/activable/xeno/charge/acid_dash/proc/acid_steps(atom/A, atom/OldLoc, Dir, Forced)
+	SIGNAL_HANDLER
+	last_turf = OldLoc
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	new /obj/effect/xenomorph/spray(get_turf(xeno_owner), 5 SECONDS, xeno_owner.xeno_caste.acid_spray_damage) //Add a modifier here to buff the damage if needed
+	for(var/obj/O in get_turf(xeno_owner))
+		O.acid_spray_act(xeno_owner)

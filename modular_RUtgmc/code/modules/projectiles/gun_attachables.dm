@@ -14,35 +14,10 @@
 	scatter_unwielded_mod = 0
 	damage_falloff_mod = 0
 
-/obj/item/attachable/stock/sgstock
-	greyscale_config = null
-	colorable_allowed = NONE
-
-/obj/item/attachable/stock/tl127stock
-	greyscale_config = null
-	colorable_allowed = NONE
-
-/obj/item/attachable/stock/t60stock
-	greyscale_config = null
-	colorable_allowed = NONE
-
-/obj/item/attachable/verticalgrip
-	greyscale_config = null
-	colorable_allowed = NONE
-
-/obj/item/attachable/angledgrip
-	greyscale_config = null
-	colorable_allowed = NONE
-
-/obj/item/attachable/foldable/t35stock
-	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
-	greyscale_config = null
-	colorable_allowed = NONE
-
 /obj/item/attachable/stock/t500stock
 	name = "R-500 stock"
 	desc = "Cool stock for cool revolver."
-	flags_attach_features = ATTACH_REMOVABLE
+	attach_features_flags = ATTACH_REMOVABLE
 	wield_delay_mod = 0.2 SECONDS
 	delay_mod = -0.4 SECONDS
 	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'

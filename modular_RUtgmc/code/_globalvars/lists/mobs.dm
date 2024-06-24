@@ -52,7 +52,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	))
 
 GLOBAL_LIST_INIT(xeno_types_tier_two, list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/panther, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/spitter, /mob/living/carbon/xenomorph/hivelord, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/bull))
-GLOBAL_LIST_INIT(xeno_types_tier_three, list(/mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/ravager, /mob/living/carbon/xenomorph/praetorian, /mob/living/carbon/xenomorph/boiler, /mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/shrike, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/chimera))
+GLOBAL_LIST_INIT(xeno_types_tier_three, list(/mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/ravager, /mob/living/carbon/xenomorph/praetorian, /mob/living/carbon/xenomorph/boiler, /mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/shrike, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/chimera, /mob/living/carbon/xenomorph/warlock))
 
 GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/king,
@@ -60,6 +60,7 @@ GLOBAL_LIST_INIT(forbid_excepts, list(
 	/mob/living/carbon/xenomorph/shrike,
 	/mob/living/carbon/xenomorph/larva,
 	/mob/living/carbon/xenomorph/drone,
+	/mob/living/carbon/xenomorph/hivemind,
 	))
 
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)

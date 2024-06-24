@@ -25,6 +25,11 @@
 #define STICKY_RESIN "sticky resin"
 #define RESIN_DOOR "resin door"
 
+//Special resin defines
+#define BULLETPROOF_WALL "bulletproof resin wall"
+#define FIREPROOF_WALL "fireproof resin wall"
+#define HARDY_WALL "hardy resin wall"
+
 //Xeno reagents defines
 #define DEFILER_NEUROTOXIN "Neurotoxin"
 #define DEFILER_HEMODILE "Hemodile"
@@ -123,6 +128,13 @@ GLOBAL_LIST_INIT(resin_images_list, list(
 		RESIN_DOOR = image('icons/Xeno/actions.dmi', icon_state = RESIN_DOOR)
 		))
 */ //RUTGMC EDIT END
+
+//List of special resin structure images
+GLOBAL_LIST_INIT(resin_special_images_list, list(
+		BULLETPROOF_WALL = image('icons/Xeno/actions.dmi', icon_state = BULLETPROOF_WALL),
+		FIREPROOF_WALL = image('icons/Xeno/actions.dmi', icon_state = FIREPROOF_WALL),
+		HARDY_WALL = image('icons/Xeno/actions.dmi', icon_state = HARDY_WALL)
+))
 /* RU TGMC EDIT PUPPETEER REMOVAL
 //List of puppeteer order images
 GLOBAL_LIST_INIT(puppeteer_order_images_list, list(
@@ -144,7 +156,9 @@ GLOBAL_LIST_INIT(puppeteer_phero_images_list, list(
 //xeno upgrade flags
 ///Message the hive when we buy this upgrade
 #define UPGRADE_FLAG_MESSAGE_HIVE (1<<0)
-#define UPGRADE_FLAG_ONETIME (1<<0)
+#define UPGRADE_FLAG_ONETIME (1<<1)
+#define UPGRADE_FLAG_USES_TACTICAL (1<<2)
+
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/beetle/ai,
@@ -198,3 +212,6 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define ERROR_CONSTRUCT 8
 
 #define PUPPET_WITHER_RANGE 15
+
+///Number of icon states to show health and plasma on the side UI buttons
+#define XENO_HUD_ICON_BUCKETS 16

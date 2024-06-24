@@ -83,7 +83,7 @@
 	var/obj/projectile/spine = new /obj/projectile(current_turf)
 	spine.generate_bullet(/datum/ammo/xeno/spine)
 	spine.def_zone = xeno.get_limbzone_target()
-	spine.fire_at(victim, xeno, null, range = 6, speed = 1)
+	spine.fire_at(victim, xeno, xeno, range = 6, speed = 1)
 
 	add_cooldown()
 // ***************************************
@@ -194,7 +194,7 @@
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	if(target.stat == DEAD)
 		return
-	owner_xeno.plasma_stored = min(owner_xeno.plasma_stored + round(damage / 0.9), owner_xeno.xeno_caste.plasma_max)
+	owner_xeno.gain_plasma(floor(damage / 0.9))
 
 // ***************************************
 // *********** Stitch Puppet
@@ -275,7 +275,7 @@
 		return fail_activate()
 	RegisterSignal(victim, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(start_exploding))
 	RegisterSignal(victim, COMSIG_MOB_DEATH, PROC_REF(detonate))
-	addtimer(CALLBACK(src, PROC_REF(detonate), victim), 15 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_exploding), victim), 5 SECONDS)
 	add_cooldown()
 
 ///asynchronous signal handler for start_exploding_async

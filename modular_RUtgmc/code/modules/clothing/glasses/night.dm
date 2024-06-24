@@ -34,7 +34,7 @@
 	item_icons = list(
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
-	flags_inventory = COVEREYES
+	inventory_flags = COVEREYES
 	actions_types = null
 
 /obj/item/clothing/glasses/night/yautja/Initialize()

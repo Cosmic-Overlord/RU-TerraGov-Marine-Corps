@@ -138,19 +138,6 @@
 	GLOB.ai_list -= src
 	QDEL_NULL(builtInCamera)
 	QDEL_NULL(track)
-	UnregisterSignal(src, COMSIG_ORDER_SELECTED)
-	UnregisterSignal(src, COMSIG_MOB_CLICK_ALT)
-
-	UnregisterSignal(SSdcs, COMSIG_GLOB_OB_LASER_CREATED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_RAILGUN_LASER_CREATED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_SHUTTLE_TAKEOFF)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_MINI_DROPSHIP_DESTROYED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_DISK_GENERATED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_START)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_CLONE_PRODUCED)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_HOLOPAD_AI_CALLED)
 	QDEL_NULL(mini)
 	return ..()
 
@@ -255,7 +242,6 @@
 		to_chat(src, span_notice("Camera lights activated."))
 	camera_light_on = !camera_light_on
 
-
 /mob/living/silicon/ai/proc/light_cameras()
 	var/list/obj/machinery/camera/add = list()
 	var/list/obj/machinery/camera/remove = list()
@@ -277,6 +263,14 @@
 		C.Togglelight(1)
 		lit_cameras |= C
 
+/mob/living/silicon/ai/proc/supply_interface()
+	var/datum/supply_ui/SU
+	if(!SU)
+		SU = new(src)
+		SU.shuttle_id = SHUTTLE_SUPPLY
+		SU.home_id = "supply_home"
+		SU.faction = src.faction
+	return SU.interact(src)
 
 /mob/living/silicon/ai/proc/camera_visibility(mob/camera/aiEye/moved_eye)
 	GLOB.cameranet.visibility(moved_eye, client, all_eyes, moved_eye.use_static)
@@ -289,11 +283,11 @@
 	return (GLOB.cameranet && GLOB.cameranet.checkTurfVis(get_turf_pixel(A)))
 
 /mob/living/silicon/ai/proc/relay_speech(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
-	raw_message = lang_treat(speaker, message_language, raw_message, spans, message_mode)
 	var/start = "Relayed Speech: "
 	var/namepart = "[speaker.GetVoice()][speaker.get_alt_name()]"
 	var/hrefpart = "<a href='?src=[REF(src)];track=[html_encode(namepart)]'>"
 	var/jobpart
+	var/speech_part = lang_treat(speaker, message_language, raw_message, spans, message_mode)
 
 	if(iscarbon(speaker))
 		var/mob/living/carbon/S = speaker
@@ -302,8 +296,10 @@
 	else
 		jobpart = "Unknown"
 
-	var/rendered = "<i><span class='game say'>[start][span_name("[hrefpart][namepart] ([jobpart])</a> ")][span_message("[raw_message]")]</span></i>"
 
+	var/rendered = "<i><span class='game say'>[start][span_name("[hrefpart][namepart] ([jobpart])</a> ")][span_message("[speech_part]")]</span></i>"
+
+	create_chat_message(speaker, message_language, raw_message, spans, message_mode)
 	show_message(rendered, 2)
 
 
@@ -345,20 +341,19 @@
 		else
 			clear_fullscreen("remote_view", 0)
 
-/* RUTGMC DELETION
+
 /mob/living/silicon/ai/update_sight()
-	. = ..()
 	if(HAS_TRAIT(src, TRAIT_SEE_IN_DARK))
 		see_in_dark = max(see_in_dark, 8)
 		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 		eyeobj.see_in_dark = max(eyeobj.see_in_dark, 8)
 		eyeobj.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-		return
+		return ..()
+	see_in_dark = initial(see_in_dark)
+	lighting_alpha = initial(lighting_alpha)
 	eyeobj.see_in_dark = initial(eyeobj.see_in_dark)
 	eyeobj.lighting_alpha = initial(eyeobj.lighting_alpha)
-	see_in_dark = initial(see_in_dark)
-	lighting_alpha = initial(lighting_alpha) // yes you really have to change both the eye and the ai vars
-*/
+	return ..()
 
 /mob/living/silicon/ai/get_status_tab_items()
 	. = ..()
@@ -383,7 +378,8 @@
 
 	. += "Current alert level: [GLOB.marine_main_ship.get_security_level()]"
 
-	. += "Number of living marines: [SSticker.mode.count_humans_and_xenos()[1]]"
+	if(SSticker.mode)
+		. += "Number of living marines: [SSticker.mode.count_humans_and_xenos()[1]]"
 
 	if(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
 		. += "Railgun status: Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds."
@@ -394,6 +390,9 @@
 			. += "AI bioscan status: Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time)/10] seconds." //about 10 minutes
 		else
 			. += "AI bioscan status: Instruments are ready to scan the planet."
+	var/status_value = SSevacuation?.get_status_panel_eta()
+	if(status_value)
+		. += "Evacuation in: [status_value]"
 
 /mob/living/silicon/ai/fully_replace_character_name(oldname, newname)
 	. = ..()

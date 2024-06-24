@@ -72,7 +72,8 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 
 /datum/action/ability/xeno_action/psy_gain/hivemind/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
-	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))\
-		SSpoints.add_psy_points("[X.hivenumber]", 100)
+	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))
+		SSpoints.add_strategic_psy_points("[X.hivenumber]", 100)
+		SSpoints.add_tactical_psy_points("[X.hivenumber]", 25)
 	succeed_activate()
 	add_cooldown()

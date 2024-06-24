@@ -12,7 +12,7 @@
 	throw_range = 10
 	var/obj/item/tool/pen/haspen		//The stored pen.
 	var/obj/item/toppaper	//The topmost piece of paper.
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 
 /obj/item/clipboard/Initialize(mapload)
 	. = ..()
@@ -35,18 +35,21 @@
 
 			return
 
-/obj/item/clipboard/update_icon()
-	overlays.Cut()
+/obj/item/clipboard/update_overlays()
+	. = ..()
+
 	if(toppaper)
-		overlays += toppaper.icon_state
-		overlays += toppaper.overlays
+		. += toppaper.icon_state
+		. += toppaper.overlays
 	if(haspen)
-		overlays += "clipboard_pen"
-	overlays += "clipboard_over"
+		. += "clipboard_pen"
+	. += "clipboard_over"
 
 
 /obj/item/clipboard/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper) || istype(I, /obj/item/photo))
 		user.drop_held_item()

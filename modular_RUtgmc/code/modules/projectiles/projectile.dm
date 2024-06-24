@@ -7,7 +7,7 @@
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_BURROWED))
 		return FALSE
-	if(proj.ammo.flags_ammo_behavior & AMMO_SKIPS_ALIENS)
+	if(proj.ammo.ammo_behavior_flags & AMMO_SKIPS_ALIENS)
 		return FALSE
 	if(is_charging >= CHARGE_ON)
 		proj.damage -= proj.damage * (0.2 * get_sunder())

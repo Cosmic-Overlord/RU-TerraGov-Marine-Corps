@@ -17,7 +17,7 @@
 /// Extra handling for adding the action for draggin functionality (for instant building)
 /datum/action/ability/activable/xeno/secrete_resin/give_action(mob/living/L)
 	. = ..()
-	if(!(CHECK_BITFIELD(SSticker?.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) || !SSresinshaping.active))
+	if(!(CHECK_BITFIELD(SSticker?.mode.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) || !SSresinshaping.active))
 		return
 
 	var/mutable_appearance/build_maptext = mutable_appearance(icon = null,icon_state = null, layer = ACTION_LAYER_MAPTEXT)
@@ -35,7 +35,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/atom/A = X.selected_resin
 	action_icon_state = initial(A.name)
-	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
+	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
 		var/mutable_appearance/number = visual_references[VREF_MUTABLE_BUILDING_COUNTER]
 		number.maptext = MAPTEXT("[SSresinshaping.get_building_points(owner)]")
@@ -69,10 +69,10 @@
 		end_resin_drag()
 		return
 
-	if(SSticker.mode?.flags_round_type & MODE_PERSONAL_QUICKBUILD_POINTS && !SSresinshaping.get_building_points(owner))
+	if(SSticker.mode?.round_type_flags & MODE_PERSONAL_QUICKBUILD_POINTS && !SSresinshaping.get_building_points(owner))
 		owner.balloon_alert(owner, "You have used all your quick-build points! Wait until the marines have landed!")
 		return
-	if(SSticker.mode?.flags_round_type & MODE_GENERAL_QUICKBUILD_POINTS && !SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
+	if(SSticker.mode?.round_type_flags & MODE_GENERAL_QUICKBUILD_POINTS && !SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
 		owner.balloon_alert(owner, "The hive has ran out of quickbuilding points! Wait until more sisters awaken or the marines land!")
 		return
 

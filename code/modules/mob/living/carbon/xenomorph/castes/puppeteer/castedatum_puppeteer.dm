@@ -20,7 +20,6 @@
 	//upgrade_threshold = TIER_TWO_THRESHOLD // RUTGMC DELETION
 	evolution_threshold = 225
 
-	//evolves_to = list(/mob/living/carbon/xenomorph/widow, /mob/living/carbon/xenomorph/warlock) // RUTGMC DELETION, WIDOW DELETION, moved to the other file
 	deevolves_to = list(/mob/living/carbon/xenomorph/defender)
 	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER

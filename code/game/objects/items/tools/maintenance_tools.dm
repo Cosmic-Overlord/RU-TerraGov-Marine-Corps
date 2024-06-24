@@ -2,8 +2,8 @@
 	name = "wrench"
 	desc = "A wrench with many common uses. Can be usually found in your hand."
 	icon_state = "wrench"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 5
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
@@ -16,8 +16,8 @@
 	name = "screwdriver"
 	desc = "You can be totally screwwy with this."
 	icon_state = "screwdriver_map"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 5
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 5
@@ -65,8 +65,8 @@
 	name = "wirecutters"
 	desc = "This cuts wires."
 	icon_state = "cutters"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 6
 	throw_speed = 2
 	throw_range = 9
@@ -99,8 +99,8 @@
 	name = "blowtorch"
 	desc = "Used for welding and repairing various things."
 	icon_state = "welder"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -179,6 +179,8 @@
 
 /obj/item/tool/weldingtool/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/screwdriver))
 		flamethrower_screwdriver(src, user)
@@ -330,8 +332,8 @@
 	name = "crowbar"
 	desc = "Used to remove floors and to pry open doors."
 	icon_state = "crowbar"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 5
 	throwforce = 7
 	item_state = "crowbar"
@@ -351,7 +353,7 @@
 /obj/item/tool/weldpack
 	name = "Welding kit"
 	desc = "A heavy-duty, portable fuel carrier. Welder and flamer compatible."
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/tank.dmi'
 	icon_state = "welderpack"
 	w_class = WEIGHT_CLASS_BULKY
@@ -366,6 +368,8 @@
 
 /obj/item/tool/weldpack/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(reagents.total_volume == 0)
 		balloon_alert(user, "Out of fuel")
 		return
@@ -447,7 +451,7 @@
 /obj/item/tool/weldpack/marinestandard
 	name = "M-22 welding kit"
 	desc = "A heavy-duty, portable fuel carrier. Mainly used in flamethrowers. Welder and flamer compatible."
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "marine_flamerpack"
 	w_class = WEIGHT_CLASS_BULKY
 	max_fuel = 500 //Because the marine backpack can carry 260, and still allows you to take items, there should be a reason to still use this one.
@@ -456,14 +460,14 @@
 	name = "handheld charger"
 	desc = "A hand-held, lightweight cell charger. It isn't going to give you tons of power, but it can help in a pinch."
 	icon = 'icons/obj/items/tools.dmi'
-	icon_state = "handheldcharger_black_empty"
+	icon_state = "handheldcharger_black"
 	item_state = "handheldcharger_black_empty"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	force = 6
 	throw_speed = 2
 	throw_range = 9
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	/// This is the cell we ar charging
 	var/obj/item/cell/cell
 	///Are we currently recharging something.
@@ -471,7 +475,14 @@
 
 /obj/item/tool/handheld_charger/Initialize(mapload)
 	. = ..()
-	cell = null
+	update_icon()
+
+/obj/item/tool/handheld_charger/update_icon_state()
+	. = ..()
+	if(cell)
+		icon_state = initial(icon_state)
+	else
+		icon_state = initial(icon_state) + "_empty"
 
 /obj/item/tool/handheld_charger/attack_self(mob/user)
 	if(!cell)
@@ -499,6 +510,8 @@
 
 /obj/item/tool/handheld_charger/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/cell))
 		return
@@ -528,7 +541,7 @@
 	cell = null
 	playsound(user, 'sound/machines/click.ogg', 20, 1, 5)
 	balloon_alert(user, "Removes the cell")
-	icon_state = "handheldcharger_black_empty"
+	update_appearance()
 
 /obj/item/tool/handheld_charger/attack_hand(mob/living/user)
 	if(user.get_inactive_held_item() != src)
@@ -540,8 +553,12 @@
 	cell = null
 	playsound(user, 'sound/machines/click.ogg', 20, 1, 5)
 	balloon_alert(user, "Removes the cell")
-	icon_state = "handheldcharger_black_empty"
+	update_appearance()
 
 /obj/item/tool/handheld_charger/Destroy()
 	QDEL_NULL(cell)
+	return ..()
+
+/obj/item/tool/handheld_charger/hicapcell/Initialize(mapload)
+	cell = new /obj/item/cell/high(src)
 	return ..()

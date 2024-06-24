@@ -20,7 +20,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 20
 	damage = 20
 	penetration = 10
@@ -30,7 +30,7 @@
 	name = "submachinegun ACP bullet"
 	hud_state = "smg"
 	hud_state_empty = "smg_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accuracy_var_low = 7
 	accuracy_var_high = 7
 	damage = 20
@@ -103,7 +103,7 @@
 	damage = 100
 	penetration = 80
 	accurate_range_min = 6
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SUNDERING|AMMO_HITSCAN|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
 	sundering = 10
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
@@ -142,7 +142,7 @@
 	name = "shotgun slug"
 	handful_icon_state = "shotgun slug"
 	hud_state = "shotgun_slug"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 3
 	max_range = 15
 	damage = 100
@@ -158,7 +158,7 @@
 	handful_icon_state = "incendiary slug"
 	hud_state = "shotgun_fire"
 	damage_type = BRUTE
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SUNDERING
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	max_range = 15
 	damage = 70
 	penetration = 15
@@ -173,7 +173,7 @@
 	handful_icon_state = "shotgun flechette shell"
 	icon_state = "flechette"
 	hud_state = "shotgun_flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING
+	ammo_behavior_flags = AMMO_BALLISTIC
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/flechette/flechette_spread/shq6
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 3
@@ -229,13 +229,13 @@
 	icon_state = "xeno_acid_weak"
 
 /datum/ammo/xeno/acid/medium/passthrough //Spitter
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/auto
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/heavy/passthrough //Praetorian
-	flags_ammo_behavior = AMMO_XENO|AMMO_EXPLOSIVE|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/toxin/heavy
 	spit_cost = 200
@@ -303,7 +303,6 @@
 	shell_speed = 2
 	bullet_color = COLOR_STRONG_VIOLET
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_IGNORE_RESIST
 
 	hud_state = "plasma"
 	hud_state_empty = "electrothermal_empty"
@@ -346,7 +345,7 @@
 
 	bullet_color = COLOR_VIOLET
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_RESIST
+	ammo_behavior_flags = AMMO_ENERGY
 
 /datum/ammo/energy/yautja/caster/stun/on_hit_mob(mob/M, obj/projectile/P)
 	var/mob/living/carbon/C = M
@@ -368,7 +367,6 @@
 /datum/ammo/energy/yautja/caster/bolt
 	name = "plasma bolt"
 	icon_state = "pulse1"
-	flags_ammo_behavior = AMMO_IGNORE_RESIST
 	bullet_color = COLOR_BRIGHT_BLUE
 	shell_speed = 3
 	damage = 35
@@ -382,7 +380,7 @@
 	hud_state = "plasma_rifle"
 
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_RESIST
+	ammo_behavior_flags = AMMO_ENERGY
 
 /datum/ammo/energy/yautja/caster/bolt/stun/on_hit_mob(mob/M, obj/projectile/P)
 	var/mob/living/carbon/C = M
@@ -405,7 +403,7 @@
 	name = "plasma eradicator"
 	icon_state = "bluespace"
 	bullet_color = COLOR_BRIGHT_BLUE
-	flags_ammo_behavior = AMMO_EXPLOSIVE
+	ammo_behavior_flags = AMMO_TARGET_TURF
 	shell_speed = 2
 	accuracy = 40
 
@@ -433,7 +431,7 @@
 	name = "plasma immobilizer"
 	bullet_color = COLOR_MAGENTA
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_IGNORE_RESIST
+	ammo_behavior_flags = AMMO_ENERGY
 	hud_state = "plasma_rifle_blast"
 	accurate_range = 20
 	max_range = 20
@@ -475,7 +473,6 @@
 	name = "plasma rifle bolt"
 	icon_state = "ion"
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_IGNORE_RESIST
 
 	hud_state = "plasma_rifle"
 
@@ -491,7 +488,7 @@
 	icon_state = "buckshot_shrapnel"
 	icon = 'modular_RUtgmc/icons/obj/items/projectiles.dmi'
 	accurate_range_min = 5
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accuracy = 15
 	accurate_range = 32
 	max_range = 8

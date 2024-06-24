@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(advanced_pathfinding)
-	name = "Advanced_pathfinding"
+	name = "Advanced Pathfinding"
 	priority = FIRE_PRIORITY_ADVANCED_PATHFINDING
 	wait = 1 SECONDS
 	///List of ai_behaviour datum asking for a tile pathfinding
@@ -113,7 +113,7 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 					atom_to_check = current_node.adjacent_nodes[direction]
 				if(TILE_PATHING)
 					var/turf/turf_to_check = get_step(current_atom, direction)
-					if(turf_to_check.density || turf_to_check.flags_atom & AI_BLOCKED)
+					if(turf_to_check.density || turf_to_check.atom_flags & AI_BLOCKED)
 						continue
 					atom_to_check = turf_to_check
 			if(paths_to_check[atom_to_check] || paths_checked[atom_to_check] || !atom_to_check) //We already found a better path to get to this atom

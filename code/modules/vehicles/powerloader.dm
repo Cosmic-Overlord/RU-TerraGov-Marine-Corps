@@ -46,6 +46,8 @@
 
 /obj/vehicle/ridden/powerloader/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!isscrewdriver(I))
 		return
@@ -139,7 +141,7 @@
 	force = 20
 	// ITEM_ABSTRACT to prevent placing the item on a table/closet.
 	// DELONDROP to prevent giving the clamp to others.
-	flags_item = ITEM_ABSTRACT|DELONDROP
+	item_flags = ITEM_ABSTRACT|DELONDROP
 	var/obj/vehicle/ridden/powerloader/linked_powerloader
 	var/obj/loaded
 
@@ -176,7 +178,8 @@
 
 	return target.attack_powerloader(user, src)
 
-/obj/item/powerloader_clamp/update_icon()
+/obj/item/powerloader_clamp/update_icon_state()
+	. = ..()
 	if(loaded)
 		icon_state = "loader_clamp_full"
 	else

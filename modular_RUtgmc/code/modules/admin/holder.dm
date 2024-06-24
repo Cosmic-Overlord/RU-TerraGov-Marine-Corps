@@ -135,8 +135,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 
 /world/AVdebug()
 	return list(
-	/datum/admins/proc/proccall_advanced,
-	/datum/admins/proc/proccall_atom,
 	/datum/admins/proc/delete_all,
 	/datum/admins/proc/generate_powernets,
 	/datum/admins/proc/debug_mob_lists,

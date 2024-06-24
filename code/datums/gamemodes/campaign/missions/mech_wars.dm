@@ -9,7 +9,7 @@
 	map_light_levels = list(225, 150, 100, 75)
 	starting_faction_objective_description = "Major Victory: Wipe out all hostiles in the area of operation. Minor Victory: Eliminate more hostiles than you lose."
 	hostile_faction_objective_description = "Major Victory: Wipe out all hostiles in the area of operation. Minor Victory: Eliminate more hostiles than you lose."
-	mission_start_delay = 5 MINUTES //since there is actual mech prep time required
+	mission_start_delay = 3 MINUTES //since there is actual mech prep time required
 	starting_faction_additional_rewards = "Mechanised units will be allocated to your battalion for use in future missions."
 	hostile_faction_additional_rewards = "Mechanised units will be allocated to your battalion for use in future missions."
 
@@ -39,7 +39,7 @@
 			spawner = pick(GLOB.campaign_mech_spawners[faction])
 			new_mech = spawner.spawn_mech()
 			GLOB.campaign_structures += new_mech
-			RegisterSignal(new_mech, COMSIG_QDELETING, TYPE_PROC_REF(/datum/campaign_mission, remove_mission_object))
+			RegisterSignal(new_mech, COMSIG_QDELETING, PROC_REF(on_mech_destruction))
 
 			//anti mech infantry weapons
 			if(i % 2)
@@ -75,54 +75,16 @@
 	winning_team.add_asset(/datum/campaign_asset/mech/heavy/som)
 	winning_team.add_asset(/datum/campaign_asset/mech/som)
 
-//mech spawn points
-/obj/effect/landmark/campaign/mech_spawner
-	name = "tgmc med mech spawner"
-	icon_state = "mech"
-	var/faction = FACTION_TERRAGOV
-	var/list/colors = list(ARMOR_PALETTE_SPACE_CADET, ARMOR_PALETTE_GREYISH_TURQUOISE, VISOR_PALETTE_MAGENTA)
-	var/obj/vehicle/sealed/mecha/combat/greyscale/mech_type = /obj/vehicle/sealed/mecha/combat/greyscale/assault/noskill
-
-/obj/effect/landmark/campaign/mech_spawner/Initialize(mapload)
-	. = ..()
-	GLOB.campaign_mech_spawners[faction] += list(src)
-
-/obj/effect/landmark/campaign/mech_spawner/Destroy()
-	GLOB.campaign_mech_spawners[faction] -= src
-	return ..()
-
-/obj/effect/landmark/campaign/mech_spawner/proc/spawn_mech()
-	var/obj/vehicle/sealed/mecha/combat/greyscale/new_mech = new mech_type(loc)
-	for(var/i in new_mech.limbs)
-		var/datum/mech_limb/limb = new_mech.limbs[i]
-		limb.update_colors(arglist(colors))
-	new_mech.update_icon()
-	return new_mech
-
-/obj/effect/landmark/campaign/mech_spawner/heavy
-	name = "tgmc heavy mech spawner"
-	icon_state = "mech_heavy"
-	mech_type = /obj/vehicle/sealed/mecha/combat/greyscale/vanguard/noskill
-
-/obj/effect/landmark/campaign/mech_spawner/light
-	name = "tgmc light mech spawner"
-	icon_state = "mech_light"
-	mech_type = /obj/vehicle/sealed/mecha/combat/greyscale/recon/noskill
-
-/obj/effect/landmark/campaign/mech_spawner/som
-	name = "som med mech spawner"
-	faction = FACTION_SOM
-	colors = list(ARMOR_PALETTE_GINGER, ARMOR_PALETTE_BLACK, VISOR_PALETTE_SYNDIE_GREEN)
-
-/obj/effect/landmark/campaign/mech_spawner/som/heavy
-	name = "som heavy mech spawner"
-	icon_state = "mech_heavy"
-	mech_type = /obj/vehicle/sealed/mecha/combat/greyscale/vanguard/noskill
-
-/obj/effect/landmark/campaign/mech_spawner/som/light
-	name = "som light mech spawner"
-	icon_state = "mech_light"
-	mech_type = /obj/vehicle/sealed/mecha/combat/greyscale/recon/noskill
+///Cleans up after a mech is destroyed
+/datum/campaign_mission/tdm/mech_wars/proc/on_mech_destruction(obj/vehicle/sealed/mecha/combat/greyscale/dead_mech)
+	SIGNAL_HANDLER
+	remove_mission_object(dead_mech)
+	if(outcome)
+		return
+	if(dead_mech.faction == hostile_faction)
+		start_team_cap_points += 10
+	else if(dead_mech.faction == starting_faction)
+		hostile_team_cap_points += 10
 
 /datum/campaign_mission/tdm/mech_wars/som
 	name = "Mech war"

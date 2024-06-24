@@ -12,7 +12,7 @@
 	name = "cauterizer"
 	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_cautery"
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 
 /obj/item/tool/surgery/surgicaldrill/predatorsurgicaldrill
 	name = "bone drill"
@@ -28,7 +28,7 @@
 	name = "bone saw"
 	icon = 'modular_RUtgmc/icons/obj/items/surgery_tools.dmi'
 	icon_state = "predator_bonesaw"
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	force = 20
 
 /obj/item/tool/surgery/bonegel/predatorbonegel
@@ -58,7 +58,7 @@
 	force = 0
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 
 /obj/item/tool/surgery/healing_gun
 	name = "healing gun"
@@ -68,10 +68,11 @@
 	force = 0
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	var/loaded  = TRUE
 
 /obj/item/tool/surgery/healing_gun/update_icon()
+	. = ..()
 	if(loaded)
 		icon_state = "healing_gun"
 	else
@@ -101,7 +102,7 @@
 	force = 0
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 
 /obj/item/tool/surgery/wound_clamp
 	name = "wound clamp"
@@ -111,4 +112,4 @@
 	force = 0
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR

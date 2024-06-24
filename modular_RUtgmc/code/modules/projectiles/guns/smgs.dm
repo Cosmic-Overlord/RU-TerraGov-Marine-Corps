@@ -6,19 +6,11 @@
 // War is hell. Not glorious.
 
 /obj/item/weapon/gun/smg/standard_smg
-	icon_state = "t90"
-	item_state = "t90"
-	greyscale_config = null
-	colorable_allowed = NONE
 	fire_sound =     'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90.ogg'
 	unload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_clipout.ogg'
 	reload_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_clipin.ogg'
 	cocked_sound =   'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_boltpull.ogg'
 	silenced_sound = 'modular_RUtgmc/sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
 
 /obj/item/weapon/gun/smg/standard_machinepistol
 	fire_sound =     'modular_RUtgmc/sound/weapons/guns/smgs/MP-19/MP19.ogg'
@@ -45,7 +37,7 @@
 	)
 	caliber = CALIBER_45ACP //codex
 	max_shells = 25 //codex
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	force = 20
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/vector
@@ -65,7 +57,6 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
-		/obj/item/attachable/shoulder_mount,
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/flamer/mini_flamer,
@@ -73,7 +64,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16, "rail_x" = 22, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 10)
 	actions_types = list(/datum/action/item_action/aim_mode)
@@ -95,5 +86,4 @@
 	scatter_unwielded = 6 // Not exactly small weapon, and recoil blowback is only for vertical recoil
 
 	movement_acc_penalty_mult = 0.1
-	upper_akimbo_accuracy = 5
-	lower_akimbo_accuracy = 5
+	akimbo_scatter_mod = 10

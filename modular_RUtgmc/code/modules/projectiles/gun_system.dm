@@ -3,7 +3,7 @@
 	var/silenced_sound
 
 /obj/item/weapon/gun/wield(mob/user)
-	if(CHECK_BITFIELD(flags_gun_features, GUN_DEPLOYED_FIRE_ONLY))
+	if(CHECK_BITFIELD(gun_features_flags, GUN_DEPLOYED_FIRE_ONLY))
 		to_chat(user, span_notice("[src] cannot be fired by hand and must be deployed."))
 		return
 

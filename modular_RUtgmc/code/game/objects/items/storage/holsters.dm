@@ -163,7 +163,7 @@
 		slot_belt_str = 'modular_RUtgmc/icons/mob/clothing/belt.dmi',
 		slot_s_store_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
 	)
-	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(
 		/obj/item/weapon/claymore/tomahawk
 	)

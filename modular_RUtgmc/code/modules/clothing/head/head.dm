@@ -127,7 +127,7 @@
 	item_icons = list(
 		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
 	icon_state = "hijab_black"
-	flags_inv_hide = HIDEEARS|HIDETOPHAIR
+	inv_hide_flags = HIDEEARS|HIDETOPHAIR
 
 /obj/item/clothing/head/tgmcberet/hijab/grey
 	name = "\improper Grey hijab"
@@ -177,8 +177,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 	actions_types = list(/datum/action/item_action)
-	flags_armor_features = ARMOR_LAMP_OVERLAY|ARMOR_NO_DECAP
-	flags_item = SYNTH_RESTRICTED
+	armor_features_flags = ARMOR_LAMP_OVERLAY|ARMOR_NO_DECAP
+	item_flags = SYNTH_RESTRICTED
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/hachimaki/item_action_slot_check(mob/user, slot)
@@ -256,8 +256,8 @@
 		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/marine_hats.dmi')
 	icon_state = "cap_black"
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
-	flags_inventory = BLOCKSHARPOBJ
-	flags_armor_features = ARMOR_NO_DECAP
+	inventory_flags = BLOCKSHARPOBJ
+	armor_features_flags = ARMOR_NO_DECAP
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/highcap/staff

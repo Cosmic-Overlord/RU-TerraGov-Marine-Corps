@@ -29,6 +29,7 @@
 			new spawn_type(src)
 
 /obj/item/storage/fancy/update_icon_state()
+	. = ..()
 	icon_state = "[icon_type]box[length(contents)]"
 
 /obj/item/storage/fancy/remove_from_storage(obj/item/W, atom/new_location, mob/user)
@@ -75,7 +76,7 @@
 	item_state = "candlebox5"
 	storage_slots = 5
 	throwforce = 2
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/tool/candle
 	spawn_number = 5
 
@@ -111,6 +112,8 @@
 
 /obj/item/storage/fancy/crayons/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/toy/crayon))
 		var/obj/item/toy/crayon/C = I
@@ -131,7 +134,7 @@
 	item_state = "cigpacket"
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	max_storage_space = 18
 	storage_slots = 18
 	can_hold = list(
@@ -146,6 +149,7 @@
 		new /obj/item/clothing/mask/cigarette(src)
 
 /obj/item/storage/fancy/cigarettes/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][length(contents)]"
 
 /obj/item/storage/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
@@ -170,7 +174,7 @@
 	item_state = "chempacketbox"
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	max_storage_space = 18
 	storage_slots = 18
 	can_hold = list(
@@ -192,10 +196,10 @@
 //	for(var/i in 1 to 5)
 //		new /obj/item/clothing/mask/cigarette/antitox(src)
 
-	new /obj/item/clothing/mask/cigarette/emergency(src)
 	new /obj/item/tool/lighter(src)
 
 /obj/item/storage/fancy/chemrettes/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][length(contents)]"
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
@@ -231,13 +235,14 @@
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	w_class = WEIGHT_CLASS_SMALL
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	storage_slots = 7
 	spawn_type = /obj/item/clothing/mask/cigarette/cigar
 	spawn_number = 7
 	icon_type = "cigar"
 
 /obj/item/storage/fancy/cigar/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][length(contents)]"
 
 
@@ -287,8 +292,9 @@
 	. = ..()
 	update_icon()
 
-/obj/item/storage/lockbox/vials/update_icon(itemremoved = 0)
-	icon_state = "vialbox[length(contents)-itemremoved]"
+/obj/item/storage/lockbox/vials/update_icon_state()
+	. = ..()
+	icon_state = "vialbox[length(contents)]"
 
 /obj/item/storage/lockbox/vials/update_overlays()
 	. = ..()

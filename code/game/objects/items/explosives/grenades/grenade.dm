@@ -11,8 +11,8 @@
 	item_state = "grenade"
 	throw_speed = 3
 	throw_range = 7
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	hitsound = 'sound/weapons/smash.ogg'
 	icon_state_mini = "grenade_red"
 	///if launched from a UGL/grenade launcher
@@ -61,9 +61,10 @@
 
 /obj/item/explosive/grenade/afterattack(atom/target, mob/user, has_proximity, click_parameters)
 	. = ..()
-	if(!active)
+	if(!active || user.next_move > world.time)
 		return
-	user.throw_item(target)
+	if(user.throw_item(target))
+		user.changeNext_move(CLICK_CD_THROWING)
 
 /obj/item/explosive/grenade/proc/activate(mob/user)
 	if(active)
@@ -72,7 +73,8 @@
 	if(user)
 		log_bomber(user, "primed", src)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
-		personal_statistics.grenades_primed++
+		personal_statistics.grenades_primed ++
+		personal_statistics.mission_grenades_primed ++
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
@@ -125,7 +127,7 @@
 	///The range range for the grenade's weak effect
 	var/outer_range = 7
 	///The potency of the grenade
-	var/rad_strength = 20
+	var/rad_strength = 16
 
 /obj/item/explosive/grenade/rad/prime()
 	var/turf/impact_turf = get_turf(src)

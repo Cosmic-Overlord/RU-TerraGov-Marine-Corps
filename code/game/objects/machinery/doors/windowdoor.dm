@@ -11,7 +11,7 @@
 	soft_armor = list(MELEE = 20, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, FIRE = 70, ACID = 100)
 	visible = FALSE
 	use_power = FALSE
-	flags_atom = ON_BORDER
+	atom_flags = ON_BORDER
 	allow_pass_flags = PASS_GLASS
 	opacity = FALSE
 	var/obj/item/circuitboard/airlock/electronics = null
@@ -44,7 +44,8 @@
 	return ..()
 
 
-/obj/machinery/door/window/update_icon()
+/obj/machinery/door/window/update_icon_state()
+	. = ..()
 	if(operating)
 		return
 	icon_state = density ? base_state : "[base_state]open"
@@ -128,6 +129,8 @@
 
 /obj/machinery/door/window/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(operating)
 		return TRUE

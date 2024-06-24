@@ -17,15 +17,20 @@
 	var/target_flags = NONE
 	/// flags to restrict an ability to certain gamemode
 	var/gamemode_flags = ABILITY_ALL_GAMEMODE
+	///Cooldown map text holder
+	var/obj/effect/countdown/action_cooldown/countdown
 
 /datum/action/ability/New(Target)
 	. = ..()
 	if(ability_cost)
 		name = "[name] ([ability_cost])"
-	var/image/cooldown_image = image('icons/effects/progressicons.dmi', null, "busy_clock", ACTION_LAYER_CLOCK)
-	cooldown_image.pixel_y = 7
-	cooldown_image.appearance_flags = RESET_COLOR|RESET_ALPHA
-	visual_references[VREF_IMAGE_XENO_CLOCK] = cooldown_image
+	countdown = new(button, src)
+
+/datum/action/ability/Destroy()
+	if(cooldown_timer)
+		deltimer(cooldown_timer)
+	QDEL_NULL(countdown)
+	return ..()
 
 /datum/action/ability/give_action(mob/living/L)
 	. = ..()
@@ -33,8 +38,6 @@
 	carbon_owner.mob_abilities += src
 
 /datum/action/ability/remove_action(mob/living/L)
-	if(cooldown_timer)
-		deltimer(cooldown_timer)
 	var/mob/living/carbon/carbon_owner = L
 	if(!istype(carbon_owner))
 		stack_trace("/datum/action/ability/remove_action called with [L], expecting /mob/living/carbon.")
@@ -53,49 +56,49 @@
 	var/mob/living/carbon/carbon_owner = owner
 	if(!carbon_owner)
 		return FALSE
-	var/flags_to_check = use_state_flags|override_flags
+	var/to_check_flags = use_state_flags|override_flags
 
-	if(!(flags_to_check & ABILITY_IGNORE_COOLDOWN) && !action_cooldown_check())
+	if(!(to_check_flags & ABILITY_IGNORE_COOLDOWN) && !action_cooldown_check())
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Wait [cooldown_remaining()] sec")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_INCAP) && carbon_owner.incapacitated())
+	if(!(to_check_flags & ABILITY_USE_INCAP) && carbon_owner.incapacitated())
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while incapacitated")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_LYING) && carbon_owner.lying_angle)
+	if(!(to_check_flags & ABILITY_USE_LYING) && carbon_owner.lying_angle)
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while lying down")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_BUCKLED) && carbon_owner.buckled)
+	if(!(to_check_flags & ABILITY_USE_BUCKLED) && carbon_owner.buckled)
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while buckled")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_STAGGERED) && carbon_owner.IsStaggered())
+	if(!(to_check_flags & ABILITY_USE_STAGGERED) && carbon_owner.IsStaggered())
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while staggered")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_NOTTURF) && !isturf(carbon_owner.loc))
+	if(!(to_check_flags & ABILITY_USE_NOTTURF) && !isturf(carbon_owner.loc))
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot do this here")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_BUSY) && carbon_owner.do_actions)
+	if(!(to_check_flags & ABILITY_USE_BUSY) && carbon_owner.do_actions)
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot, busy")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_BURROWED) && HAS_TRAIT(carbon_owner, TRAIT_BURROWED))
+	if(!(to_check_flags & ABILITY_USE_BURROWED) && HAS_TRAIT(carbon_owner, TRAIT_BURROWED))
 		if(!silent)
 			carbon_owner.balloon_alert(carbon_owner, "Cannot while burrowed")
 		return FALSE
 
-	if(!(flags_to_check & ABILITY_USE_CLOSEDTURF) && isclosedturf(get_turf(carbon_owner)))
+	if(!(to_check_flags & ABILITY_USE_CLOSEDTURF) && isclosedturf(get_turf(carbon_owner)))
 		if(!silent)
 			//Not converted to balloon alert as xeno.dm's balloon alert is simultaneously called and will overlap.
 			to_chat(owner, span_warning("We can't do this while in a solid object!"))
@@ -141,7 +144,8 @@
 	if(cooldown_timer || !cooldown_length) // stop doubling up or waiting on zero
 		return
 	cooldown_timer = addtimer(CALLBACK(src, PROC_REF(on_cooldown_finish)), cooldown_length, TIMER_STOPPABLE)
-	button.add_overlay(visual_references[VREF_IMAGE_XENO_CLOCK])
+	countdown.start()
+	update_button_icon()
 
 ///Time remaining on cooldown
 /datum/action/ability/proc/cooldown_remaining()
@@ -150,9 +154,10 @@
 ///override this for cooldown completion
 /datum/action/ability/proc/on_cooldown_finish()
 	cooldown_timer = null
+	countdown.stop()
 	if(!button)
-		CRASH("no button object on finishing ability action cooldown")
-	button.cut_overlay(visual_references[VREF_IMAGE_XENO_CLOCK])
+		return
+	update_button_icon()
 
 ///Any changes when a xeno with this ability evolves
 /datum/action/ability/proc/on_xeno_upgrade()
@@ -163,9 +168,21 @@
 
 /datum/action/ability/activable/Destroy()
 	var/mob/living/carbon/carbon_owner = owner
-	if(carbon_owner.selected_ability == src)
+	if(carbon_owner?.selected_ability == src)
 		deselect()
 	return ..()
+
+/datum/action/ability/activable/set_toggle(value)
+	. = ..()
+	if(!.)
+		return
+	if(!owner)
+		return
+	if(toggled)
+		SEND_SIGNAL(owner, COMSIG_ACTION_EXCLUSIVE_TOGGLE, owner)
+		RegisterSignal(owner, COMSIG_ACTION_EXCLUSIVE_TOGGLE, PROC_REF(deselect))
+	else
+		UnregisterSignal(owner, COMSIG_ACTION_EXCLUSIVE_TOGGLE)
 
 /datum/action/ability/activable/alternate_action_activate()
 	INVOKE_ASYNC(src, PROC_REF(action_activate))
@@ -192,6 +209,7 @@
 		action_activate()
 
 /datum/action/ability/activable/remove_action(mob/living/carbon/carbon_owner)
+	deselect()
 	if(carbon_owner.selected_ability == src)
 		carbon_owner.selected_ability = null
 	return ..()
@@ -206,13 +224,13 @@
 	if(QDELETED(owner))
 		return FALSE
 
-	var/flags_to_check = use_state_flags|override_flags
+	var/to_check_flags = use_state_flags|override_flags
 
 	var/mob/living/carbon/carbon_owner = owner
-	if(!CHECK_BITFIELD(flags_to_check, ABILITY_IGNORE_SELECTED_ABILITY) && carbon_owner.selected_ability != src)
+	if(!CHECK_BITFIELD(to_check_flags, ABILITY_IGNORE_SELECTED_ABILITY) && carbon_owner.selected_ability != src)
 		return FALSE
 	. = can_use_action(silent, override_flags)
-	if(!CHECK_BITFIELD(flags_to_check, ABILITY_TARGET_SELF) && A == owner)
+	if(!CHECK_BITFIELD(to_check_flags, ABILITY_TARGET_SELF) && A == owner)
 		return FALSE
 
 ///the thing to do when the selected action ability is selected and triggered by middle_click
@@ -220,17 +238,18 @@
 	return
 
 ///Setting this ability as the active ability
-/datum/action/ability/activable/proc/select()
+/datum/action/ability/activable/select()
+	. = ..()
 	var/mob/living/carbon/carbon_owner = owner
-	set_toggle(TRUE)
 	carbon_owner.selected_ability = src
 	on_selection()
 
 ///Deselecting this ability for use
-/datum/action/ability/activable/proc/deselect()
-	var/mob/living/carbon/carbon_owner = owner
-	set_toggle(FALSE)
-	carbon_owner.selected_ability = null
+/datum/action/ability/activable/deselect()
+	. = ..()
+	if(owner)
+		var/mob/living/carbon/carbon_owner = owner
+		carbon_owner.selected_ability = null
 	on_deselection()
 
 ///Any effects on selecting this ability
@@ -254,7 +273,7 @@
 /mob/living/carbon/proc/add_ability(datum/action/ability/new_ability)
 	if(!new_ability)
 		return
-	new_ability = new new_ability
+	new_ability = new new_ability(src)
 	new_ability.give_action(src)
 
 ///Removes an ability from a mob

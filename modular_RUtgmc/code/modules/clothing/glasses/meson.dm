@@ -10,7 +10,7 @@
 	darkness_view = 12
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	vision_flags = SEE_TURFS
-	flags_inventory = COVEREYES
+	inventory_flags = COVEREYES
 	actions_types = null
 
 /obj/item/clothing/glasses/meson/yautja/Initialize()

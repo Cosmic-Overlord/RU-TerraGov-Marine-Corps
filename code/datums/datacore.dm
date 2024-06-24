@@ -203,7 +203,7 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 	else
 		assignment = "Unassigned"
 
-	var/id = add_leading("[num2hex(randfloat(1, 1.6777215E7))]", 6, "0")	//this was the best they could come up with? A large random number? *sigh* - actual 4407 code lol
+	var/id = add_leading("[num2hex(randfloat(1, 1.6777215E7), 2)]", 6, "0")	//this was the best they could come up with? A large random number? *sigh* - actual 4407 code lol
 
 	//General Record
 	var/datum/data/record/G = new()
@@ -228,7 +228,7 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 	var/datum/data/record/M = new()
 	M.fields["id"] = id
 	M.fields["name"] = H.real_name
-	M.fields["b_type"] = H.b_type
+	M.fields["b_type"] = H.blood_type
 	M.fields["mi_dis"] = "None"
 	M.fields["mi_dis_d"] = "No minor disabilities have been declared."
 	M.fields["ma_dis"] = "None"
@@ -303,7 +303,7 @@ GLOBAL_DATUM_INIT(datacore, /datum/datacore, new)
 	var/datum/data/record/M = new
 	M.fields["id"] = null
 	M.fields["name"] = H.real_name
-	M.fields["b_type"] = H.b_type
+	M.fields["b_type"] = H.blood_type
 	M.fields["mi_dis"] = "None"
 	M.fields["mi_dis_d"] = "No minor disabilities have been declared."
 	M.fields["ma_dis"] = "None"

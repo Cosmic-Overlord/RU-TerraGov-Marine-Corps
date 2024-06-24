@@ -33,7 +33,7 @@
 	icon_state = "t500"
 	desc = "A R-500 BF revolver speed loader."
 	default_ammo = /datum/ammo/bullet/revolver/t500
-	flags_equip_slot = NONE
+	equip_slot_flags = NONE
 	caliber = CALIBER_500
 	w_class = WEIGHT_CLASS_SMALL
 	max_rounds = 5

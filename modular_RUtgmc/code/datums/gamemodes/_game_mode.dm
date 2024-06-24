@@ -13,7 +13,7 @@
 	blacklist_ground_maps = list(MAP_DELTA_STATION, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_FORT_PHOBOS)
 
 /datum/game_mode/post_setup()
-	if(flags_round_type & MODE_SILO_RESPAWN)
+	if(round_type_flags & MODE_SILO_RESPAWN)
 		var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]
 		HN.RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_SHUTTERS_EARLY), TYPE_PROC_REF(/datum/hive_status/normal, set_siloless_collapse_timer))
 	return ..()
@@ -52,7 +52,7 @@
 	var/new_pred_max = min(max(round(length(GLOB.clients) * PREDATOR_TO_TOTAL_SPAWN_RATIO), 1), 4)
 	PJ.total_positions = new_pred_max
 	PJ.max_positions = new_pred_max
-	flags_round_type |= MODE_PREDATOR
+	round_type_flags |= MODE_PREDATOR
 
 /datum/game_mode/proc/initialize_predator(mob/living/carbon/human/new_predator, client/player, ignore_pred_num = FALSE)
 	predators[lowertext(player.ckey)] = list("Name" = new_predator.real_name, "Status" = "Alive")
@@ -110,7 +110,7 @@
 			to_chat(pred_candidate, span_warning("You are banned."))
 		return
 
-	if(!(flags_round_type & MODE_PREDATOR))
+	if(!(round_type_flags & MODE_PREDATOR))
 		if(show_warning)
 			to_chat(pred_candidate, span_warning("There is no Hunt this round! Maybe the next one."))
 		return

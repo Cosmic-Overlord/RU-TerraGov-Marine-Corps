@@ -11,13 +11,13 @@
 		return
 
 	//masks and helmets can obscure our hair.
-	if((head?.flags_inv_hide & HIDEALLHAIR) || (wear_mask?.flags_inv_hide & HIDEALLHAIR))
+	if((head?.inv_hide_flags & HIDEALLHAIR) || (wear_mask?.inv_hide_flags & HIDEALLHAIR))
 		return
 
 	//base icons
 	var/icon/face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
 
-	if(h_style && !(head?.flags_inv_hide & HIDETOPHAIR))
+	if(h_style && !(head?.inv_hide_flags & HIDETOPHAIR))
 		var/datum/sprite_accessory/hair_style = GLOB.yautja_hair_styles_list[h_style]
 		if(hair_style && (species.name in hair_style.species_allowed))
 			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
@@ -26,7 +26,7 @@
 
 	var/mutable_appearance/hair_final = mutable_appearance(face_standing, layer =-HAIR_LAYER)
 
-	if(head?.flags_inv_hide & HIDE_EXCESS_HAIR)
+	if(head?.inv_hide_flags & HIDE_EXCESS_HAIR)
 		var/image/mask = image('icons/mob/human_face.dmi', null, "Jeager_Mask")
 		mask.render_target = "*[REF(src)]"
 		hair_final.overlays += mask

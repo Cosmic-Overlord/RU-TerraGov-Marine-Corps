@@ -20,7 +20,7 @@
 	possible_transfer_amounts = null //list(5,10,15)
 	volume = 15
 	w_class = WEIGHT_CLASS_TINY
-	flags_item = NOBLUDGEON
+	item_flags = NOBLUDGEON
 	sharp = IS_SHARP_ITEM_SIMPLE
 	var/mode = SYRINGE_DRAW
 
@@ -185,32 +185,37 @@
 				update_icon()
 
 
-/obj/item/reagent_containers/syringe/update_icon()
+/obj/item/reagent_containers/syringe/update_icon_state()
+	. = ..()
 	if(mode == SYRINGE_BROKEN)
 		icon_state = "broken"
-		overlays.Cut()
 		return
+
 	var/rounded_vol = round(reagents.total_volume,5)
-	overlays.Cut()
-	if(ismob(loc))
-		var/injoverlay
-		switch(mode)
-			if (SYRINGE_DRAW)
-				injoverlay = "draw"
-			if (SYRINGE_INJECT)
-				injoverlay = "inject"
-		overlays += injoverlay
 	icon_state = "[rounded_vol]"
 	item_state = "syringe_[rounded_vol]"
 
+/obj/item/reagent_containers/syringe/update_overlays()
+	. = ..()
+	if(mode == SYRINGE_BROKEN)
+		return
+	if(ismob(loc))
+		var/injoverlay
+		switch(mode)
+			if(SYRINGE_DRAW)
+				injoverlay = "draw"
+			if(SYRINGE_INJECT)
+				injoverlay = "inject"
+		. += injoverlay
+
+	var/rounded_vol = round(reagents.total_volume,5)
 	if(reagents.total_volume)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "syringe10")
 
 		filling.icon_state = "syringe[rounded_vol]"
 
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		overlays += filling
-
+		. += filling
 
 /obj/item/reagent_containers/syringe/proc/syringestab(mob/living/carbon/target as mob, mob/living/carbon/user as mob)
 

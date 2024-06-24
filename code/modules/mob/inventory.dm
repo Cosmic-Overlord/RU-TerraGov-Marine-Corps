@@ -55,12 +55,12 @@
 	if(!l_hand)
 		W.forceMove(src)
 		l_hand = W
-		W.equipped(src,SLOT_L_HAND)
 		W.layer = ABOVE_HUD_LAYER
 		W.plane = ABOVE_HUD_PLANE
 		update_inv_l_hand()
 		W.pixel_x = initial(W.pixel_x)
 		W.pixel_y = initial(W.pixel_y)
+		W.equipped(src,SLOT_L_HAND)
 		return TRUE
 	return FALSE
 
@@ -83,12 +83,12 @@
 	if(!r_hand)
 		W.forceMove(src)
 		r_hand = W
-		W.equipped(src,SLOT_R_HAND)
 		W.layer = ABOVE_HUD_LAYER
 		W.plane = ABOVE_HUD_PLANE
 		update_inv_r_hand()
 		W.pixel_x = initial(W.pixel_x)
 		W.pixel_y = initial(W.pixel_y)
+		W.equipped(src,SLOT_R_HAND)
 		return TRUE
 	return FALSE
 
@@ -173,7 +173,9 @@
 	return FALSE					//nonliving mobs don't have hands
 
 /mob/living/put_in_hand_check(obj/item/I, hand_index)
-	if((I.flags_item & ITEM_ABSTRACT))
+	if((I.item_flags & ITEM_ABSTRACT) || !istype(I))
+		return FALSE
+	if(incapacitated() || lying_angle || (status_flags & INCORPOREAL))
 		return FALSE
 	return TRUE
 
@@ -328,7 +330,7 @@
 /mob/living/proc/get_equipped_items(include_pockets = FALSE, include_accessories = FALSE)
 	var/list/items = list()
 	for(var/obj/item/item_contents in contents)
-		if(item_contents.flags_item & IN_INVENTORY)
+		if(item_contents.item_flags & IN_INVENTORY)
 			items += item_contents
 	items -= get_active_held_item()
 	items -= get_inactive_held_item()
@@ -369,7 +371,7 @@
 	var/hidden_slots = NONE
 
 	for(var/obj/item/I in get_equipped_items())
-		hidden_slots |= I.flags_inv_hide
+		hidden_slots |= I.inv_hide_flags
 
 	if(hidden_slots & HIDEMASK)
 		obscured |= ITEM_SLOT_MASK

@@ -1,4 +1,5 @@
 // -- generate override code computer
+//TODO: Make a parent computer to remove all the nuke disk copy paste
 /obj/item/circuitboard/computer/nt_access
 	name = "circuit board (nuke disk generator)"
 	build_path = /obj/machinery/computer/nt_access
@@ -15,11 +16,9 @@
 	resistance_flags = INDESTRUCTIBLE|UNACIDABLE
 	layer = ABOVE_MOB_LAYER
 	///Time needed for the machine to generate the disc
-	var/segment_time = 1.5 MINUTES
+	var/segment_time = 1 MINUTES
 	///Time to start a segment
-	var/start_time = 15 SECONDS
-	///Time to print a disk
-	var/printing_time = 15 SECONDS
+	var/start_time = 5 SECONDS
 	///Total number of times the hack is required
 	var/total_segments = 5
 	///What segment we are on, (once this hits total, disk is printed)
@@ -71,7 +70,7 @@
 	visible_message("<b>[src]</b> shuts down as it loses power. Any running programs will now exit")
 
 /obj/machinery/computer/nt_access/update_icon_state()
-	icon_state = initial(icon_state)
+	return
 
 /obj/machinery/computer/nt_access/attackby(obj/item/I, mob/living/user, params)
 	return attack_hand(user)
@@ -128,13 +127,14 @@
 				busy = TRUE
 
 				usr.visible_message("[usr] started a program to send the [code_color] security override command.", "You started a program to send the [code_color] security override command.")
-				if(!do_after(usr, printing_time, NONE, src, BUSY_ICON_GENERIC, null, null, CALLBACK(src, TYPE_PROC_REF(/datum, process))))
+				if(!do_after(usr, start_time, NONE, src, BUSY_ICON_GENERIC, null, null, CALLBACK(src, TYPE_PROC_REF(/datum, process))))
 					busy = FALSE
 					return
 
 				visible_message(span_notice("[src] beeps as it finishes sending the security override command."))
 				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_CODE, code_color)
 				busy = FALSE
+				set_disabled() //stops spamming the signal
 				return
 
 			busy = TRUE
@@ -145,7 +145,7 @@
 				return
 
 			busy = FALSE
-
+			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_RUNNING, src)
 			current_timer = addtimer(CALLBACK(src, PROC_REF(complete_segment)), segment_time, TIMER_STOPPABLE)
 			update_minimap_icon()
 			running = TRUE
@@ -155,6 +155,7 @@
 
 ///Completes a stage of program progress
 /obj/machinery/computer/nt_access/proc/complete_segment()
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CAMPAIGN_NT_OVERRIDE_STOP_RUNNING, src)
 	playsound(src, 'sound/machines/ping.ogg', 25, 1)
 	deltimer(current_timer)
 	current_timer = null

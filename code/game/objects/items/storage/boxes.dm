@@ -235,7 +235,7 @@
 	icon_state = "matchbox"
 	item_state = "zippo"
 	w_class = WEIGHT_CLASS_TINY
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/tool/match
 	spawn_number = 14
 
@@ -349,6 +349,7 @@
 	spawn_number = 5
 
 /obj/item/storage/box/explosive_mines/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state)
 	if(!length(contents))
 		icon_state += "_e"
@@ -381,7 +382,8 @@
 	spawn_type = /obj/item/explosive/grenade/flare
 	spawn_number = 14
 
-/obj/item/storage/box/m94/update_icon()
+/obj/item/storage/box/m94/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state)
 	if(!length(contents))
 		icon_state += "_e"
@@ -445,7 +447,8 @@
 	if(. && !length(contents) && !gc_destroyed)
 		qdel(src)
 
-/obj/item/storage/box/MRE/update_icon()
+/obj/item/storage/box/MRE/update_icon_state()
+	. = ..()
 	if(!isopened)
 		isopened = 1
 		icon_state += "opened"
@@ -668,7 +671,7 @@
 		/obj/item/ammo_magazine/smg,
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/ammo_magazine/standard_gpmg,
-		/obj/item/ammo_magazine/tl102,
+		/obj/item/ammo_magazine/hsg_102,
 		/obj/item/ammo_magazine/standard_lmg,
 		/obj/item/ammo_magazine/standard_mmg,
 		/obj/item/ammo_magazine/heavymachinegun,
@@ -1148,9 +1151,9 @@
 /obj/item/storage/box/visual/grenade/phosphorus
 	name = "\improper M40 HPDP grenade box"
 	desc = "A secure box holding 15 M40 HPDP white phosphorous grenades. War crimes for the entire platoon!"
-	storage_slots = 15
+	storage_slots = 25
 	max_storage_space = 30
-	spawn_number = 15
+	spawn_number = 25
 	spawn_type = /obj/item/explosive/grenade/phosphorus
 	closed_overlay = "grenade_box_overlay_phosphorus"
 
@@ -1182,13 +1185,20 @@
 	spawn_type = /obj/item/explosive/grenade/smokebomb/drain
 	closed_overlay = "grenade_box_overlay_drain"
 
+/obj/item/storage/box/visual/grenade/antigas
+	name = "\improper M40-AG grenade box"
+	desc = "A secure box holding 25 M40-AG gas grenades. Quickly clears out hostile smoke."
+	spawn_number = 25
+	spawn_type = /obj/item/explosive/grenade/smokebomb/antigas
+	closed_overlay = "grenade_box_overlay_antigas"
+
 /obj/item/storage/box/visual/grenade/razorburn
 	name = "razorburn grenade box"
 	desc = "A secure box holding 15 razor burn grenades. Used for quick flank coverage."
-	storage_slots = 15
+	storage_slots = 25
 	max_storage_space = 30
-	spawn_number = 15
-	spawn_type = /obj/item/explosive/grenade/chem_grenade/razorburn_smol
+	spawn_number = 25
+	spawn_type = /obj/item/explosive/grenade/chem_grenade/razorburn_small
 	closed_overlay = "grenade_box_overlay_razorburn"
 
 /obj/item/storage/box/visual/grenade/razorburn_large
@@ -1205,6 +1215,20 @@
 	spawn_number = 25
 	spawn_type = /obj/item/explosive/grenade/chem_grenade/teargas
 	closed_overlay = "grenade_box_overlay_teargas"
+
+/obj/item/storage/box/visual/grenade/lasburster
+	name = "\improper M80 lasburster grenade box"
+	desc = "A secure box holding 25 M80 lasburster grenades."
+	spawn_number = 25
+	spawn_type = /obj/item/explosive/grenade/bullet/laser
+	closed_overlay = "grenade_box_overlay_grenade_lasburster"
+
+/obj/item/storage/box/visual/grenade/hefa
+	name = "\improper M25 HEFA grenade box"
+	desc = "A secure box holding 25 M25 high explosive fragmentation grenades. Keep very far away from extreme heat and flame."
+	spawn_number = 25
+	spawn_type = /obj/item/explosive/grenade/bullet/hefa
+	closed_overlay = "grenade_box_overlay_grenade_hefa2"
 
 /obj/item/storage/box/visual/grenade/training
 	name = "\improper M07 training grenade box"

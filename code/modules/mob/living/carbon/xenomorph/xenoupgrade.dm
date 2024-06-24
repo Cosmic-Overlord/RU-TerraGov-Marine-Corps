@@ -25,7 +25,7 @@
 		if(found)
 			continue
 		var/datum/action/ability/xeno_action/action = new allowed_action_path()
-		if(!SSticker.mode || (SSticker.mode.flags_xeno_abilities & action.gamemode_flags))
+		if(!SSticker.mode || (SSticker.mode.xeno_abilities_flags & action.gamemode_flags))
 			action.give_action(src)
 
 	for(var/datum/action/ability/xeno_action/action_already_added AS in actions_already_added)
@@ -39,7 +39,7 @@
 			activable_ability.select()
 			break
 
-	if(queen_chosen_lead)
+	if(xeno_flags & XENO_LEADER)
 		give_rally_abilities() //Give them back their rally hive ability
 
 	if(current_aura) //Updates pheromone strength

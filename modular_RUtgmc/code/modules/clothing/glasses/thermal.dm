@@ -8,7 +8,7 @@
 		slot_glasses_str = 'modular_RUtgmc/icons/mob/hunter/pred_gear.dmi'
 	)
 	vision_flags = SEE_MOBS
-	flags_inventory = COVEREYES
+	inventory_flags = COVEREYES
 	toggleable = FALSE
 
 /obj/item/clothing/glasses/thermal/yautja/Initialize()

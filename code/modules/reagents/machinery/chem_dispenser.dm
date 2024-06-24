@@ -332,6 +332,8 @@
 
 /obj/machinery/chem_dispenser/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(isreagentcontainer(I))
 		if(beaker)
@@ -408,6 +410,7 @@
 		. += image(icon, "[initial(icon_state)]_nobat")
 
 /obj/machinery/chem_dispenser/update_icon_state()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "dispenser_nopower"
 		return
@@ -469,6 +472,7 @@
 
 /obj/machinery/chem_dispenser/soda/update_icon_state()
 	return
+
 
 /obj/machinery/chem_dispenser/beer
 	icon_state = "booze_dispenser"

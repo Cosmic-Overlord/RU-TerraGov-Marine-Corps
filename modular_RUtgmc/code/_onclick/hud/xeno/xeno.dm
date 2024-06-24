@@ -31,10 +31,10 @@
 /datum/hud/alien/New(mob/living/carbon/xenomorph/owner, ui_style, ui_color, ui_alpha = 230)
 	..()
 
-	alien_evolve_display = new /atom/movable/screen/alien/evolvehud()
+	alien_evolve_display = new /atom/movable/screen/alien/evolvehud(null, src)
 	alien_evolve_display.alpha = ui_alpha
 	infodisplay += alien_evolve_display
 
-	alien_sunder_display = new /atom/movable/screen/alien/sunderhud()
+	alien_sunder_display = new /atom/movable/screen/alien/sunderhud(null, src)
 	alien_sunder_display.alpha = ui_alpha
 	infodisplay += alien_sunder_display

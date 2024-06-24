@@ -10,7 +10,8 @@
 	var/state = 1
 
 
-/obj/machinery/constructable_frame/proc/update_desc()
+/obj/machinery/constructable_frame/update_desc(updates)
+	. = ..()
 	var/D
 	if(req_components)
 		D = "Requires "
@@ -32,10 +33,6 @@
 
 
 /obj/machinery/constructable_frame/machine_frame/attackby(obj/item/I, mob/living/user, params)
-	if(I.crit_fail)
-		to_chat(user, span_warning("This part is faulty, you cannot add this to the machine!"))
-		return
-
 	switch(state)
 		if(1)
 			if(iscablecoil(I))

@@ -80,7 +80,7 @@
 	muzzle_flash_color = COLOR_MAGENTA
 	default_ammo_type = null
 
-	flags_gun_features = GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_ENERGY|GUN_AMMO_COUNT_BY_PERCENTAGE|GUN_UNUSUAL_DESIGN
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_ENERGY|GUN_AMMO_COUNT_BY_PERCENTAGE|GUN_UNUSUAL_DESIGN
 
 	var/list/datum/yautja_energy_weapon_modes/mode_list = list()
 
@@ -136,12 +136,12 @@
 	resistance_flags = UNACIDABLE
 	fire_sound = 'sound/effects/woodhit.ogg' // TODO: Decent THWOK noise.
 	ammo_datum_type = /datum/ammo/energy/yautja/alloy_spike
-	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY //Fits in yautja bags.
 	rounds = 12
 	max_rounds = 12
 	var/last_regen
-	flags_item = ITEM_PREDATOR|TWOHANDED
+	item_flags = ITEM_PREDATOR|TWOHANDED
 
 	fire_delay = 5
 	accuracy_mult = 1.25
@@ -200,14 +200,14 @@
 	fire_sound = 'modular_RUtgmc/sound/weapons/pred_plasma_shot.ogg'
 	ammo_datum_type = /datum/ammo/energy/yautja/rifle/bolt
 	zoomdevicename = "scope"
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_GIGANTIC
 	rounds = 100
 	max_rounds = 100
 	charge_cost = 5
 	var/last_regen = 0
-	flags_item = ITEM_PREDATOR|TWOHANDED
-	flags_gun_features = GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_ENERGY|GUN_AMMO_COUNT_BY_PERCENTAGE|GUN_UNUSUAL_DESIGN|GUN_WIELDED_FIRING_ONLY
+	item_flags = ITEM_PREDATOR|TWOHANDED
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_ENERGY|GUN_AMMO_COUNT_BY_PERCENTAGE|GUN_UNUSUAL_DESIGN|GUN_WIELDED_FIRING_ONLY
 
 	fire_delay = 10
 	accuracy_mult = 1.5
@@ -238,6 +238,7 @@
 		. += span_notice("This thing looks like an alien rifle of some kind. Strange.")
 
 /obj/item/weapon/gun/energy/yautja/plasmarifle/update_icon()
+	. = ..()
 	if(last_regen < rounds + max_rounds / 5 || last_regen > rounds || rounds > max_rounds / 1.05)
 		var/new_icon_state = rounds <= 15 ? null : icon_state + "[round(rounds/(max_rounds / 3), 1)]"
 		update_special_overlay(new_icon_state)
@@ -268,13 +269,13 @@
 
 	resistance_flags = UNACIDABLE
 	fire_sound = 'modular_RUtgmc/sound/weapons/pulse3.ogg'
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	ammo_datum_type = /datum/ammo/energy/yautja/pistol
 	w_class = WEIGHT_CLASS_BULKY
 	rounds = 40
 	max_rounds = 40
 	charge_cost = 1
-	flags_item = ITEM_PREDATOR|TWOHANDED
+	item_flags = ITEM_PREDATOR|TWOHANDED
 
 	fire_delay = 4
 	accuracy_mult = 1.5
@@ -344,8 +345,8 @@
 	w_class = WEIGHT_CLASS_GIGANTIC
 	force = 0
 	fire_delay = 3
-	flags_atom = CONDUCT
-	flags_item = NOBLUDGEON //Can't bludgeon with this.
+	atom_flags = CONDUCT
+	item_flags = NOBLUDGEON //Can't bludgeon with this.
 
 	fire_delay = 5
 	accuracy_mult = 1

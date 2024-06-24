@@ -6,7 +6,7 @@
 	anchored = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	canhear_range = 2
-	flags_atom = CONDUCT|NOBLOODY
+	atom_flags = CONDUCT|NOBLOODY
 	light_range = 1.5
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_YELLOW
@@ -28,15 +28,15 @@
 			pixel_x = 32
 	START_PROCESSING(SSobj, src)
 	become_hearing_sensitive()
-	update_icon()
+	check_light()
 
 
 /obj/item/radio/intercom/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/radio/intercom/update_icon()
-	. = ..()
+///Checks if we're on, if so a light turns on
+/obj/item/radio/intercom/proc/check_light()
 	if(!on)
 		set_light(0)
 		return
@@ -44,6 +44,7 @@
 	set_light(initial(light_range))
 
 /obj/item/radio/intercom/update_icon_state()
+	. = ..()
 	if(!on)
 		icon_state = "intercom_unpowered"
 	else
@@ -56,16 +57,14 @@
 	. += emissive_appearance(icon, "[icon_state]_emissive")
 
 /obj/item/radio/intercom/attack_ai(mob/user as mob)
-	spawn (0)
-		attack_self(user)
+	attack_self(user)
 
 
 /obj/item/radio/intercom/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	spawn (0)
-		attack_self(user)
+	attack_self(user)
 
 
 /obj/item/radio/intercom/can_receive(freq, list/levels)
@@ -100,7 +99,7 @@
 			return
 		else
 			on = new_state
-			update_icon()
+			check_light()
 
 /obj/item/radio/intercom/general
 	name = "General Listening Channel"

@@ -68,6 +68,7 @@
 	return W
 
 /turf/open/floor/update_icon_state()
+	. = ..()
 	if(broken)
 		icon_state = broken_states()
 	else if(burnt)
@@ -116,7 +117,7 @@
 		return TRUE
 	. = ..()
 	if(.)
-		return .
+		return
 	if(floor_tile && istype(object, /obj/item/stack/tile))
 		try_replace_tile(object, user, params)
 		return TRUE

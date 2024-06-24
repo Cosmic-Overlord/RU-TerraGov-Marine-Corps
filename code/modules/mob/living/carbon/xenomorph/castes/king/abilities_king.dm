@@ -46,6 +46,12 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PETRIFY,
 	)
+	///List of mobs currently petrified
+	var/list/mob/living/carbon/human/petrified_humans = list()
+
+/datum/action/ability/xeno_action/petrify/clean_action()
+	end_effects()
+	return ..()
 
 /* TGMC Delete Begin
 /datum/action/ability/xeno_action/petrify/action_activate()
@@ -65,7 +71,6 @@
 
 	finish_charging()
 	playsound(owner, 'sound/effects/petrify_activate.ogg', 50)
-	var/list/mob/living/carbon/human/humans = list()
 	for(var/mob/living/carbon/human/human in view(PETRIFY_RANGE, owner.loc))
 		if(is_blind(human))
 			continue
@@ -87,16 +92,16 @@
 		stone_overlay.overlays += mask
 
 		human.overlays += stone_overlay
-		humans[human] = stone_overlay
+		petrified_humans[human] = stone_overlay
 
-	if(!length(humans))
+	if(!length(petrified_humans))
 		flick("eye_closing", eye)
 		addtimer(CALLBACK(src, PROC_REF(remove_eye), eye), 7, TIMER_CLIENT_TIME)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(remove_eye), eye), 10, TIMER_CLIENT_TIME)
 	flick("eye_explode", eye)
-	addtimer(CALLBACK(src, PROC_REF(end_effects), humans), PETRIFY_DURATION)
+	addtimer(CALLBACK(src, PROC_REF(end_effects)), PETRIFY_DURATION)
 	add_cooldown()
 	succeed_activate()
 	TGMC DELETE END*/
@@ -111,14 +116,15 @@
 		ADD_TRAIT(owner, TRAIT_STAGGER_RESISTANT, XENO_TRAIT)
 
 ///ends all combat-relazted effects
-/datum/action/ability/xeno_action/petrify/proc/end_effects(list/humans)
-	for(var/mob/living/carbon/human/human AS in humans)
+/datum/action/ability/xeno_action/petrify/proc/end_effects()
+	for(var/mob/living/carbon/human/human AS in petrified_humans)
 		human.notransform = FALSE
 		human.status_flags &= ~GODMODE
 		REMOVE_TRAIT(human, TRAIT_HANDS_BLOCKED, REF(src))
 		human.move_resist = initial(human.move_resist)
 		human.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, COLOR_GRAY)
-		human.overlays -= humans[human]
+		human.overlays -= petrified_humans[human]
+	petrified_humans.Cut()
 
 ///callback for removing the eye from viscontents
 /datum/action/ability/xeno_action/petrify/proc/remove_eye(obj/effect/eye)
@@ -260,9 +266,9 @@
 			shake_camera(carbon_victim, 3 * severity, 3 * severity)
 			carbon_victim.apply_effect(1 SECONDS, WEAKEN)
 			to_chat(carbon_victim, "You are smashed to the ground!")
-		else if(ismecha(victim))
-			var/obj/vehicle/sealed/mecha/mecha_victim = victim
-			mecha_victim.take_damage(SHATTERING_ROAR_DAMAGE * 5 * severity, BRUTE, MELEE)
+		else if(isvehicle(victim))
+			var/obj/vehicle/veh_victim = victim
+			veh_victim.take_damage(SHATTERING_ROAR_DAMAGE * 5 * severity, BRUTE, MELEE)
 		else if(istype(victim, /obj/structure/window))
 			var/obj/structure/window/window_victim = victim
 			if(window_victim.damageable)
@@ -331,7 +337,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
+	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
 		if(!silent)
 			owner.balloon_alert(owner, "too early")
 		return FALSE
@@ -398,9 +404,9 @@
 				human_victim.take_overall_damage(15, BURN, updating_health = TRUE)
 				human_victim.flash_weak_pain()
 				animation_flash_color(human_victim)
-			else if(ismecha(victim))
-				var/obj/vehicle/sealed/mecha/mech_victim = victim
-				mech_victim.take_damage(75, BURN, ENERGY, armour_penetration = 60)
+			else if(isvehicle(victim))
+				var/obj/vehicle/veh_victim = victim
+				veh_victim.take_damage(75, BURN, ENERGY, armour_penetration = 60)
 	timer_ref = addtimer(CALLBACK(src, PROC_REF(execute_attack)), ZEROFORM_TICK_RATE, TIMER_STOPPABLE)
 
 ///ends and cleans up beam
@@ -480,6 +486,8 @@
 			owner.balloon_alert(owner, "noone to call")
 		return FALSE
 
+GLOBAL_LIST_EMPTY(active_summons)
+
 /datum/action/ability/xeno_action/psychic_summon/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
 
@@ -491,7 +499,9 @@
 			continue
 		sister.add_filter("summonoutline", 2, outline_filter(1, COLOR_VIOLET))
 
-	if(!do_after(X, 10 SECONDS, IGNORE_HELD_ITEM, X, BUSY_ICON_HOSTILE))
+	GLOB.active_summons += X
+	request_admins()
+	if(!do_after(X, 10 SECONDS, IGNORE_HELD_ITEM, X, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, PROC_REF(is_active_summon))))
 		add_cooldown(5 SECONDS)
 		for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 			sister.remove_filter("summonoutline")
@@ -514,3 +524,23 @@
 
 	add_cooldown()
 	succeed_activate()
+
+///Sends a message to admins, prompting them if they want to cancel a psychic summon
+/datum/action/ability/xeno_action/psychic_summon/proc/request_admins()
+	var/mob/living/carbon/xenomorph/caster = owner
+	var/canceltext = "[caster] is using [name] at [AREACOORD(caster)] [ADMIN_TPMONTY(caster)] <a href='?_src_=holder;[HrefToken(TRUE)];cancelsummon=[10 SECONDS]'>\[CANCEL SUMMON\]</a>"
+	message_admins("[span_prefix("PSYCHIC SUMMON:")] <span class='message linkify'> [canceltext]</span>")
+	log_game("psychic summon started by [caster] at [AREACOORD(caster)], timerid to cancel: [10 SECONDS]")
+	notify_ghosts("<b>[caster]</b> has begun to summon at [AREACOORD(caster)]!", action = NOTIFY_JUMP)
+
+///Checks if our summon was cancelled
+/datum/action/ability/xeno_action/psychic_summon/proc/is_active_summon()
+	var/mob/living/carbon/xenomorph/caster = owner
+	if(!(caster in GLOB.active_summons))
+		return FALSE
+	return TRUE
+
+/datum/action/ability/xeno_action/psychic_summon/succeed_activate()
+	. = ..()
+	var/mob/living/carbon/xenomorph/caster = owner
+	GLOB.active_summons -= caster //Remove ourselves from the list once we have completed our summon

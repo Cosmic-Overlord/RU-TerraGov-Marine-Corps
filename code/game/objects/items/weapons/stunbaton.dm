@@ -3,7 +3,7 @@
 	desc = "A stun baton for incapacitating people with."
 	icon_state = "stunbaton"
 	item_state = "baton"
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 15
 	sharp = 0
 	edge = 0
@@ -38,6 +38,7 @@
 			return 0
 
 /obj/item/weapon/baton/update_icon_state()
+	. = ..()
 	if(status)
 		icon_state = "[initial(name)]_active"
 	else if(!bcell)
@@ -84,6 +85,8 @@
 
 /obj/item/weapon/baton/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/cell))
 		if(bcell)
@@ -200,7 +203,7 @@
 	agonyforce = 60	//same force as a stunbaton, but uses way more charge.
 	hitcost = 2500
 	attack_verb = list("poked")
-	flags_equip_slot = NONE
+	equip_slot_flags = NONE
 	has_user_lock = FALSE
 
 
@@ -209,7 +212,7 @@
 	desc = "A specialised prod designed for incapacitating xenomorphic lifeforms with."
 	icon_state = "stunbaton"
 	item_state = "baton"
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 12
 	throwforce = 7
 	w_class = WEIGHT_CLASS_NORMAL
@@ -223,6 +226,7 @@
 
 
 /obj/item/weapon/stunprod/update_icon_state()
+	. = ..()
 	if(status)
 		icon_state = "stunbaton_active"
 	else

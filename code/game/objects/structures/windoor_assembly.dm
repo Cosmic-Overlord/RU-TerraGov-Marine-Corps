@@ -18,7 +18,7 @@
 	density = FALSE
 	dir = NORTH
 	allow_pass_flags = PASS_GLASS|PASS_AIR
-	flags_atom = ON_BORDER
+	atom_flags = ON_BORDER
 
 	var/obj/item/circuitboard/airlock/electronics = null
 
@@ -47,10 +47,13 @@
 	update_icon()
 
 /obj/structure/windoor_assembly/update_icon_state()
+	. = ..()
 	icon_state = "[facing]_[secure]windoor_assembly[state]"
 
 /obj/structure/windoor_assembly/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	switch(state)
 		if("01")

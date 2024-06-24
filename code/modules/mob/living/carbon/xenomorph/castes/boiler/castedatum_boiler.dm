@@ -52,7 +52,7 @@ RU TGMC EDIT */
 	// *** Boiler Abilities *** //
 	max_ammo = 7
 	bomb_strength = 1.3 //Multiplier to the effectiveness of the boiler glob.
-	bomb_delay = 27 SECONDS
+	bomb_delay = 32 SECONDS
 
 	acid_spray_duration = 10 SECONDS
 	acid_spray_damage = 16

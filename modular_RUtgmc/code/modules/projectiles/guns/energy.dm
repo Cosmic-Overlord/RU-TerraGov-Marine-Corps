@@ -1,72 +1,8 @@
-//TE Standard Laser rifle
-
-/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle
-	icon_state = "ter"
-	item_state = "ter"
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-
-/datum/lasrifle/energy_rifle_mode/standard
-	icon_state = "ter"
-
-/datum/lasrifle/energy_rifle_mode/overcharge
-	icon_state = "ter"
-
-/datum/lasrifle/energy_rifle_mode/weakening
-	icon_state = "ter"
-
-/datum/lasrifle/energy_rifle_mode/microwave
-	icon_state = "ter"
-
-///TE Standard Laser Pistol
-
-/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol
-	icon_state = "tep"
-	item_state = "tep"
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-
-/datum/lasrifle/energy_pistol_mode/standard
-	icon_state = "tep"
-
-/datum/lasrifle/energy_pistol_mode/disabler
-	icon_state = "tep"
-
-/datum/lasrifle/energy_pistol_mode/heat
-	icon_state = "tep"
-
 //TE Standard Laser Carbine
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine
-	icon_state = "tec"
-	item_state = "tec"
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_WIELDED_FIRING_ONLY
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_WIELDED_FIRING_ONLY
 
-/datum/lasrifle/energy_carbine_mode/auto_burst
-	icon_state = "tec"
-
-/datum/lasrifle/energy_carbine_mode/base/spread
-	icon_state = "tec"
-
-/datum/lasrifle/energy_carbine_mode/base/impact
-	icon_state = "tec"
-
-/datum/lasrifle/energy_carbine_mode/base/cripple
-	icon_state = "tec"
 
 //TE Standard Sniper
 
@@ -76,8 +12,6 @@
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "tes"
 	item_state = "tes"
-	greyscale_config = null
-	colorable_allowed = NONE
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_64.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_64.dmi',
@@ -98,7 +32,7 @@
 	movement_acc_penalty_mult = 6
 	aim_fire_delay = 1 SECONDS
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_WIELDED_FIRING_ONLY
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_WIELDED_FIRING_ONLY
 
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -111,7 +45,6 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
-		/obj/item/attachable/shoulder_mount,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
@@ -163,30 +96,6 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/xray
 	fire_delay = 0.4 SECONDS
 
-// TE Standard MG
-
-/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser
-	icon_state = "tem"
-	item_state = "tem"
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-
-/datum/lasrifle/energy_mg_mode/standard
-	icon_state = "tem"
-
-/datum/lasrifle/energy_mg_mode/standard/burst
-	icon_state = "tem"
-
-/datum/lasrifle/heavy_laser/burst
-	icon_state = "heavylaser"
-
-/datum/lasrifle/heavy_laser/ricochet
-	icon_state = "heavylaser"
-
 /obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam
 	name = "\improper pocket beam"
 	desc = "A Terra Experimental underbarrel laser system. Has multiple firemodes for tactical flexibility. Uses standard Terra Experimental (abbreviated as TE) power cells."
@@ -205,7 +114,7 @@
 	attachable_allowed = list()
 	starting_attachment_types = list()
 	slot = ATTACHMENT_SLOT_UNDER
-	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_IS_ATTACHMENT|GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_IS_ATTACHMENT|GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	wield_delay = 0.5 SECONDS
 	scatter = 0
 	fire_delay = 2 SECONDS
@@ -229,7 +138,7 @@
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
 
 /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_SUNDERING|AMMO_HITSCAN
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
 	incendiary_strength = 15
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_LASER_RED

@@ -3,11 +3,11 @@
 	. = ..()
 	switch(job.job_category)
 		if(JOB_CAT_CIVILIAN)
-			. = 10
+			. = list(10, 1)
 		if(JOB_CAT_ENGINEERING, JOB_CAT_MEDICAL, JOB_CAT_REQUISITIONS)
-			. = 150
+			. = list(150, 15)
 		if(JOB_CAT_MARINE)
-			. = 100
+			. = list(100, 10)
 	return
 
 /mob/living/carbon/human/species/yautja/get_export_value()

@@ -79,11 +79,11 @@
 /obj/item/proc/switch_hair_concealment_flags(mob/living/carbon/human/user)
 	switch(current_hair_concealment)
 		if(HAIR_NO_CONCEALING) // if you apply it to something that has different inv hide flags it will break it, so just don't i guess?
-			flags_inv_hide = HIDEEARS
+			inv_hide_flags = HIDEEARS
 		if(TOP_HAIR_CONCEALING)
-			flags_inv_hide = HIDEEARS|HIDETOPHAIR
+			inv_hide_flags = HIDEEARS|HIDETOPHAIR
 		if(HAIR_PARTIALLY_CONCEALING)
-			flags_inv_hide = HIDEEARS|HIDE_EXCESS_HAIR
+			inv_hide_flags = HIDEEARS|HIDE_EXCESS_HAIR
 		if(HAIR_FULL_CONCEALING)
-			flags_inv_hide = HIDEEARS|HIDEALLHAIR
+			inv_hide_flags = HIDEEARS|HIDEALLHAIR
 	user.update_hair()

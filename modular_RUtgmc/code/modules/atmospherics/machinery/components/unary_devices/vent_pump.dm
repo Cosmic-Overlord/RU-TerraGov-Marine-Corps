@@ -1,9 +1,9 @@
-/obj/machinery/atmospherics/components/unary/vent_pump/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(F.status_flags & INCORPOREAL)
+/obj/machinery/atmospherics/components/unary/vent_pump/attack_facehugger(mob/living/carbon/xenomorph/facehugger/facehugger_attacker, damage_amount = facehugger_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = facehugger_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(facehugger_attacker.status_flags & INCORPOREAL)
 		return
-	if(!welded || !(do_after(F, 3 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE)))
+	if(!welded || !(do_after(facehugger_attacker, 3 SECONDS, FALSE, src, BUSY_ICON_HOSTILE)))
 		return
-	F.visible_message("[F] furiously claws at [src]!", "We manage to clear away the stuff blocking the vent", "You hear loud scraping noises.")
+	facehugger_attacker.visible_message("[facehugger_attacker] furiously claws at [src]!", "We manage to clear away the stuff blocking the vent", "You hear loud scraping noises.")
 	welded = FALSE
 	update_icon()
 	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)

@@ -20,7 +20,7 @@
 	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
 
 /obj/item/clothing/head/helmet/marine/robot/advanced
-	flags_item_map_variant = NONE
+	item_map_variant_flags = NONE
 	icon = 'modular_RUtgmc/icons/obj/clothing/headwear/marine_helmets.dmi'
 	item_icons = list(
 		slot_head_str = 'modular_RUtgmc/icons/mob/clothing/headwear/robot_helmets.dmi',
@@ -34,7 +34,7 @@
 		return FALSE
 
 /obj/item/clothing/suit/storage/marine/robot/advanced
-	flags_item_map_variant = NONE
+	item_map_variant_flags = NONE
 	icon = 'modular_RUtgmc/icons/obj/clothing/suits/marine_armor.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'modular_RUtgmc/icons/mob/clothing/suits/robot_armor.dmi',

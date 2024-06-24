@@ -27,8 +27,8 @@
 			else if(ishuman(wearer))
 				SSminimaps.add_marker(wearer, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 			return
-		if(!wearer.client)
-			var/mob/dead/observer/ghost = wearer.get_ghost()
+		if(!wearer.mind)
+			var/mob/dead/observer/ghost = wearer.get_ghost(TRUE)
 			if(!ghost?.can_reenter_corpse)
 				if(issynth(wearer))
 					SSminimaps.add_marker(wearer, marker_flags, image('modular_RUtgmc/icons/UI_icons/map_blips.dmi', null, "undefibbable_synt"))

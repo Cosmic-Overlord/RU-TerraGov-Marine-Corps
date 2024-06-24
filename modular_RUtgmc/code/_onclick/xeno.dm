@@ -14,5 +14,5 @@
 	GLOB.round_statistics.xeno_unarmed_attacks++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_unarmed_attacks")
 
-/atom/proc/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, damage_amount = F.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/atom/proc/attack_facehugger(mob/living/carbon/xenomorph/facehugger/facehugger_attacker, damage_amount = facehugger_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = facehugger_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	return

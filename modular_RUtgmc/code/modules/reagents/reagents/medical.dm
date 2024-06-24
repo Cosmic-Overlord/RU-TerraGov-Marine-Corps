@@ -110,8 +110,8 @@
 
 ///MEDICAL NANITES
 
-/datum/reagent/medicine/research/medicalnanites
+/datum/reagent/medicalnanites
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 1.7
 
-/datum/reagent/medicine/research/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
+/datum/reagent/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
 	L.adjustCloneLoss(1) //YUM!

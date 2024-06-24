@@ -37,6 +37,14 @@
     if(plasma_stored >= 40)
         use_plasma(3)
 
+/mob/living/carbon/xenomorph/panther/UnarmedAttack(atom/A, has_proximity, modifiers)
+	/// Panther should not be able to slash while evading.
+	var/datum/action/ability/xeno_action/evasive_maneuvers/evasion_action = actions_by_path[/datum/action/ability/xeno_action/evasive_maneuvers]
+	if(evasion_action.evade_active)
+		balloon_alert(src, "Cannot slash while evading")
+		return
+	return ..()
+
 /obj/item/reagent_containers/food/drinks/pantherheart
 	name = "Panther heart"
 	desc = "This is Panther heart... Wait, what?"

@@ -17,5 +17,5 @@
 		/obj/item/storage/belt/knifepouch,
 		/obj/item/weapon/twohanded,
 	)
-	flags_armor_protection = CHEST
+	armor_protection_flags = CHEST
 	soft_armor = list(MELEE = 20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)

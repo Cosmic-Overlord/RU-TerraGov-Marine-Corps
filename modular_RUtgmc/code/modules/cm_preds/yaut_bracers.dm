@@ -10,10 +10,10 @@
 
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	flags_item = ITEM_PREDATOR
-	flags_cold_protection = HANDS
-	flags_heat_protection = HANDS
-	flags_armor_protection = HANDS
+	item_flags = ITEM_PREDATOR
+	cold_protection_flags = HANDS
+	heat_protection_flags = HANDS
+	armor_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 	resistance_flags = UNACIDABLE
@@ -81,7 +81,7 @@
 
 /obj/item/clothing/gloves/yautja/dropped(mob/living/carbon/human/user)
 	STOP_PROCESSING(SSobj, src)
-	flags_item = initial(flags_item)
+	item_flags = initial(item_flags)
 	if(istype(user) && user.gloves == src)
 		move_chip_to_bracer()
 		if(cloaked)
@@ -513,8 +513,8 @@
 
 //Any projectile can decloak a predator. It does defeat one free bullet though.
 /obj/item/clothing/gloves/yautja/proc/bullet_act_sim(mob/living/carbon/human/H, obj/projectile/proj)
-	var/ammo_flags = proj.ammo.flags_ammo_behavior
-	if(ammo_flags & (AMMO_ROCKET|AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
+	var/ammo_flags = proj.ammo.ammo_behavior_flags
+	if(ammo_flags & (AMMO_ENERGY|AMMO_XENO)) //<--- These will auto uncloak.
 		decloak(H) //Continue on to damage.
 	else if(prob(20))
 		decloak(H)
@@ -615,7 +615,7 @@
 
 	exploding = TRUE
 	var/turf/T = get_turf(src)
-	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && (is_ground_level(T.z) || SSticker.mode.flags_round_type & MODE_SHIPSIDE_SD))
+	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && (is_ground_level(T.z) || SSticker.mode.round_type_flags & MODE_SHIPSIDE_SD))
 		playsound(src, 'modular_RUtgmc/sound/voice/pred_deathlaugh.ogg', 100, 0, 17)
 
 	playsound(src, 'modular_RUtgmc/sound/effects/pred_countdown.ogg', 100, 0, 17)
@@ -629,7 +629,7 @@
 		if(victim)
 			victim.gib() // kills the pred
 			qdel(victim)
-		if(explosion_type == SD_TYPE_BIG && (is_ground_level(T.z) || SSticker.mode.flags_round_type & MODE_SHIPSIDE_SD))
+		if(explosion_type == SD_TYPE_BIG && (is_ground_level(T.z) || SSticker.mode.round_type_flags & MODE_SHIPSIDE_SD))
 			cell_explosion(T, 700, 100)
 		else
 			cell_explosion(T, 300, 100)
@@ -1267,7 +1267,7 @@
 	if(!user)
 		return FALSE
 
-	if(!(flags_equip_slot & ITEM_SLOT_GLOVES))
+	if(!(equip_slot_flags & ITEM_SLOT_GLOVES))
 		return FALSE
 
 	var/obj/item/grab/held_mob = user.get_active_held_item()

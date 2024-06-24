@@ -19,7 +19,7 @@
 #define XENO_HIGH_ACID_PUDDLE_DAMAGE 20 //Strong acid damage dealt by acid puddles
 
 #define IS_YAUTJA (1<<6)
-
+#define WOUND_LAYER 29
 #define MOTH_WINGS_LAYER 28
 #define MUTATIONS_LAYER 27
 #define DAMAGE_LAYER 26

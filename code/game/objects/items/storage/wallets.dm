@@ -25,7 +25,7 @@
 		/obj/item/tool/screwdriver,
 		/obj/item/tool/stamp,
 	)
-	flags_equip_slot = ITEM_SLOT_ID
+	equip_slot_flags = ITEM_SLOT_ID
 
 	var/obj/item/card/id/front_id = null
 
@@ -46,8 +46,8 @@
 			name = "[name] ([front_id])"
 			update_icon()
 
-/obj/item/storage/wallet/update_icon()
-
+/obj/item/storage/wallet/update_icon_state()
+	. = ..()
 	if(front_id)
 		switch(front_id.icon_state)
 			if("id")

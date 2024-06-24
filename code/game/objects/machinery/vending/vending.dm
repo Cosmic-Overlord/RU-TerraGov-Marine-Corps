@@ -279,38 +279,38 @@
 	for(var/season in seasonal_items)
 		products[seasonal_items[season]] += SSpersistence.season_items[season]
 
-/obj/machinery/vending/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/machinery/vending/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent == INTENT_HARM)
-		X.do_attack_animation(src, ATTACK_EFFECT_SMASH)
-		if(prob(X.xeno_caste.melee_damage))
+	if(xeno_attacker.a_intent == INTENT_HARM)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_SMASH)
+		if(prob(damage_amount))
 			playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
-			X.visible_message(span_danger("\The [X] smashes \the [src] beyond recognition!"), \
+			xeno_attacker.visible_message(span_danger("\The [xeno_attacker] smashes \the [src] beyond recognition!"), \
 			span_danger("We enter a frenzy and smash \the [src] apart!"), null, 5)
 			malfunction()
 			return TRUE
 		else
-			X.visible_message(span_danger("[X] slashes \the [src]!"), \
+			xeno_attacker.visible_message(span_danger("[xeno_attacker] slashes \the [src]!"), \
 			span_danger("We slash \the [src]!"), null, 5)
 			playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
 		return TRUE
 
 	if(tipped_level)
-		to_chat(X, span_warning("There's no reason to bother with that old piece of trash."))
+		to_chat(xeno_attacker, span_warning("There's no reason to bother with that old piece of trash."))
 		return FALSE
 
-	X.visible_message(span_warning("\The [X] begins to lean against \the [src]."), \
+	xeno_attacker.visible_message(span_warning("\The [xeno_attacker] begins to lean against \the [src]."), \
 	span_warning("You begin to lean against \the [src]."), null, 5)
 	tipped_level = 1
 	var/shove_time = 1 SECONDS
-	if(X.mob_size == MOB_SIZE_BIG)
+	if(xeno_attacker.mob_size == MOB_SIZE_BIG)
 		shove_time = 5 SECONDS
-	if(istype(X,/mob/living/carbon/xenomorph/crusher))
+	if(istype(xeno_attacker,/mob/living/carbon/xenomorph/crusher))
 		shove_time = 1.5 SECONDS
-	if(do_after(X, shove_time, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
-		X.visible_message(span_danger("\The [X] knocks \the [src] down!"), \
+	if(do_after(xeno_attacker, shove_time, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
+		xeno_attacker.visible_message(span_danger("\The [xeno_attacker] knocks \the [src] down!"), \
 		span_danger("You knock \the [src] down!"), null, 5)
 		tip_over()
 	else
@@ -337,6 +337,8 @@
 
 /obj/machinery/vending/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(tipped_level)
 		to_chat(user, "Tip it back upright first!")
@@ -378,12 +380,12 @@
 			user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
 			var/turf/current_turf = get_turf(src)
 			if(current_turf && density)
-				current_turf.flags_atom |= AI_BLOCKED
+				current_turf.atom_flags |= AI_BLOCKED
 		else
 			user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
 			var/turf/current_turf = get_turf(src)
 			if(current_turf && density)
-				current_turf.flags_atom &= ~AI_BLOCKED
+				current_turf.atom_flags &= ~AI_BLOCKED
 	else if(isitem(I))
 		var/obj/item/to_stock = I
 		stock(to_stock, user)
@@ -658,6 +660,34 @@
 
 	return do_stock(item_to_stock, user, show_feedback, record)
 
+/obj/machinery/vending/lasgun/do_stock(obj/item/item_to_stock, mob/user, show_feedback = TRUE, datum/vending_product/record)
+	//Special snowflake handling of cells
+	if(!iscell(item_to_stock))
+		return ..()
+
+	var/recharge_amount = 0 //the amount of charge required to fully charge our cell
+	var/obj/item/cell/cell = item_to_stock
+	if(cell.charge < cell.maxcharge)
+		// Item is not full. Time to try to recharge
+		recharge_amount = cell.maxcharge - cell.charge
+		if(machine_current_charge == 0)
+			display_message_and_visuals(user, show_feedback, "No power!", VENDING_RESTOCK_DENY)
+			return FALSE
+		else if(machine_current_charge < recharge_amount) // Not enough but some charge remaining so partially recharge cell and move on
+			cell.give(machine_current_charge)
+			machine_current_charge = 0
+			cell.update_icon()
+			display_message_and_visuals(user, show_feedback, "Cell charged partially! [round(cell.percent())]%.", VENDING_RESTOCK_RECHARGE)
+			playsound(loc, 'sound/machines/hydraulics_1.ogg', 25, 0, 1)
+			return FALSE
+		else
+			machine_current_charge -= recharge_amount
+			cell.give(recharge_amount)
+			if(!record.attempt_restock(item_to_stock, user, show_feedback))
+				return FALSE
+			display_message_and_visuals(user, show_feedback, "Restocked and recharged", VENDING_RESTOCK_ACCEPT_RECHARGE)
+			return TRUE
+
 ///Actually does the restock. Overridden by lasgun vendor for snowflake behaviour
 /obj/machinery/vending/proc/do_stock(obj/item/item_to_stock, mob/user, show_feedback = TRUE, datum/vending_product/record)
 	if(!record.attempt_restock(item_to_stock, user, show_feedback))
@@ -703,7 +733,7 @@
 	//More accurate comparison between absolute paths.
 	if(isstorage(item_to_stock)) //Nice try, specialists/engis
 		var/obj/item/storage/storage_to_stock = item_to_stock
-		if(!(storage_to_stock.flags_storage & BYPASS_VENDOR_CHECK)) //If your storage has this flag, it can be restocked
+		if(!(storage_to_stock.storage_flags & BYPASS_VENDOR_CHECK)) //If your storage has this flag, it can be restocked
 			user?.balloon_alert(user, "Can't restock containers!")
 			return FALSE
 
@@ -742,7 +772,7 @@
 	//Actually restocks the item after our checks
 	if(user)
 		if(item_to_stock.loc == user) //Inside the mob's inventory
-			if(item_to_stock.flags_item & WIELDED)
+			if(item_to_stock.item_flags & WIELDED)
 				item_to_stock.unwield(user)
 			user.temporarilyRemoveItemFromInventory(item_to_stock)
 
@@ -830,6 +860,7 @@
 		set_light(initial(light_range))
 
 /obj/machinery/vending/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 	else if(machine_stat & NOPOWER)
@@ -885,7 +916,7 @@
 	. = TRUE
 
 
-/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0)
+/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()

@@ -1,16 +1,3 @@
-//-------------------------------------------------------
-//R-44 COMBAT REVOLVER
-
-/obj/item/weapon/gun/revolver/standard_revolver
-	icon_state = "tp44"
-	item_state = "tp44"
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-
 ///////////////////////////////////////////////////////////////////////
 //////// Сoltrifle, based on Colt Model 1855 Revolving Rifle. /////////
 ///////////////////////////////////////////////////////////////////////
@@ -21,7 +8,6 @@
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
-	greyscale_config = null
 	item_icons = list(
 		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
@@ -31,7 +17,7 @@
 	fire_animation = "coltrifle_fire"
 	fire_sound = 'sound/weapons/guns/fire/mateba.ogg'
 	gun_skill_category = SKILL_RIFLES
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	caliber = CALIBER_44LS
 	max_chamber_items = 8
@@ -48,8 +34,7 @@
 
 	fire_delay = 0.25 SECONDS
 	aim_fire_delay = 0.25 SECONDS
-	upper_akimbo_accuracy = 6
-	lower_akimbo_accuracy = 3
+	akimbo_scatter_mod = 8
 	akimbo_additional_delay = 1
 	aim_slowdown = 0.3
 

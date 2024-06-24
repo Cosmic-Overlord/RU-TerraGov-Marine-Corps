@@ -4,7 +4,7 @@
 
 /obj/item/weapon/gun/grenade_launcher/single_shot
 	wield_delay = 0.8 SECONDS
-	flags_gun_features = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_STABLE_FIRING_ONLY
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_STABLE_FIRING_ONLY
 
 /obj/item/weapon/gun/grenade_launcher/single_shot/flare
 	wield_delay = 0.4 SECONDS
@@ -44,6 +44,6 @@
 	if(istype(new_magazine.loc, /obj/item/storage))
 		var/obj/item/storage/S = new_magazine.loc
 		S.remove_from_storage(new_magazine, get_turf(user), user)
-	if(!CHECK_BITFIELD(get_flags_magazine_features(new_magazine), MAGAZINE_WORN))
+	if(!CHECK_BITFIELD(get_magazine_features_flags(new_magazine), MAGAZINE_WORN))
 		user.put_in_any_hand_if_possible(new_magazine)
 	reload(new_magazine, user)

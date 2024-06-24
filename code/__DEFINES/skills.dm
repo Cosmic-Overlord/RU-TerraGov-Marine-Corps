@@ -71,16 +71,16 @@
 #define SKILL_CONSTRUCTION_METAL 1	//metal barricade construction (CT)
 #define SKILL_CONSTRUCTION_PLASTEEL 2	//plasteel barricade,(RO, SL)
 #define SKILL_CONSTRUCTION_ADVANCED 3	//windows and girder construction (combat engi, CO)
-#define SKILL_CONSTRUCTION_MASTER 4	//building machine&computer frames (MT, CE)
-#define SKILL_CONSTRUCTION_INHUMAN 5	//Early synth level.
+#define SKILL_CONSTRUCTION_EXPERT 4	//building machine&computer frames (MT, CE)
+#define SKILL_CONSTRUCTION_MASTER 5	//Early synth level.
 
 // engineer skill
 #define SKILL_ENGINEER_DEFAULT 0
 #define SKILL_ENGINEER_METAL 1	//metal barricade repair && c4 use
 #define SKILL_ENGINEER_PLASTEEL 2	//plasteel barricade repair
 #define SKILL_ENGINEER_ENGI 3	//hacking&&planet engine fixing&&apc building (combat engi)
-#define SKILL_ENGINEER_MASTER 4	//Telecomms fixing, faster engine fixing (ST)
-#define SKILL_ENGINEER_INHUMAN 5	//Early synth level.
+#define SKILL_ENGINEER_EXPERT 4	//Telecomms fixing, faster engine fixing (ST)
+#define SKILL_ENGINEER_MASTER 5	//CSE, Early synth level.
 //higher levels give faster engine repair.
 
 //medical skill
@@ -115,6 +115,8 @@
 #define SKILL_CQC_MP 2 //no risk of accidental weapon discharge upon disarming (MP)
 #define SKILL_CQC_MASTER 5
 
+///unarmed damage mod from CQC skill
+#define CQC_SKILL_DAMAGE_MOD 5
 ///disarm chance mod from CQC skill
 #define CQC_SKILL_DISARM_MOD 5
 
@@ -149,8 +151,10 @@
 #define SKILL_PILOT_TRAINED 1 //Pilot
 
 //multitile and mech vehicle skills
-#define SKILL_LARGE_VEHICLE_DEFAULT 0
-#define SKILL_LARGE_VEHICLE_TRAINED 1
+#define SKILL_LARGE_VEHICLE_DEFAULT 0 //nothing
+#define SKILL_LARGE_VEHICLE_TRAINED 1 //loader
+#define SKILL_LARGE_VEHICLE_EXPERIENCED 2 //transport crew
+#define SKILL_LARGE_VEHICLE_VETERAN 3 //mech pilot and assault crew
 
 //stamina skill - you do cardio, right?
 //buff stamina related things
@@ -159,7 +163,7 @@
 #define SKILL_STAMINA_TRAINED 1
 #define SKILL_STAMINA_SUPER 2
 
-#define STAMINA_SKILL_COOLDOWN_MOD 2
+#define STAMINA_SKILL_COOLDOWN_MOD 2 SECONDS
 #define STAMINA_SKILL_REGEN_MOD 0.15
 
 ////////////////////////////////////////////////

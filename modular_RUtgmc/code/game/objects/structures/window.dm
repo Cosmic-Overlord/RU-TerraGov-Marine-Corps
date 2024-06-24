@@ -12,7 +12,7 @@
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return EXPLOSION_MAX_POWER
 
-	if(flags_atom & ON_BORDER && (direction == turn(dir, 90) || direction == turn(dir, -90)))
+	if(atom_flags & ON_BORDER && (direction == turn(dir, 90) || direction == turn(dir, -90)))
 		return 0
 	return obj_integrity / EXPLOSION_DAMAGE_MULTIPLIER_WINDOW
 

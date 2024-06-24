@@ -42,7 +42,7 @@
 		//RU TGMC GRENADE TURF THROW END
 
 	for (var/mob/living/carbon/human/H in L)
-		if(H.stat == DEAD)
+		if(H.stat == DEAD || !X.Adjacent(H))
 			continue
 		H.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
@@ -138,6 +138,7 @@
 	. = TRUE
 	if(living_target.stat || isxeno(living_target) || !(iscarbon(living_target))) //we leap past xenos
 		return
+
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/mob/living/carbon/carbon_victim = living_target
 	var/extra_dmg = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 0.5 // 50% dmg reduction
@@ -154,7 +155,6 @@
 	action_activate()
 	LAZYINCREMENT(owner.do_actions, target)
 	addtimer(CALLBACK(src, PROC_REF(decrease_do_action), target), windup_time)
-	return TRUE
 
 ///Decrease the do_actions of the owner
 /datum/action/ability/activable/xeno/charge/forward_charge/proc/decrease_do_action(atom/target)
@@ -306,6 +306,7 @@
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_fortifiy_toggles")
 	if(on)
 		ADD_TRAIT(X, TRAIT_IMMOBILE, FORTIFY_TRAIT)
+		ADD_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
 		if(!silent)
 			to_chat(X, span_xenowarning("We tuck ourselves into a defensive stance."))
 		X.soft_armor = X.soft_armor.modifyAllRatings(last_fortify_bonus)
@@ -316,6 +317,7 @@
 		X.soft_armor = X.soft_armor.modifyAllRatings(-last_fortify_bonus)
 		X.soft_armor = X.soft_armor.modifyRating(BOMB = -last_fortify_bonus)
 		REMOVE_TRAIT(X, TRAIT_IMMOBILE, FORTIFY_TRAIT)
+		REMOVE_TRAIT(X, TRAIT_STOPS_TANK_COLLISION, FORTIFY_TRAIT)
 
 	X.fortify = on
 	X.anchored = on

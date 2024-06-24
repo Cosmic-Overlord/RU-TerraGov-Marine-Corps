@@ -215,17 +215,17 @@
 		dump_contents()
 		qdel(src)
 
-/obj/structure/closet/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/structure/closet/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
 	. = ..()
 	if(!.)
 		return
-	if(X.a_intent == INTENT_HARM && !opened && prob(70))
+	if(xeno_attacker.a_intent == INTENT_HARM && !opened && prob(70))
 		break_open()
 
 /obj/structure/closet/attackby(obj/item/I, mob/user, params)
 	if(user in src)
 		return FALSE
-	if(I.flags_item & ITEM_ABSTRACT)
+	if(I.item_flags & ITEM_ABSTRACT)
 		return FALSE
 	. = ..()
 	if(opened)
@@ -323,15 +323,17 @@
 	else
 		balloon_alert(usr, "Can't do this")
 
-/obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
-	overlays.Cut()
+/obj/structure/closet/update_icon_state()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+	. = ..()
 	if(!opened)
 		icon_state = icon_closed
-		if(welded)
-			overlays += image(icon, overlay_welded)
 	else
 		icon_state = icon_opened
 
+/obj/structure/closet/update_overlays()
+	. = ..()
+	if(!opened && welded)
+		. += image(icon, overlay_welded)
 
 /obj/structure/closet/resisted_against(datum/source)
 	container_resist(source)
@@ -458,7 +460,7 @@
 		return FALSE
 	if(!CHECK_BITFIELD(destination.closet_flags, CLOSET_ALLOW_DENSE_OBJ) && density)
 		return FALSE
-	if(CHECK_BITFIELD(flags_item, DELONDROP))
+	if(CHECK_BITFIELD(item_flags, DELONDROP))
 		return FALSE
 	var/item_size = CEILING(w_class * 0.5, 1)
 	if(item_size + destination.item_size_counter > destination.storage_capacity)

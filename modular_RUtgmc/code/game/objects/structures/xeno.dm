@@ -8,22 +8,22 @@
 /obj/structure/mineral_door/resin
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
 
-/obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	var/turf/cur_loc = X.loc
+/obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	var/turf/cur_loc = xeno_attacker.loc
 	if(!istype(cur_loc))
 		return FALSE
-	if(X.a_intent != INTENT_DISARM)
-		try_toggle_state(X)
+	if(xeno_attacker.a_intent != INTENT_HARM)
+		try_toggle_state(xeno_attacker)
 		return TRUE
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
-		SSresinshaping.decrement_build_counter(X)
+	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
+		SSresinshaping.decrement_build_counter(xeno_attacker)
 		qdel(src)
 		return TRUE
 
-	src.balloon_alert(X, "Destroying...")
+	src.balloon_alert(xeno_attacker, "Destroying...")
 	playsound(src, "alien_resin_break", 25)
-	if(do_after(X, 1 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_HOSTILE))
-		src.balloon_alert(X, "Destroyed")
+	if(do_after(xeno_attacker, 1 SECONDS, FALSE, src, BUSY_ICON_HOSTILE))
+		src.balloon_alert(xeno_attacker, "Destroyed")
 		qdel(src)
 
 
@@ -77,17 +77,14 @@
 	structure = "door"
 	icon_state = "growth_door"
 
-/obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(X.status_flags & INCORPOREAL)
+/obj/alien/resin/sticky/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(xeno_attacker.status_flags & INCORPOREAL)
 		return FALSE
 
-	if(X.a_intent != INTENT_DISARM)
-		return FALSE
-
-	if(X.a_intent == INTENT_DISARM)
-		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X) && refundable)
-			SSresinshaping.decrement_build_counter(X)
-		X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
+	if(xeno_attacker.a_intent == INTENT_HARM)
+		if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker) && refundable)
+			SSresinshaping.decrement_build_counter(xeno_attacker)
+		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		playsound(src, "alien_resin_break", 25)
 		deconstruct(TRUE)
 		return

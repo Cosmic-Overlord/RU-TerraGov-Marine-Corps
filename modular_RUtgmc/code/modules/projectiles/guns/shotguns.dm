@@ -5,19 +5,10 @@
 //SH-35 Pump shotgun
 
 /obj/item/weapon/gun/shotgun/pump/t35
-	icon_state = "t35"
-	item_state = "t35"
-	cock_animation = "t35_pump"
-	greyscale_config = null
-	colorable_allowed = NONE
 	fire_sound = 		'modular_RUtgmc/sound/weapons/guns/shotgun/SH-35/SH35.ogg'
 	hand_reload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-39/SH39_shell.ogg'
 	cocked_sound = 		'modular_RUtgmc/sound/weapons/guns/shotgun/SH-35/SH35_pump.ogg'
 	opened_sound = 		'modular_RUtgmc/sound/weapons/guns/shotgun/SH-35/SH35_pump.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
 
 //-------------------------------------------------------
 //SH-46 semi automatic shotgun.
@@ -26,7 +17,7 @@
 	name = "\improper SH-46 combat shotgun"
 	desc = "The SH-46, is a semi-automatic, 12 Gauge, gas piston-operated shotgun, released for TGMC by CAU."
 	force = 20 //Has a stock already
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
 	icon_state = "shq6"
 	item_state = "shq6"
@@ -39,7 +30,7 @@
 	fire_sound = 		'modular_RUtgmc/sound/weapons/guns/shotgun/SH-46/SH46.ogg'
 	hand_reload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-46/SH46_shell.ogg'
 	cocked_sound = 		'modular_RUtgmc/sound/weapons/guns/shotgun/SH-46/SH46_boltpull.ogg'
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
 	max_chamber_items = 5
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	attachable_allowed = list(
@@ -96,4 +87,4 @@
 // Martini Henry
 
 /obj/item/weapon/gun/shotgun/double/martini
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY

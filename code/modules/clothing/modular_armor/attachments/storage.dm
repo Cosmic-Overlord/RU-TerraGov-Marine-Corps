@@ -115,7 +115,7 @@
 /obj/item/armor_module/storage/pocket
 	icon_state = ""
 	item_state = ""
-	flags_attach_features = ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_APPLY_ON_MOB
 	storage = /obj/item/storage/internal/pocket
 
 /obj/item/storage/internal/pocket
@@ -131,6 +131,7 @@
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/ammo_magazine/handful,
 	)
+	cant_hold = list(/obj/item/cell/lasgun/volkite/powerpack)
 
 /obj/item/storage/internal/pocket/insertion_message(obj/item/item, mob/user)
 	var/visidist = item.w_class >= WEIGHT_CLASS_NORMAL ? 3 : 1
@@ -183,7 +184,9 @@
 		/obj/item/ammo_magazine/revolver,
 		/obj/item/ammo_magazine/sniper,
 		/obj/item/ammo_magazine/handful,
+		/obj/item/cell/lasgun/plasma,
 	)
+	cant_hold = list(/obj/item/cell/lasgun/volkite/powerpack)
 
 /obj/item/armor_module/storage/general/som
 	name = "General Purpose Storage module"
@@ -269,7 +272,7 @@
 		/obj/item/tool/multitool,
 		/obj/item/binoculars/tactical/range,
 		/obj/item/explosive/plastique,
-		/obj/item/explosive/grenade/chem_grenade/razorburn_smol,
+		/obj/item/explosive/grenade/chem_grenade/razorburn_small,
 		/obj/item/explosive/grenade/chem_grenade/razorburn_large,
 		/obj/item/cell/apc,
 		/obj/item/cell/high,
@@ -388,7 +391,7 @@
 	desc = "A small set of straps to hold something in your boot."
 	icon_state = ""
 	storage = /obj/item/storage/internal/shoes/boot_knife
-	flags_attach_features = ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_APPLY_ON_MOB
 
 /obj/item/storage/internal/shoes/boot_knife
 	max_storage_space = 3
@@ -421,7 +424,7 @@
 	icon_state = ""
 	storage = /obj/item/storage/internal/marinehelmet
 	show_storage = TRUE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/storage/internal/marinehelmet
 	max_storage_space = 3

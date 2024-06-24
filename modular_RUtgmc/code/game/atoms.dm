@@ -12,7 +12,7 @@
 		hud_list[hud] = new_hud
 
 /atom/proc/ex_act(severity, explosion_direction)
-	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
+	if(!(atom_flags & PREVENT_CONTENTS_EXPLOSION))
 		contents_explosion(severity, explosion_direction)
 
 /atom/proc/contents_explosion(severity, explosion_direction)

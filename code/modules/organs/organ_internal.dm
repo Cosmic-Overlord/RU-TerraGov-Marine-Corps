@@ -42,7 +42,7 @@
 		return
 	var/mob/living/carbon/human/human = carbon_mob
 	var/datum/limb/limb = human.get_limb(parent_limb)
-	LAZYDISTINCTADD(limb.internal_organs, src)
+	LAZYOR(limb.internal_organs, src)
 
 ///Signal handler to prevent hard del
 /datum/internal_organ/proc/clean_owner()
@@ -50,7 +50,7 @@
 	owner = null
 
 /datum/internal_organ/proc/take_damage(amount, silent= FALSE)
-	if(SSticker.mode?.flags_round_type & MODE_NO_PERMANENT_WOUNDS)
+	if(SSticker.mode?.round_type_flags & MODE_NO_PERMANENT_WOUNDS)
 		return
 	if(amount <= 0)
 		heal_organ_damage(-amount)

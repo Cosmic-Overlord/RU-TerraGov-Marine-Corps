@@ -56,6 +56,7 @@
 
 
 /obj/item/stack/update_icon_state()
+	. = ..()
 	if(!number_of_extra_variants)
 		return
 	var/ratio = round((amount * (number_of_extra_variants + 1)) / max_amount)
@@ -271,7 +272,7 @@
 				continue
 			if(!AM.density)
 				continue
-			if(AM.flags_atom & ON_BORDER && AM.dir != user.dir)
+			if(AM.atom_flags & ON_BORDER && AM.dir != user.dir)
 				if(istype(AM, /obj/structure/window))
 					var/obj/structure/window/W = AM
 					if(!W.is_full_window())

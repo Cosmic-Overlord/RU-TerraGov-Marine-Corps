@@ -14,7 +14,6 @@
 #define ABILITY_IGNORE_SELECTED_ABILITY (1 << 14) // bypass the check of the selected ability
 #define ABILITY_DO_AFTER_ATTACK (1 << 15) //Let the xeno attack the object and perform the ability.
 #define ABILITY_USE_BURROWED (1 << 16) // ignore being burrowed
-#define ABILITY_USE_ROOTED (1 << 17) // ignore being currently rooted
 
 #define ABILITY_TURF_TARGET (1 << 0) // ability targets turfs
 #define ABILITY_MOB_TARGET (1 << 1) // ability targets mobs
@@ -25,3 +24,7 @@
 #define ABILITY_CRASH (1<<0)
 #define ABILITY_NUCLEARWAR (1<<1)
 #define ABILITY_ALL_GAMEMODE (ABILITY_CRASH|ABILITY_NUCLEARWAR)
+
+#define PSIONIC_INTERACTION_STRENGTH_WEAK 1
+#define PSIONIC_INTERACTION_STRENGTH_STANDARD 2
+#define PSIONIC_INTERACTION_STRENGTH_STRONG 3

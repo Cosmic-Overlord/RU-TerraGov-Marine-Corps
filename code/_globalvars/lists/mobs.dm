@@ -29,6 +29,7 @@ GLOBAL_LIST_EMPTY(mob_living_list)				//all instances of /mob/living and subtype
 GLOBAL_LIST_EMPTY(alive_living_list)		//all alive /mob/living, including clientless.
 GLOBAL_LIST_EMPTY(offered_mob_list)				//all /mobs offered by admins
 GLOBAL_LIST_EMPTY(ai_list)
+GLOBAL_LIST_EMPTY(silicon_mobs) //all silicon mobs
 GLOBAL_LIST_INIT(simple_animals, list(list(),list(),list(),list())) // One for each AI_* status define
 GLOBAL_LIST_EMPTY(living_cameras)
 GLOBAL_LIST_EMPTY(aiEyes)
@@ -116,8 +117,9 @@ GLOBAL_LIST_INIT(xeno_types_tier_one, list(/mob/living/carbon/xenomorph/runner, 
 //RUTGMC EDIT - Moved to modular_RUtgmc\code\_globalvars\lists\mobs.dm
 /*
 GLOBAL_LIST_INIT(xeno_types_tier_two, list(/mob/living/carbon/xenomorph/hunter, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/spitter, /mob/living/carbon/xenomorph/hivelord, /mob/living/carbon/xenomorph/carrier, /mob/living/carbon/xenomorph/bull, /mob/living/carbon/xenomorph/wraith, /mob/living/carbon/xenomorph/puppeteer))
-GLOBAL_LIST_INIT(xeno_types_tier_three, list(/mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/widow, /mob/living/carbon/xenomorph/ravager, /mob/living/carbon/xenomorph/praetorian, /mob/living/carbon/xenomorph/boiler, /mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/shrike, /mob/living/carbon/xenomorph/behemoth))
+GLOBAL_LIST_INIT(xeno_types_tier_three, list(/mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/widow, /mob/living/carbon/xenomorph/ravager, /mob/living/carbon/xenomorph/praetorian, /mob/living/carbon/xenomorph/boiler, /mob/living/carbon/xenomorph/defiler, /mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/shrike, /mob/living/carbon/xenomorph/behemoth, /mob/living/carbon/xenomorph/warlock))
 */
+GLOBAL_LIST_INIT(xeno_types_tier_four, list(/mob/living/carbon/xenomorph/shrike, /mob/living/carbon/xenomorph/queen, /mob/living/carbon/xenomorph/king))
 GLOBAL_LIST_INIT_TYPED(hive_datums, /datum/hive_status, init_hive_datum_list()) // init by make_datum_references_lists()
 
 /proc/init_hive_datum_list()
@@ -181,3 +183,16 @@ GLOBAL_LIST_INIT(hive_ui_static_data, init_hive_status_lists()) // init by make_
 	for(var/i in GLOB.mob_list)
 		var/mob/M = i
 		M.update_config_movespeed()
+
+///The actions given to all humans on init
+GLOBAL_LIST_INIT(human_init_actions, list(
+	/datum/action/skill/toggle_orders,
+	/datum/action/skill/issue_order/move,
+	/datum/action/skill/issue_order/hold,
+	/datum/action/skill/issue_order/focus,
+	/datum/action/innate/order/attack_order/personal,
+	/datum/action/innate/order/defend_order/personal,
+	/datum/action/innate/order/retreat_order/personal,
+	/datum/action/innate/order/rally_order/personal,
+	/datum/action/innate/message_squad,
+))

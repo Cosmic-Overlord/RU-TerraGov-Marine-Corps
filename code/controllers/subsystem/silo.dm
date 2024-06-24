@@ -27,7 +27,9 @@ SUBSYSTEM_DEF(silo)
 	current_larva_spawn_rate *= SSmonitor.gamestate == SHIPSIDE ? 3 : 1
 	current_larva_spawn_rate *= SSticker.mode.silo_scaling
 	//We scale the rate based on the current ratio of humans to xenos
-	current_larva_spawn_rate *= clamp(round((active_humans / active_xenos) / (LARVA_POINTS_REGULAR / xeno_job.job_points_needed), 0.01), 0.5, 1)
+	var/current_human_to_xeno_ratio = active_humans / active_xenos
+	var/optimal_human_to_xeno_ratio = xeno_job.job_points_needed / LARVA_POINTS_REGULAR
+	current_larva_spawn_rate *= clamp(current_human_to_xeno_ratio / optimal_human_to_xeno_ratio , 0.7, 1)
 
 	current_larva_spawn_rate += larva_spawn_rate_temporary_buff
 
@@ -42,5 +44,5 @@ SUBSYSTEM_DEF(silo)
 /datum/controller/subsystem/silo/proc/start_spawning()
 	SIGNAL_HANDLER
 	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
-	if(SSticker.mode?.flags_round_type & MODE_SILO_RESPAWN)
+	if(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN)
 		can_fire = TRUE

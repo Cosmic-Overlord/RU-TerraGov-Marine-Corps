@@ -1,8 +1,8 @@
 import { useBackend } from '../../backend';
-import { Button, Section, LabeledList, Box, Stack } from '../../components';
+import { Box, Button, LabeledList, Section, Stack } from '../../components';
 
-export const GearCustomization = (props, context) => {
-  const { act, data } = useBackend<GearCustomizationData>(context);
+export const GearCustomization = (props) => {
+  const { act, data } = useBackend<GearCustomizationData>();
 
   const { gearsets, gear, clothing, underwear, undershirt, backpack, gender } =
     data;
@@ -12,6 +12,7 @@ export const GearCustomization = (props, context) => {
     10: 'Head',
     8: 'Eyewear',
     9: 'Mouth',
+    17: 'Other',
     20: 'Miscellaneous',
   };
 
@@ -34,7 +35,7 @@ export const GearCustomization = (props, context) => {
       title="Custom Gear"
       buttons={
         <>
-          <Box as="span" style={{ 'margin-right': '10px' }}>
+          <Box as="span" style={{ marginRight: '10px' }}>
             Points: {currentPoints} / 5
           </Box>
           <Button
@@ -44,7 +45,8 @@ export const GearCustomization = (props, context) => {
             onClick={() => act('loadoutclear')}
           />
         </>
-      }>
+      }
+    >
       <Stack>
         <Stack.Item grow>
           <Section title={'Head'}>
@@ -52,7 +54,8 @@ export const GearCustomization = (props, context) => {
               {bySlot['Head']?.map((item) => (
                 <LabeledList.Item
                   key={item.name}
-                  label={`${item.name} (${item.cost})`}>
+                  label={`${item.name} (${item.cost})`}
+                >
                   <Button.Checkbox
                     inline
                     content={'Equipped'}
@@ -75,7 +78,8 @@ export const GearCustomization = (props, context) => {
                 <LabeledList.Item
                   key={item.name}
                   label={`${item.name}
-                  (${item.cost})`}>
+                  (${item.cost})`}
+                >
                   <Button.Checkbox
                     inline
                     content={'Equipped'}
@@ -90,6 +94,30 @@ export const GearCustomization = (props, context) => {
               ))}
             </LabeledList>
           </Section>
+          <Stack.Item grow>
+            <Section title={'Other'}>
+              <LabeledList>
+                {bySlot['Other']?.map((item) => (
+                  <LabeledList.Item
+                    key={item.name}
+                    label={`${item.name}
+                  (${item.cost})`}
+                  >
+                    <Button.Checkbox
+                      inline
+                      content={'Equipped'}
+                      checked={gear.includes(item.name)}
+                      onClick={() =>
+                        gear.includes(item.name)
+                          ? act('loadoutremove', { gear: item.name })
+                          : act('loadoutadd', { gear: item.name })
+                      }
+                    />
+                  </LabeledList.Item>
+                ))}
+              </LabeledList>
+            </Section>
+          </Stack.Item>
         </Stack.Item>
       </Stack>
       <Stack>
@@ -99,7 +127,8 @@ export const GearCustomization = (props, context) => {
               {bySlot['Mouth']?.map((item) => (
                 <LabeledList.Item
                   key={item.name}
-                  label={`${item.name} (${item.cost})`}>
+                  label={`${item.name} (${item.cost})`}
+                >
                   <Button.Checkbox
                     inline
                     content={'Equipped'}
@@ -173,7 +202,8 @@ export const GearCustomization = (props, context) => {
               {bySlot['Miscellaneous']?.map((item) => (
                 <LabeledList.Item
                   key={item.name}
-                  label={`${item.name} (${item.cost})`}>
+                  label={`${item.name} (${item.cost})`}
+                >
                   <Button.Checkbox
                     inline
                     content={'Equipped'}

@@ -74,11 +74,3 @@ GLOBAL_LIST_INIT(ethnicities_list, init_ethnicities())
 	for(var/path in subtypesof(/datum/sprite_accessory/yautja_hair))
 		var/datum/sprite_accessory/yautja_hair/H = new path()
 		GLOB.yautja_hair_styles_list[H.name] = H
-
-
-GLOBAL_LIST_INIT(minimap_icons, init_minimap_icons())
-
-/proc/init_minimap_icons()
-	. = list()
-	for(var/icon_state in GLOB.playable_icons)
-		.[icon_state] = icon2base64(icon('modular_RUtgmc/icons/UI_icons/map_blips.dmi', icon_state, frame = 1)) //RUTGMC edit - icon change

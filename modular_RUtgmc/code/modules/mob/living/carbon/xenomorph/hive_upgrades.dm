@@ -28,7 +28,7 @@
     desc = "Destroy the bodies beneath you "
     icon = "smartminions"
     psypoint_cost = 1000
-    flags_gamemode = ABILITY_NUCLEARWAR
+    gamemode_flags = ABILITY_NUCLEARWAR
 
 /datum/hive_upgrade/defence/oblivion/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()

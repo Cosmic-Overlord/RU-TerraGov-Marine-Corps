@@ -17,6 +17,9 @@
 		L.adjustToxLoss(toxpwr*0.5*effect_str)
 	return ..()
 
+///For medicines that generate toxin reagent when metabolized
+/datum/reagent/toxin/scannable
+
 /datum/reagent/toxin/hptoxin
 	name = "Toxin"
 	description = "A toxic chemical."
@@ -217,7 +220,6 @@
 	toxpwr = 0
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
-	scannable = TRUE
 	taste_description = "cough syrup"
 	trait_flags = BRADYCARDICS
 
@@ -425,14 +427,14 @@
 
 /datum/reagent/toxin/nanites/on_mob_add(mob/living/L, metabolism)
 	to_chat(L, span_userdanger("Your body begins to twist and deform! Get out of the razorburn!"))
-	. = ..()
+	return ..()
 
 /datum/reagent/toxin/nanites/on_mob_life(mob/living/L, metabolism)
 	L.apply_damages(2.5*effect_str, 1.5*effect_str, 1.5*effect_str) //DO NOT DRINK THIS. Seriously!
-	L.blood_volume -= 5
+	L.adjust_blood_volume(-5)
 	if(current_cycle > 5)
 		L.apply_damages(2.5*effect_str, 1.5*effect_str, 1.5*effect_str)
-		L.blood_volume -= 5
+		L.adjust_blood_volume(-5)
 		holder.remove_reagent(/datum/reagent/toxin/nanites, (current_cycle * 0.2) - 1)
 	if(volume > 100)
 		var/turf/location = get_turf(holder.my_atom)
@@ -448,7 +450,6 @@
 	color = COLOR_TOXIN_XENO_NEUROTOXIN
 	custom_metabolism = REAGENTS_METABOLISM * 2
 	overdose_threshold = 10000 //Overdosing for neuro is what happens when you run out of stamina to avoid its oxy and toxin damage
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_neurotoxin/on_mob_life(mob/living/L, metabolism)
@@ -495,7 +496,6 @@
 	color = COLOR_TOXIN_XENO_HEMODILE
 	custom_metabolism = 0.4
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_hemodile/on_mob_life(mob/living/L, metabolism)
@@ -538,7 +538,6 @@
 	color = COLOR_TOXIN_XENO_TRANSVITOX
 	custom_metabolism = 0.4
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_add(mob/living/L, metabolism, affecting)
@@ -606,7 +605,6 @@
 	color = COLOR_TOXIN_XENO_SANGUINAL
 	custom_metabolism = 0.4
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_sanguinal/on_mob_life(mob/living/L, metabolism)
@@ -640,7 +638,6 @@
 	color = COLOR_TOXIN_XENO_OZELOMELYN
 	custom_metabolism = 1.5 // metabolizes decently quickly. A sting does 15 at the same rate as neurotoxin.
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0 // This is going to do slightly snowflake tox damage.
 	purge_list = list(/datum/reagent/medicine)
 	purge_rate = 5
@@ -661,7 +658,6 @@
 	reagent_state = LIQUID
 	color = COLOR_TOXIN_ZOMBIUM
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
-	scannable = TRUE
 	overdose_threshold = 20
 	overdose_crit_threshold = 50
 
@@ -701,7 +697,6 @@
 	color = COLOR_TOXIN_SATRAPINE
 	overdose_threshold = 10000
 	custom_metabolism = REAGENTS_METABOLISM
-	scannable = TRUE
 	toxpwr = 0
 	purge_list = list(
 		/datum/reagent/medicine/tramadol,

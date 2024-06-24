@@ -33,6 +33,10 @@
 #define COMSIG_PRED_SD "pred_sd"
 #define COMSIG_PRED_SD_MODE "pred_sd_mode"
 
+#define COMSIG_PROJ_SCANTURF "proj_scanturf"
+	#define COMPONENT_PROJ_SCANTURF_TURFCLEAR (1<<0)
+	#define COMPONENT_PROJ_SCANTURF_TARGETFOUND (1<<1)
+
 /// From /datum/admins/proc/force_predator_round()
 #define COMSIG_GLOB_PREDATOR_ROUND_TOGGLED "!predator_round_toglged"
 

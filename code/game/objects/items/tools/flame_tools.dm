@@ -34,14 +34,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/wax = 800
 
 /obj/item/tool/candle/update_icon_state()
-	var/i
-	if(wax>150)
-		i = 1
-	else if(wax>80)
-		i = 2
+	. = ..()
+	if(wax > 150)
+		icon_state = "candle[1][heat ? "_lit" : ""]"
+	else if(wax > 80)
+		icon_state = "candle[2][heat ? "_lit" : ""]"
 	else
-		i = 3
-	icon_state = "candle[i][heat ? "_lit" : ""]"
+		icon_state = "candle[3][heat ? "_lit" : ""]"
 
 /obj/item/tool/candle/Destroy()
 	if(heat)
@@ -161,7 +160,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	throw_speed = 0.5
 	item_state = "cigoff"
 	w_class = WEIGHT_CLASS_TINY
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	light_range = 0.1
 	light_power = 0.1
 	light_color = LIGHT_COLOR_ORANGE
@@ -412,7 +411,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/cigarette/bica
 	name = "strawberry flavored cigarette"
-	desc = "Red tipped. Has got a single word stamped on the side: \"(BICARDINE)\"."
+	desc = "Red tipped. Has got a single word stamped on the side: \"(BICARIDINE)\"."
 	icon_state = "bicacigoff"
 	item_state = "bicacigoff"
 	icon_on = "bicacigon"
@@ -562,8 +561,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	light_color = LIGHT_COLOR_FIRE
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 4
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	attack_verb = list("burnt", "singed")
 
 /obj/item/tool/lighter/zippo

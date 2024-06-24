@@ -1,4 +1,5 @@
 /obj/item/reagent_containers/glass/bottle/update_icon()
+	. = ..()
 	overlays.Cut()
 
 	if(reagents?.total_volume && (icon_state == "bottle-1" || icon_state == "bottle-2" || icon_state == "bottle-3" || icon_state == "bottle-4")) //only for those who have reagentfillings icons
@@ -32,4 +33,4 @@
 	name = "\improper Nanomachines bottle"
 	desc = "A small bottle. Contains nanomachines modified for medical use, A potent new method of healing that that reproduces using a subject's blood and has a brief but potentially dangerous activation period!"
 	icon_state = "bottle7"
-	list_reagents = list(/datum/reagent/medicine/research/medicalnanites = 30)
+	list_reagents = list(/datum/reagent/medicalnanites = 30)

@@ -10,6 +10,15 @@
 
 #define isweakref(D) (istype(D, /datum/weakref))
 
+#define isimage(thing) (istype(thing, /image))
+
+GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are awful to detect safely, but this seems to be the best way ~ninjanomnom
+#define isappearance(thing) (!isimage(thing) && !ispath(thing) && istype(GLOB.magic_appearance_detecting_image, thing))
+
+// The filters list has the same ref type id as a filter, but isnt one and also isnt a list, so we have to check if the thing has Cut() instead
+GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
+#define isfilter(thing) (!hascall(thing, "Cut") && TYPEID(thing) == GLOB.refid_filter)
+
 #define isgenerator(A) (istype(A, /generator))
 
 //Turfs
@@ -216,6 +225,8 @@
 
 #define iscrowbar(I) (istype(I, /obj/item/tool/crowbar))
 
+#define isplasmacutter(I) istype(I, /obj/item/tool/pickaxe/plasmacutter)
+
 #define iscell(I) (istype(I, /obj/item/cell))
 
 #define isfactorypart(I) (istype(I, /obj/item/factory_part))
@@ -240,6 +251,8 @@
 
 #define ismecha(A) (istype(A, /obj/vehicle/sealed/mecha))
 
+#define isarmoredvehicle(A) (istype(A, /obj/vehicle/sealed/armored))
+
 #define isorgan(A) (istype(A, /datum/limb))
 
 #define isidcard(A) (istype(A, /obj/item/card/id))
@@ -255,6 +268,8 @@
 #define is_research_product(A) (istype(A, /obj/item/research_product)) //Checks if item is research item
 
 #define isearthpillar(A) (istype(A, /obj/structure/earth_pillar))
+
+#define isbarricade(A) (istype(A, /obj/structure/barricade))
 
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))

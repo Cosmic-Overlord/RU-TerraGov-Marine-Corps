@@ -30,7 +30,7 @@
 				to_chat(user, "<span class = 'caution'>You disable the locking modules.</span>")
 				update_icon()
 			return
-		else if(!(O.flags_item & NOBLUDGEON) && O.force)
+		else if(!(O.item_flags & NOBLUDGEON) && O.force)
 			var/obj/item/W = O
 			if(src.smashed || src.localopened)
 				if(localopened)
@@ -53,7 +53,7 @@
 		return
 	if (istype(O, /obj/item/weapon/twohanded/fireaxe) && src.localopened)
 		if(!fireaxe)
-			if(O.flags_item & WIELDED)
+			if(O.item_flags & WIELDED)
 				to_chat(user, span_warning("Unwield the axe first."))
 				return
 			fireaxe = O
@@ -191,7 +191,9 @@
 			to_chat(user, span_notice("Cabinet unlocked."))
 		return
 
-/obj/structure/closet/fireaxecabinet/update_icon() //Template: fireaxe[has fireaxe][is opened][hits taken][is smashed]. If you want the opening or closing animations, add "opening" or "closing" right after the numbers
+//Template: fireaxe[has fireaxe][is opened][hits taken][is smashed]. If you want the opening or closing animations, add "opening" or "closing" right after the numbers
+/obj/structure/closet/fireaxecabinet/update_icon_state()
+	. = ..()
 	var/hasaxe = 0
 	if(fireaxe)
 		hasaxe = 1

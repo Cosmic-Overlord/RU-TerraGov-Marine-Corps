@@ -22,6 +22,8 @@
 	// *** Melee Attacks *** //
 	///The amount of damage a xenomorph caste will do with a 'slash' attack.
 	var/melee_damage = 10
+	///The amount of armour pen their melee attacks have
+	var/melee_ap = 0
 	///number of ticks between attacks for a caste.
 	var/attack_delay = CLICK_CD_MELEE
 
@@ -61,8 +63,6 @@
 	///Threshold amount of upgrade points to next maturity
 	//var/upgrade_threshold = 0 // RUTGMC DELETION
 
-	///Type paths to the castes that this xenomorph can evolve to
-	var/list/evolves_to = list()
 	///Singular type path for the caste to deevolve to when forced to by the queen.
 	var/deevolves_to
 
@@ -92,6 +92,8 @@
 	var/sunder_recover = 0.5
 	///What is the max amount of sunder that can be applied to a xeno (100 = 100%)
 	var/sunder_max = 100
+	///Multiplier on the weapons sunder, e.g 10 sunder on a projectile is reduced to 5 with a 0.5 multiplier.
+	var/sunder_multiplier = 1
 
 	// *** Ranged Attack *** //
 	///Delay timer for spitting
@@ -225,6 +227,8 @@ RU TGMC EDIT */
 	var/evolve_min_xenos = 0
 	// How many of this caste may be alive at once
 	var/maximum_active_caste = INFINITY
+	// Accuracy malus, 0 by default. Should NOT go over 70.
+	var/accuracy_malus = 0
 
 ///Add needed component to the xeno
 /datum/xeno_caste/proc/on_caste_applied(mob/xenomorph)
@@ -279,11 +283,11 @@ RU TGMC EDIT */
 	///Hive datum we belong to
 	var/datum/hive_status/hive
 	///Xeno mob specific flags
-	var/xeno_flags = NONE //TODO: There are loads of vars below that should be flags
+	var/xeno_flags = NONE
+
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
-	var/list/overlays_standing[X_TOTAL_LAYERS]
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	var/atom/movable/vis_obj/xeno_wounds/fire_overlay/fire_overlay
 	var/datum/xeno_caste/xeno_caste
@@ -322,18 +326,17 @@ RU TGMC EDIT */
 	///Increases by xeno_caste.regen_ramp_amount every decisecond. If you want to balance this, look at the xeno_caste defines mentioned above.
 	var/regen_power = 0
 
-	var/is_zoomed = 0
 	var/zoom_turf = null
 	var/can_walk_zoomed = FALSE
 
 	///Type of weeds the xeno is standing on, null when not on weeds
 	var/obj/alien/weeds/loc_weeds_type
-	///Bonus or pen to time in between attacks. + makes slashes slower.
-	var/attack_delay = 0
 	///This will track their "tier" to restrict/limit evolutions
 	var/tier = XENO_TIER_ONE
 	///which resin structure to build when we secrete resin
 	var/selected_resin = /turf/closed/wall/resin/regenerating
+	//which special resin structure to build when we secrete special resin
+	var/selected_special_resin = /turf/closed/wall/resin/regenerating/special/bulletproof
 	///which reagent to slash with using reagent slash
 	var/selected_reagent = /datum/reagent/toxin/xeno_hemodile
 	///which plant to place when we use sow
@@ -351,17 +354,10 @@ RU TGMC EDIT */
 
 	///Multiplicative melee damage modifier; referenced by attack_alien.dm, most notably attack_alien_harm
 	var/xeno_melee_damage_modifier = 1
-	///whether the xeno mobhud is activated or not.
-	var/xeno_mobhud = FALSE
-	///whether the xeno has been selected by the queen as a leader.
-	var/queen_chosen_lead = FALSE
 
 	//Charge vars
 	///Will the mob charge when moving ? You need the charge verb to change this
 	var/is_charging = CHARGE_OFF
-
-	//Pounce vars
-	var/usedPounce = 0
 
 	// Gorger vars
 	var/overheal = 0
@@ -401,10 +397,12 @@ RU TGMC EDIT */
 	///The xenos/silo/nuke currently tracked by the xeno_tracker arrow
 	var/atom/tracked
 
-	///Are we the roony version of this xeno
-	var/is_a_rouny = FALSE
-
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)
+
+	///The resting cooldown
+	COOLDOWN_DECLARE(xeno_resting_cooldown)
+	///The unresting cooldown
+	COOLDOWN_DECLARE(xeno_unresting_cooldown)

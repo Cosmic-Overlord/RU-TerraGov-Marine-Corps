@@ -47,6 +47,13 @@
 	keybind_signal = COMSIG_XENOABILITY_SECRETE_RESIN
 	hotkey_keys = list("R")
 
+/datum/keybinding/xeno/secrete_special_resin
+	name = "secrete_special_resin"
+	full name = "Secrete Special Resin"
+	description = "Builds whatever special resin you have selected."
+	keybind_signal = COMSIG_XENOABILITY_SECRETE_SPECIAL_RESIN
+	hotkey_keys = list("ShiftR")
+
 /datum/keybinding/xeno/recycle
 	name = "Recycle"
 	full_name = "Recycle xenomorph"
@@ -102,6 +109,13 @@
 	description = "Spit neurotoxin or acid at your target up to 7 tiles away."
 	keybind_signal = COMSIG_XENOABILITY_XENO_SPIT
 	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/long_range_sight
+	name = "long_range_sight"
+	full_name = "Long Range Sight"
+	description = "Toggles the zoom in."
+	keybind_signal = COMSIG_XENOABILITY_LONG_RANGE_SIGHT
+	hotkey_keys = list("E")
 
 /datum/keybinding/xeno/xenohide
 	name = "xenohide"
@@ -225,13 +239,6 @@
 	keybind_signal = COMSIG_XENOABILITY_CREATE_BOMB
 	hotkey_keys = list("F")
 
-/datum/keybinding/xeno/root
-	name = "root"
-	full_name = "Boiler: Root in place"
-	description = "Begin rooting in place."
-	keybind_signal = COMSIG_XENOABILITY_ROOT
-	hotkey_keys = list("C")
-
 /datum/keybinding/xeno/bombard
 	name = "bombard"
 	full_name = "Boiler: Bombard"
@@ -251,7 +258,7 @@
 	full_name = "Bull: Headbutt Charge"
 	description = "A charge that tosses the victim forward."
 	keybind_signal = COMSIG_XENOABILITY_BULLHEADBUTT
-	hotkey_keys = list("E")
+	hotkey_keys = list("F")
 
 /datum/keybinding/xeno/gore_charge
 	name = "gore_charge"
@@ -481,11 +488,11 @@
 	keybind_signal = COMSIG_XENOABILITY_TRANSFUSION
 	hotkey_keys = list("H")
 
-/datum/keybinding/xeno/rejuvenate
-	name = "rejuvenate"
-	full_name = "Gorger: Rejuvenate"
-	description = "Drains blood continuosly, slows you down and reduces damage taken, while restoring some health over time. Cancel by activating again."
-	keybind_signal = COMSIG_XENOABILITY_REJUVENATE
+/datum/keybinding/xeno/oppose
+	name = "oppose"
+	full_name = "Gorger: Oppose"
+	description = "Violently suffuse the nearby ground with stored blood, staggering nearby marines and healing nearby xenomorphs."
+	keybind_signal = COMSIG_XENOABILITY_OPPOSE
 	hotkey_keys = list("R")
 
 /datum/keybinding/xeno/psychic_link

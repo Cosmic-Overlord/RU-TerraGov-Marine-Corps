@@ -54,7 +54,7 @@
 	for(var/obj/thing in buildplace)
 		if(!thing.density) //not dense, move on
 			continue
-		if(!(thing.flags_atom & ON_BORDER)) //dense and non-directional, end
+		if(!(thing.atom_flags & ON_BORDER)) //dense and non-directional, end
 			fobdrone.balloon_alert(owner, "No space here for a barricade")
 			return
 		if(thing.dir != fobdrone.dir)
@@ -96,7 +96,7 @@
 	for(var/obj/thing in buildplace)
 		if(!thing.density) //not dense, move on
 			continue
-		if(!(thing.flags_atom & ON_BORDER)) //dense and non-directional, end
+		if(!(thing.atom_flags & ON_BORDER)) //dense and non-directional, end
 			fobdrone.balloon_alert(owner, "No space here for a barricade")
 			return
 		if(thing.dir != fobdrone.dir)
@@ -139,14 +139,14 @@
 	for(var/obj/thing in buildplace)
 		if(!thing.density) //not dense, move on
 			continue
-		if(!(thing.flags_atom & ON_BORDER)) //dense and non-directional, end
+		if(!(thing.atom_flags & ON_BORDER)) //dense and non-directional, end
 			fobdrone.balloon_alert(owner, "No space here for a barricade")
 			return
 		if(thing.dir != fobdrone.dir)
 			continue
 		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
-	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
+	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
 		return
 	console.plasteel_remaining -= 4
 	cade = new /obj/structure/barricade/metal/plasteel(buildplace)
@@ -184,14 +184,14 @@
 	for(var/obj/thing in buildplace)
 		if(!thing.density) //not dense, move on
 			continue
-		if(!(thing.flags_atom & ON_BORDER)) //dense and non-directional, end
+		if(!(thing.atom_flags & ON_BORDER)) //dense and non-directional, end
 			fobdrone.balloon_alert(owner, "No space here for a barricade")
 			return
 		if(thing.dir != fobdrone.dir)
 			continue
 		fobdrone.balloon_alert(owner, "No space here for a barricade")
 		return
-	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
+	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
 		return
 	//console.plasteel_remaining -= 5 //ORIGINAL
 	console.plasteel_remaining -= 6 //RUTGMC EDIT

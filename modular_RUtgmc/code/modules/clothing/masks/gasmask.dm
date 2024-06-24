@@ -2,7 +2,7 @@
 	icon = 'modular_RUtgmc/icons/obj/clothing/masks.dmi'
 	item_icons = list(
 		slot_wear_mask_str = 'modular_RUtgmc/icons/mob/clothing/mask.dmi')
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/ru/separatist
 	name = "Regular protective gasmask TM-58"
@@ -23,7 +23,7 @@
 	name = "Military grade gas mask"
 	desc = "A military grade gas mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "sgmask"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDELOWHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 
 /obj/item/clothing/mask/gas/ru/redmask
 	name = "Coifed gas mask"

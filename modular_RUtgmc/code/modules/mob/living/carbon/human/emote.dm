@@ -89,7 +89,7 @@
 	key_third_person = "cracks"
 	message = "cracks their knuckles."
 	emote_type = EMOTE_AUDIBLE
-	flags_emote = EMOTE_RESTRAINT_CHECK|EMOTE_MUZZLE_IGNORE|EMOTE_ARMS_CHECK
+	emote_flags = EMOTE_RESTRAINT_CHECK|EMOTE_MUZZLE_IGNORE|EMOTE_ARMS_CHECK
 	sound = 'modular_RUtgmc/sound/misc/sound_misc_knuckles.ogg'
 
 //Robotic

@@ -29,7 +29,7 @@
 		slot_r_hand_str = 'modular_RUtgmc/icons/mob/inhands/weapons/melee_right.dmi',
 		slot_belt_str = 'modular_RUtgmc/icons/mob/suit_slot.dmi'
 	)
-	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 
 /obj/item/weapon/claymore/mercsword/officersword
 	icon_state = "officer_sword"
@@ -103,8 +103,8 @@
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	force = 70
 	attack_speed = 8
 	throwforce = 130 //throw_dmg = throwforce * (throw_speed * 0.2)

@@ -12,11 +12,9 @@
 
 /datum/species/necoarc
 	name = "Neco Arc"
-	name_plural = "Neco Arc"
 	icobase = 'modular_RUtgmc/icons/mob/human_races/r_NecoArc.dmi'
 	default_language_holder = /datum/language_holder/sectoid
 	eyes = "blank_eyes"
-	speech_verb_override = "transmits"
 	count_human = TRUE
 
 	species_flags = HAS_NO_HAIR|NO_BREATHE|NO_POISON|NO_PAIN|USES_ALIEN_WEAPONS|NO_DAMAGE_OVERLAY

@@ -18,7 +18,7 @@
 
 	for(var/caste_type_path AS in GLOB.xeno_caste_datums)
 		var/datum/xeno_caste/caste = GLOB.xeno_caste_datums[caste_type_path][XENO_UPGRADE_BASETYPE]
-		if(initial(caste.tier) == XENO_TIER_MINION)
+		if(initial(caste.tier) == XENO_TIER_MINION || caste.caste_flags & CASTE_HIDE_IN_STATUS)
 			continue
 		hive_forbiden_castes += list(list(
 			"is_forbid" = FALSE,

@@ -16,8 +16,8 @@ REAGENT SCANNER
 	icon = 'icons/obj/device.dmi'
 	icon_state = "t-ray0"
 	var/on = 0
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
@@ -71,8 +71,8 @@ REAGENT SCANNER
 	)
 	item_state = "healthanalyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject. The front panel is able to provide the basic readout of the subject's status."
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
@@ -267,12 +267,13 @@ REAGENT SCANNER
 			)
 			damaged_organs += list(current_organ)
 		data["damaged_organs"] = damaged_organs
-
+	var/ssd = null
 	if(patient.has_brain() && patient.stat != DEAD && ishuman(patient))
 		if(!patient.key)
-			data["ssd"] = "No soul detected." // they ghosted
+			ssd = "No soul detected." // they ghosted
 		else if(!patient.client)
-			data["ssd"] = "SSD detected." // SSD
+			ssd = "SSD detected." // SSD
+	data["ssd"] = ssd
 
 	return data
 
@@ -286,18 +287,18 @@ REAGENT SCANNER
 	desc = "Advanced medical gloves, these include a built-in analyzer to quickly scan patients."
 	icon_state = "medscan_gloves"
 	item_state = "medscan_gloves"
-	flags_equip_slot = ITEM_SLOT_GLOVES
+	equip_slot_flags = ITEM_SLOT_GLOVES
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
 	item_state_worn = TRUE
 	siemens_coefficient = 0.50
 	blood_sprite_state = "bloodyhands"
-	flags_armor_protection = HANDS
-	flags_equip_slot = ITEM_SLOT_GLOVES
+	armor_protection_flags = HANDS
+	equip_slot_flags = ITEM_SLOT_GLOVES
 	attack_verb = "scans"
 	soft_armor = list(MELEE = 25, BULLET = 15, LASER = 10, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 15)
-	flags_cold_protection = HANDS
-	flags_heat_protection = HANDS
+	cold_protection_flags = HANDS
+	heat_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
@@ -350,8 +351,8 @@ REAGENT SCANNER
 	icon_state = "atmos"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
@@ -400,14 +401,13 @@ REAGENT SCANNER
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
 
 	var/details = FALSE
-	var/recent_fail = TRUE
 
 /obj/item/mass_spectrometer/Initialize(mapload)
 	. = ..()
@@ -422,9 +422,6 @@ REAGENT SCANNER
 /obj/item/mass_spectrometer/attack_self(mob/user as mob)
 	if (user.stat)
 		return
-	if (crit_fail)
-		to_chat(user, span_warning("This device has critically failed and is no longer functional!"))
-		return
 	if(!reagents.total_volume)
 		return
 	var/list/blood_traces
@@ -438,16 +435,7 @@ REAGENT SCANNER
 			break
 	var/dat = "Trace Chemicals Found: "
 	for(var/R in blood_traces)
-		if(prob(reliability))
-			dat += "\n\t[R][details ? " ([blood_traces[R]] units)" : "" ]"
-			recent_fail = FALSE
-		else if(recent_fail)
-			crit_fail = TRUE
-			reagents.clear_reagents()
-			to_chat(user, span_warning("Device malfunction occured. Please consult manual for manufacturer contact and warranty."))
-			return
-		else
-			recent_fail = TRUE
+		dat += "\n\t[R][details ? " ([blood_traces[R]] units)" : "" ]"
 	to_chat(user, "[dat]")
 	reagents.clear_reagents()
 
@@ -464,14 +452,13 @@ REAGENT SCANNER
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
 
 	var/details = FALSE
-	var/recent_fail = FALSE
 
 /obj/item/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
 	if(!proximity)
@@ -480,24 +467,13 @@ REAGENT SCANNER
 		return
 	if(!istype(O))
 		return
-	if (crit_fail)
-		to_chat(user, span_warning("This device has critically failed and is no longer functional!"))
-		return
 	if(!O.reagents || !length(O.reagents.reagent_list))
 		to_chat(user, span_notice("No chemical agents found in [O]"))
 		return
 	var/dat = ""
 	var/one_percent = O.reagents.total_volume / 100
 	for (var/datum/reagent/R in O.reagents.reagent_list)
-		if(prob(reliability))
-			dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
-			recent_fail = FALSE
-		else if(recent_fail)
-			crit_fail = TRUE
-			to_chat(user, span_warning("Device malfunction occured. Please consult manual for manufacturer contact and warranty."))
-			return
-		else
-			recent_fail = TRUE
+		dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
 	to_chat(user, span_notice("Chemicals found: [dat]"))
 
 /obj/item/reagent_scanner/adv

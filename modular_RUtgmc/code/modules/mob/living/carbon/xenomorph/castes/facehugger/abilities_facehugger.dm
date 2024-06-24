@@ -103,7 +103,7 @@
 
 	succeed_activate()
 	add_cooldown()
-	caster.xeno_flags |= XENO_LEAPING // this is needed for throwing code
+	caster.xeno_flags |= XENO_LEAPING
 	caster.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE
 	caster.pass_flags ^= PASS_MOB
 

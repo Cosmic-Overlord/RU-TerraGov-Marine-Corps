@@ -22,7 +22,8 @@
 	var/ghost_interact = FALSE
 	///Whether this admin is invisiminning
 	var/invisimined = FALSE
-
+	/// A lazylist of tagged datums, for quick reference with the View Tags verb
+	var/list/tagged_datums
 
 /datum/admins/New(datum/admin_rank/R, ckey, protected)
 	if(IsAdminAdvancedProcCall())
@@ -295,6 +296,10 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/datum/admins/proc/toggle_adminhelp_sound,
 	/datum/admins/proc/toggle_prayers,
 	/datum/admins/proc/check_fingerprints,
+	/datum/admins/proc/display_tags,
+	/client/proc/mark_datum_mapview,
+	/client/proc/tag_datum_mapview,
+	/client/proc/cmd_admin_check_contents, /*displays the contents of an instance*/
 	/client/proc/smite,
 	/client/proc/show_traitor_panel,
 	/client/proc/cmd_select_equipment,
@@ -302,7 +307,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/private_message_panel,
 	/client/proc/private_message_context,
 	/client/proc/msay,
-	/client/proc/dsay
+	/client/proc/dsay,
+	/client/proc/object_say,
 	)
 //GLOBAL_LIST_INIT(admin_verbs_admin, world.AVadmin()) // moved to modular
 //GLOBAL_PROTECT(admin_verbs_admin)
@@ -347,8 +353,8 @@ GLOBAL_PROTECT(admin_verbs_asay)
 
 /world/proc/AVdebug()
 	return list(
-	/datum/admins/proc/proccall_advanced,
-	/datum/admins/proc/proccall_atom,
+	/client/proc/callproc,
+	/client/proc/callproc_datum,
 	/datum/admins/proc/delete_all,
 	/datum/admins/proc/generate_powernets,
 	/datum/admins/proc/debug_mob_lists,
@@ -460,7 +466,6 @@ GLOBAL_PROTECT(admin_verbs_server)
 /world/proc/AVpermissions()
 	return list(
 	/client/proc/edit_admin_permissions,
-	/client/proc/poll_panel,
 	)
 GLOBAL_LIST_INIT(admin_verbs_permissions, world.AVpermissions())
 GLOBAL_PROTECT(admin_verbs_permissions)
@@ -503,6 +508,13 @@ GLOBAL_PROTECT(admin_verbs_spawn)
 GLOBAL_LIST_INIT(admin_verbs_log, world.AVlog())
 GLOBAL_PROTECT(admin_verbs_log)
 
+/world/proc/AVpolls()
+	return list(
+	/client/proc/poll_panel,
+	)
+GLOBAL_LIST_INIT(admin_verbs_polls, world.AVpolls())
+GLOBAL_PROTECT(admin_verbs_polls)
+
 /client/proc/add_admin_verbs()
 	if(holder)
 		var/rights = holder.rank.rights
@@ -537,6 +549,8 @@ GLOBAL_PROTECT(admin_verbs_log)
 			add_verb(src, GLOB.admin_verbs_spawn)
 		if(rights & R_LOG)
 			add_verb(src, GLOB.admin_verbs_log)
+		if(rights & R_POLLS)
+			add_verb(src, GLOB.admin_verbs_polls)
 
 
 /client/proc/remove_admin_verbs()

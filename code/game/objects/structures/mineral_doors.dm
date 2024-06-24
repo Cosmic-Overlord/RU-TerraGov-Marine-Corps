@@ -75,7 +75,8 @@
 	update_icon()
 	addtimer(VARSET_CALLBACK(src, switching_states, FALSE), 1 SECONDS)
 
-/obj/structure/mineral_door/update_icon()
+/obj/structure/mineral_door/update_icon_state()
+	. = ..()
 	if(open)
 		icon_state = "[base_icon_state][smoothing_flags ? "-[smoothing_junction]" : ""]-open"
 	else
@@ -84,13 +85,15 @@
 
 /obj/structure/mineral_door/attackby(obj/item/W, mob/living/user)
 	. = ..()
+	if(.)
+		return
 	if(QDELETED(src))
 		return
 
 	var/multiplier = 1
-	if(istype(W, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
+	if(isplasmacutter(W) && !user.do_actions)
 		var/obj/item/tool/pickaxe/plasmacutter/P = W
-		if(P.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD))
+		if(P.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD, no_string = TRUE))
 			if(istype(src, /obj/structure/mineral_door/resin))
 				multiplier += PLASMACUTTER_RESIN_MULTIPLIER //Plasma cutters are particularly good at destroying resin structures.
 			else
@@ -117,24 +120,28 @@
 	name = "silver door"
 	material_type = /obj/item/stack/sheet/mineral/silver
 	base_icon_state = "silver"
+	icon_state = "silver"
 	max_integrity = 500
 
 /obj/structure/mineral_door/gold
 	name = "gold door"
 	material_type = /obj/item/stack/sheet/mineral/gold
 	base_icon_state = "gold"
+	icon_state = "gold"
 	max_integrity = 250
 
 /obj/structure/mineral_door/uranium
 	name = "uranium door"
 	material_type = /obj/item/stack/sheet/mineral/uranium
 	base_icon_state = "uranium"
+	icon_state = "uranium"
 	max_integrity = 500
 
 /obj/structure/mineral_door/sandstone
 	name = "sandstone door"
 	material_type = /obj/item/stack/sheet/mineral/sandstone
 	base_icon_state = "sandstone"
+	icon_state = "sandstone"
 	max_integrity = 100
 
 /obj/structure/mineral_door/transparent
@@ -150,6 +157,7 @@
 	name = "phoron door"
 	material_type = /obj/item/stack/sheet/mineral/phoron
 	base_icon_state = "phoron"
+	icon_state = "phoron"
 	max_integrity = 250
 
 /obj/structure/mineral_door/transparent/phoron/attackby(obj/item/W as obj, mob/user as mob)
@@ -172,6 +180,7 @@
 	name = "diamond door"
 	material_type = /obj/item/stack/sheet/mineral/diamond
 	base_icon_state = "diamond"
+	icon_state = "diamond"
 	max_integrity = 1000
 
 
@@ -179,6 +188,7 @@
 	name = "wooden door"
 	material_type = /obj/item/stack/sheet/wood
 	base_icon_state = "wood"
+	icon_state = "wood"
 	trigger_sound = 'sound/effects/doorcreaky.ogg'
 	max_integrity = 100
 
