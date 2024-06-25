@@ -327,6 +327,9 @@
 	SIGNAL_HANDLER
 	if(living_user.get_active_held_item() != src) // If the object in our active hand is not a throwing knife, abort
 		return
+	if(issynth(living_user))
+		to_chat(living_user, span_warning("Your program does not allow you to do this."))
+		return
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] || modifiers["ctrl"])
 		return

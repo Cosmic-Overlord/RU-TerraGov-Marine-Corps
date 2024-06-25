@@ -162,9 +162,13 @@
 		return
 	if(target.type == /atom/movable/screen)
 		return
-
 	var/atom/movable/thrown_thing
+	var/mob/living/user = usr
 	var/obj/item/I = get_active_held_item()
+
+	if(issynth(user) & I.force > 19 )
+		to_chat(user, span_warning("Your program does not allow you to do this."))
+		return
 
 	if(!I || HAS_TRAIT(I, TRAIT_NODROP))
 		return
