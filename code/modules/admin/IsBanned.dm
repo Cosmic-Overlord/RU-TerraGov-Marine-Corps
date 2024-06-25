@@ -7,6 +7,7 @@
 #define STICKYBAN_MAX_ADMIN_MATCHES 1
 
 /world/IsBanned(key, address, computer_id, type, real_bans_only=FALSE)
+	rustg_file_write("IsBanned called for [key], ip:[address], cid:[computer_id], type: [type], real_ban:[real_bans_only]", "[GLOB.log_directory]/isbanned.log")
 	if (!key || (!real_bans_only && (!address || !computer_id)))
 		if(real_bans_only)
 			return FALSE
