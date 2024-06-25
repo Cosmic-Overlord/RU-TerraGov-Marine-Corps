@@ -85,7 +85,7 @@
 			owner.balloon_alert(owner, "[ability_cost - xeno_owner.plasma_stored] more plasma!")
 			return FALSE
 		if(can_use_action(FALSE, ABILITY_USE_BUSY))
-			shield_blast()
+			shield_blast(A)
 			cancel_shield()
 		return
 
@@ -131,10 +131,10 @@
 		QDEL_NULL(active_shield)
 
 ///AOE knockback triggerable by ending the shield early
-/datum/action/ability/activable/xeno/psychic_shield/proc/shield_blast()
+/datum/action/ability/activable/xeno/psychic_shield/proc/shield_blast(atom/A)
 	succeed_activate()
 
-	active_shield.reflect_projectiles()
+	active_shield.reflect_projectiles(A)
 
 	owner.visible_message(span_xenowarning("[owner] sends out a huge blast of psychic energy!"), span_xenowarning("We send out a huge blast of psychic energy!"))
 
@@ -234,7 +234,7 @@
 	record_projectiles_frozen(owner, LAZYLEN(frozen_projectiles))
 
 ///Reflects projectiles based on their relative incoming angle
-/obj/effect/xeno/shield/proc/reflect_projectiles()
+/obj/effect/xeno/shield/proc/reflect_projectiles(atom/A)
 	playsound(loc, 'sound/effects/portal.ogg', 20)
 	var/perpendicular_angle = Get_Angle(get_turf(src), get_step(src, dir)) //the angle src is facing, get_turf because pixel_x or y messes with the angle
 	for(var/obj/projectile/proj AS in frozen_projectiles)
@@ -246,7 +246,7 @@
 		else if(new_angle > 360)
 			new_angle -= 360
 		proj.firer = src
-		proj.fire_at(shooter = src, source = src, angle = new_angle, recursivity = TRUE)
+		proj.fire_at(target = get_turf(A), shooter = src, source = src, recursivity = TRUE)
 
 		//Record those sick rocket shots
 		//Is not part of record_projectiles_frozen() because it is probably bad to be running that for every bullet!
