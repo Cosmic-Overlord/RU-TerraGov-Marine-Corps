@@ -327,6 +327,7 @@
 	///The weakref to the parent hivemind mob that we're attached to
 	var/datum/weakref/parent
 
+/* RUTGMC
 /obj/structure/xeno/hivemindcore/Initialize(mapload)
 	. = ..()
 	GLOB.hive_datums[hivenumber].hivemindcores += src
@@ -334,6 +335,7 @@
 	set_light(7, 5, LIGHT_COLOR_PURPLE)
 	for(var/turfs in RANGE_TURFS(XENO_HIVEMIND_DETECTION_RANGE, src))
 		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(hivemind_proxy_alert))
+RUTGMC */
 
 /obj/structure/xeno/hivemindcore/Destroy()
 	GLOB.hive_datums[hivenumber].hivemindcores -= src
@@ -381,6 +383,7 @@
  * datum/source - the atom (in this case it should be a turf) sending the crossed signal
  * atom/movable/hostile - the atom that triggered the crossed signal, in this case we're looking for a mob
  */
+/* RUTGMC
 /obj/structure/xeno/hivemindcore/proc/hivemind_proxy_alert(datum/source, atom/movable/hostile)
 	SIGNAL_HANDLER
 	if(!COOLDOWN_CHECK(src, hivemind_proxy_alert_cooldown)) //Proxy alert triggered too recently; abort
@@ -401,6 +404,7 @@
 	to_chat(get_parent(), span_xenoannounce("Our [src.name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y])."))
 	SEND_SOUND(get_parent(), 'sound/voice/alien_help1.ogg')
 	COOLDOWN_START(src, hivemind_proxy_alert_cooldown, XENO_HIVEMIND_DETECTION_COOLDOWN) //set the cooldown.
+RUTGMC */
 
 /// Getter for the parent of this hive core
 /obj/structure/xeno/hivemindcore/proc/get_parent()
