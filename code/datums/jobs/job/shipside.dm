@@ -52,6 +52,7 @@ You should not be voluntarily leaving your vessel under any circumstances. A cap
 If you require any help, use <b>mentorhelp</b> to ask mentors about what you're supposed to do.
 Godspeed, captain! And remember, you are not above the law."})
 
+/* RUTGMC EDIT
 /datum/job/terragov/command/captain/after_spawn(mob/living/new_mob, mob/user, latejoin)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -67,7 +68,7 @@ Godspeed, captain! And remember, you are not above the law."})
 			new_human.wear_id.paygrade = "O7"
 		if(7501 to INFINITY) //125 hrs
 			new_human.wear_id.paygrade = "O8"
-
+RUTGMC EDIT END */
 /datum/job/terragov/command/captain/campaign
 	outfit = /datum/outfit/job/command/captain/campaign
 	multiple_outfits = FALSE
@@ -142,6 +143,7 @@ Your duties are to ensure marines hold when ordered, and push when they are cowe
 Do not ask your men to do anything you would not do side by side with them.
 Make the TGMC proud!"})
 
+/* RUTGMC EDIT
 /datum/job/terragov/command/fieldcommander/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -158,7 +160,7 @@ Make the TGMC proud!"})
 			new_human.wear_id.paygrade = "MO4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "MO5"
-
+RUTGMC EDIT END */
 
 /datum/outfit/job/command/fieldcommander
 	name = FIELD_COMMANDER
@@ -277,6 +279,7 @@ Make the TGMC proud!"})
 	to_chat(M, {"Your job is to monitor the marines, man the CIC, and listen to your superior officers.
 You are in charge of logistics and the overwatch system. You are also in line to take command after the captain."})
 
+/* RUTGMC EDIT
 /datum/job/terragov/command/staffofficer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -292,7 +295,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 			new_human.wear_id.paygrade = "O4"
 		if(3001 to INFINITY) // 50 hrs
 			new_human.wear_id.paygrade = "O5"
-
+RUTGMC EDIT END */
 /datum/job/terragov/command/staffofficer/campaign
 	outfit = /datum/outfit/job/command/staffofficer/campaign
 	multiple_outfits = FALSE
@@ -353,6 +356,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	"}
 	minimap_icon = "pilot"
 
+/* RUTGMC EDIT
 /datum/job/terragov/command/pilot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -371,7 +375,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 		if(6001 to INFINITY) // 100 hrs
 			new_human.wear_id.paygrade = "O2"
 
-/* RUTGMC DELETION
+	RUTGMC DELETION
 /datum/job/terragov/command/pilot/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"Your job is to support marines with either close air support via the Condor, or mobile dropship support with the Tadpole.
@@ -430,6 +434,7 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	to_chat(M, {"\nYou are the operator of a very expensive and valuable Mech, and are trained and expected to use it in the field of combat.
 You can serve your Division in a variety of roles, so choose carefully."})
 
+/* RUTGMC EDIT
 /datum/job/terragov/command/mech_pilot/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -445,7 +450,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "E4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "E5"
-
+	RUTGMC EDIT END */
 /datum/outfit/job/command/mech_pilot
 	name = MECH_PILOT
 	jobtype = /datum/job/terragov/command/mech_pilot
@@ -497,6 +502,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	"}
 	minimap_icon = "cse"
 
+/* RUTGMC EDIT
 /datum/job/terragov/engineering/chief/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -512,7 +518,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "O3"
 		if(6001 to INFINITY) // 100 hrs
 			new_human.wear_id.paygrade = "O4"
-
+	RUTGMC EDIT END */
 /datum/job/terragov/engineering/chief/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"Your job is to maintain the ship's engine and keep everything running.
@@ -650,6 +656,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	minimap_icon = "requisition"
 
 
+/*RUTGMC EDIT
 /datum/job/terragov/requisitions/officer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -667,7 +674,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 			new_human.wear_id.paygrade = "CWO"
 		if(6001 to INFINITY) // 100 hrs
 			new_human.wear_id.paygrade = "O1"
-
+	RUTGMC EDIT END */
 /datum/job/terragov/requisitions/officer/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"Your job is to dispense supplies to the marines, including weapon attachments.

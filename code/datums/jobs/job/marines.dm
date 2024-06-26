@@ -49,6 +49,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	"}
 	minimap_icon = "private"
 
+/* RUTGMC EDIT
 /datum/job/terragov/squad/standard/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -68,7 +69,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 			new_human.wear_id.paygrade = "E3E"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E8" //If you play way too much TGMC. 1000 hours.
-
+	RUTGMC EDIT END */
 /datum/job/terragov/squad/standard/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"\nYou are a rank-and-file marine of the TGMC, and that is your strength.
@@ -124,6 +125,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 
 	id = /obj/item/card/id/dogtag/engineer
 
+/* RUTGMC EDIT
 /datum/job/terragov/squad/engineer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -141,6 +143,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
+	RUTGMC EDIT END */
 
 //Squad Corpsman
 /datum/job/terragov/squad/corpsman
@@ -184,6 +187,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 
 	id = /obj/item/card/id/dogtag/corpsman
 
+/* RUTGMC EDIT
 /datum/job/terragov/squad/corpsman/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -201,6 +205,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
+	RUTGMC EDIT END */
 
 //Squad Smartgunner
 /datum/job/terragov/squad/smartgunner
@@ -235,6 +240,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	. = ..()
 	to_chat(M, {"\nYou are the smartgunner. Your job is to provide heavy weapons support."})
 
+/* RUTGMC EDIT
 /datum/job/terragov/squad/smartgunner/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(new_mob))
@@ -252,7 +258,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 			new_human.wear_id.paygrade = "E5"
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
-
+RU TGMC EDIT END */
 /datum/outfit/job/marine/smartgunner
 	name = SQUAD_SMARTGUNNER
 	jobtype = /datum/job/terragov/squad/smartgunner
@@ -339,7 +345,8 @@ You are also in charge of communicating with command and letting them know about
 
 	id = /obj/item/card/id/dogtag/leader
 
-/datum/job/terragov/squad/leader/after_spawn(mob/living/carbon/C, mob/user, latejoin = FALSE)
+/* RUTGMC EDIT
+//datum/job/terragov/squad/leader/after_spawn(mob/living/carbon/C, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(C))
 		return
@@ -362,7 +369,7 @@ You are also in charge of communicating with command and letting them know about
 		if(new_human.assigned_squad.squad_leader)
 			new_human.assigned_squad.demote_leader()
 		new_human.assigned_squad.promote_leader(new_human)
-
+	RUTGMC EDIT END */
 
 
 /datum/job/terragov/squad/vatgrown
