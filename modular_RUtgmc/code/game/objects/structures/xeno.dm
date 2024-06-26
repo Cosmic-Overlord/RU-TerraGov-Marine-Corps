@@ -7,6 +7,7 @@
 //Resin Doors
 /obj/structure/mineral_door/resin
 	icon = 'modular_RUtgmc/icons/obj/smooth_objects/resin-door.dmi'
+	soft_armor = list(MELEE = 15, BULLET = 50, LASER = 40, ENERGY = 0, BOMB = 15, BIO = 0, FIRE = 0, ACID = 0)
 
 /obj/structure/mineral_door/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	var/turf/cur_loc = X.loc
