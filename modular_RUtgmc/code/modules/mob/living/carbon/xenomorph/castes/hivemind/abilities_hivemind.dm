@@ -76,3 +76,45 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 		SSpoints.add_psy_points("[X.hivenumber]", 100)
 	succeed_activate()
 	add_cooldown()
+
+/datum/action/ability/xeno_action/build_pherotower
+	name = "build pherotower"
+	action_icon_state = "hugger_turret"
+	desc = "Build a pherotower"
+	ability_cost = 400
+	cooldown_duration = 5 MINUTES
+
+/datum/action/ability/xeno_action/build_pherotower/can_use_action(silent, override_flags)
+	. = ..()
+	var/turf/T = get_turf(owner)
+	var/mob/living/carbon/xenomorph/blocker = locate() in T
+	if(blocker && blocker != owner && blocker.stat != DEAD)
+		if(!silent)
+			to_chat(owner, span_xenowarning("You cannot build with [blocker] in the way!"))
+		return FALSE
+
+	if(!T.is_weedable())
+		return FALSE
+
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+	if(!owner_xeno.loc_weeds_type)
+		if(!silent)
+			to_chat(owner, span_xenowarning("No weeds here!"))
+		return FALSE
+
+	if(!T.check_alien_construction(owner, silent = silent, planned_building = /obj/structure/xeno/pherotower) || !T.check_disallow_alien_fortification(owner))
+		return FALSE
+
+/datum/action/ability/xeno_action/build_pherotower/action_activate()
+	if(!do_after(owner, 5 SECONDS, NONE, owner, BUSY_ICON_BUILD))
+		return FALSE
+
+	if(!can_use_action())
+		return FALSE
+
+	var/obj/structure/xeno/pherotower/tower = new (get_turf(owner))
+
+	addtimer(CALLBACK(tower, PROC_REF(Destroy)), 10 MINUTES)
+
+	succeed_activate()
+	add_cooldown()

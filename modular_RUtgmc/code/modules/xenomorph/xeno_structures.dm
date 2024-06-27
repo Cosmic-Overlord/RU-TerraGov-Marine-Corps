@@ -33,6 +33,11 @@
 /obj/structure/xeno/pherotower
 	icon = 'modular_RUtgmc/icons/Xeno/1x1building.dmi'
 
+/obj/structure/xeno/pherotower/Destroy()
+	GLOB.hive_datums[hivenumber].pherotowers -= src
+	SSminimaps.remove_marker(src)
+	return ..()
+
 /obj/structure/xeno/pherotower/crash
 	name = "Recovery tower"
 	resistance_flags = RESIST_ALL
