@@ -306,10 +306,6 @@
 	if(!istype(I, /obj/item/facepaint) || !length(icon_state_variants))
 		return
 	var/obj/item/facepaint/paint = I
-	if(paint.uses < 1)
-		to_chat(user, span_warning("\the [paint] is out of color!"))
-		return
-	paint.uses--
 	var/variant = tgui_input_list(user, "Choose a color.", "Color", icon_state_variants)
 
 	if(!variant)
@@ -320,6 +316,11 @@
 
 	current_variant = variant
 	update_icon()
+
+	if(paint.uses < 1)
+		to_chat(user, span_warning("\the [paint] is out of color!"))
+		return
+	paint.uses--
 
 /obj/item/clothing/head/military/Initialize()
 	. = ..()
