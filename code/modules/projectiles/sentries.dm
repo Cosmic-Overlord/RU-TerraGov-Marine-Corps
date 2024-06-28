@@ -383,6 +383,8 @@
 		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So wraiths wont be shot at when in phase shift
 			continue
 		potential_targets += nearby_xeno
+	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(src, range)) // RUTGMC ADDITION START
+		potential_targets += nearby_illusion  // RUTGMC ADDITION END
 	for(var/obj/vehicle/sealed/mecha/nearby_mech AS in cheap_get_mechs_near(src, range))
 		if(!length(nearby_mech.occupants))
 			continue

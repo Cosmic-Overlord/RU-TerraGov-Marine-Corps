@@ -48,14 +48,17 @@
 		return INITIALIZE_HINT_QDEL
 	src.original_mob = original_mob
 	appearance = original_mob.appearance
+	setDir(original_mob.dir) // RUTGMC ADDITION
 	desc = original_mob.desc
 	name = original_mob.name
 	RegisterSignals(original_mob, list(COMSIG_QDELETING, COMSIG_MOB_DEATH), PROC_REF(destroy_illusion))
+	GLOB.mob_illusions_list += src // RUTGMC ADDITION
 	QDEL_IN(src, life_time)
 
 ///Delete this illusion when the original xeno is ded
 /mob/illusion/proc/destroy_illusion()
 	SIGNAL_HANDLER
+	GLOB.mob_illusions_list -= src  // RUTGMC ADDITION
 	qdel(src)
 
 /// Remove the filter effect added when it was hit
@@ -69,9 +72,11 @@
 	timer_effect = addtimer(CALLBACK(src, PROC_REF(remove_hit_filter)), 0.5 SECONDS, TIMER_STOPPABLE)
 	return FALSE
 
+/* RUTGMC DELETION
 /mob/illusion/xeno/Initialize(mapload, mob/living/carbon/xenomorph/original_mob, atom/escorted_atom, life_time)
 	. = ..()
 	if(.)
 		return INITIALIZE_HINT_QDEL
 	add_movespeed_modifier(MOVESPEED_ID_XENO_CASTE_SPEED, TRUE, 0, NONE, TRUE, original_mob.xeno_caste.speed * 1.3)
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/illusion, escorted_atom)
+*/

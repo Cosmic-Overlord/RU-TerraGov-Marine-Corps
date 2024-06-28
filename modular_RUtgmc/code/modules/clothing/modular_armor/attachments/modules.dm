@@ -18,7 +18,6 @@
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
-
 	/// Who's using this item
 	var/mob/living/carbon/human/operator
 	///The range of this motion detector
@@ -79,9 +78,13 @@
 			hostile_detected = TRUE
 		prepare_blip(nearby_human, nearby_human.wear_id?.iff_signal & operator.wear_id?.iff_signal ? MOTION_DETECTOR_FRIENDLY : MOTION_DETECTOR_HOSTILE)
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(operator, range))
+		if(HAS_TRAIT(nearby_xeno, TRAIT_TURRET_HIDDEN))
+			continue
 		if(!hostile_detected)
 			hostile_detected = TRUE
 		prepare_blip(nearby_xeno, MOTION_DETECTOR_HOSTILE)
+	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(operator, range))
+		prepare_blip(nearby_illusion, MOTION_DETECTOR_HOSTILE)
 	if(hostile_detected)
 		playsound(loc, 'sound/items/tick.ogg', 100, 0, 1)
 	addtimer(CALLBACK(src, PROC_REF(clean_blips)), scan_time / 2)

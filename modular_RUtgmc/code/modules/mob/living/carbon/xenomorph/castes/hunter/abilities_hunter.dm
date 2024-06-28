@@ -55,9 +55,8 @@
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(handle_stealth))
 	RegisterSignal(owner, COMSIG_XENOMORPH_POUNCE_END, PROC_REF(sneak_attack_pounce))
-	RegisterSignal(owner, COMSIG_XENO_LIVING_THROW_HIT, PROC_REF(mob_hit))
-	RegisterSignal(owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(sneak_attack_slash))
-	RegisterSignal(owner, COMSIG_XENOMORPH_DISARM_HUMAN, PROC_REF(sneak_attack_slash))
+	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
+	RegisterSignals(owner, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_DISARM_HUMAN), PROC_REF(sneak_attack_slash))
 	RegisterSignal(owner, COMSIG_XENOMORPH_ZONE_SELECT, PROC_REF(sneak_attack_zone))
 	RegisterSignal(owner, COMSIG_XENOMORPH_PLASMA_REGEN, PROC_REF(plasma_regen))
 
@@ -88,7 +87,7 @@
 	UnregisterSignal(owner, list(
 		COMSIG_MOVABLE_MOVED,
 		COMSIG_XENOMORPH_POUNCE_END,
-		COMSIG_XENO_LIVING_THROW_HIT,
+		COMSIG_XENOMORPH_LEAP_BUMP,
 		COMSIG_XENOMORPH_ATTACK_LIVING,
 		COMSIG_XENOMORPH_DISARM_HUMAN,
 		COMSIG_XENOMORPH_GRAB,
@@ -167,14 +166,17 @@
 	cancel_stealth()
 
 /// Callback for when a mob gets hit as part of a pounce
-/datum/action/ability/xeno_action/stealth/proc/mob_hit(datum/source, mob/living/M)
+/datum/action/ability/xeno_action/stealth/proc/mob_hit(datum/source, mob/living/living_target)
 	SIGNAL_HANDLER
-	if(M.stat || isxeno(M))
+	if(living_target.stat || isxeno(living_target))
 		return
 	if(can_sneak_attack)
-		M.adjust_stagger(3 SECONDS)
-		M.add_slowdown(1)
-		to_chat(owner, span_xenodanger("Pouncing from the shadows, we stagger our victim."))
+		living_target.adjust_stagger(3 SECONDS)
+		living_target.add_slowdown(1)
+
+		var/mob/living/carbon/xenomorph/xeno = owner
+		living_target.attack_alien_harm(xeno, xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier)
+		to_chat(owner, span_xenodanger("Pouncing from the shadows, we strike our victim, staggering them."))
 
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
@@ -189,7 +191,7 @@
 	target.adjust_stagger(2 SECONDS)
 	target.add_slowdown(1)
 	target.ParalyzeNoChain(1 SECONDS)
-	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE) // additional damage
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, penetration = 15) // additional damage
 
 	cancel_stealth()
 
@@ -274,11 +276,12 @@
 		return
 
 	var/mob/living/carbon/xenomorph/xeno = owner
+	damage = xeno.xeno_caste.melee_damage * xeno.xeno_melee_damage_modifier
 
 	owner.visible_message(span_danger("\The [owner] strikes [target] with deadly precision!"), \
 	span_danger("We strike [target] with deadly precision!"))
 	target.ParalyzeNoChain(1 SECONDS)
-	target.apply_damage(20, BRUTE, xeno.zone_selected) // additional damage
+	target.apply_damage(damage, BRUTE, xeno.zone_selected, MELEE, penetration = 25) // additional damage
 
 	cancel_stealth()
 
