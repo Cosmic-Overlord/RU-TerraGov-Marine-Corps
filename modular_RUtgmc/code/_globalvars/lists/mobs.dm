@@ -27,6 +27,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/queen/primordial,
 	/mob/living/carbon/xenomorph/king,
 	/mob/living/carbon/xenomorph/king/primordial,
+	/mob/living/carbon/xenomorph/predalien,
 	/mob/living/carbon/xenomorph/ravager,
 	/mob/living/carbon/xenomorph/ravager/primordial,
 	/mob/living/carbon/xenomorph/praetorian,
