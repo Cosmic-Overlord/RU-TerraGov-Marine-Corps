@@ -1,5 +1,3 @@
-//All the harvester weapons go in here
-
 //Vali Sword
 /obj/item/weapon/claymore/harvester
 	icon = 'modular_RUtgmc/icons/obj/items/vali.dmi'
@@ -94,3 +92,6 @@
 			return
 
 	user.add_movespeed_modifier(MOVESPEED_ID_WIELDED_SLOWDOWN, TRUE, 0, NONE, TRUE, wielded_slowdown)
+
+/obj/item/weapon/combat_knife/harvester
+	icon = 'modular_RUtgmc/icons/obj/items/vali.dmi'
