@@ -270,69 +270,11 @@
 /mob/living/carbon/human/med_hud_set_health(hud_holder = HEALTH_HUD)
 	var/image/holder = hud_list[HEALTH_HUD]
 	if(stat == DEAD)
-		holder.icon_state = "hudhealth-100"
+		holder.icon_state = "hudhealth98"
 		return
 
-	var/percentage = round(health * 100 / maxHealth)
-	switch(percentage)
-		if(100 to INFINITY)
-			holder.icon_state = "hudhealth100"
-		if(90 to 99)
-			holder.icon_state = "hudhealth90"
-		if(80 to 89)
-			holder.icon_state = "hudhealth80"
-		if(70 to 79)
-			holder.icon_state = "hudhealth70"
-		if(60 to 69)
-			holder.icon_state = "hudhealth60"
-		if(50 to 59)
-			holder.icon_state = "hudhealth50"
-		if(45 to 49)
-			holder.icon_state = "hudhealth45"
-		if(40 to 44)
-			holder.icon_state = "hudhealth40"
-		if(35 to 39)
-			holder.icon_state = "hudhealth35"
-		if(30 to 34)
-			holder.icon_state = "hudhealth30"
-		if(25 to 29)
-			holder.icon_state = "hudhealth25"
-		if(20 to 24)
-			holder.icon_state = "hudhealth20"
-		if(15 to 19)
-			holder.icon_state = "hudhealth15"
-		if(10 to 14)
-			holder.icon_state = "hudhealth10"
-		if(5 to 9)
-			holder.icon_state = "hudhealth5"
-		if(0 to 4)
-			holder.icon_state = "hudhealth0"
-		if(-4 to -1)
-			holder.icon_state = "hudhealth-5"
-		if(-9 to -5)
-			holder.icon_state = "hudhealth-10"
-		if(-19 to -10)
-			holder.icon_state = "hudhealth-20"
-		if(-29 to -20)
-			holder.icon_state = "hudhealth-30"
-		if(-39 to -30)
-			holder.icon_state = "hudhealth-40"
-		if(-49 to -40)
-			holder.icon_state = "hudhealth-50"
-		if(-59 to -50)
-			holder.icon_state = "hudhealth-60"
-		if(-69 to -60)
-			holder.icon_state = "hudhealth-70"
-		if(-79 to -70)
-			holder.icon_state = "hudhealth-80"
-		if(-89 to -80)
-			holder.icon_state = "hudhealth-90"
-		if(-94 to -90)
-			holder.icon_state = "hudhealth-95"
-		if(-99 to -95)
-			holder.icon_state = "hudhealth-99"
-		else
-			holder.icon_state = "hudhealth-100"
+	var/percentage = round(health * 100 / maxHealth, 7) // rounding to 7 because there are 14 pixel lines in the health hud
+	holder.icon_state = "hudhealth[percentage]"
 
 /mob/living/carbon/human/species/yautja/med_hud_set_health(hud_holder = HUNTER_HEALTH_HUD)
 	. = ..()
@@ -344,7 +286,7 @@
 		return FALSE
 	var/image/holder = hud_list[PAIN_HUD]
 	if(stat == DEAD)
-		holder.icon_state = "hudhealth-100"
+		holder.icon_state = "hudhealth98"
 		return TRUE
 
 	var/perceived_health = round(health * 100 / maxHealth)
@@ -353,62 +295,4 @@
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= STAMINA_RATIO_PAIN_HUD * staminaloss
 
-	switch(perceived_health)
-		if(100 to INFINITY)
-			holder.icon_state = "hudhealth100"
-		if(90 to 99)
-			holder.icon_state = "hudhealth90"
-		if(80 to 89)
-			holder.icon_state = "hudhealth80"
-		if(70 to 79)
-			holder.icon_state = "hudhealth70"
-		if(60 to 69)
-			holder.icon_state = "hudhealth60"
-		if(50 to 59)
-			holder.icon_state = "hudhealth50"
-		if(45 to 49)
-			holder.icon_state = "hudhealth45"
-		if(40 to 44)
-			holder.icon_state = "hudhealth40"
-		if(35 to 39)
-			holder.icon_state = "hudhealth35"
-		if(30 to 34)
-			holder.icon_state = "hudhealth30"
-		if(25 to 29)
-			holder.icon_state = "hudhealth25"
-		if(20 to 24)
-			holder.icon_state = "hudhealth20"
-		if(15 to 19)
-			holder.icon_state = "hudhealth15"
-		if(10 to 14)
-			holder.icon_state = "hudhealth10"
-		if(5 to 9)
-			holder.icon_state = "hudhealth5"
-		if(0 to 4)
-			holder.icon_state = "hudhealth0"
-		if(-4 to -1)
-			holder.icon_state = "hudhealth-5"
-		if(-9 to -5)
-			holder.icon_state = "hudhealth-10"
-		if(-19 to -10)
-			holder.icon_state = "hudhealth-20"
-		if(-29 to -20)
-			holder.icon_state = "hudhealth-30"
-		if(-39 to -30)
-			holder.icon_state = "hudhealth-40"
-		if(-49 to -40)
-			holder.icon_state = "hudhealth-50"
-		if(-59 to -50)
-			holder.icon_state = "hudhealth-60"
-		if(-69 to -60)
-			holder.icon_state = "hudhealth-70"
-		if(-79 to -70)
-			holder.icon_state = "hudhealth-80"
-		if(-89 to -80)
-			holder.icon_state = "hudhealth-90"
-		if(-94 to -90)
-			holder.icon_state = "hudhealth-95"
-		if(-99 to -95)
-			holder.icon_state = "hudhealth-99"
-
-	return TRUE
+	holder.icon_state = "hudhealth[clamp(round(perceived_health, 7), -98, 98)]" // rounding to 7 because there are 14 pixel lines in the health hud
