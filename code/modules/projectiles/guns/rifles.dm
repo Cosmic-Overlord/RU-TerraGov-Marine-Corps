@@ -1199,6 +1199,8 @@
 /obj/item/weapon/gun/rifle/type71/seasonal
 	desc = "The primary rifle of many space pirates and militias, the Type 71 is a reliable rifle chambered in 7.62x39mm, firing in three round bursts to conserve ammunition."
 
+
+/* RUTGMC MOVED TO MODULE
 //-------------------------------------------------------
 //SH-15 AUTOMATIC SHOTGUN
 
@@ -1269,6 +1271,7 @@
 /obj/item/weapon/gun/rifle/standard_autoshotgun/plasma_pistol
 	starting_attachment_types = list(/obj/item/attachable/stock/tx15, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/pistol/plasma_pistol)
 
+*/
 //-------------------------------------------------------
 //SG-29 Smart Machine Gun (It's more of a rifle than the SG.)
 

@@ -808,7 +808,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		A.show_roundend_report(owner.client, PERSONAL_LAST_ROUND)
 
 /client/proc/roundend_report_file()
-	return "data/[ckey].html"
+	return "data/endgameckey/[ckey].html" //RUTGMC EDIT /endgameckey
 
 /datum/game_mode/proc/announce_xenomorphs()
 	var/list/parts = list()

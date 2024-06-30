@@ -504,7 +504,7 @@ What you lack in equipment and military training you make up in bravery and conv
 //PMC
 /datum/job/pmc/standard/campaign_bonus
 	faction = FACTION_TERRAGOV
-	comm_title = "PMC"
+	comm_title = "PMC-ST" //RUTGMC EDIT
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	job_cost = 0
 	outfit = /datum/outfit/job/pmc/standard/campaign
@@ -514,7 +514,7 @@ What you lack in equipment and military training you make up in bravery and conv
 
 /datum/job/pmc/gunner/campaign_bonus
 	faction = FACTION_TERRAGOV
-	comm_title = "PMC"
+	comm_title = "PMC-SG" //RUTGMC EDIT
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	job_cost = 0
 	outfit = /datum/outfit/job/pmc/gunner/campaign
@@ -524,7 +524,7 @@ What you lack in equipment and military training you make up in bravery and conv
 
 /datum/job/pmc/leader/campaign_bonus
 	faction = FACTION_TERRAGOV
-	comm_title = "PMC"
+	comm_title = "PMC-LD" //RUTGMC EDIT
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	job_cost = 0
 	outfit = /datum/outfit/job/pmc/leader/campaign

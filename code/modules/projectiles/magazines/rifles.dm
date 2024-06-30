@@ -263,7 +263,7 @@
 	max_rounds = 42
 
 //TX-16 AUTOMATIC SHOTGUN
-
+/* MOVED TO MODULE
 /obj/item/ammo_magazine/rifle/tx15_flechette
 	name = "\improper SH-15 flechette magazine (16 gauge)"
 	desc = "A magazine of 16 gauge flechette rounds, for the SH-15."
@@ -283,7 +283,7 @@
 	default_ammo = /datum/ammo/bullet/shotgun/tx15_slug
 	max_rounds = 12
 	bonus_overlay = "tx15_slug"
-
+*/
 //-------------------------------------------------------
 //SMARTMACHINEGUN AMMUNITION
 

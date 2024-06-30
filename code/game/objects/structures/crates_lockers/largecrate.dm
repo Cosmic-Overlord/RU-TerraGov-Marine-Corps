@@ -1,7 +1,7 @@
 /obj/structure/largecrate
 	name = "large crate"
 	desc = "A hefty wooden crate."
-	icon = 'icons/obj/structures/crates.dmi'
+	icon = 'modular_RUtgmc/icons/obj/structures/crates.dmi' // RUTGMC EDIT
 	icon_state = "densecrate"
 	density = TRUE
 	anchored = FALSE

@@ -293,19 +293,6 @@
 	)
 
 //-------------------------------------------------------
-//SH-15 AUTOMATIC SHOTGUN
-
-/obj/item/weapon/gun/rifle/standard_autoshotgun
-	icon_state = "tx15"
-	item_state = "tx15"
-	greyscale_config = null
-	colorable_allowed = NONE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-
-//-------------------------------------------------------
 //SG-29 Smart Machine Gun (It's more of a rifle than the SG.)
 
 /obj/item/weapon/gun/rifle/standard_smartmachinegun
@@ -407,10 +394,158 @@
 //SH-15 AUTOMATIC SHOTGUN
 
 /obj/item/weapon/gun/rifle/standard_autoshotgun
+	name = "\improper SH-15 auto-shotgun"
+	desc = "The SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines."
+
+	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon_state = "tx15"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi'
+		)
+
 	fire_sound =   'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15.ogg'
 	unload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15_clipout.ogg'
 	reload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15_clipin.ogg'
 	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-15/SH15_boltpull.ogg'
+	caliber = CALIBER_16G //codex
+	max_shells = 12 //codex
+	force = 20
+	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_buckshot
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/tx15_buckshot,
+		/obj/item/ammo_magazine/rifle/tx15_slug,
+		/obj/item/ammo_magazine/rifle/tx15_flechette,
+		/obj/item/ammo_magazine/rifle/tx15_incendiary,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+	)
+
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	starting_attachment_types = null
+	attachable_offset = list("muzzle_x" = 43, "muzzle_y" = 17,"rail_x" = 23, "rail_y" = 20, "under_x" = 36, "under_y" = 13, "stock_x" = 26, "stock_y" = 13)
+	gun_skill_category = SKILL_SHOTGUNS
+
+	damage_mult = 2 //Low firerate
+
+	fire_delay = 1 SECONDS
+	accuracy_mult = 1.15
+	burst_amount = 1
+	scatter = -2
+	movement_acc_penalty_mult = 3
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/do_fire(obj/object_to_fire)
+	. = ..()
+	if(src.get_ammo() == /datum/ammo/bullet/shotgun/g16_incendiary)
+		playsound(src.target, 'modular_RUtgmc/sound/misc/sparkler.ogg', 75, 1)
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/engineer
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/weapon/gun/grenade_launcher/underslung)
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/standard
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/heavy_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/plasma_pistol
+	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/pistol/plasma_pistol)
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/medic
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/attachable/angledgrip)
+	default_ammo_type = /obj/item/ammo_magazine/rifle/tx15_slug
+
+//-------------------------------------------------------
+//SH-24 JACKHAMMER AUTOMATIC SHOTGUN
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/jackhammer
+	name = "\improper SH-24 \"Jackhammer\" auto-shotgun"
+	desc = "The SH-24 Automatic Assault Shotgun, also known as \"Jackhammer\", is perfect for first-line attacking with decent firerate. Takes 12-round 16 gauge magazines."
+
+	icon = 'modular_RUtgmc/icons/Marine/gun64.dmi'
+	icon_state = "jackhammer"
+	item_icons = list(
+		slot_l_hand_str = 'modular_RUtgmc/icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'modular_RUtgmc/icons/mob/items_righthand_1.dmi',
+		slot_s_store_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi',
+		slot_back_str = 'modular_RUtgmc/icons/mob/clothing/back.dmi'
+		)
+
+	fire_sound =   'modular_RUtgmc/sound/weapons/guns/shotgun/SH-24/SH24.ogg'
+	unload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-24/SH24_clipout.ogg'
+	reload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-24/SH24_clipin.ogg'
+	cocked_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-24/SH24_boltpull.ogg'
+	caliber = CALIBER_16G //codex
+	max_shells = 24 //codex
+	force = 20
+	default_ammo_type = /obj/item/ammo_magazine/rifle/tx24_buckshot
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/tx24_buckshot,
+		/obj/item/ammo_magazine/rifle/tx24_slug,
+		/obj/item/ammo_magazine/rifle/tx24_flechette,
+		/obj/item/ammo_magazine/rifle/tx24_incendiary,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+	)
+
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	starting_attachment_types = null
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 12, "rail_y" = 17, "under_x" = 20, "under_y" = 13, "stock_x" = 26, "stock_y" = 13)
+	gun_skill_category = SKILL_SHOTGUNS
+
+	damage_mult = 1.25
+
+	aim_slowdown = 0.45
+	wield_delay = 8
+	fire_delay = 0.5 SECONDS
+	accuracy_mult = 1.15
+	burst_amount = 1
+	scatter = -2
+	movement_acc_penalty_mult = 3
+
+/obj/item/weapon/gun/rifle/standard_autoshotgun/jackhammer/do_fire(obj/object_to_fire)
+	. = ..()
+	if(src.get_ammo() == /datum/ammo/bullet/shotgun/g16_incendiary)
+		playsound(src.target, 'modular_RUtgmc/sound/misc/sparkler.ogg', 75, 1)
+
+//It's very fast shogun, it's made to prevent stagger/weaken spam.
+/obj/item/weapon/gun/rifle/standard_autoshotgun/jackhammer/get_ammo()
+	. = ..()
+	switch(ammo_datum_type)
+		if(/datum/ammo/bullet/shotgun/g16_buckshot)
+			return /datum/ammo/bullet/shotgun/g16_buckshot/weak
+		if(/datum/ammo/bullet/shotgun/g16_slug)
+			return /datum/ammo/bullet/shotgun/g16_slug/weak
+
 
 //-------------------------------------------------------
 // AR-55 rifle

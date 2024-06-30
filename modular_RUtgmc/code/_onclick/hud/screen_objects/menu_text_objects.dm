@@ -3,10 +3,10 @@
 	color = COLOR_RUTGMC_RED
 
 /atom/movable/screen/text/lobby/clickable/setup_character
-	maptext = "<span class='maptext' style=font-size:6px>ПЕРСОНАЖ: ...</span>"
+	maptext = "<span class='maptext' style=font-size:8px>ПЕРСОНАЖ: ...</span>"
 
 /atom/movable/screen/text/lobby/clickable/setup_character/update_text()
-	maptext = "<span class='maptext' style=font-size:6px>ПЕРСОНАЖ: [hud?.mymob.client ? hud.mymob.client.prefs.real_name : "Unknown User"]</span>"
+	maptext = "<span class='maptext' style=font-size:8px>ПЕРСОНАЖ: [hud?.mymob.client ? hud.mymob.client.prefs.real_name : "Unknown User"]</span>"
 	if(registered)
 		return
 	RegisterSignal(hud.mymob.client, COMSIG_CLIENT_PREFERENCES_UIACTED, PROC_REF(update_text))

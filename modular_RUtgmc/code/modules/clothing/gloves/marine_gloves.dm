@@ -30,3 +30,16 @@
 		icon_state = "veteran_2"
 	else
 		icon_state = "veteran_1"
+
+/obj/item/clothing/gloves/pmc
+	name = "PMC nitrile gloves"
+	desc = "Pair of modern and clean gloves, you can feel how durable and light they are."
+	icon = 'modular_RUtgmc/icons/obj/clothing/gloves.dmi'
+	icon_state = "pmc_white"
+	siemens_coefficient = 0
+	flags_item = SYNTH_RESTRICTED
+	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 15)
+
+/obj/item/clothing/gloves/marine/veteran/pmc
+	icon = 'modular_RUtgmc/icons/obj/clothing/gloves.dmi'
+	icon_state = "pmc_black"

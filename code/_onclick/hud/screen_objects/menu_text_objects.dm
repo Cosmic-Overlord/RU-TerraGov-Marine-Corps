@@ -12,7 +12,7 @@
 	screen_loc = "CENTER"
 	maptext_height = 480
 	maptext_width = 480
-	maptext_x = 24
+	maptext_x = 29 //RUTGMC EDIT
 	maptext_y = 9
 
 
@@ -28,7 +28,7 @@
 ///Clickable UI lobby objects which do stuff on Click() when pressed
 /atom/movable/screen/text/lobby/clickable
 	maptext = "if you see this a coder was stinky"
-	icon = 'icons/UI_Icons/lobby_button.dmi' //hitbox prop
+	icon = 'modular_RUtgmc/icons/UI_Icons/lobby_button.dmi' //hitbox prop
 	mouse_opacity = MOUSE_OPACITY_ICON
 
 /atom/movable/screen/text/lobby/clickable/MouseEntered(location, control, params)
@@ -36,19 +36,27 @@
 	if(!(flags_atom & INITIALIZED)) //yes this can happen, fuck me
 		return
 	color = COLOR_ORANGE
+	icon_state += "_a" //RUTGMC ADDITION
 	var/mob/new_player/player = usr
-	player.playsound_local(player, 'sound/effects/menu_click.ogg', 50)
+	player.playsound_local(player, 'modular_RUtgmc/sound/effects/UI/move.ogg', 40) //RUTGMC EDIT
 
 /atom/movable/screen/text/lobby/clickable/MouseExited(location, control, params)
 	. = ..()
 	color = initial(color)
+	//RUTGMC ADDITION BEGIN
+	var/mob/new_player/player = hud.mymob
+	if(icon_state != "ready_a")
+		icon_state = initial(icon_state) //ORIGINAL
+	else
+		icon_state = player.ready ? "ready" : "unready"
+	//RUTGMC ADDITION END
 
 /atom/movable/screen/text/lobby/clickable/Click()
 	if(!(flags_atom & INITIALIZED)) //yes this can happen, fuck me
 		to_chat(usr, span_warning("The game is still setting up, please try again later."))
 		return
 	var/mob/new_player/player = usr
-	player.playsound_local(player, 'sound/effects/menu_select.ogg', 50)
+	player.playsound_local(player, 'modular_RUtgmc/sound/effects/UI/click.ogg', 60) //RUTGMC EDIT
 
 
 /atom/movable/screen/text/lobby/clickable/setup_character
@@ -101,6 +109,10 @@
 	var/mob/new_player/player = hud.mymob
 	player.toggle_ready()
 	icon_state = player.ready ? "ready" : "unready"
+	//RUTGMC ADDITION BEGIN
+	if(MouseEntered())
+		icon_state += "_a"
+	//RUTGMC ADDITION END
 	update_text()
 
 /atom/movable/screen/text/lobby/clickable/manifest
@@ -114,7 +126,7 @@
 
 /atom/movable/screen/text/lobby/clickable/xenomanifest
 	maptext = "<span class='maptext' style=font-size:8px>VIEW HIVE</span>"
-	icon_state = "manifest"
+	icon_state = "manifest_xeno"
 
 /atom/movable/screen/text/lobby/clickable/xenomanifest/Click()
 	. = ..()

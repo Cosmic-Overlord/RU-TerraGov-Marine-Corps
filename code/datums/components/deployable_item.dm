@@ -82,6 +82,11 @@
 		if(user.do_actions)
 			user.balloon_alert(user, "You are already doing something!")
 			return
+		if(CHECK_BITFIELD(item_to_deploy?.near_lock, TRUE))
+			for(var/obj/machinery/deployable/def in urange(2, location))
+				if(def != src)
+					user.balloon_alert(user, "Too close to [def]!")
+					return
 		user.balloon_alert(user, "You start deploying...")
 		user.setDir(newdir) //Face towards deploy location for ease of deploy.
 		if(!do_after(user, deploy_time, NONE, item_to_deploy, BUSY_ICON_BUILD))
@@ -132,6 +137,7 @@
 /datum/component/deployable_item/proc/finish_undeploy(datum/source, mob/user)
 	var/obj/deployed_machine = source //The machinethat is undeploying should be the the one sending the Signal
 	var/obj/item/undeployed_item = deployed_machine.get_internal_item() //Item the machine is undeploying
+	var/obj/held_item = user.get_active_held_item() //Active hand item check
 
 	if(!undeployed_item)
 		CRASH("[src] is missing it's internal item.")
@@ -143,6 +149,9 @@
 	var/obj/machinery/deployable/mounted/sentry/sentry
 	if(istype(deployed_machine, /obj/machinery/deployable/mounted/sentry))
 		sentry = deployed_machine
+		if(!istype(held_item, /obj/item/tool/multitool)) // Can't undeploy without multitool in active hand
+			user.balloon_alert(user, "You need to hold a multitool!")
+			return
 	sentry?.set_on(FALSE)
 	user.balloon_alert(user, "You start disassembling [undeployed_item]")
 	if(!do_after(user, deploy_time, NONE, deployed_machine, BUSY_ICON_BUILD))

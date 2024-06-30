@@ -1,3 +1,4 @@
+/* RUTGMC MOVED TO MODULE
 /datum/job/pmc
 	job_category = JOB_CAT_MARINE
 	access = ALL_PMC_ACCESS
@@ -5,6 +6,7 @@
 	skills_type = /datum/skills/pmc
 	faction = FACTION_NANOTRASEN
 	minimap_icon = "pmc"
+	comm_title = "PMC"
 
 
 //PMC Standard
@@ -241,3 +243,4 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/impact, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/drain, SLOT_IN_R_POUCH)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_R_POUCH)
+*/

@@ -175,3 +175,9 @@
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/tomahawk(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
+
+/obj/item/storage/holster/belt/ts34/full_incendiary/Initialize(mapload)
+	. = ..()
+	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/shotgun/double/marine/incendiary(src)
+	new /obj/item/ammo_magazine/shotgun/incendiary(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)

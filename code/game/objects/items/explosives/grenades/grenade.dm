@@ -85,11 +85,12 @@
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
 	return TRUE
 
+/* RUTGMC MOVED TO MODULE
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
 	if(active && dangerous)
 		. += new /obj/effect/overlay/danger
-
+*/
 
 /obj/item/explosive/grenade/proc/prime()
 	explosion(loc, light_impact_range = src.light_impact_range, weak_impact_range = src.weak_impact_range)

@@ -1,6 +1,14 @@
 /obj/item/weapon/gun/shotgun
 	wield_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/Deploy_Wave_SHOTGUN.ogg'
 
+/obj/item/weapon/gun/shotgun/do_fire(obj/object_to_fire)
+	. = ..()
+	if(src.get_ammo() == /datum/ammo/bullet/shotgun/incendiary)
+		playsound(src.target, 'modular_RUtgmc/sound/misc/sparkler.ogg', 75, 1)
+
+/obj/item/weapon/gun/shotgun/double/marine/incendiary
+	default_ammo_type = /datum/ammo/bullet/shotgun/incendiary
+
 //------------------------------------------------------
 //SH-35 Pump shotgun
 
@@ -40,7 +48,7 @@
 	hand_reload_sound = 'modular_RUtgmc/sound/weapons/guns/shotgun/SH-46/SH46_shell.ogg'
 	cocked_sound = 		'modular_RUtgmc/sound/weapons/guns/shotgun/SH-46/SH46_boltpull.ogg'
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
-	max_chamber_items = 5
+	max_chamber_items = 4
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -64,8 +72,8 @@
 
 	fire_delay = 3 //one shot every 0.3 seconds.
 	accuracy_mult = 1.05
-	scatter = 3
-	damage_mult = 0.6  //40% less damage.
+	scatter = 2
+	damage_mult = 0.65  //35% less damage.
 	recoil = 0.5
 	wield_delay = 0.6 SECONDS
 	aim_slowdown = 0.2

@@ -32,24 +32,48 @@
 	print_backstory(H)
 
 	if(!leader)
-		leader = H
-		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/leader)
+		if(prob(70))
+			leader = H
+			var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/leader)
+			H.apply_assigned_role_to_spawn(J)
+			to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are the leader of this private military contractor team in responding to the TGMC distress signal sent out nearby. Address the situation and get your team to safety!")]</p>")
+			return
+		else
+			leader = H
+			var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/leader_l)
+			H.apply_assigned_role_to_spawn(J)
+			to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are the leader of this private military contractor team in responding to the TGMC distress signal sent out nearby. Address the situation and get your team to safety!")]</p>")
+			return
+
+	if(prob(20))
+		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/medic)
 		H.apply_assigned_role_to_spawn(J)
-		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are the leader of this private military contractor team in responding to the TGMC distress signal sent out nearby. Address the situation and get your team to safety!")]</p>")
+		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a PMC medic assigned to this team to respond to the TGMC distress signal sent out nearby. Don't forget to heal your squad members!")]</p>")
 		return
 
-	if(prob(30))
+	if(prob(20))
 		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/gunner)
 		H.apply_assigned_role_to_spawn(J)
 		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a PMC heavy gunner assigned to this team to respond to the TGMC distress signal sent out nearby. Be the back guard of your squad!")]</p>")
 		return
 
-	if(prob(30))
+	if(prob(20))
+		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/engineer)
+		H.apply_assigned_role_to_spawn(J)
+		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a PMC engineer assigned to this team to respond to the TGMC distress signal sent out nearby. Support your squad with FLAMES!")]</p>")
+		return
+
+	if(prob(20))
 		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/sniper)
 		H.apply_assigned_role_to_spawn(J)
 		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a PMC heavy sniper assigned to this team to respond to the TGMC distress signal sent out nearby. Support your squad with long ranged firepower!")]</p>")
 		return
 
-	var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/standard)
-	H.apply_assigned_role_to_spawn(J)
-	to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a private military contractor assigned to this team to respond to the TGMC distress signal sent out nearby. Assist your team and protect NT's interests whenever possible!")]</p>")
+	if(prob(30))
+		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/standard)
+		H.apply_assigned_role_to_spawn(J)
+		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a private military contractor assigned to this team to respond to the TGMC distress signal sent out nearby. Assist your team and protect NT's interests whenever possible!")]</p>")
+	else
+		var/datum/job/J = SSjob.GetJobType(/datum/job/pmc/standard_m)
+		H.apply_assigned_role_to_spawn(J)
+		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are a private military contractor assigned to this team to respond to the TGMC distress signal sent out nearby. Assist your team and protect NT's interests whenever possible!")]</p>")

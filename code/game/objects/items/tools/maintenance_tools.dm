@@ -508,6 +508,12 @@
 	if(!user.drop_held_item())
 		return
 
+	//RUTGMC ADD BEGIN
+	if(istype(I, /obj/item/cell/night_vision_battery))
+		balloon_alert(user, "Not rechargeable")
+		return
+	//RUTGMC ADD END
+
 	if(cell) //hotswapping
 		cell.update_icon()
 		user.put_in_hands(cell)

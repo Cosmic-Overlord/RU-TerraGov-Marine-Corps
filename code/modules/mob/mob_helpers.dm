@@ -316,7 +316,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 /mob/living/carbon/can_be_operated_on()
 	if(!lying_angle)
 		return FALSE
-	if(locate(/obj/machinery/optable, loc) || locate(/obj/structure/bed/roller, loc))
+	if(locate(/obj/machinery/optable, loc) || locate(/obj/structure/bed/roller, loc) || locate(/obj/machinery/deployable/optable, loc))
 		return TRUE
 	var/obj/structure/table/T = locate(/obj/structure/table, loc)
 	if(T && !T.flipped) return TRUE

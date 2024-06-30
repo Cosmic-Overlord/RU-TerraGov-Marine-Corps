@@ -454,6 +454,7 @@
 	undeploy_time = 0.5 SECONDS
 	max_integrity = 200
 
+	near_lock = TRUE //RUTGMC ADDITION
 
 /obj/item/weapon/gun/standard_mmg/machinegunner
 	starting_attachment_types = list(/obj/item/attachable/stock/t27, /obj/item/attachable/scope/unremovable/mmg)

@@ -34,6 +34,22 @@
 	greyscale_config = null
 	colorable_allowed = NONE
 
+/obj/item/attachable/foldable/mp7stock
+	name = "\improper MP-7 machinepistol stock"
+	desc = "A submachinegun stock distributed in small numbers to TGMC forces. Compatible with the MP-19, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl."
+	flags_attach_features = ATTACH_ACTIVATION
+	icon = 'modular_RUtgmc/icons/Marine/marine-weapons.dmi'
+	melee_mod = 5
+	size_mod = 1
+	icon_state = "mp7stock"
+	wield_delay_mod = 0.6 SECONDS
+	scatter_mod = -2
+	accuracy_unwielded_mod = -0.1
+	scatter_unwielded_mod = 4
+
+/obj/item/attachable/foldable/mp7stock/p19
+	name = "\improper P-19 \"Bizon\" submachinegun stock"
+
 /obj/item/attachable/foldable/t35stock
 	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'
 	greyscale_config = null
@@ -118,3 +134,6 @@
 	if(target == user && !user.do_self_harm)
 		return
 	return ..()
+
+/obj/item/attachable/flamer_nozzle
+	icon = 'modular_RUtgmc/icons/Marine/attachments_64.dmi'

@@ -89,3 +89,60 @@
 	caliber = CALIBER_10x27_CASELESS
 	current_rounds = 200
 	max_rounds = 200
+
+/obj/item/ammo_magazine/packet/standardautoshotgun
+	name = "box of 16 Gauge shotgun buckshot shells"
+	desc = "A box containing 16 Gauge buckshot shells."
+	icon_state = "box_16gbuck"
+	default_ammo = /datum/ammo/bullet/shotgun/g16_buckshot
+	caliber = CALIBER_16G
+	current_rounds = 60
+	max_rounds = 60
+
+/obj/item/ammo_magazine/packet/standardautoshotgun/slug
+	name = "box of 16 Gauge shotgun slug shells"
+	desc = "A box containing 16 Gauge slug shells."
+	icon_state = "box_16gslug"
+	default_ammo = /datum/ammo/bullet/shotgun/g16_slug
+	caliber = CALIBER_16G
+
+/obj/item/ammo_magazine/packet/standardautoshotgun/flechette
+	name = "box of 16 Gauge shotgun flechette shells"
+	desc = "A box containing 16 Gauge flechette shells."
+	icon_state = "box_16gflech"
+	default_ammo = /datum/ammo/bullet/shotgun/g16_flechette
+	default_ammo = null
+
+/obj/item/ammo_magazine/packet/standardautoshotgun/incendiary
+	name = "box of 16 Gauge shotgun dragonbreath"
+	desc = "A box containing 16 Gauge dragonbreath shells."
+	icon_state = "box_16gdrag"
+	default_ammo = /datum/ammo/bullet/shotgun/g16_incendiary
+	caliber = CALIBER_16G
+
+/obj/item/ammo_magazine/packet/acp40
+	desc = "A packet containing 150 rounds of 40ACP."
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "box_40acp"
+	caliber = CALIBER_40ACP
+	current_rounds = 150
+	max_rounds = 150
+	default_ammo = /datum/ammo/bullet/smg/acp40
+
+/obj/item/ammo_magazine/packet/acpl40
+	desc = "A packet containing 200 rounds of 40ACPL."
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "box_40acpl"
+	caliber = CALIBER_40ACPL
+	current_rounds = 200
+	max_rounds = 200
+	default_ammo = /datum/ammo/bullet/smg/acp40/low
+
+/obj/item/ammo_magazine/packet/p9x18
+	desc = "A packet containing 250 rounds of 9X18mm."
+	icon = 'modular_RUtgmc/icons/obj/items/ammo.dmi'
+	icon_state = "box_9mm"
+	caliber = CALIBER_9X18
+	current_rounds = 250
+	max_rounds = 250
+	default_ammo = /datum/ammo/bullet/smg/mm9

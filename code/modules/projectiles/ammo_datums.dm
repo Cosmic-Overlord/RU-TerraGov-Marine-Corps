@@ -1004,7 +1004,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/bullet/shotgun/sx16_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 1, knockback = 1)
-
+/* RUTGMC MOVED TO MODULE
 /datum/ammo/bullet/shotgun/tx15_flechette
 	name = "shotgun flechette shell"
 	handful_icon_state = "shotgun flechette shell"
@@ -1036,7 +1036,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/bullet/shotgun/tx15_slug/on_hit_mob(mob/M, obj/projectile/P)
 	staggerstun(M, P, slowdown = 2, knockback = 1)
-
+*/
 /datum/ammo/bullet/shotgun/mbx900_buckshot
 	name = "light shotgun buckshot shell" // If .410 is the smallest shotgun shell, then...
 	handful_icon_state = "light shotgun buckshot shell"
@@ -1361,14 +1361,15 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/bullet/turret
 	name = "autocannon bullet"
-	bullet_color = COLOR_SOFT_RED
+	bullet_color = COLOR_PALE_GREEN_GRAY
 	hud_state = "rifle"
 	hud_state_empty = "rifle_empty"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_SENTRY
 	accurate_range = 10
 	damage = 25
-	penetration = 20
-	damage_falloff = 0.25
+	penetration = 12
+	sundering = 1
+	damage_falloff = 0.5
 
 /datum/ammo/bullet/turret/dumb
 	icon_state = "bullet"
@@ -1380,10 +1381,50 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/bullet/turret/mini
 	name = "small caliber autocannon bullet"
-	damage = 20
-	penetration = 20
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SENTRY
+	bullet_color = COLOR_PALE_BLUE_GRAY
+	damage = 15
+	accurate_range = 7
+	penetration = 5
+	sundering = 0
+	damage_falloff = 0.5
 
+/datum/ammo/bullet/turret/sniper
+	name = "antimaterial bullet"
+	bullet_color = COLOR_CYAN
+	accurate_range = 16
+	damage = 70
+	penetration = 40
+	shell_speed = 4
+	sundering = 5
+
+/datum/ammo/bullet/turret/buckshot
+	name = "turret buckshot shell"
+	icon_state = "buckshot"
+	bullet_color = COLOR_SOMEWHAT_LIGHTER_RED
+	hud_state = "shotgun_buckshot"
+	bonus_projectiles_type = /datum/ammo/bullet/turret/spread
+	bonus_projectiles_amount = 6
+	bonus_projectiles_scatter = 4
+	shell_speed = 2
+	max_range = 10
+	damage = 20
+	penetration = 40
+	damage_falloff = 2
+
+/datum/ammo/bullet/turret/buckshot/on_hit_mob(mob/M,obj/projectile/P)
+	staggerstun(M, P, knockback = 1, max_range = 4)
+
+/datum/ammo/bullet/turret/spread
+	name = "additional buckshot"
+	bullet_color = COLOR_SOMEWHAT_LIGHTER_RED
+	max_range = 10
+	damage = 20
+	penetration = 40
+	damage_falloff = 1
+
+/datum/ammo/flamethrower/turret
+	max_range = 8
+	damage = 50
 
 /datum/ammo/bullet/machinegun //Adding this for the MG Nests (~Art)
 	name = "machinegun bullet"

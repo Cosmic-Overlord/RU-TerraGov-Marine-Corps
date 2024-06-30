@@ -6,6 +6,10 @@
 			HOOD = TRUE,
 			HIGHLIGHT_VARIANTS = list(
 				"long",
+				"long_line",
+				"long_skull",
+				"long_arrow",
+				"long_medic",
 				"none",
 			),
 		),
@@ -35,5 +39,9 @@
 	colorable_colors = CAPE_PALETTES_LIST
 	icon_state_variants = list(
 		"long",
+		"long_line",
+		"long_medic",
+		"long_skull",
+		"long_arrow",
 		"none",
 	)

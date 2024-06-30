@@ -714,6 +714,7 @@
 		/obj/item/cell/high,
 		/obj/item/lightreplacer,
 		/obj/item/circuitboard/apc,
+		/obj/item/weapon/gun/sentry/big_sentry,
 	)
 
 /obj/effect/vendor_bundle/smartgunner_pistol

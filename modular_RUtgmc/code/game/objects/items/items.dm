@@ -2,6 +2,9 @@
 	///Current hair concealing option selected.
 	var/current_hair_concealment
 
+	///If TRUE you cant deploy item next to another deployable in 5x5 tile radius.
+	var/near_lock
+
 /obj/item/color_item(obj/item/facepaint/paint, mob/living/carbon/human/user)
 
 	if(paint.uses < 1)

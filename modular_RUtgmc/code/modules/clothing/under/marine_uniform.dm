@@ -60,3 +60,39 @@
 	name = "\improper Combat uniform TU-32"
 	desc = "Protective, reinforced with Kevlar fiber with rubberized metal inserts, this 'separatist' combat kit has proven its reliability in many situations of unrest among the civilian population after the capture of the colonies of Terra. In memory of the victims of the militia, this set was delivered to the Marine Corps ship TerraGov."
 	icon_state = "separatist"
+
+//////////
+////////// ERT
+//////////
+
+/obj/item/clothing/under/marine/veteran/pmcnew
+	name = "\improper PMC fatigues"
+	desc = "A white set of fatigues, designed for private security operators. The symbol of the Nanotrasen corporation is emblazed on the suit."
+	icon = 'modular_RUtgmc/icons/obj/clothing/ert_uniforms.dmi'
+	icon_state = "pmc_jumpsuit"
+	item_icons = list(
+		slot_w_uniform_str = 'modular_RUtgmc/icons/mob/clothing/ert_uniforms.dmi',
+	)
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
+
+/obj/item/clothing/under/marine/veteran/pmcnew/d
+	icon_state = "pmc_jumpsuit_d"
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
+
+/obj/item/clothing/under/marine/veteran/pmcnew/engineer
+	icon_state = "engineer_jumpsuit"
+
+/obj/item/clothing/under/marine/veteran/pmcnew/holster
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
+
+/obj/item/clothing/under/marine/veteran/pmcnew/medic
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
+
+/obj/item/clothing/under/marine/veteran/pmcnew/leader
+	icon_state = "leader_jumpsuit"
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
+
+/obj/item/clothing/under/marine/veteran/pmcnew/leader/d
+	icon_state = "leader_jumpsuit_d"
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)

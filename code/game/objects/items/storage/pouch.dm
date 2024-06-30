@@ -625,7 +625,7 @@
 	desc = "An eye catching white medical pouch capable of holding all your surgical tools."
 	icon_state = "surgery"
 	sprite_slots = 1
-	storage_slots = 12
+	storage_slots = 11 //RUTGMC EDIT 12 -> 11
 	max_storage_space = 24
 	can_hold = list(
 		/obj/item/tool/surgery,

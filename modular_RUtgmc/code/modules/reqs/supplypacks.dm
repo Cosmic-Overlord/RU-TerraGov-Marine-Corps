@@ -15,6 +15,20 @@ OPERATIONS
 WEAPONS
 *******************************************************************************/
 
+/datum/supply_packs/weapons/g16_incendiary
+	name = "16G Dragonbreath Ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/standardautoshotgun/incendiary)
+	cost = 300
+
+/datum/supply_packs/weapons/g16_incendiary
+	name = "16G SH-15 Dragonbreath magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/tx15_incendiary)
+	cost = 50
+
+/datum/supply_packs/weapons/g16_incendiary
+	name = "16G SH-24 Dragonbreath magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/tx24_incendiary)
+	cost = 75
 /datum/supply_packs/weapons/vector
 	name = "Vector"
 	contains = list(/obj/item/weapon/gun/smg/vector)
@@ -24,6 +38,26 @@ WEAPONS
 	name = "Vector drum magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector)
 	cost = 5
+
+/datum/supply_packs/weapons/ump45
+	name = "UMP-45"
+	contains = list(/obj/item/weapon/gun/smg/ump45)
+	cost = 75
+
+/datum/supply_packs/weapons/ammo_magazine/ump45/ex
+	name = "UMP-45 extended magazine"
+	contains = list(/obj/item/ammo_magazine/smg/ump45/ext)
+	cost = 12
+
+/datum/supply_packs/weapons/mp7
+	name = "MP-7"
+	contains = list(/obj/item/weapon/gun/smg/mp7_new)
+	cost = 75
+
+/datum/supply_packs/weapons/p19
+	name = "P-19 \"Bizon\""
+	contains = list(/obj/item/weapon/gun/smg/p19bizon)
+	cost = 75
 
 /datum/supply_packs/weapons/valihalberd
 	name = "VAL-HAL-A"
@@ -321,6 +355,111 @@ MEDICAL
 	cost = 60
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
+
+/datum/supply_packs/medical/ai2
+	name = "\"АИ-2\" first aid kit"
+	notes = "Contains cheap individual medical kit with rare and useful reagents."
+	contains = list(/obj/item/storage/ai2)
+	cost = 125
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/deployable_optable
+	name = "Deployable operating table"
+	notes = "Contains an operating table that can be transported and deployed for medical procedures."
+	contains = list(/obj/item/deployable_optable)
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/dartgun
+	name = "DP-2 Dart Gun belt"
+	notes = "Contains a purpose built belt-holster assembly that holds a DP-2 dart gun and 5 dart boxes."
+	contains = list(/obj/item/storage/holster/belt/dartgun/full)
+	cost = 150
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/hypervene_dartbox
+	name = "Hypervene Dart Box"
+	notes = "Contains a box with 4 hanfuls of hypervene darts, total 20"
+	contains = list(/obj/item/storage/dartbox/hypervene)
+	cost = 25
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/tramadol_dartbox
+	name = "Tramadol Dart Box"
+	notes = "Contains a box with 4 hanfuls of tramadol darts, total 20"
+	contains = list(/obj/item/storage/dartbox/tramadol)
+	cost = 25
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/dylovene_dartbox
+	name = "Dylovene Dart Box"
+	notes = "Contains a box with 4 hanfuls of dylovene darts, total 20"
+	contains = list(/obj/item/storage/dartbox/dylovene)
+	cost = 25
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/bicaridine_dartbox
+	name = "Bicaridine Dart Box"
+	notes = "Contains a box with 4 hanfuls of bicaridine darts, total 20"
+	contains = list(/obj/item/storage/dartbox/bicaridine)
+	cost = 50
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/kelotane_dartbox
+	name = "Kelotane Dart Box"
+	notes = "Contains a box with 4 hanfuls of kelotane darts, total 20"
+	contains = list(/obj/item/storage/dartbox/kelotane)
+	cost = 50
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/tricordrazine_dartbox
+	name = "Tricordrazine Dart Box"
+	notes = "Contains a box with 4 hanfuls of tricordrazine darts, total 20"
+	contains = list(/obj/item/storage/dartbox/tricordrazine)
+	cost = 50
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/inaprovaline_dartbox
+	name = "Inaprovaline Dart Box"
+	notes = "Contains a box with 4 hanfuls of inaprovaline darts, total 20"
+	contains = list(/obj/item/storage/dartbox/inaprovaline)
+	cost = 75
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/combat_dartbox
+	name = "Combat Dart Box"
+	notes = "Contains a box with 4 hanfuls of combat darts, total 20"
+	contains = list(/obj/item/storage/dartbox/combat)
+	cost = 125
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/synaptizine_dartbox
+	name = "Synaptizine Dart Box"
+	notes = "Contains a box with 4 hanfuls of synaptizine darts, total 20"
+	contains = list(/obj/item/storage/dartbox/synaptizine)
+	cost = 150
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/russian_red_dartbox
+	name = "Russian Red Dart Box"
+	notes = "Contains a box with 4 hanfuls of russian red darts, total 20"
+	contains = list(/obj/item/storage/dartbox/russian_red)
+	cost = 150
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/meraderm_dartbox
+	name = "Meraderm Dart Box"
+	notes = "Contains a box with 4 hanfuls of meraderm red darts, total 20"
+	contains = list(/obj/item/storage/dartbox/meraderm)
+	cost = 250
+	containertype = /obj/structure/closet/crate/secure/surgery
+
+/datum/supply_packs/medical/neuraline_dartbox
+	name = "Neuraline Dart Box"
+	notes = "Contains a box with 4 hanfuls of neuraline red darts, total 20"
+	contains = list(/obj/item/storage/dartbox/neuraline)
+	cost = 400
+	containertype = /obj/structure/closet/crate/secure/surgery
 
 /datum/supply_packs/medical/advanced_medical_kits
 	name = "Advanced medical kits"

@@ -19,6 +19,8 @@
 
 	///Time of last alert
 	var/last_alert = 0
+	///Time of last fire
+	var/last_fire = 0
 	///Time of last damage alert
 	var/last_damage_alert = 0
 
@@ -336,25 +338,25 @@
 		if(SENTRY_ALERT_HOSTILE)
 			if(world.time < (last_alert + SENTRY_ALERT_DELAY))
 				return
-			notice = "<b>ALERT! [src] detected Hostile/Unknown: [mob.name] at: [AREACOORD_NO_Z(src)].</b>"
+			notice = "<b>ALERT /// [src] /// [get_area_name(src, TRUE)] /// HOSTILE DETECTED</b>"
 			last_alert = world.time
 		if(SENTRY_ALERT_AMMO)
 			if(world.time < (last_damage_alert + SENTRY_ALERT_DELAY))
 				return
-			notice = "<b>ALERT! [src]'s ammo depleted at: [AREACOORD_NO_Z(src)].</b>"
+			notice = "<b>ALERT /// [src] /// [get_area_name(src, TRUE)] /// NO AMMO</b>"
 			last_damage_alert = world.time
 		if(SENTRY_ALERT_FALLEN)
-			notice = "<b>ALERT! [src] has been knocked over at: [AREACOORD_NO_Z(src)].</b>"
+			notice = "<b>ALERT /// [src] /// [get_area_name(src, TRUE)] /// KNOCKED OVER</b>"
 		if(SENTRY_ALERT_DAMAGE)
 			if(world.time < (last_damage_alert + SENTRY_DAMAGE_ALERT_DELAY))
 				return
-			notice = "<b>ALERT! [src] has taken damage at: [AREACOORD_NO_Z(src)]. Remaining Structural Integrity: ([obj_integrity]/[max_integrity])[obj_integrity < 50 ? " CONDITION CRITICAL!!" : ""]</b>"
+			playsound(loc, 'modular_RUtgmc/sound/machines/alarm.ogg', 100, 1)
+			notice = "<b>ALERT /// [src] /// [get_area_name(src, TRUE)]. /// DAMAGED ([obj_integrity]/[max_integrity])</b>"
 			last_damage_alert = world.time
 		if(SENTRY_ALERT_DESTROYED)
-			notice = "<b>ALERT! [src] at: [AREACOORD_NO_Z(src)] has been destroyed!</b>"
+			notice = "<b>ALERT /// [src] /// [get_area_name(src, TRUE)] /// DESTROYED</b>"
 
-	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
-	radio.talk_into(src, "[notice]", FREQ_COMMON)
+	radio.talk_into(src, "[notice]", RADIO_CHANNEL_ENGINEERING)
 
 
 /obj/machinery/deployable/mounted/sentry/process()
@@ -365,7 +367,6 @@
 		firing = FALSE
 		update_minimap_icon()
 		return
-	playsound(loc, 'sound/items/detector.ogg', 25, FALSE)
 
 	sentry_start_fire()
 
@@ -374,7 +375,7 @@
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	potential_targets.Cut()
 	if(!gun)
-		return length(potential_targets)
+		return FALSE
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
 		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal) || HAS_TRAIT(nearby_human, TRAIT_TURRET_HIDDEN)) //RU TGMC EDIT
 			continue
@@ -412,9 +413,10 @@
 ///Sees if theres a target to shoot, then handles firing.
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	var/mob/living/target = get_target()
+	var/atom/target = get_target()
+	sentry_alert(SENTRY_ALERT_HOSTILE, target)
 	update_icon()
-	if(!target || get_dist(src, target) > range)
+	if(!target)
 		gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
@@ -423,6 +425,11 @@
 		gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
+
+	if(world.time >= (last_fire + 30 SECONDS))
+		playsound(loc, 'modular_RUtgmc/sound/machines/sentry_warn.ogg', 75, FALSE)
+		sleep(5)
+
 	if(!gun.rounds)
 		sentry_alert(SENTRY_ALERT_AMMO)
 		return
@@ -431,12 +438,15 @@
 	if(HAS_TRAIT(gun, TRAIT_GUN_BURST_FIRING))
 		gun.set_target(target)
 		return
+	last_fire = world.time
 	gun.start_fire(src, target, bypass_checks = TRUE)
 	firing = TRUE
 	update_minimap_icon()
 
 ///Checks the path to the target for obstructions. Returns TRUE if the path is clear, FALSE if not.
 /obj/machinery/deployable/mounted/sentry/proc/check_target_path(atom/target)
+	if(target.loc == loc)
+		return TRUE
 	var/list/turf/path = getline(src, target)
 	var/turf/starting_turf = get_turf(src)
 	var/turf/target_turf = path[length(path)-1]
@@ -452,6 +462,8 @@
 				break
 			if(i==2)
 				return FALSE
+
+	var/obj/item/weapon/gun/gun = get_internal_item()
 	for(var/turf/T AS in path)
 		var/obj/effect/particle_effect/smoke/smoke = locate() in T
 		if(smoke?.opacity)
@@ -460,36 +472,29 @@
 		if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE) && !(T.type in ignored_terrains))
 			return FALSE
 
-		for(var/obj/machinery/MA in T)
-			if(MA.density && !(MA.allow_pass_flags & PASS_PROJECTILE) && !(MA.type in ignored_terrains))
+		for(var/atom/movable/AM AS in T)
+			if(AM.opacity)
 				return FALSE
-
-		for(var/obj/structure/S in T)
-			if(S.density && !(S.allow_pass_flags & PASS_PROJECTILE) && !(S.type in ignored_terrains))
+			if(!AM.density)
+				continue
+			if(ismob(AM))
+				continue
+			if(!(AM.allow_pass_flags & (gun.ammo_datum_type::flags_ammo_behavior & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE) && !(AM.type in ignored_terrains))) //todo:accurately populate ignored_terrains
 				return FALSE
 
 	return TRUE
 
 ///Works through potential targets. First checks if they are in range, and if they are friend/foe. Then checks the path to them. Returns the first eligable target.
 /obj/machinery/deployable/mounted/sentry/proc/get_target()
-	var/distance = range + 0.5 //we add 0.5 so if a potential target is at range, it is accepted by the system
-	var/buffer_distance
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	for (var/atom/nearby_target AS in potential_targets)
+	for(var/atom/nearby_target AS in potential_targets)
+		if(nearby_target.loc == loc)
+			return nearby_target
+
 		if(!(get_dir(src, nearby_target) & dir) && !CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL))
 			continue
-
-		buffer_distance = get_dist(nearby_target, src)
-
-		if (distance <= buffer_distance)
-			continue
-
 		if(!check_target_path(nearby_target))
 			continue
-
-		sentry_alert(SENTRY_ALERT_HOSTILE, nearby_target)
-
-		distance = buffer_distance
 		return nearby_target
 
 /obj/machinery/deployable/mounted/sentry/disassemble(mob/user)
@@ -521,7 +526,7 @@
 	var/obj/item/internal_sentry = get_internal_item()
 	if(internal_sentry)
 		name = "Deployed " + internal_sentry.name
-	icon = 'icons/Marine/sentry.dmi'
+	icon = 'modular_ruTGMC/icons/Marine/sentry.dmi'
 	default_icon_state = "build_a_sentry"
 	update_icon()
 
@@ -529,7 +534,7 @@
 	. = ..()
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
 	if(internal_gun)
-		. += image('icons/Marine/sentry.dmi', src, internal_gun.placed_overlay_iconstate, dir = dir)
+		. += image('modular_ruTGMC/icons/Marine/sentry.dmi', src, internal_gun.placed_overlay_iconstate, dir = dir)
 
 
 //Throwable turret

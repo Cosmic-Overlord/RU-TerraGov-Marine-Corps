@@ -171,6 +171,11 @@
 
 	if(!istype(I, /obj/item/cell))
 		return
+		//RUTGMC ADD BEGIN
+	if(istype(I, /obj/item/cell/night_vision_battery))
+		balloon_alert(user, "Not rechargeable")
+		return
+		//RUTGMC ADD END
 	if(I != user.r_hand && I != user.l_hand)
 		to_chat(user, span_warning("[I] must be in your hand to do that."))
 		return

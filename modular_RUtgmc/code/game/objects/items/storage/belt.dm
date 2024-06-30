@@ -48,6 +48,42 @@
 		/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack,
 	)
 
+/obj/item/storage/holster/belt/dartgun
+	name = "\improper DP-2 Dart Gun holster rig"
+	desc = "A purpose built belt-holster assembly that holds a DP-2 dart gun and 5 dart boxes."
+	icon = 'modular_RUtgmc/icons/obj/clothing/belts.dmi'
+	icon_state = "belt_dart_gun"
+	max_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	storage_slots = 6
+	max_storage_space = 18
+	can_hold = list(
+		/obj/item/weapon/gun/shotgun/dart_pistol,
+		/obj/item/storage/dartbox,
+	)
+	holsterable_allowed = list(/obj/item/weapon/gun/shotgun/dart_pistol)
+
+/obj/item/storage/holster/belt/dartgun/full/Initialize(mapload)
+	. = ..()
+	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/shotgun/dart_pistol(src)
+	new /obj/item/storage/dartbox/bicaridine(src)
+	new /obj/item/storage/dartbox/kelotane(src)
+	new /obj/item/storage/dartbox/tricordrazine(src)
+	new /obj/item/storage/dartbox/tramadol(src)
+	new /obj/item/storage/dartbox/dylovene(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
+
+/obj/item/storage/holster/belt/dartgun/pmc_full/Initialize(mapload)
+	. = ..()
+	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/shotgun/dart_pistol(src)
+	new /obj/item/storage/dartbox/combat(src)
+	new /obj/item/storage/dartbox/synaptizine(src)
+	new /obj/item/storage/dartbox/russian_red(src)
+	new /obj/item/storage/dartbox/dylovene(src)
+	new /obj/item/storage/dartbox/inaprovaline(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
+
 /obj/item/storage/belt/grenade/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
+

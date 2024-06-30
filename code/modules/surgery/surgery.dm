@@ -208,6 +208,10 @@ GLOBAL_LIST_INIT(surgery_steps, init_surgery())
 		var/step_duration = max(0.5 SECONDS, rand(surgery_step.min_duration, surgery_step.max_duration) - 1 SECONDS * user.skills.getRating(SKILL_SURGERY))
 		if(locate(/obj/machinery/optable) in M.loc)
 			step_duration = max(0.5 SECONDS, surgery_step.min_duration - 1 SECONDS * user.skills.getRating(SKILL_SURGERY))
+		//RUTGMC ADDITION BEGIN
+		if(locate(/obj/machinery/deployable/optable) in M.loc)
+			step_duration = max(0.5 SECONDS, surgery_step.min_duration - 1 SECONDS * user.skills.getRating(SKILL_SURGERY))
+		//RUTGMC ADDITION END
 
 		//Multiply tool success rate with multipler
 		if(do_after(user, step_duration, NONE, M, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(user, TYPE_PROC_REF(/mob, break_do_after_checks), null, null, user.zone_selected)) && prob(surgery_step.tool_quality(tool) * CLAMP01(multipler)))

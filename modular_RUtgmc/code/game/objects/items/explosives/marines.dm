@@ -1,6 +1,11 @@
+/obj/item/explosive/grenade
+	icon_state = "grenade_ru" //No path changes, cause I'm lazy to change almost all in-game grenades
+
 /obj/item/explosive/grenade/pmc
 	power = 125
 	falloff = 40
+
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
 
 /obj/item/explosive/grenade/pmc/prime()
 	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
@@ -10,9 +15,115 @@
 	power = 125
 	falloff = 40
 
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
 /obj/item/explosive/grenade/m15/prime()
 	create_shrapnel(loc, 15, shrapnel_spread = 30, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
 	return ..()
+
+/obj/item/explosive/grenade/stick
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+/obj/item/explosive/grenade/upp
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+/obj/item/explosive/grenade/phosphorus/upp
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+/obj/item/explosive/grenade/impact
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "blue"
+
+/obj/item/explosive/grenade/incendiary
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "orange"
+
+/obj/item/explosive/grenade/incendiary/som
+	icon = 'icons/obj/items/grenade.dmi'
+	overlay_type = "orange"
+
+/obj/item/explosive/grenade/incendiary/molotov
+	overlay_type = null
+
+/obj/item/explosive/grenade/ags
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+/obj/item/explosive/grenade/smokebomb/cloak/ags
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "green"
+
+/obj/item/explosive/grenade/smokebomb/drain/agls
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "purple"
+
+/obj/item/explosive/grenade/mirage
+	overlay_type = null
+
+/obj/item/explosive/grenade/smokebomb
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+	icon_state = "grenade_m18"
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+
+	overlay_type = "white"
+
+/obj/item/explosive/grenade/smokebomb/neuro
+	icon = 'icons/obj/items/grenade.dmi'
+
+	overlay_type = "orange"
+
+/obj/item/explosive/grenade/smokebomb/satrapine
+	icon = 'icons/obj/items/grenade.dmi'
+
+/obj/item/explosive/grenade/smokebomb/som
+	icon = 'icons/obj/items/grenade.dmi'
+
+	overlay_type = "cyan"
+
+/obj/item/explosive/grenade/smokebomb/acid
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "aqua"
+
+/obj/item/explosive/grenade/smokebomb/cloak
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "green"
+
+/obj/item/explosive/grenade/smokebomb/drain
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+	icon_state_mini = "grenade_purple"
+
+	overlay_type = "purple"
+
+/obj/item/explosive/grenade/rad
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "green"
+
+/obj/item/explosive/grenade/chem_grenade/razorburn_smol
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "yellow"
+
+/obj/item/explosive/grenade/chem_grenade/razorburn_large
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+
+	overlay_type = "yellow"
+
+/obj/item/explosive/grenade/empgrenade
+	overlay_type = "blue"
+
+/obj/item/explosive/grenade/phosphorus
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+	arm_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_pinout4.ogg'
+	G_hit_sound = 'modular_RUtgmc/sound/weapons/grenade/grenade_hit4.ogg'
+  
+	overlay_type = "cyan"
 
 /obj/item/explosive/grenade/sectoid
 	power = 150
@@ -25,6 +136,12 @@
 	power = 90
 	falloff = 40
 
+	overlay_type = "yellow"
+
+/obj/item/explosive/grenade/training
+	icon = 'modular_RUtgmc/icons/obj/items/grenade.dmi'
+	overlay_type = null
+
 /obj/item/explosive/grenade/sticky/trailblazer
 	icon_state_mini = "grenade_trailblazer"
 	var/fire_level = 25
@@ -32,6 +149,8 @@
 	var/fire_color = "red"
 	var/our_fire_stacks = 0
 	var/our_fire_damage = 0
+
+	overlay_type = null
 
 /obj/item/explosive/grenade/sticky/trailblazer/stuck_to(atom/hit_atom)
 	. = ..()
@@ -54,6 +173,8 @@
 	fire_level = 45
 	burn_level = 45
 	fire_color = "blue"
+
+	overlay_type = null
 
 /obj/item/explosive/grenade/sticky/trailblazer/phosphorus/activate(mob/user)
 	. = ..()
@@ -100,3 +221,18 @@
 	upper_fuel_limit = 750 // 750 * 2 (ticks) / 60 (seconds) = 25 minutes
 	G_hit_sound = null
 	G_throw_sound = null
+
+	overlay_type = null
+
+/obj/item/explosive/grenade/chem_grenade/metalfoam
+	overlay_type = null
+
+/obj/item/explosive/grenade/chem_grenade/antiweed
+	overlay_type = null
+
+/obj/item/explosive/grenade/chem_grenade/cleaner
+	overlay_type = null
+
+/obj/item/explosive/grenade/smokebomb/xeno
+	icon = 'icons/obj/items/grenade.dmi'
+	overlay_type = "purple"

@@ -451,7 +451,10 @@
 	///The battery inside
 	var/obj/item/cell/night_vision_battery/battery
 	///How much energy this module needs when activated
+	/* ORIGINAL
 	var/active_energy_cost = 4	//Little over 4 minutes of use
+	*/
+	var/active_energy_cost = 1.5	//RUTGMC EDIT
 	///Looping sound to play
 	var/datum/looping_sound/active_sound = /datum/looping_sound/scan_pulse
 	///How loud the looping sound should be
@@ -575,3 +578,11 @@
 /obj/item/clothing/glasses/night_vision/mounted/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, NIGHT_VISION_GOGGLES_TRAIT)
+
+/obj/item/clothing/glasses/night_vision/pmc
+	icon = 'modular_RUtgmc/icons/obj/clothing/glasses.dmi'
+	icon_state = "night_vision_pmc"
+	deactive_state = "night_vision_pmc_off"
+	item_icons = list(
+		slot_glasses_str = 'modular_RUtgmc/icons/mob/clothing/eyes.dmi'
+	)

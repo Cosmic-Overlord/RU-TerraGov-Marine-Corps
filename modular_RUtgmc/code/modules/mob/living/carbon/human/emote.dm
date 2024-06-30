@@ -251,3 +251,12 @@
 	message = "qahuuuuu!"
 	emote_type = EMOTE_AUDIBLE
 	sound = 'modular_RUtgmc/sound/voice/necoarc/Neco quiajuuubn.ogg'
+
+/datum/emote/living/carbon/human/gulp
+	key = "gulp"
+	key_third_person = "gulp"
+	message = "nervous gulp."
+	emote_type = EMOTE_VISIBLE
+	sound = 'modular_RUtgmc/sound/misc/gulp.ogg'
+
+

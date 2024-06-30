@@ -1,7 +1,7 @@
 /obj/machinery/camera
 	name = "security camera"
 	desc = "It's used to monitor rooms."
-	icon = 'icons/obj/machines/monitors.dmi'
+	icon = 'modular_RUtgmc/icons/obj/machines/monitors.dmi' //RUTGMC EDIT
 	icon_state = "camera_icon"
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 5
@@ -319,7 +319,9 @@
 	. = ..()
 	if(obj_integrity <= 0)
 		return
+	/* RUTGMC DELETION
 	. += emissive_appearance(icon, "[icon_state]_emissive")
+	*/
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
 /obj/machinery/camera/autoname/Initialize(mapload)

@@ -87,6 +87,7 @@
 
 /obj/structure/largecrate/supply
 	name = "supply crate"
+	icon = 'modular_RUtgmc/icons/obj/structures/crates.dmi' // RUTGMC ADDON
 	var/list/supplies = list()
 
 /obj/structure/largecrate/supply/Initialize(mapload)
