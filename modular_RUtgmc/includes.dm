@@ -4,6 +4,7 @@
 #include "code\_globalvars\lists\mapping.dm"
 #include "code\_globalvars\lists\mobs.dm"
 #include "code\_globalvars\lists\objects.dm"
+#include "code\_onclick\item_attack.dm"
 #include "code\_onclick\xeno.dm"
 #include "code\_onclick\hud\hud.dm"
 #include "code\_onclick\hud\screen_objects\menu_text_objects.dm"

@@ -36,3 +36,10 @@
 	if(mention_charge && amount > 0)
 		balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
 	update_plasmacutter()
+
+//Called before any other attack proc.
+/obj/item/tool/pickaxe/plasmacutter/preattack(atom/target, mob/user, params)
+	if(issynth(user) && isxeno(target)) // in theory we could add a flag that does this instead of copying proc for every item, but its just 2 currently
+		to_chat(user, span_warning("Your program prohibits you from doing this!"))
+		return TRUE
+	return FALSE

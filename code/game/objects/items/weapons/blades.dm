@@ -327,6 +327,9 @@
 	SIGNAL_HANDLER
 	if(living_user.get_active_held_item() != src) // If the object in our active hand is not a throwing knife, abort
 		return
+	if(issynth(living_user)) // RUTGMC ADDITION START
+		to_chat(living_user, span_warning("Your program prohibits you from doing this!"))
+		return // RUTGMC ADDITION END
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] || modifiers["ctrl"])
 		return

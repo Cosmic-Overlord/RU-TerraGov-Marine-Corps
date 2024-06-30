@@ -44,3 +44,51 @@
 	take_overall_damage(severity * 0.5, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
 	take_overall_damage(severity * 0.5, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
 	explosion_throw(severity, direction)
+
+/mob/living/carbon/human/throw_item(atom/target)
+	throw_mode_off()
+	if(is_ventcrawling) //NOPE
+		return
+	if(stat || !target)
+		return
+	if(target.type == /atom/movable/screen)
+		return
+
+	var/atom/movable/thrown_thing
+	var/obj/item/I = get_active_held_item()
+
+	if(!I || HAS_TRAIT(I, TRAIT_NODROP))
+		return
+
+	if(issynth(usr) && I.throwforce > 15)
+		to_chat(usr, span_warning("Your program prohibits you from doing this!"))
+		return
+
+	var/spin_throw = TRUE
+	if(isgrabitem(I))
+		spin_throw = FALSE
+
+	//real item in hand, not a grab
+	thrown_thing = I.on_thrown(src, target)
+
+	//actually throw it!
+	if(!thrown_thing)
+		return
+
+	var/list/throw_modifiers = list()
+	throw_modifiers["targetted_throw"] = TRUE
+	throw_modifiers["range_modifier"] = 0
+	throw_modifiers["speed_modifier"] = 0
+	SEND_SIGNAL(src, COMSIG_MOB_THROW, target, thrown_thing, throw_modifiers)
+
+	if(!lastarea)
+		lastarea = get_area(src.loc)
+	if(isspaceturf(loc))
+		inertia_dir = get_dir(target, src)
+		step(src, inertia_dir)
+
+	visible_message(span_warning("[src] has thrown [thrown_thing]."), null, null, 5)
+
+	playsound(src, 'sound/effects/throw.ogg', 30, 1)
+
+	thrown_thing.throw_at(target, thrown_thing.throw_range + throw_modifiers["range_modifier"], max(1, thrown_thing.throw_speed + throw_modifiers["speed_modifier"]), src, spin_throw, !throw_modifiers["targetted_throw"], throw_modifiers["targetted_throw"])
