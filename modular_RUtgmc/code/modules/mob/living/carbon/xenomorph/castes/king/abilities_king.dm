@@ -62,3 +62,13 @@
 	addtimer(CALLBACK(src, PROC_REF(end_effects), humans), PETRIFY_DURATION)
 	add_cooldown()
 	succeed_activate()
+
+/datum/action/ability/activable/xeno/nightfall
+	desc = "Shut down electrical lights for 10 seconds and extinguish flares in nearby range."
+
+/datum/action/ability/activable/xeno/nightfall/use_ability()
+	. = ..()
+	for(var/obj/item/explosive/grenade/flare/flare in range(range, owner))
+		if(!flare.active)
+			continue
+		flare.turn_off()
