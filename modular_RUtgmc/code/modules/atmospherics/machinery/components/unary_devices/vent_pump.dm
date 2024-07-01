@@ -14,3 +14,6 @@
 	. = ..()
 	if(welded)
 		. += span_notice("It seems welded shut.")
+
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt
+	icon = 'modular_RUtgmc/icons/obj/atmospherics/components/unary_devices.dmi'

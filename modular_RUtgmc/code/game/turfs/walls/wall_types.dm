@@ -4,14 +4,24 @@
 /turf/closed/wall/mainship
 	icon = 'modular_RUtgmc/icons/turf/walls/testwall.dmi'
 
+/turf/closed/wall/mainship/gray
+	icon = 'modular_RUtgmc/icons/turf/walls/gwall.dmi'
+
+/turf/closed/wall/mainship/alt
+	icon = 'modular_RUtgmc/icons/turf/walls/testwall.dmi'
+	icon_state = "testwall-0"
+	walltype = "testwall"
+
+/turf/closed/wall/mainship/outer/alt
+	icon = 'modular_RUtgmc/icons/turf/walls/testwall.dmi'
+	icon_state = "testwall-0"
+	walltype = "testwall"
+
 /turf/closed/wall/r_wall
 	icon = 'modular_RUtgmc/icons/turf/walls/rwall.dmi'
 
 /turf/closed/wall/r_wall/unmeltable/regular
 	icon = 'modular_RUtgmc/icons/turf/walls/regular_wall.dmi'
-
-/turf/closed/wall/mainship/gray
-	icon = 'modular_RUtgmc/icons/turf/walls/gwall.dmi'
 
 /turf/closed/shuttle/escapeshuttle
 	icon = 'modular_RUtgmc/icons/turf/walls/sulaco.dmi'

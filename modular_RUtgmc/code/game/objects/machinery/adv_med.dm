@@ -15,3 +15,9 @@
 /obj/machinery/computer/body_scanconsole/ex_act(severity)
 	if(prob(severity / 3))
 		qdel(src)
+
+/obj/machinery/bodyscanner/alt
+	icon = 'modular_RUtgmc/icons/obj/machines/cryogenics.dmi'
+
+/obj/machinery/computer/body_scanconsole/alt
+	icon = 'modular_RUtgmc/icons/obj/machines/cryogenics.dmi'

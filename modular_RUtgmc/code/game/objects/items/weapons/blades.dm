@@ -131,6 +131,7 @@
 /obj/item/weapon/claymore/tomahawk/dropped(mob/user)
 	. = ..()
 	toggle_item_bump_attack(user, FALSE)
+
 	if(living_user)
 		living_user = null
 		UnregisterSignal(user, COMSIG_MOB_MOUSEDOWN)
@@ -155,3 +156,9 @@
 		living_user.throw_item(get_turf_on_clickcatcher(object, living_user, params))
 		return
 
+/obj/item/weapon/claymore/tomahawk/classic
+	name = "Tomahawk H17"
+	desc = "A specialist tactical weapon, very ancient and beloved by many. Issued to Delta by CAU."
+	icon = 'modular_RUtgmc/icons/obj/items/weapons.dmi'
+	icon_state = "tomahawk_classic"
+	item_state = "tomahawk_classic"
