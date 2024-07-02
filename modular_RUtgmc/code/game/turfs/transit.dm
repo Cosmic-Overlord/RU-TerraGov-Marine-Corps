@@ -66,7 +66,7 @@
 		for(var/atom/movable/content in src)
 			content.handle_airdrop(target_turf)
 		open()
-	. = ..()
+	..()
 
 /obj/item/handle_airdrop(turf/target_turf)
 	. = ..()
@@ -86,7 +86,7 @@
 	if(active)
 		deconstruct(FALSE)
 		return
-	. = ..()
+	..()
 
 /mob/living/handle_airdrop(turf/target_turf)
 	. = ..()
