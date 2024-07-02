@@ -50,7 +50,7 @@
 	forceMove(target_turf)
 	if(isliving(src))
 		var/mob/living/mob = src
-		mob.Knockdown(6 SECONDS) // so the falling mobs are horizontal for the animation
+		mob.Knockdown(0.6 SECONDS) // so the falling mobs are horizontal for the animation
 	animate(src, 0.6 SECONDS, pixel_z = 0, flags = ANIMATION_PARALLEL)
 	target_turf.ceiling_debris(2 SECONDS)
 	sleep(0.6 SECONDS) // so we do stuff like dealing damage and deconstructing only after the animation end
