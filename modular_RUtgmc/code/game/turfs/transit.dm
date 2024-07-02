@@ -53,7 +53,7 @@
 		mob.Knockdown(6 SECONDS) // so the falling mobs are horizontal for the animation
 	animate(src, 0.6 SECONDS, pixel_z = 0, flags = ANIMATION_PARALLEL)
 	target_turf.ceiling_debris(2 SECONDS)
-	sleep(0.6 SECONDS) // so we do the actions below only after the animation ends
+	sleep(0.6 SECONDS) // so we do stuff like dealing damage and deconstructing only after the animation end
 
 /obj/handle_airdrop(turf/target)
 	. = ..()
