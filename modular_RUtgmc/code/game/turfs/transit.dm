@@ -87,12 +87,6 @@
 		return
 	explosion_throw(200) // give it a bit of a kick
 
-/obj/item/explosive/handle_airdrop(turf/target_turf)
-	if(active)
-		deconstruct(FALSE)
-		return
-	..()
-
 /mob/living/handle_airdrop(turf/target_turf)
 	. = ..()
 	remove_status_effect(/datum/status_effect/spacefreeze)
