@@ -1,5 +1,5 @@
 /turf/open/space/transit/Entered(atom/movable/crosser, atom/old_loc, list/atom/old_locs)
-	..()
+	. = ..()
 
 	if(isobserver(crosser) || crosser.anchored)
 		return
@@ -24,7 +24,7 @@
 	//find a random spot to drop them
 	var/list/area/potential_areas = shuffle(SSmapping.areas_in_z["[ground_z_levels[1]]"])
 	for(var/area/potential_area in potential_areas)
-		if(potential_area.flags_area & NO_DROPPOD || potential_area.flags_area & OB_CAS_IMMUNE || !potential_area.outside)
+		if(potential_area.flags_area & NO_DROPPOD || !potential_area.outside) // no dropping inside the caves and etc.
 			continue
 		if(isspacearea(potential_area)) // make sure its not space, just in case
 			continue
@@ -48,13 +48,17 @@
 /atom/movable/proc/handle_airdrop(turf/target_turf)
 	pixel_z = 360
 	forceMove(target_turf)
+	if(isliving(src))
+		var/mob/living/mob = src
+		mob.Knockdown(6 SECONDS) // so the falling mobs are horizontal for the animation animation
 	animate(src, 0.6 SECONDS, pixel_z = 0, flags = ANIMATION_PARALLEL)
 	target_turf.ceiling_debris(2 SECONDS)
 	sleep(0.6 SECONDS) // so we do the actions below only after the animation ends
 
 /obj/handle_airdrop(turf/target)
-	..()
+	. = ..()
 	if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) && prob(30)) // throwing objects from the air is not always a good idea
+		visible_message(span_danger("[src] falls out of the sky and mangles into the uselessness by the impact!"))
 		deconstruct(FALSE)
 
 /obj/structure/closet/handle_airdrop(turf/target_turf) // good idea but no
@@ -65,15 +69,16 @@
 	. = ..()
 
 /obj/item/handle_airdrop(turf/target_turf)
-	..()
+	. = ..()
 	if(QDELETED(src))
 		return
 	if(!CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE) && w_class < WEIGHT_CLASS_NORMAL) //tiny and small items will be lost, good riddance
+		visible_message(span_danger("[src] falls out of the sky and mangles into the uselessness by the impact!"))
 		deconstruct(FALSE)
 		return
 	if(locate(/mob/living) in target_turf)
 		var/mob/living/victim = locate(/mob/living) in target_turf
-		throw_impact(victim, 10)
+		throw_impact(victim, 20)
 		return
 	explosion_throw(200) // give it a bit of a kick
 
@@ -81,29 +86,23 @@
 	if(active)
 		deconstruct(FALSE)
 		return
-	..()
+	. = ..()
 
 /mob/living/handle_airdrop(turf/target_turf)
-	..()
+	. = ..()
 	remove_status_effect(/datum/status_effect/spacefreeze)
-	Paralyze(30 SECONDS)
-	playsound(target_turf, 'sound/effects/bang.ogg', 100, TRUE)
-	playsound(target_turf, "bone_break", 100, TRUE)
+	playsound(target_turf, pick('sound/effects/bang.ogg', 'sound/effects/meteorimpact.ogg'), 75, TRUE)
+	playsound(target_turf, "bone_break", 75, TRUE)
 
 	Knockdown(10 SECONDS)
 	Stun(3 SECONDS)
-	SetParalyzed(0)
 	take_overall_damage(300, BRUTE, BOMB, updating_health = TRUE)
 	take_overall_damage(300, BRUTE, MELEE, updating_health = TRUE)
+	spawn_gibs()
 	visible_message(span_warning("[src] falls out of the sky."), span_highdanger("As you fall out of the sky, you plummet towards the ground."))
 
 /mob/living/carbon/human/handle_airdrop(turf/target_turf)
-	..()
-	spawn_gibs()
+	. = ..()
 	if(istype(wear_suit, /obj/item/clothing/suit/storage/marine/boomvest))
 		var/obj/item/clothing/suit/storage/marine/boomvest/vest = wear_suit
 		vest.boom(usr)
-
-/mob/living/carbon/xenomorph/handle_airdrop(turf/target_turf)
-	..()
-	spawn_gibs()
