@@ -39,7 +39,6 @@
 	..()
 	if(!locate(/obj/structure/lattice) in src) //todo wtf is this even
 		throw_atom(arrived)
-*/
 
 /turf/open/space/transit/proc/throw_atom(atom/movable/AM)
 	set waitfor = FALSE
@@ -85,6 +84,7 @@
 	update_icon()
 	for(var/atom/movable/AM in src)
 		throw_atom(AM)
+*/
 
 /turf/open/space/transit/update_icon()
 	. = ..()
