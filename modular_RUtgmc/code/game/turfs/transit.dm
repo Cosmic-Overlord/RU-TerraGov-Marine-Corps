@@ -1,7 +1,7 @@
 /turf/open/space/transit/Entered(atom/movable/crosser, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
-	if(isobserver(crosser) || crosser.anchored)
+	if(isobserver(crosser) || crosser.anchored || isxenohivemind(crosser))
 		return
 
 	if(!isobj(crosser) && !isliving(crosser))

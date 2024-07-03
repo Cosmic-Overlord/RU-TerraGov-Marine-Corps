@@ -87,6 +87,11 @@
 	. = ..()
 	if(isliving(arrived))
 		var/mob/living/spaceman = arrived
+		if(isxenohivemind(spaceman)) // RUTMGC ADDITION START
+			var/mob/living/carbon/xenomorph/hivemind/hivemind = spaceman
+			to_chat(hivemind, span_xenonotice("We returned to our core to avoid damaging ourselves."))
+			hivemind.return_to_core()
+			return // RUTGMC ADDITION END
 		if(!spaceman.has_status_effect(debuff_type))
 			spaceman.apply_status_effect(debuff_type)
 
