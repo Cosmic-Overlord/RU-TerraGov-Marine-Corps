@@ -34535,6 +34535,12 @@
 	dir = 1
 	},
 /area/mainship/hull/port_hull)
+"uMs" = (
+/obj/item/toy/plush/rouny{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/mainship/hallways/hangar)
 "uMy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -34876,7 +34882,9 @@
 	},
 /area/mainship/squads/req)
 "uXw" = (
-/obj/item/toy/plush/rouny,
+/obj/item/toy/plush/rouny{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "uXx" = (
@@ -73614,7 +73622,7 @@ wfg
 wfg
 kNx
 iwc
-uXw
+uMs
 iwc
 vqV
 fFY
