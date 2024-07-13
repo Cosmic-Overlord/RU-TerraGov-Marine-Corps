@@ -11773,7 +11773,6 @@
 	},
 /obj/item/tool/hand_labeler,
 /obj/machinery/cell_charger,
-/obj/item/tool/pickaxe/plasmacutter,
 /obj/item/cell/hyper,
 /obj/item/clothing/glasses/welding,
 /obj/machinery/light/mainship/small{
