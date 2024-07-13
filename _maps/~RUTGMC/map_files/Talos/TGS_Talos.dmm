@@ -686,7 +686,7 @@
 	},
 /area/mainship/shipboard/brig)
 "aqb" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
 	},
@@ -781,7 +781,7 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/red/alt/full,
 /area/mainship/shipboard/brig)
 "asp" = (
@@ -1077,7 +1077,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/charlie)
 "azG" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
 	},
@@ -1229,7 +1229,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -1308,7 +1308,7 @@
 /turf/open/floor/plating,
 /area/mainship/engineering/ce_room)
 "aDL" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 5
 	},
@@ -2286,7 +2286,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 1
 	},
@@ -2508,7 +2508,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "buL" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/sign/alt/safety/synth_storage{
 	pixel_x = -17;
 	pixel_y = -8
@@ -2601,7 +2601,7 @@
 /area/mainship/hull/upper_hull)
 "bxo" = (
 /obj/machinery/light/mainship,
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
 "bxw" = (
@@ -3012,7 +3012,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/shipboard/ex_firing_range)
 "bJH" = (
-/obj/structure/flora/pottedplant/two,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/starboard_hallway)
 "bJO" = (
@@ -3341,7 +3341,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/command/cic)
 "bSr" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
 	},
@@ -3621,7 +3621,7 @@
 /turf/open/floor/grass,
 /area/mainship/shipboard/firing_range)
 "can" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "cau" = (
@@ -3821,7 +3821,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "cfV" = (
-/obj/structure/flora/pottedplant/eighteen,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "cge" = (
@@ -4774,7 +4774,7 @@
 	},
 /area/mainship/living/grunt_rnr)
 "cHW" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 6
 	},
@@ -5973,7 +5973,7 @@
 /area/mainship/command/self_destruct)
 "drT" = (
 /obj/structure/window/reinforced/toughened,
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/command/cic)
 "drV" = (
@@ -6096,7 +6096,7 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/command/cic)
 "dwX" = (
@@ -6174,7 +6174,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/engineering/port_atmos)
 "dzs" = (
-/obj/structure/flora/pottedplant/thirteen,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 1
 	},
@@ -6581,7 +6581,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/shipboard/firing_range)
 "dMM" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/sign/prop1,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/hallways/bow_hallway)
@@ -6825,7 +6825,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/hangar)
 "dUj" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/door_control/ai/exterior{
 	pixel_x = -30
 	},
@@ -6933,7 +6933,7 @@
 /turf/open/floor/mainship/silver/full,
 /area/mainship/command/telecomms)
 "dXu" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/red/alt{
 	dir = 9
 	},
@@ -6955,7 +6955,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "dYE" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 9
 	},
@@ -8679,7 +8679,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "eVh" = (
@@ -9058,7 +9058,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "fdM" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/numbertwobunks)
 "feD" = (
@@ -9708,7 +9708,7 @@
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "fzF" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	pixel_x = -25
 	},
@@ -10961,7 +10961,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "gxR" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
@@ -11546,7 +11546,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "gSg" = (
@@ -11610,7 +11610,7 @@
 	},
 /area/mainship/medical/lounge)
 "gVo" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 5
 	},
@@ -12472,7 +12472,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/delta)
 "hAW" = (
-/obj/structure/flora/pottedplant/nine,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/cable,
 /turf/open/floor/mainship/red/alt{
 	dir = 4
@@ -12535,7 +12535,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "hDm" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship,
 /obj/effect/turf_decal/siding/metal{
 	dir = 10
@@ -12626,7 +12626,7 @@
 /turf/open/floor/mainship/alt/orange,
 /area/mainship/squads/bravo)
 "hGq" = (
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 8
 	},
@@ -15042,7 +15042,7 @@
 /obj/machinery/firealarm{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/prison/whitepurple/full,
 /area/mainship/medical/medical_science)
 "jhM" = (
@@ -16012,7 +16012,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/engineering/port_atmos)
 "jPp" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/white{
 	color = "#53876F"
 	},
@@ -16214,7 +16214,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/medical/upper_medical)
 "jTC" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "jUp" = (
@@ -16309,7 +16309,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/hangar)
 "jWC" = (
-/obj/structure/flora/pottedplant/twentyfive,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
 "jXe" = (
@@ -16379,7 +16379,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
 "kan" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/red/alt{
 	dir = 6
 	},
@@ -16669,7 +16669,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/delta)
 "kiv" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/prison/whitepurple/full,
 /area/mainship/medical/medical_science)
 "kiG" = (
@@ -16909,7 +16909,7 @@
 /turf/open/floor/mainship/floor/metal/white,
 /area/mainship/medical/chemistry)
 "koh" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -17720,7 +17720,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/hangar)
 "kMs" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
@@ -18171,7 +18171,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "kYM" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/starboard_hallway)
 "kZb" = (
@@ -18302,7 +18302,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "lcB" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "lcC" = (
@@ -19966,7 +19966,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "lTo" = (
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "lTv" = (
@@ -20118,7 +20118,7 @@
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/hallways/bow_hallway)
 "lZn" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "lZo" = (
@@ -20317,7 +20317,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
 "meW" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/sign/alt/safety/fridge{
 	pixel_x = 32
 	},
@@ -20529,7 +20529,7 @@
 /area/mainship/living/cafeteria)
 "mnL" = (
 /obj/structure/window/reinforced,
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -21151,7 +21151,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/air_alarm{
 	dir = 8
 	},
@@ -21440,7 +21440,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/engineering/port_atmos)
 "mMy" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "mMz" = (
@@ -22054,7 +22054,7 @@
 /turf/open/space/basic,
 /area/space)
 "nez" = (
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/air_alarm,
 /turf/open/floor/mainship/floor/metal/white{
 	color = "#53876F"
@@ -22182,7 +22182,7 @@
 /obj/machinery/power/apc/mainship{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/mainship/living/numbertwobunks)
@@ -23063,7 +23063,7 @@
 /area/mainship/command/self_destruct)
 "nJH" = (
 /obj/structure/window/reinforced,
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
@@ -23609,7 +23609,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/port_hallway)
 "nWW" = (
-/obj/structure/flora/pottedplant/ten,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -23950,7 +23950,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "ojw" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "ojx" = (
@@ -24840,7 +24840,7 @@
 	dir = 8;
 	pixel_y = -18
 	},
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /obj/structure/sign/alt/safety/intercom{
 	pixel_y = 7;
 	pixel_x = 32
@@ -26490,7 +26490,7 @@
 /area/mainship/medical/surgery_hallway)
 "pKM" = (
 /obj/machinery/camera/alt/autoname,
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/black/full,
 /area/mainship/command/cic)
 "pLc" = (
@@ -28270,7 +28270,7 @@
 /turf/open/floor/prison,
 /area/mainship/shipboard/weapon_room)
 "qLg" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/aft_hallway)
 "qMc" = (
@@ -28961,7 +28961,7 @@
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "rhC" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/woodsiding{
 	dir = 9
 	},
@@ -29016,7 +29016,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/six,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/firealarm{
 	dir = 4
 	},
@@ -29094,7 +29094,7 @@
 /turf/open/floor/prison/whitepurple,
 /area/mainship/medical/medical_science)
 "rof" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
 	},
@@ -29430,7 +29430,7 @@
 /turf/open/floor/carpet,
 /area/mainship/hull/upper_hull)
 "rAz" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "rAC" = (
@@ -29932,7 +29932,7 @@
 /turf/open/floor/mainship/silver/full,
 /area/mainship/command/telecomms)
 "rPU" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
@@ -30289,7 +30289,7 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/engineering/engine_core)
 "saS" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
 	dir = 10
 	},
@@ -30445,7 +30445,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/seventeen,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "sfw" = (
@@ -31119,7 +31119,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/ten,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	light_color = "#da2f1b"
 	},
@@ -31212,7 +31212,7 @@
 /obj/structure/sign/alt/safety/maint{
 	pixel_x = -17
 	},
-/obj/structure/flora/pottedplant/seventeen,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/carpet,
 /area/mainship/command/corporateliaison)
 "sEx" = (
@@ -31287,7 +31287,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/bow_hallway)
 "sFV" = (
-/obj/structure/flora/pottedplant/ten,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship{
 	dir = 4
 	},
@@ -31378,7 +31378,7 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/engineering/ce_room)
 "sIX" = (
-/obj/structure/flora/pottedplant/eighteen,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/firealarm,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt{
 	dir = 4
@@ -31864,7 +31864,7 @@
 /area/mainship/squads/bravo)
 "sZd" = (
 /obj/machinery/vending/nanomed,
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/red/alt{
 	dir = 5
 	},
@@ -33803,7 +33803,7 @@
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
 "unV" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "unX" = (
@@ -36206,7 +36206,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "vPK" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/light/mainship,
 /obj/effect/turf_decal/siding/metal{
 	dir = 6
@@ -36761,7 +36761,7 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/hangar)
 "wgY" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/aft_hallway)
 "whl" = (
@@ -37504,7 +37504,7 @@
 	},
 /area/mainship/living/basketball)
 "wHG" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/hallways/bow_hallway)
 "wHI" = (
@@ -38070,7 +38070,7 @@
 	},
 /area/mainship/hallways/port_hallway)
 "wZt" = (
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/hallways/bow_hallway)
 "wZI" = (
@@ -39083,7 +39083,7 @@
 /area/mainship/hallways/bow_hallway)
 "xFT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/flora/pottedplant/twentyone,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "xGd" = (
@@ -39169,7 +39169,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "xHt" = (
-/obj/structure/flora/pottedplant/twentytwo,
+/obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
 /area/mainship/living/port_emb)
 "xHD" = (
@@ -39492,7 +39492,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "xRG" = (
-/obj/structure/flora/pottedplant/twelve,
+/obj/effect/spawner/random/misc/plant,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/alt,
 /obj/machinery/camera/alt/autoname{
 	dir = 4
