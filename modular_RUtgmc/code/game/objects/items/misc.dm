@@ -56,12 +56,10 @@
 	qdel(src)
 
 /obj/item/storage/bible/koran
-	name = "Koran"
 	icon = 'modular_RUtgmc/icons/obj/items/priest.dmi'
 	icon_state = "Koran"
 	actions_types = list(/datum/action/item_action)
 	max_w_class = 3
-	storage_slots = 1
 	can_hold = list(
 		/obj/item/weapon/gun/pistol/plasma_pistol,
 		/obj/item/explosive/grenade,
