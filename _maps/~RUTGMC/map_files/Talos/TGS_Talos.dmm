@@ -888,11 +888,11 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/aft_hallway)
 "avO" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/structure/sign/alt/safety/fire_haz{
 	pixel_x = 8;
 	pixel_y = -25
 	},
+/obj/effect/spawner/random/engineering/structure/tank,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "avX" = (
@@ -1195,7 +1195,7 @@
 	dir = 8
 	},
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/sandwiches/grilled_cheese_sandwich,
+/obj/effect/spawner/random/food_or_drink/outdoors_snacks,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "aBP" = (
@@ -1304,9 +1304,10 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/squads/delta)
 "aDA" = (
-/obj/item/toy/plush/gnome,
-/turf/open/floor/plating,
-/area/mainship/engineering/ce_room)
+/obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/food_or_drink/wine,
+/turf/open/floor/wood,
+/area/mainship/living/grunt_rnr)
 "aDL" = (
 /obj/effect/spawner/random/misc/plant,
 /obj/effect/turf_decal/siding/metal{
@@ -1892,9 +1893,9 @@
 /area/mainship/hallways/hangar)
 "bcV" = (
 /obj/structure/rack,
-/obj/item/tool/multitool,
+/obj/effect/spawner/random/engineering/engibelt/emptyornot,
 /turf/open/floor/plating,
-/area/mainship/hull/upper_hull)
+/area/mainship/hull/starboard_hull)
 "bda" = (
 /obj/machinery/power/apc/mainship{
 	dir = 8
@@ -2106,19 +2107,19 @@
 /obj/effect/spawner/random/food_or_drink/bread,
 /obj/effect/spawner/random/food_or_drink/bread,
 /obj/effect/spawner/random/food_or_drink/bread,
-/obj/item/reagent_containers/food/drinks/bottle/sake,
-/obj/item/reagent_containers/food/drinks/bottle/sake,
-/obj/item/reagent_containers/food/drinks/bottle/wine,
-/obj/item/reagent_containers/food/drinks/bottle/wine,
 /obj/effect/spawner/random/food_or_drink/bread,
 /obj/effect/spawner/random/food_or_drink/bread,
-/obj/item/reagent_containers/food/drinks/bottle/wine,
 /obj/effect/spawner/random/food_or_drink/bread,
 /obj/effect/spawner/random/food_or_drink/bread,
-/obj/item/reagent_containers/food/drinks/bottle/wine,
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
+/obj/effect/spawner/random/food_or_drink/wine,
+/obj/effect/spawner/random/food_or_drink/wine,
+/obj/effect/spawner/random/food_or_drink/wine,
+/obj/effect/spawner/random/food_or_drink/wine,
+/obj/effect/spawner/random/food_or_drink/wine,
+/obj/effect/spawner/random/food_or_drink/wine,
 /turf/open/floor/carpet,
 /area/mainship/living/pilotbunks)
 "biJ" = (
@@ -2193,6 +2194,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
+/obj/effect/spawner/random/misc/soap,
 /turf/open/floor/plating/plating_catwalk/alt/white,
 /area/mainship/living/starboard_emb)
 "blF" = (
@@ -3985,11 +3987,9 @@
 /area/mainship/hull/upper_hull)
 "ciS" = (
 /obj/structure/rack,
-/obj/item/circuitboard/apc,
-/obj/item/circuitboard/apc,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/clothing/sunglasses,
 /turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
+/area/mainship/hull/port_hull)
 "ciX" = (
 /obj/machinery/door/airlock/multi_tile/mainship/marine/delta/smart,
 /obj/machinery/door/firedoor{
@@ -4396,10 +4396,10 @@
 /area/mainship/hallways/starboard_hallway)
 "cxD" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/pistol/heavy,
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
+/obj/effect/spawner/random/weaponry/gun/sidearms,
 /turf/open/floor/carpet,
 /area/mainship/hull/upper_hull)
 "cxT" = (
@@ -6384,9 +6384,10 @@
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/squads/bravo)
 "dEQ" = (
-/obj/item/toy/plush/snake,
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/soap,
 /turf/open/floor/plating,
-/area/mainship/living/numbertwobunks)
+/area/mainship/hull/starboard_hull)
 "dFg" = (
 /obj/effect/turf_decal/warning_stripes/rus/square,
 /obj/structure/dropship_equipment/cas/weapon/minirocket_pod,
@@ -6527,6 +6528,7 @@
 /area/mainship/command/cic)
 "dJk" = (
 /obj/structure/table/mainship,
+/obj/effect/spawner/random/engineering/cable,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "dJv" = (
@@ -6948,6 +6950,7 @@
 /area/mainship/hallways/hangar/droppod)
 "dXL" = (
 /obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/misc/cigar,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "dYm" = (
@@ -7013,10 +7016,10 @@
 	dir = 8
 	},
 /obj/structure/rack,
-/obj/item/storage/toolbox/mechanical,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
+/obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "ebx" = (
@@ -8112,7 +8115,7 @@
 /area/mainship/command/corporateliaison)
 "eGI" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/mre_pack/meal6,
+/obj/effect/spawner/random/food_or_drink/burger/weird,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "eGM" = (
@@ -9896,6 +9899,11 @@
 /obj/structure/largecrate/guns/russian,
 /turf/open/floor/prison/marked,
 /area/mainship/squads/req)
+"fHV" = (
+/obj/structure/table/mainship,
+/obj/effect/spawner/random/engineering/radio,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "fIi" = (
 /obj/effect/turf_decal/siding/metal/corner{
 	dir = 8
@@ -10485,8 +10493,8 @@
 /area/mainship/squads/delta)
 "gcj" = (
 /obj/structure/rack,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/toolbox/mechanical,
+/obj/effect/spawner/random/engineering/toolbox,
+/obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "gcw" = (
@@ -11412,7 +11420,7 @@
 /area/mainship/medical/upper_medical)
 "gNs" = (
 /obj/structure/rack,
-/obj/item/storage/toolbox/mechanical,
+/obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "gNt" = (
@@ -12531,7 +12539,7 @@
 /area/mainship/hallways/starboard_hallway)
 "hDf" = (
 /obj/structure/rack,
-/obj/item/tool/crowbar,
+/obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "hDm" = (
@@ -13170,8 +13178,8 @@
 	pixel_x = 32
 	},
 /obj/structure/rack,
-/obj/item/storage/firstaid/adv,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/medical/firstaid,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "iaM" = (
@@ -13401,8 +13409,8 @@
 /area/mainship/hallways/aft_hallway)
 "iix" = (
 /obj/structure/rack,
-/obj/item/assembly/timer,
-/obj/item/assembly/timer,
+/obj/effect/spawner/random/engineering/assemblies,
+/obj/effect/spawner/random/engineering/assemblies,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "iiD" = (
@@ -13554,12 +13562,12 @@
 	dir = 1
 	},
 /obj/structure/table/mainship,
-/obj/item/radio,
-/obj/item/radio,
-/obj/item/radio,
 /obj/machinery/door_control/mainship/tcomms{
 	dir = 4
 	},
+/obj/effect/spawner/random/engineering/radio/highspawn,
+/obj/effect/spawner/random/engineering/radio/highspawn,
+/obj/effect/spawner/random/engineering/radio/highspawn,
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "ioX" = (
@@ -13905,13 +13913,8 @@
 /area/mainship/squads/delta)
 "iBl" = (
 /obj/structure/table/mainship,
-/obj/item/weapon/gun/rifle/standard_carbine{
-	pixel_y = 5
-	},
-/obj/item/weapon/gun/rifle/standard_carbine{
-	pixel_y = -3;
-	pixel_x = -2
-	},
+/obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/spawner/random/weaponry/gun/rifles,
 /turf/open/floor/mainship/red/alt/full,
 /area/mainship/shipboard/ex_firing_range)
 "iBB" = (
@@ -14848,7 +14851,7 @@
 /area/mainship/engineering/port_atmos)
 "jcp" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/burger/cheese,
+/obj/effect/spawner/random/food_or_drink/burger/normal,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "jcF" = (
@@ -15251,6 +15254,12 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/hangar)
+"jnX" = (
+/obj/structure/drop_pod_launcher,
+/obj/structure/droppod,
+/obj/effect/spawner/random/food_or_drink/wine,
+/turf/open/floor/prison/cleanmarked,
+/area/mainship/hallways/hangar/droppod)
 "jpl" = (
 /obj/effect/ai_node,
 /obj/effect/turf_decal/siding/metal{
@@ -15692,7 +15701,7 @@
 	},
 /obj/structure/table/mainship,
 /obj/item/explosive/grenade/training,
-/obj/item/weapon/gun/pistol/standard_pistol,
+/obj/effect/spawner/random/weaponry/gun/sidearms,
 /turf/open/floor/mainship/red/alt/full,
 /area/mainship/shipboard/firing_range)
 "jEY" = (
@@ -16628,11 +16637,9 @@
 /area/mainship/hull/upper_hull)
 "kgU" = (
 /obj/structure/rack,
-/obj/item/circuitboard/computer/operating,
-/obj/item/circuitboard/computer/operating,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/engineering/assemblies,
 /turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
+/area/mainship/hull/port_hull)
 "kgV" = (
 /obj/effect/turf_decal/warning_stripes/nscenter,
 /turf/open/floor/wood,
@@ -17469,7 +17476,7 @@
 /area/mainship/hallways/starboard_hallway)
 "kFO" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/hotdog,
+/obj/effect/spawner/random/food_or_drink/outdoors_snacks,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "kFY" = (
@@ -17630,7 +17637,7 @@
 	dir = 8
 	},
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/burger/cheese,
+/obj/effect/spawner/random/food_or_drink/burger/normal,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "kKF" = (
@@ -17883,10 +17890,6 @@
 /obj/item/mass_spectrometer{
 	pixel_x = -7;
 	pixel_y = -7
-	},
-/obj/item/reagent_scanner{
-	pixel_x = -7;
-	pixel_y = 7
 	},
 /obj/item/tool/hand_labeler{
 	pixel_x = 7;
@@ -18171,9 +18174,10 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "kYM" = (
-/obj/effect/spawner/random/misc/plant,
-/turf/open/floor/mainship/floor/metal/full,
-/area/mainship/hallways/starboard_hallway)
+/obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/food_or_drink/drink_cans,
+/turf/open/floor/wood,
+/area/mainship/living/grunt_rnr)
 "kZb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
@@ -18228,6 +18232,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
+/obj/effect/spawner/random/engineering/engibelt/emptyornot,
 /turf/open/floor/prison/bright_clean,
 /area/mainship/hallways/hangar/droppod)
 "lal" = (
@@ -19160,6 +19165,11 @@
 	},
 /turf/open/floor/carpet,
 /area/mainship/hull/upper_hull)
+"lyg" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/seeds,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "lyi" = (
 /obj/machinery/door/airlock/mainship/ai,
 /obj/machinery/door/poddoor/mainship/ai/exterior,
@@ -19433,8 +19443,8 @@
 /area/mainship/hallways/aft_hallway)
 "lFC" = (
 /obj/structure/rack,
-/obj/item/tool/weldingtool,
 /obj/machinery/light/mainship/small,
+/obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
 "lFG" = (
@@ -19625,7 +19635,7 @@
 /area/mainship/hallways/port_hallway)
 "lJv" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/mre_pack/meal4,
+/obj/effect/spawner/random/food_or_drink/wine,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "lJK" = (
@@ -19966,9 +19976,10 @@
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "lTo" = (
-/obj/effect/spawner/random/misc/plant,
-/turf/open/floor/mainship/floor/metal/lino,
-/area/mainship/living/cafeteria)
+/obj/structure/rack,
+/obj/effect/spawner/random/clothing/hats,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "lTv" = (
 /obj/structure/table/mainship,
 /obj/structure/window/reinforced/toughened{
@@ -19998,6 +20009,11 @@
 /obj/item/tool/pen,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
+"lTI" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/glass,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "lUq" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/mainship/floor/metal/full,
@@ -20456,10 +20472,9 @@
 /area/mainship/hallways/hangar)
 "mmK" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/protein_pack,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/turf/open/floor/mainship/floor/metal/lino,
-/area/mainship/living/cafeteria)
+/obj/effect/spawner/random/engineering/powercell,
+/turf/open/floor/plating,
+/area/mainship/hull/upper_hull)
 "mmR" = (
 /obj/structure/table/mainship,
 /obj/item/storage/firstaid/rad{
@@ -20577,6 +20592,7 @@
 "moG" = (
 /obj/machinery/light/mainship/small,
 /obj/structure/table/mainship,
+/obj/effect/spawner/random/engineering/radio,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "moQ" = (
@@ -20812,8 +20828,8 @@
 /area/mainship/hallways/bow_hallway)
 "mvD" = (
 /obj/structure/rack,
-/obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "mvK" = (
@@ -21525,6 +21541,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
+/obj/effect/spawner/random/misc/book,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
 "mOq" = (
@@ -23950,9 +23967,10 @@
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/engineering/engineering_workshop)
 "ojw" = (
-/obj/effect/spawner/random/misc/plant,
-/turf/open/floor/wood,
-/area/mainship/living/grunt_rnr)
+/obj/structure/rack,
+/obj/effect/spawner/random/food_or_drink/packagedbar/candyweighted,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "ojx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -23970,6 +23988,11 @@
 	dir = 8
 	},
 /area/mainship/medical/medical_science)
+"ojJ" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/mineral,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "okg" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -24087,6 +24110,7 @@
 "one" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
+/obj/effect/spawner/random/misc/book,
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hull/starboard_hull)
 "ony" = (
@@ -24100,11 +24124,10 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/bravo)
 "onA" = (
-/obj/structure/rack,
-/obj/item/assembly/signaler,
-/obj/item/assembly/signaler,
+/obj/structure/table/mainship,
+/obj/effect/spawner/random/engineering/insulatedgloves,
 /turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
+/area/mainship/hull/upper_hull)
 "onO" = (
 /obj/machinery/iv_drip/alt,
 /obj/effect/turf_decal/woodsiding{
@@ -24761,6 +24784,7 @@
 /area/mainship/squads/req)
 "oLf" = (
 /obj/structure/table/mainship,
+/obj/effect/spawner/random/clothing/hats,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/hallways/starboard_hallway)
 "oLr" = (
@@ -26389,7 +26413,7 @@
 /area/mainship/shipboard/firing_range)
 "pHO" = (
 /obj/structure/rack,
-/obj/item/storage/toolbox/mechanical,
+/obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "pHQ" = (
@@ -27421,6 +27445,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
+"qjf" = (
+/obj/structure/table/mainship,
+/obj/effect/spawner/random/food_or_drink/bread,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "qjV" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -28126,7 +28155,9 @@
 /area/mainship/command/cic)
 "qFE" = (
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/grown/tomato,
+/obj/item/reagent_containers/food/snacks/grown/tomato{
+	desc = "А я томат, быть красным рад!"
+	},
 /turf/open/floor/mainship/emerald/alt,
 /area/mainship/squads/charlie)
 "qFF" = (
@@ -28868,11 +28899,10 @@
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/living/grunt_rnr)
 "rgS" = (
-/obj/structure/rack,
-/obj/item/assembly/igniter,
-/obj/item/assembly/igniter,
+/obj/structure/table/mainship,
+/obj/effect/spawner/random/weaponry/melee,
 /turf/open/floor/plating,
-/area/mainship/hull/starboard_hull)
+/area/mainship/hull/upper_hull)
 "rgV" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -29829,6 +29859,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
+"rLj" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/wood,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "rLm" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
@@ -29923,8 +29958,8 @@
 /area/mainship/command/cic)
 "rPS" = (
 /obj/structure/rack,
-/obj/item/circuitboard/computer/arcade,
-/obj/item/circuitboard/computer/arcade,
+/obj/effect/spawner/random/engineering/computercircuit,
+/obj/effect/spawner/random/engineering/computercircuit,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "rPT" = (
@@ -30792,6 +30827,14 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
+"sqb" = (
+/obj/structure/sign/alt/safety/fire_haz{
+	pixel_x = 8;
+	pixel_y = 24
+	},
+/obj/effect/spawner/random/engineering/structure/tank,
+/turf/open/floor/plating,
+/area/mainship/hull/upper_hull)
 "sqs" = (
 /turf/open/floor/mainship/alt/orange{
 	dir = 6
@@ -31032,6 +31075,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/aft_hallway)
+"syK" = (
+/obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/food_or_drink/packagedbar,
+/turf/open/floor/wood,
+/area/mainship/living/grunt_rnr)
 "szj" = (
 /obj/machinery/loadout_vendor,
 /obj/machinery/light/mainship{
@@ -32157,7 +32205,7 @@
 /area/mainship/hull/upper_hull)
 "tjk" = (
 /obj/structure/rack,
-/obj/item/tool/soap/nanotrasen,
+/obj/effect/spawner/random/engineering/extinguisher,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "tki" = (
@@ -32649,6 +32697,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/living/commandbunks)
+"tBb" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/engineering/cable,
+/turf/open/floor/plating,
+/area/mainship/hull/upper_hull)
 "tBg" = (
 /obj/structure/table/fancywoodentable,
 /obj/machinery/chem_dispenser/beer{
@@ -33039,7 +33093,7 @@
 /area/mainship/hallways/port_hallway)
 "tQD" = (
 /obj/structure/rack,
-/obj/item/storage/firstaid/adv,
+/obj/effect/spawner/random/medical/firstaid,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "tQK" = (
@@ -33739,8 +33793,8 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/medical/surgery_hallway)
 "umF" = (
-/obj/item/tool/mop,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate/random,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "umH" = (
@@ -33803,9 +33857,10 @@
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
 "unV" = (
-/obj/effect/spawner/random/misc/plant,
-/turf/open/floor/mainship/floor/metal/full,
-/area/mainship/engineering/engineering_workshop)
+/obj/structure/rack,
+/obj/effect/spawner/random/medical/firstaid,
+/turf/open/floor/plating,
+/area/mainship/hull/starboard_hull)
 "unX" = (
 /obj/effect/turf_decal/arrows{
 	dir = 8;
@@ -34117,6 +34172,7 @@
 	dir = 4
 	},
 /obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/food_or_drink/cheesewedge,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "uzO" = (
@@ -34261,6 +34317,11 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/living/port_emb)
+"uCp" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/engineering/glass,
+/turf/open/floor/plating,
+/area/mainship/hull/upper_hull)
 "uCC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -34497,8 +34558,7 @@
 /area/mainship/hallways/starboard_umbilical)
 "uKm" = (
 /obj/structure/rack,
-/obj/item/assembly/prox_sensor,
-/obj/item/assembly/prox_sensor,
+/obj/effect/spawner/random/engineering/cable,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "uKN" = (
@@ -34600,6 +34660,12 @@
 	dir = 8
 	},
 /area/mainship/medical/medical_science)
+"uON" = (
+/obj/effect/landmark/start/job/shiptech,
+/obj/structure/bed/bunkbed,
+/obj/effect/spawner/random/food_or_drink/wine,
+/turf/open/floor/wood,
+/area/mainship/living/port_emb)
 "uOO" = (
 /obj/effect/turf_decal/warning_stripes/box/small{
 	dir = 1
@@ -34951,6 +35017,13 @@
 	dir = 5
 	},
 /area/mainship/medical/medical_science)
+"vaE" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/spawner/random/weaponry/gun/rifles,
+/turf/open/floor/plating/alt,
+/area/mainship/hallways/hangar)
 "vbh" = (
 /obj/machinery/marine_selector/clothes,
 /obj/structure/window{
@@ -35125,7 +35198,10 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/item/toy/plush/moth,
+/obj/item/toy/plush/moth{
+	name = "moth of doom";
+	desc = "A plushie depicting your fate. It's a doomed bug!"
+	},
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "veA" = (
@@ -35320,7 +35396,7 @@
 /obj/machinery/shower{
 	dir = 1
 	},
-/obj/item/tool/soap/deluxe,
+/obj/effect/spawner/random/misc/soap,
 /turf/open/floor/plating/plating_catwalk/alt/white,
 /area/mainship/squads/delta)
 "vmO" = (
@@ -36578,6 +36654,7 @@
 	dir = 4
 	},
 /obj/structure/table/fancywoodentable,
+/obj/effect/spawner/random/food_or_drink/burger/weird,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "waY" = (
@@ -36868,7 +36945,7 @@
 /area/mainship/squads/alpha)
 "wkQ" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/mineral/phoron,
+/obj/effect/spawner/random/engineering/mineral,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "wkR" = (
@@ -37504,9 +37581,10 @@
 	},
 /area/mainship/living/basketball)
 "wHG" = (
-/obj/effect/spawner/random/misc/plant,
-/turf/open/floor/mainship/floor/metal/lino,
-/area/mainship/hallways/bow_hallway)
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/soap,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "wHI" = (
 /obj/structure/barricade/metal{
 	dir = 8
@@ -37639,6 +37717,11 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/delta)
+"wNe" = (
+/obj/structure/table/mainship,
+/obj/item/toy/plush/gnome,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "wNm" = (
 /obj/effect/ai_node,
 /obj/structure/window/framed/mainship/hull/canterbury{
@@ -37966,7 +38049,7 @@
 "wWN" = (
 /obj/structure/cable,
 /obj/structure/table/mainship,
-/obj/item/reagent_containers/food/snacks/cookie,
+/obj/effect/spawner/random/food_or_drink/sugary_snack,
 /turf/open/floor/mainship/floor/metal/lino,
 /area/mainship/living/cafeteria)
 "wXn" = (
@@ -38428,8 +38511,8 @@
 /area/mainship/hull/port_hull)
 "xls" = (
 /obj/structure/table/mainship,
-/obj/item/tool/soap/nanotrasen,
 /obj/machinery/light/mainship/small,
+/obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/plating,
 /area/mainship/living/numbertwobunks)
 "xlz" = (
@@ -38596,9 +38679,9 @@
 /area/mainship/squads/delta)
 "xrm" = (
 /obj/structure/rack,
-/obj/item/circuitboard/machine/smes,
-/obj/item/circuitboard/machine/smes,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/engineering/computercircuit,
+/obj/effect/spawner/random/engineering/computercircuit,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "xrP" = (
@@ -38610,6 +38693,7 @@
 	dir = 4
 	},
 /obj/structure/rack,
+/obj/effect/spawner/random/clothing/sunglasses,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
 "xse" = (
@@ -38851,9 +38935,9 @@
 /obj/item/clothing/suit/chef/classic,
 /obj/item/clothing/gloves/latex,
 /obj/item/tool/kitchen/rollingpin,
-/obj/item/tool/kitchen/knife/butcher,
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/clothing/suit/ru/fartumasti,
+/obj/effect/spawner/random/food_or_drink/kitchenknife/butcherweighted,
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/living/grunt_rnr)
 "xzo" = (
@@ -39570,6 +39654,11 @@
 "xUv" = (
 /turf/closed/wall/mainship/alt,
 /area/mainship/living/basketball)
+"xUV" = (
+/obj/structure/table/mainship,
+/obj/effect/spawner/random/food_or_drink/drink_cans,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "xVg" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/mainship/floor/metal/full,
@@ -56134,7 +56223,7 @@ ygw
 ygw
 qDj
 uwt
-msZ
+rLj
 lhv
 lhv
 lhv
@@ -56391,7 +56480,7 @@ iMp
 ygw
 uNN
 uwt
-msZ
+gNs
 lhv
 sDU
 ryt
@@ -56914,7 +57003,7 @@ atQ
 lwQ
 aKz
 lhv
-msZ
+gNs
 uwt
 vVC
 uwt
@@ -57148,7 +57237,7 @@ dnv
 dnv
 aRv
 rKD
-msZ
+ojJ
 beg
 cZa
 ygw
@@ -60394,7 +60483,7 @@ iMh
 aVT
 tvH
 snt
-xVK
+onA
 xVX
 dnv
 enG
@@ -60908,7 +60997,7 @@ dNr
 igt
 rGQ
 snt
-xVK
+mmK
 xVX
 dnv
 enG
@@ -61249,7 +61338,7 @@ dnv
 dnv
 dnv
 aRv
-dJk
+fHV
 uwt
 rLf
 uwt
@@ -62450,7 +62539,7 @@ xjI
 qBo
 vmO
 sjN
-bGz
+uCp
 xVX
 dnv
 enG
@@ -63478,7 +63567,7 @@ xMx
 vms
 snt
 sjN
-bGz
+tjk
 xVX
 dnv
 enG
@@ -63565,7 +63654,7 @@ uBZ
 drV
 uBZ
 uBZ
-uBZ
+jnX
 vOT
 lMI
 lMI
@@ -66645,7 +66734,7 @@ mZD
 uwt
 beg
 wHQ
-msZ
+uKm
 wHQ
 mZD
 uwt
@@ -66893,7 +66982,7 @@ ooO
 dnv
 dnv
 aRv
-msZ
+gNs
 cZa
 xot
 xot
@@ -67033,7 +67122,7 @@ xGL
 tdL
 xzH
 xOs
-dEQ
+xOs
 xOs
 oWS
 fkm
@@ -67150,7 +67239,7 @@ ooO
 dnv
 dnv
 aRv
-msZ
+bcV
 cZa
 xot
 abd
@@ -70764,7 +70853,7 @@ ezm
 aAn
 ezm
 aAn
-ezm
+vaE
 aAn
 ehX
 etB
@@ -71844,11 +71933,11 @@ pQT
 pQT
 pQT
 wnT
-jHL
+ciS
 iOy
 pSR
 wnT
-jHL
+ojw
 paH
 avX
 xFv
@@ -72423,7 +72512,7 @@ neu
 neu
 ooO
 xVX
-fym
+sqb
 uRI
 vis
 uGr
@@ -74654,7 +74743,7 @@ ltq
 wbL
 sbR
 eRa
-kYM
+bJH
 tQK
 tQK
 tQK
@@ -75419,7 +75508,7 @@ wsM
 aYh
 gEH
 ckm
-mmK
+kFO
 iqt
 nJH
 mCq
@@ -75433,7 +75522,7 @@ uNK
 uNK
 uNK
 tQK
-jHL
+lTo
 qwP
 lKi
 qwP
@@ -75776,12 +75865,12 @@ nRU
 vDp
 qic
 xnv
-qqK
+kYM
 uzy
 xSj
 qqK
-qqK
-qqK
+syK
+aDA
 xSj
 qqI
 aXM
@@ -76040,7 +76129,7 @@ qqI
 qqI
 qqI
 xSj
-ojw
+lcB
 aXM
 ufb
 uEE
@@ -76146,7 +76235,7 @@ dnv
 dnv
 aRv
 cZa
-sHE
+unV
 xVu
 cZe
 pYk
@@ -76543,7 +76632,7 @@ wfA
 xzH
 kMs
 aXM
-ojw
+lcB
 sVV
 rDn
 uLp
@@ -76689,20 +76778,20 @@ jdk
 xod
 pLc
 jdk
-lTo
+jTC
 ftS
 wsM
 bNV
 kKk
 iqt
 oMF
-lTo
+jTC
 bNV
 cDB
 iqt
 wsM
 apc
-lTo
+jTC
 jdk
 tYD
 aez
@@ -77056,7 +77145,7 @@ xGL
 hjM
 xzH
 kQH
-wHG
+wZt
 uZf
 lTG
 drH
@@ -78014,7 +78103,7 @@ wBM
 pdq
 slT
 tkN
-jHL
+wHG
 qwP
 fqz
 eFJ
@@ -78124,7 +78213,7 @@ xfQ
 vis
 wGd
 sjN
-xVK
+rgS
 gTW
 vis
 xZW
@@ -79626,7 +79715,7 @@ xGL
 vdu
 xzH
 cRQ
-wHG
+wZt
 uZf
 lTG
 qAi
@@ -79636,7 +79725,7 @@ lTG
 qAi
 rAe
 uZf
-qkj
+uON
 gRg
 fTn
 rgL
@@ -81196,7 +81285,7 @@ pXm
 sjN
 sjN
 vis
-qmp
+tBb
 vms
 sjN
 sjN
@@ -82746,7 +82835,7 @@ vZZ
 xfy
 pmM
 xrP
-bcV
+hDf
 vcP
 kNj
 kNj
@@ -83164,7 +83253,7 @@ mMB
 anQ
 tkN
 iOy
-jHL
+kgU
 xFv
 neu
 neu
@@ -85133,7 +85222,7 @@ neu
 ooO
 dnv
 aRv
-sHE
+unV
 uwt
 jNv
 ljL
@@ -85933,7 +86022,7 @@ vnT
 kKK
 jPy
 jPy
-unV
+cfV
 aFn
 sqw
 prM
@@ -86219,7 +86308,7 @@ iEM
 iEM
 iEM
 iEM
-aDA
+iEM
 eWU
 eWU
 dWv
@@ -86236,7 +86325,7 @@ yjn
 tOZ
 eWU
 iOy
-jHL
+wHG
 xFv
 dnv
 dnv
@@ -86476,8 +86565,8 @@ tNP
 iEM
 iEM
 iEM
-iEM
-wnT
+qWa
+pCj
 tZm
 qwP
 iOy
@@ -86733,8 +86822,8 @@ pxN
 wnT
 oZP
 iKI
-qWa
-pCj
+rmr
+qwP
 qwP
 qwP
 iOy
@@ -87509,7 +87598,7 @@ pTV
 dMi
 qwP
 iOy
-yaw
+qjf
 yaw
 qwP
 vHF
@@ -87717,7 +87806,7 @@ dnv
 aRv
 kNb
 uwt
-tsd
+lyg
 fbu
 mvD
 rLf
@@ -88023,8 +88112,8 @@ qwP
 qwP
 dMi
 iOy
-yaw
-yaw
+wNe
+xUV
 yaw
 iOy
 xFv
@@ -88257,9 +88346,9 @@ xjk
 oSl
 uwt
 xAB
-msZ
+lTI
 qsU
-tsd
+dEQ
 frj
 lRA
 lRA
@@ -88534,7 +88623,7 @@ qdu
 lKi
 iGn
 pHO
-jHL
+wHG
 ngb
 iGn
 uni
@@ -91090,7 +91179,7 @@ xAB
 qYm
 xbm
 pSR
-iGn
+ciS
 xrZ
 ldf
 vxd
@@ -92093,7 +92182,7 @@ neu
 neu
 neu
 aRv
-onA
+iix
 xrm
 uwt
 igy
@@ -92354,11 +92443,11 @@ aRv
 aRv
 aRv
 nLy
-kgU
+xrm
 uwt
-rgS
+iix
 xjk
-ciS
+xrm
 pqW
 aRv
 aRv
@@ -92615,7 +92704,7 @@ iix
 uwt
 xjk
 uwt
-uKm
+iix
 iiD
 aRv
 dnv
