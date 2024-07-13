@@ -4014,6 +4014,11 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/squads/delta)
+"cjf" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/weaponry/explosive/grenade,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "cjP" = (
 /obj/effect/turf_decal/warning_stripes/rus/square/arrow,
 /turf/open/floor/plating,
@@ -4814,6 +4819,11 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt,
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
+"cKj" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/handcuffs,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "cKt" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -13164,11 +13174,6 @@
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/plating/alt,
 /area/mainship/engineering/port_atmos)
-"iac" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/weaponry/explosive/grenade,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "iam" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 10
@@ -21536,6 +21541,11 @@
 "mMV" = (
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/lower_medical)
+"mMY" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/trash,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "mNj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
@@ -28474,10 +28484,6 @@
 	},
 /turf/open/floor/mainship/floor/metal/full,
 /area/mainship/medical/upper_medical)
-"qQC" = (
-/obj/effect/spawner/random/machinery/random_broken_computer,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "qQI" = (
 /obj/structure/sign/prop1,
 /turf/open/floor/mainship/floor/metal/full,
@@ -31084,6 +31090,10 @@
 	color = "#53876F"
 	},
 /area/mainship/medical/lounge)
+"sxP" = (
+/obj/effect/spawner/random/medical/structure/crate/medsupplies,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "sxX" = (
 /obj/structure/sink/bathroom{
 	dir = 1
@@ -32553,10 +32563,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/hallways/starboard_hallway)
-"tsR" = (
-/obj/effect/spawner/random/medical/structure/crate/medsupplies,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "tte" = (
 /obj/machinery/camera/alt/autoname{
 	dir = 8
@@ -33540,11 +33546,6 @@
 	dir = 1
 	},
 /area/mainship/medical/medical_science)
-"uew" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/misc/table_lighting,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "ueD" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/structure/cable,
@@ -34049,11 +34050,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
-"usd" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/misc/trash,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "usm" = (
 /obj/machinery/door/poddoor/mainship/ai/interior{
 	dir = 2;
@@ -36729,6 +36725,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/hangar)
+"wbu" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/table_lighting,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "wby" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -37295,6 +37296,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk/alt,
 /area/mainship/hallways/bow_hallway)
+"wtZ" = (
+/obj/effect/spawner/random/machinery/random_broken_computer,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "wuq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -38669,11 +38674,6 @@
 	},
 /turf/open/floor/mainship/floor/metal,
 /area/mainship/command/cic)
-"xpk" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/misc/handcuffs,
-/turf/open/floor/plating,
-/area/mainship/hull/port_hull)
 "xpo" = (
 /turf/open/floor/plating/alt,
 /area/mainship/hallways/hangar)
@@ -66085,7 +66085,7 @@ tLw
 pVF
 xFv
 rmr
-uew
+wbu
 iKI
 qwP
 qwP
@@ -67883,7 +67883,7 @@ oxC
 egq
 pPm
 pQT
-qQC
+wtZ
 pCj
 qwP
 qwP
@@ -68400,7 +68400,7 @@ pQT
 ldf
 qwP
 qwP
-tsR
+sxP
 wnT
 wnT
 qwP
@@ -68914,7 +68914,7 @@ hbE
 kMI
 pQT
 qwP
-xpk
+cKj
 wnT
 nbv
 hkR
@@ -70457,7 +70457,7 @@ cVy
 pQT
 iOy
 qwP
-usd
+mMY
 wnT
 qwP
 eFJ
@@ -70713,8 +70713,8 @@ pQT
 pQT
 pQT
 iOy
-uew
-iac
+wbu
+cjf
 wnT
 qwP
 eFJ
